@@ -1,6 +1,7 @@
 obj
 bin
-packages
+packages/*
+!packages/repositories.config
 *.user
 *.vspscc
 *.suo
