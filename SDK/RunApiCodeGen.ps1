@@ -46,7 +46,7 @@ $CodeGenServer = "$CodeGenBaseUrl/Mozu.ApiCodeGen.WebApi"
 
 
 try {
-    $response = Invoke-WebRequest -Method Get -Uri "$CodeGenServer/sdkcodegen/$env/versions"  -ContentType "application/json" -UseBasicParsing
+    $response = Invoke-WebRequest -Method Get -Uri "$CodeGenServer/sdkcodegen/$env/versions"  -ContentType "application/json; charset=utf-8" -UseBasicParsing
 
     Write-Host $response
     Write-Host $response.Headers
@@ -77,7 +77,7 @@ Write-Host $jsonBody
 
 try 
 {
-    $response = Invoke-WebRequest -Method Post -Uri "$CodeGenServer/sdkcodegen" -Body $jsonBody -Headers $headers -ContentType "application/json" -ErrorAction Stop -UseBasicParsing
+    $response = Invoke-WebRequest -Method Post -Uri "$CodeGenServer/sdkcodegen" -Body $jsonBody -Headers $headers -ContentType "application/json; charset=utf-8" -ErrorAction Stop -UseBasicParsing
     Write-Host $response.StatusCode
     Write-Host $response.Headers
 }
