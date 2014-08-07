@@ -61,14 +61,7 @@ try {
      throw;
 }
 
-$body = "{
-    ""environment"": ""$env"",
-    ""apiVersion"": ""$versionToUse"",
-    ""createChangeLog"": ""false"",
-    ""changeLogSourceApiVersion"": ""$versionToUse"",
-    ""languages"":  [""csharp"",""java"", ""php"",""ios""],
-    ""destinationDirectory"": ""$GenPath""
-}"
+$body = "{""environment"": ""$env"",""apiVersion"": ""$versionToUse"",""createChangeLog"": ""false"",""changeLogSourceApiVersion"": ""$versionToUse"",""languages"":  [""csharp""],""destinationDirectory"": ""$GenPath""}"
 
 Write-Host $body
 
