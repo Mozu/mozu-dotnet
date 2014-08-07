@@ -61,13 +61,23 @@ try {
      throw;
 }
 
-$body = "{""environment"": ""$env"",""apiVersion"": ""$versionToUse"",""createChangeLog"": ""false"",""changeLogSourceApiVersion"": ""$versionToUse"",""languages"":  [""csharp""],""destinationDirectory"": ""$GenPath""}"
+#$body = "{""environment"": ""$env"",""apiVersion"": ""$versionToUse"",""createChangeLog"": ""false"",""changeLogSourceApiVersion"": ""$versionToUse"",""languages"":  [""csharp""],""destinationDirectory"": ""$GenPath""}"
 
-Write-Host $body
+$body = New-Object psobject
+$languages = @("csharp")
+Add-Member -InputObject $body -MemberType NoteProperty -Name Environment -Value $env
+Add-Member -InputObject $body -MemberType NoteProperty -Name ApiVersion -Value $versionToUse
+Add-Member -InputObject $body -MemberType NoteProperty -Name CreateChangeLog -Value false
+Add-Member -InputObject $body -MemberType NoteProperty -Name ChangeLogSourceApiVersion -Value $versionToUse
+Add-Member -InputObject $body -MemberType NoteProperty -Name DestinationDirectory -Value $GenPath
+Add-Member -InputObject $body -MemberType NoteProperty -Name Languages -Value $languages
+
+$jsonBody = $body | ConvertTo-Json
+Write-Host $jsonBody
 
 try 
 {
-    $response = Invoke-WebRequest -Method Post -Uri "$CodeGenServer/sdkcodegen" -Body $body -Headers $headers -ContentType "application/json" -ErrorAction Stop -UseBasicParsing
+    $response = Invoke-WebRequest -Method Post -Uri "$CodeGenServer/sdkcodegen" -Body $jsonBody -Headers $headers -ContentType "application/json" -ErrorAction Stop -UseBasicParsing
     Write-Host $response.StatusCode
     Write-Host $response.Headers
 }
