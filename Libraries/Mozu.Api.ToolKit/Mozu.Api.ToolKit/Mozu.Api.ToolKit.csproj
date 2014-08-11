@@ -74,6 +74,7 @@
     <Compile Include="Readers\WishlistCollectionReader.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Mozu.Api.TookKit.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
