@@ -9,6 +9,8 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
+
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
@@ -31,6 +33,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///Complex type that contains content for a language specified by LocaleCode.
 			///
 			public AttributeVocabularyValueLocalizedContent Content { get; set; }
+
+			public List<AttributeVocabularyValueLocalizedContent> LocalizedContent { get; set; }
 
 		}
 

@@ -36,15 +36,17 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// </summary>
         /// <param name="noteId">Unique identifier of the order note to retrieve.</param>
         /// <param name="orderId">Unique identifier of the order associated with the note.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetOrderNoteUrl(string noteId, string orderId)
+        public static MozuUrl GetOrderNoteUrl(string orderId, string noteId, string responseFields =  null)
 		{
-			var url = "/api/commerce/orders/{orderId}/notes/{noteId}";
+			var url = "/api/commerce/orders/{orderId}/notes/{noteId}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "noteId", noteId);
 			mozuUrl.FormatUrl( "orderId", orderId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -52,14 +54,16 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// Get Resource Url for CreateOrderNote
         /// </summary>
         /// <param name="orderId">Unique identifier of the order for which to add a note.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl CreateOrderNoteUrl(string orderId)
+        public static MozuUrl CreateOrderNoteUrl(string orderId, string responseFields =  null)
 		{
-			var url = "/api/commerce/orders/{orderId}/notes";
+			var url = "/api/commerce/orders/{orderId}/notes?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "orderId", orderId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -68,15 +72,17 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// </summary>
         /// <param name="noteId">Unique identifier of the order note.</param>
         /// <param name="orderId">Unique identifier of the order.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateOrderNoteUrl(string noteId, string orderId)
+        public static MozuUrl UpdateOrderNoteUrl(string orderId, string noteId, string responseFields =  null)
 		{
-			var url = "/api/commerce/orders/{orderId}/notes/{noteId}";
+			var url = "/api/commerce/orders/{orderId}/notes/{noteId}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "noteId", noteId);
 			mozuUrl.FormatUrl( "orderId", orderId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -88,7 +94,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl DeleteOrderNoteUrl(string noteId, string orderId)
+        public static MozuUrl DeleteOrderNoteUrl(string orderId, string noteId)
 		{
 			var url = "/api/commerce/orders/{orderId}/notes/{noteId}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;

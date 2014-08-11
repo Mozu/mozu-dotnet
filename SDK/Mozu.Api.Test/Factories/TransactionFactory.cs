@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -70,14 +71,14 @@ namespace Mozu.Api.Test.Factories
 		/// Creates a new transaction for the customer account specified in the request.
 		/// <example> 
 		///  <code> 
-		/// var result = TransactionFactory.AddTransaction(handler : handler,  transaction :  transaction,  accountId :  accountId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = TransactionFactory.AddTransaction(handler : handler,  transaction :  transaction,  accountId :  accountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Transaction/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.Transaction AddTransaction(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.Customer.Transaction transaction, int accountId, 
+ 		 Mozu.Api.Contracts.Customer.Transaction transaction, int accountId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -85,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.Accounts.TransactionClient.AddTransactionClient(
-				 transaction :  transaction,  accountId :  accountId		);
+				 transaction :  transaction,  accountId :  accountId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

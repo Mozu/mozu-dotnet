@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 {
@@ -24,12 +25,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///
 		private readonly IApiContext _apiContext;
 
+		
 		public PublishingScopeResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
 		}
-
-		
+				
 		/// <summary>
 		/// Deletes the draft version of product changes for each product code specified in the request.
 		/// </summary>
@@ -41,15 +42,25 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var publishingscope = new PublishingScope();
-		///   publishingscope.DiscardDrafts(dataViewMode,  publishScope);
+		///   publishingscope.DiscardDrafts( publishScope);
 		/// </code>
 		/// </example>
-		public virtual void DiscardDrafts(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void DiscardDrafts(Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.DiscardDraftsClient(dataViewMode,  publishScope);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.DiscardDraftsClient( publishScope);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
+
+		}
+
+		public virtual async Task DiscardDraftsAsync(Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.DiscardDraftsClient( publishScope);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
 
 		}
 
@@ -64,15 +75,25 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var publishingscope = new PublishingScope();
-		///   publishingscope.PublishDrafts(dataViewMode,  publishScope);
+		///   publishingscope.PublishDrafts( publishScope);
 		/// </code>
 		/// </example>
-		public virtual void PublishDrafts(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void PublishDrafts(Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.PublishDraftsClient(dataViewMode,  publishScope);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.PublishDraftsClient( publishScope);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
+
+		}
+
+		public virtual async Task PublishDraftsAsync(Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.PublishDraftsClient( publishScope);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
 
 		}
 

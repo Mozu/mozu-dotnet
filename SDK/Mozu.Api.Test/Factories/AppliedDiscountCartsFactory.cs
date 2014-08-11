@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -32,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = AppliedDiscountFactory.ApplyCoupon(handler : handler,  cartId :  cartId,  couponCode :  couponCode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = AppliedDiscountFactory.ApplyCoupon(handler : handler,  cartId :  cartId,  couponCode :  couponCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Cart/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Carts.Cart ApplyCoupon(ServiceClientMessageHandler handler, 
- 		 string cartId, string couponCode, 
+ 		 string cartId, string couponCode, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -47,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Carts.AppliedDiscountClient.ApplyCouponClient(
-				 cartId :  cartId,  couponCode :  couponCode		);
+				 cartId :  cartId,  couponCode :  couponCode,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

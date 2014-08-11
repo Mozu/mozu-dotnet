@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 
+
 namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 {
 		///
@@ -47,6 +48,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			///The name of the shipping method associated with the estimated rate, such as "UPS Ground".
 			///
 			public string ShippingMethodName { get; set; }
+
+			public string ShippingZoneCode { get; set; }
 
 		}
 

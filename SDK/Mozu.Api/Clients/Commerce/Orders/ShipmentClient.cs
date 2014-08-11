@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Orders
 {
@@ -24,19 +25,20 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// Retrieves the details of the order shipment specified in the request.
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order associated with the shipment to retrieve.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="shipmentId">Unique identifier of the shipment to retrieve.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetShipment( orderId,  shipmentId);
+		///   var mozuClient=GetShipment( orderId,  shipmentId,  responseFields);
 		///   var shipmentClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment> GetShipmentClient(string orderId, string shipmentId)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment> GetShipmentClient(string orderId, string shipmentId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Orders.ShipmentUrl.GetShipmentUrl(orderId, shipmentId);
+			var url = Mozu.Api.Urls.Commerce.Orders.ShipmentUrl.GetShipmentUrl(orderId, shipmentId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment>()
 									.WithVerb(verb).WithResourceUrl(url)

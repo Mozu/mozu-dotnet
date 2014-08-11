@@ -20,15 +20,17 @@ namespace Mozu.Api.Urls.Content
         /// Get Resource Url for GetPropertyTypes
         /// </summary>
         /// <param name="pageSize"></param>
+        /// <param name="responseFields"></param>
         /// <param name="startIndex"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetPropertyTypesUrl(int? pageSize, int? startIndex)
+        public static MozuUrl GetPropertyTypesUrl(int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
 		{
-			var url = "/api/content/propertytypes/?pageSize={pageSize}&startIndex={startIndex}";
+			var url = "/api/content/propertytypes/?pageSize={pageSize}&startIndex={startIndex}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "pageSize", pageSize);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "startIndex", startIndex);
 			return mozuUrl;
 		}
@@ -37,27 +39,16 @@ namespace Mozu.Api.Urls.Content
         /// Get Resource Url for GetPropertyType
         /// </summary>
         /// <param name="propertyTypeName"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetPropertyTypeUrl(string propertyTypeName)
+        public static MozuUrl GetPropertyTypeUrl(string propertyTypeName, string responseFields =  null)
 		{
-			var url = "/api/content/propertytypes/{propertyTypeName}";
+			var url = "/api/content/propertytypes/{propertyTypeName}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "propertyTypeName", propertyTypeName);
-			return mozuUrl;
-		}
-
-		/// <summary>
-        /// Get Resource Url for PropertyValueTypes
-        /// </summary>
-        /// <returns>
-        /// String - Resource Url
-        /// </returns>
-        public static MozuUrl PropertyValueTypesUrl()
-		{
-			var url = "/api/content/propertytypes/propertyvaluetypes";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

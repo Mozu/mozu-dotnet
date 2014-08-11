@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+
 using Mozu.Api.Contracts.Core;
 using Mozu.Api.Contracts.CommerceRuntime.Products;
 using Mozu.Api.Contracts.CommerceRuntime.Discounts;
@@ -33,7 +34,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			public decimal? DiscountedTotal { get; set; }
 
 			///
-			///Estimated amount of discounts applied to the item in the wish list, which is system-supplied and read-only.                      This property value is not calculated at this time and is reserved for future functionality.
+			///Estimated amount of discounts applied to the item in the wish list, which is system-supplied and read-only.  This property value is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? DiscountTotal { get; set; }
 
@@ -46,6 +47,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			///The fee total of an item in a wish list. This property value is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? FeeTotal { get; set; }
+
+			public decimal? HandlingAmount { get; set; }
 
 			///
 			///Unique identifier of an item in a shopper wish list.
@@ -122,17 +125,17 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			///
 			public Product Product { get; set; }
 
-			public AppliedProductDiscount ProductDiscount { get; set; }
+			public AppliedLineItemProductDiscount ProductDiscount { get; set; }
 
 			///
 			///Array of product discounts applicable to an item in a wish list. This property is not used at this time and is reserved for future functionality.
 			///
-			public List<AppliedProductDiscount> ProductDiscounts { get; set; }
+			public List<AppliedLineItemProductDiscount> ProductDiscounts { get; set; }
 
 			///
 			///Array of shipping discounts applicable for an item in a wish list. This property is not used at this time and is reserved for future functionality.
 			///
-			public List<ShippingDiscount> ShippingDiscounts { get; set; }
+			public List<AppliedLineItemShippingDiscount> ShippingDiscounts { get; set; }
 
 			///
 			///The unit price of an item in a wish list. This property is not calculated at this time and is reserved for future functionality.

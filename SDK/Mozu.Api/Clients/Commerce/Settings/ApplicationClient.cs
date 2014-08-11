@@ -11,12 +11,13 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Settings
 {
 	/// <summary>
-	/// Use the applications subresource to update site settings for installed applications.
+	/// Use the Applications resource to update site-specific settings for installed applications.
 	/// </summary>
 	public partial class ApplicationClient 	{
 		

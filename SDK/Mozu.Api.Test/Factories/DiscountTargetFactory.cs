@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -32,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves the discount target, that is which products, categories, or shipping methods are eligible for the discount.
 		/// <example> 
 		///  <code> 
-		/// var result = DiscountTargetFactory.GetDiscountTarget(handler : handler,  discountId :  discountId,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = DiscountTargetFactory.GetDiscountTarget(handler : handler,  discountId :  discountId,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<DiscountTarget/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.DiscountTarget GetDiscountTarget(ServiceClientMessageHandler handler, 
- 		 int discountId,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 int discountId, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -47,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Discounts.DiscountTargetClient.GetDiscountTargetClient(
-				 discountId :  discountId, dataViewMode: dataViewMode		);
+				 discountId :  discountId,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -70,14 +71,14 @@ namespace Mozu.Api.Test.Factories
 		/// Modifies properties of the discount target, for example, the dollar amount, or precentage off the price.
 		/// <example> 
 		///  <code> 
-		/// var result = DiscountTargetFactory.UpdateDiscountTarget(handler : handler,  discountTarget :  discountTarget,  discountId :  discountId,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = DiscountTargetFactory.UpdateDiscountTarget(handler : handler,  discountTarget :  discountTarget,  discountId :  discountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<DiscountTarget/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.DiscountTarget UpdateDiscountTarget(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ProductAdmin.DiscountTarget discountTarget, int discountId,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 Mozu.Api.Contracts.ProductAdmin.DiscountTarget discountTarget, int discountId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -85,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Discounts.DiscountTargetClient.UpdateDiscountTargetClient(
-				 discountTarget :  discountTarget,  discountId :  discountId, dataViewMode: dataViewMode		);
+				 discountTarget :  discountTarget,  discountId :  discountId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

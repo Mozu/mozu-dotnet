@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Event.Push
 {
@@ -24,34 +25,18 @@ namespace Mozu.Api.Resources.Event.Push
 		///
 		private readonly IApiContext _apiContext;
 
+		
 		public SubscriptionResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
 		}
-
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Event.SubscriptionCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var subscription = new Subscription();
-		///   var subscriptionCollection = subscription.GetSubscriptions();
-		/// </code>
-		/// </example>
-		public virtual Mozu.Api.Contracts.Event.SubscriptionCollection GetSubscriptions()
-		{
-			return GetSubscriptions( null,  null,  null,  null);
-		}
-
+				
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="filter"></param>
 		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
 		/// <returns>
@@ -60,16 +45,27 @@ namespace Mozu.Api.Resources.Event.Push
 		/// <example>
 		/// <code>
 		///   var subscription = new Subscription();
-		///   var subscriptionCollection = subscription.GetSubscriptions( startIndex,  pageSize,  sortBy,  filter);
+		///   var subscriptionCollection = subscription.GetSubscriptions( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.Event.SubscriptionCollection GetSubscriptions(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Event.SubscriptionCollection GetSubscriptions(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Event.SubscriptionCollection> response;
-			var client = Mozu.Api.Clients.Event.Push.SubscriptionClient.GetSubscriptionsClient( startIndex,  pageSize,  sortBy,  filter);
+			var client = Mozu.Api.Clients.Event.Push.SubscriptionClient.GetSubscriptionsClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.Event.SubscriptionCollection> GetSubscriptionsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Event.SubscriptionCollection> response;
+			var client = Mozu.Api.Clients.Event.Push.SubscriptionClient.GetSubscriptionsClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 

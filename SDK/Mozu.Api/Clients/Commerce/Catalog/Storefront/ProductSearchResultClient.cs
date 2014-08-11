@@ -11,32 +11,16 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 {
 	/// <summary>
-	/// Provide dynamic search results to shoppers as they browse and search for products on the storefront. Suggest possible search terms as the shopper enters text.
+	/// Use the Product Search resource to provide dynamic search results to shoppers as they browse and search for products on the web storefront, and to suggest possible search terms as the shopper enters text.
 	/// </summary>
 	public partial class ProductSearchResultClient 	{
 		
-		/// <summary>
-		/// Searches the categories displayed on the storefront for products or product options that the shopper types in a search query.
-		/// </summary>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductRuntime.ProductSearchResult"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=Search();
-		///   var productSearchResultClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductSearchResult> SearchClient()
-		{
-			return SearchClient( null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null,  null);
-		}
-
 		/// <summary>
 		/// Searches the categories displayed on the storefront for products or product options that the shopper types in a search query.
 		/// </summary>
@@ -54,6 +38,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product search results by any of its properties, including product code, type, category, and name. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=categoryId+eq+12"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
 		/// <param name="query">The terms to search on.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
 		/// <returns>
@@ -61,13 +46,13 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=Search( query,  filter,  facetTemplate,  facetTemplateSubset,  facet,  facetFieldRangeQuery,  facetHierPrefix,  facetHierValue,  facetHierDepth,  facetStartIndex,  facetPageSize,  facetSettings,  facetValueFilter,  sortBy,  pageSize,  startIndex);
+		///   var mozuClient=Search( query,  filter,  facetTemplate,  facetTemplateSubset,  facet,  facetFieldRangeQuery,  facetHierPrefix,  facetHierValue,  facetHierDepth,  facetStartIndex,  facetPageSize,  facetSettings,  facetValueFilter,  sortBy,  pageSize,  startIndex,  responseFields);
 		///   var productSearchResultClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductSearchResult> SearchClient(string query =  null, string filter =  null, string facetTemplate =  null, string facetTemplateSubset =  null, string facet =  null, string facetFieldRangeQuery =  null, string facetHierPrefix =  null, string facetHierValue =  null, string facetHierDepth =  null, string facetStartIndex =  null, string facetPageSize =  null, string facetSettings =  null, string facetValueFilter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductSearchResult> SearchClient(string query =  null, string filter =  null, string facetTemplate =  null, string facetTemplateSubset =  null, string facet =  null, string facetFieldRangeQuery =  null, string facetHierPrefix =  null, string facetHierValue =  null, string facetHierDepth =  null, string facetStartIndex =  null, string facetPageSize =  null, string facetSettings =  null, string facetValueFilter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductSearchResultUrl.SearchUrl(facet, facetFieldRangeQuery, facetHierDepth, facetHierPrefix, facetHierValue, facetPageSize, facetSettings, facetStartIndex, facetTemplate, facetTemplateSubset, facetValueFilter, filter, pageSize, query, sortBy, startIndex);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductSearchResultUrl.SearchUrl(query, filter, facetTemplate, facetTemplateSubset, facet, facetFieldRangeQuery, facetHierPrefix, facetHierValue, facetHierDepth, facetStartIndex, facetPageSize, facetSettings, facetValueFilter, sortBy, pageSize, startIndex, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductSearchResult>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -79,39 +64,24 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// <summary>
 		/// Suggests possible search terms as the shopper enters search text.
 		/// </summary>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductRuntime.SearchSuggestion"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=Suggest();
-		///   var searchSuggestionClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.SearchSuggestion> SuggestClient()
-		{
-			return SuggestClient( null,  null);
-		}
-
-		/// <summary>
-		/// Suggests possible search terms as the shopper enters search text.
-		/// </summary>
+		/// <param name="groups"></param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-		/// <param name="q">Text that the shopper is currently entering.</param>
+		/// <param name="query"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductRuntime.SearchSuggestion"/>}
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductRuntime.SearchSuggestionResult"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=Suggest( q,  pageSize);
-		///   var searchSuggestionClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var mozuClient=Suggest( query,  groups,  pageSize,  responseFields);
+		///   var searchSuggestionResultClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.SearchSuggestion> SuggestClient(string q =  null, int? pageSize =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.SearchSuggestionResult> SuggestClient(string query =  null, string groups =  null, int? pageSize =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductSearchResultUrl.SuggestUrl(pageSize, q);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductSearchResultUrl.SuggestUrl(query, groups, pageSize, responseFields);
 			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductRuntime.SearchSuggestion>()
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductRuntime.SearchSuggestionResult>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

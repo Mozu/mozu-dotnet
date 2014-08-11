@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce
 {
@@ -24,18 +25,19 @@ namespace Mozu.Api.Clients.Commerce
 		/// Retrieves the cart specified in the request.
 		/// </summary>
 		/// <param name="cartId">Identifier of the cart to retrieve.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetCart( cartId);
+		///   var mozuClient=GetCart( cartId,  responseFields);
 		///   var cartClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> GetCartClient(string cartId)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> GetCartClient(string cartId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.CartUrl.GetCartUrl(cartId);
+			var url = Mozu.Api.Urls.Commerce.CartUrl.GetCartUrl(cartId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -47,18 +49,19 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// Retrieves a cart's contents for the current shopper. If the shopper does not have an active cart on the site, the service creates one.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetOrCreateCart();
+		///   var mozuClient=GetOrCreateCart( responseFields);
 		///   var cartClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> GetOrCreateCartClient()
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> GetOrCreateCartClient(string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.CartUrl.GetOrCreateCartUrl();
+			var url = Mozu.Api.Urls.Commerce.CartUrl.GetOrCreateCartUrl(responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -70,18 +73,44 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// Retrieves summary information associated with the cart of the current shopper, including the number of items, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetCartSummary();
+		///   var mozuClient=GetCartSummary( responseFields);
 		///   var cartSummaryClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary> GetCartSummaryClient()
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary> GetCartSummaryClient(string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.CartUrl.GetCartSummaryUrl();
+			var url = Mozu.Api.Urls.Commerce.CartUrl.GetCartSummaryUrl(responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// Retrieves summary information associated with the cart of user specified in the request, including the number of items in the cart, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="userId">Unique identifier of the user whose cart details you want to retrieve.</param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetUserCartSummary( userId,  responseFields);
+		///   var cartSummaryClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary> GetUserCartSummaryClient(string userId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.CartUrl.GetUserCartSummaryUrl(userId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -93,19 +122,20 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// Retrieves the cart of the user specified in the request.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="userId">Unique identifier of the user whose cart you want to retrieve.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetUserCart( userId);
+		///   var mozuClient=GetUserCart( userId,  responseFields);
 		///   var cartClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> GetUserCartClient(string userId)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> GetUserCartClient(string userId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.CartUrl.GetUserCartUrl(userId);
+			var url = Mozu.Api.Urls.Commerce.CartUrl.GetUserCartUrl(userId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -115,45 +145,22 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// Retrieves summary information associated with the cart of user specified in the request, including the number of items in the cart, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
-		/// </summary>
-		/// <param name="userId">Unique identifier of the user whose cart details you want to retrieve.</param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetUserCartSummary( userId);
-		///   var cartSummaryClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary> GetUserCartSummaryClient(string userId)
-		{
-			var url = Mozu.Api.Urls.Commerce.CartUrl.GetUserCartSummaryUrl(userId);
-			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary>()
-									.WithVerb(verb).WithResourceUrl(url)
-;
-			return mozuClient;
-
-		}
-
-		/// <summary>
 		/// Update the current shopper's cart.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="cart">All of the properties of the cart to update. The product code is required.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateCart( cart);
+		///   var mozuClient=UpdateCart( cart,  responseFields);
 		///   var cartClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> UpdateCartClient(Mozu.Api.Contracts.CommerceRuntime.Carts.Cart cart)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> UpdateCartClient(Mozu.Api.Contracts.CommerceRuntime.Carts.Cart cart, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.CartUrl.UpdateCartUrl();
+			var url = Mozu.Api.Urls.Commerce.CartUrl.UpdateCartUrl(responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart>()
 									.WithVerb(verb).WithResourceUrl(url)

@@ -17,13 +17,14 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Specify settings when creating payments for order checkout on the site.
+	/// Use the Payment Settings resource to specify settings when creating payments for order checkout on the site.
 	/// </summary>
 	public partial class PaymentSettingsFactory : BaseDataFactory
 	{
@@ -46,7 +47,7 @@ namespace Mozu.Api.Test.Factories
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Settings.Checkout.PaymentSettings.PaymentSettingsClient.GetThirdPartyPaymentWorkflowsClient(
+			var apiClient = Mozu.Api.Clients.Commerce.Settings.Checkout.PaymentSettingsClient.GetThirdPartyPaymentWorkflowsClient(
 						);
 			try
 			{

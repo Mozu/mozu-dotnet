@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Commerce.Settings
 {
@@ -24,12 +25,12 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		///
 		private readonly IApiContext _apiContext;
 
+		
 		public SiteShippingSettingsResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
 		}
-
-		
+				
 		/// <summary>
 		/// Retrieves a list of the shipping settings configured for a site.
 		/// </summary>
@@ -42,13 +43,24 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		///   var siteShippingSettings = siteshippingsettings.GetSiteShippingSettings();
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingSettings GetSiteShippingSettings()
 		{
 			MozuClient<Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingSettings> response;
 			var client = Mozu.Api.Clients.Commerce.Settings.SiteShippingSettingsClient.GetSiteShippingSettingsClient();
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingSettings> GetSiteShippingSettingsAsync()
+		{
+			MozuClient<Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingSettings> response;
+			var client = Mozu.Api.Clients.Commerce.Settings.SiteShippingSettingsClient.GetSiteShippingSettingsClient();
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 

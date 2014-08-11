@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -67,17 +68,93 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = ProductPropertyFactory.GetPropertyValueLocalizedContents(handler : handler,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<List<ProductPropertyValueLocalizedContent>/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> GetPropertyValueLocalizedContents(ServiceClientMessageHandler handler, 
+ 		 string productCode, string attributeFQN, string value,  DataViewMode dataViewMode= DataViewMode.Live, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.GetPropertyValueLocalizedContentsClient(
+				 productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value, dataViewMode: dataViewMode		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = ProductPropertyFactory.GetPropertyValueLocalizedContent(handler : handler,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  localeCode :  localeCode,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<ProductPropertyValueLocalizedContent/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent GetPropertyValueLocalizedContent(ServiceClientMessageHandler handler, 
+ 		 string productCode, string attributeFQN, string value, string localeCode, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.GetPropertyValueLocalizedContentClient(
+				 productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  localeCode :  localeCode,  responseFields :  responseFields, dataViewMode: dataViewMode		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
 		/// Retrieves the details of a property attribute configuration for the product specified in the request.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductPropertyFactory.GetProperty(handler : handler,  productCode :  productCode,  attributeFQN :  attributeFQN,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductPropertyFactory.GetProperty(handler : handler,  productCode :  productCode,  attributeFQN :  attributeFQN,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<ProductProperty/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.ProductProperty GetProperty(ServiceClientMessageHandler handler, 
- 		 string productCode, string attributeFQN,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 string productCode, string attributeFQN, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -85,7 +162,45 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.GetPropertyClient(
-				 productCode :  productCode,  attributeFQN :  attributeFQN, dataViewMode: dataViewMode		);
+				 productCode :  productCode,  attributeFQN :  attributeFQN,  responseFields :  responseFields, dataViewMode: dataViewMode		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = ProductPropertyFactory.AddPropertyValueLocalizedContent(handler : handler,  localizedContent :  localizedContent,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<ProductPropertyValueLocalizedContent/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent AddPropertyValueLocalizedContent(ServiceClientMessageHandler handler, 
+ 		 Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent localizedContent, string productCode, string attributeFQN, string value, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.AddPropertyValueLocalizedContentClient(
+				 localizedContent :  localizedContent,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -108,14 +223,14 @@ namespace Mozu.Api.Test.Factories
 		/// Configures a property attribute for the product specified in the request.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductPropertyFactory.AddProperty(handler : handler,  productProperty :  productProperty,  productCode :  productCode,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductPropertyFactory.AddProperty(handler : handler,  productProperty :  productProperty,  productCode :  productCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<ProductProperty/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.ProductProperty AddProperty(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ProductAdmin.ProductProperty productProperty, string productCode,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 Mozu.Api.Contracts.ProductAdmin.ProductProperty productProperty, string productCode, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -123,7 +238,83 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.AddPropertyClient(
-				 productProperty :  productProperty,  productCode :  productCode, dataViewMode: dataViewMode		);
+				 productProperty :  productProperty,  productCode :  productCode,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = ProductPropertyFactory.UpdatePropertyValueLocalizedContents(handler : handler,  localizedContent :  localizedContent,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<List<ProductPropertyValueLocalizedContent>/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> UpdatePropertyValueLocalizedContents(ServiceClientMessageHandler handler, 
+ 		 List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> localizedContent, string productCode, string attributeFQN, string value, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.UpdatePropertyValueLocalizedContentsClient(
+				 localizedContent :  localizedContent,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = ProductPropertyFactory.UpdatePropertyValueLocalizedContent(handler : handler,  localizedContent :  localizedContent,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  localeCode :  localeCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<ProductPropertyValueLocalizedContent/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent UpdatePropertyValueLocalizedContent(ServiceClientMessageHandler handler, 
+ 		 Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent localizedContent, string productCode, string attributeFQN, string value, string localeCode, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.UpdatePropertyValueLocalizedContentClient(
+				 localizedContent :  localizedContent,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  localeCode :  localeCode,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -146,14 +337,14 @@ namespace Mozu.Api.Test.Factories
 		/// Update one or more details of a property attribute configuration for the product specified in the request.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductPropertyFactory.UpdateProperty(handler : handler,  productProperty :  productProperty,  productCode :  productCode,  attributeFQN :  attributeFQN,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductPropertyFactory.UpdateProperty(handler : handler,  productProperty :  productProperty,  productCode :  productCode,  attributeFQN :  attributeFQN,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<ProductProperty/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.ProductProperty UpdateProperty(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ProductAdmin.ProductProperty productProperty, string productCode, string attributeFQN,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 Mozu.Api.Contracts.ProductAdmin.ProductProperty productProperty, string productCode, string attributeFQN, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -161,7 +352,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.UpdatePropertyClient(
-				 productProperty :  productProperty,  productCode :  productCode,  attributeFQN :  attributeFQN, dataViewMode: dataViewMode		);
+				 productProperty :  productProperty,  productCode :  productCode,  attributeFQN :  attributeFQN,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -184,14 +375,14 @@ namespace Mozu.Api.Test.Factories
 		/// Deletes the configuration of a property attribute for the product specified in the request.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductPropertyFactory.DeleteProperty(handler : handler,  productCode :  productCode,  attributeFQN :  attributeFQN,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductPropertyFactory.DeleteProperty(handler : handler,  productCode :  productCode,  attributeFQN :  attributeFQN,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static void DeleteProperty(ServiceClientMessageHandler handler, 
- 		string productCode, string attributeFQN,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		string productCode, string attributeFQN, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
@@ -199,7 +390,44 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.DeletePropertyClient(
-				 productCode :  productCode,  attributeFQN :  attributeFQN, dataViewMode: dataViewMode		);
+				 productCode :  productCode,  attributeFQN :  attributeFQN		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+			}
+			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = ProductPropertyFactory.DeletePropertyValueLocalizedContent(handler : handler,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  localeCode :  localeCode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static void DeletePropertyValueLocalizedContent(ServiceClientMessageHandler handler, 
+ 		string productCode, string attributeFQN, string value, string localeCode, 
+		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.DeletePropertyValueLocalizedContentClient(
+				 productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  localeCode :  localeCode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

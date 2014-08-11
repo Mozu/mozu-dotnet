@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 
+
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
@@ -24,7 +25,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public bool? AllPending { get; set; }
 
 			///
-			///Array list of product codes for each pending product change you want to publish or delete.
+			///List of product codes for each pending product change you want to publish or delete.
 			///
 			public List<string> ProductCodes { get; set; }
 

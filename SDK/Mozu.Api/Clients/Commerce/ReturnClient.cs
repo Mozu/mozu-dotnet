@@ -11,37 +11,22 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce
 {
 	/// <summary>
-	/// Use the returns subresource to manage returned items that were previously fufilled. Returns can include any number of items associated with an original Mozu order. Each return must either be associated with an original order or a product definition to represent each returned item.
+	/// Use the Returns resource to manage returned items that were previously fufilled. Returns can include any number of items associated with an original Mozu order. Each return must either be associated with an original order or a product definition to represent each returned item.
 	/// </summary>
 	public partial class ReturnClient 	{
 		
 		/// <summary>
 		/// Retrieves a list of all returns according to any filter and sort criteria.
 		/// </summary>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetReturns();
-		///   var returnCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection> GetReturnsClient()
-		{
-			return GetReturnsClient( null,  null,  null,  null);
-		}
-
-		/// <summary>
-		/// Retrieves a list of all returns according to any filter and sort criteria.
-		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
 		/// <returns>
@@ -49,13 +34,13 @@ namespace Mozu.Api.Clients.Commerce
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetReturns( startIndex,  pageSize,  sortBy,  filter);
+		///   var mozuClient=GetReturns( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		///   var returnCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection> GetReturnsClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection> GetReturnsClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.ReturnUrl.GetReturnsUrl(filter, pageSize, sortBy, startIndex);
+			var url = Mozu.Api.Urls.Commerce.ReturnUrl.GetReturnsUrl(startIndex, pageSize, sortBy, filter, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -65,33 +50,9 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// Retrieves a list of properties for the specified return.
-		/// </summary>
-		/// <param name="returnId">Returns the properties of the return specified in the request as well as system-supplied information.</param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetReturn( returnId);
-		///   var returnClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> GetReturnClient(string returnId)
-		{
-			var url = Mozu.Api.Urls.Commerce.ReturnUrl.GetReturnUrl(returnId);
-			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return>()
-									.WithVerb(verb).WithResourceUrl(url)
-;
-			return mozuClient;
-
-		}
-
-		/// <summary>
 		/// Retrieves a list of the actions available to perform for the specified return based on its current state.
 		/// </summary>
-		/// <param name="returnId">Retrieves a list of the actions available to perform for the specified return based on its current state.</param>
+		/// <param name="returnId">Unique identifier of the return for which to retrieve available actions.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{string}}
 		/// </returns>
@@ -106,55 +67,6 @@ namespace Mozu.Api.Clients.Commerce
 			var url = Mozu.Api.Urls.Commerce.ReturnUrl.GetAvailableReturnActionsUrl(returnId);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<List<string>>()
-									.WithVerb(verb).WithResourceUrl(url)
-;
-			return mozuClient;
-
-		}
-
-		/// <summary>
-		/// Retrieves a list of all payments submitted as part of a refund associated with a customer return.
-		/// </summary>
-		/// <param name="returnId">Returns the details of the refund payment associated with the return specified in the request.</param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentCollection"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetPayments( returnId);
-		///   var paymentCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentCollection> GetPaymentsClient(string returnId)
-		{
-			var url = Mozu.Api.Urls.Commerce.ReturnUrl.GetPaymentsUrl(returnId);
-			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentCollection>()
-									.WithVerb(verb).WithResourceUrl(url)
-;
-			return mozuClient;
-
-		}
-
-		/// <summary>
-		/// Retrieves the details of a payment submitted as part of a refund associated with a customer return.
-		/// </summary>
-		/// <param name="paymentId">Unique identifier of the return payment to retrieve.</param>
-		/// <param name="returnId">Unique identifier of the return associated with the payment.</param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Payments.Payment"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetPayment( returnId,  paymentId);
-		///   var paymentClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Payments.Payment> GetPaymentClient(string returnId, string paymentId)
-		{
-			var url = Mozu.Api.Urls.Commerce.ReturnUrl.GetPaymentUrl(paymentId, returnId);
-			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Payments.Payment>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -177,7 +89,7 @@ namespace Mozu.Api.Clients.Commerce
 		/// </example>
 		public static MozuClient<List<string>> GetAvailablePaymentActionsForReturnClient(string returnId, string paymentId)
 		{
-			var url = Mozu.Api.Urls.Commerce.ReturnUrl.GetAvailablePaymentActionsForReturnUrl(paymentId, returnId);
+			var url = Mozu.Api.Urls.Commerce.ReturnUrl.GetAvailablePaymentActionsForReturnUrl(returnId, paymentId);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<List<string>>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -187,21 +99,98 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
+		/// Retrieves the details of a payment submitted as part of a refund associated with a customer return.
+		/// </summary>
+		/// <param name="paymentId">Unique identifier of the return payment to retrieve.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="returnId">Unique identifier of the return associated with the payment.</param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Payments.Payment"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetPayment( returnId,  paymentId,  responseFields);
+		///   var paymentClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Payments.Payment> GetPaymentClient(string returnId, string paymentId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.ReturnUrl.GetPaymentUrl(returnId, paymentId, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Payments.Payment>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// Retrieves a list of all payments submitted as part of a refund associated with a customer return.
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="returnId">Returns the details of the refund payment associated with the return specified in the request.</param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentCollection"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetPayments( returnId,  responseFields);
+		///   var paymentCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentCollection> GetPaymentsClient(string returnId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.ReturnUrl.GetPaymentsUrl(returnId, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentCollection>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// Retrieves a list of properties for the specified return.
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="returnId">Returns the properties of the return specified in the request as well as system-supplied information.</param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetReturn( returnId,  responseFields);
+		///   var returnClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> GetReturnClient(string returnId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.ReturnUrl.GetReturnUrl(returnId, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Creates a return for previously fulfilled items. Each return must either be associated with an original order or a product definition to represent each returned item.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="ret">Wrapper for the properties of the return to create.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=CreateReturn( ret);
+		///   var mozuClient=CreateReturn( ret,  responseFields);
 		///   var returnClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> CreateReturnClient(Mozu.Api.Contracts.CommerceRuntime.Returns.Return ret)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> CreateReturnClient(Mozu.Api.Contracts.CommerceRuntime.Returns.Return ret, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.ReturnUrl.CreateReturnUrl();
+			var url = Mozu.Api.Urls.Commerce.ReturnUrl.CreateReturnUrl(responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -214,6 +203,7 @@ namespace Mozu.Api.Clients.Commerce
 		/// Updates a refund payment associated with a customer return by performing the specified action.
 		/// </summary>
 		/// <param name="paymentId">Unique identifier of the return payment to update.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="returnId">Unique identifier of the return associated with the refund payment.</param>
 		/// <param name="action">The payment action to perform for the refund payment.</param>
 		/// <returns>
@@ -221,13 +211,13 @@ namespace Mozu.Api.Clients.Commerce
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=PerformPaymentActionForReturn( action,  returnId,  paymentId);
+		///   var mozuClient=PerformPaymentActionForReturn( action,  returnId,  paymentId,  responseFields);
 		///   var returnClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> PerformPaymentActionForReturnClient(Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentAction action, string returnId, string paymentId)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> PerformPaymentActionForReturnClient(Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentAction action, string returnId, string paymentId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.ReturnUrl.PerformPaymentActionForReturnUrl(paymentId, returnId);
+			var url = Mozu.Api.Urls.Commerce.ReturnUrl.PerformPaymentActionForReturnUrl(returnId, paymentId, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -239,6 +229,7 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// Creates a new payment for a return that results in a refund to the customer.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="returnId">Unique identifier of the return associated with the payment action.</param>
 		/// <param name="action">The payment action to perform for the customer return.</param>
 		/// <returns>
@@ -246,13 +237,13 @@ namespace Mozu.Api.Clients.Commerce
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=CreatePaymentActionForReturn( action,  returnId);
+		///   var mozuClient=CreatePaymentActionForReturn( action,  returnId,  responseFields);
 		///   var returnClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> CreatePaymentActionForReturnClient(Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentAction action, string returnId)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> CreatePaymentActionForReturnClient(Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentAction action, string returnId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.ReturnUrl.CreatePaymentActionForReturnUrl(returnId);
+			var url = Mozu.Api.Urls.Commerce.ReturnUrl.CreatePaymentActionForReturnUrl(returnId, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -262,21 +253,22 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// Updates the return by performing the specified action.
+		/// Updates the return by performing the action specified in the request.
 		/// </summary>
-		/// <param name="action">The name of the return action to perform, such as "Refund" or "Replace".</param>
+		/// <param name="responseFields"></param>
+		/// <param name="action">The name of the return action to perform, such as "Reject" or "Authorize".</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=PerformReturnActions( action);
+		///   var mozuClient=PerformReturnActions( action,  responseFields);
 		///   var returnCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection> PerformReturnActionsClient(Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnAction action)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection> PerformReturnActionsClient(Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnAction action, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.ReturnUrl.PerformReturnActionsUrl();
+			var url = Mozu.Api.Urls.Commerce.ReturnUrl.PerformReturnActionsUrl(responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -288,6 +280,7 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// Updates one or more properties of a return for items previously shipped in a completed order.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="returnId">Unique identifier of the return.</param>
 		/// <param name="ret">Wrapper for the array of properties to update for the return.</param>
 		/// <returns>
@@ -295,13 +288,13 @@ namespace Mozu.Api.Clients.Commerce
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateReturn( ret,  returnId);
+		///   var mozuClient=UpdateReturn( ret,  returnId,  responseFields);
 		///   var returnClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> UpdateReturnClient(Mozu.Api.Contracts.CommerceRuntime.Returns.Return ret, string returnId)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> UpdateReturnClient(Mozu.Api.Contracts.CommerceRuntime.Returns.Return ret, string returnId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.ReturnUrl.UpdateReturnUrl(returnId);
+			var url = Mozu.Api.Urls.Commerce.ReturnUrl.UpdateReturnUrl(returnId, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return>()
 									.WithVerb(verb).WithResourceUrl(url)

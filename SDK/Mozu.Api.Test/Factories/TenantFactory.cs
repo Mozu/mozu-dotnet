@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -32,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieve details about a specific tenant by providing the tenant ID.
 		/// <example> 
 		///  <code> 
-		/// var result = TenantFactory.GetTenant(handler : handler,  tenantId :  tenantId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = TenantFactory.GetTenant(handler : handler,  tenantId :  tenantId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Tenant/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Tenant.Tenant GetTenant(ServiceClientMessageHandler handler, 
- 		 int tenantId, 
+ 		 int tenantId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -47,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Platform.TenantClient.GetTenantClient(
-				 tenantId :  tenantId		);
+				 tenantId :  tenantId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

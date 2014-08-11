@@ -23,7 +23,7 @@ namespace Mozu.Api.Urls.Platform.Adminuser
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl CreateUserAuthTicketUrl(int? tenantId)
+        public static MozuUrl CreateUserAuthTicketUrl(int? tenantId =  null)
 		{
 			var url = "/api/platform/adminuser/authtickets/tenants?tenantId={tenantId}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
@@ -38,7 +38,7 @@ namespace Mozu.Api.Urls.Platform.Adminuser
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl RefreshAuthTicketUrl(int? tenantId)
+        public static MozuUrl RefreshAuthTicketUrl(int? tenantId =  null)
 		{
 			var url = "/api/platform/adminuser/authtickets/tenants?tenantId={tenantId}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;

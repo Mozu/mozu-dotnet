@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 {
@@ -48,19 +49,20 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// Creates a new transaction for the customer account specified in the request.
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="transaction">Properties of the transaction to create for the customer account.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.Transaction"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddTransaction( transaction,  accountId);
+		///   var mozuClient=AddTransaction( transaction,  accountId,  responseFields);
 		///   var transactionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.Transaction> AddTransactionClient(Mozu.Api.Contracts.Customer.Transaction transaction, int accountId)
+		public static MozuClient<Mozu.Api.Contracts.Customer.Transaction> AddTransactionClient(Mozu.Api.Contracts.Customer.Transaction transaction, int accountId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.TransactionUrl.AddTransactionUrl(accountId);
+			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.TransactionUrl.AddTransactionUrl(accountId, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.Transaction>()
 									.WithVerb(verb).WithResourceUrl(url)

@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -70,14 +71,14 @@ namespace Mozu.Api.Test.Factories
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = OrderValidationResultFactory.AddValidationResult(handler : handler,  validationResult :  validationResult,  orderId :  orderId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = OrderValidationResultFactory.AddValidationResult(handler : handler,  validationResult :  validationResult,  orderId :  orderId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<OrderValidationResult/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult AddValidationResult(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult validationResult, string orderId, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult validationResult, string orderId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -85,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Orders.OrderValidationResultClient.AddValidationResultClient(
-				 validationResult :  validationResult,  orderId :  orderId		);
+				 validationResult :  validationResult,  orderId :  orderId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

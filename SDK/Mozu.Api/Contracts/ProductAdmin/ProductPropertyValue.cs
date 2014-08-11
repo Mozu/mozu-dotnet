@@ -9,6 +9,8 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
+
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
@@ -31,6 +33,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///Content of the product property value.
 			///
 			public ProductPropertyValueLocalizedContent Content { get; set; }
+
+			public List<ProductPropertyValueLocalizedContent> LocalizedContent { get; set; }
 
 		}
 

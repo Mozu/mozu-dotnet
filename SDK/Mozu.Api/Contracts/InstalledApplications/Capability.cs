@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+
 using Mozu.Api.Contracts.Core.ThirdParty;
 
 namespace Mozu.Api.Contracts.InstalledApplications

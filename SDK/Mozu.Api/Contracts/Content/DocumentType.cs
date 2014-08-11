@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 
+
 namespace Mozu.Api.Contracts.Content
 {
 		///
@@ -18,45 +19,22 @@ namespace Mozu.Api.Contracts.Content
 		///
 		public class DocumentType
 		{
-			///
-			///User-defined description of the document type.
-			///
-			public string Description { get; set; }
+			public string AdminName { get; set; }
 
-			///
-			///The name that displays for the document type.
-			///
-			public string DisplayName { get; set; }
+			public string DocumentTypeFQN { get; set; }
 
-			///
-			///The document type scope specifies where the the template can be used such as "Global".
-			///
-			public string DocumentTypeScope { get; set; }
+			public string InstallationPackage { get; set; }
 
 			///
 			///The name of the document type.
 			///
 			public string Name { get; set; }
 
-			///
-			///If applicable, the name of the parent document type.
-			///
-			public string ParentTypeName { get; set; }
+			public string Namespace { get; set; }
 
-			///
-			///List of content entity descriptions localized to the site or site group's default language.
-			///
-			public List<LocalizedString> LocalizedDescriptions { get; set; }
+			public string Version { get; set; }
 
-			///
-			///List of content entity display names localized to the site or site group's default language.
-			///
-			public List<LocalizedString> LocalizedDisplayNames { get; set; }
-
-			///
-			///List of content property types associated with the document type.
-			///
-			public List<PropertyType> PropertyTypes { get; set; }
+			public List<Property> Properties { get; set; }
 
 		}
 

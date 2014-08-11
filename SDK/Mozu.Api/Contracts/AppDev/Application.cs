@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+
 using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.AppDev
@@ -39,10 +40,9 @@ namespace Mozu.Api.Contracts.AppDev
 			///
 			public AuditInfo AuditInfo { get; set; }
 
-			///
-			///Array list of the versions defined for an application.
-			///
-			public List<ApplicationVersion> Versions { get; set; }
+			public List<Package> DevPackages { get; set; }
+
+			public Package ReleasePackage { get; set; }
 
 		}
 

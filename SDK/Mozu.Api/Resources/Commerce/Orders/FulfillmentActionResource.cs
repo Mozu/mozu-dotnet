@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Commerce.Orders
 {
@@ -24,16 +25,17 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///
 		private readonly IApiContext _apiContext;
 
+		
 		public FulfillmentActionResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
 		}
-
-		
+				
 		/// <summary>
 		/// Sets the fulfillment action to "Ship" or "PickUp". To ship an order or prepare it for in-store pickup, the order must have a customer name, the "Open" or "OpenAndProcessing" status. To ship the order, it must also have the full shipping address and shipping method. Shipping all packages or picking up all pickups for an order will complete a paid order.
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order for which to perform the fulfillment action.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="action">The action to perform for the order fulfillment.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
@@ -41,16 +43,27 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <example>
 		/// <code>
 		///   var fulfillmentaction = new FulfillmentAction();
-		///   var order = fulfillmentaction.PerformFulfillmentAction( action,  orderId);
+		///   var order = fulfillmentaction.PerformFulfillmentAction( action,  orderId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.Order PerformFulfillmentAction(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.FulfillmentAction action, string orderId)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.Order PerformFulfillmentAction(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.FulfillmentAction action, string orderId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.FulfillmentActionClient.PerformFulfillmentActionClient( action,  orderId);
+			var client = Mozu.Api.Clients.Commerce.Orders.FulfillmentActionClient.PerformFulfillmentActionClient( action,  orderId,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> PerformFulfillmentActionAsync(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.FulfillmentAction action, string orderId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.FulfillmentActionClient.PerformFulfillmentActionClient( action,  orderId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 

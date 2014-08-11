@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
+
 
 namespace Mozu.Api.Contracts.ProductRuntime
 {
@@ -18,15 +18,9 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		///
 		public class SearchSuggestion
 		{
-			///
-			///The query term entered by the shopper.
-			///
-			public string Query { get; set; }
+			public object Suggestion { get; set; }
 
-			///
-			///The term suggestions to return based on the specified query value.
-			///
-			public List<string> Suggestions { get; set; }
+			public string SuggestionType { get; set; }
 
 		}
 

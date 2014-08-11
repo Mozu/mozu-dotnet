@@ -9,6 +9,8 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
+
 
 namespace Mozu.Api.Contracts.ShippingRuntime
 {
@@ -31,6 +33,8 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			///If true, this item must ship separately from other items in a shipment.
 			///
 			public bool? ShipsByItself { get; set; }
+
+			public List<ProductSummary> ProductSummaries { get; set; }
 
 			///
 			///The measured weight and dimensions of the item to ship.

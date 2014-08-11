@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Commerce.Customer.Credits
 {
@@ -24,36 +25,19 @@ namespace Mozu.Api.Resources.Commerce.Customer.Credits
 		///
 		private readonly IApiContext _apiContext;
 
+		
 		public CreditTransactionResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
 		}
-
-		
-		/// <summary>
-		/// Retrieves a list of the transactions performed using a customer credit that update the balance of the credit.
-		/// </summary>
-		/// <param name="code">User-defined code that identifies the customer credit.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Customer.Credit.CreditTransactionCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var credittransaction = new CreditTransaction();
-		///   var creditTransactionCollection = credittransaction.GetTransactions( code);
-		/// </code>
-		/// </example>
-		public virtual Mozu.Api.Contracts.Customer.Credit.CreditTransactionCollection GetTransactions(string code)
-		{
-			return GetTransactions( code,  null,  null,  null,  null);
-		}
-
+				
 		/// <summary>
 		/// Retrieves a list of the transactions performed using a customer credit that update the balance of the credit.
 		/// </summary>
 		/// <param name="code">User-defined code that identifies the customer credit.</param>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
 		/// <returns>
@@ -62,16 +46,27 @@ namespace Mozu.Api.Resources.Commerce.Customer.Credits
 		/// <example>
 		/// <code>
 		///   var credittransaction = new CreditTransaction();
-		///   var creditTransactionCollection = credittransaction.GetTransactions( code,  startIndex,  pageSize,  sortBy,  filter);
+		///   var creditTransactionCollection = credittransaction.GetTransactions( code,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.Customer.Credit.CreditTransactionCollection GetTransactions(string code, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Customer.Credit.CreditTransactionCollection GetTransactions(string code, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.Credit.CreditTransactionCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.Credits.CreditTransactionClient.GetTransactionsClient( code,  startIndex,  pageSize,  sortBy,  filter);
+			var client = Mozu.Api.Clients.Commerce.Customer.Credits.CreditTransactionClient.GetTransactionsClient( code,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.Customer.Credit.CreditTransactionCollection> GetTransactionsAsync(string code, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Customer.Credit.CreditTransactionCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.Credits.CreditTransactionClient.GetTransactionsClient( code,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -79,6 +74,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Credits
 		/// Creates a new transaction and updates the amount of a store credit or gift card.
 		/// </summary>
 		/// <param name="code">User-defined code that identifies the customer credit to update.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="creditTransaction">Properties of the transaction to create for the customer credit.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Credit.CreditTransaction"/>
@@ -86,16 +82,27 @@ namespace Mozu.Api.Resources.Commerce.Customer.Credits
 		/// <example>
 		/// <code>
 		///   var credittransaction = new CreditTransaction();
-		///   var creditTransaction = credittransaction.AddTransaction( creditTransaction,  code);
+		///   var creditTransaction = credittransaction.AddTransaction( creditTransaction,  code,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.Customer.Credit.CreditTransaction AddTransaction(Mozu.Api.Contracts.Customer.Credit.CreditTransaction creditTransaction, string code)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Customer.Credit.CreditTransaction AddTransaction(Mozu.Api.Contracts.Customer.Credit.CreditTransaction creditTransaction, string code, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.Credit.CreditTransaction> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.Credits.CreditTransactionClient.AddTransactionClient( creditTransaction,  code);
+			var client = Mozu.Api.Clients.Commerce.Customer.Credits.CreditTransactionClient.AddTransactionClient( creditTransaction,  code,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.Customer.Credit.CreditTransaction> AddTransactionAsync(Mozu.Api.Contracts.Customer.Credit.CreditTransaction creditTransaction, string code, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Customer.Credit.CreditTransaction> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.Credits.CreditTransactionClient.AddTransactionClient( creditTransaction,  code,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 

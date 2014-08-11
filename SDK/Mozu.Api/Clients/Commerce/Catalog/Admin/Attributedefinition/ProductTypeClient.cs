@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition
 {
@@ -23,26 +24,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition
 		/// <summary>
 		/// Retrieves a list of product types according to any specified filter criteria and sort options.
 		/// </summary>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductTypeCollection"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetProductTypes(dataViewMode);
-		///   var productTypeCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductTypeCollection> GetProductTypesClient(DataViewMode dataViewMode)
-		{
-			return GetProductTypesClient(dataViewMode,  null,  null,  null,  null);
-		}
-
-		/// <summary>
-		/// Retrieves a list of product types according to any specified filter criteria and sort options.
-		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product type search results by any of its properties. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+cont+shoes"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
@@ -51,13 +35,13 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetProductTypes(dataViewMode,  startIndex,  pageSize,  sortBy,  filter);
+		///   var mozuClient=GetProductTypes(dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		///   var productTypeCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductTypeCollection> GetProductTypesClient(DataViewMode dataViewMode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductTypeCollection> GetProductTypesClient(DataViewMode dataViewMode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.ProductTypeUrl.GetProductTypesUrl(filter, pageSize, sortBy, startIndex);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.ProductTypeUrl.GetProductTypesUrl(startIndex, pageSize, sortBy, filter, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductTypeCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -71,19 +55,20 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition
 		/// Retrieves the details of the product type specified in the request.
 		/// </summary>
 		/// <param name="productTypeId">Identifier of the product type to retrieve.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductType"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetProductType(dataViewMode,  productTypeId);
+		///   var mozuClient=GetProductType(dataViewMode,  productTypeId,  responseFields);
 		///   var productTypeClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductType> GetProductTypeClient(DataViewMode dataViewMode, int productTypeId)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductType> GetProductTypeClient(DataViewMode dataViewMode, int productTypeId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.ProductTypeUrl.GetProductTypeUrl(productTypeId);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.ProductTypeUrl.GetProductTypeUrl(productTypeId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductType>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -96,6 +81,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition
 		/// <summary>
 		/// Creates a new product type based on the information supplied in the request.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="productType">Properties of the product type to create.</param>
 		/// <returns>
@@ -103,18 +89,17 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddProductType(dataViewMode,  productType);
+		///   var mozuClient=AddProductType( productType,  responseFields);
 		///   var productTypeClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductType> AddProductTypeClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.ProductType productType)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductType> AddProductTypeClient(Mozu.Api.Contracts.ProductAdmin.ProductType productType, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.ProductTypeUrl.AddProductTypeUrl();
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.ProductTypeUrl.AddProductTypeUrl(responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductType>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductType>(productType)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
-;
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductType>(productType);
 			return mozuClient;
 
 		}
@@ -123,6 +108,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition
 		/// Updates one or more properties of a product type.
 		/// </summary>
 		/// <param name="productTypeId">Identifier of the product type to update.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="productType">The details of the product type to update.</param>
 		/// <returns>
@@ -130,18 +116,17 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateProductType(dataViewMode,  productType,  productTypeId);
+		///   var mozuClient=UpdateProductType( productType,  productTypeId,  responseFields);
 		///   var productTypeClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductType> UpdateProductTypeClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.ProductType productType, int productTypeId)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductType> UpdateProductTypeClient(Mozu.Api.Contracts.ProductAdmin.ProductType productType, int productTypeId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.ProductTypeUrl.UpdateProductTypeUrl(productTypeId);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.ProductTypeUrl.UpdateProductTypeUrl(productTypeId, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductType>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductType>(productType)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
-;
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductType>(productType);
 			return mozuClient;
 
 		}
@@ -156,17 +141,16 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=DeleteProductType(dataViewMode,  productTypeId);
+		///   var mozuClient=DeleteProductType( productTypeId);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteProductTypeClient(DataViewMode dataViewMode, int productTypeId)
+		public static MozuClient DeleteProductTypeClient(int productTypeId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.ProductTypeUrl.DeleteProductTypeUrl(productTypeId);
 			const string verb = "DELETE";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 

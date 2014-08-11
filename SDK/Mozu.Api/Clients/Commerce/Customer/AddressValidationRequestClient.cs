@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Customer
 {
@@ -23,19 +24,20 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <summary>
 		/// Validates the customer address supplied in the request.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="addressValidationRequest">Properties of the address to validate.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.AddressValidationResponse"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=ValidateAddress( addressValidationRequest);
+		///   var mozuClient=ValidateAddress( addressValidationRequest,  responseFields);
 		///   var addressValidationResponseClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.AddressValidationResponse> ValidateAddressClient(Mozu.Api.Contracts.Customer.AddressValidationRequest addressValidationRequest)
+		public static MozuClient<Mozu.Api.Contracts.Customer.AddressValidationResponse> ValidateAddressClient(Mozu.Api.Contracts.Customer.AddressValidationRequest addressValidationRequest, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.AddressValidationRequestUrl.ValidateAddressUrl();
+			var url = Mozu.Api.Urls.Commerce.Customer.AddressValidationRequestUrl.ValidateAddressUrl(responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.AddressValidationResponse>()
 									.WithVerb(verb).WithResourceUrl(url)

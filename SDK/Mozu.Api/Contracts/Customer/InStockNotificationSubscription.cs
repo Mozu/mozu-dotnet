@@ -9,22 +9,44 @@
 //------------------------------------------------------------------------------
 
 using System;
+
 using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.Customer
 {
+		///
+		///	Properties of a push notification to which the shopper subscribes. This notification sends the shopper an alert when a new product or a product previously out of stock becomes available in the specified location's active product inventory.
+		///
 		public class InStockNotificationSubscription
 		{
+			///
+			///Unique identifier of the customer associated with the in-stock notification subscription.
+			///
 			public int? CustomerId { get; set; }
 
+			///
+			///The email address of the specified user or the email address associated with the specified entity.
+			///
 			public string Email { get; set; }
 
+			///
+			///Unique identifier of the customer in-stock notification subscription.
+			///
 			public int? Id { get; set; }
 
+			///
+			///Tenant-defined code that identifies the customer in-stock notification subscription.
+			///
 			public string LocationCode { get; set; }
 
+			///
+			///Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+			///
 			public string ProductCode { get; set; }
 
+			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
 			public AuditInfo AuditInfo { get; set; }
 
 		}

@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 {
@@ -24,34 +25,25 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///
 		private readonly IApiContext _apiContext;
 
+		private readonly DataViewMode _dataViewMode;
+		
 		public DiscountResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
+			_dataViewMode = DataViewMode.Live;
 		}
-
-		
-		/// <summary>
-		/// Retrieves a list of discounts according to any specified filter criteria and sort options.
-		/// </summary>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.DiscountCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var discount = new Discount();
-		///   var discountCollection = discount.GetDiscounts(dataViewMode);
-		/// </code>
-		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.DiscountCollection GetDiscounts(DataViewMode dataViewMode)
+		public DiscountResource(IApiContext apiContext, DataViewMode dataViewMode) 
 		{
-			return GetDiscounts(dataViewMode,  null,  null,  null,  null);
+			_apiContext = apiContext;
+			_dataViewMode = dataViewMode;
 		}
-
+				
 		/// <summary>
 		/// Retrieves a list of discounts according to any specified filter criteria and sort options.
 		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
 		/// <returns>
@@ -60,39 +52,27 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var discount = new Discount();
-		///   var discountCollection = discount.GetDiscounts(dataViewMode,  startIndex,  pageSize,  sortBy,  filter);
+		///   var discountCollection = discount.GetDiscounts(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.DiscountCollection GetDiscounts(DataViewMode dataViewMode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.DiscountCollection GetDiscounts(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountsClient(dataViewMode,  startIndex,  pageSize,  sortBy,  filter);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountsClient(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
 
 		}
 
-		/// <summary>
-		/// Retrieves the details of a single discount.
-		/// </summary>
-		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Discount"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var discount = new Discount();
-		///   var discount = discount.GetDiscount(dataViewMode,  discountId);
-		/// </code>
-		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.Discount GetDiscount(DataViewMode dataViewMode, int discountId)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.DiscountCollection> GetDiscountsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.Discount> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountClient(dataViewMode,  discountId);
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountsClient(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
-			return response.Result();
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -100,115 +80,210 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// Retrieves the localized content specified for the specified discount.
 		/// </summary>
 		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var discount = new Discount();
-		///   var discountLocalizedContent = discount.GetDiscountContent(dataViewMode,  discountId);
+		///   var discountLocalizedContent = discount.GetDiscountContent(_dataViewMode,  discountId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent GetDiscountContent(DataViewMode dataViewMode, int discountId)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent GetDiscountContent(int discountId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountContentClient(dataViewMode,  discountId);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountContentClient(_dataViewMode,  discountId,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent> GetDiscountContentAsync(int discountId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountContentClient(_dataViewMode,  discountId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// Retrieves the details of a single discount.
+		/// </summary>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Discount"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var discount = new Discount();
+		///   var discount = discount.GetDiscount(_dataViewMode,  discountId,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.Discount GetDiscount(int discountId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Discount> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountClient(_dataViewMode,  discountId,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Discount> GetDiscountAsync(int discountId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Discount> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountClient(_dataViewMode,  discountId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
 		/// <summary>
 		/// Generates a random code for a coupon.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// string
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var discount = new Discount();
-		///   var string = discount.GenerateRandomCoupon(dataViewMode);
+		///   var string = discount.GenerateRandomCoupon(_dataViewMode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual string GenerateRandomCoupon(DataViewMode dataViewMode)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual string GenerateRandomCoupon(string responseFields =  null)
 		{
 			MozuClient<string> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GenerateRandomCouponClient(dataViewMode);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GenerateRandomCouponClient(_dataViewMode,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
 
 		}
 
+		public virtual async Task<string> GenerateRandomCouponAsync(string responseFields =  null)
+		{
+			MozuClient<string> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GenerateRandomCouponClient(_dataViewMode,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
 		/// <summary>
-		/// Creates a discount.
+		/// Creates a new discount or coupon to apply to a product, category, order, or shipping.
 		/// </summary>
-		/// <param name="discount">Properties of the discount to create. Required properties: Content.Name, AmountType, StartDate, and Target.Type.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="discount">Properties of the discount to create. You must specify the discount name, amount type, start date, and target.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Discount"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var discount = new Discount();
-		///   var discount = discount.CreateDiscount(dataViewMode,  discount);
+		///   var discount = discount.CreateDiscount( discount,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.Discount CreateDiscount(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.Discount discount)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.Discount CreateDiscount(Mozu.Api.Contracts.ProductAdmin.Discount discount, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.Discount> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.CreateDiscountClient(dataViewMode,  discount);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.CreateDiscountClient( discount,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
 
 		}
 
-		/// <summary>
-		/// Modifies a discount.
-		/// </summary>
-		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
-		/// <param name="discount">Properties of the discount to update. Required properties: Content.Name, AmountType, StartDate, and Target.Type. Any unspecified properties are set to null and boolean variables are set to false.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Discount"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var discount = new Discount();
-		///   var discount = discount.UpdateDiscount(dataViewMode,  discount,  discountId);
-		/// </code>
-		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.Discount UpdateDiscount(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.Discount discount, int discountId)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Discount> CreateDiscountAsync(Mozu.Api.Contracts.ProductAdmin.Discount discount, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.Discount> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.UpdateDiscountClient(dataViewMode,  discount,  discountId);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.CreateDiscountClient( discount,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
-			return response.Result();
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
 		/// <summary>
-		/// Modifies the localized content for the specified discount. Rename the discount without modifying any other discount properties.
+		/// Updates the localizable content for the specified discount or rename the discount without modifying its other properties.
 		/// </summary>
 		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
-		/// <param name="content">New Name and/or LocaleCode. Properties of the content to update. Required property: Name.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="content">The discount content to update, including the discount name.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var discount = new Discount();
-		///   var discountLocalizedContent = discount.UpdateDiscountContent(dataViewMode,  content,  discountId);
+		///   var discountLocalizedContent = discount.UpdateDiscountContent( content,  discountId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent UpdateDiscountContent(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent content, int discountId)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent UpdateDiscountContent(Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent content, int discountId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.UpdateDiscountContentClient(dataViewMode,  content,  discountId);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.UpdateDiscountContentClient( content,  discountId,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent> UpdateDiscountContentAsync(Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent content, int discountId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.UpdateDiscountContentClient( content,  discountId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// Updates one or more properties of a defined discount.
+		/// </summary>
+		/// <param name="discountId">Unique identifier of the discount to update.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="discount">Properties of the discount to update.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Discount"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var discount = new Discount();
+		///   var discount = discount.UpdateDiscount( discount,  discountId,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.Discount UpdateDiscount(Mozu.Api.Contracts.ProductAdmin.Discount discount, int discountId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Discount> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.UpdateDiscountClient( discount,  discountId,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Discount> UpdateDiscountAsync(Mozu.Api.Contracts.ProductAdmin.Discount discount, int discountId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Discount> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.UpdateDiscountClient( discount,  discountId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -222,15 +297,25 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var discount = new Discount();
-		///   discount.DeleteDiscount(dataViewMode,  discountId);
+		///   discount.DeleteDiscount( discountId);
 		/// </code>
 		/// </example>
-		public virtual void DeleteDiscount(DataViewMode dataViewMode, int discountId)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void DeleteDiscount(int discountId)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.DeleteDiscountClient(dataViewMode,  discountId);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.DeleteDiscountClient( discountId);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
+
+		}
+
+		public virtual async Task DeleteDiscountAsync(int discountId)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.DeleteDiscountClient( discountId);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
 
 		}
 

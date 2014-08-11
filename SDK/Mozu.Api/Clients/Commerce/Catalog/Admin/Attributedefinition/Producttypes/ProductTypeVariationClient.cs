@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttypes
 {
@@ -23,30 +24,11 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttyp
 		/// <summary>
 		/// Generates the variations possible for a product associated with the product type based on the option values supplied in the request.
 		/// </summary>
-		/// <param name="productTypeId">Unique identifier of the product type.</param>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="productOptionsIn">The product option attributes configured for this product type.</param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationPagedCollection"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GenerateProductVariations(dataViewMode,  productOptionsIn,  productTypeId);
-		///   var productVariationPagedCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationPagedCollection> GenerateProductVariationsClient(DataViewMode dataViewMode, List<Mozu.Api.Contracts.ProductAdmin.ProductOption> productOptionsIn, int productTypeId)
-		{
-			return GenerateProductVariationsClient(dataViewMode,  productOptionsIn,  productTypeId,  null,  null,  null,  null,  null);
-		}
-
-		/// <summary>
-		/// Generates the variations possible for a product associated with the product type based on the option values supplied in the request.
-		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
 		/// <param name="productCode"></param>
 		/// <param name="productTypeId">Unique identifier of the product type.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
@@ -56,18 +38,17 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttyp
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GenerateProductVariations(dataViewMode,  productOptionsIn,  productTypeId,  productCode,  startIndex,  pageSize,  sortBy,  filter);
+		///   var mozuClient=GenerateProductVariations( productOptionsIn,  productTypeId,  productCode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		///   var productVariationPagedCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationPagedCollection> GenerateProductVariationsClient(DataViewMode dataViewMode, List<Mozu.Api.Contracts.ProductAdmin.ProductOption> productOptionsIn, int productTypeId, string productCode =  null, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationPagedCollection> GenerateProductVariationsClient(List<Mozu.Api.Contracts.ProductAdmin.ProductOption> productOptionsIn, int productTypeId, string productCode =  null, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypeVariationUrl.GenerateProductVariationsUrl(filter, pageSize, productCode, productTypeId, sortBy, startIndex);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypeVariationUrl.GenerateProductVariationsUrl(productTypeId, productCode, startIndex, pageSize, sortBy, filter, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationPagedCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.ProductOption>>(productOptionsIn)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
-;
+									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.ProductOption>>(productOptionsIn);
 			return mozuClient;
 
 		}

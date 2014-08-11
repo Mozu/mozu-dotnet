@@ -10,6 +10,7 @@
 
 using System;
 
+
 namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 {
 		///
@@ -17,6 +18,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 		///
 		public class PickupItem
 		{
+			public string FulfillmentItemType { get; set; }
+
+			///
+			///Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+			///
 			public string ProductCode { get; set; }
 
 			///

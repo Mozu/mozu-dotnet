@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Commerce.Settings
 {
@@ -24,12 +25,12 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		///
 		private readonly IApiContext _apiContext;
 
+		
 		public GeneralSettingsResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
 		}
-
-		
+				
 		/// <summary>
 		/// Retrieve a site's general global settings.
 		/// </summary>
@@ -42,13 +43,24 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		///   var generalSettings = generalsettings.GetGeneralSettings();
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.SiteSettings.General.GeneralSettings GetGeneralSettings()
 		{
 			MozuClient<Mozu.Api.Contracts.SiteSettings.General.GeneralSettings> response;
 			var client = Mozu.Api.Clients.Commerce.Settings.GeneralSettingsClient.GetGeneralSettingsClient();
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.SiteSettings.General.GeneralSettings> GetGeneralSettingsAsync()
+		{
+			MozuClient<Mozu.Api.Contracts.SiteSettings.General.GeneralSettings> response;
+			var client = Mozu.Api.Clients.Commerce.Settings.GeneralSettingsClient.GetGeneralSettingsClient();
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -65,13 +77,24 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		///   var generalSettings = generalsettings.UpdateGeneralSettings( generalSettings);
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.SiteSettings.General.GeneralSettings UpdateGeneralSettings(Mozu.Api.Contracts.SiteSettings.General.GeneralSettings generalSettings)
 		{
 			MozuClient<Mozu.Api.Contracts.SiteSettings.General.GeneralSettings> response;
 			var client = Mozu.Api.Clients.Commerce.Settings.GeneralSettingsClient.UpdateGeneralSettingsClient( generalSettings);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.SiteSettings.General.GeneralSettings> UpdateGeneralSettingsAsync(Mozu.Api.Contracts.SiteSettings.General.GeneralSettings generalSettings)
+		{
+			MozuClient<Mozu.Api.Contracts.SiteSettings.General.GeneralSettings> response;
+			var client = Mozu.Api.Clients.Commerce.Settings.GeneralSettingsClient.UpdateGeneralSettingsClient( generalSettings);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 

@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -32,22 +33,22 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves the value of a record in the Mozu database.
 		/// <example> 
 		///  <code> 
-		/// var result = UserDataFactory.GetDBValue(handler : handler,  dbEntryQuery :  dbEntryQuery,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = UserDataFactory.GetDBValue(handler : handler,  dbEntryQuery :  dbEntryQuery,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<string/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static string GetDBValue(ServiceClientMessageHandler handler, 
- 		 string dbEntryQuery, 
+ 		 string dbEntryQuery, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Platform.UserData.UserDataClient.GetDBValueClient(
-				 dbEntryQuery :  dbEntryQuery		);
+			var apiClient = Mozu.Api.Clients.Platform.UserDataClient.GetDBValueClient(
+				 dbEntryQuery :  dbEntryQuery,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -84,7 +85,7 @@ namespace Mozu.Api.Test.Factories
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Platform.UserData.UserDataClient.CreateDBValueClient(
+			var apiClient = Mozu.Api.Clients.Platform.UserDataClient.CreateDBValueClient(
 				 value :  value,  dbEntryQuery :  dbEntryQuery		);
 			try
 			{
@@ -121,7 +122,7 @@ namespace Mozu.Api.Test.Factories
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Platform.UserData.UserDataClient.UpdateDBValueClient(
+			var apiClient = Mozu.Api.Clients.Platform.UserDataClient.UpdateDBValueClient(
 				 value :  value,  dbEntryQuery :  dbEntryQuery		);
 			try
 			{
@@ -158,7 +159,7 @@ namespace Mozu.Api.Test.Factories
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Platform.UserData.UserDataClient.DeleteDBValueClient(
+			var apiClient = Mozu.Api.Clients.Platform.UserDataClient.DeleteDBValueClient(
 				 dbEntryQuery :  dbEntryQuery		);
 			try
 			{

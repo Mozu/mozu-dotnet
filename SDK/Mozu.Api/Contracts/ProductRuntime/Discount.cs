@@ -10,10 +10,11 @@
 
 using System;
 
+
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
-		///	Properties of a defined product discount.
+		///	Properties of a defined product, order, or shipping discount.
 		///
 		public class Discount
 		{
@@ -23,14 +24,14 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public int DiscountId { get; set; }
 
 			///
-			///The date and time when the product discount will no longer be active. Date in UTC Date/Time. System-supplied and read-only.
+			///The date and time the discount can no longer be redeemed. Date in UTC Date/Time. System-supplied and read only.
 			///
 			public DateTime? ExpirationDate { get; set; }
 
 			public string FriendlyDescription { get; set; }
 
 			///
-			///The name assigned for the product discount.
+			///The localizable name assigned for the product discount.
 			///
 			public string Name { get; set; }
 

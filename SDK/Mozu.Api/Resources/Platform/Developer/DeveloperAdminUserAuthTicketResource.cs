@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Platform.Developer
 {
@@ -24,6 +25,7 @@ namespace Mozu.Api.Resources.Platform.Developer
 		///
 		private readonly IApiContext _apiContext;
 
+		
 		public DeveloperAdminUserAuthTicketResource() 
 		{
 			_apiContext = null;
@@ -32,26 +34,7 @@ namespace Mozu.Api.Resources.Platform.Developer
 		{
 			_apiContext = apiContext;
 		}
-
-		
-		/// <summary>
-		/// Generate an authentication ticket for a developer account.
-		/// </summary>
-		/// <param name="userAuthInfo">The user authentication information required to generate the developer account user authentication ticket, which consists of a user name and password.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var developeradminuserauthticket = new DeveloperAdminUserAuthTicket();
-		///   var developerAdminUserAuthTicket = developeradminuserauthticket.CreateDeveloperUserAuthTicket( userAuthInfo);
-		/// </code>
-		/// </example>
-		public virtual Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket CreateDeveloperUserAuthTicket(Mozu.Api.Contracts.Core.UserAuthInfo userAuthInfo)
-		{
-			return CreateDeveloperUserAuthTicket( userAuthInfo,  null);
-		}
-
+				
 		/// <summary>
 		/// Generate an authentication ticket for a developer account.
 		/// </summary>
@@ -66,32 +49,25 @@ namespace Mozu.Api.Resources.Platform.Developer
 		///   var developerAdminUserAuthTicket = developeradminuserauthticket.CreateDeveloperUserAuthTicket( userAuthInfo,  developerAccountId);
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket CreateDeveloperUserAuthTicket(Mozu.Api.Contracts.Core.UserAuthInfo userAuthInfo, int? developerAccountId =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket> response;
 			var client = Mozu.Api.Clients.Platform.Developer.DeveloperAdminUserAuthTicketClient.CreateDeveloperUserAuthTicketClient( userAuthInfo,  developerAccountId);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
 
 		}
 
-		/// <summary>
-		/// Generates a new developer account authentication ticket for the specified tenant by supplying the defined refresh token information.
-		/// </summary>
-		/// <param name="existingAuthTicket">Properties of the authentication ticket to refresh. The refresh token is required to complete this request.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var developeradminuserauthticket = new DeveloperAdminUserAuthTicket();
-		///   var developerAdminUserAuthTicket = developeradminuserauthticket.RefreshDeveloperAuthTicket( existingAuthTicket);
-		/// </code>
-		/// </example>
-		public virtual Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket RefreshDeveloperAuthTicket(Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket existingAuthTicket)
+		public virtual async Task<Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket> CreateDeveloperUserAuthTicketAsync(Mozu.Api.Contracts.Core.UserAuthInfo userAuthInfo, int? developerAccountId =  null)
 		{
-			return RefreshDeveloperAuthTicket( existingAuthTicket,  null);
+			MozuClient<Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket> response;
+			var client = Mozu.Api.Clients.Platform.Developer.DeveloperAdminUserAuthTicketClient.CreateDeveloperUserAuthTicketClient( userAuthInfo,  developerAccountId);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
 		}
 
 		/// <summary>
@@ -108,13 +84,24 @@ namespace Mozu.Api.Resources.Platform.Developer
 		///   var developerAdminUserAuthTicket = developeradminuserauthticket.RefreshDeveloperAuthTicket( existingAuthTicket,  developerAccountId);
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket RefreshDeveloperAuthTicket(Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket existingAuthTicket, int? developerAccountId =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket> response;
 			var client = Mozu.Api.Clients.Platform.Developer.DeveloperAdminUserAuthTicketClient.RefreshDeveloperAuthTicketClient( existingAuthTicket,  developerAccountId);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket> RefreshDeveloperAuthTicketAsync(Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket existingAuthTicket, int? developerAccountId =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket> response;
+			var client = Mozu.Api.Clients.Platform.Developer.DeveloperAdminUserAuthTicketClient.RefreshDeveloperAuthTicketClient( existingAuthTicket,  developerAccountId);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -131,12 +118,22 @@ namespace Mozu.Api.Resources.Platform.Developer
 		///   developeradminuserauthticket.DeleteUserAuthTicket( refreshToken);
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual void DeleteUserAuthTicket(string refreshToken)
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Platform.Developer.DeveloperAdminUserAuthTicketClient.DeleteUserAuthTicketClient( refreshToken);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
+
+		}
+
+		public virtual async Task DeleteUserAuthTicketAsync(string refreshToken)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Platform.Developer.DeveloperAdminUserAuthTicketClient.DeleteUserAuthTicketClient( refreshToken);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
 
 		}
 

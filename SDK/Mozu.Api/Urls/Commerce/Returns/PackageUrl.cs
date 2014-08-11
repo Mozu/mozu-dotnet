@@ -17,23 +17,6 @@ namespace Mozu.Api.Urls.Commerce.Returns
 	{
 
 		/// <summary>
-        /// Get Resource Url for GetPackage
-        /// </summary>
-        /// <param name="packageId">Unique identifier of the return replacement package to retrieve.</param>
-        /// <param name="returnId">Unique identifier of the return associated with the replacement package to retrieve.</param>
-        /// <returns>
-        /// String - Resource Url
-        /// </returns>
-        public static MozuUrl GetPackageUrl(string packageId, string returnId)
-		{
-			var url = "/api/commerce/returns/{returnId}/packages/{packageId}";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "packageId", packageId);
-			mozuUrl.FormatUrl( "returnId", returnId);
-			return mozuUrl;
-		}
-
-		/// <summary>
         /// Get Resource Url for GetPackageLabel
         /// </summary>
         /// <param name="packageId">Unique identifier of the return replacement package for which to retrieve the label.</param>
@@ -41,7 +24,7 @@ namespace Mozu.Api.Urls.Commerce.Returns
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetPackageLabelUrl(string packageId, string returnId)
+        public static MozuUrl GetPackageLabelUrl(string returnId, string packageId)
 		{
 			var url = "/api/commerce/returns/{returnId}/packages/{packageId}/label";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
@@ -50,17 +33,38 @@ namespace Mozu.Api.Urls.Commerce.Returns
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for GetPackage
+        /// </summary>
+        /// <param name="packageId">Unique identifier of the return replacement package to retrieve.</param>
+        /// <param name="responseFields"></param>
+        /// <param name="returnId">Unique identifier of the return associated with the replacement package to retrieve.</param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetPackageUrl(string returnId, string packageId, string responseFields =  null)
+		{
+			var url = "/api/commerce/returns/{returnId}/packages/{packageId}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "packageId", packageId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "returnId", returnId);
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for CreatePackage
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <param name="returnId">Unique identifier of the return for which to create a replacement package.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl CreatePackageUrl(string returnId)
+        public static MozuUrl CreatePackageUrl(string returnId, string responseFields =  null)
 		{
-			var url = "/api/commerce/returns/{returnId}/packages";
+			var url = "/api/commerce/returns/{returnId}/packages?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "returnId", returnId);
 			return mozuUrl;
 		}
@@ -69,15 +73,17 @@ namespace Mozu.Api.Urls.Commerce.Returns
         /// Get Resource Url for UpdatePackage
         /// </summary>
         /// <param name="packageId">Unique identifier of the return replacement package to update.</param>
+        /// <param name="responseFields"></param>
         /// <param name="returnId">Unique identifier of the return associated with the replacement package to update.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdatePackageUrl(string packageId, string returnId)
+        public static MozuUrl UpdatePackageUrl(string returnId, string packageId, string responseFields =  null)
 		{
-			var url = "/api/commerce/returns/{returnId}/packages/{packageId}";
+			var url = "/api/commerce/returns/{returnId}/packages/{packageId}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "packageId", packageId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "returnId", returnId);
 			return mozuUrl;
 		}
@@ -90,7 +96,7 @@ namespace Mozu.Api.Urls.Commerce.Returns
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl DeletePackageUrl(string packageId, string returnId)
+        public static MozuUrl DeletePackageUrl(string returnId, string packageId)
 		{
 			var url = "/api/commerce/returns/{returnId}/packages/{packageId}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;

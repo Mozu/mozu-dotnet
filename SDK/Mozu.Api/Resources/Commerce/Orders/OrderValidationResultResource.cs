@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Commerce.Orders
 {
@@ -24,12 +25,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///
 		private readonly IApiContext _apiContext;
 
+		
 		public OrderValidationResultResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
 		}
-
-		
+				
 		/// <summary>
 		/// 
 		/// </summary>
@@ -43,13 +44,24 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var orderValidationResult = ordervalidationresult.GetValidationResults( orderId);
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult> GetValidationResults(string orderId)
 		{
 			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult>> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.OrderValidationResultClient.GetValidationResultsClient( orderId);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult>> GetValidationResultsAsync(string orderId)
+		{
+			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult>> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.OrderValidationResultClient.GetValidationResultsClient( orderId);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -57,6 +69,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// 
 		/// </summary>
 		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="validationResult"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult"/>
@@ -64,16 +77,27 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <example>
 		/// <code>
 		///   var ordervalidationresult = new OrderValidationResult();
-		///   var orderValidationResult = ordervalidationresult.AddValidationResult( validationResult,  orderId);
+		///   var orderValidationResult = ordervalidationresult.AddValidationResult( validationResult,  orderId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult AddValidationResult(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult validationResult, string orderId)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult AddValidationResult(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult validationResult, string orderId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.OrderValidationResultClient.AddValidationResultClient( validationResult,  orderId);
+			var client = Mozu.Api.Clients.Commerce.Orders.OrderValidationResultClient.AddValidationResultClient( validationResult,  orderId,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult> AddValidationResultAsync(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult validationResult, string orderId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.OrderValidationResultClient.AddValidationResultClient( validationResult,  orderId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 

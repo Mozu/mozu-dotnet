@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttypes
 {
@@ -51,19 +52,20 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttyp
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="productTypeId">Identifier of the product type whose extra is being retrieved.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.AttributeInProductType"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetExtra(dataViewMode,  productTypeId,  attributeFQN);
+		///   var mozuClient=GetExtra(dataViewMode,  productTypeId,  attributeFQN,  responseFields);
 		///   var attributeInProductTypeClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> GetExtraClient(DataViewMode dataViewMode, int productTypeId, string attributeFQN)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> GetExtraClient(DataViewMode dataViewMode, int productTypeId, string attributeFQN, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypeExtraUrl.GetExtraUrl(attributeFQN, productTypeId);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypeExtraUrl.GetExtraUrl(productTypeId, attributeFQN, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -77,6 +79,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttyp
 		/// Assigns a defined extra attribute to the product type based on the information supplied in the request.
 		/// </summary>
 		/// <param name="productTypeId">Identifier of the product type.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="attributeInProductType">The properties of the extra attribute definition for this product type assignment.</param>
 		/// <returns>
@@ -84,18 +87,17 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttyp
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddExtra(dataViewMode,  attributeInProductType,  productTypeId);
+		///   var mozuClient=AddExtra( attributeInProductType,  productTypeId,  responseFields);
 		///   var attributeInProductTypeClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> AddExtraClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.AttributeInProductType attributeInProductType, int productTypeId)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> AddExtraClient(Mozu.Api.Contracts.ProductAdmin.AttributeInProductType attributeInProductType, int productTypeId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypeExtraUrl.AddExtraUrl(productTypeId);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypeExtraUrl.AddExtraUrl(productTypeId, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType>(attributeInProductType)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
-;
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType>(attributeInProductType);
 			return mozuClient;
 
 		}
@@ -105,6 +107,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttyp
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="productTypeId">Identifier of the product type.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="attributeInProductType">The properties of the extra attribute definition to update for the product type.</param>
 		/// <returns>
@@ -112,18 +115,17 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttyp
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateExtra(dataViewMode,  attributeInProductType,  productTypeId,  attributeFQN);
+		///   var mozuClient=UpdateExtra( attributeInProductType,  productTypeId,  attributeFQN,  responseFields);
 		///   var attributeInProductTypeClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> UpdateExtraClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.AttributeInProductType attributeInProductType, int productTypeId, string attributeFQN)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> UpdateExtraClient(Mozu.Api.Contracts.ProductAdmin.AttributeInProductType attributeInProductType, int productTypeId, string attributeFQN, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypeExtraUrl.UpdateExtraUrl(attributeFQN, productTypeId);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypeExtraUrl.UpdateExtraUrl(productTypeId, attributeFQN, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType>(attributeInProductType)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
-;
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType>(attributeInProductType);
 			return mozuClient;
 
 		}
@@ -139,17 +141,16 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttyp
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=DeleteExtra(dataViewMode,  productTypeId,  attributeFQN);
+		///   var mozuClient=DeleteExtra( productTypeId,  attributeFQN);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteExtraClient(DataViewMode dataViewMode, int productTypeId, string attributeFQN)
+		public static MozuClient DeleteExtraClient(int productTypeId, string attributeFQN)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypeExtraUrl.DeleteExtraUrl(attributeFQN, productTypeId);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypeExtraUrl.DeleteExtraUrl(productTypeId, attributeFQN);
 			const string verb = "DELETE";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 

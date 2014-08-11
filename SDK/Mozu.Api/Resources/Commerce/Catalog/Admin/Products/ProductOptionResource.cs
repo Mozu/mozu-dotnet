@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 {
@@ -24,12 +25,19 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///
 		private readonly IApiContext _apiContext;
 
+		private readonly DataViewMode _dataViewMode;
+		
 		public ProductOptionResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
+			_dataViewMode = DataViewMode.Live;
 		}
-
-		
+		public ProductOptionResource(IApiContext apiContext, DataViewMode dataViewMode) 
+		{
+			_apiContext = apiContext;
+			_dataViewMode = dataViewMode;
+		}
+				
 		/// <summary>
 		/// Retrieves a list of all option attributes configured for the product specified in the request.
 		/// </summary>
@@ -40,16 +48,27 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <example>
 		/// <code>
 		///   var productoption = new ProductOption();
-		///   var productOption = productoption.GetOptions(dataViewMode,  productCode);
+		///   var productOption = productoption.GetOptions(_dataViewMode,  productCode);
 		/// </code>
 		/// </example>
-		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductOption> GetOptions(DataViewMode dataViewMode, string productCode)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductOption> GetOptions(string productCode)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductOption>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductOptionClient.GetOptionsClient(dataViewMode,  productCode);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductOptionClient.GetOptionsClient(_dataViewMode,  productCode);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductOption>> GetOptionsAsync(string productCode)
+		{
+			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductOption>> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductOptionClient.GetOptionsClient(_dataViewMode,  productCode);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -58,22 +77,34 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductOption"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var productoption = new ProductOption();
-		///   var productOption = productoption.GetOption(dataViewMode,  productCode,  attributeFQN);
+		///   var productOption = productoption.GetOption(_dataViewMode,  productCode,  attributeFQN,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductOption GetOption(DataViewMode dataViewMode, string productCode, string attributeFQN)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.ProductOption GetOption(string productCode, string attributeFQN, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductOption> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductOptionClient.GetOptionClient(dataViewMode,  productCode,  attributeFQN);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductOptionClient.GetOptionClient(_dataViewMode,  productCode,  attributeFQN,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductOption> GetOptionAsync(string productCode, string attributeFQN, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductOption> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductOptionClient.GetOptionClient(_dataViewMode,  productCode,  attributeFQN,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -81,6 +112,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// Configures an option attribute for the product specified in the request.
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="productOption">Properties of the option attribute to define for the product.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductOption"/>
@@ -88,16 +120,27 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <example>
 		/// <code>
 		///   var productoption = new ProductOption();
-		///   var productOption = productoption.AddOption(dataViewMode,  productOption,  productCode);
+		///   var productOption = productoption.AddOption( productOption,  productCode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductOption AddOption(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.ProductOption productOption, string productCode)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.ProductOption AddOption(Mozu.Api.Contracts.ProductAdmin.ProductOption productOption, string productCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductOption> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductOptionClient.AddOptionClient(dataViewMode,  productOption,  productCode);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductOptionClient.AddOptionClient( productOption,  productCode,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductOption> AddOptionAsync(Mozu.Api.Contracts.ProductAdmin.ProductOption productOption, string productCode, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductOption> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductOptionClient.AddOptionClient( productOption,  productCode,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -106,6 +149,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="productOption">Properties of the product option attribute configuration to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductOption"/>
@@ -113,16 +157,27 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <example>
 		/// <code>
 		///   var productoption = new ProductOption();
-		///   var productOption = productoption.UpdateOption(dataViewMode,  productOption,  productCode,  attributeFQN);
+		///   var productOption = productoption.UpdateOption( productOption,  productCode,  attributeFQN,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductOption UpdateOption(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.ProductOption productOption, string productCode, string attributeFQN)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.ProductOption UpdateOption(Mozu.Api.Contracts.ProductAdmin.ProductOption productOption, string productCode, string attributeFQN, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductOption> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductOptionClient.UpdateOptionClient(dataViewMode,  productOption,  productCode,  attributeFQN);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductOptionClient.UpdateOptionClient( productOption,  productCode,  attributeFQN,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductOption> UpdateOptionAsync(Mozu.Api.Contracts.ProductAdmin.ProductOption productOption, string productCode, string attributeFQN, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductOption> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductOptionClient.UpdateOptionClient( productOption,  productCode,  attributeFQN,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -137,15 +192,25 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <example>
 		/// <code>
 		///   var productoption = new ProductOption();
-		///   productoption.DeleteOption(dataViewMode,  productCode,  attributeFQN);
+		///   productoption.DeleteOption( productCode,  attributeFQN);
 		/// </code>
 		/// </example>
-		public virtual void DeleteOption(DataViewMode dataViewMode, string productCode, string attributeFQN)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void DeleteOption(string productCode, string attributeFQN)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductOptionClient.DeleteOptionClient(dataViewMode,  productCode,  attributeFQN);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductOptionClient.DeleteOptionClient( productCode,  attributeFQN);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
+
+		}
+
+		public virtual async Task DeleteOptionAsync(string productCode, string attributeFQN)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductOptionClient.DeleteOptionClient( productCode,  attributeFQN);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
 
 		}
 

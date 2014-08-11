@@ -17,34 +17,38 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
 	{
 
 		/// <summary>
-        /// Get Resource Url for GetAccountCards
+        /// Get Resource Url for GetAccountCard
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
+        /// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetAccountCardsUrl(int accountId)
+        public static MozuUrl GetAccountCardUrl(int accountId, string cardId, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/{accountId}/cards";
+			var url = "/api/commerce/customer/accounts/{accountId}/cards/{cardId}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "accountId", accountId);
+			mozuUrl.FormatUrl( "cardId", cardId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 		/// <summary>
-        /// Get Resource Url for GetAccountCard
+        /// Get Resource Url for GetAccountCards
         /// </summary>
-        /// <param name="accountId"></param>
-        /// <param name="cardId"></param>
+        /// <param name="accountId">Unique identifier of the customer account.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetAccountCardUrl(int accountId, string cardId)
+        public static MozuUrl GetAccountCardsUrl(int accountId, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/{accountId}/cards/{cardId}";
+			var url = "/api/commerce/customer/accounts/{accountId}/cards?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "accountId", accountId);
-			mozuUrl.FormatUrl( "cardId", cardId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -52,14 +56,16 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// Get Resource Url for AddAccountCard
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl AddAccountCardUrl(int accountId)
+        public static MozuUrl AddAccountCardUrl(int accountId, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/{accountId}/cards";
+			var url = "/api/commerce/customer/accounts/{accountId}/cards?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "accountId", accountId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -67,16 +73,18 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// Get Resource Url for UpdateAccountCard
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="cardId"></param>
+        /// <param name="cardId">Unique identifier of the credit card.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateAccountCardUrl(int accountId, string cardId)
+        public static MozuUrl UpdateAccountCardUrl(int accountId, string cardId, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/{accountId}/cards/{cardId}";
+			var url = "/api/commerce/customer/accounts/{accountId}/cards/{cardId}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "accountId", accountId);
 			mozuUrl.FormatUrl( "cardId", cardId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

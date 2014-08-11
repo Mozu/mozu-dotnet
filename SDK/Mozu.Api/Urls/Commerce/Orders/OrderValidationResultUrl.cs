@@ -35,14 +35,16 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// Get Resource Url for AddValidationResult
         /// </summary>
         /// <param name="orderId"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl AddValidationResultUrl(string orderId)
+        public static MozuUrl AddValidationResultUrl(string orderId, string responseFields =  null)
 		{
-			var url = "/api/commerce/orders/{orderId}/validationresults";
+			var url = "/api/commerce/orders/{orderId}/validationresults?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "orderId", orderId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

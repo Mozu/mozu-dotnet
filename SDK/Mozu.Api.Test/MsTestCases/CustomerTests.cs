@@ -88,7 +88,7 @@ namespace Mozu.Api.Test.MsTestCases
         public void CustomerAccountAddAccountAndLogin_Validated()
         {
             //CreateAccounts
-            for (int i = 0; i < 1; i++)
+            for (int i = 0; i < 500; i++)
             {
                 Debug.WriteLine("Starting Run # " + (i + 1).ToString() + " of 200");
                 var cust = Generator.GenerateCustomerAccountValidatedRandom();

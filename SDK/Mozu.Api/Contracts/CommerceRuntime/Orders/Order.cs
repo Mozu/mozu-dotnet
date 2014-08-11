@@ -10,8 +10,9 @@
 
 using System;
 using System.Collections.Generic;
-using Mozu.Api.Contracts.CommerceRuntime.Commerce;
+
 using Mozu.Api.Contracts.Core;
+using Mozu.Api.Contracts.CommerceRuntime.Commerce;
 using Mozu.Api.Contracts.CommerceRuntime.Payments;
 using Mozu.Api.Contracts.CommerceRuntime.Fulfillment;
 using Mozu.Api.Contracts.CommerceRuntime.Discounts;
@@ -23,59 +24,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 		///
 		public class Order
 		{
-			public DateTime? AcceptedDate { get; set; }
-
-			public bool? AcceptsMarketing { get; set; }
-
-			public decimal AmountAvailableForRefund { get; set; }
-
-			public decimal AmountRemainingForPayment { get; set; }
-
-			///
-			///The available order, payment, and shipment actions a user can perform for the order.
-			///
-			public List<string> AvailableActions { get; set; }
-
-			///
-			///Date when the order was cancelled. System-supplied and read-only.
-			///
-			public DateTime? CancelledDate { get; set; }
-
-			///
-			///Code that identifies the channel associated with the site where the order was submitted.
-			///
-			public string ChannelCode { get; set; }
-
-			///
-			///Date when the order was closed. Closed order is an order that has been processed and the items shipped. System-supplied and read-only.
-			///
-			public DateTime? ClosedDate { get; set; }
-
-			///
-			///Array list of coupon codes associated with an order submitted using an external system. Mozu populates this list during the order import process.
-			///
-			public List<string> CouponCodes { get; set; }
-
-			///
-			///3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
-			///
-			public string CurrencyCode { get; set; }
-
-			///
-			///Numeric identifer of the customer account.
-			///
-			public int? CustomerAccountId { get; set; }
-
-			///
-			///The type of interaction the shopper used to submit the order. Possibel values are Website, Call, Store, or Unknown.
-			///
-			public string CustomerInteractionType { get; set; }
-
-			///
-			///The tax identification number (TIN) of the customer who submitted the order. If the customer who submitted the order has a customer account defined for the tenant, the system sets this value when the order is submitted.
-			///
-			public string CustomerTaxId { get; set; }
-
 			///
 			///The aggregate total for all line items in the order, including costs associated with shopper-defined options or extras and any applied discounts.
 			///
@@ -101,6 +49,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public DateTime? ExpirationDate { get; set; }
 
+			///
+			///Unique identifier used by an external program to identify a Mozu order.
+			///
 			public string ExternalId { get; set; }
 
 			///
@@ -118,11 +69,16 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public decimal? HandlingAmount { get; set; }
 
+			public decimal? HandlingSubtotal { get; set; }
+
 			///
 			///If the handling fee for the order is subject to sales tax, the total tax amount.
 			///
 			public decimal? HandlingTaxTotal { get; set; }
 
+			///
+			///This total represents the handling amount value with any applied discounts.
+			///
 			public decimal? HandlingTotal { get; set; }
 
 			///
@@ -135,6 +91,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public string Id { get; set; }
 
+			///
+			///If the order was imported from an external program, the date and time the order was imported into Mozu.
+			///
 			public DateTime? ImportDate { get; set; }
 
 			///
@@ -147,6 +106,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public bool? IsDraft { get; set; }
 
+			///
+			///If true, the shopper can return any of the items in this order to the tenant.
+			///
 			public bool IsEligibleForReturns { get; set; }
 
 			///
@@ -225,7 +187,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public string SourceDevice { get; set; }
 
 			///
-			///The current status of this order. Possible values are "New", "Open", "Processing", "Closed", or "Cancelled". System-supplied and read-only.
+			///The current status of this order. Possible values are "Pending", "Submitted", "Processing", "Pending Review", "Closed", or "Cancelled". System-supplied and read-only.
 			///
 			public string Status { get; set; }
 
@@ -259,6 +221,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public decimal TotalCollected { get; set; }
 
+			public string Type { get; set; }
+
 			///
 			///The current version number of the order.
 			///
@@ -275,6 +239,73 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public string WebSessionId { get; set; }
 
 			///
+			///The date and time the order was accepted by the tenant.
+			///
+			public DateTime? AcceptedDate { get; set; }
+
+			public bool? AcceptsMarketing { get; set; }
+
+			///
+			///The amount of the order the shopper can receive in the event of a return. This amount represents the amount captured at the time the order was submitted, not when the order was returned.
+			///
+			public decimal AmountAvailableForRefund { get; set; }
+
+			///
+			///The total amount of the order not currently associated with a payment. The shopper must create one or more payments to satisfy this amount before the order can be fully paid.
+			///
+			public decimal AmountRemainingForPayment { get; set; }
+
+			///
+			///The available order, payment, and shipment actions a user can perform for the order.
+			///
+			public List<string> AvailableActions { get; set; }
+
+			///
+			///Date when the order was cancelled. System-supplied and read-only.
+			///
+			public DateTime? CancelledDate { get; set; }
+
+			///
+			///Code that identifies the channel associated with the site where the order was submitted.
+			///
+			public string ChannelCode { get; set; }
+
+			///
+			///Date when the order was closed. Closed order is an order that has been processed and the items shipped. System-supplied and read-only.
+			///
+			public DateTime? ClosedDate { get; set; }
+
+			///
+			///Array list of coupon codes associated with an order submitted using an external system. Mozu populates this list during the order import process.
+			///
+			public List<string> CouponCodes { get; set; }
+
+			///
+			///3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
+			///
+			public string CurrencyCode { get; set; }
+
+			///
+			///Numeric identifer of the customer account.
+			///
+			public int? CustomerAccountId { get; set; }
+
+			///
+			///The type of interaction the shopper used to submit the order. Possible values are Website, Call, Store, or Unknown.
+			///
+			public string CustomerInteractionType { get; set; }
+
+			///
+			///The tax identification number (TIN) of the customer who submitted the order. If the customer who submitted the order has a customer account defined for the tenant, the system sets this value when the order is submitted.
+			///
+			public string CustomerTaxId { get; set; }
+
+			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
 			///Properties of an ad-hoc price adjustment for an order.
 			///
 			public Adjustment Adjustment { get; set; }
@@ -285,11 +316,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public List<OrderAttribute> Attributes { get; set; }
 
 			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
-
-			///
 			///Container for the customer billing information associated with an order.
 			///
 			public BillingInfo BillingInfo { get; set; }
@@ -298,6 +324,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///Paged list of notes entered when the order was modified.
 			///
 			public List<ChangeMessage> ChangeMessages { get; set; }
+
+			public List<DigitalPackage> DigitalPackages { get; set; }
 
 			///
 			///Properties of the item fulfillment information associated with the order. Shoppers can fulfill order items using in-store pickup or direct shipping.
@@ -356,6 +384,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public ShopperNotes ShopperNotes { get; set; }
 
+			///
+			///Response returned by an order validation capability application.
+			///
 			public List<OrderValidationResult> ValidationResults { get; set; }
 
 		}

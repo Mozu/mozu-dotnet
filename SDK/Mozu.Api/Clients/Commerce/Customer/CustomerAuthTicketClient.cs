@@ -11,12 +11,13 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Customer
 {
 	/// <summary>
-	/// 
+	/// Use the Customer Authentication Tickets resource to generate and refresh authentication tickets for customer accounts.
 	/// </summary>
 	public partial class CustomerAuthTicketClient 	{
 		
@@ -44,21 +45,22 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Generates a new authentication ticket for a customer account.
 		/// </summary>
-		/// <param name="userAuthInfo"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="userAuthInfo">The authentication information required to generate an authetication ticket for a user, which consists of a user name and password.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=CreateUserAuthTicket( userAuthInfo);
+		///   var mozuClient=CreateUserAuthTicket( userAuthInfo,  responseFields);
 		///   var customerAuthTicketClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAuthTicket> CreateUserAuthTicketClient(Mozu.Api.Contracts.Customer.CustomerUserAuthInfo userAuthInfo)
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAuthTicket> CreateUserAuthTicketClient(Mozu.Api.Contracts.Customer.CustomerUserAuthInfo userAuthInfo, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAuthTicketUrl.CreateUserAuthTicketUrl();
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAuthTicketUrl.CreateUserAuthTicketUrl(responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerAuthTicket>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -68,21 +70,22 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Refreshes an existing authentication ticket for a customer account by providing the refresh token string.
 		/// </summary>
-		/// <param name="refreshToken"></param>
+		/// <param name="refreshToken">The refresh token string required to refresh a user's authentication ticket.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=RefreshUserAuthTicket( refreshToken);
+		///   var mozuClient=RefreshUserAuthTicket( refreshToken,  responseFields);
 		///   var customerAuthTicketClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAuthTicket> RefreshUserAuthTicketClient(string refreshToken)
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAuthTicket> RefreshUserAuthTicketClient(string refreshToken, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAuthTicketUrl.RefreshUserAuthTicketUrl(refreshToken);
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAuthTicketUrl.RefreshUserAuthTicketUrl(refreshToken, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerAuthTicket>()
 									.WithVerb(verb).WithResourceUrl(url)

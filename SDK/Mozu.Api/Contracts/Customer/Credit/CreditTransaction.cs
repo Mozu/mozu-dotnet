@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+
 using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.Customer.Credit
@@ -18,6 +19,11 @@ namespace Mozu.Api.Contracts.Customer.Credit
 		///
 		public class CreditTransaction
 		{
+			///
+			///The type of transaction to perform for the customer credit. To decrease the balance, set this parameter to "Debit". To increase the balance, set this parameter to "Credit".
+			///
+			public string TransactionType { get; set; }
+
 			///
 			///Comments entered for a transaction. Depending on the interface, these comments might be visible to authorized shoppers and users.
 			///
@@ -32,11 +38,6 @@ namespace Mozu.Api.Contracts.Customer.Credit
 			///The amount to apply to the credit balance. The defined transaction type determines whether this amount represents a positive or negative integer.
 			///
 			public decimal? ImpactAmount { get; set; }
-
-			///
-			///The type of transaction to perform for the customer credit. To decrease the balance, set this parameter to "Debit". To increase the balance, set this parameter to "Credit".
-			///
-			public string TransactionType { get; set; }
 
 			///
 			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.

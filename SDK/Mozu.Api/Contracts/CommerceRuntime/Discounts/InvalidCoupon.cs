@@ -10,6 +10,7 @@
 
 using System;
 
+
 namespace Mozu.Api.Contracts.CommerceRuntime.Discounts
 {
 		public class InvalidCoupon
@@ -17,6 +18,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Discounts
 			public string CouponCode { get; set; }
 
 			public DateTime CreateDate { get; set; }
+
+			public int DiscountId { get; set; }
 
 			public string Reason { get; set; }
 

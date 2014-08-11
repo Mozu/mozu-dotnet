@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Platform
 {
@@ -24,12 +25,12 @@ namespace Mozu.Api.Resources.Platform
 		///
 		private readonly IApiContext _apiContext;
 
+		
 		public ApplicationResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
 		}
-
-		
+				
 		/// <summary>
 		/// 
 		/// </summary>
@@ -43,13 +44,24 @@ namespace Mozu.Api.Resources.Platform
 		///   var application = application.GetApplication( appId);
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.InstalledApplications.Application GetApplication(string appId)
 		{
 			MozuClient<Mozu.Api.Contracts.InstalledApplications.Application> response;
 			var client = Mozu.Api.Clients.Platform.ApplicationClient.GetApplicationClient( appId);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.InstalledApplications.Application> GetApplicationAsync(string appId)
+		{
+			MozuClient<Mozu.Api.Contracts.InstalledApplications.Application> response;
+			var client = Mozu.Api.Clients.Platform.ApplicationClient.GetApplicationClient( appId);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -67,13 +79,24 @@ namespace Mozu.Api.Resources.Platform
 		///   var application = application.UpdateApplication( application,  appId);
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.InstalledApplications.Application UpdateApplication(Mozu.Api.Contracts.InstalledApplications.Application application, string appId)
 		{
 			MozuClient<Mozu.Api.Contracts.InstalledApplications.Application> response;
 			var client = Mozu.Api.Clients.Platform.ApplicationClient.UpdateApplicationClient( application,  appId);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.InstalledApplications.Application> UpdateApplicationAsync(Mozu.Api.Contracts.InstalledApplications.Application application, string appId)
+		{
+			MozuClient<Mozu.Api.Contracts.InstalledApplications.Application> response;
+			var client = Mozu.Api.Clients.Platform.ApplicationClient.UpdateApplicationClient( application,  appId);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 

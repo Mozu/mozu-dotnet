@@ -17,55 +17,18 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the packages subresource to manage the physical packages to ship for an order.
+	/// Use the Packages subresource to manage the physical packages to ship for an order.
 	/// </summary>
 	public partial class StorefrontPackageFactory : BaseDataFactory
 	{
 
-		/// <summary> 
-		/// Retrieves the details of a package of order items.
-		/// <example> 
-		///  <code> 
-		/// var result = PackageFactory.GetPackage(handler : handler,  orderId :  orderId,  packageId :  packageId,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Package/>(result); 
-		/// return optionalCasting;
-		///  </code> 
-		/// </example> 
-		/// </summary>
-		public static Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package GetPackage(ServiceClientMessageHandler handler, 
- 		 string orderId, string packageId, 
-		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
-		{
-			SetSdKparameters();
-			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
-			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
-			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Orders.PackageClient.GetPackageClient(
-				 orderId :  orderId,  packageId :  packageId		);
-			try
-			{
-				apiClient.WithContext(handler.ApiContext).Execute();
-			}
-			catch (ApiException ex)
-			{
-				// Custom error handling for test cases can be placed here
-				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
-				if (customException != null)
-					throw customException;
-				return null;
-			}
-			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
-					 ? (apiClient.Result()) 
-					 : null;
-
-		}
-  
 		/// <summary> 
 		/// Retrieves a list of the actions available to perform for a package associated with order fulfillment.
 		/// <example> 
@@ -143,17 +106,55 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
+		/// Retrieves the details of a package of order items.
+		/// <example> 
+		///  <code> 
+		/// var result = PackageFactory.GetPackage(handler : handler,  orderId :  orderId,  packageId :  packageId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Package/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package GetPackage(ServiceClientMessageHandler handler, 
+ 		 string orderId, string packageId, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Orders.PackageClient.GetPackageClient(
+				 orderId :  orderId,  packageId :  packageId,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
 		/// Creates a new physical package of order items.
 		/// <example> 
 		///  <code> 
-		/// var result = PackageFactory.CreatePackage(handler : handler,  pkg :  pkg,  orderId :  orderId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = PackageFactory.CreatePackage(handler : handler,  pkg :  pkg,  orderId :  orderId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Package/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package CreatePackage(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package pkg, string orderId, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package pkg, string orderId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -161,7 +162,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Orders.PackageClient.CreatePackageClient(
-				 pkg :  pkg,  orderId :  orderId		);
+				 pkg :  pkg,  orderId :  orderId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -184,14 +185,14 @@ namespace Mozu.Api.Test.Factories
 		/// Updates one or more properties of a physical package of order items.
 		/// <example> 
 		///  <code> 
-		/// var result = PackageFactory.UpdatePackage(handler : handler,  pkg :  pkg,  orderId :  orderId,  packageId :  packageId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = PackageFactory.UpdatePackage(handler : handler,  pkg :  pkg,  orderId :  orderId,  packageId :  packageId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Package/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package UpdatePackage(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package pkg, string orderId, string packageId, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package pkg, string orderId, string packageId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -199,7 +200,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Orders.PackageClient.UpdatePackageClient(
-				 pkg :  pkg,  orderId :  orderId,  packageId :  packageId		);
+				 pkg :  pkg,  orderId :  orderId,  packageId :  packageId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

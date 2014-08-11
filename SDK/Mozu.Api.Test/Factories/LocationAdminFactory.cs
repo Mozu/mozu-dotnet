@@ -17,19 +17,20 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// Use the Locations resource to manage each physical location associated with a tenant. Locations enable tenants to associate a physical address with product inventory, provide a store finder for in-store pickup, or both. Locations that support inventory can use both direct ship and in-store pickup fulfillment types.
 	/// </summary>
 	public partial class LocationAdminFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// 
+		/// Retrieves a list of all locations associated with a tenant, according to any filter and sort criteria specified in the request.
 		/// <example> 
 		///  <code> 
 		/// var result = LocationFactory.GetLocations(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  expectedCode: expectedCode, successCode: successCode); 
@@ -67,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves the details of the location specified in the request by location code.
 		/// <example> 
 		///  <code> 
 		/// var result = LocationFactory.GetLocation(handler : handler,  locationCode :  locationCode,  expectedCode: expectedCode, successCode: successCode); 
@@ -105,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Creates a new physical location for the tenant specified in the request header.
 		/// <example> 
 		///  <code> 
 		/// var result = LocationFactory.AddLocation(handler : handler,  location :  location,  expectedCode: expectedCode, successCode: successCode); 
@@ -143,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Updates one or more details of a the location specified in the request by location code.
 		/// <example> 
 		///  <code> 
 		/// var result = LocationFactory.UpdateLocation(handler : handler,  location :  location,  locationCode :  locationCode,  expectedCode: expectedCode, successCode: successCode); 
@@ -181,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Deletes the location specified in the request.
 		/// <example> 
 		///  <code> 
 		/// var result = LocationFactory.DeleteLocation(handler : handler,  locationCode :  locationCode,  expectedCode: expectedCode, successCode: successCode); 

@@ -20,14 +20,16 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Discounts
         /// Get Resource Url for GetDiscountTarget
         /// </summary>
         /// <param name="discountId">Unique identifier of the discount. System-supplied and read only.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetDiscountTargetUrl(int discountId)
+        public static MozuUrl GetDiscountTargetUrl(int discountId, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/discounts/{discountId}/target";
+			var url = "/api/commerce/catalog/admin/discounts/{discountId}/target?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "discountId", discountId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -35,14 +37,16 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Discounts
         /// Get Resource Url for UpdateDiscountTarget
         /// </summary>
         /// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateDiscountTargetUrl(int discountId)
+        public static MozuUrl UpdateDiscountTargetUrl(int discountId, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/discounts/{discountId}/target";
+			var url = "/api/commerce/catalog/admin/discounts/{discountId}/target?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "discountId", discountId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

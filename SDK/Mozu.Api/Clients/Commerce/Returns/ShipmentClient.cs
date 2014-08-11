@@ -11,18 +11,20 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Returns
 {
 	/// <summary>
-	/// Use the return shipments subresource to manage shipments for a return replacement.
+	/// Use the Return Shipments subresource to manage shipments for a return replacement.
 	/// </summary>
 	public partial class ShipmentClient 	{
 		
 		/// <summary>
 		/// Retrieves the details of the specified return replacement shipment.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="returnId">Unique identifier of the return associated with the replacement shipment to retrieve.</param>
 		/// <param name="shipmentId">Unique identifier of the return replacement shipment to retrieve.</param>
 		/// <returns>
@@ -30,13 +32,13 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetShipment( returnId,  shipmentId);
+		///   var mozuClient=GetShipment( returnId,  shipmentId,  responseFields);
 		///   var shipmentClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment> GetShipmentClient(string returnId, string shipmentId)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment> GetShipmentClient(string returnId, string shipmentId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Returns.ShipmentUrl.GetShipmentUrl(returnId, shipmentId);
+			var url = Mozu.Api.Urls.Commerce.Returns.ShipmentUrl.GetShipmentUrl(returnId, shipmentId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment>()
 									.WithVerb(verb).WithResourceUrl(url)

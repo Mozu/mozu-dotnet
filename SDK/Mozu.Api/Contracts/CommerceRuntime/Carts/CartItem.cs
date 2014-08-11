@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+
 using Mozu.Api.Contracts.Core;
 using Mozu.Api.Contracts.CommerceRuntime.Products;
 using Mozu.Api.Contracts.CommerceRuntime.Discounts;
@@ -51,6 +52,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///The method used to fulfill this cart item, which is direct ship or in-store pickup.
 			///
 			public string FulfillmentMethod { get; set; }
+
+			public decimal? HandlingAmount { get; set; }
 
 			///
 			///Unique identifier of the cart item.
@@ -117,17 +120,17 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///
 			public Product Product { get; set; }
 
-			public AppliedProductDiscount ProductDiscount { get; set; }
+			public AppliedLineItemProductDiscount ProductDiscount { get; set; }
 
 			///
 			///List of product-level discounts projected to apply to the cart item at checkout.
 			///
-			public List<AppliedProductDiscount> ProductDiscounts { get; set; }
+			public List<AppliedLineItemProductDiscount> ProductDiscounts { get; set; }
 
 			///
 			///List of shipping discounts projected to apply to the cart item at checkout.
 			///
-			public List<ShippingDiscount> ShippingDiscounts { get; set; }
+			public List<AppliedLineItemShippingDiscount> ShippingDiscounts { get; set; }
 
 			///
 			///Properties of the unit price associated with the cart item.

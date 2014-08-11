@@ -10,6 +10,7 @@
 
 using System;
 
+
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
@@ -20,6 +21,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public decimal? CatalogListPrice { get; set; }
 
 			public decimal? CatalogSalePrice { get; set; }
+
+			public decimal? CreditValue { get; set; }
 
 			public decimal? Msrp { get; set; }
 

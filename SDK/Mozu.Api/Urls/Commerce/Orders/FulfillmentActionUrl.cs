@@ -20,14 +20,16 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// Get Resource Url for PerformFulfillmentAction
         /// </summary>
         /// <param name="orderId">Unique identifier of the order for which to perform the fulfillment action.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl PerformFulfillmentActionUrl(string orderId)
+        public static MozuUrl PerformFulfillmentActionUrl(string orderId, string responseFields =  null)
 		{
-			var url = "/api/commerce/orders/{orderId}/fulfillment/actions/";
+			var url = "/api/commerce/orders/{orderId}/fulfillment/actions/?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "orderId", orderId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

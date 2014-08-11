@@ -2346,7 +2346,6 @@ namespace Mozu.Api.Test.Helpers
                 TaxExempt = taxExempt,
                 TaxId = taxId,
                 LocaleCode = Constant.LocaleCode,
-
                 
                 Notes = new List<CustomerNote>() { GenerateCustomerNote() }
             };
@@ -5145,7 +5144,7 @@ namespace Mozu.Api.Test.Helpers
         /// <param name="shippingDiscounts"></param>
         /// <returns></returns>
         public static WishlistItem GenerateWishlistItem(Mozu.Api.Contracts.CommerceRuntime.Products.Product product, string comments, string priorityType,
-            string purchasableStatusType, int quantity, bool isRecurring, bool isTaxable, List<Mozu.Api.Contracts.CommerceRuntime.Discounts.ShippingDiscount> shippingDiscounts)
+            string purchasableStatusType, int quantity, bool isRecurring, bool isTaxable, List<Mozu.Api.Contracts.CommerceRuntime.Discounts.AppliedLineItemShippingDiscount> shippingDiscounts)
         {
             return new WishlistItem()
             {
@@ -5215,12 +5214,12 @@ namespace Mozu.Api.Test.Helpers
             {
                 try
                 {
-                    MasterCatalogFactory.UpdateMasterCatalog(handler, masterCatalog: mode, masterCatalogId: masterCatalogId, dataViewMode: DataViewMode.Live );
+                    MasterCatalogFactory.UpdateMasterCatalog(handler, masterCatalog: mode, masterCatalogId: masterCatalogId );
                 }
                 catch
                 {
                     PublishingScopeFactory.PublishDrafts(handler, Generator.GeneratePublishingScope(true, new List<string>() { "" }));
-                    MasterCatalogFactory.UpdateMasterCatalog(handler, masterCatalog: mode, masterCatalogId: masterCatalogId, dataViewMode: DataViewMode.Live);
+                    MasterCatalogFactory.UpdateMasterCatalog(handler, masterCatalog: mode, masterCatalogId: masterCatalogId);
                 }
 
             }
@@ -5234,7 +5233,7 @@ namespace Mozu.Api.Test.Helpers
                 try
                 {
                     MasterCatalogFactory.UpdateMasterCatalog(handler, masterCatalog: mode,
-                        masterCatalogId: masterCatalogId, dataViewMode: DataViewMode.Pending);
+                        masterCatalogId: masterCatalogId);
                 }
                 catch
                 {

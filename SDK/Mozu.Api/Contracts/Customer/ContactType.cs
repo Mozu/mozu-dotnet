@@ -10,12 +10,22 @@
 
 using System;
 
+
 namespace Mozu.Api.Contracts.Customer
 {
+		///
+		///	Properties of a type of contact associated with a customer account, such as Billing or Fulfillment.
+		///
 		public class ContactType
 		{
+			///
+			///If true, this is the primary contact of this contact type.
+			///
 			public bool IsPrimary { get; set; }
 
+			///
+			///The name of this contact type.
+			///
 			public string Name { get; set; }
 
 		}

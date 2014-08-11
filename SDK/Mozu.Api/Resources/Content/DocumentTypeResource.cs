@@ -11,12 +11,13 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Content
 {
 	/// <summary>
-	/// The DocumentTypes resource is a part of the Content Service.
+	/// Use the Document Types resource to view the document types supplied by the Content API.
 	/// </summary>
 	public partial class DocumentTypeResource  	{
 		///
@@ -24,33 +25,17 @@ namespace Mozu.Api.Resources.Content
 		///
 		private readonly IApiContext _apiContext;
 
+		
 		public DocumentTypeResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
 		}
-
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Content.DocumentTypeCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var documenttype = new DocumentType();
-		///   var documentTypeCollection = documenttype.GetDocumentTypes(dataViewMode);
-		/// </code>
-		/// </example>
-		public virtual Mozu.Api.Contracts.Content.DocumentTypeCollection GetDocumentTypes(DataViewMode dataViewMode)
-		{
-			return GetDocumentTypes(dataViewMode,  null,  null);
-		}
-
+				
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="startIndex"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentTypeCollection"/>
@@ -58,16 +43,27 @@ namespace Mozu.Api.Resources.Content
 		/// <example>
 		/// <code>
 		///   var documenttype = new DocumentType();
-		///   var documentTypeCollection = documenttype.GetDocumentTypes(dataViewMode,  pageSize,  startIndex);
+		///   var documentTypeCollection = documenttype.GetDocumentTypes( pageSize,  startIndex,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.Content.DocumentTypeCollection GetDocumentTypes(DataViewMode dataViewMode, int? pageSize =  null, int? startIndex =  null)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Content.DocumentTypeCollection GetDocumentTypes(int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentTypeCollection> response;
-			var client = Mozu.Api.Clients.Content.DocumentTypeClient.GetDocumentTypesClient(dataViewMode,  pageSize,  startIndex);
+			var client = Mozu.Api.Clients.Content.DocumentTypeClient.GetDocumentTypesClient( pageSize,  startIndex,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.Content.DocumentTypeCollection> GetDocumentTypesAsync(int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Content.DocumentTypeCollection> response;
+			var client = Mozu.Api.Clients.Content.DocumentTypeClient.GetDocumentTypesClient( pageSize,  startIndex,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -75,22 +71,105 @@ namespace Mozu.Api.Resources.Content
 		/// 
 		/// </summary>
 		/// <param name="documentTypeName"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentType"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var documenttype = new DocumentType();
-		///   var documentType = documenttype.GetDocumentType(dataViewMode,  documentTypeName);
+		///   var documentType = documenttype.GetDocumentType( documentTypeName,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.Content.DocumentType GetDocumentType(DataViewMode dataViewMode, string documentTypeName)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Content.DocumentType GetDocumentType(string documentTypeName, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentType> response;
-			var client = Mozu.Api.Clients.Content.DocumentTypeClient.GetDocumentTypeClient(dataViewMode,  documentTypeName);
+			var client = Mozu.Api.Clients.Content.DocumentTypeClient.GetDocumentTypeClient( documentTypeName,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.Content.DocumentType> GetDocumentTypeAsync(string documentTypeName, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Content.DocumentType> response;
+			var client = Mozu.Api.Clients.Content.DocumentTypeClient.GetDocumentTypeClient( documentTypeName,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="documentType"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Content.DocumentType"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documenttype = new DocumentType();
+		///   var documentType = documenttype.CreateDocumentType( documentType,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Content.DocumentType CreateDocumentType(Mozu.Api.Contracts.Content.DocumentType documentType, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Content.DocumentType> response;
+			var client = Mozu.Api.Clients.Content.DocumentTypeClient.CreateDocumentTypeClient( documentType,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.Content.DocumentType> CreateDocumentTypeAsync(Mozu.Api.Contracts.Content.DocumentType documentType, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Content.DocumentType> response;
+			var client = Mozu.Api.Clients.Content.DocumentTypeClient.CreateDocumentTypeClient( documentType,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="documentTypeName"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="documentType"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Content.DocumentType"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documenttype = new DocumentType();
+		///   var documentType = documenttype.UpdateDocumentType( documentType,  documentTypeName,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Content.DocumentType UpdateDocumentType(Mozu.Api.Contracts.Content.DocumentType documentType, string documentTypeName, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Content.DocumentType> response;
+			var client = Mozu.Api.Clients.Content.DocumentTypeClient.UpdateDocumentTypeClient( documentType,  documentTypeName,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.Content.DocumentType> UpdateDocumentTypeAsync(Mozu.Api.Contracts.Content.DocumentType documentType, string documentTypeName, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Content.DocumentType> response;
+			var client = Mozu.Api.Clients.Content.DocumentTypeClient.UpdateDocumentTypeClient( documentType,  documentTypeName,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 

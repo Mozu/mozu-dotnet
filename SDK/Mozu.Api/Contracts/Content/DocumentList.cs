@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 
+
 namespace Mozu.Api.Contracts.Content
 {
 		///
@@ -18,8 +19,10 @@ namespace Mozu.Api.Contracts.Content
 		///
 		public class DocumentList
 		{
+			public string DocumentListType { get; set; }
+
 			///
-			///A document type is a template.
+			///List of document types associated with this document list.
 			///
 			public List<string> DocumentTypes { get; set; }
 
@@ -28,15 +31,29 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public bool? EnablePublishing { get; set; }
 
+			public string ListFQN { get; set; }
+
 			///
 			///The name of the document list.
 			///
 			public string Name { get; set; }
 
+			public string Namespace { get; set; }
+
+			public int? ScopeId { get; set; }
+
+			public string ScopeType { get; set; }
+
+			public string Security { get; set; }
+
 			///
 			///If true, changes documents in this list can be saved as drafts until they are published to the site. If false, all document changes are immediately published in live mode. System-supplied and read only.
 			///
 			public bool? SupportsPublishing { get; set; }
+
+			public List<string> Usages { get; set; }
+
+			public List<View> Views { get; set; }
 
 		}
 

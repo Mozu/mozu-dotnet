@@ -21,18 +21,19 @@ namespace Mozu.Api.Urls.Commerce.Customer
         /// </summary>
         /// <param name="fields">The fields to include in the response.</param>
         /// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-        /// <param name="isAnonymous"></param>
+        /// <param name="isAnonymous">If true, retrieve anonymous shopper accounts in the response.</param>
         /// <param name="pageSize"></param>
         /// <param name="q">A list of customer account search terms to use in the query when searching across customer name and email. Separate multiple search terms with a space character.</param>
         /// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
+        /// <param name="responseFields"></param>
         /// <param name="sortBy"></param>
         /// <param name="startIndex"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetAccountsUrl(string fields, string filter, bool? isAnonymous, int? pageSize, string q, int? qLimit, string sortBy, int? startIndex)
+        public static MozuUrl GetAccountsUrl(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string fields =  null, string q =  null, int? qLimit =  null, bool? isAnonymous =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&fields={fields}&q={q}&qLimit={qLimit}&isAnonymous={isAnonymous}";
+			var url = "/api/commerce/customer/accounts/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&fields={fields}&q={q}&qLimit={qLimit}&isAnonymous={isAnonymous}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "fields", fields);
 			mozuUrl.FormatUrl( "filter", filter);
@@ -40,8 +41,26 @@ namespace Mozu.Api.Urls.Commerce.Customer
 			mozuUrl.FormatUrl( "pageSize", pageSize);
 			mozuUrl.FormatUrl( "q", q);
 			mozuUrl.FormatUrl( "qLimit", qLimit);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "sortBy", sortBy);
 			mozuUrl.FormatUrl( "startIndex", startIndex);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for GetLoginState
+        /// </summary>
+        /// <param name="accountId">Unique identifier of the customer account.</param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetLoginStateUrl(int accountId, string responseFields =  null)
+		{
+			var url = "/api/commerce/customer/accounts/{accountId}/loginstate?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "accountId", accountId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -49,42 +68,31 @@ namespace Mozu.Api.Urls.Commerce.Customer
         /// Get Resource Url for GetAccount
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account to retrieve.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetAccountUrl(int accountId)
+        public static MozuUrl GetAccountUrl(int accountId, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/{accountId}";
+			var url = "/api/commerce/customer/accounts/{accountId}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "accountId", accountId);
-			return mozuUrl;
-		}
-
-		/// <summary>
-        /// Get Resource Url for GetLoginState
-        /// </summary>
-        /// <param name="accountId"></param>
-        /// <returns>
-        /// String - Resource Url
-        /// </returns>
-        public static MozuUrl GetLoginStateUrl(int accountId)
-		{
-			var url = "/api/commerce/customer/accounts/{accountId}/loginstate";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "accountId", accountId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 				/// <summary>
         /// Get Resource Url for AddAccount
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl AddAccountUrl()
+        public static MozuUrl AddAccountUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/";
+			var url = "/api/commerce/customer/accounts/?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -106,22 +114,24 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for AddLoginToExistingCustomer
         /// </summary>
-        /// <param name="accountId"></param>
+        /// <param name="accountId">Unique identifier of the customer account.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl AddLoginToExistingCustomerUrl(int accountId)
+        public static MozuUrl AddLoginToExistingCustomerUrl(int accountId, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/{accountId}/Create-Login";
+			var url = "/api/commerce/customer/accounts/{accountId}/Create-Login?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "accountId", accountId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 		/// <summary>
         /// Get Resource Url for RecomputeCustomerLifetimeValue
         /// </summary>
-        /// <param name="accountId"></param>
+        /// <param name="accountId">The unique identifier of the customer account for which to calculate customer lifetime value.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -136,7 +146,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for SetLoginLocked
         /// </summary>
-        /// <param name="accountId"></param>
+        /// <param name="accountId">The unique identifier of the customer account.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -151,7 +161,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for SetPasswordChangeRequired
         /// </summary>
-        /// <param name="accountId"></param>
+        /// <param name="accountId">Unique identifier of the customer account.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -166,55 +176,63 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for AddAccountAndLogin
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl AddAccountAndLoginUrl()
+        public static MozuUrl AddAccountAndLoginUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/Add-Account-And-Login";
+			var url = "/api/commerce/customer/accounts/Add-Account-And-Login?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 		/// <summary>
         /// Get Resource Url for AddAccounts
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl AddAccountsUrl()
+        public static MozuUrl AddAccountsUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/Bulk";
+			var url = "/api/commerce/customer/accounts/Bulk?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 		/// <summary>
         /// Get Resource Url for GetLoginStateByEmailAddress
         /// </summary>
-        /// <param name="emailAddress"></param>
+        /// <param name="emailAddress">The email address associated with the customer account.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetLoginStateByEmailAddressUrl(string emailAddress)
+        public static MozuUrl GetLoginStateByEmailAddressUrl(string emailAddress, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/loginstatebyemailaddress?emailAddress={emailAddress}";
+			var url = "/api/commerce/customer/accounts/loginstatebyemailaddress?emailAddress={emailAddress}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "emailAddress", emailAddress);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 		/// <summary>
         /// Get Resource Url for GetLoginStateByUserName
         /// </summary>
-        /// <param name="userName"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="userName">The user name associated with the customer account.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetLoginStateByUserNameUrl(string userName)
+        public static MozuUrl GetLoginStateByUserNameUrl(string userName, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/loginstatebyusername?userName={userName}";
+			var url = "/api/commerce/customer/accounts/loginstatebyusername?userName={userName}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "userName", userName);
 			return mozuUrl;
 		}
@@ -236,14 +254,16 @@ namespace Mozu.Api.Urls.Commerce.Customer
         /// Get Resource Url for UpdateAccount
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateAccountUrl(int accountId)
+        public static MozuUrl UpdateAccountUrl(int accountId, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/{accountId}";
+			var url = "/api/commerce/customer/accounts/{accountId}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "accountId", accountId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

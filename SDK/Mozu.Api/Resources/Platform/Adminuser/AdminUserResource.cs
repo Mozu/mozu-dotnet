@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Platform.Adminuser
 {
@@ -24,6 +25,7 @@ namespace Mozu.Api.Resources.Platform.Adminuser
 		///
 		private readonly IApiContext _apiContext;
 
+		
 		public AdminUserResource() 
 		{
 			_apiContext = null;
@@ -32,8 +34,7 @@ namespace Mozu.Api.Resources.Platform.Adminuser
 		{
 			_apiContext = apiContext;
 		}
-
-		
+				
 		/// <summary>
 		/// Retrieves the details of the specified administrator user account.
 		/// </summary>
@@ -47,13 +48,24 @@ namespace Mozu.Api.Resources.Platform.Adminuser
 		///   var user = adminuser.GetUser( userId);
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.Core.User GetUser(string userId)
 		{
 			MozuClient<Mozu.Api.Contracts.Core.User> response;
 			var client = Mozu.Api.Clients.Platform.Adminuser.AdminUserClient.GetUserClient( userId);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.Core.User> GetUserAsync(string userId)
+		{
+			MozuClient<Mozu.Api.Contracts.Core.User> response;
+			var client = Mozu.Api.Clients.Platform.Adminuser.AdminUserClient.GetUserClient( userId);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -70,13 +82,24 @@ namespace Mozu.Api.Resources.Platform.Adminuser
 		///   var tenantCollection = adminuser.GetTenantScopesForUser( userId);
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.Tenant.TenantCollection GetTenantScopesForUser(string userId)
 		{
 			MozuClient<Mozu.Api.Contracts.Tenant.TenantCollection> response;
 			var client = Mozu.Api.Clients.Platform.Adminuser.AdminUserClient.GetTenantScopesForUserClient( userId);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.Tenant.TenantCollection> GetTenantScopesForUserAsync(string userId)
+		{
+			MozuClient<Mozu.Api.Contracts.Tenant.TenantCollection> response;
+			var client = Mozu.Api.Clients.Platform.Adminuser.AdminUserClient.GetTenantScopesForUserClient( userId);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 

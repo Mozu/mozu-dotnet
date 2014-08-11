@@ -36,15 +36,17 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes
         /// </summary>
         /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
         /// <param name="productTypeId">Identifier of the product type whose extra is being retrieved.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetExtraUrl(string attributeFQN, int productTypeId)
+        public static MozuUrl GetExtraUrl(int productTypeId, string attributeFQN, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras/{attributeFQN}";
+			var url = "/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras/{attributeFQN}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "attributeFQN", attributeFQN);
 			mozuUrl.FormatUrl( "productTypeId", productTypeId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -52,14 +54,16 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes
         /// Get Resource Url for AddExtra
         /// </summary>
         /// <param name="productTypeId">Identifier of the product type.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl AddExtraUrl(int productTypeId)
+        public static MozuUrl AddExtraUrl(int productTypeId, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras";
+			var url = "/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "productTypeId", productTypeId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -68,15 +72,17 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes
         /// </summary>
         /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
         /// <param name="productTypeId">Identifier of the product type.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateExtraUrl(string attributeFQN, int productTypeId)
+        public static MozuUrl UpdateExtraUrl(int productTypeId, string attributeFQN, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras/{attributeFQN}";
+			var url = "/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras/{attributeFQN}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "attributeFQN", attributeFQN);
 			mozuUrl.FormatUrl( "productTypeId", productTypeId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -88,7 +94,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl DeleteExtraUrl(string attributeFQN, int productTypeId)
+        public static MozuUrl DeleteExtraUrl(int productTypeId, string attributeFQN)
 		{
 			var url = "/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Extras/{attributeFQN}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;

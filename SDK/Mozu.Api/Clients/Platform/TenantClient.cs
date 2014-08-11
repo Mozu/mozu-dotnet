@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Platform
 {
@@ -23,19 +24,20 @@ namespace Mozu.Api.Clients.Platform
 		/// <summary>
 		/// Retrieve details about a specific tenant by providing the tenant ID.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="tenantId">Unique identifier of the Mozu tenant.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Tenant.Tenant"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetTenant( tenantId);
+		///   var mozuClient=GetTenant( tenantId,  responseFields);
 		///   var tenantClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Tenant.Tenant> GetTenantClient(int tenantId)
+		public static MozuClient<Mozu.Api.Contracts.Tenant.Tenant> GetTenantClient(int tenantId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Platform.TenantUrl.GetTenantUrl(tenantId);
+			var url = Mozu.Api.Urls.Platform.TenantUrl.GetTenantUrl(tenantId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Tenant.Tenant>()
 									.WithVerb(verb).WithResourceUrl(url)

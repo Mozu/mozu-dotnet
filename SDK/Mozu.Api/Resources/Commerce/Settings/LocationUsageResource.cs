@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Commerce.Settings
 {
@@ -24,12 +25,12 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		///
 		private readonly IApiContext _apiContext;
 
+		
 		public LocationUsageResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
 		}
-
-		
+				
 		/// <summary>
 		/// Retrieves the configured site location usages for the location usage code specified in the request.
 		/// </summary>
@@ -42,13 +43,24 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		///   var locationUsageCollection = locationusage.GetLocationUsages();
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.Location.LocationUsageCollection GetLocationUsages()
 		{
 			MozuClient<Mozu.Api.Contracts.Location.LocationUsageCollection> response;
 			var client = Mozu.Api.Clients.Commerce.Settings.LocationUsageClient.GetLocationUsagesClient();
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.Location.LocationUsageCollection> GetLocationUsagesAsync()
+		{
+			MozuClient<Mozu.Api.Contracts.Location.LocationUsageCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Settings.LocationUsageClient.GetLocationUsagesClient();
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -65,13 +77,24 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		///   var locationUsage = locationusage.GetLocationUsage( code);
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.Location.LocationUsage GetLocationUsage(string code)
 		{
 			MozuClient<Mozu.Api.Contracts.Location.LocationUsage> response;
 			var client = Mozu.Api.Clients.Commerce.Settings.LocationUsageClient.GetLocationUsageClient( code);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.Location.LocationUsage> GetLocationUsageAsync(string code)
+		{
+			MozuClient<Mozu.Api.Contracts.Location.LocationUsage> response;
+			var client = Mozu.Api.Clients.Commerce.Settings.LocationUsageClient.GetLocationUsageClient( code);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -89,13 +112,24 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		///   var locationUsage = locationusage.UpdateLocationUsage( usage,  code);
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.Location.LocationUsage UpdateLocationUsage(Mozu.Api.Contracts.Location.LocationUsage usage, string code)
 		{
 			MozuClient<Mozu.Api.Contracts.Location.LocationUsage> response;
 			var client = Mozu.Api.Clients.Commerce.Settings.LocationUsageClient.UpdateLocationUsageClient( usage,  code);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.Location.LocationUsage> UpdateLocationUsageAsync(Mozu.Api.Contracts.Location.LocationUsage usage, string code)
+		{
+			MozuClient<Mozu.Api.Contracts.Location.LocationUsage> response;
+			var client = Mozu.Api.Clients.Commerce.Settings.LocationUsageClient.UpdateLocationUsageClient( usage,  code);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 

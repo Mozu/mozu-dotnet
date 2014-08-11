@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Content
 {
@@ -23,38 +24,22 @@ namespace Mozu.Api.Clients.Content
 		/// <summary>
 		/// Retrieves a list of the documents currently in draft state, according to any defined filter and sort criteria.
 		/// </summary>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=ListDocumentDraftSummaries(dataViewMode);
-		///   var documentDraftSummaryPagedCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection> ListDocumentDraftSummariesClient(DataViewMode dataViewMode)
-		{
-			return ListDocumentDraftSummariesClient(dataViewMode,  null,  null,  null);
-		}
-
-		/// <summary>
-		/// Retrieves a list of the documents currently in draft state, according to any defined filter and sort criteria.
-		/// </summary>
 		/// <param name="documentLists">Lists that contain the document drafts.</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=ListDocumentDraftSummaries(dataViewMode,  pageSize,  startIndex,  documentLists);
+		///   var mozuClient=ListDocumentDraftSummaries(dataViewMode,  pageSize,  startIndex,  documentLists,  responseFields);
 		///   var documentDraftSummaryPagedCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection> ListDocumentDraftSummariesClient(DataViewMode dataViewMode, int? pageSize =  null, int? startIndex =  null, string documentLists =  null)
+		public static MozuClient<Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection> ListDocumentDraftSummariesClient(DataViewMode dataViewMode, int? pageSize =  null, int? startIndex =  null, string documentLists =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Content.DocumentDraftSummaryUrl.ListDocumentDraftSummariesUrl(documentLists, pageSize, startIndex);
+			var url = Mozu.Api.Urls.Content.DocumentDraftSummaryUrl.ListDocumentDraftSummariesUrl(pageSize, startIndex, documentLists, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -67,24 +52,6 @@ namespace Mozu.Api.Clients.Content
 		/// <summary>
 		/// Deletes the drafts of the specified documents. Published documents cannot be deleted.
 		/// </summary>
-		/// <param name="documentIds">Unique identifiers of the documents to delete.</param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=DeleteDocumentDrafts(dataViewMode,  documentIds);
-		///mozuClient.WithBaseAddress(url).Execute();
-		/// </code>
-		/// </example>
-		public static MozuClient DeleteDocumentDraftsClient(DataViewMode dataViewMode, List<string> documentIds)
-		{
-			return DeleteDocumentDraftsClient(dataViewMode,  documentIds,  null);
-		}
-
-		/// <summary>
-		/// Deletes the drafts of the specified documents. Published documents cannot be deleted.
-		/// </summary>
 		/// <param name="documentLists">List of document lists that contain documents to delete.</param>
 		/// <param name="documentIds">Unique identifiers of the documents to delete.</param>
 		/// <returns>
@@ -92,38 +59,19 @@ namespace Mozu.Api.Clients.Content
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=DeleteDocumentDrafts(dataViewMode,  documentIds,  documentLists);
+		///   var mozuClient=DeleteDocumentDrafts( documentIds,  documentLists);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteDocumentDraftsClient(DataViewMode dataViewMode, List<string> documentIds, string documentLists =  null)
+		public static MozuClient DeleteDocumentDraftsClient(List<string> documentIds, string documentLists =  null)
 		{
 			var url = Mozu.Api.Urls.Content.DocumentDraftSummaryUrl.DeleteDocumentDraftsUrl(documentLists);
 			const string verb = "POST";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody(documentIds)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
-;
+									.WithBody(documentIds);
 			return mozuClient;
 
-		}
-
-		/// <summary>
-		/// Publish one or more document drafts to live content on the site.
-		/// </summary>
-		/// <param name="documentIds">List of unique identifiers of the document drafts to publish.</param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=PublishDocuments(dataViewMode,  documentIds);
-		///mozuClient.WithBaseAddress(url).Execute();
-		/// </code>
-		/// </example>
-		public static MozuClient PublishDocumentsClient(DataViewMode dataViewMode, List<string> documentIds)
-		{
-			return PublishDocumentsClient(dataViewMode,  documentIds,  null);
 		}
 
 		/// <summary>
@@ -136,18 +84,17 @@ namespace Mozu.Api.Clients.Content
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=PublishDocuments(dataViewMode,  documentIds,  documentLists);
+		///   var mozuClient=PublishDocuments( documentIds,  documentLists);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient PublishDocumentsClient(DataViewMode dataViewMode, List<string> documentIds, string documentLists =  null)
+		public static MozuClient PublishDocumentsClient(List<string> documentIds, string documentLists =  null)
 		{
 			var url = Mozu.Api.Urls.Content.DocumentDraftSummaryUrl.PublishDocumentsUrl(documentLists);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody(documentIds)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
-;
+									.WithBody(documentIds);
 			return mozuClient;
 
 		}

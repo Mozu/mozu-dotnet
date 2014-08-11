@@ -19,13 +19,15 @@ namespace Mozu.Api.Urls.Commerce.Carts
 		/// <summary>
         /// Get Resource Url for GetMessages
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetMessagesUrl()
+        public static MozuUrl GetMessagesUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/carts/current/messages";
+			var url = "/api/commerce/carts/current/messages?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

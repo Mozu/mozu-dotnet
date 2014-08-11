@@ -19,13 +19,15 @@ namespace Mozu.Api.Urls.Commerce.Customer
 				/// <summary>
         /// Get Resource Url for ValidateAddress
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl ValidateAddressUrl()
+        public static MozuUrl ValidateAddressUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/addressvalidation/";
+			var url = "/api/commerce/customer/addressvalidation/?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

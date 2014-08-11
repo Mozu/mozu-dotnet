@@ -10,6 +10,7 @@
 
 using System;
 
+
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
@@ -18,7 +19,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		public class AttributeValidation
 		{
 			///
-			/// System-supplied and read-only.
+			///System-supplied and read-only.
 			///
 			public DateTime? MaxDateValue { get; set; }
 
@@ -33,7 +34,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public int? MaxStringLength { get; set; }
 
 			///
-			/// System-supplied and read-only.
+			///System-supplied and read-only.
 			///
 			public DateTime? MinDateValue { get; set; }
 

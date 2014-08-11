@@ -21,15 +21,17 @@ namespace Mozu.Api.Urls.Commerce.Carts
         /// </summary>
         /// <param name="cartId"></param>
         /// <param name="couponCode"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl ApplyCouponUrl(string cartId, string couponCode)
+        public static MozuUrl ApplyCouponUrl(string cartId, string couponCode, string responseFields =  null)
 		{
-			var url = "/api/commerce/carts/{cartId}/coupons/{couponCode}";
+			var url = "/api/commerce/carts/{cartId}/coupons/{couponCode}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "cartId", cartId);
 			mozuUrl.FormatUrl( "couponCode", couponCode);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

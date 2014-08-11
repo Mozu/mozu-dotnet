@@ -11,12 +11,13 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Commerce.Settings
 {
 	/// <summary>
-	/// Specify sitewide settings to determine how checkout and order processing behaves. This service includes payment settings, customer checkout settings, and order processing settings.
+	/// Use the Checkout Settings resource to specify the site-wide settings that define checkout and order processing behavior. This resource includes subresources for payment settings, customer checkout settings, and order processing settings.
 	/// </summary>
 	public partial class CheckoutSettingsResource  	{
 		///
@@ -24,12 +25,12 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		///
 		private readonly IApiContext _apiContext;
 
+		
 		public CheckoutSettingsResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
 		}
-
-		
+				
 		/// <summary>
 		/// Retrieves all checkout settings defined for the site including payment settings (payment gateway ID and credentials), shopper checkout settings (login requirement or guest mode and custom attributes), and order processing settings (when payment is authorized and captured plus any custom attributes).
 		/// </summary>
@@ -42,13 +43,24 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		///   var checkoutSettings = checkoutsettings.GetCheckoutSettings();
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.SiteSettings.Order.CheckoutSettings GetCheckoutSettings()
 		{
 			MozuClient<Mozu.Api.Contracts.SiteSettings.Order.CheckoutSettings> response;
 			var client = Mozu.Api.Clients.Commerce.Settings.CheckoutSettingsClient.GetCheckoutSettingsClient();
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Order.CheckoutSettings> GetCheckoutSettingsAsync()
+		{
+			MozuClient<Mozu.Api.Contracts.SiteSettings.Order.CheckoutSettings> response;
+			var client = Mozu.Api.Clients.Commerce.Settings.CheckoutSettingsClient.GetCheckoutSettingsClient();
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 

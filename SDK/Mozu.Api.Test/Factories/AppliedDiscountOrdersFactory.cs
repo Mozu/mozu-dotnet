@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -32,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Apply a coupon to the order.
 		/// <example> 
 		///  <code> 
-		/// var result = AppliedDiscountFactory.ApplyCoupon(handler : handler,  orderId :  orderId,  couponCode :  couponCode,  updateMode :  updateMode,  version :  version,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = AppliedDiscountFactory.ApplyCoupon(handler : handler,  orderId :  orderId,  couponCode :  couponCode,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Order/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order ApplyCoupon(ServiceClientMessageHandler handler, 
- 		 string orderId, string couponCode, string updateMode = null, string version = null, 
+ 		 string orderId, string couponCode, string updateMode = null, string version = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -47,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Orders.AppliedDiscountClient.ApplyCouponClient(
-				 orderId :  orderId,  couponCode :  couponCode,  updateMode :  updateMode,  version :  version		);
+				 orderId :  orderId,  couponCode :  couponCode,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

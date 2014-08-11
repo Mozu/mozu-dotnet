@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 
+
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
@@ -24,7 +25,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string VariationProductCode { get; set; }
 
 			///
-			///List of product options and values currently selected.
+			///List of option attributes associated with the product and the associated values currently defined for this product configuration.
 			///
 			public List<ProductOptionSelection> Options { get; set; }
 

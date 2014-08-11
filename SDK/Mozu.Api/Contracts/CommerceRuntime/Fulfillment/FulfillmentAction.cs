@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 
+
 namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 {
 		///
@@ -22,6 +23,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			///The name of the fulfillment action to perform, which is "Ship" or "PickUp".
 			///
 			public string ActionName { get; set; }
+
+			public List<string> DigitalPackageIds { get; set; }
 
 			///
 			///Array list of packages for which to perform the fulfillment action.

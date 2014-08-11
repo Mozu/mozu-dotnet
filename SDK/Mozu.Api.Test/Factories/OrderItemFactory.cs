@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -32,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves the details of a single order item.
 		/// <example> 
 		///  <code> 
-		/// var result = OrderItemFactory.GetOrderItem(handler : handler,  orderId :  orderId,  orderItemId :  orderItemId,  draft :  draft,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = OrderItemFactory.GetOrderItem(handler : handler,  orderId :  orderId,  orderItemId :  orderItemId,  draft :  draft,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<OrderItem/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem GetOrderItem(ServiceClientMessageHandler handler, 
- 		 string orderId, string orderItemId, bool? draft = null, 
+ 		 string orderId, string orderItemId, bool? draft = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -47,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Orders.OrderItemClient.GetOrderItemClient(
-				 orderId :  orderId,  orderItemId :  orderItemId,  draft :  draft		);
+				 orderId :  orderId,  orderItemId :  orderItemId,  draft :  draft,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -70,14 +71,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves the details of all items in an order.
 		/// <example> 
 		///  <code> 
-		/// var result = OrderItemFactory.GetOrderItems(handler : handler,  orderId :  orderId,  draft :  draft,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = OrderItemFactory.GetOrderItems(handler : handler,  orderId :  orderId,  draft :  draft,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<OrderItemCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItemCollection GetOrderItems(ServiceClientMessageHandler handler, 
- 		 string orderId, bool? draft = null, 
+ 		 string orderId, bool? draft = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -85,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Orders.OrderItemClient.GetOrderItemsClient(
-				 orderId :  orderId,  draft :  draft		);
+				 orderId :  orderId,  draft :  draft,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -105,17 +106,17 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Adds a new item to an existing order.
+		/// Adds a new item to a defined order.
 		/// <example> 
 		///  <code> 
-		/// var result = OrderItemFactory.CreateOrderItem(handler : handler,  orderItem :  orderItem,  orderId :  orderId,  updateMode :  updateMode,  version :  version,  skipInventoryCheck :  skipInventoryCheck,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = OrderItemFactory.CreateOrderItem(handler : handler,  orderItem :  orderItem,  orderId :  orderId,  updateMode :  updateMode,  version :  version,  skipInventoryCheck :  skipInventoryCheck,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Order/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order CreateOrderItem(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem orderItem, string orderId, string updateMode = null, string version = null, bool? skipInventoryCheck = null, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem orderItem, string orderId, string updateMode = null, string version = null, bool? skipInventoryCheck = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -123,7 +124,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Orders.OrderItemClient.CreateOrderItemClient(
-				 orderItem :  orderItem,  orderId :  orderId,  updateMode :  updateMode,  version :  version,  skipInventoryCheck :  skipInventoryCheck		);
+				 orderItem :  orderItem,  orderId :  orderId,  updateMode :  updateMode,  version :  version,  skipInventoryCheck :  skipInventoryCheck,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -146,14 +147,14 @@ namespace Mozu.Api.Test.Factories
 		/// Update the discount applied to an item in an order.
 		/// <example> 
 		///  <code> 
-		/// var result = OrderItemFactory.UpdateOrderItemDiscount(handler : handler,  discount :  discount,  orderId :  orderId,  orderItemId :  orderItemId,  discountId :  discountId,  updateMode :  updateMode,  version :  version,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = OrderItemFactory.UpdateOrderItemDiscount(handler : handler,  discount :  discount,  orderId :  orderId,  orderItemId :  orderItemId,  discountId :  discountId,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Order/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order UpdateOrderItemDiscount(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.CommerceRuntime.Discounts.AppliedDiscount discount, string orderId, string orderItemId, int discountId, string updateMode = null, string version = null, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Discounts.AppliedDiscount discount, string orderId, string orderItemId, int discountId, string updateMode = null, string version = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -161,7 +162,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Orders.OrderItemClient.UpdateOrderItemDiscountClient(
-				 discount :  discount,  orderId :  orderId,  orderItemId :  orderItemId,  discountId :  discountId,  updateMode :  updateMode,  version :  version		);
+				 discount :  discount,  orderId :  orderId,  orderItemId :  orderItemId,  discountId :  discountId,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -181,17 +182,17 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Updates the item fulfillment information for the order specified in the request.
 		/// <example> 
 		///  <code> 
-		/// var result = OrderItemFactory.UpdateItemFulfillment(handler : handler,  orderItem :  orderItem,  orderId :  orderId,  orderItemId :  orderItemId,  updateMode :  updateMode,  version :  version,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = OrderItemFactory.UpdateItemFulfillment(handler : handler,  orderItem :  orderItem,  orderId :  orderId,  orderItemId :  orderItemId,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Order/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order UpdateItemFulfillment(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem orderItem, string orderId, string orderItemId, string updateMode = null, string version = null, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem orderItem, string orderId, string orderItemId, string updateMode = null, string version = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -199,7 +200,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Orders.OrderItemClient.UpdateItemFulfillmentClient(
-				 orderItem :  orderItem,  orderId :  orderId,  orderItemId :  orderItemId,  updateMode :  updateMode,  version :  version		);
+				 orderItem :  orderItem,  orderId :  orderId,  orderItemId :  orderItemId,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -222,14 +223,14 @@ namespace Mozu.Api.Test.Factories
 		/// Override the price of an individual product on a line item in the specified order.
 		/// <example> 
 		///  <code> 
-		/// var result = OrderItemFactory.UpdateItemProductPrice(handler : handler,  orderId :  orderId,  orderItemId :  orderItemId,  price :  price,  updateMode :  updateMode,  version :  version,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = OrderItemFactory.UpdateItemProductPrice(handler : handler,  orderId :  orderId,  orderItemId :  orderItemId,  price :  price,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Order/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order UpdateItemProductPrice(ServiceClientMessageHandler handler, 
- 		 string orderId, string orderItemId, decimal price, string updateMode = null, string version = null, 
+ 		 string orderId, string orderItemId, decimal price, string updateMode = null, string version = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -237,7 +238,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Orders.OrderItemClient.UpdateItemProductPriceClient(
-				 orderId :  orderId,  orderItemId :  orderItemId,  price :  price,  updateMode :  updateMode,  version :  version		);
+				 orderId :  orderId,  orderItemId :  orderItemId,  price :  price,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -260,14 +261,14 @@ namespace Mozu.Api.Test.Factories
 		/// Update the quantity of an item in an order.
 		/// <example> 
 		///  <code> 
-		/// var result = OrderItemFactory.UpdateItemQuantity(handler : handler,  orderId :  orderId,  orderItemId :  orderItemId,  quantity :  quantity,  updateMode :  updateMode,  version :  version,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = OrderItemFactory.UpdateItemQuantity(handler : handler,  orderId :  orderId,  orderItemId :  orderItemId,  quantity :  quantity,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Order/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order UpdateItemQuantity(ServiceClientMessageHandler handler, 
- 		 string orderId, string orderItemId, int quantity, string updateMode = null, string version = null, 
+ 		 string orderId, string orderItemId, int quantity, string updateMode = null, string version = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -275,7 +276,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Orders.OrderItemClient.UpdateItemQuantityClient(
-				 orderId :  orderId,  orderItemId :  orderItemId,  quantity :  quantity,  updateMode :  updateMode,  version :  version		);
+				 orderId :  orderId,  orderItemId :  orderItemId,  quantity :  quantity,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -295,7 +296,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Removes a previously added item from an existing order.
+		/// Removes a previously added item from a defined order.
 		/// <example> 
 		///  <code> 
 		/// var result = OrderItemFactory.DeleteOrderItem(handler : handler,  orderId :  orderId,  orderItemId :  orderItemId,  updateMode :  updateMode,  version :  version,  expectedCode: expectedCode, successCode: successCode); 

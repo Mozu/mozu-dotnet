@@ -10,6 +10,7 @@
 
 using System;
 
+
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
@@ -26,6 +27,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///Name of the shipping method service type associated with the targeted discount.
 			///
 			public string Name { get; set; }
+
+			public string Zone { get; set; }
 
 		}
 

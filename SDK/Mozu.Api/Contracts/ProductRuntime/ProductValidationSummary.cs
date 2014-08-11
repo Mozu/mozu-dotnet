@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 
+
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
@@ -20,6 +21,11 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		{
 			public List<string> FulfillmentTypesSupported { get; set; }
 
+			public string GoodsType { get; set; }
+
+			///
+			///If true, this product should not be packaged with other items and should ship by itself.
+			///
 			public bool? IsPackagedStandAlone { get; set; }
 
 			///
@@ -44,6 +50,11 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public string ProductShortDescription { get; set; }
 
+			public string ProductType { get; set; }
+
+			///
+			///The usage type of this product, which is Standard (a single product without configurable options), Configurable (a product that includes configurable option attributes), Bundle (a collection of products sold as a single entity), or Component (an invididual product that represents a component in a bundle).
+			///
 			public string ProductUsage { get; set; }
 
 			public string Upc { get; set; }
@@ -53,6 +64,9 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public string VariationProductCode { get; set; }
 
+			///
+			///Properties of a collection of component products that make up a single product bundle with its own product code.
+			///
 			public List<BundledProductSummary> BundledProducts { get; set; }
 
 			///

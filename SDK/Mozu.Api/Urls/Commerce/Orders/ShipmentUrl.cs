@@ -20,15 +20,17 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// Get Resource Url for GetShipment
         /// </summary>
         /// <param name="orderId">Unique identifier of the order associated with the shipment to retrieve.</param>
+        /// <param name="responseFields"></param>
         /// <param name="shipmentId">Unique identifier of the shipment to retrieve.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetShipmentUrl(string orderId, string shipmentId)
+        public static MozuUrl GetShipmentUrl(string orderId, string shipmentId, string responseFields =  null)
 		{
-			var url = "/api/commerce/orders/{orderId}/shipments/{shipmentId}";
+			var url = "/api/commerce/orders/{orderId}/shipments/{shipmentId}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "orderId", orderId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "shipmentId", shipmentId);
 			return mozuUrl;
 		}

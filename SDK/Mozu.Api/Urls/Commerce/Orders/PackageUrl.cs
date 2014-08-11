@@ -17,23 +17,6 @@ namespace Mozu.Api.Urls.Commerce.Orders
 	{
 
 		/// <summary>
-        /// Get Resource Url for GetPackage
-        /// </summary>
-        /// <param name="orderId">Unique identifier of the order associated with the package to retrieve.</param>
-        /// <param name="packageId">Unique identifier of the package to retrieve.</param>
-        /// <returns>
-        /// String - Resource Url
-        /// </returns>
-        public static MozuUrl GetPackageUrl(string orderId, string packageId)
-		{
-			var url = "/api/commerce/orders/{orderId}/packages/{packageId}";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "orderId", orderId);
-			mozuUrl.FormatUrl( "packageId", packageId);
-			return mozuUrl;
-		}
-
-		/// <summary>
         /// Get Resource Url for GetAvailablePackageFulfillmentActions
         /// </summary>
         /// <param name="orderId">Unique identifier of the order associated with the package fulfillment.</param>
@@ -67,18 +50,39 @@ namespace Mozu.Api.Urls.Commerce.Orders
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for GetPackage
+        /// </summary>
+        /// <param name="orderId">Unique identifier of the order associated with the package to retrieve.</param>
+        /// <param name="packageId">Unique identifier of the package to retrieve.</param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetPackageUrl(string orderId, string packageId, string responseFields =  null)
+		{
+			var url = "/api/commerce/orders/{orderId}/packages/{packageId}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "orderId", orderId);
+			mozuUrl.FormatUrl( "packageId", packageId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for CreatePackage
         /// </summary>
         /// <param name="orderId">Unique identifier of the order associated with this package.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl CreatePackageUrl(string orderId)
+        public static MozuUrl CreatePackageUrl(string orderId, string responseFields =  null)
 		{
-			var url = "/api/commerce/orders/{orderId}/packages";
+			var url = "/api/commerce/orders/{orderId}/packages?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "orderId", orderId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -87,15 +91,17 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// </summary>
         /// <param name="orderId">Unique identifier of the order associated with the package to update.</param>
         /// <param name="packageId">Unique identifier of the package of order items to update.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdatePackageUrl(string orderId, string packageId)
+        public static MozuUrl UpdatePackageUrl(string orderId, string packageId, string responseFields =  null)
 		{
-			var url = "/api/commerce/orders/{orderId}/packages/{packageId}";
+			var url = "/api/commerce/orders/{orderId}/packages/{packageId}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "orderId", orderId);
 			mozuUrl.FormatUrl( "packageId", packageId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

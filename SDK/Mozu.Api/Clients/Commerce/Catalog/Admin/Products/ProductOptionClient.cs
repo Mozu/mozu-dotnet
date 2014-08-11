@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 {
@@ -50,18 +51,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductOption"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetOption(dataViewMode,  productCode,  attributeFQN);
+		///   var mozuClient=GetOption(dataViewMode,  productCode,  attributeFQN,  responseFields);
 		///   var productOptionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductOption> GetOptionClient(DataViewMode dataViewMode, string productCode, string attributeFQN)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductOption> GetOptionClient(DataViewMode dataViewMode, string productCode, string attributeFQN, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductOptionUrl.GetOptionUrl(attributeFQN, productCode);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductOptionUrl.GetOptionUrl(productCode, attributeFQN, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductOption>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -75,24 +77,24 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// Configures an option attribute for the product specified in the request.
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="productOption">Properties of the option attribute to define for the product.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductOption"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddOption(dataViewMode,  productOption,  productCode);
+		///   var mozuClient=AddOption( productOption,  productCode,  responseFields);
 		///   var productOptionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductOption> AddOptionClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.ProductOption productOption, string productCode)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductOption> AddOptionClient(Mozu.Api.Contracts.ProductAdmin.ProductOption productOption, string productCode, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductOptionUrl.AddOptionUrl(productCode);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductOptionUrl.AddOptionUrl(productCode, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductOption>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductOption>(productOption)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
-;
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductOption>(productOption);
 			return mozuClient;
 
 		}
@@ -102,24 +104,24 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="productOption">Properties of the product option attribute configuration to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductOption"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateOption(dataViewMode,  productOption,  productCode,  attributeFQN);
+		///   var mozuClient=UpdateOption( productOption,  productCode,  attributeFQN,  responseFields);
 		///   var productOptionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductOption> UpdateOptionClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.ProductOption productOption, string productCode, string attributeFQN)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductOption> UpdateOptionClient(Mozu.Api.Contracts.ProductAdmin.ProductOption productOption, string productCode, string attributeFQN, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductOptionUrl.UpdateOptionUrl(attributeFQN, productCode);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductOptionUrl.UpdateOptionUrl(productCode, attributeFQN, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductOption>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductOption>(productOption)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
-;
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductOption>(productOption);
 			return mozuClient;
 
 		}
@@ -134,17 +136,16 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=DeleteOption(dataViewMode,  productCode,  attributeFQN);
+		///   var mozuClient=DeleteOption( productCode,  attributeFQN);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteOptionClient(DataViewMode dataViewMode, string productCode, string attributeFQN)
+		public static MozuClient DeleteOptionClient(string productCode, string attributeFQN)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductOptionUrl.DeleteOptionUrl(attributeFQN, productCode);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductOptionUrl.DeleteOptionUrl(productCode, attributeFQN);
 			const string verb = "DELETE";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 

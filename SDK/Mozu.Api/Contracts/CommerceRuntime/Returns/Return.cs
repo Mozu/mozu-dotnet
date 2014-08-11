@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+
 using Mozu.Api.Contracts.Core;
 using Mozu.Api.Contracts.CommerceRuntime.Commerce;
 using Mozu.Api.Contracts.CommerceRuntime.Orders;
@@ -24,9 +25,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 		public class Return
 		{
 			///
-			///Unique identifier of the Mozu tenant.
+			///The total value of the return to the merchant for accounting purposes. This total represents the combined product loss and shipping loss associated with the return.
 			///
-			public int? TenantId { get; set; }
+			public decimal? LossTotal { get; set; }
 
 			///
 			///The actions a user can perform for the return at this time.
@@ -62,11 +63,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///The code that uniquely identifies the location where items were returned.
 			///
 			public string LocationCode { get; set; }
-
-			///
-			///The total value of the return to the merchant for accounting purposes. This total represents the combined product loss and shipping loss associated with the return.
-			///
-			public decimal? LossTotal { get; set; }
 
 			///
 			///If this return is associated with a previously completed order, the unique identifier of the original order.
@@ -127,6 +123,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///Current status of the return, such as "ReturnAuthorized".
 			///
 			public string Status { get; set; }
+
+			///
+			///Unique identifier of the Mozu tenant.
+			///
+			public int? TenantId { get; set; }
 
 			///
 			///Unique identifier of the user responsible for the return. Read only and supplied by the original order.

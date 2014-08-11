@@ -17,13 +17,14 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the applications subresource to update site settings for installed applications.
+	/// Use the Applications resource to update site-specific settings for installed applications.
 	/// </summary>
 	public partial class ApplicationSettingsFactory : BaseDataFactory
 	{

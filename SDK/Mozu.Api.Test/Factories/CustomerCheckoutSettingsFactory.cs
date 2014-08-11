@@ -17,13 +17,14 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Settings for the checkout login. Choose whether or not shoppers must first login before a purchase can be processed. Choose the option for guests to purchase without logging in, prompt guests to login, or require them to login before a purchase can be completed.
+	/// Use the Customer Checkout Settings resource to define login settings that apply when shoppers proceed to checkout.
 	/// </summary>
 	public partial class CustomerCheckoutSettingsFactory : BaseDataFactory
 	{
@@ -46,7 +47,7 @@ namespace Mozu.Api.Test.Factories
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Settings.Checkout.CustomerCheckoutSettings.CustomerCheckoutSettingsClient.GetCustomerCheckoutSettingsClient(
+			var apiClient = Mozu.Api.Clients.Commerce.Settings.Checkout.CustomerCheckoutSettingsClient.GetCustomerCheckoutSettingsClient(
 						);
 			try
 			{
@@ -84,7 +85,7 @@ namespace Mozu.Api.Test.Factories
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Settings.Checkout.CustomerCheckoutSettings.CustomerCheckoutSettingsClient.UpdateCustomerCheckoutSettingsClient(
+			var apiClient = Mozu.Api.Clients.Commerce.Settings.Checkout.CustomerCheckoutSettingsClient.UpdateCustomerCheckoutSettingsClient(
 				 customerCheckoutSettings :  customerCheckoutSettings		);
 			try
 			{

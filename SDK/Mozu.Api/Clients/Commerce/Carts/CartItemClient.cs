@@ -11,30 +11,57 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Carts
 {
 	/// <summary>
-	/// Use the cart items subresource to manage a collection of items in an active shopping cart.
+	/// Use the Cart Items subresource to manage a collection of items in an active shopping cart.
 	/// </summary>
 	public partial class CartItemClient 	{
 		
 		/// <summary>
+		/// Retrieves a particular cart item by providing the cart item ID.
+		/// </summary>
+		/// <param name="cartItemId">Identifier of the cart item to retrieve.</param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetCartItem( cartItemId,  responseFields);
+		///   var cartItemClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> GetCartItemClient(string cartItemId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Carts.CartItemUrl.GetCartItemUrl(cartItemId, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Retrieves a list of cart items including the total number of items in the cart.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItemCollection"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetCartItems();
+		///   var mozuClient=GetCartItems( responseFields);
 		///   var cartItemCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItemCollection> GetCartItemsClient()
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItemCollection> GetCartItemsClient(string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Carts.CartItemUrl.GetCartItemsUrl();
+			var url = Mozu.Api.Urls.Commerce.Carts.CartItemUrl.GetCartItemsUrl(responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItemCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -44,71 +71,23 @@ namespace Mozu.Api.Clients.Commerce.Carts
 		}
 
 		/// <summary>
-		/// Retrieves a particular cart item by providing the cart item ID.
-		/// </summary>
-		/// <param name="cartItemId">Identifier of the cart item to retrieve.</param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetCartItem( cartItemId);
-		///   var cartItemClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> GetCartItemClient(string cartItemId)
-		{
-			var url = Mozu.Api.Urls.Commerce.Carts.CartItemUrl.GetCartItemUrl(cartItemId);
-			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem>()
-									.WithVerb(verb).WithResourceUrl(url)
-;
-			return mozuClient;
-
-		}
-
-		/// <summary>
 		/// Adds a product to the current shopper's cart.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="cartItem">All properties of the new cart item. The product code is required.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddItemToCart( cartItem);
+		///   var mozuClient=AddItemToCart( cartItem,  responseFields);
 		///   var cartItemClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> AddItemToCartClient(Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem cartItem)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> AddItemToCartClient(Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem cartItem, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Carts.CartItemUrl.AddItemToCartUrl();
+			var url = Mozu.Api.Urls.Commerce.Carts.CartItemUrl.AddItemToCartUrl(responseFields);
 			const string verb = "POST";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem>()
-									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem>(cartItem);
-			return mozuClient;
-
-		}
-
-		/// <summary>
-		/// Update the product or product quantity of an item in the current shopper's cart.
-		/// </summary>
-		/// <param name="cartItemId">Identifier of the cart item to update.</param>
-		/// <param name="cartItem">The properties of the cart item to update.</param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=UpdateCartItem( cartItem,  cartItemId);
-		///   var cartItemClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> UpdateCartItemClient(Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem cartItem, string cartItemId)
-		{
-			var url = Mozu.Api.Urls.Commerce.Carts.CartItemUrl.UpdateCartItemUrl(cartItemId);
-			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem>(cartItem);
@@ -121,22 +100,49 @@ namespace Mozu.Api.Clients.Commerce.Carts
 		/// </summary>
 		/// <param name="cartItemId">Identifier of the cart item to update quantity.</param>
 		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateCartItemQuantity( cartItemId,  quantity);
+		///   var mozuClient=UpdateCartItemQuantity( cartItemId,  quantity,  responseFields);
 		///   var cartItemClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> UpdateCartItemQuantityClient(string cartItemId, int quantity)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> UpdateCartItemQuantityClient(string cartItemId, int quantity, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Carts.CartItemUrl.UpdateCartItemQuantityUrl(cartItemId, quantity);
+			var url = Mozu.Api.Urls.Commerce.Carts.CartItemUrl.UpdateCartItemQuantityUrl(cartItemId, quantity, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// Update the product or product quantity of an item in the current shopper's cart.
+		/// </summary>
+		/// <param name="cartItemId">Identifier of the cart item to update.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="cartItem">The properties of the cart item to update.</param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=UpdateCartItem( cartItem,  cartItemId,  responseFields);
+		///   var cartItemClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> UpdateCartItemClient(Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem cartItem, string cartItemId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Carts.CartItemUrl.UpdateCartItemUrl(cartItemId, responseFields);
+			const string verb = "PUT";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem>(cartItem);
 			return mozuClient;
 
 		}

@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
+
 
 namespace Mozu.Api.Contracts.Content
 {
@@ -18,25 +18,11 @@ namespace Mozu.Api.Contracts.Content
 		///
 		public class PropertyType
 		{
-			///
-			///Description of the content property type.
-			///
-			public string Description { get; set; }
+			public string AdminName { get; set; }
 
-			///
-			///The display name of the content property type.
-			///
-			public string DisplayName { get; set; }
+			public string DataType { get; set; }
 
-			///
-			///The template display details of the property type.
-			///
-			public string DisplayTemplate { get; set; }
-
-			///
-			///The template edit details of the property type.
-			///
-			public string EditTemplate { get; set; }
+			public string InstallationPackage { get; set; }
 
 			///
 			///If true, this entity can be grouped.
@@ -44,19 +30,9 @@ namespace Mozu.Api.Contracts.Content
 			public bool? IsAggregatable { get; set; }
 
 			///
-			///If true, the property type has several values. If false, the property type can only have one value.
-			///
-			public bool? IsMultiValued { get; set; }
-
-			///
 			///If true, the entity can be searched. If false, the entity cannot be searched.
 			///
 			public bool? IsQueryable { get; set; }
-
-			///
-			///If true, the entity is required for the request to return a valid response.
-			///
-			public bool IsRequired { get; set; }
 
 			///
 			///If true, the property type results are sortable. If false, the property type results cannot be sorted by any options.
@@ -68,25 +44,11 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public string Name { get; set; }
 
-			///
-			///Regular expression used for data validation.
-			///
-			public string Regex { get; set; }
+			public string Namespace { get; set; }
 
-			///
-			///List of content entity descriptions localized to the site or site group's default language.
-			///
-			public List<LocalizedString> LocalizedDescriptions { get; set; }
+			public string PropertyTypeFQN { get; set; }
 
-			///
-			///List of content entity display names localized to the site or site group's default language.
-			///
-			public List<LocalizedString> LocalizedDisplayNames { get; set; }
-
-			///
-			///Wrapper for property value type.
-			///
-			public PropertyValueType PropertyValueType { get; set; }
+			public string Version { get; set; }
 
 		}
 

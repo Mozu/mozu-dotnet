@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -28,44 +29,6 @@ namespace Mozu.Api.Test.Factories
 	public partial class PickupFactory : BaseDataFactory
 	{
 
-		/// <summary> 
-		/// Retrieves the details of the in-store pickup specified in the request.
-		/// <example> 
-		///  <code> 
-		/// var result = PickupFactory.GetPickup(handler : handler,  orderId :  orderId,  pickupId :  pickupId,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Pickup/>(result); 
-		/// return optionalCasting;
-		///  </code> 
-		/// </example> 
-		/// </summary>
-		public static Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup GetPickup(ServiceClientMessageHandler handler, 
- 		 string orderId, string pickupId, 
-		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
-		{
-			SetSdKparameters();
-			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
-			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
-			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Orders.PickupClient.GetPickupClient(
-				 orderId :  orderId,  pickupId :  pickupId		);
-			try
-			{
-				apiClient.WithContext(handler.ApiContext).Execute();
-			}
-			catch (ApiException ex)
-			{
-				// Custom error handling for test cases can be placed here
-				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
-				if (customException != null)
-					throw customException;
-				return null;
-			}
-			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
-					 ? (apiClient.Result()) 
-					 : null;
-
-		}
-  
 		/// <summary> 
 		/// Retrieves a list of the actions available to perform for the pickup specified in the request.
 		/// <example> 
@@ -105,17 +68,55 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
+		/// Retrieves the details of the in-store pickup specified in the request.
+		/// <example> 
+		///  <code> 
+		/// var result = PickupFactory.GetPickup(handler : handler,  orderId :  orderId,  pickupId :  pickupId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Pickup/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup GetPickup(ServiceClientMessageHandler handler, 
+ 		 string orderId, string pickupId, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Orders.PickupClient.GetPickupClient(
+				 orderId :  orderId,  pickupId :  pickupId,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
 		/// Create a new pickup for the order specified in the request for in-store fufillment.
 		/// <example> 
 		///  <code> 
-		/// var result = PickupFactory.CreatePickup(handler : handler,  pickup :  pickup,  orderId :  orderId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = PickupFactory.CreatePickup(handler : handler,  pickup :  pickup,  orderId :  orderId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Pickup/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup CreatePickup(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup pickup, string orderId, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup pickup, string orderId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -123,7 +124,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Orders.PickupClient.CreatePickupClient(
-				 pickup :  pickup,  orderId :  orderId		);
+				 pickup :  pickup,  orderId :  orderId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -146,14 +147,14 @@ namespace Mozu.Api.Test.Factories
 		/// Updates one or more details of a defined in-store pickup.
 		/// <example> 
 		///  <code> 
-		/// var result = PickupFactory.UpdatePickup(handler : handler,  pickup :  pickup,  orderId :  orderId,  pickupId :  pickupId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = PickupFactory.UpdatePickup(handler : handler,  pickup :  pickup,  orderId :  orderId,  pickupId :  pickupId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Pickup/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup UpdatePickup(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup pickup, string orderId, string pickupId, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup pickup, string orderId, string pickupId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -161,7 +162,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Orders.PickupClient.UpdatePickupClient(
-				 pickup :  pickup,  orderId :  orderId,  pickupId :  pickupId		);
+				 pickup :  pickup,  orderId :  orderId,  pickupId :  pickupId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

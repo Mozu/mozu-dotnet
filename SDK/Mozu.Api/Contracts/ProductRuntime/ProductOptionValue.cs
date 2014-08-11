@@ -10,6 +10,7 @@
 
 using System;
 
+
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
@@ -61,6 +62,10 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///The value of a product option attribute.
 			///
 			public object Value { get; set; }
+
+			public BundledProduct BundledProduct { get; set; }
+
+			public AttributeVocabularyValueDisplayInfo DisplayInfo { get; set; }
 
 		}
 

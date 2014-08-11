@@ -11,10 +11,11 @@
 using System;
 using System.Collections.Generic;
 
+
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	A product type is like a product template that can be reused in the product admin service. Assign a product type to have certain attributes.
+		///	Properties of an attribute definition associated with a specific product type. When an attribute is applied to a product type, each product of that type maintains the same set of attributes.
 		///
 		public class AttributeInProductType
 		{
@@ -52,6 +53,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///The wrapper for the properties of the product attribute to set up or generate from the system in the product admin. Properties include namespace, attribute code, attribute sequence, site group ID, input type, value type, data type, boolean flags, and metadata key value pairs.
 			///
 			public Attribute AttributeDetail { get; set; }
+
+			public AttributeInProductTypeDisplayInfo DisplayInfo { get; set; }
 
 			///
 			///The list of vocabulary values available for the attribute associated with the product type.

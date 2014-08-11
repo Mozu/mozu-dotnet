@@ -32,34 +32,95 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		}
 
 		/// <summary>
-        /// Get Resource Url for GetAttributeVocabularyValue
+        /// Get Resource Url for GetAttributeVocabularyValueLocalizedContents
         /// </summary>
-        /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-        /// <param name="value">The actual unique value of the attribute vocabulary to retrieve. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.</param>
+        /// <param name="attributeFQN"></param>
+        /// <param name="value"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetAttributeVocabularyValueUrl(string attributeFQN, string value)
+        public static MozuUrl GetAttributeVocabularyValueLocalizedContentsUrl(string attributeFQN, string value)
 		{
-			var url = "/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}";
+			var url = "/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}/LocalizedContent";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "attributeFQN", attributeFQN);
 			mozuUrl.FormatUrl( "value", value);
 			return mozuUrl;
 		}
 
-				/// <summary>
-        /// Get Resource Url for AddAttributeVocabularyValue
+		/// <summary>
+        /// Get Resource Url for GetAttributeVocabularyValueLocalizedContent
         /// </summary>
-        /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+        /// <param name="attributeFQN"></param>
+        /// <param name="localeCode"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="value"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl AddAttributeVocabularyValueUrl(string attributeFQN)
+        public static MozuUrl GetAttributeVocabularyValueLocalizedContentUrl(string attributeFQN, string value, string localeCode, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues";
+			var url = "/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}/LocalizedContent/{localeCode}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "attributeFQN", attributeFQN);
+			mozuUrl.FormatUrl( "localeCode", localeCode);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "value", value);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for GetAttributeVocabularyValue
+        /// </summary>
+        /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+        /// <param name="responseFields"></param>
+        /// <param name="value">The actual unique value of the attribute vocabulary to retrieve. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.</param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetAttributeVocabularyValueUrl(string attributeFQN, string value, string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "attributeFQN", attributeFQN);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "value", value);
+			return mozuUrl;
+		}
+
+				/// <summary>
+        /// Get Resource Url for AddAttributeVocabularyValueLocalizedContent
+        /// </summary>
+        /// <param name="attributeFQN"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="value"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl AddAttributeVocabularyValueLocalizedContentUrl(string attributeFQN, string value, string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}/localizedContent?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "attributeFQN", attributeFQN);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "value", value);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for AddAttributeVocabularyValue
+        /// </summary>
+        /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl AddAttributeVocabularyValueUrl(string attributeFQN, string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "attributeFQN", attributeFQN);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -79,18 +140,58 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		}
 
 		/// <summary>
+        /// Get Resource Url for UpdateAttributeVocabularyValueLocalizedContents
+        /// </summary>
+        /// <param name="attributeFQN"></param>
+        /// <param name="value"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl UpdateAttributeVocabularyValueLocalizedContentsUrl(string attributeFQN, string value)
+		{
+			var url = "/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}/LocalizedContent";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "attributeFQN", attributeFQN);
+			mozuUrl.FormatUrl( "value", value);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for UpdateAttributeVocabularyValueLocalizedContent
+        /// </summary>
+        /// <param name="attributeFQN"></param>
+        /// <param name="localeCode"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="value"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl UpdateAttributeVocabularyValueLocalizedContentUrl(string attributeFQN, string value, string localeCode, string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}/LocalizedContent/{localeCode}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "attributeFQN", attributeFQN);
+			mozuUrl.FormatUrl( "localeCode", localeCode);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "value", value);
+			return mozuUrl;
+		}
+
+		/// <summary>
         /// Get Resource Url for UpdateAttributeVocabularyValue
         /// </summary>
         /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+        /// <param name="responseFields"></param>
         /// <param name="value">The actual unique value of the attribute vocabulary value to update. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateAttributeVocabularyValueUrl(string attributeFQN, string value)
+        public static MozuUrl UpdateAttributeVocabularyValueUrl(string attributeFQN, string value, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}";
+			var url = "/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "attributeFQN", attributeFQN);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "value", value);
 			return mozuUrl;
 		}
@@ -108,6 +209,25 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes
 			var url = "/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "attributeFQN", attributeFQN);
+			mozuUrl.FormatUrl( "value", value);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for DeleteAttributeVocabularyValueLocalizedContent
+        /// </summary>
+        /// <param name="attributeFQN"></param>
+        /// <param name="localeCode"></param>
+        /// <param name="value"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl DeleteAttributeVocabularyValueLocalizedContentUrl(string attributeFQN, string value, string localeCode)
+		{
+			var url = "/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}/LocalizedContent/{localeCode}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "attributeFQN", attributeFQN);
+			mozuUrl.FormatUrl( "localeCode", localeCode);
 			mozuUrl.FormatUrl( "value", value);
 			return mozuUrl;
 		}

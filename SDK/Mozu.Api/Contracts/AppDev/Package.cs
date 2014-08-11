@@ -9,28 +9,51 @@
 //------------------------------------------------------------------------------
 
 using System;
+
 using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.AppDev
 {
+		///
+		///	Properties of a package of files associated with a version of an application or theme.
+		///
 		public class Package
 		{
-			public int ApplicationVersionId { get; set; }
+			public int ApplicationId { get; set; }
 
+			///
+			///Integer that represents the number of files in the application package.
+			///
 			public int AssetFileCount { get; set; }
 
+			///
+			///Unique identifier of the package.
+			///
 			public int Id { get; set; }
 
-			public bool IsDeleted { get; set; }
-
+			///
+			///If true, this package is currently locked for editing.
+			///
 			public bool IsLocked { get; set; }
 
+			///
+			///If true, this application package is a release candidate. If false, this application version package is a development package.
+			///
 			public bool IsReleasePackage { get; set; }
 
+			///
+			///The name of the application package.
+			///
 			public string Name { get; set; }
 
+			///
+			///User ID of the developer who owns the application package.
+			///
 			public string UserId { get; set; }
 
+			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
 			public AuditInfo AuditInfo { get; set; }
 
 		}

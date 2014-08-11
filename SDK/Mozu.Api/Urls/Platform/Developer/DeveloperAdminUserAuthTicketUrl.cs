@@ -23,7 +23,7 @@ namespace Mozu.Api.Urls.Platform.Developer
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl CreateDeveloperUserAuthTicketUrl(int? developerAccountId)
+        public static MozuUrl CreateDeveloperUserAuthTicketUrl(int? developerAccountId =  null)
 		{
 			var url = "/api/platform/developer/authtickets/?developerAccountId={developerAccountId}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
@@ -38,7 +38,7 @@ namespace Mozu.Api.Urls.Platform.Developer
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl RefreshDeveloperAuthTicketUrl(int? developerAccountId)
+        public static MozuUrl RefreshDeveloperAuthTicketUrl(int? developerAccountId =  null)
 		{
 			var url = "/api/platform/developer/authtickets/?developerAccountId={developerAccountId}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;

@@ -11,51 +11,36 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce
 {
 	/// <summary>
-	/// 
+	/// Use the Customer In-Stock Notification Subscription resource to manage the subscriptions customer accounts use to send product notifications. This resource can send a notification when a product in a catalog returns to a site's active inventory after it is out of stock, or when a new product becomes available for the first time.
 	/// </summary>
 	public partial class InStockNotificationSubscriptionClient 	{
 		
 		/// <summary>
-		/// 
+		/// Retrieves a list of in-stock notification subscriptions.
 		/// </summary>
+		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.InStockNotificationSubscriptionCollection"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetInStockNotificationSubscriptions();
+		///   var mozuClient=GetInStockNotificationSubscriptions( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		///   var inStockNotificationSubscriptionCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.InStockNotificationSubscriptionCollection> GetInStockNotificationSubscriptionsClient()
+		public static MozuClient<Mozu.Api.Contracts.Customer.InStockNotificationSubscriptionCollection> GetInStockNotificationSubscriptionsClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
-			return GetInStockNotificationSubscriptionsClient( null,  null,  null,  null);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="filter"></param>
-		/// <param name="pageSize"></param>
-		/// <param name="sortBy"></param>
-		/// <param name="startIndex"></param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.InStockNotificationSubscriptionCollection"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetInStockNotificationSubscriptions( startIndex,  pageSize,  sortBy,  filter);
-		///   var inStockNotificationSubscriptionCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.InStockNotificationSubscriptionCollection> GetInStockNotificationSubscriptionsClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null)
-		{
-			var url = Mozu.Api.Urls.Commerce.InStockNotificationSubscriptionUrl.GetInStockNotificationSubscriptionsUrl(filter, pageSize, sortBy, startIndex);
+			var url = Mozu.Api.Urls.Commerce.InStockNotificationSubscriptionUrl.GetInStockNotificationSubscriptionsUrl(startIndex, pageSize, sortBy, filter, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.InStockNotificationSubscriptionCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -65,21 +50,22 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves the details of a subscription that sends a push notification when a product is available in a site's active stock.
 		/// </summary>
-		/// <param name="id"></param>
+		/// <param name="id">Unique identifier of the in-stock notification subscription to retrieve.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.InStockNotificationSubscription"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetInStockNotificationSubscription( id);
+		///   var mozuClient=GetInStockNotificationSubscription( id,  responseFields);
 		///   var inStockNotificationSubscriptionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.InStockNotificationSubscription> GetInStockNotificationSubscriptionClient(int id)
+		public static MozuClient<Mozu.Api.Contracts.Customer.InStockNotificationSubscription> GetInStockNotificationSubscriptionClient(int id, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.InStockNotificationSubscriptionUrl.GetInStockNotificationSubscriptionUrl(id);
+			var url = Mozu.Api.Urls.Commerce.InStockNotificationSubscriptionUrl.GetInStockNotificationSubscriptionUrl(id, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.InStockNotificationSubscription>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -89,21 +75,22 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// 
+		/// Creates a new subscription that notifies the customer when the product specified in the request is available in the active inventory of the defined location.
 		/// </summary>
-		/// <param name="inStockNotificationSubscription"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="inStockNotificationSubscription">Properties of a subscription that sends the customer a notification when a product is available in a site's active stock.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.InStockNotificationSubscription"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddInStockNotificationSubscription( inStockNotificationSubscription);
+		///   var mozuClient=AddInStockNotificationSubscription( inStockNotificationSubscription,  responseFields);
 		///   var inStockNotificationSubscriptionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.InStockNotificationSubscription> AddInStockNotificationSubscriptionClient(Mozu.Api.Contracts.Customer.InStockNotificationSubscription inStockNotificationSubscription)
+		public static MozuClient<Mozu.Api.Contracts.Customer.InStockNotificationSubscription> AddInStockNotificationSubscriptionClient(Mozu.Api.Contracts.Customer.InStockNotificationSubscription inStockNotificationSubscription, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.InStockNotificationSubscriptionUrl.AddInStockNotificationSubscriptionUrl();
+			var url = Mozu.Api.Urls.Commerce.InStockNotificationSubscriptionUrl.AddInStockNotificationSubscriptionUrl(responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.InStockNotificationSubscription>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -113,9 +100,9 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// 
+		/// Deletes a subscription for a customer in-stock notification.
 		/// </summary>
-		/// <param name="id"></param>
+		/// <param name="id">Unique identifier of the customer in-stock notification subscription to delete.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
