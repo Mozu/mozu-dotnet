@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Mozu.Api.Contracts.Customer;
 using Mozu.Api.Resources.Commerce.Customer;
 
@@ -8,10 +9,10 @@ namespace Mozu.Api.ToolKit.Readers
     {
         private CustomerAccountCollection _results = null;
 
-        protected override bool GetData()
+        protected override async Task<bool> GetDataAsync()
         {
             var resource = new CustomerAccountResource(Context);
-            _results = resource.GetAccounts(startIndex: StartIndex, pageSize: PageSize, sortBy: SortBy, filter: Filter, q: Q, qLimit: QLimit);
+            _results = await resource.GetAccountsAsync(startIndex: StartIndex, pageSize: PageSize, sortBy: SortBy, filter: Filter, q: Q, qLimit: QLimit, responseFields:ResponseFields);
 
             TotalCount = _results.TotalCount;
             PageCount = _results.PageCount;

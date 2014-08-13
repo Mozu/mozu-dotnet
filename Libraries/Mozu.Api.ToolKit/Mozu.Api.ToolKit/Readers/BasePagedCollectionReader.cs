@@ -1,10 +1,14 @@
-﻿namespace Mozu.Api.ToolKit.Readers
+﻿using System.Threading.Tasks;
+
+namespace Mozu.Api.ToolKit.Readers
 {
     public abstract class BasePagedCollectionReader
     {
         public IApiContext Context { get; set; }
         public string Filter { get; set; }
         public string SortBy { get; set; }
+        public string ResponseFields { get; set; }
+
         public int? PageSize { get; set; }
         public int? StartIndex { get; set; }
         public int? PageCount { get; set; }
@@ -12,7 +16,7 @@
         public int? QLimit { get; set; }
         public int? TotalCount { get; protected set; }
 
-        public bool Read()
+        public async Task<bool> ReadAsync()
         {
             if (TotalCount.HasValue && StartIndex.HasValue && PageSize.HasValue)
             {
@@ -21,13 +25,13 @@
             }
 
 
-            var hasData = GetData();
+            var hasData = await GetDataAsync();
 
             StartIndex = StartIndex.GetValueOrDefault(0) + PageSize;
             return hasData;
 
         }
 
-        protected abstract bool GetData();
+        protected abstract Task<bool> GetDataAsync();
     }
 }

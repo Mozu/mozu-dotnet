@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Mozu.Api.Contracts.ProductAdmin;
 using Mozu.Api.Resources.Commerce.Catalog.Admin;
 
@@ -9,10 +10,10 @@ namespace Mozu.Api.ToolKit.Readers
         private DiscountCollection _results = null;
         public DataViewMode DataViewMode { get; set; }
 
-        protected override bool GetData()
+        protected override async Task<bool> GetDataAsync()
         {
             var resource = new DiscountResource(Context);
-            _results = resource.GetDiscounts(startIndex: StartIndex, pageSize: PageSize, sortBy: SortBy, filter: Filter, dataViewMode:DataViewMode);
+            _results = await resource.GetDiscountsAsync(startIndex: StartIndex, pageSize: PageSize, sortBy: SortBy, filter: Filter, responseFields:ResponseFields);
 
             TotalCount = _results.TotalCount;
             PageCount = _results.PageCount;

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Mozu.Api.Contracts.ProductRuntime;
 using Mozu.Api.Resources.Commerce.Catalog.Storefront;
 
@@ -8,11 +9,11 @@ namespace Mozu.Api.ToolKit.Readers
     {
         private ProductCollection _results = null;
 
-        protected override bool GetData()
+        protected override async Task<bool> GetDataAsync()
         {
 
             var resource = new ProductResource(Context);
-            _results = resource.GetProducts(startIndex: StartIndex, pageSize: PageSize, sortBy: SortBy, filter: Filter);
+            _results = await resource.GetProductsAsync(startIndex: StartIndex, pageSize: PageSize, sortBy: SortBy, filter: Filter, responseFields:ResponseFields);
 
             TotalCount = _results.TotalCount;
             PageCount = _results.PageCount;

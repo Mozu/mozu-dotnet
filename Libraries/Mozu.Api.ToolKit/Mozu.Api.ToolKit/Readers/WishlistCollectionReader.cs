@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Mozu.Api.Contracts.CommerceRuntime.Wishlists;
 using Mozu.Api.Resources.Commerce;
 
@@ -8,10 +9,10 @@ namespace Mozu.Api.ToolKit.Readers
     {
         private WishlistCollection _results = null;
 
-        protected override bool GetData()
+        protected override async Task<bool> GetDataAsync()
         {
             var resource = new WishlistResource(Context);
-            _results = resource.GetWishlists(startIndex: StartIndex, pageSize: PageSize, sortBy: SortBy, filter: Filter, q: Q, qLimit: QLimit);
+            _results = await resource.GetWishlistsAsync(startIndex: StartIndex, pageSize: PageSize, sortBy: SortBy, filter: Filter, q: Q, qLimit: QLimit, responseFields:ResponseFields);
 
             TotalCount = _results.TotalCount;
             PageCount = _results.PageCount;
