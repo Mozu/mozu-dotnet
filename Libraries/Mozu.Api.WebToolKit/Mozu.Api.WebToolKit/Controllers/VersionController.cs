@@ -2,7 +2,7 @@
 using System.Web.Http;
 using Mozu.Api.WebToolKit.Models;
 
-namespace Mozu.Api.WebToolKit.Contollers
+namespace Mozu.Api.WebToolKit.Controllers
 {
     [RoutePrefix("api/version")]
     public class VersionController : ApiController
