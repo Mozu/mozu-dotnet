@@ -5,9 +5,9 @@ using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.WebApi;
 using Mozu.Api.Logging;
-using Mozu.Api.WebToolKit.Contollers;
 using Mozu.Api.WebToolKit.Events;
 using Mozu.Api.WebToolKit.Logging;
+using Mozu.Api.WebToolKit.Controllers;
 
 namespace Mozu.Api.WebToolKit
 {
