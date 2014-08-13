@@ -21,7 +21,7 @@
     </references>
   </metadata>
   <files>
-    <file src="lib\Mozu.Api.WebToolKit.dll" target="lib" />
-    <file src="lib\Mozu.Api.WebToolKit.pdb" target="lib" />
+    <file src="bin\Release\Mozu.Api.WebToolKit.dll" target="lib" />
+    <file src="bin\Release\Mozu.Api.WebToolKit.pdb" target="lib" />
   </files>
 </package>
