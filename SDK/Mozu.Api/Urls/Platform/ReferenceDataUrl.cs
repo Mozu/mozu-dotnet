@@ -23,7 +23,7 @@ namespace Mozu.Api.Urls.Platform
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetAddressSchemaUrl(string countryCode)
+        public static MozuUrl GetAddressSchemaUrl(string countryCode =  null)
 		{
 			var url = "/api/platform/reference/addressschema/{countryCode}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
@@ -47,7 +47,7 @@ namespace Mozu.Api.Urls.Platform
 		/// <summary>
         /// Get Resource Url for GetBehavior
         /// </summary>
-        /// <param name="behaviorId">***Always private and should not be published.***</param>
+        /// <param name="behaviorId">Unique identifier of the behavior.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -75,7 +75,7 @@ namespace Mozu.Api.Urls.Platform
 		/// <summary>
         /// Get Resource Url for GetBehaviorCategory
         /// </summary>
-        /// <param name="categoryId">***Always private and should not be published.***</param>
+        /// <param name="categoryId">Unique identifier of the behavior category.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -90,11 +90,11 @@ namespace Mozu.Api.Urls.Platform
 		/// <summary>
         /// Get Resource Url for GetBehaviors
         /// </summary>
-        /// <param name="userType"></param>
+        /// <param name="userType">The user type associated with the behaviors to retrieve.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetBehaviorsUrl(string userType)
+        public static MozuUrl GetBehaviorsUrl(string userType =  null)
 		{
 			var url = "/api/platform/reference/behaviors?userType={userType}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
@@ -174,7 +174,7 @@ namespace Mozu.Api.Urls.Platform
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetUnitsOfMeasureUrl(string filter)
+        public static MozuUrl GetUnitsOfMeasureUrl(string filter =  null)
 		{
 			var url = "/api/platform/reference/unitsofmeasure?filter={filter}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;

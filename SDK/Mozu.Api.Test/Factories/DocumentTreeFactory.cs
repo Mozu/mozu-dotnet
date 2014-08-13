@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -29,16 +30,16 @@ namespace Mozu.Api.Test.Factories
 	{
 
 		/// <summary> 
-		/// Retrieves a document based on its document list and folder path in the document hierarchy.
+		/// Retrieve the content associated with the document, such as a product image or PDF specifications file.
 		/// <example> 
 		///  <code> 
-		/// var result = DocumentTreeFactory.GetTreeDocument(handler : handler,  documentListName :  documentListName,  documentName :  documentName,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Document/>(result); 
+		/// var result = DocumentTreeFactory.GetTreeDocumentContent(handler : handler,  documentListName :  documentListName,  documentName :  documentName,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.Content.Document GetTreeDocument(ServiceClientMessageHandler handler, 
+		public static System.IO.Stream GetTreeDocumentContent(ServiceClientMessageHandler handler, 
  		 string documentListName, string documentName,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
@@ -46,7 +47,7 @@ namespace Mozu.Api.Test.Factories
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Content.Documentlists.DocumentTree.DocumentTreeClient.GetTreeDocumentClient(
+			var apiClient = Mozu.Api.Clients.Content.Documentlists.DocumentTreeClient.GetTreeDocumentContentClient(
 				 documentListName :  documentListName,  documentName :  documentName, dataViewMode: dataViewMode		);
 			try
 			{
@@ -67,25 +68,25 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieve the content associated with the document, such as a product image or PDF specifications file.
+		/// Retrieves a document based on its document list and folder path in the document hierarchy.
 		/// <example> 
 		///  <code> 
-		/// var result = DocumentTreeFactory.GetTreeDocumentContent(handler : handler,  documentListName :  documentListName,  documentName :  documentName,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Stream/>(result); 
+		/// var result = DocumentTreeFactory.GetTreeDocument(handler : handler,  documentListName :  documentListName,  documentName :  documentName,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Document/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static System.IO.Stream GetTreeDocumentContent(ServiceClientMessageHandler handler, 
- 		 string documentListName, string documentName,  DataViewMode dataViewMode= DataViewMode.Live, 
+		public static Mozu.Api.Contracts.Content.Document GetTreeDocument(ServiceClientMessageHandler handler, 
+ 		 string documentListName, string documentName, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Content.Documentlists.DocumentTree.DocumentTreeClient.GetTreeDocumentContentClient(
-				 documentListName :  documentListName,  documentName :  documentName, dataViewMode: dataViewMode		);
+			var apiClient = Mozu.Api.Clients.Content.Documentlists.DocumentTreeClient.GetTreeDocumentClient(
+				 documentListName :  documentListName,  documentName :  documentName,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -108,22 +109,22 @@ namespace Mozu.Api.Test.Factories
 		/// Updates the content associated with a document, such as a product image or PDF specifications file, based on the document's position in the document hierarchy.
 		/// <example> 
 		///  <code> 
-		/// var result = DocumentTreeFactory.UpdateTreeDocumentContent(handler : handler,  stream :  stream,  documentListName :  documentListName,  documentName :  documentName,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = DocumentTreeFactory.UpdateTreeDocumentContent(handler : handler,  stream :  stream,  documentListName :  documentListName,  documentName :  documentName,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static void UpdateTreeDocumentContent(ServiceClientMessageHandler handler, 
- 		System.IO.Stream stream, string documentListName, string documentName,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		System.IO.Stream stream, string documentListName, string documentName, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Content.Documentlists.DocumentTree.DocumentTreeClient.UpdateTreeDocumentContentClient(
-				 stream :  stream,  documentListName :  documentListName,  documentName :  documentName, dataViewMode: dataViewMode		);
+			var apiClient = Mozu.Api.Clients.Content.Documentlists.DocumentTreeClient.UpdateTreeDocumentContentClient(
+				 stream :  stream,  documentListName :  documentListName,  documentName :  documentName		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -145,22 +146,22 @@ namespace Mozu.Api.Test.Factories
 		/// Deletes the content associated with a document, such as a product image or PDF specifications file.
 		/// <example> 
 		///  <code> 
-		/// var result = DocumentTreeFactory.DeleteTreeDocumentContent(handler : handler,  stream :  stream,  documentListName :  documentListName,  documentName :  documentName,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = DocumentTreeFactory.DeleteTreeDocumentContent(handler : handler,  stream :  stream,  documentListName :  documentListName,  documentName :  documentName,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static void DeleteTreeDocumentContent(ServiceClientMessageHandler handler, 
- 		System.IO.Stream stream, string documentListName, string documentName,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		System.IO.Stream stream, string documentListName, string documentName, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Content.Documentlists.DocumentTree.DocumentTreeClient.DeleteTreeDocumentContentClient(
-				 stream :  stream,  documentListName :  documentListName,  documentName :  documentName, dataViewMode: dataViewMode		);
+			var apiClient = Mozu.Api.Clients.Content.Documentlists.DocumentTreeClient.DeleteTreeDocumentContentClient(
+				 stream :  stream,  documentListName :  documentListName,  documentName :  documentName		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

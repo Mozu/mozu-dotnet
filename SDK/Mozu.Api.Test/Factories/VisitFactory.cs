@@ -17,13 +17,14 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Visits resource to manage all visits a customer makes to a tenant's sites and measure the level of transactions a customer performs during a unique visit for customer account analytics. Companies can track customer visits by site (including online and in-person interactions), the transactions a customer performs during the visit, and the device type associated with the visit, if any.
+	/// Use the Visits resource to manage all visits a customer makes to a tenant's sites and measure the level of transactions a customer performs during a unique visit for customer account analytics. Clients can track customer visits by site (including online and in-person interactions), the transactions a customer performs during the visit, and the device type associated with the visit, if any.
 	/// </summary>
 	public partial class VisitFactory : BaseDataFactory
 	{
@@ -32,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves a list of customer visits according to any filter or sort criteria specified in the request.
 		/// <example> 
 		///  <code> 
-		/// var result = VisitFactory.GetVisits(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = VisitFactory.GetVisits(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<VisitCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.VisitCollection GetVisits(ServiceClientMessageHandler handler, 
- 		 int? startIndex = null, int? pageSize = null, string sortBy = null, string filter = null, 
+ 		 int? startIndex = null, int? pageSize = null, string sortBy = null, string filter = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -47,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.VisitClient.GetVisitsClient(
-				 startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter		);
+				 startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -70,14 +71,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves the details of the customer visit specified in the request.
 		/// <example> 
 		///  <code> 
-		/// var result = VisitFactory.GetVisit(handler : handler,  visitId :  visitId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = VisitFactory.GetVisit(handler : handler,  visitId :  visitId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Visit/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.Visit GetVisit(ServiceClientMessageHandler handler, 
- 		 string visitId, 
+ 		 string visitId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -85,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.VisitClient.GetVisitClient(
-				 visitId :  visitId		);
+				 visitId :  visitId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -108,14 +109,14 @@ namespace Mozu.Api.Test.Factories
 		/// Creates a new visit for the customer account specified in the request.
 		/// <example> 
 		///  <code> 
-		/// var result = VisitFactory.AddVisit(handler : handler,  visit :  visit,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = VisitFactory.AddVisit(handler : handler,  visit :  visit,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Visit/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.Visit AddVisit(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.Customer.Visit visit, 
+ 		 Mozu.Api.Contracts.Customer.Visit visit, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -123,7 +124,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.VisitClient.AddVisitClient(
-				 visit :  visit		);
+				 visit :  visit,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -146,14 +147,14 @@ namespace Mozu.Api.Test.Factories
 		/// Updates one or more properties of a defined customer visit.
 		/// <example> 
 		///  <code> 
-		/// var result = VisitFactory.UpdateVisit(handler : handler,  visit :  visit,  visitId :  visitId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = VisitFactory.UpdateVisit(handler : handler,  visit :  visit,  visitId :  visitId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Visit/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.Visit UpdateVisit(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.Customer.Visit visit, string visitId, 
+ 		 Mozu.Api.Contracts.Customer.Visit visit, string visitId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -161,7 +162,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.VisitClient.UpdateVisitClient(
-				 visit :  visit,  visitId :  visitId		);
+				 visit :  visit,  visitId :  visitId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

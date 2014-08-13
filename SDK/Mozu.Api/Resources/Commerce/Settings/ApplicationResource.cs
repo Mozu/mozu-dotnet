@@ -11,12 +11,13 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Commerce.Settings
 {
 	/// <summary>
-	/// Use the applications subresource to update site settings for installed applications.
+	/// Use the Applications resource to update site-specific settings for installed applications.
 	/// </summary>
 	public partial class ApplicationResource  	{
 		///
@@ -24,12 +25,12 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		///
 		private readonly IApiContext _apiContext;
 
+		
 		public ApplicationResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
 		}
-
-		
+				
 		/// <summary>
 		/// Retrieve the settings of a third-party application.
 		/// </summary>
@@ -42,13 +43,24 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		///   var application = application.ThirdPartyGetApplication();
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.SiteSettings.Application.Application ThirdPartyGetApplication()
 		{
 			MozuClient<Mozu.Api.Contracts.SiteSettings.Application.Application> response;
 			var client = Mozu.Api.Clients.Commerce.Settings.ApplicationClient.ThirdPartyGetApplicationClient();
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Application.Application> ThirdPartyGetApplicationAsync()
+		{
+			MozuClient<Mozu.Api.Contracts.SiteSettings.Application.Application> response;
+			var client = Mozu.Api.Clients.Commerce.Settings.ApplicationClient.ThirdPartyGetApplicationClient();
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -65,13 +77,24 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		///   var application = application.ThirdPartyUpdateApplication( application);
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.SiteSettings.Application.Application ThirdPartyUpdateApplication(Mozu.Api.Contracts.SiteSettings.Application.Application application)
 		{
 			MozuClient<Mozu.Api.Contracts.SiteSettings.Application.Application> response;
 			var client = Mozu.Api.Clients.Commerce.Settings.ApplicationClient.ThirdPartyUpdateApplicationClient( application);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Application.Application> ThirdPartyUpdateApplicationAsync(Mozu.Api.Contracts.SiteSettings.Application.Application application)
+		{
+			MozuClient<Mozu.Api.Contracts.SiteSettings.Application.Application> response;
+			var client = Mozu.Api.Clients.Commerce.Settings.ApplicationClient.ThirdPartyUpdateApplicationClient( application);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 

@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce
 {
@@ -23,25 +24,9 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// Retrieves a list of channels defined for a tenant according to any filter or sort criteria specified in the request.
 		/// </summary>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelCollection"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetChannels();
-		///   var channelCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelCollection> GetChannelsClient()
-		{
-			return GetChannelsClient( null,  null,  null,  null);
-		}
-
-		/// <summary>
-		/// Retrieves a list of channels defined for a tenant according to any filter or sort criteria specified in the request.
-		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
 		/// <returns>
@@ -49,13 +34,13 @@ namespace Mozu.Api.Clients.Commerce
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetChannels( startIndex,  pageSize,  sortBy,  filter);
+		///   var mozuClient=GetChannels( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		///   var channelCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelCollection> GetChannelsClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelCollection> GetChannelsClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.ChannelUrl.GetChannelsUrl(filter, pageSize, sortBy, startIndex);
+			var url = Mozu.Api.Urls.Commerce.ChannelUrl.GetChannelsUrl(startIndex, pageSize, sortBy, filter, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -68,18 +53,19 @@ namespace Mozu.Api.Clients.Commerce
 		/// Retrieves the details of the channel specified in the request.
 		/// </summary>
 		/// <param name="code">User-defined code that identifies the channel to retrieve.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Channels.Channel"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetChannel( code);
+		///   var mozuClient=GetChannel( code,  responseFields);
 		///   var channelClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.Channel> GetChannelClient(string code)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.Channel> GetChannelClient(string code, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.ChannelUrl.GetChannelUrl(code);
+			var url = Mozu.Api.Urls.Commerce.ChannelUrl.GetChannelUrl(code, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.Channel>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -91,19 +77,20 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// Creates a new channel that defines a new logical business division to use for financial reporting.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="channel">Properties of the channel to create.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Channels.Channel"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=CreateChannel( channel);
+		///   var mozuClient=CreateChannel( channel,  responseFields);
 		///   var channelClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.Channel> CreateChannelClient(Mozu.Api.Contracts.CommerceRuntime.Channels.Channel channel)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.Channel> CreateChannelClient(Mozu.Api.Contracts.CommerceRuntime.Channels.Channel channel, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.ChannelUrl.CreateChannelUrl();
+			var url = Mozu.Api.Urls.Commerce.ChannelUrl.CreateChannelUrl(responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.Channel>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -116,19 +103,20 @@ namespace Mozu.Api.Clients.Commerce
 		/// Updates one or more details of a defined channel, including the associated sites.
 		/// </summary>
 		/// <param name="code">User-defined code that identifies the channel to update.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="channel">Properties of a the channel to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Channels.Channel"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateChannel( channel,  code);
+		///   var mozuClient=UpdateChannel( channel,  code,  responseFields);
 		///   var channelClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.Channel> UpdateChannelClient(Mozu.Api.Contracts.CommerceRuntime.Channels.Channel channel, string code)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.Channel> UpdateChannelClient(Mozu.Api.Contracts.CommerceRuntime.Channels.Channel channel, string code, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.ChannelUrl.UpdateChannelUrl(code);
+			var url = Mozu.Api.Urls.Commerce.ChannelUrl.UpdateChannelUrl(code, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.Channel>()
 									.WithVerb(verb).WithResourceUrl(url)

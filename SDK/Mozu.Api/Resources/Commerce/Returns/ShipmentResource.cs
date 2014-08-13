@@ -11,12 +11,13 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Commerce.Returns
 {
 	/// <summary>
-	/// Use the return shipments subresource to manage shipments for a return replacement.
+	/// Use the Return Shipments subresource to manage shipments for a return replacement.
 	/// </summary>
 	public partial class ShipmentResource  	{
 		///
@@ -24,15 +25,16 @@ namespace Mozu.Api.Resources.Commerce.Returns
 		///
 		private readonly IApiContext _apiContext;
 
+		
 		public ShipmentResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
 		}
-
-		
+				
 		/// <summary>
 		/// Retrieves the details of the specified return replacement shipment.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="returnId">Unique identifier of the return associated with the replacement shipment to retrieve.</param>
 		/// <param name="shipmentId">Unique identifier of the return replacement shipment to retrieve.</param>
 		/// <returns>
@@ -41,16 +43,27 @@ namespace Mozu.Api.Resources.Commerce.Returns
 		/// <example>
 		/// <code>
 		///   var shipment = new Shipment();
-		///   var shipment = shipment.GetShipment( returnId,  shipmentId);
+		///   var shipment = shipment.GetShipment( returnId,  shipmentId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment GetShipment(string returnId, string shipmentId)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment GetShipment(string returnId, string shipmentId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment> response;
-			var client = Mozu.Api.Clients.Commerce.Returns.ShipmentClient.GetShipmentClient( returnId,  shipmentId);
+			var client = Mozu.Api.Clients.Commerce.Returns.ShipmentClient.GetShipmentClient( returnId,  shipmentId,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment> GetShipmentAsync(string returnId, string shipmentId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment> response;
+			var client = Mozu.Api.Clients.Commerce.Returns.ShipmentClient.GetShipmentClient( returnId,  shipmentId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -68,13 +81,24 @@ namespace Mozu.Api.Resources.Commerce.Returns
 		///   var package = shipment.CreatePackageShipments( packageIds,  returnId);
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual List<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> CreatePackageShipments(List<string> packageIds, string returnId)
 		{
 			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package>> response;
 			var client = Mozu.Api.Clients.Commerce.Returns.ShipmentClient.CreatePackageShipmentsClient( packageIds,  returnId);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package>> CreatePackageShipmentsAsync(List<string> packageIds, string returnId)
+		{
+			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package>> response;
+			var client = Mozu.Api.Clients.Commerce.Returns.ShipmentClient.CreatePackageShipmentsClient( packageIds,  returnId);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -92,12 +116,22 @@ namespace Mozu.Api.Resources.Commerce.Returns
 		///   shipment.DeleteShipment( returnId,  shipmentId);
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual void DeleteShipment(string returnId, string shipmentId)
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Returns.ShipmentClient.DeleteShipmentClient( returnId,  shipmentId);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
+
+		}
+
+		public virtual async Task DeleteShipmentAsync(string returnId, string shipmentId)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Returns.ShipmentClient.DeleteShipmentClient( returnId,  shipmentId);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
 
 		}
 

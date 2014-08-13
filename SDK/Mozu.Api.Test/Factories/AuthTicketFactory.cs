@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -32,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Generate an authentication ticket for an application.
 		/// <example> 
 		///  <code> 
-		/// var result = AuthTicketFactory.AuthenticateApp(handler : handler,  appAuthInfo :  appAuthInfo,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = AuthTicketFactory.AuthenticateApp(handler : handler,  appAuthInfo :  appAuthInfo,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<AuthTicket/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.AppDev.AuthTicket AuthenticateApp(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.AppDev.AppAuthInfo appAuthInfo, 
+ 		 Mozu.Api.Contracts.AppDev.AppAuthInfo appAuthInfo, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -47,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Platform.Applications.AuthTicketClient.AuthenticateAppClient(
-				 appAuthInfo :  appAuthInfo		);
+				 appAuthInfo :  appAuthInfo,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -70,14 +71,14 @@ namespace Mozu.Api.Test.Factories
 		/// Refreshes the application's authentication ticket and generates a new access token by providing the refresh token string.
 		/// <example> 
 		///  <code> 
-		/// var result = AuthTicketFactory.RefreshAppAuthTicket(handler : handler,  authTicketRequest :  authTicketRequest,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = AuthTicketFactory.RefreshAppAuthTicket(handler : handler,  authTicketRequest :  authTicketRequest,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<AuthTicket/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.AppDev.AuthTicket RefreshAppAuthTicket(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.AppDev.AuthTicketRequest authTicketRequest, 
+ 		 Mozu.Api.Contracts.AppDev.AuthTicketRequest authTicketRequest, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -85,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Platform.Applications.AuthTicketClient.RefreshAppAuthTicketClient(
-				 authTicketRequest :  authTicketRequest		);
+				 authTicketRequest :  authTicketRequest,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

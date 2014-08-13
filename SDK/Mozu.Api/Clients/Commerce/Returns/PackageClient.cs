@@ -11,40 +11,16 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Returns
 {
 	/// <summary>
-	/// Use the return packages subresource to manage physical packages used to ship return replacement items.
+	/// Use the Return Packages subresource to manage physical packages used to ship return replacement items.
 	/// </summary>
 	public partial class PackageClient 	{
 		
-		/// <summary>
-		/// Retrieves the details of a package of return replacement items.
-		/// </summary>
-		/// <param name="packageId">Unique identifier of the return replacement package to retrieve.</param>
-		/// <param name="returnId">Unique identifier of the return associated with the replacement package to retrieve.</param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetPackage( returnId,  packageId);
-		///   var packageClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> GetPackageClient(string returnId, string packageId)
-		{
-			var url = Mozu.Api.Urls.Commerce.Returns.PackageUrl.GetPackageUrl(packageId, returnId);
-			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package>()
-									.WithVerb(verb).WithResourceUrl(url)
-;
-			return mozuClient;
-
-		}
-
 		/// <summary>
 		/// Retrieves the package label image supplied by the carrier for a return replacement.
 		/// </summary>
@@ -61,7 +37,7 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		/// </example>
 		public static MozuClient<System.IO.Stream> GetPackageLabelClient(string returnId, string packageId)
 		{
-			var url = Mozu.Api.Urls.Commerce.Returns.PackageUrl.GetPackageLabelUrl(packageId, returnId);
+			var url = Mozu.Api.Urls.Commerce.Returns.PackageUrl.GetPackageLabelUrl(returnId, packageId);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -71,8 +47,35 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		}
 
 		/// <summary>
+		/// Retrieves the details of a package of return replacement items.
+		/// </summary>
+		/// <param name="packageId">Unique identifier of the return replacement package to retrieve.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="returnId">Unique identifier of the return associated with the replacement package to retrieve.</param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetPackage( returnId,  packageId,  responseFields);
+		///   var packageClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> GetPackageClient(string returnId, string packageId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Returns.PackageUrl.GetPackageUrl(returnId, packageId, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Creates a new physical package of return replacement items.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="returnId">Unique identifier of the return for which to create a replacement package.</param>
 		/// <param name="package">Properties of the physical package for a return replacement.</param>
 		/// <returns>
@@ -80,13 +83,13 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=CreatePackage( pkg,  returnId);
+		///   var mozuClient=CreatePackage( pkg,  returnId,  responseFields);
 		///   var packageClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> CreatePackageClient(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package pkg, string returnId)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> CreatePackageClient(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package pkg, string returnId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Returns.PackageUrl.CreatePackageUrl(returnId);
+			var url = Mozu.Api.Urls.Commerce.Returns.PackageUrl.CreatePackageUrl(returnId, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -99,6 +102,7 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		/// Updates one or more properties of a package associated with a return replacement.
 		/// </summary>
 		/// <param name="packageId">Unique identifier of the return replacement package to update.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="returnId">Unique identifier of the return associated with the replacement package to update.</param>
 		/// <param name="package">Properties of the return replacement package to update.</param>
 		/// <returns>
@@ -106,13 +110,13 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdatePackage( pkg,  returnId,  packageId);
+		///   var mozuClient=UpdatePackage( pkg,  returnId,  packageId,  responseFields);
 		///   var packageClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> UpdatePackageClient(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package pkg, string returnId, string packageId)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> UpdatePackageClient(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package pkg, string returnId, string packageId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Returns.PackageUrl.UpdatePackageUrl(packageId, returnId);
+			var url = Mozu.Api.Urls.Commerce.Returns.PackageUrl.UpdatePackageUrl(returnId, packageId, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -137,7 +141,7 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		/// </example>
 		public static MozuClient DeletePackageClient(string returnId, string packageId)
 		{
-			var url = Mozu.Api.Urls.Commerce.Returns.PackageUrl.DeletePackageUrl(packageId, returnId);
+			var url = Mozu.Api.Urls.Commerce.Returns.PackageUrl.DeletePackageUrl(returnId, packageId);
 			const string verb = "DELETE";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)

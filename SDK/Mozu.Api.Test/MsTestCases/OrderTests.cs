@@ -120,7 +120,7 @@ namespace Mozu.Api.Test.MsTestCases
         [Description("Submit the order, pay by check, fulfill and rma checks")]
         public void OrderTests_CompleteOrderStartToFinish()
         {
-            for (int i = 0; i < 1; i++)
+            for (int i = 0; i < 200; i++)
             {
                 Debug.WriteLine("Starting Run # " + (i + 1).ToString() + " of 200");
                 var orderId = CreateOrdersForTest(submitOrder: true, fullfillOrder: true, returnOrder: true, anonymous: false);
@@ -560,7 +560,7 @@ namespace Mozu.Api.Test.MsTestCases
                             locationCode: PickupLocationCode,
                             productCode: product.ProductCode);
 
-                        if (currInventory == null )
+                        if (currInventory == null)
                         {
                             // add inventory.
                             Debug.WriteLine("Current Inventory Location/Qty key was null/empty " +
@@ -571,7 +571,7 @@ namespace Mozu.Api.Test.MsTestCases
                                     Generator.GenerateListOfLocationInventory(
                                         locationCode: PickupLocationCode,
                                         productCode: product.ProductCode,
-                                        stockAvailable: 10,
+                                        stockAvailable: (itemQty*2),
                                         stockOnHand: (itemQty*2)));
                             Thread.Sleep(3000); // waiting for database changes to occur 
                         }
@@ -587,7 +587,7 @@ namespace Mozu.Api.Test.MsTestCases
                                         Generator.GenerateListOfLocationInventoryAdjustments(
                                             locationCode: PickupLocationCode,
                                             productCode: product.ProductCode,
-                                            valueChange: 20,
+                                            valueChange: (itemQty*2),
                                             stockAdjustmentType: "Delta"),
                                     locationCode: PickupLocationCode);
 

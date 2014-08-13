@@ -10,8 +10,12 @@
 
 using System;
 
+
 namespace Mozu.Api.Contracts.PaymentService
 {
+		///
+		///	Definition of the preauthorization gateway.
+		///
 		public class PreAuthorizeDefinition
 		{
 			///
@@ -19,10 +23,19 @@ namespace Mozu.Api.Contracts.PaymentService
 			///
 			public int Id { get; set; }
 
+			///
+			///The product environment URL associated with the preauthorization gateway.
+			///
 			public string PreAuthorizeProdUrl { get; set; }
 
+			///
+			///The test environment URL associated with the preauthorization gateway.
+			///
 			public string PreAuthorizeTestUrl { get; set; }
 
+			///
+			///The type of preauthorization gateway.
+			///
 			public PreAuthorizeTransactionTypeDataContract Type { get; set; }
 
 		}

@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Orders
 {
@@ -49,18 +50,19 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// </summary>
 		/// <param name="noteId">Unique identifier of the order note to retrieve.</param>
 		/// <param name="orderId">Unique identifier of the order associated with the note.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetOrderNote( orderId,  noteId);
+		///   var mozuClient=GetOrderNote( orderId,  noteId,  responseFields);
 		///   var orderNoteClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote> GetOrderNoteClient(string orderId, string noteId)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote> GetOrderNoteClient(string orderId, string noteId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Orders.OrderNoteUrl.GetOrderNoteUrl(noteId, orderId);
+			var url = Mozu.Api.Urls.Commerce.Orders.OrderNoteUrl.GetOrderNoteUrl(orderId, noteId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -73,19 +75,20 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// Creates a new merchant note for the specified order.
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order for which to add a note.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="orderNote">The alphanumeric text contained in the note. The maximum length is 256 characters.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=CreateOrderNote( orderNote,  orderId);
+		///   var mozuClient=CreateOrderNote( orderNote,  orderId,  responseFields);
 		///   var orderNoteClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote> CreateOrderNoteClient(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote orderNote, string orderId)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote> CreateOrderNoteClient(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote orderNote, string orderId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Orders.OrderNoteUrl.CreateOrderNoteUrl(orderId);
+			var url = Mozu.Api.Urls.Commerce.Orders.OrderNoteUrl.CreateOrderNoteUrl(orderId, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -99,19 +102,20 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// </summary>
 		/// <param name="noteId">Unique identifier of the order note.</param>
 		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="orderNote">The content of the order note. The maximum length is 256 characters.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateOrderNote( orderNote,  orderId,  noteId);
+		///   var mozuClient=UpdateOrderNote( orderNote,  orderId,  noteId,  responseFields);
 		///   var orderNoteClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote> UpdateOrderNoteClient(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote orderNote, string orderId, string noteId)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote> UpdateOrderNoteClient(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote orderNote, string orderId, string noteId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Orders.OrderNoteUrl.UpdateOrderNoteUrl(noteId, orderId);
+			var url = Mozu.Api.Urls.Commerce.Orders.OrderNoteUrl.UpdateOrderNoteUrl(orderId, noteId, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -136,7 +140,7 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// </example>
 		public static MozuClient DeleteOrderNoteClient(string orderId, string noteId)
 		{
-			var url = Mozu.Api.Urls.Commerce.Orders.OrderNoteUrl.DeleteOrderNoteUrl(noteId, orderId);
+			var url = Mozu.Api.Urls.Commerce.Orders.OrderNoteUrl.DeleteOrderNoteUrl(orderId, noteId);
 			const string verb = "DELETE";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)

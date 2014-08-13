@@ -17,75 +17,85 @@ namespace Mozu.Api.Urls.Commerce.Carts
 	{
 
 		/// <summary>
-        /// Get Resource Url for GetCartItems
+        /// Get Resource Url for GetCartItem
         /// </summary>
+        /// <param name="cartItemId">Identifier of the cart item to retrieve.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetCartItemsUrl()
+        public static MozuUrl GetCartItemUrl(string cartItemId, string responseFields =  null)
 		{
-			var url = "/api/commerce/carts/current/items";
+			var url = "/api/commerce/carts/current/items/{cartItemId}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "cartItemId", cartItemId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 		/// <summary>
-        /// Get Resource Url for GetCartItem
+        /// Get Resource Url for GetCartItems
         /// </summary>
-        /// <param name="cartItemId">Identifier of the cart item to retrieve.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetCartItemUrl(string cartItemId)
+        public static MozuUrl GetCartItemsUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/carts/current/items/{cartItemId}";
+			var url = "/api/commerce/carts/current/items?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "cartItemId", cartItemId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 				/// <summary>
         /// Get Resource Url for AddItemToCart
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl AddItemToCartUrl()
+        public static MozuUrl AddItemToCartUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/carts/current/items";
+			var url = "/api/commerce/carts/current/items?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 				/// <summary>
-        /// Get Resource Url for UpdateCartItem
-        /// </summary>
-        /// <param name="cartItemId">Identifier of the cart item to update.</param>
-        /// <returns>
-        /// String - Resource Url
-        /// </returns>
-        public static MozuUrl UpdateCartItemUrl(string cartItemId)
-		{
-			var url = "/api/commerce/carts/current/items/{cartItemId}";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "cartItemId", cartItemId);
-			return mozuUrl;
-		}
-
-		/// <summary>
         /// Get Resource Url for UpdateCartItemQuantity
         /// </summary>
         /// <param name="cartItemId">Identifier of the cart item to update quantity.</param>
         /// <param name="quantity">The number of cart items in the shopper's active cart.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateCartItemQuantityUrl(string cartItemId, int quantity)
+        public static MozuUrl UpdateCartItemQuantityUrl(string cartItemId, int quantity, string responseFields =  null)
 		{
-			var url = "/api/commerce/carts/current/items/{cartItemId}/{quantity}";
+			var url = "/api/commerce/carts/current/items/{cartItemId}/{quantity}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "cartItemId", cartItemId);
 			mozuUrl.FormatUrl( "quantity", quantity);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for UpdateCartItem
+        /// </summary>
+        /// <param name="cartItemId">Identifier of the cart item to update.</param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl UpdateCartItemUrl(string cartItemId, string responseFields =  null)
+		{
+			var url = "/api/commerce/carts/current/items/{cartItemId}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "cartItemId", cartItemId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 {
@@ -24,54 +25,85 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///
 		private readonly IApiContext _apiContext;
 
+		private readonly DataViewMode _dataViewMode;
+		
 		public MasterCatalogResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
+			_dataViewMode = DataViewMode.Live;
 		}
-
-		
+		public MasterCatalogResource(IApiContext apiContext, DataViewMode dataViewMode) 
+		{
+			_apiContext = apiContext;
+			_dataViewMode = dataViewMode;
+		}
+				
 		/// <summary>
 		/// Retrieve the details of all master catalog associated with a tenant.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.MasterCatalogCollection"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mastercatalog = new MasterCatalog();
-		///   var masterCatalogCollection = mastercatalog.GetMasterCatalogs();
+		///   var masterCatalogCollection = mastercatalog.GetMasterCatalogs( responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.MasterCatalogCollection GetMasterCatalogs()
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.MasterCatalogCollection GetMasterCatalogs(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.MasterCatalogCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.MasterCatalogClient.GetMasterCatalogsClient();
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.MasterCatalogClient.GetMasterCatalogsClient( responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.MasterCatalogCollection> GetMasterCatalogsAsync(string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.MasterCatalogCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.MasterCatalogClient.GetMasterCatalogsClient( responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
 		/// <summary>
 		/// Retrieve the details of the master catalog specified in the request.
 		/// </summary>
-		/// <param name="masterCatalogId"></param>
+		/// <param name="masterCatalogId">The unique identifier of the master catalog associated with the entity.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.MasterCatalog"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mastercatalog = new MasterCatalog();
-		///   var masterCatalog = mastercatalog.GetMasterCatalog(dataViewMode,  masterCatalogId);
+		///   var masterCatalog = mastercatalog.GetMasterCatalog(_dataViewMode,  masterCatalogId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.MasterCatalog GetMasterCatalog(DataViewMode dataViewMode, int masterCatalogId)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.MasterCatalog GetMasterCatalog(int masterCatalogId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.MasterCatalog> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.MasterCatalogClient.GetMasterCatalogClient(dataViewMode,  masterCatalogId);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.MasterCatalogClient.GetMasterCatalogClient(_dataViewMode,  masterCatalogId,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.MasterCatalog> GetMasterCatalogAsync(int masterCatalogId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.MasterCatalog> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.MasterCatalogClient.GetMasterCatalogClient(_dataViewMode,  masterCatalogId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -79,6 +111,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// Updates the product publishing mode for the master catalog specified in the request.
 		/// </summary>
 		/// <param name="masterCatalogId"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="masterCatalog">Properties of the master catalog to update, which consists of the product publishing mode. Possible values are "Pending" which saves product updates in draft mode until they are published, and "Live" which publishes all product changes immediately.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.MasterCatalog"/>
@@ -86,16 +119,27 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var mastercatalog = new MasterCatalog();
-		///   var masterCatalog = mastercatalog.UpdateMasterCatalog(dataViewMode,  masterCatalog,  masterCatalogId);
+		///   var masterCatalog = mastercatalog.UpdateMasterCatalog( masterCatalog,  masterCatalogId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.MasterCatalog UpdateMasterCatalog(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.MasterCatalog masterCatalog, int masterCatalogId)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.MasterCatalog UpdateMasterCatalog(Mozu.Api.Contracts.ProductAdmin.MasterCatalog masterCatalog, int masterCatalogId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.MasterCatalog> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.MasterCatalogClient.UpdateMasterCatalogClient(dataViewMode,  masterCatalog,  masterCatalogId);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.MasterCatalogClient.UpdateMasterCatalogClient( masterCatalog,  masterCatalogId,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.MasterCatalog> UpdateMasterCatalogAsync(Mozu.Api.Contracts.ProductAdmin.MasterCatalog masterCatalog, int masterCatalogId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.MasterCatalog> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.MasterCatalogClient.UpdateMasterCatalogClient( masterCatalog,  masterCatalogId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 

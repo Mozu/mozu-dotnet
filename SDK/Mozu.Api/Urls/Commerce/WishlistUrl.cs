@@ -23,19 +23,21 @@ namespace Mozu.Api.Urls.Commerce
         /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
         /// <param name="q">A list of search terms to use in the query when searching across wish list name. Separate multiple search terms with a space character.</param>
         /// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
+        /// <param name="responseFields"></param>
         /// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
         /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetWishlistsUrl(string filter, int? pageSize, string q, int? qLimit, string sortBy, int? startIndex)
+        public static MozuUrl GetWishlistsUrl(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string q =  null, int? qLimit =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/wishlists/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&q={q}&qLimit={qLimit}";
+			var url = "/api/commerce/wishlists/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&q={q}&qLimit={qLimit}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "filter", filter);
 			mozuUrl.FormatUrl( "pageSize", pageSize);
 			mozuUrl.FormatUrl( "q", q);
 			mozuUrl.FormatUrl( "qLimit", qLimit);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "sortBy", sortBy);
 			mozuUrl.FormatUrl( "startIndex", startIndex);
 			return mozuUrl;
@@ -44,14 +46,16 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetWishlist
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <param name="wishlistId">Unique identifier of the shopper wish list to retrieve.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetWishlistUrl(string wishlistId)
+        public static MozuUrl GetWishlistUrl(string wishlistId, string responseFields =  null)
 		{
-			var url = "/api/commerce/wishlists/{wishlistId}";
+			var url = "/api/commerce/wishlists/{wishlistId}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "wishlistId", wishlistId);
 			return mozuUrl;
 		}
@@ -59,16 +63,18 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetWishlistByName
         /// </summary>
-        /// <param name="customerAccountId"></param>
-        /// <param name="wishlistName"></param>
+        /// <param name="customerAccountId">The unique identifier of the customer account for which to retrieve wish lists.</param>
+        /// <param name="responseFields"></param>
+        /// <param name="wishlistName">The name of the wish list to retrieve.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetWishlistByNameUrl(int customerAccountId, string wishlistName)
+        public static MozuUrl GetWishlistByNameUrl(int customerAccountId, string wishlistName, string responseFields =  null)
 		{
-			var url = "/api/commerce/wishlists/customers/{customerAccountId}/{wishlistName}";
+			var url = "/api/commerce/wishlists/customers/{customerAccountId}/{wishlistName}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "customerAccountId", customerAccountId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "wishlistName", wishlistName);
 			return mozuUrl;
 		}
@@ -76,27 +82,31 @@ namespace Mozu.Api.Urls.Commerce
 				/// <summary>
         /// Get Resource Url for CreateWishlist
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl CreateWishlistUrl()
+        public static MozuUrl CreateWishlistUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/wishlists/";
+			var url = "/api/commerce/wishlists/?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 				/// <summary>
         /// Get Resource Url for UpdateWishlist
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <param name="wishlistId">Unique identifier of the shopper wish list to update.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateWishlistUrl(string wishlistId)
+        public static MozuUrl UpdateWishlistUrl(string wishlistId, string responseFields =  null)
 		{
-			var url = "/api/commerce/wishlists/{wishlistId}";
+			var url = "/api/commerce/wishlists/{wishlistId}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "wishlistId", wishlistId);
 			return mozuUrl;
 		}

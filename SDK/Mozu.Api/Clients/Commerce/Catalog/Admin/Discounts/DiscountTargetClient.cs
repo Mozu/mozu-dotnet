@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Discounts
 {
@@ -24,18 +25,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Discounts
 		/// Retrieves the discount target, that is which products, categories, or shipping methods are eligible for the discount.
 		/// </summary>
 		/// <param name="discountId">Unique identifier of the discount. System-supplied and read only.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.DiscountTarget"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetDiscountTarget(dataViewMode,  discountId);
+		///   var mozuClient=GetDiscountTarget(dataViewMode,  discountId,  responseFields);
 		///   var discountTargetClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountTarget> GetDiscountTargetClient(DataViewMode dataViewMode, int discountId)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountTarget> GetDiscountTargetClient(DataViewMode dataViewMode, int discountId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Discounts.DiscountTargetUrl.GetDiscountTargetUrl(discountId);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Discounts.DiscountTargetUrl.GetDiscountTargetUrl(discountId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountTarget>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -49,24 +51,24 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Discounts
 		/// Modifies properties of the discount target, for example, the dollar amount, or precentage off the price.
 		/// </summary>
 		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="discountTarget">Properties of the discount target to modify. Required properties: Target.Type. Any unspecified properties are set to null and boolean variables to false.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.DiscountTarget"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateDiscountTarget(dataViewMode,  discountTarget,  discountId);
+		///   var mozuClient=UpdateDiscountTarget( discountTarget,  discountId,  responseFields);
 		///   var discountTargetClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountTarget> UpdateDiscountTargetClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.DiscountTarget discountTarget, int discountId)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountTarget> UpdateDiscountTargetClient(Mozu.Api.Contracts.ProductAdmin.DiscountTarget discountTarget, int discountId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Discounts.DiscountTargetUrl.UpdateDiscountTargetUrl(discountId);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Discounts.DiscountTargetUrl.UpdateDiscountTargetUrl(discountId, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountTarget>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.DiscountTarget>(discountTarget)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
-;
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.DiscountTarget>(discountTarget);
 			return mozuClient;
 
 		}

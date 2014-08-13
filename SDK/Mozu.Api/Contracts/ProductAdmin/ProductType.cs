@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+
 using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.ProductAdmin
@@ -19,8 +20,10 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class ProductType
 		{
+			public string GoodsType { get; set; }
+
 			///
-			///Identifier of the entity.
+			///Unique identifier of the product type.
 			///
 			public int? Id { get; set; }
 
@@ -29,10 +32,13 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool IsBaseProductType { get; set; }
 
+			///
+			///The unique identifier of the master catalog associated with the entity.
+			///
 			public int? MasterCatalogId { get; set; }
 
 			///
-			///Name of the product type, such as "Shoes" or "TVs".
+			///Name of the product type, such as "Shoes" or "TVs."
 			///
 			public string Name { get; set; }
 
@@ -41,6 +47,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public int? ProductCount { get; set; }
 
+			///
+			///List of product usages that describe how products of this type are used. Products of this type can be Standard (a single product without configurable options), Configurable (a product that includes configurable option attributes), Bundle (a collection of products sold as a single entity), or Component (an invididual product that represents a component in a bundle). Product type usages cannot be both Bundle and Configurable.
+			///
 			public List<string> ProductUsages { get; set; }
 
 			///

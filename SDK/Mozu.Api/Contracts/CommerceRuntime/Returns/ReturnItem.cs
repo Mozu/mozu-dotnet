@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+
 using Mozu.Api.Contracts.CommerceRuntime.Orders;
 using Mozu.Api.Contracts.CommerceRuntime.Products;
 
@@ -60,6 +61,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///
 			public decimal? ShippingLossTaxAmount { get; set; }
 
+			///
+			///Properties of a collection of component products that make up a single returned product bundle with its own product code.
+			///
 			public List<ReturnBundle> BundledProducts { get; set; }
 
 			///

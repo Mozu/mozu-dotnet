@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -32,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Applies a shipping adjustment to the specified order.
 		/// <example> 
 		///  <code> 
-		/// var result = AdjustmentFactory.ApplyShippingAdjustment(handler : handler,  adjustment :  adjustment,  orderId :  orderId,  updateMode :  updateMode,  version :  version,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = AdjustmentFactory.ApplyShippingAdjustment(handler : handler,  adjustment :  adjustment,  orderId :  orderId,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Order/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order ApplyShippingAdjustment(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.CommerceRuntime.Commerce.Adjustment adjustment, string orderId, string updateMode = null, string version = null, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Commerce.Adjustment adjustment, string orderId, string updateMode = null, string version = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -47,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Orders.AdjustmentClient.ApplyShippingAdjustmentClient(
-				 adjustment :  adjustment,  orderId :  orderId,  updateMode :  updateMode,  version :  version		);
+				 adjustment :  adjustment,  orderId :  orderId,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -70,14 +71,14 @@ namespace Mozu.Api.Test.Factories
 		/// Applies a price adjustment to the specified order.
 		/// <example> 
 		///  <code> 
-		/// var result = AdjustmentFactory.ApplyAdjustment(handler : handler,  adjustment :  adjustment,  orderId :  orderId,  updateMode :  updateMode,  version :  version,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = AdjustmentFactory.ApplyAdjustment(handler : handler,  adjustment :  adjustment,  orderId :  orderId,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Order/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order ApplyAdjustment(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.CommerceRuntime.Commerce.Adjustment adjustment, string orderId, string updateMode = null, string version = null, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Commerce.Adjustment adjustment, string orderId, string updateMode = null, string version = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -85,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Orders.AdjustmentClient.ApplyAdjustmentClient(
-				 adjustment :  adjustment,  orderId :  orderId,  updateMode :  updateMode,  version :  version		);
+				 adjustment :  adjustment,  orderId :  orderId,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

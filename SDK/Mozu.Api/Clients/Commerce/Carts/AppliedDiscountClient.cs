@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Carts
 {
@@ -25,18 +26,19 @@ namespace Mozu.Api.Clients.Commerce.Carts
 		/// </summary>
 		/// <param name="cartId"></param>
 		/// <param name="couponCode"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=ApplyCoupon( cartId,  couponCode);
+		///   var mozuClient=ApplyCoupon( cartId,  couponCode,  responseFields);
 		///   var cartClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> ApplyCouponClient(string cartId, string couponCode)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> ApplyCouponClient(string cartId, string couponCode, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Carts.AppliedDiscountUrl.ApplyCouponUrl(cartId, couponCode);
+			var url = Mozu.Api.Urls.Commerce.Carts.AppliedDiscountUrl.ApplyCouponUrl(cartId, couponCode, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart>()
 									.WithVerb(verb).WithResourceUrl(url)

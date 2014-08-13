@@ -32,28 +32,32 @@ namespace Mozu.Api.Urls.Commerce.Customer
 				/// <summary>
         /// Get Resource Url for CreateUserAuthTicket
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl CreateUserAuthTicketUrl()
+        public static MozuUrl CreateUserAuthTicketUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/authtickets/";
+			var url = "/api/commerce/customer/authtickets/?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 				/// <summary>
         /// Get Resource Url for RefreshUserAuthTicket
         /// </summary>
-        /// <param name="refreshToken"></param>
+        /// <param name="refreshToken">The refresh token string required to refresh a user's authentication ticket.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl RefreshUserAuthTicketUrl(string refreshToken)
+        public static MozuUrl RefreshUserAuthTicketUrl(string refreshToken, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/authtickets/refresh?refreshToken={refreshToken}";
+			var url = "/api/commerce/customer/authtickets/refresh?refreshToken={refreshToken}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "refreshToken", refreshToken);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

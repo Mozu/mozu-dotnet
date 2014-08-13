@@ -10,6 +10,7 @@
 
 using System;
 
+
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
@@ -17,11 +18,16 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class ProductVariationDeltaPrice
 		{
+			public decimal? CreditValue { get; set; }
+
 			///
 			///3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
 			///
 			public string CurrencyCode { get; set; }
 
+			///
+			///The manufacturer's suggested retail price, as defined by the supplier.
+			///
 			public decimal? Msrp { get; set; }
 
 			///

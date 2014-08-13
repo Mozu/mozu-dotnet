@@ -9,6 +9,8 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
+
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
@@ -27,6 +29,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool? IsDefaulted { get; set; }
 
+			public int? Quantity { get; set; }
+
 			///
 			///Properties of a defined value for a product extra attribute.
 			///
@@ -41,6 +45,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///The difference between the price associated with this product extra and the base product. For example, if a product with a defined monogram extra costs an additional $10, the DeltaPrice value is "10".
 			///
 			public ProductExtraValueDeltaPrice DeltaPrice { get; set; }
+
+			public List<ProductExtraValueDeltaPrice> LocalizedDeltaPrice { get; set; }
 
 		}
 

@@ -11,12 +11,13 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 {
 	/// <summary>
-	/// Use the Attribute Definition resource to manage the properties, options, and extras that uniquely describe products of a specific type. Attributes can be associated with a product type, assigned values by a merchant or shopper, and added as faceted search filters for a product category. Options are product attributes that describe unique configurations made by the shopper, such as size or color, and generate a new product variation (or unique SKU). Properties are product attributes that describe aspects of the product that do not represent an option configurable by the shopper, such as screen resolution or brand. Extras are product attributes that describe add-on configurations made by the shopper that do not represent a product variation, such as a monogram.
+	/// Use the Attribute Definition resource to manage the properties, options, and extras that uniquely describe products of a specific type. Attributes can be associated with a product type, assigned values by a client or shopper, and added as faceted search filters for a product category. Options are product attributes that describe unique configurations made by the shopper, such as size or color, and generate a new product variation (or unique SKU). Properties are product attributes that describe aspects of the product that do not represent an option configurable by the shopper, such as screen resolution or brand. Extras are product attributes that describe add-on configurations made by the shopper that do not represent a product variation, such as a monogram.
 	/// </summary>
 	public partial class AttributeResource  	{
 		///
@@ -24,35 +25,25 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		///
 		private readonly IApiContext _apiContext;
 
+		private readonly DataViewMode _dataViewMode;
+		
 		public AttributeResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
+			_dataViewMode = DataViewMode.Live;
 		}
-
-		
-		/// <summary>
-		/// Retrieves a paged list of attributes according to any specified filter criteria and sort options.
-		/// </summary>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.AttributeCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var attribute = new Attribute();
-		///   var attributeCollection = attribute.GetAttributes(dataViewMode);
-		/// </code>
-		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.AttributeCollection GetAttributes(DataViewMode dataViewMode)
+		public AttributeResource(IApiContext apiContext, DataViewMode dataViewMode) 
 		{
-			return GetAttributes(dataViewMode,  null,  null,  null,  null);
+			_apiContext = apiContext;
+			_dataViewMode = dataViewMode;
 		}
-
+				
 		/// <summary>
 		/// Retrieves a paged list of attributes according to any specified filter criteria and sort options.
 		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
@@ -62,16 +53,27 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// <example>
 		/// <code>
 		///   var attribute = new Attribute();
-		///   var attributeCollection = attribute.GetAttributes(dataViewMode,  startIndex,  pageSize,  sortBy,  filter);
+		///   var attributeCollection = attribute.GetAttributes(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.AttributeCollection GetAttributes(DataViewMode dataViewMode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.AttributeCollection GetAttributes(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.AttributeClient.GetAttributesClient(dataViewMode,  startIndex,  pageSize,  sortBy,  filter);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.AttributeClient.GetAttributesClient(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.AttributeCollection> GetAttributesAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.AttributeClient.GetAttributesClient(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -79,6 +81,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// Retrieves the details of the specified product attribute.
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Attribute"/>
@@ -86,22 +89,34 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// <example>
 		/// <code>
 		///   var attribute = new Attribute();
-		///   var attribute = attribute.GetAttribute(dataViewMode,  attributeFQN);
+		///   var attribute = attribute.GetAttribute(_dataViewMode,  attributeFQN,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.Attribute GetAttribute(DataViewMode dataViewMode, string attributeFQN)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.Attribute GetAttribute(string attributeFQN, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.Attribute> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.AttributeClient.GetAttributeClient(dataViewMode,  attributeFQN);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.AttributeClient.GetAttributeClient(_dataViewMode,  attributeFQN,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Attribute> GetAttributeAsync(string attributeFQN, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Attribute> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.AttributeClient.GetAttributeClient(_dataViewMode,  attributeFQN,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
 		/// <summary>
 		/// Creates a new attribute to describe one aspect of a product such as color or size, based on its defined product type. The attribute name, attribute type, input type, and data type are required.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="attribute">Properties of the new product attribute to create.</param>
 		/// <returns>
@@ -110,16 +125,27 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// <example>
 		/// <code>
 		///   var attribute = new Attribute();
-		///   var attribute = attribute.AddAttribute(dataViewMode,  attribute);
+		///   var attribute = attribute.AddAttribute( attribute,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.Attribute AddAttribute(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.Attribute attribute)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.Attribute AddAttribute(Mozu.Api.Contracts.ProductAdmin.Attribute attribute, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.Attribute> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.AttributeClient.AddAttributeClient(dataViewMode,  attribute);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.AttributeClient.AddAttributeClient( attribute,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Attribute> AddAttributeAsync(Mozu.Api.Contracts.ProductAdmin.Attribute attribute, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Attribute> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.AttributeClient.AddAttributeClient( attribute,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -127,6 +153,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// Updates an existing attribute with attribute properties to set.
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="attribute">Any properties of the attribute that to update.</param>
 		/// <returns>
@@ -135,16 +162,27 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// <example>
 		/// <code>
 		///   var attribute = new Attribute();
-		///   var attribute = attribute.UpdateAttribute(dataViewMode,  attribute,  attributeFQN);
+		///   var attribute = attribute.UpdateAttribute( attribute,  attributeFQN,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.Attribute UpdateAttribute(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.Attribute attribute, string attributeFQN)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.Attribute UpdateAttribute(Mozu.Api.Contracts.ProductAdmin.Attribute attribute, string attributeFQN, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.Attribute> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.AttributeClient.UpdateAttributeClient(dataViewMode,  attribute,  attributeFQN);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.AttributeClient.UpdateAttributeClient( attribute,  attributeFQN,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Attribute> UpdateAttributeAsync(Mozu.Api.Contracts.ProductAdmin.Attribute attribute, string attributeFQN, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Attribute> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.AttributeClient.UpdateAttributeClient( attribute,  attributeFQN,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -159,15 +197,25 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// <example>
 		/// <code>
 		///   var attribute = new Attribute();
-		///   attribute.DeleteAttribute(dataViewMode,  attributeFQN);
+		///   attribute.DeleteAttribute( attributeFQN);
 		/// </code>
 		/// </example>
-		public virtual void DeleteAttribute(DataViewMode dataViewMode, string attributeFQN)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void DeleteAttribute(string attributeFQN)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.AttributeClient.DeleteAttributeClient(dataViewMode,  attributeFQN);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.AttributeClient.DeleteAttributeClient( attributeFQN);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
+
+		}
+
+		public virtual async Task DeleteAttributeAsync(string attributeFQN)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.AttributeClient.DeleteAttributeClient( attributeFQN);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
 
 		}
 

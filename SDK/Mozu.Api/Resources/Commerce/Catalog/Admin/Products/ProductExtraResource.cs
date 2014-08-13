@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 {
@@ -24,12 +25,19 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///
 		private readonly IApiContext _apiContext;
 
+		private readonly DataViewMode _dataViewMode;
+		
 		public ProductExtraResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
+			_dataViewMode = DataViewMode.Live;
 		}
-
-		
+		public ProductExtraResource(IApiContext apiContext, DataViewMode dataViewMode) 
+		{
+			_apiContext = apiContext;
+			_dataViewMode = dataViewMode;
+		}
+				
 		/// <summary>
 		/// Retrieves a list of extras configured for the product according to any defined filter and sort criteria.
 		/// </summary>
@@ -40,16 +48,101 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <example>
 		/// <code>
 		///   var productextra = new ProductExtra();
-		///   var productExtra = productextra.GetExtras(dataViewMode,  productCode);
+		///   var productExtra = productextra.GetExtras(_dataViewMode,  productCode);
 		/// </code>
 		/// </example>
-		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductExtra> GetExtras(DataViewMode dataViewMode, string productCode)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductExtra> GetExtras(string productCode)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductExtra>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.GetExtrasClient(dataViewMode,  productCode);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.GetExtrasClient(_dataViewMode,  productCode);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductExtra>> GetExtrasAsync(string productCode)
+		{
+			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductExtra>> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.GetExtrasClient(_dataViewMode,  productCode);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
+		/// <param name="value"></param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productextra = new ProductExtra();
+		///   var productExtraValueDeltaPrice = productextra.GetExtraValueLocalizedDeltaPrices(_dataViewMode,  productCode,  attributeFQN,  value);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> GetExtraValueLocalizedDeltaPrices(string productCode, string attributeFQN, string value)
+		{
+			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice>> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.GetExtraValueLocalizedDeltaPricesClient(_dataViewMode,  productCode,  attributeFQN,  value);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice>> GetExtraValueLocalizedDeltaPricesAsync(string productCode, string attributeFQN, string value)
+		{
+			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice>> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.GetExtraValueLocalizedDeltaPricesClient(_dataViewMode,  productCode,  attributeFQN,  value);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="value"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productextra = new ProductExtra();
+		///   var productExtraValueDeltaPrice = productextra.GetExtraValueLocalizedDeltaPrice(_dataViewMode,  productCode,  attributeFQN,  value,  currencyCode,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice GetExtraValueLocalizedDeltaPrice(string productCode, string attributeFQN, string value, string currencyCode, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.GetExtraValueLocalizedDeltaPriceClient(_dataViewMode,  productCode,  attributeFQN,  value,  currencyCode,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> GetExtraValueLocalizedDeltaPriceAsync(string productCode, string attributeFQN, string value, string currencyCode, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.GetExtraValueLocalizedDeltaPriceClient(_dataViewMode,  productCode,  attributeFQN,  value,  currencyCode,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -58,22 +151,72 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtra"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var productextra = new ProductExtra();
-		///   var productExtra = productextra.GetExtra(dataViewMode,  productCode,  attributeFQN);
+		///   var productExtra = productextra.GetExtra(_dataViewMode,  productCode,  attributeFQN,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductExtra GetExtra(DataViewMode dataViewMode, string productCode, string attributeFQN)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.ProductExtra GetExtra(string productCode, string attributeFQN, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtra> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.GetExtraClient(dataViewMode,  productCode,  attributeFQN);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.GetExtraClient(_dataViewMode,  productCode,  attributeFQN,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductExtra> GetExtraAsync(string productCode, string attributeFQN, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtra> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.GetExtraClient(_dataViewMode,  productCode,  attributeFQN,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="value"></param>
+		/// <param name="localizedDeltaPrice"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productextra = new ProductExtra();
+		///   var productExtraValueDeltaPrice = productextra.AddExtraValueLocalizedDeltaPrice( localizedDeltaPrice,  productCode,  attributeFQN,  value,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice AddExtraValueLocalizedDeltaPrice(Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice localizedDeltaPrice, string productCode, string attributeFQN, string value, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.AddExtraValueLocalizedDeltaPriceClient( localizedDeltaPrice,  productCode,  attributeFQN,  value,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> AddExtraValueLocalizedDeltaPriceAsync(Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice localizedDeltaPrice, string productCode, string attributeFQN, string value, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.AddExtraValueLocalizedDeltaPriceClient( localizedDeltaPrice,  productCode,  attributeFQN,  value,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -81,6 +224,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// Configure an extra attribute for the product specified in the request.
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="productExtra">Properties of the product extra to configure for the specified product.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtra"/>
@@ -88,16 +232,103 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <example>
 		/// <code>
 		///   var productextra = new ProductExtra();
-		///   var productExtra = productextra.AddExtra(dataViewMode,  productExtra,  productCode);
+		///   var productExtra = productextra.AddExtra( productExtra,  productCode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductExtra AddExtra(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.ProductExtra productExtra, string productCode)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.ProductExtra AddExtra(Mozu.Api.Contracts.ProductAdmin.ProductExtra productExtra, string productCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtra> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.AddExtraClient(dataViewMode,  productExtra,  productCode);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.AddExtraClient( productExtra,  productCode,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductExtra> AddExtraAsync(Mozu.Api.Contracts.ProductAdmin.ProductExtra productExtra, string productCode, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtra> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.AddExtraClient( productExtra,  productCode,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
+		/// <param name="value"></param>
+		/// <param name="localizedDeltaPrice"></param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productextra = new ProductExtra();
+		///   var productExtraValueDeltaPrice = productextra.UpdateExtraValueLocalizedDeltaPrices( localizedDeltaPrice,  productCode,  attributeFQN,  value);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> UpdateExtraValueLocalizedDeltaPrices(List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> localizedDeltaPrice, string productCode, string attributeFQN, string value)
+		{
+			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice>> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.UpdateExtraValueLocalizedDeltaPricesClient( localizedDeltaPrice,  productCode,  attributeFQN,  value);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice>> UpdateExtraValueLocalizedDeltaPricesAsync(List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> localizedDeltaPrice, string productCode, string attributeFQN, string value)
+		{
+			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice>> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.UpdateExtraValueLocalizedDeltaPricesClient( localizedDeltaPrice,  productCode,  attributeFQN,  value);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="value"></param>
+		/// <param name="localizedDeltaPrice"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productextra = new ProductExtra();
+		///   var productExtraValueDeltaPrice = productextra.UpdateExtraValueLocalizedDeltaPrice( localizedDeltaPrice,  productCode,  attributeFQN,  value,  currencyCode,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice UpdateExtraValueLocalizedDeltaPrice(Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice localizedDeltaPrice, string productCode, string attributeFQN, string value, string currencyCode, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.UpdateExtraValueLocalizedDeltaPriceClient( localizedDeltaPrice,  productCode,  attributeFQN,  value,  currencyCode,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> UpdateExtraValueLocalizedDeltaPriceAsync(Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice localizedDeltaPrice, string productCode, string attributeFQN, string value, string currencyCode, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.UpdateExtraValueLocalizedDeltaPriceClient( localizedDeltaPrice,  productCode,  attributeFQN,  value,  currencyCode,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -106,6 +337,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="productExtra">Properties of the extra attribute to update for the specified product.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtra"/>
@@ -113,16 +345,27 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <example>
 		/// <code>
 		///   var productextra = new ProductExtra();
-		///   var productExtra = productextra.UpdateExtra(dataViewMode,  productExtra,  productCode,  attributeFQN);
+		///   var productExtra = productextra.UpdateExtra( productExtra,  productCode,  attributeFQN,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductExtra UpdateExtra(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.ProductExtra productExtra, string productCode, string attributeFQN)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.ProductExtra UpdateExtra(Mozu.Api.Contracts.ProductAdmin.ProductExtra productExtra, string productCode, string attributeFQN, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtra> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.UpdateExtraClient(dataViewMode,  productExtra,  productCode,  attributeFQN);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.UpdateExtraClient( productExtra,  productCode,  attributeFQN,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductExtra> UpdateExtraAsync(Mozu.Api.Contracts.ProductAdmin.ProductExtra productExtra, string productCode, string attributeFQN, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtra> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.UpdateExtraClient( productExtra,  productCode,  attributeFQN,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -137,15 +380,60 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <example>
 		/// <code>
 		///   var productextra = new ProductExtra();
-		///   productextra.DeleteExtra(dataViewMode,  productCode,  attributeFQN);
+		///   productextra.DeleteExtra( productCode,  attributeFQN);
 		/// </code>
 		/// </example>
-		public virtual void DeleteExtra(DataViewMode dataViewMode, string productCode, string attributeFQN)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void DeleteExtra(string productCode, string attributeFQN)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.DeleteExtraClient(dataViewMode,  productCode,  attributeFQN);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.DeleteExtraClient( productCode,  attributeFQN);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
+
+		}
+
+		public virtual async Task DeleteExtraAsync(string productCode, string attributeFQN)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.DeleteExtraClient( productCode,  attributeFQN);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="value"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productextra = new ProductExtra();
+		///   productextra.DeleteExtraValueLocalizedDeltaPrice( productCode,  attributeFQN,  value,  currencyCode);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void DeleteExtraValueLocalizedDeltaPrice(string productCode, string attributeFQN, string value, string currencyCode)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.DeleteExtraValueLocalizedDeltaPriceClient( productCode,  attributeFQN,  value,  currencyCode);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+
+		}
+
+		public virtual async Task DeleteExtraValueLocalizedDeltaPriceAsync(string productCode, string attributeFQN, string value, string currencyCode)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.DeleteExtraValueLocalizedDeltaPriceClient( productCode,  attributeFQN,  value,  currencyCode);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
 
 		}
 

@@ -10,10 +10,17 @@
 
 using System;
 
+
 namespace Mozu.Api.Contracts.ProductAdmin
 {
+		///
+		///	Properties that describe the behavior the system uses when determining the price of the product.
+		///
 		public class ProductPricingBehaviorInfo
 		{
+			///
+			///If true, the system cannot apply any discounts to this product. Discount restrictions are defined at the master catalog level. Client administrators cannot override discount restrictions at the catalog level, but they can limit the restriction to a defined time interval.
+			///
 			public bool? DiscountsRestricted { get; set; }
 
 			public DateTime? DiscountsRestrictedEndDate { get; set; }

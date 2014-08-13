@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -32,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves a list of defined channel groups according to any filter and sort criteria specified in the request.
 		/// <example> 
 		///  <code> 
-		/// var result = ChannelGroupFactory.GetChannelGroups(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ChannelGroupFactory.GetChannelGroups(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<ChannelGroupCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroupCollection GetChannelGroups(ServiceClientMessageHandler handler, 
- 		 int? startIndex = null, int? pageSize = null, string sortBy = null, string filter = null, 
+ 		 int? startIndex = null, int? pageSize = null, string sortBy = null, string filter = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -47,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.ChannelGroupClient.GetChannelGroupsClient(
-				 startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter		);
+				 startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -70,14 +71,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves the details of a defined channel group.
 		/// <example> 
 		///  <code> 
-		/// var result = ChannelGroupFactory.GetChannelGroup(handler : handler,  code :  code,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ChannelGroupFactory.GetChannelGroup(handler : handler,  code :  code,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<ChannelGroup/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup GetChannelGroup(ServiceClientMessageHandler handler, 
- 		 string code, 
+ 		 string code, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -85,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.ChannelGroupClient.GetChannelGroupClient(
-				 code :  code		);
+				 code :  code,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -108,14 +109,14 @@ namespace Mozu.Api.Test.Factories
 		/// Creates a new group of channels with common information.
 		/// <example> 
 		///  <code> 
-		/// var result = ChannelGroupFactory.CreateChannelGroup(handler : handler,  channelGroup :  channelGroup,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ChannelGroupFactory.CreateChannelGroup(handler : handler,  channelGroup :  channelGroup,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<ChannelGroup/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup CreateChannelGroup(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup channelGroup, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup channelGroup, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -123,7 +124,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.ChannelGroupClient.CreateChannelGroupClient(
-				 channelGroup :  channelGroup		);
+				 channelGroup :  channelGroup,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -146,14 +147,14 @@ namespace Mozu.Api.Test.Factories
 		/// Updates one or more properties of a defined channel group.
 		/// <example> 
 		///  <code> 
-		/// var result = ChannelGroupFactory.UpdateChannelGroup(handler : handler,  channelGroup :  channelGroup,  code :  code,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ChannelGroupFactory.UpdateChannelGroup(handler : handler,  channelGroup :  channelGroup,  code :  code,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<ChannelGroup/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup UpdateChannelGroup(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup channelGroup, string code, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup channelGroup, string code, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -161,7 +162,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.ChannelGroupClient.UpdateChannelGroupClient(
-				 channelGroup :  channelGroup,  code :  code		);
+				 channelGroup :  channelGroup,  code :  code,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

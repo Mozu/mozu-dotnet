@@ -9,18 +9,34 @@
 //------------------------------------------------------------------------------
 
 using System;
+
 using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.Customer
 {
+		///
+		///	The Customer Segment object includes properties of a defined customer segment used to group customer accounts.
+		///
 		public class CustomerSegment
 		{
+			///
+			///The user-defined code assigned for the customer segment.
+			///
 			public string Code { get; set; }
 
+			///
+			///Description of the customer segment.
+			///
 			public string Description { get; set; }
 
+			///
+			///Unique identifier of the customer segment. System-supplied and read only.
+			///
 			public int Id { get; set; }
 
+			///
+			///Name of the customer segment.
+			///
 			public string Name { get; set; }
 
 			public AuditInfo AuditInfo { get; set; }

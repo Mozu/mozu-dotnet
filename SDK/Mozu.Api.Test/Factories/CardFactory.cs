@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -29,25 +30,25 @@ namespace Mozu.Api.Test.Factories
 	{
 
 		/// <summary> 
-		/// Retrieves all stored credit cards for the customer account.
+		/// Retrieves the details of a credit card stored with a customer account billing contact.
 		/// <example> 
 		///  <code> 
-		/// var result = CardFactory.GetAccountCards(handler : handler,  accountId :  accountId,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<CardCollection/>(result); 
+		/// var result = CardFactory.GetAccountCard(handler : handler,  accountId :  accountId,  cardId :  cardId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Card/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.Customer.CardCollection GetAccountCards(ServiceClientMessageHandler handler, 
- 		 int accountId, 
+		public static Mozu.Api.Contracts.Customer.Card GetAccountCard(ServiceClientMessageHandler handler, 
+ 		 int accountId, string cardId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Customer.Accounts.CardClient.GetAccountCardsClient(
-				 accountId :  accountId		);
+			var apiClient = Mozu.Api.Clients.Commerce.Customer.Accounts.CardClient.GetAccountCardClient(
+				 accountId :  accountId,  cardId :  cardId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -67,25 +68,25 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves all stored credit cards for the customer account.
 		/// <example> 
 		///  <code> 
-		/// var result = CardFactory.GetAccountCard(handler : handler,  accountId :  accountId,  cardId :  cardId,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Card/>(result); 
+		/// var result = CardFactory.GetAccountCards(handler : handler,  accountId :  accountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<CardCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.Customer.Card GetAccountCard(ServiceClientMessageHandler handler, 
- 		 int accountId, string cardId, 
+		public static Mozu.Api.Contracts.Customer.CardCollection GetAccountCards(ServiceClientMessageHandler handler, 
+ 		 int accountId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Customer.Accounts.CardClient.GetAccountCardClient(
-				 accountId :  accountId,  cardId :  cardId		);
+			var apiClient = Mozu.Api.Clients.Commerce.Customer.Accounts.CardClient.GetAccountCardsClient(
+				 accountId :  accountId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -108,14 +109,14 @@ namespace Mozu.Api.Test.Factories
 		/// Creates a new credit card record and stores it for the customer account.
 		/// <example> 
 		///  <code> 
-		/// var result = CardFactory.AddAccountCard(handler : handler,  card :  card,  accountId :  accountId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CardFactory.AddAccountCard(handler : handler,  card :  card,  accountId :  accountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Card/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.Card AddAccountCard(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.Customer.Card card, int accountId, 
+ 		 Mozu.Api.Contracts.Customer.Card card, int accountId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -123,7 +124,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.Accounts.CardClient.AddAccountCardClient(
-				 card :  card,  accountId :  accountId		);
+				 card :  card,  accountId :  accountId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -146,14 +147,14 @@ namespace Mozu.Api.Test.Factories
 		/// Update one or more properties of a credit card defined for a customer account.
 		/// <example> 
 		///  <code> 
-		/// var result = CardFactory.UpdateAccountCard(handler : handler,  card :  card,  accountId :  accountId,  cardId :  cardId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CardFactory.UpdateAccountCard(handler : handler,  card :  card,  accountId :  accountId,  cardId :  cardId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Card/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.Card UpdateAccountCard(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.Customer.Card card, int accountId, string cardId, 
+ 		 Mozu.Api.Contracts.Customer.Card card, int accountId, string cardId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -161,7 +162,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.Accounts.CardClient.UpdateAccountCardClient(
-				 card :  card,  accountId :  accountId,  cardId :  cardId		);
+				 card :  card,  accountId :  accountId,  cardId :  cardId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

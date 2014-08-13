@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttypes
 {
@@ -51,19 +52,20 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttyp
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="productTypeId">Identifier of the product type.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.AttributeInProductType"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetProperty(dataViewMode,  productTypeId,  attributeFQN);
+		///   var mozuClient=GetProperty(dataViewMode,  productTypeId,  attributeFQN,  responseFields);
 		///   var attributeInProductTypeClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> GetPropertyClient(DataViewMode dataViewMode, int productTypeId, string attributeFQN)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> GetPropertyClient(DataViewMode dataViewMode, int productTypeId, string attributeFQN, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypePropertyUrl.GetPropertyUrl(attributeFQN, productTypeId);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypePropertyUrl.GetPropertyUrl(productTypeId, attributeFQN, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -77,6 +79,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttyp
 		/// Assigns a property attribute to the specified product type, according to the information defined in the request.
 		/// </summary>
 		/// <param name="productTypeId">Identifier of the product type.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="attributeInProductType">Properties of the property attribute to define for the specified product type.</param>
 		/// <returns>
@@ -84,18 +87,17 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttyp
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddProperty(dataViewMode,  attributeInProductType,  productTypeId);
+		///   var mozuClient=AddProperty( attributeInProductType,  productTypeId,  responseFields);
 		///   var attributeInProductTypeClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> AddPropertyClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.AttributeInProductType attributeInProductType, int productTypeId)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> AddPropertyClient(Mozu.Api.Contracts.ProductAdmin.AttributeInProductType attributeInProductType, int productTypeId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypePropertyUrl.AddPropertyUrl(productTypeId);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypePropertyUrl.AddPropertyUrl(productTypeId, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType>(attributeInProductType)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
-;
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType>(attributeInProductType);
 			return mozuClient;
 
 		}
@@ -105,6 +107,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttyp
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="productTypeId">Identifier of the product type.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="attributeInProductType">Properties of the property attribute to define for the product type.</param>
 		/// <returns>
@@ -112,18 +115,17 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttyp
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateProperty(dataViewMode,  attributeInProductType,  productTypeId,  attributeFQN);
+		///   var mozuClient=UpdateProperty( attributeInProductType,  productTypeId,  attributeFQN,  responseFields);
 		///   var attributeInProductTypeClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> UpdatePropertyClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.AttributeInProductType attributeInProductType, int productTypeId, string attributeFQN)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> UpdatePropertyClient(Mozu.Api.Contracts.ProductAdmin.AttributeInProductType attributeInProductType, int productTypeId, string attributeFQN, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypePropertyUrl.UpdatePropertyUrl(attributeFQN, productTypeId);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypePropertyUrl.UpdatePropertyUrl(productTypeId, attributeFQN, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType>(attributeInProductType)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
-;
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType>(attributeInProductType);
 			return mozuClient;
 
 		}
@@ -139,17 +141,16 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttyp
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=DeleteProperty(dataViewMode,  productTypeId,  attributeFQN);
+		///   var mozuClient=DeleteProperty( productTypeId,  attributeFQN);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient DeletePropertyClient(DataViewMode dataViewMode, int productTypeId, string attributeFQN)
+		public static MozuClient DeletePropertyClient(int productTypeId, string attributeFQN)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypePropertyUrl.DeletePropertyUrl(attributeFQN, productTypeId);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypePropertyUrl.DeletePropertyUrl(productTypeId, attributeFQN);
 			const string verb = "DELETE";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 

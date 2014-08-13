@@ -10,6 +10,7 @@
 
 using System;
 
+
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
@@ -26,6 +27,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///Value of the product property.
 			///
 			public object Value { get; set; }
+
+			public AttributeVocabularyValueDisplayInfo DisplayInfo { get; set; }
 
 		}
 

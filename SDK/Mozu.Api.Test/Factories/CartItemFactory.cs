@@ -17,37 +17,38 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the cart items subresource to manage a collection of items in an active shopping cart.
+	/// Use the Cart Items subresource to manage a collection of items in an active shopping cart.
 	/// </summary>
 	public partial class CartItemFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves a list of cart items including the total number of items in the cart.
+		/// Retrieves a particular cart item by providing the cart item ID.
 		/// <example> 
 		///  <code> 
-		/// var result = CartItemFactory.GetCartItems(handler : handler,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<CartItemCollection/>(result); 
+		/// var result = CartItemFactory.GetCartItem(handler : handler,  cartItemId :  cartItemId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<CartItem/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.CommerceRuntime.Carts.CartItemCollection GetCartItems(ServiceClientMessageHandler handler, 
- 		 
+		public static Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem GetCartItem(ServiceClientMessageHandler handler, 
+ 		 string cartItemId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Carts.CartItemClient.GetCartItemsClient(
-						);
+			var apiClient = Mozu.Api.Clients.Commerce.Carts.CartItemClient.GetCartItemClient(
+				 cartItemId :  cartItemId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -67,25 +68,25 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves a particular cart item by providing the cart item ID.
+		/// Retrieves a list of cart items including the total number of items in the cart.
 		/// <example> 
 		///  <code> 
-		/// var result = CartItemFactory.GetCartItem(handler : handler,  cartItemId :  cartItemId,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<CartItem/>(result); 
+		/// var result = CartItemFactory.GetCartItems(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<CartItemCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem GetCartItem(ServiceClientMessageHandler handler, 
- 		 string cartItemId, 
+		public static Mozu.Api.Contracts.CommerceRuntime.Carts.CartItemCollection GetCartItems(ServiceClientMessageHandler handler, 
+ 		 string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Carts.CartItemClient.GetCartItemClient(
-				 cartItemId :  cartItemId		);
+			var apiClient = Mozu.Api.Clients.Commerce.Carts.CartItemClient.GetCartItemsClient(
+				 responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -108,14 +109,14 @@ namespace Mozu.Api.Test.Factories
 		/// Adds a product to the current shopper's cart.
 		/// <example> 
 		///  <code> 
-		/// var result = CartItemFactory.AddItemToCart(handler : handler,  cartItem :  cartItem,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CartItemFactory.AddItemToCart(handler : handler,  cartItem :  cartItem,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CartItem/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem AddItemToCart(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem cartItem, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem cartItem, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -123,45 +124,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Carts.CartItemClient.AddItemToCartClient(
-				 cartItem :  cartItem		);
-			try
-			{
-				apiClient.WithContext(handler.ApiContext).Execute();
-			}
-			catch (ApiException ex)
-			{
-				// Custom error handling for test cases can be placed here
-				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
-				if (customException != null)
-					throw customException;
-				return null;
-			}
-			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
-					 ? (apiClient.Result()) 
-					 : null;
-
-		}
-  
-		/// <summary> 
-		/// Update the product or product quantity of an item in the current shopper's cart.
-		/// <example> 
-		///  <code> 
-		/// var result = CartItemFactory.UpdateCartItem(handler : handler,  cartItem :  cartItem,  cartItemId :  cartItemId,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<CartItem/>(result); 
-		/// return optionalCasting;
-		///  </code> 
-		/// </example> 
-		/// </summary>
-		public static Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem UpdateCartItem(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem cartItem, string cartItemId, 
-		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
-		{
-			SetSdKparameters();
-			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
-			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
-			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Carts.CartItemClient.UpdateCartItemClient(
-				 cartItem :  cartItem,  cartItemId :  cartItemId		);
+				 cartItem :  cartItem,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -184,14 +147,14 @@ namespace Mozu.Api.Test.Factories
 		/// Update the quantity of an individual cart item in the cart of the current shopper.
 		/// <example> 
 		///  <code> 
-		/// var result = CartItemFactory.UpdateCartItemQuantity(handler : handler,  cartItemId :  cartItemId,  quantity :  quantity,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CartItemFactory.UpdateCartItemQuantity(handler : handler,  cartItemId :  cartItemId,  quantity :  quantity,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CartItem/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem UpdateCartItemQuantity(ServiceClientMessageHandler handler, 
- 		 string cartItemId, int quantity, 
+ 		 string cartItemId, int quantity, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -199,7 +162,45 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Carts.CartItemClient.UpdateCartItemQuantityClient(
-				 cartItemId :  cartItemId,  quantity :  quantity		);
+				 cartItemId :  cartItemId,  quantity :  quantity,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// Update the product or product quantity of an item in the current shopper's cart.
+		/// <example> 
+		///  <code> 
+		/// var result = CartItemFactory.UpdateCartItem(handler : handler,  cartItem :  cartItem,  cartItemId :  cartItemId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<CartItem/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem UpdateCartItem(ServiceClientMessageHandler handler, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem cartItem, string cartItemId, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Carts.CartItemClient.UpdateCartItemClient(
+				 cartItem :  cartItem,  cartItemId :  cartItemId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

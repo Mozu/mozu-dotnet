@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Orders
 {
@@ -48,19 +49,20 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// 
 		/// </summary>
 		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="validationResult"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddValidationResult( validationResult,  orderId);
+		///   var mozuClient=AddValidationResult( validationResult,  orderId,  responseFields);
 		///   var orderValidationResultClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult> AddValidationResultClient(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult validationResult, string orderId)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult> AddValidationResultClient(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult validationResult, string orderId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Orders.OrderValidationResultUrl.AddValidationResultUrl(orderId);
+			var url = Mozu.Api.Urls.Commerce.Orders.OrderValidationResultUrl.AddValidationResultUrl(orderId, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult>()
 									.WithVerb(verb).WithResourceUrl(url)

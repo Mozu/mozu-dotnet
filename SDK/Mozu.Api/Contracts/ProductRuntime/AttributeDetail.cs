@@ -10,6 +10,7 @@
 
 using System;
 
+
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
@@ -32,6 +33,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public string Description { get; set; }
 
+			public string DisplayIntention { get; set; }
+
 			///
 			///The input type (such as date or text area) accepted for the attribute's data type.
 			///
@@ -41,6 +44,10 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///Name of the atrribute in the language specified by the locale code.
 			///
 			public string Name { get; set; }
+
+			public bool SearchableInStorefront { get; set; }
+
+			public bool SearchDisplayValue { get; set; }
 
 			///
 			///The usage type of the product attribute, which is property, option, or extra.

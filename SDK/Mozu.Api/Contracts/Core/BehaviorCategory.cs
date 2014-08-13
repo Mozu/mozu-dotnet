@@ -10,18 +10,22 @@
 
 using System;
 
+
 namespace Mozu.Api.Contracts.Core
 {
 		///
-		///	***Always private and should not be published.***
+		///	Properties of a category of application behaviors.
 		///
 		public class BehaviorCategory
 		{
 			///
-			///Identifier of the entity.
+			///Unique identifier of the behavior.
 			///
 			public int Id { get; set; }
 
+			///
+			///The name of the behavior.
+			///
 			public string Name { get; set; }
 
 		}

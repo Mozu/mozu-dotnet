@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Content.Documentlists
 {
@@ -24,12 +25,19 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		///
 		private readonly IApiContext _apiContext;
 
+		private readonly DataViewMode _dataViewMode;
+		
 		public FacetResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
+			_dataViewMode = DataViewMode.Live;
 		}
-
-		
+		public FacetResource(IApiContext apiContext, DataViewMode dataViewMode) 
+		{
+			_apiContext = apiContext;
+			_dataViewMode = dataViewMode;
+		}
+				
 		/// <summary>
 		/// Retrieves the properties of facets that aid in indexing and searching.
 		/// </summary>
@@ -41,16 +49,27 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <example>
 		/// <code>
 		///   var facet = new Facet();
-		///   var facet = facet.GetFacets(dataViewMode,  documentListName,  propertyName);
+		///   var facet = facet.GetFacets(_dataViewMode,  documentListName,  propertyName);
 		/// </code>
 		/// </example>
-		public virtual List<Mozu.Api.Contracts.Content.Facet> GetFacets(DataViewMode dataViewMode, string documentListName, string propertyName)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual List<Mozu.Api.Contracts.Content.Facet> GetFacets(string documentListName, string propertyName)
 		{
 			MozuClient<List<Mozu.Api.Contracts.Content.Facet>> response;
-			var client = Mozu.Api.Clients.Content.Documentlists.FacetClient.GetFacetsClient(dataViewMode,  documentListName,  propertyName);
+			var client = Mozu.Api.Clients.Content.Documentlists.FacetClient.GetFacetsClient(_dataViewMode,  documentListName,  propertyName);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<List<Mozu.Api.Contracts.Content.Facet>> GetFacetsAsync(string documentListName, string propertyName)
+		{
+			MozuClient<List<Mozu.Api.Contracts.Content.Facet>> response;
+			var client = Mozu.Api.Clients.Content.Documentlists.FacetClient.GetFacetsClient(_dataViewMode,  documentListName,  propertyName);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 

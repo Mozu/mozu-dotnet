@@ -21,34 +21,21 @@ namespace Mozu.Api.Urls.Commerce.Customer.Attributedefinition
         /// </summary>
         /// <param name="filter"></param>
         /// <param name="pageSize"></param>
+        /// <param name="responseFields"></param>
         /// <param name="sortBy"></param>
         /// <param name="startIndex"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetAttributesUrl(string filter, int? pageSize, string sortBy, int? startIndex)
+        public static MozuUrl GetAttributesUrl(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/attributedefinition/attributes/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
+			var url = "/api/commerce/customer/attributedefinition/attributes/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "filter", filter);
 			mozuUrl.FormatUrl( "pageSize", pageSize);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "sortBy", sortBy);
 			mozuUrl.FormatUrl( "startIndex", startIndex);
-			return mozuUrl;
-		}
-
-		/// <summary>
-        /// Get Resource Url for GetAttribute
-        /// </summary>
-        /// <param name="attributeFQN"></param>
-        /// <returns>
-        /// String - Resource Url
-        /// </returns>
-        public static MozuUrl GetAttributeUrl(string attributeFQN)
-		{
-			var url = "/api/commerce/customer/attributedefinition/attributes/{attributeFQN}";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "attributeFQN", attributeFQN);
 			return mozuUrl;
 		}
 
@@ -64,6 +51,23 @@ namespace Mozu.Api.Urls.Commerce.Customer.Attributedefinition
 			var url = "/api/commerce/customer/attributedefinition/attributes/{attributeFQN}/VocabularyValues";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "attributeFQN", attributeFQN);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for GetAttribute
+        /// </summary>
+        /// <param name="attributeFQN"></param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetAttributeUrl(string attributeFQN, string responseFields =  null)
+		{
+			var url = "/api/commerce/customer/attributedefinition/attributes/{attributeFQN}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "attributeFQN", attributeFQN);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

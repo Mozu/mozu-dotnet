@@ -19,26 +19,30 @@ namespace Mozu.Api.Urls.Platform.Applications
 				/// <summary>
         /// Get Resource Url for AuthenticateApp
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl AuthenticateAppUrl()
+        public static MozuUrl AuthenticateAppUrl(string responseFields =  null)
 		{
-			var url = "/api/platform/applications/authtickets/";
+			var url = "/api/platform/applications/authtickets/?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 				/// <summary>
         /// Get Resource Url for RefreshAppAuthTicket
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl RefreshAppAuthTicketUrl()
+        public static MozuUrl RefreshAppAuthTicketUrl(string responseFields =  null)
 		{
-			var url = "/api/platform/applications/authtickets/refresh-ticket";
+			var url = "/api/platform/applications/authtickets/refresh-ticket?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

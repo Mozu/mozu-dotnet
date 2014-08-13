@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attributes
 {
@@ -24,14 +25,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		///
 		private readonly IApiContext _apiContext;
 
+		private readonly DataViewMode _dataViewMode;
+		
 		public AttributeVocabularyValueResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
+			_dataViewMode = DataViewMode.Live;
 		}
-
-		
+		public AttributeVocabularyValueResource(IApiContext apiContext, DataViewMode dataViewMode) 
+		{
+			_apiContext = apiContext;
+			_dataViewMode = dataViewMode;
+		}
+				
 		/// <summary>
-		/// Retrieves a list of attribute vocabulary values. To target a query, use one or several valid optional response groups.
+		/// Retrieves a list of vocabulary values defined for the attribute specified in the request.
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
@@ -41,23 +49,109 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		/// <example>
 		/// <code>
 		///   var attributevocabularyvalue = new AttributeVocabularyValue();
-		///   var attributeVocabularyValue = attributevocabularyvalue.GetAttributeVocabularyValues(dataViewMode,  attributeFQN);
+		///   var attributeVocabularyValue = attributevocabularyvalue.GetAttributeVocabularyValues(_dataViewMode,  attributeFQN);
 		/// </code>
 		/// </example>
-		public virtual List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue> GetAttributeVocabularyValues(DataViewMode dataViewMode, string attributeFQN)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue> GetAttributeVocabularyValues(string attributeFQN)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.GetAttributeVocabularyValuesClient(dataViewMode,  attributeFQN);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.GetAttributeVocabularyValuesClient(_dataViewMode,  attributeFQN);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
 
 		}
 
+		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue>> GetAttributeVocabularyValuesAsync(string attributeFQN)
+		{
+			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue>> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.GetAttributeVocabularyValuesClient(_dataViewMode,  attributeFQN);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
 		/// <summary>
-		/// Retrieves an attribute vocabulary value by providing the attribute FQN and value.
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="value"></param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var attributevocabularyvalue = new AttributeVocabularyValue();
+		///   var attributeVocabularyValueLocalizedContent = attributevocabularyvalue.GetAttributeVocabularyValueLocalizedContents(_dataViewMode,  attributeFQN,  value);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent> GetAttributeVocabularyValueLocalizedContents(string attributeFQN, string value)
+		{
+			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent>> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.GetAttributeVocabularyValueLocalizedContentsClient(_dataViewMode,  attributeFQN,  value);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent>> GetAttributeVocabularyValueLocalizedContentsAsync(string attributeFQN, string value)
+		{
+			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent>> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.GetAttributeVocabularyValueLocalizedContentsClient(_dataViewMode,  attributeFQN,  value);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="localeCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="value"></param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var attributevocabularyvalue = new AttributeVocabularyValue();
+		///   var attributeVocabularyValueLocalizedContent = attributevocabularyvalue.GetAttributeVocabularyValueLocalizedContent(_dataViewMode,  attributeFQN,  value,  localeCode,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent GetAttributeVocabularyValueLocalizedContent(string attributeFQN, string value, string localeCode, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.GetAttributeVocabularyValueLocalizedContentClient(_dataViewMode,  attributeFQN,  value,  localeCode,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent> GetAttributeVocabularyValueLocalizedContentAsync(string attributeFQN, string value, string localeCode, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.GetAttributeVocabularyValueLocalizedContentClient(_dataViewMode,  attributeFQN,  value,  localeCode,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// Retrieves the details of a vocabulary value defined for an attribute by providing the attribute's fully qualified name and the value to retrieve.
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="value">The actual unique value of the attribute vocabulary to retrieve. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
@@ -66,23 +160,73 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		/// <example>
 		/// <code>
 		///   var attributevocabularyvalue = new AttributeVocabularyValue();
-		///   var attributeVocabularyValue = attributevocabularyvalue.GetAttributeVocabularyValue(dataViewMode,  attributeFQN,  value);
+		///   var attributeVocabularyValue = attributevocabularyvalue.GetAttributeVocabularyValue(_dataViewMode,  attributeFQN,  value,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue GetAttributeVocabularyValue(DataViewMode dataViewMode, string attributeFQN, string value)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue GetAttributeVocabularyValue(string attributeFQN, string value, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.GetAttributeVocabularyValueClient(dataViewMode,  attributeFQN,  value);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.GetAttributeVocabularyValueClient(_dataViewMode,  attributeFQN,  value,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
 
 		}
 
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue> GetAttributeVocabularyValueAsync(string attributeFQN, string value, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.GetAttributeVocabularyValueClient(_dataViewMode,  attributeFQN,  value,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
 		/// <summary>
-		/// Adds a new attribute vocabulary value.
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="value"></param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <param name="localizedContent"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var attributevocabularyvalue = new AttributeVocabularyValue();
+		///   var attributeVocabularyValueLocalizedContent = attributevocabularyvalue.AddAttributeVocabularyValueLocalizedContent( localizedContent,  attributeFQN,  value,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent AddAttributeVocabularyValueLocalizedContent(Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent localizedContent, string attributeFQN, string value, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.AddAttributeVocabularyValueLocalizedContentClient( localizedContent,  attributeFQN,  value,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent> AddAttributeVocabularyValueLocalizedContentAsync(Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent localizedContent, string attributeFQN, string value, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.AddAttributeVocabularyValueLocalizedContentClient( localizedContent,  attributeFQN,  value,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// Creates a vocabulary value for a defined product attribute.
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="attributeVocabularyValue">The predefined vocabulary value to add to the attribute content.</param>
 		/// <returns>
@@ -91,16 +235,27 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		/// <example>
 		/// <code>
 		///   var attributevocabularyvalue = new AttributeVocabularyValue();
-		///   var attributeVocabularyValue = attributevocabularyvalue.AddAttributeVocabularyValue(dataViewMode,  attributeVocabularyValue,  attributeFQN);
+		///   var attributeVocabularyValue = attributevocabularyvalue.AddAttributeVocabularyValue( attributeVocabularyValue,  attributeFQN,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue AddAttributeVocabularyValue(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue attributeVocabularyValue, string attributeFQN)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue AddAttributeVocabularyValue(Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue attributeVocabularyValue, string attributeFQN, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.AddAttributeVocabularyValueClient(dataViewMode,  attributeVocabularyValue,  attributeFQN);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.AddAttributeVocabularyValueClient( attributeVocabularyValue,  attributeFQN,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue> AddAttributeVocabularyValueAsync(Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue attributeVocabularyValue, string attributeFQN, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.AddAttributeVocabularyValueClient( attributeVocabularyValue,  attributeFQN,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -116,16 +271,103 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		/// <example>
 		/// <code>
 		///   var attributevocabularyvalue = new AttributeVocabularyValue();
-		///   var attributeVocabularyValue = attributevocabularyvalue.UpdateAttributeVocabularyValues(dataViewMode,  vocabularyValues,  attributeFQN);
+		///   var attributeVocabularyValue = attributevocabularyvalue.UpdateAttributeVocabularyValues( vocabularyValues,  attributeFQN);
 		/// </code>
 		/// </example>
-		public virtual List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue> UpdateAttributeVocabularyValues(DataViewMode dataViewMode, List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue> vocabularyValues, string attributeFQN)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue> UpdateAttributeVocabularyValues(List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue> vocabularyValues, string attributeFQN)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.UpdateAttributeVocabularyValuesClient(dataViewMode,  vocabularyValues,  attributeFQN);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.UpdateAttributeVocabularyValuesClient( vocabularyValues,  attributeFQN);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue>> UpdateAttributeVocabularyValuesAsync(List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue> vocabularyValues, string attributeFQN)
+		{
+			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue>> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.UpdateAttributeVocabularyValuesClient( vocabularyValues,  attributeFQN);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="value"></param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <param name="localizedContent"></param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var attributevocabularyvalue = new AttributeVocabularyValue();
+		///   var attributeVocabularyValueLocalizedContent = attributevocabularyvalue.UpdateAttributeVocabularyValueLocalizedContents( localizedContent,  attributeFQN,  value);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent> UpdateAttributeVocabularyValueLocalizedContents(List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent> localizedContent, string attributeFQN, string value)
+		{
+			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent>> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.UpdateAttributeVocabularyValueLocalizedContentsClient( localizedContent,  attributeFQN,  value);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent>> UpdateAttributeVocabularyValueLocalizedContentsAsync(List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent> localizedContent, string attributeFQN, string value)
+		{
+			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent>> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.UpdateAttributeVocabularyValueLocalizedContentsClient( localizedContent,  attributeFQN,  value);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="localeCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="value"></param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <param name="localizedContent"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var attributevocabularyvalue = new AttributeVocabularyValue();
+		///   var attributeVocabularyValueLocalizedContent = attributevocabularyvalue.UpdateAttributeVocabularyValueLocalizedContent( localizedContent,  attributeFQN,  value,  localeCode,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent UpdateAttributeVocabularyValueLocalizedContent(Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent localizedContent, string attributeFQN, string value, string localeCode, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.UpdateAttributeVocabularyValueLocalizedContentClient( localizedContent,  attributeFQN,  value,  localeCode,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent> UpdateAttributeVocabularyValueLocalizedContentAsync(Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent localizedContent, string attributeFQN, string value, string localeCode, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.UpdateAttributeVocabularyValueLocalizedContentClient( localizedContent,  attributeFQN,  value,  localeCode,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -133,6 +375,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		/// Updates existing attribute vocabulary values.
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="value">The actual unique value of the attribute vocabulary value to update. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="attributeVocabularyValue">The predefined vocabulary value to add to the attribute content to update.</param>
@@ -142,16 +385,27 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		/// <example>
 		/// <code>
 		///   var attributevocabularyvalue = new AttributeVocabularyValue();
-		///   var attributeVocabularyValue = attributevocabularyvalue.UpdateAttributeVocabularyValue(dataViewMode,  attributeVocabularyValue,  attributeFQN,  value);
+		///   var attributeVocabularyValue = attributevocabularyvalue.UpdateAttributeVocabularyValue( attributeVocabularyValue,  attributeFQN,  value,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue UpdateAttributeVocabularyValue(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue attributeVocabularyValue, string attributeFQN, string value)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue UpdateAttributeVocabularyValue(Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue attributeVocabularyValue, string attributeFQN, string value, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.UpdateAttributeVocabularyValueClient(dataViewMode,  attributeVocabularyValue,  attributeFQN,  value);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.UpdateAttributeVocabularyValueClient( attributeVocabularyValue,  attributeFQN,  value,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue> UpdateAttributeVocabularyValueAsync(Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue attributeVocabularyValue, string attributeFQN, string value, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.UpdateAttributeVocabularyValueClient( attributeVocabularyValue,  attributeFQN,  value,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -167,15 +421,60 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		/// <example>
 		/// <code>
 		///   var attributevocabularyvalue = new AttributeVocabularyValue();
-		///   attributevocabularyvalue.DeleteAttributeVocabularyValue(dataViewMode,  attributeFQN,  value);
+		///   attributevocabularyvalue.DeleteAttributeVocabularyValue( attributeFQN,  value);
 		/// </code>
 		/// </example>
-		public virtual void DeleteAttributeVocabularyValue(DataViewMode dataViewMode, string attributeFQN, string value)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void DeleteAttributeVocabularyValue(string attributeFQN, string value)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.DeleteAttributeVocabularyValueClient(dataViewMode,  attributeFQN,  value);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.DeleteAttributeVocabularyValueClient( attributeFQN,  value);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
+
+		}
+
+		public virtual async Task DeleteAttributeVocabularyValueAsync(string attributeFQN, string value)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.DeleteAttributeVocabularyValueClient( attributeFQN,  value);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="localeCode"></param>
+		/// <param name="value"></param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var attributevocabularyvalue = new AttributeVocabularyValue();
+		///   attributevocabularyvalue.DeleteAttributeVocabularyValueLocalizedContent( attributeFQN,  value,  localeCode);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void DeleteAttributeVocabularyValueLocalizedContent(string attributeFQN, string value, string localeCode)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.DeleteAttributeVocabularyValueLocalizedContentClient( attributeFQN,  value,  localeCode);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+
+		}
+
+		public virtual async Task DeleteAttributeVocabularyValueLocalizedContentAsync(string attributeFQN, string value, string localeCode)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.DeleteAttributeVocabularyValueLocalizedContentClient( attributeFQN,  value,  localeCode);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
 
 		}
 

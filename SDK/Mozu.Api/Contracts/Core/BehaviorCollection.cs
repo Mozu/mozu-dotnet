@@ -11,17 +11,18 @@
 using System;
 using System.Collections.Generic;
 
+
 namespace Mozu.Api.Contracts.Core
 {
 		///
-		///	***Always private and should not be published.***
+		///	List of application behaviors and details for each record in the list.
 		///
 		public class BehaviorCollection
 		{
 			///
 			///The number of results listed in the query collection, represented by a signed 64-bit (8-byte) integer. This value is system-supplied and read-only.
 			///
-			public int TotalCount { get; set; }
+			public long TotalCount { get; set; }
 
 			///
 			///An array list of objects in the returned collection.

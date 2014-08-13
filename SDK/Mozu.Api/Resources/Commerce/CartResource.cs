@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Commerce
 {
@@ -24,105 +25,119 @@ namespace Mozu.Api.Resources.Commerce
 		///
 		private readonly IApiContext _apiContext;
 
+		
 		public CartResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
 		}
-
-		
+				
 		/// <summary>
 		/// Retrieves the cart specified in the request.
 		/// </summary>
 		/// <param name="cartId">Identifier of the cart to retrieve.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var cart = new Cart();
-		///   var cart = cart.GetCart( cartId);
+		///   var cart = cart.GetCart( cartId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Carts.Cart GetCart(string cartId)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Carts.Cart GetCart(string cartId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> response;
-			var client = Mozu.Api.Clients.Commerce.CartClient.GetCartClient( cartId);
+			var client = Mozu.Api.Clients.Commerce.CartClient.GetCartClient( cartId,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> GetCartAsync(string cartId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> response;
+			var client = Mozu.Api.Clients.Commerce.CartClient.GetCartClient( cartId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
 		/// <summary>
 		/// Retrieves a cart's contents for the current shopper. If the shopper does not have an active cart on the site, the service creates one.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var cart = new Cart();
-		///   var cart = cart.GetOrCreateCart();
+		///   var cart = cart.GetOrCreateCart( responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Carts.Cart GetOrCreateCart()
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Carts.Cart GetOrCreateCart(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> response;
-			var client = Mozu.Api.Clients.Commerce.CartClient.GetOrCreateCartClient();
+			var client = Mozu.Api.Clients.Commerce.CartClient.GetOrCreateCartClient( responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> GetOrCreateCartAsync(string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> response;
+			var client = Mozu.Api.Clients.Commerce.CartClient.GetOrCreateCartClient( responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
 		/// <summary>
 		/// Retrieves summary information associated with the cart of the current shopper, including the number of items, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var cart = new Cart();
-		///   var cartSummary = cart.GetCartSummary();
+		///   var cartSummary = cart.GetCartSummary( responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary GetCartSummary()
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary GetCartSummary(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary> response;
-			var client = Mozu.Api.Clients.Commerce.CartClient.GetCartSummaryClient();
+			var client = Mozu.Api.Clients.Commerce.CartClient.GetCartSummaryClient( responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
 
 		}
 
-		/// <summary>
-		/// Retrieves the cart of the user specified in the request.
-		/// </summary>
-		/// <param name="userId">Unique identifier of the user whose cart you want to retrieve.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var cart = new Cart();
-		///   var cart = cart.GetUserCart( userId);
-		/// </code>
-		/// </example>
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Carts.Cart GetUserCart(string userId)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary> GetCartSummaryAsync(string responseFields =  null)
 		{
-			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> response;
-			var client = Mozu.Api.Clients.Commerce.CartClient.GetUserCartClient( userId);
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary> response;
+			var client = Mozu.Api.Clients.Commerce.CartClient.GetCartSummaryClient( responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
-			return response.Result();
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
 		/// <summary>
 		/// Retrieves summary information associated with the cart of user specified in the request, including the number of items in the cart, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="userId">Unique identifier of the user whose cart details you want to retrieve.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary"/>
@@ -130,22 +145,69 @@ namespace Mozu.Api.Resources.Commerce
 		/// <example>
 		/// <code>
 		///   var cart = new Cart();
-		///   var cartSummary = cart.GetUserCartSummary( userId);
+		///   var cartSummary = cart.GetUserCartSummary( userId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary GetUserCartSummary(string userId)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary GetUserCartSummary(string userId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary> response;
-			var client = Mozu.Api.Clients.Commerce.CartClient.GetUserCartSummaryClient( userId);
+			var client = Mozu.Api.Clients.Commerce.CartClient.GetUserCartSummaryClient( userId,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary> GetUserCartSummaryAsync(string userId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary> response;
+			var client = Mozu.Api.Clients.Commerce.CartClient.GetUserCartSummaryClient( userId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// Retrieves the cart of the user specified in the request.
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="userId">Unique identifier of the user whose cart you want to retrieve.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var cart = new Cart();
+		///   var cart = cart.GetUserCart( userId,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Carts.Cart GetUserCart(string userId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> response;
+			var client = Mozu.Api.Clients.Commerce.CartClient.GetUserCartClient( userId,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> GetUserCartAsync(string userId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> response;
+			var client = Mozu.Api.Clients.Commerce.CartClient.GetUserCartClient( userId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
 		/// <summary>
 		/// Update the current shopper's cart.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="cart">All of the properties of the cart to update. The product code is required.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>
@@ -153,16 +215,27 @@ namespace Mozu.Api.Resources.Commerce
 		/// <example>
 		/// <code>
 		///   var cart = new Cart();
-		///   var cart = cart.UpdateCart( cart);
+		///   var cart = cart.UpdateCart( cart,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Carts.Cart UpdateCart(Mozu.Api.Contracts.CommerceRuntime.Carts.Cart cart)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Carts.Cart UpdateCart(Mozu.Api.Contracts.CommerceRuntime.Carts.Cart cart, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> response;
-			var client = Mozu.Api.Clients.Commerce.CartClient.UpdateCartClient( cart);
+			var client = Mozu.Api.Clients.Commerce.CartClient.UpdateCartClient( cart,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> UpdateCartAsync(Mozu.Api.Contracts.CommerceRuntime.Carts.Cart cart, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> response;
+			var client = Mozu.Api.Clients.Commerce.CartClient.UpdateCartClient( cart,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -179,12 +252,22 @@ namespace Mozu.Api.Resources.Commerce
 		///   cart.DeleteCart( cartId);
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual void DeleteCart(string cartId)
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.CartClient.DeleteCartClient( cartId);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
+
+		}
+
+		public virtual async Task DeleteCartAsync(string cartId)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.CartClient.DeleteCartClient( cartId);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
 
 		}
 
@@ -200,12 +283,22 @@ namespace Mozu.Api.Resources.Commerce
 		///   cart.DeleteCurrentCart();
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual void DeleteCurrentCart()
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.CartClient.DeleteCurrentCartClient();
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
+
+		}
+
+		public virtual async Task DeleteCurrentCartAsync()
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.CartClient.DeleteCurrentCartClient();
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
 
 		}
 

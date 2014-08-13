@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
+
 
 namespace Mozu.Api.Contracts.Content
 {
@@ -33,15 +33,7 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public DateTime? ContentUpdateDate { get; set; }
 
-			///
-			///The name of the document list associated with the document.
-			///
-			public string DocumentListName { get; set; }
-
-			///
-			///The type of document used in the CMS such as "web_page" or "template" or "image_url".
-			///
-			public string DocumentType { get; set; }
+			public string DocumentTypeFQN { get; set; }
 
 			///
 			///If applicable, the file extension associated with the document content.
@@ -58,6 +50,8 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public DateTime? InsertDate { get; set; }
 
+			public string ListFQN { get; set; }
+
 			///
 			///The name of the document, which is unique within its folder.
 			///
@@ -72,11 +66,6 @@ namespace Mozu.Api.Contracts.Content
 			///Date and time when the entity was last updated, represented in UTC Date/Time.
 			///
 			public DateTime? UpdateDate { get; set; }
-
-			///
-			///List of properties for the given property value.
-			///
-			public List<PropertyValue> Properties { get; set; }
 
 		}
 

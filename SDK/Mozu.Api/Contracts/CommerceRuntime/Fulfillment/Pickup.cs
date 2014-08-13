@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+
 using Mozu.Api.Contracts.Core;
 using Mozu.Api.Contracts.CommerceRuntime.Commerce;
 
@@ -25,11 +26,16 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			///
 			public List<string> AvailableActions { get; set; }
 
+			public string Code { get; set; }
+
 			///
 			///The date and time the customer picked up the order items.
 			///
 			public DateTime? FulfillmentDate { get; set; }
 
+			///
+			///The location code that represents the location where the shopper will fulfill this pickup.
+			///
 			public string FulfillmentLocationCode { get; set; }
 
 			///

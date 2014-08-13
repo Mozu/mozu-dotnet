@@ -33,14 +33,15 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
         /// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product search results by any of its properties, including product code, type, category, and name. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=categoryId+eq+12"</param>
         /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
         /// <param name="query">The terms to search on.</param>
+        /// <param name="responseFields"></param>
         /// <param name="sortBy"></param>
         /// <param name="startIndex"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl SearchUrl(string facet, string facetFieldRangeQuery, string facetHierDepth, string facetHierPrefix, string facetHierValue, string facetPageSize, string facetSettings, string facetStartIndex, string facetTemplate, string facetTemplateSubset, string facetValueFilter, string filter, int? pageSize, string query, string sortBy, int? startIndex)
+        public static MozuUrl SearchUrl(string query =  null, string filter =  null, string facetTemplate =  null, string facetTemplateSubset =  null, string facet =  null, string facetFieldRangeQuery =  null, string facetHierPrefix =  null, string facetHierValue =  null, string facetHierDepth =  null, string facetStartIndex =  null, string facetPageSize =  null, string facetSettings =  null, string facetValueFilter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/storefront/productsearch/search/?query={query}&filter={filter}&facetTemplate={facetTemplate}&facetTemplateSubset={facetTemplateSubset}&facet={facet}&facetFieldRangeQuery={facetFieldRangeQuery}&facetHierPrefix={facetHierPrefix}&facetHierValue={facetHierValue}&facetHierDepth={facetHierDepth}&facetStartIndex={facetStartIndex}&facetPageSize={facetPageSize}&facetSettings={facetSettings}&facetValueFilter={facetValueFilter}&sortBy={sortBy}&pageSize={pageSize}&startIndex={startIndex}";
+			var url = "/api/commerce/catalog/storefront/productsearch/search/?query={query}&filter={filter}&facetTemplate={facetTemplate}&facetTemplateSubset={facetTemplateSubset}&facet={facet}&facetFieldRangeQuery={facetFieldRangeQuery}&facetHierPrefix={facetHierPrefix}&facetHierValue={facetHierValue}&facetHierDepth={facetHierDepth}&facetStartIndex={facetStartIndex}&facetPageSize={facetPageSize}&facetSettings={facetSettings}&facetValueFilter={facetValueFilter}&sortBy={sortBy}&pageSize={pageSize}&startIndex={startIndex}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "facet", facet);
 			mozuUrl.FormatUrl( "facetFieldRangeQuery", facetFieldRangeQuery);
@@ -56,6 +57,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
 			mozuUrl.FormatUrl( "filter", filter);
 			mozuUrl.FormatUrl( "pageSize", pageSize);
 			mozuUrl.FormatUrl( "query", query);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "sortBy", sortBy);
 			mozuUrl.FormatUrl( "startIndex", startIndex);
 			return mozuUrl;
@@ -64,17 +66,21 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
 		/// <summary>
         /// Get Resource Url for Suggest
         /// </summary>
+        /// <param name="groups"></param>
         /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-        /// <param name="q">Text that the shopper is currently entering.</param>
+        /// <param name="query"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl SuggestUrl(int? pageSize, string q)
+        public static MozuUrl SuggestUrl(string query =  null, string groups =  null, int? pageSize =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/storefront/productsearch/suggest?q={q}&pageSize={pageSize}";
+			var url = "/api/commerce/catalog/storefront/productsearch/suggest?query={query}&groups={groups}&pageSize={pageSize}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "groups", groups);
 			mozuUrl.FormatUrl( "pageSize", pageSize);
-			mozuUrl.FormatUrl( "q", q);
+			mozuUrl.FormatUrl( "query", query);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

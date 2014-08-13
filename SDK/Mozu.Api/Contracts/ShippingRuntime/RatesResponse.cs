@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 
+
 namespace Mozu.Api.Contracts.ShippingRuntime
 {
 		///
@@ -18,6 +19,8 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 		///
 		public class RatesResponse
 		{
+			public string ShippingZoneCode { get; set; }
+
 			///
 			///Arrayed list of calculated shipping rates for each assocuated carrier.
 			///

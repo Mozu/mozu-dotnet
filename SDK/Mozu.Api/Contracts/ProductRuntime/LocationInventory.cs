@@ -10,6 +10,7 @@
 
 using System;
 
+
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
@@ -21,6 +22,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///User-defined code that uniquely identifies the location.
 			///
 			public string LocationCode { get; set; }
+
+			public string ProductCode { get; set; }
 
 			///
 			///The current level of active product stock available at the specified location.

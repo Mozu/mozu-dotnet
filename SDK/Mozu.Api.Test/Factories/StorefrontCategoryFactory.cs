@@ -17,13 +17,14 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Get the product category hierarchy as it appears to shoppers who are browsing the storefront. The hierarchy can be returned as a flat list or as a category tree.
+	/// Use the Storefront Categories resource to view the product category hierarchy as it appears to shoppers who are browsing the storefront. The hierarchy can be returned as a flat list or as a category tree.
 	/// </summary>
 	public partial class StorefrontCategoryFactory : BaseDataFactory
 	{
@@ -32,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves a list of categories according to any specified filter criteria and sort options.
 		/// <example> 
 		///  <code> 
-		/// var result = CategoryFactory.GetCategories(handler : handler,  filter :  filter,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CategoryFactory.GetCategories(handler : handler,  filter :  filter,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CategoryPagedCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductRuntime.CategoryPagedCollection GetCategories(ServiceClientMessageHandler handler, 
- 		 string filter = null, int? startIndex = null, int? pageSize = null, string sortBy = null, 
+ 		 string filter = null, int? startIndex = null, int? pageSize = null, string sortBy = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -47,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Storefront.CategoryClient.GetCategoriesClient(
-				 filter :  filter,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy		);
+				 filter :  filter,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -70,14 +71,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves the details of a single category.
 		/// <example> 
 		///  <code> 
-		/// var result = CategoryFactory.GetCategory(handler : handler,  categoryId :  categoryId,  allowInactive :  allowInactive,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CategoryFactory.GetCategory(handler : handler,  categoryId :  categoryId,  allowInactive :  allowInactive,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Category/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductRuntime.Category GetCategory(ServiceClientMessageHandler handler, 
- 		 int categoryId, bool? allowInactive = null, 
+ 		 int categoryId, bool? allowInactive = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -85,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Storefront.CategoryClient.GetCategoryClient(
-				 categoryId :  categoryId,  allowInactive :  allowInactive		);
+				 categoryId :  categoryId,  allowInactive :  allowInactive,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -108,14 +109,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves the list of product categories that appear on the storefront organized in a hierarchical format. Hidden categories do not appear in the list.
 		/// <example> 
 		///  <code> 
-		/// var result = CategoryFactory.GetCategoryTree(handler : handler,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CategoryFactory.GetCategoryTree(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CategoryCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductRuntime.CategoryCollection GetCategoryTree(ServiceClientMessageHandler handler, 
- 		 
+ 		 string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -123,7 +124,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Storefront.CategoryClient.GetCategoryTreeClient(
-						);
+				 responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

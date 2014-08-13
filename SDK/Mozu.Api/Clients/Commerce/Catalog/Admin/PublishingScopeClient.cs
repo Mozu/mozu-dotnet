@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 {
@@ -30,18 +31,17 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=DiscardDrafts(dataViewMode,  publishScope);
+		///   var mozuClient=DiscardDrafts( publishScope);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient DiscardDraftsClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope)
+		public static MozuClient DiscardDraftsClient(Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.PublishingScopeUrl.DiscardDraftsUrl();
 			const string verb = "POST";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.PublishingScope>(publishScope)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
-;
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.PublishingScope>(publishScope);
 			return mozuClient;
 
 		}
@@ -56,18 +56,17 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=PublishDrafts(dataViewMode,  publishScope);
+		///   var mozuClient=PublishDrafts( publishScope);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient PublishDraftsClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope)
+		public static MozuClient PublishDraftsClient(Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.PublishingScopeUrl.PublishDraftsUrl();
 			const string verb = "POST";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.PublishingScope>(publishScope)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
-;
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.PublishingScope>(publishScope);
 			return mozuClient;
 
 		}

@@ -11,40 +11,16 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Orders
 {
 	/// <summary>
-	/// Use the packages subresource to manage the physical packages to ship for an order.
+	/// Use the Packages subresource to manage the physical packages to ship for an order.
 	/// </summary>
 	public partial class PackageClient 	{
 		
-		/// <summary>
-		/// Retrieves the details of a package of order items.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order associated with the package to retrieve.</param>
-		/// <param name="packageId">Unique identifier of the package to retrieve.</param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetPackage( orderId,  packageId);
-		///   var packageClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> GetPackageClient(string orderId, string packageId)
-		{
-			var url = Mozu.Api.Urls.Commerce.Orders.PackageUrl.GetPackageUrl(orderId, packageId);
-			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package>()
-									.WithVerb(verb).WithResourceUrl(url)
-;
-			return mozuClient;
-
-		}
-
 		/// <summary>
 		/// Retrieves a list of the actions available to perform for a package associated with order fulfillment.
 		/// </summary>
@@ -96,22 +72,49 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		}
 
 		/// <summary>
+		/// Retrieves the details of a package of order items.
+		/// </summary>
+		/// <param name="orderId">Unique identifier of the order associated with the package to retrieve.</param>
+		/// <param name="packageId">Unique identifier of the package to retrieve.</param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetPackage( orderId,  packageId,  responseFields);
+		///   var packageClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> GetPackageClient(string orderId, string packageId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Orders.PackageUrl.GetPackageUrl(orderId, packageId, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Creates a new physical package of order items.
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order associated with this package.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="package">Properties of the physical package of order items.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=CreatePackage( pkg,  orderId);
+		///   var mozuClient=CreatePackage( pkg,  orderId,  responseFields);
 		///   var packageClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> CreatePackageClient(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package pkg, string orderId)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> CreatePackageClient(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package pkg, string orderId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Orders.PackageUrl.CreatePackageUrl(orderId);
+			var url = Mozu.Api.Urls.Commerce.Orders.PackageUrl.CreatePackageUrl(orderId, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -125,19 +128,20 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order associated with the package to update.</param>
 		/// <param name="packageId">Unique identifier of the package of order items to update.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="package">Wrapper of properties for the package of order items to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdatePackage( pkg,  orderId,  packageId);
+		///   var mozuClient=UpdatePackage( pkg,  orderId,  packageId,  responseFields);
 		///   var packageClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> UpdatePackageClient(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package pkg, string orderId, string packageId)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> UpdatePackageClient(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package pkg, string orderId, string packageId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Orders.PackageUrl.UpdatePackageUrl(orderId, packageId);
+			var url = Mozu.Api.Urls.Commerce.Orders.PackageUrl.UpdatePackageUrl(orderId, packageId, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package>()
 									.WithVerb(verb).WithResourceUrl(url)

@@ -11,17 +11,18 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Admin
 {
 	/// <summary>
-	/// 
+	/// Use the Location Types resource to manage the types of locations your tenant maintains, such as warehouses, physical storefronts, and kiosks.
 	/// </summary>
 	public partial class LocationTypeClient 	{
 		
 		/// <summary>
-		/// 
+		/// Retrieve a list of all location types defined for the tenant.
 		/// </summary>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.Location.LocationType"/>}}
@@ -44,9 +45,9 @@ namespace Mozu.Api.Clients.Commerce.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves the details of the location type specified in the request.
 		/// </summary>
-		/// <param name="locationTypeCode"></param>
+		/// <param name="locationTypeCode">The user-defined code that identifies the location type.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Location.LocationType"/>}
 		/// </returns>
@@ -68,9 +69,9 @@ namespace Mozu.Api.Clients.Commerce.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Creates a new location type based on the information specified in the request.
 		/// </summary>
-		/// <param name="locationType"></param>
+		/// <param name="locationType">Properties of the location type to create.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Location.LocationType"/>}
 		/// </returns>
@@ -92,10 +93,10 @@ namespace Mozu.Api.Clients.Commerce.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Updates the name of a defined location type.
 		/// </summary>
-		/// <param name="locationTypeCode"></param>
-		/// <param name="locationType"></param>
+		/// <param name="locationTypeCode">The user-defined code that identifies the location type.</param>
+		/// <param name="locationType">Properties of the location type to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Location.LocationType"/>}
 		/// </returns>
@@ -117,9 +118,9 @@ namespace Mozu.Api.Clients.Commerce.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Deletes the location type specified in the request.
 		/// </summary>
-		/// <param name="locationTypeCode"></param>
+		/// <param name="locationTypeCode">User-defined code used to identify the location type.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

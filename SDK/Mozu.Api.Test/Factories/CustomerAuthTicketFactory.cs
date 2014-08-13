@@ -17,13 +17,14 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// Use the Customer Authentication Tickets resource to generate and refresh authentication tickets for customer accounts.
 	/// </summary>
 	public partial class CustomerAuthTicketFactory : BaseDataFactory
 	{
@@ -67,17 +68,17 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Generates a new authentication ticket for a customer account.
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAuthTicketFactory.CreateUserAuthTicket(handler : handler,  userAuthInfo :  userAuthInfo,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CustomerAuthTicketFactory.CreateUserAuthTicket(handler : handler,  userAuthInfo :  userAuthInfo,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CustomerAuthTicket/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.CustomerAuthTicket CreateUserAuthTicket(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.Customer.CustomerUserAuthInfo userAuthInfo, 
+ 		 Mozu.Api.Contracts.Customer.CustomerUserAuthInfo userAuthInfo, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -85,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.CustomerAuthTicketClient.CreateUserAuthTicketClient(
-				 userAuthInfo :  userAuthInfo		);
+				 userAuthInfo :  userAuthInfo,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -105,17 +106,17 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Refreshes an existing authentication ticket for a customer account by providing the refresh token string.
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAuthTicketFactory.RefreshUserAuthTicket(handler : handler,  refreshToken :  refreshToken,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CustomerAuthTicketFactory.RefreshUserAuthTicket(handler : handler,  refreshToken :  refreshToken,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CustomerAuthTicket/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.CustomerAuthTicket RefreshUserAuthTicket(ServiceClientMessageHandler handler, 
- 		 string refreshToken, 
+ 		 string refreshToken, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -123,7 +124,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.CustomerAuthTicketClient.RefreshUserAuthTicketClient(
-				 refreshToken :  refreshToken		);
+				 refreshToken :  refreshToken,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

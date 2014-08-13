@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 
+
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
@@ -23,6 +24,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public decimal? DeltaWeight { get; set; }
 
+			///
+			///Describes the types of fulfillment that are supported for this product variation. A variation can support direct ship, in-store pickup, or both. Supported fulfillment types are defined at the master catalog level. Client administrators cannot override the supported fulfillment types at the catalog level.
+			///
 			public List<string> FulfillmentTypesSupported { get; set; }
 
 			///
@@ -31,7 +35,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public bool? IsActive { get; set; }
 
 			///
-			///If true, the production variation is no longer available for sale. For example, if a merchant stops selling all "small" shirts, all product variations with the "small" option are set to IsOrphan. System-supplied and read-only.
+			///If true, the production variation is no longer available for sale. For example, if a client stops selling all "small" shirts, all product variations with the "small" option are set to IsOrphan. System-supplied and read only.
 			///
 			public bool? IsOrphan { get; set; }
 
@@ -57,11 +61,16 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public ProductVariationDeltaPrice DeltaPrice { get; set; }
 
+			public List<ProductVariationDeltaPrice> LocalizedDeltaPrice { get; set; }
+
 			///
 			///Wrapper for the list of option attributes configured for the product variation.
 			///
 			public List<ProductVariationOption> Options { get; set; }
 
+			///
+			///Supplier-defined properties assigned for the product variation.
+			///
 			public ProductSupplierInfo SupplierInfo { get; set; }
 
 		}

@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Orders
 {
@@ -24,19 +25,20 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// Sets the fulfillment action to "Ship" or "PickUp". To ship an order or prepare it for in-store pickup, the order must have a customer name, the "Open" or "OpenAndProcessing" status. To ship the order, it must also have the full shipping address and shipping method. Shipping all packages or picking up all pickups for an order will complete a paid order.
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order for which to perform the fulfillment action.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="action">The action to perform for the order fulfillment.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=PerformFulfillmentAction( action,  orderId);
+		///   var mozuClient=PerformFulfillmentAction( action,  orderId,  responseFields);
 		///   var orderClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> PerformFulfillmentActionClient(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.FulfillmentAction action, string orderId)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> PerformFulfillmentActionClient(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.FulfillmentAction action, string orderId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Orders.FulfillmentActionUrl.PerformFulfillmentActionUrl(orderId);
+			var url = Mozu.Api.Urls.Commerce.Orders.FulfillmentActionUrl.PerformFulfillmentActionUrl(orderId, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order>()
 									.WithVerb(verb).WithResourceUrl(url)

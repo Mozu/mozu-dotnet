@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -32,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves the details of the order shipment specified in the request.
 		/// <example> 
 		///  <code> 
-		/// var result = ShipmentFactory.GetShipment(handler : handler,  orderId :  orderId,  shipmentId :  shipmentId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ShipmentFactory.GetShipment(handler : handler,  orderId :  orderId,  shipmentId :  shipmentId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Shipment/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment GetShipment(ServiceClientMessageHandler handler, 
- 		 string orderId, string shipmentId, 
+ 		 string orderId, string shipmentId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -47,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Orders.ShipmentClient.GetShipmentClient(
-				 orderId :  orderId,  shipmentId :  shipmentId		);
+				 orderId :  orderId,  shipmentId :  shipmentId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

@@ -17,6 +17,7 @@ namespace Mozu.Api.Events
 	{
 		void Created(IApiContext apiContext, Event eventPayLoad);
 		void Deleted(IApiContext apiContext, Event eventPayLoad);
+		void Expired(IApiContext apiContext, Event eventPayLoad);
 		void Updated(IApiContext apiContext, Event eventPayLoad);
 	}
 

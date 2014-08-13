@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Orders
 {
@@ -20,31 +21,6 @@ namespace Mozu.Api.Clients.Commerce.Orders
 	/// </summary>
 	public partial class PickupClient 	{
 		
-		/// <summary>
-		/// Retrieves the details of the in-store pickup specified in the request.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order associated with the pickup.</param>
-		/// <param name="pickupId">Unique identifier of the pickup to retrieve.</param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetPickup( orderId,  pickupId);
-		///   var pickupClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup> GetPickupClient(string orderId, string pickupId)
-		{
-			var url = Mozu.Api.Urls.Commerce.Orders.PickupUrl.GetPickupUrl(orderId, pickupId);
-			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup>()
-									.WithVerb(verb).WithResourceUrl(url)
-;
-			return mozuClient;
-
-		}
-
 		/// <summary>
 		/// Retrieves a list of the actions available to perform for the pickup specified in the request.
 		/// </summary>
@@ -71,22 +47,49 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		}
 
 		/// <summary>
+		/// Retrieves the details of the in-store pickup specified in the request.
+		/// </summary>
+		/// <param name="orderId">Unique identifier of the order associated with the pickup.</param>
+		/// <param name="pickupId">Unique identifier of the pickup to retrieve.</param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetPickup( orderId,  pickupId,  responseFields);
+		///   var pickupClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup> GetPickupClient(string orderId, string pickupId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Orders.PickupUrl.GetPickupUrl(orderId, pickupId, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Create a new pickup for the order specified in the request for in-store fufillment.
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="pickup">Properties of the in-store pickup to create.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=CreatePickup( pickup,  orderId);
+		///   var mozuClient=CreatePickup( pickup,  orderId,  responseFields);
 		///   var pickupClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup> CreatePickupClient(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup pickup, string orderId)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup> CreatePickupClient(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup pickup, string orderId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Orders.PickupUrl.CreatePickupUrl(orderId);
+			var url = Mozu.Api.Urls.Commerce.Orders.PickupUrl.CreatePickupUrl(orderId, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -100,19 +103,20 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order associated with the in-store pickup.</param>
 		/// <param name="pickupId">Unique identifier of the pickup to update.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="pickup">Properties of the in-store pickup to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdatePickup( pickup,  orderId,  pickupId);
+		///   var mozuClient=UpdatePickup( pickup,  orderId,  pickupId,  responseFields);
 		///   var pickupClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup> UpdatePickupClient(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup pickup, string orderId, string pickupId)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup> UpdatePickupClient(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup pickup, string orderId, string pickupId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Orders.PickupUrl.UpdatePickupUrl(orderId, pickupId);
+			var url = Mozu.Api.Urls.Commerce.Orders.PickupUrl.UpdatePickupUrl(orderId, pickupId, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup>()
 									.WithVerb(verb).WithResourceUrl(url)

@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+
 using Mozu.Api.Contracts.Core;
 using Mozu.Api.Contracts.CommerceRuntime.Products;
 using Mozu.Api.Contracts.CommerceRuntime.Discounts;
@@ -51,6 +52,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///The method used to fulfill the item in the order, which is "PickUp" or "Ship".
 			///
 			public string FulfillmentMethod { get; set; }
+
+			public decimal? HandlingAmount { get; set; }
 
 			///
 			///Unique identifier of a specific item in an order.
@@ -122,17 +125,17 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public Product Product { get; set; }
 
-			public AppliedProductDiscount ProductDiscount { get; set; }
+			public AppliedLineItemProductDiscount ProductDiscount { get; set; }
 
 			///
 			///List of product discounts that apply to the item in the order.
 			///
-			public List<AppliedProductDiscount> ProductDiscounts { get; set; }
+			public List<AppliedLineItemProductDiscount> ProductDiscounts { get; set; }
 
 			///
 			///List of shipping discounts that apply to the item in the order.
 			///
-			public List<ShippingDiscount> ShippingDiscounts { get; set; }
+			public List<AppliedLineItemShippingDiscount> ShippingDiscounts { get; set; }
 
 			///
 			///Properties of the unit price associated with the order item.

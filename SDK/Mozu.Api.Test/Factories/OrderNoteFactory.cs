@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -70,14 +71,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves the details of a specific order note.
 		/// <example> 
 		///  <code> 
-		/// var result = OrderNoteFactory.GetOrderNote(handler : handler,  orderId :  orderId,  noteId :  noteId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = OrderNoteFactory.GetOrderNote(handler : handler,  orderId :  orderId,  noteId :  noteId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<OrderNote/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote GetOrderNote(ServiceClientMessageHandler handler, 
- 		 string orderId, string noteId, 
+ 		 string orderId, string noteId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -85,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Orders.OrderNoteClient.GetOrderNoteClient(
-				 orderId :  orderId,  noteId :  noteId		);
+				 orderId :  orderId,  noteId :  noteId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -108,14 +109,14 @@ namespace Mozu.Api.Test.Factories
 		/// Creates a new merchant note for the specified order.
 		/// <example> 
 		///  <code> 
-		/// var result = OrderNoteFactory.CreateOrderNote(handler : handler,  orderNote :  orderNote,  orderId :  orderId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = OrderNoteFactory.CreateOrderNote(handler : handler,  orderNote :  orderNote,  orderId :  orderId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<OrderNote/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote CreateOrderNote(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote orderNote, string orderId, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote orderNote, string orderId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -123,7 +124,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Orders.OrderNoteClient.CreateOrderNoteClient(
-				 orderNote :  orderNote,  orderId :  orderId		);
+				 orderNote :  orderNote,  orderId :  orderId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -146,14 +147,14 @@ namespace Mozu.Api.Test.Factories
 		/// Updates a specific note for an order.
 		/// <example> 
 		///  <code> 
-		/// var result = OrderNoteFactory.UpdateOrderNote(handler : handler,  orderNote :  orderNote,  orderId :  orderId,  noteId :  noteId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = OrderNoteFactory.UpdateOrderNote(handler : handler,  orderNote :  orderNote,  orderId :  orderId,  noteId :  noteId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<OrderNote/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote UpdateOrderNote(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote orderNote, string orderId, string noteId, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote orderNote, string orderId, string noteId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -161,7 +162,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Orders.OrderNoteClient.UpdateOrderNoteClient(
-				 orderNote :  orderNote,  orderId :  orderId,  noteId :  noteId		);
+				 orderNote :  orderNote,  orderId :  orderId,  noteId :  noteId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

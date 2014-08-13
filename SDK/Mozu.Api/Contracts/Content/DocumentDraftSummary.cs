@@ -10,19 +10,17 @@
 
 using System;
 
+
 namespace Mozu.Api.Contracts.Content
 {
 		///
-		///	A high level description of the document draft.
+		///	Summary properties of an unpublished document draft.
 		///
 		public class DocumentDraftSummary
 		{
 			public DateTime? ActiveUpdateDate { get; set; }
 
-			///
-			///Name of the document list associated with the draft.
-			///
-			public string DocumentListName { get; set; }
+			public string DocumentTypeFQN { get; set; }
 
 			public DateTime DraftUpdateDate { get; set; }
 
@@ -30,6 +28,8 @@ namespace Mozu.Api.Contracts.Content
 			///Identifier of document draft.
 			///
 			public string Id { get; set; }
+
+			public string ListFQN { get; set; }
 
 			///
 			///Name of the document draft.

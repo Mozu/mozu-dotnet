@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -32,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = EventDeliverySummaryFactory.GetDeliveryAttemptSummary(handler : handler,  subscriptionId :  subscriptionId,  id :  id,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = EventDeliverySummaryFactory.GetDeliveryAttemptSummary(handler : handler,  subscriptionId :  subscriptionId,  id :  id,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<EventDeliverySummary/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Event.EventDeliverySummary GetDeliveryAttemptSummary(ServiceClientMessageHandler handler, 
- 		 string subscriptionId, int? id = null, 
+ 		 string subscriptionId, int? id = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -47,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Event.Push.Subscriptions.EventDeliverySummaryClient.GetDeliveryAttemptSummaryClient(
-				 subscriptionId :  subscriptionId,  id :  id		);
+				 subscriptionId :  subscriptionId,  id :  id,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -70,14 +71,14 @@ namespace Mozu.Api.Test.Factories
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = EventDeliverySummaryFactory.GetDeliveryAttemptSummaries(handler : handler,  subscriptionId :  subscriptionId,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = EventDeliverySummaryFactory.GetDeliveryAttemptSummaries(handler : handler,  subscriptionId :  subscriptionId,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<EventDeliverySummaryCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Event.EventDeliverySummaryCollection GetDeliveryAttemptSummaries(ServiceClientMessageHandler handler, 
- 		 string subscriptionId, int? startIndex = null, int? pageSize = null, string sortBy = null, string filter = null, 
+ 		 string subscriptionId, int? startIndex = null, int? pageSize = null, string sortBy = null, string filter = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -85,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Event.Push.Subscriptions.EventDeliverySummaryClient.GetDeliveryAttemptSummariesClient(
-				 subscriptionId :  subscriptionId,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter		);
+				 subscriptionId :  subscriptionId,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

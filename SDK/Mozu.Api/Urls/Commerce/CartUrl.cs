@@ -20,69 +20,79 @@ namespace Mozu.Api.Urls.Commerce
         /// Get Resource Url for GetCart
         /// </summary>
         /// <param name="cartId">Identifier of the cart to retrieve.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetCartUrl(string cartId)
+        public static MozuUrl GetCartUrl(string cartId, string responseFields =  null)
 		{
-			var url = "/api/commerce/carts/{cartId}";
+			var url = "/api/commerce/carts/{cartId}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "cartId", cartId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 		/// <summary>
         /// Get Resource Url for GetOrCreateCart
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetOrCreateCartUrl()
+        public static MozuUrl GetOrCreateCartUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/carts/current";
+			var url = "/api/commerce/carts/current?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 		/// <summary>
         /// Get Resource Url for GetCartSummary
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetCartSummaryUrl()
+        public static MozuUrl GetCartSummaryUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/carts/summary";
+			var url = "/api/commerce/carts/summary?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			return mozuUrl;
-		}
-
-		/// <summary>
-        /// Get Resource Url for GetUserCart
-        /// </summary>
-        /// <param name="userId">Unique identifier of the user whose cart you want to retrieve.</param>
-        /// <returns>
-        /// String - Resource Url
-        /// </returns>
-        public static MozuUrl GetUserCartUrl(string userId)
-		{
-			var url = "/api/commerce/carts/user/{userId}";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "userId", userId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 		/// <summary>
         /// Get Resource Url for GetUserCartSummary
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <param name="userId">Unique identifier of the user whose cart details you want to retrieve.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetUserCartSummaryUrl(string userId)
+        public static MozuUrl GetUserCartSummaryUrl(string userId, string responseFields =  null)
 		{
-			var url = "/api/commerce/carts/user/{userId}/summary";
+			var url = "/api/commerce/carts/user/{userId}/summary?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "userId", userId);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for GetUserCart
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <param name="userId">Unique identifier of the user whose cart you want to retrieve.</param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetUserCartUrl(string userId, string responseFields =  null)
+		{
+			var url = "/api/commerce/carts/user/{userId}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "userId", userId);
 			return mozuUrl;
 		}
@@ -90,13 +100,15 @@ namespace Mozu.Api.Urls.Commerce
 						/// <summary>
         /// Get Resource Url for UpdateCart
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateCartUrl()
+        public static MozuUrl UpdateCartUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/carts/current";
+			var url = "/api/commerce/carts/current?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

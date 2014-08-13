@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Commerce
 {
@@ -24,34 +25,18 @@ namespace Mozu.Api.Resources.Commerce
 		///
 		private readonly IApiContext _apiContext;
 
+		
 		public ChannelGroupResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
 		}
-
-		
+				
 		/// <summary>
 		/// Retrieves a list of defined channel groups according to any filter and sort criteria specified in the request.
 		/// </summary>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroupCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var channelgroup = new ChannelGroup();
-		///   var channelGroupCollection = channelgroup.GetChannelGroups();
-		/// </code>
-		/// </example>
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroupCollection GetChannelGroups()
-		{
-			return GetChannelGroups( null,  null,  null,  null);
-		}
-
-		/// <summary>
-		/// Retrieves a list of defined channel groups according to any filter and sort criteria specified in the request.
-		/// </summary>
-		/// <param name="filter">FilterSetAll</param>
+		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
 		/// <returns>
@@ -60,16 +45,27 @@ namespace Mozu.Api.Resources.Commerce
 		/// <example>
 		/// <code>
 		///   var channelgroup = new ChannelGroup();
-		///   var channelGroupCollection = channelgroup.GetChannelGroups( startIndex,  pageSize,  sortBy,  filter);
+		///   var channelGroupCollection = channelgroup.GetChannelGroups( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroupCollection GetChannelGroups(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroupCollection GetChannelGroups(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroupCollection> response;
-			var client = Mozu.Api.Clients.Commerce.ChannelGroupClient.GetChannelGroupsClient( startIndex,  pageSize,  sortBy,  filter);
+			var client = Mozu.Api.Clients.Commerce.ChannelGroupClient.GetChannelGroupsClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroupCollection> GetChannelGroupsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroupCollection> response;
+			var client = Mozu.Api.Clients.Commerce.ChannelGroupClient.GetChannelGroupsClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -77,28 +73,41 @@ namespace Mozu.Api.Resources.Commerce
 		/// Retrieves the details of a defined channel group.
 		/// </summary>
 		/// <param name="code">The code that uniquely identifies the channel group.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var channelgroup = new ChannelGroup();
-		///   var channelGroup = channelgroup.GetChannelGroup( code);
+		///   var channelGroup = channelgroup.GetChannelGroup( code,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup GetChannelGroup(string code)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup GetChannelGroup(string code, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup> response;
-			var client = Mozu.Api.Clients.Commerce.ChannelGroupClient.GetChannelGroupClient( code);
+			var client = Mozu.Api.Clients.Commerce.ChannelGroupClient.GetChannelGroupClient( code,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup> GetChannelGroupAsync(string code, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup> response;
+			var client = Mozu.Api.Clients.Commerce.ChannelGroupClient.GetChannelGroupClient( code,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
 		/// <summary>
 		/// Creates a new group of channels with common information.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="channelGroup">Properties of the channel group to create.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup"/>
@@ -106,16 +115,27 @@ namespace Mozu.Api.Resources.Commerce
 		/// <example>
 		/// <code>
 		///   var channelgroup = new ChannelGroup();
-		///   var channelGroup = channelgroup.CreateChannelGroup( channelGroup);
+		///   var channelGroup = channelgroup.CreateChannelGroup( channelGroup,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup CreateChannelGroup(Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup channelGroup)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup CreateChannelGroup(Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup channelGroup, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup> response;
-			var client = Mozu.Api.Clients.Commerce.ChannelGroupClient.CreateChannelGroupClient( channelGroup);
+			var client = Mozu.Api.Clients.Commerce.ChannelGroupClient.CreateChannelGroupClient( channelGroup,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup> CreateChannelGroupAsync(Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup channelGroup, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup> response;
+			var client = Mozu.Api.Clients.Commerce.ChannelGroupClient.CreateChannelGroupClient( channelGroup,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -123,6 +143,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// Updates one or more properties of a defined channel group.
 		/// </summary>
 		/// <param name="code">Code that identifies the channel group.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="channelGroup">Properties of the channel group to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup"/>
@@ -130,16 +151,27 @@ namespace Mozu.Api.Resources.Commerce
 		/// <example>
 		/// <code>
 		///   var channelgroup = new ChannelGroup();
-		///   var channelGroup = channelgroup.UpdateChannelGroup( channelGroup,  code);
+		///   var channelGroup = channelgroup.UpdateChannelGroup( channelGroup,  code,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup UpdateChannelGroup(Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup channelGroup, string code)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup UpdateChannelGroup(Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup channelGroup, string code, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup> response;
-			var client = Mozu.Api.Clients.Commerce.ChannelGroupClient.UpdateChannelGroupClient( channelGroup,  code);
+			var client = Mozu.Api.Clients.Commerce.ChannelGroupClient.UpdateChannelGroupClient( channelGroup,  code,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup> UpdateChannelGroupAsync(Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup channelGroup, string code, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup> response;
+			var client = Mozu.Api.Clients.Commerce.ChannelGroupClient.UpdateChannelGroupClient( channelGroup,  code,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -156,12 +188,22 @@ namespace Mozu.Api.Resources.Commerce
 		///   channelgroup.DeleteChannelGroup( code);
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual void DeleteChannelGroup(string code)
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.ChannelGroupClient.DeleteChannelGroupClient( code);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
+
+		}
+
+		public virtual async Task DeleteChannelGroupAsync(string code)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.ChannelGroupClient.DeleteChannelGroupClient( code);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
 
 		}
 

@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+
 using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.ProductAdmin
@@ -69,6 +70,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool? IsProperty { get; set; }
 
+			///
+			///The unique identifier of the master catalog associated with the entity.
+			///
 			public int? MasterCatalogId { get; set; }
 
 			///
@@ -95,6 +99,10 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///Complex type that contains content for a language specified by LocaleCode.
 			///
 			public AttributeLocalizedContent Content { get; set; }
+
+			public List<AttributeLocalizedContent> LocalizedContent { get; set; }
+
+			public AttributeSearchSettings SearchSettings { get; set; }
 
 			///
 			///Properties of the validation of a product attribute, which contains rules that dictate what values are valid entries for product attributes.

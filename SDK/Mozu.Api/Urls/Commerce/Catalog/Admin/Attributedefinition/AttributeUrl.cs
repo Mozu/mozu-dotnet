@@ -21,17 +21,19 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition
         /// </summary>
         /// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
         /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+        /// <param name="responseFields"></param>
         /// <param name="sortBy"></param>
         /// <param name="startIndex"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetAttributesUrl(string filter, int? pageSize, string sortBy, int? startIndex)
+        public static MozuUrl GetAttributesUrl(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/attributedefinition/attributes/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
+			var url = "/api/commerce/catalog/admin/attributedefinition/attributes/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "filter", filter);
 			mozuUrl.FormatUrl( "pageSize", pageSize);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "sortBy", sortBy);
 			mozuUrl.FormatUrl( "startIndex", startIndex);
 			return mozuUrl;
@@ -41,27 +43,31 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition
         /// Get Resource Url for GetAttribute
         /// </summary>
         /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetAttributeUrl(string attributeFQN)
+        public static MozuUrl GetAttributeUrl(string attributeFQN, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}";
+			var url = "/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "attributeFQN", attributeFQN);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 				/// <summary>
         /// Get Resource Url for AddAttribute
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl AddAttributeUrl()
+        public static MozuUrl AddAttributeUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/attributedefinition/attributes/";
+			var url = "/api/commerce/catalog/admin/attributedefinition/attributes/?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -69,14 +75,16 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition
         /// Get Resource Url for UpdateAttribute
         /// </summary>
         /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateAttributeUrl(string attributeFQN)
+        public static MozuUrl UpdateAttributeUrl(string attributeFQN, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}";
+			var url = "/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "attributeFQN", attributeFQN);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

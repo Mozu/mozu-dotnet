@@ -15,6 +15,7 @@ namespace Mozu.Api.Events
 {
 	public interface IOrderEvents
 	{
+		void Abandoned(IApiContext apiContext, Event eventPayLoad);
 		void Cancelled(IApiContext apiContext, Event eventPayLoad);
 		void Closed(IApiContext apiContext, Event eventPayLoad);
 		void Fulfilled(IApiContext apiContext, Event eventPayLoad);

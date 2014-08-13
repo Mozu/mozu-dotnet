@@ -11,34 +11,82 @@
 using System;
 using System.Collections.Generic;
 
+
 namespace Mozu.Api.Contracts.ProductAdmin
 {
+		///
+		///	Properties of the conditions that must be met for a discount to apply to an order.
+		///
 		public class DiscountCondition
 		{
+			///
+			///If the discount is a coupon, the code required to redeem the coupon.
+			///
 			public string CouponCode { get; set; }
 
+			///
+			///The date and time on which the discount expires and cannot be redeemed.
+			///
 			public DateTime? ExpirationDate { get; set; }
 
+			public int? MaximumRedemptionsPerOrder { get; set; }
+
+			///
+			///The maximum number of times the discount can be redeemed.
+			///
 			public int? MaxRedemptionCount { get; set; }
 
+			public decimal? MinimumCategorySubtotalBeforeDiscounts { get; set; }
+
+			///
+			///The minimum customer lifetime value amount required to redeem this discount.
+			///
 			public decimal? MinimumLifetimeValueAmount { get; set; }
 
+			///
+			///The minimum order amount required to redeem this discount.
+			///
 			public decimal? MinimumOrderAmount { get; set; }
+
+			public int? MinimumQuantityProductsRequiredInCategories { get; set; }
+
+			public int? MinimumQuantityRequiredProducts { get; set; }
 
 			public bool? RequiresAuthenticatedUser { get; set; }
 
+			///
+			///If true, redemption of this discount requires entry of a coupon code.
+			///
 			public bool RequiresCoupon { get; set; }
 
+			///
+			///The earliest date and time this discount can be redeemed.
+			///
 			public DateTime? StartDate { get; set; }
 
+			///
+			///List of customer segments associated with the discount. Shoppers who are members of an associated customer segment can redeem this discount.
+			///
 			public List<CustomerSegment> CustomerSegments { get; set; }
 
+			///
+			///List of the product categories that are not eligible for the discount.
+			///
 			public List<CategoryDiscountCondition> ExcludedCategories { get; set; }
 
+			///
+			///List of the products that are not eligible for the discount.
+			///
 			public List<ProductDiscountCondition> ExcludedProducts { get; set; }
 
+			///
+			///List of product categories that are eligible for the discount.
+			///
 			public List<CategoryDiscountCondition> IncludedCategories { get; set; }
 
+			///
+			///List of products that are eligible for the discount.
+			///
 			public List<ProductDiscountCondition> IncludedProducts { get; set; }
 
 		}

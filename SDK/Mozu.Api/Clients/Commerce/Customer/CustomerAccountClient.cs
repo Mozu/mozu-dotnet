@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Customer
 {
@@ -23,29 +24,13 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <summary>
 		/// Retrieves a list of customer accounts.
 		/// </summary>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerAccountCollection"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetAccounts();
-		///   var customerAccountCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAccountCollection> GetAccountsClient()
-		{
-			return GetAccountsClient( null,  null,  null,  null,  null,  null,  null,  null);
-		}
-
-		/// <summary>
-		/// Retrieves a list of customer accounts.
-		/// </summary>
 		/// <param name="fields">The fields to include in the response.</param>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-		/// <param name="isAnonymous"></param>
+		/// <param name="isAnonymous">If true, retrieve anonymous shopper accounts in the response.</param>
 		/// <param name="pageSize"></param>
 		/// <param name="q">A list of customer account search terms to use in the query when searching across customer name and email. Separate multiple search terms with a space character.</param>
 		/// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
 		/// <returns>
@@ -53,15 +38,40 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetAccounts( startIndex,  pageSize,  sortBy,  filter,  fields,  q,  qLimit,  isAnonymous);
+		///   var mozuClient=GetAccounts( startIndex,  pageSize,  sortBy,  filter,  fields,  q,  qLimit,  isAnonymous,  responseFields);
 		///   var customerAccountCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAccountCollection> GetAccountsClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string fields =  null, string q =  null, int? qLimit =  null, bool? isAnonymous =  null)
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAccountCollection> GetAccountsClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string fields =  null, string q =  null, int? qLimit =  null, bool? isAnonymous =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetAccountsUrl(fields, filter, isAnonymous, pageSize, q, qLimit, sortBy, startIndex);
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetAccountsUrl(startIndex, pageSize, sortBy, filter, fields, q, qLimit, isAnonymous, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerAccountCollection>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// Retrieves the current login state of the customer account specified in the request.
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.LoginState"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetLoginState( accountId,  responseFields);
+		///   var loginStateClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateClient(int accountId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetLoginStateUrl(accountId, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.LoginState>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -72,18 +82,19 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// Retrieve details of a customer account.
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account to retrieve.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetAccount( accountId);
+		///   var mozuClient=GetAccount( accountId,  responseFields);
 		///   var customerAccountClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount> GetAccountClient(int accountId)
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount> GetAccountClient(int accountId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetAccountUrl(accountId);
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetAccountUrl(accountId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -93,45 +104,22 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="accountId"></param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.LoginState"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetLoginState( accountId);
-		///   var loginStateClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateClient(int accountId)
-		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetLoginStateUrl(accountId);
-			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.LoginState>()
-									.WithVerb(verb).WithResourceUrl(url)
-;
-			return mozuClient;
-
-		}
-
-		/// <summary>
 		/// Creates a new customer account based on the information specified in the request.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="account">Properties of the customer account to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddAccount( account);
+		///   var mozuClient=AddAccount( account,  responseFields);
 		///   var customerAccountClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount> AddAccountClient(Mozu.Api.Contracts.Customer.CustomerAccount account)
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount> AddAccountClient(Mozu.Api.Contracts.Customer.CustomerAccount account, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.AddAccountUrl();
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.AddAccountUrl(responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -166,22 +154,23 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Adds a new user login to a defined customer account.
 		/// </summary>
-		/// <param name="accountId"></param>
-		/// <param name="customerAuthInfo"></param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="customerAuthInfo">The authentication information for the customer account.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddLoginToExistingCustomer( customerAuthInfo,  accountId);
+		///   var mozuClient=AddLoginToExistingCustomer( customerAuthInfo,  accountId,  responseFields);
 		///   var customerAuthTicketClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAuthTicket> AddLoginToExistingCustomerClient(Mozu.Api.Contracts.Customer.CustomerLoginInfo customerAuthInfo, int accountId)
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAuthTicket> AddLoginToExistingCustomerClient(Mozu.Api.Contracts.Customer.CustomerLoginInfo customerAuthInfo, int accountId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.AddLoginToExistingCustomerUrl(accountId);
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.AddLoginToExistingCustomerUrl(accountId, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerAuthTicket>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -191,9 +180,9 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Updates the customer lifetime value of the specified customer account in the event of an order import or a lifetime value calculation error.
 		/// </summary>
-		/// <param name="accountId"></param>
+		/// <param name="accountId">The unique identifier of the customer account for which to calculate customer lifetime value.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
@@ -215,10 +204,10 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Lock or unlock a customer account.
 		/// </summary>
-		/// <param name="accountId"></param>
-		/// <param name="isLocked"></param>
+		/// <param name="accountId">The unique identifier of the customer account.</param>
+		/// <param name="isLocked">If true, the customer account is locked from logging in.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
@@ -240,10 +229,10 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Requires the password for the customer account to be changed.
 		/// </summary>
-		/// <param name="accountId"></param>
-		/// <param name="isPasswordChangeRequired"></param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="isPasswordChangeRequired">If true, the password for the customer account must be changed.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
@@ -265,21 +254,22 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Creates a new customer account and logs the user associated with the customer account into the site.
 		/// </summary>
-		/// <param name="accountAndAuthInfo"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="accountAndAuthInfo">Properties of the customer account to create, including the user authentication information.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddAccountAndLogin( accountAndAuthInfo);
+		///   var mozuClient=AddAccountAndLogin( accountAndAuthInfo,  responseFields);
 		///   var customerAuthTicketClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAuthTicket> AddAccountAndLoginClient(Mozu.Api.Contracts.Customer.CustomerAccountAndAuthInfo accountAndAuthInfo)
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAuthTicket> AddAccountAndLoginClient(Mozu.Api.Contracts.Customer.CustomerAccountAndAuthInfo accountAndAuthInfo, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.AddAccountAndLoginUrl();
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.AddAccountAndLoginUrl(responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerAuthTicket>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -289,21 +279,22 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Creates multiple customer accounts based on the information specified in the request.
 		/// </summary>
-		/// <param name="customers"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="customers">Properties of the customer accounts to create.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerAccountCollection"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddAccounts( customers);
+		///   var mozuClient=AddAccounts( customers,  responseFields);
 		///   var customerAccountCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAccountCollection> AddAccountsClient(List<Mozu.Api.Contracts.Customer.CustomerAccountAndAuthInfo> customers)
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAccountCollection> AddAccountsClient(List<Mozu.Api.Contracts.Customer.CustomerAccountAndAuthInfo> customers, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.AddAccountsUrl();
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.AddAccountsUrl(responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerAccountCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -313,21 +304,22 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves the current login state of a customer account by providing the customer's email address.
 		/// </summary>
-		/// <param name="emailAddress"></param>
+		/// <param name="emailAddress">The email address associated with the customer account.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.LoginState"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetLoginStateByEmailAddress( emailAddress);
+		///   var mozuClient=GetLoginStateByEmailAddress( emailAddress,  responseFields);
 		///   var loginStateClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateByEmailAddressClient(string emailAddress)
+		public static MozuClient<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateByEmailAddressClient(string emailAddress, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetLoginStateByEmailAddressUrl(emailAddress);
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetLoginStateByEmailAddressUrl(emailAddress, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.LoginState>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -337,21 +329,22 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves the current login state of a customer account by providing the user name associated with the customer account.
 		/// </summary>
-		/// <param name="userName"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="userName">The user name associated with the customer account.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.LoginState"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetLoginStateByUserName( userName);
+		///   var mozuClient=GetLoginStateByUserName( userName,  responseFields);
 		///   var loginStateClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateByUserNameClient(string userName)
+		public static MozuClient<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateByUserNameClient(string userName, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetLoginStateByUserNameUrl(userName);
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetLoginStateByUserNameUrl(userName, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.LoginState>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -361,9 +354,9 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Resets the password for a customer account.
 		/// </summary>
-		/// <param name="resetPasswordInfo"></param>
+		/// <param name="resetPasswordInfo">Information required to reset the password for a customer account.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
@@ -388,19 +381,20 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// Updates a customer account.
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="account">Properties of the customer account to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateAccount( account,  accountId);
+		///   var mozuClient=UpdateAccount( account,  accountId,  responseFields);
 		///   var customerAccountClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount> UpdateAccountClient(Mozu.Api.Contracts.Customer.CustomerAccount account, int accountId)
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount> UpdateAccountClient(Mozu.Api.Contracts.Customer.CustomerAccount account, int accountId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.UpdateAccountUrl(accountId);
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.UpdateAccountUrl(accountId, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount>()
 									.WithVerb(verb).WithResourceUrl(url)

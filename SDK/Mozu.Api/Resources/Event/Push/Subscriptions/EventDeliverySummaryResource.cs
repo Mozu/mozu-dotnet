@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Event.Push.Subscriptions
 {
@@ -24,34 +25,17 @@ namespace Mozu.Api.Resources.Event.Push.Subscriptions
 		///
 		private readonly IApiContext _apiContext;
 
+		
 		public EventDeliverySummaryResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
 		}
-
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="subscriptionId"></param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Event.EventDeliverySummary"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var eventdeliverysummary = new EventDeliverySummary();
-		///   var eventDeliverySummary = eventdeliverysummary.GetDeliveryAttemptSummary( subscriptionId);
-		/// </code>
-		/// </example>
-		public virtual Mozu.Api.Contracts.Event.EventDeliverySummary GetDeliveryAttemptSummary(string subscriptionId)
-		{
-			return GetDeliveryAttemptSummary( subscriptionId,  null);
-		}
-
+				
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="id"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="subscriptionId"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Event.EventDeliverySummary"/>
@@ -59,35 +43,28 @@ namespace Mozu.Api.Resources.Event.Push.Subscriptions
 		/// <example>
 		/// <code>
 		///   var eventdeliverysummary = new EventDeliverySummary();
-		///   var eventDeliverySummary = eventdeliverysummary.GetDeliveryAttemptSummary( subscriptionId,  id);
+		///   var eventDeliverySummary = eventdeliverysummary.GetDeliveryAttemptSummary( subscriptionId,  id,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.Event.EventDeliverySummary GetDeliveryAttemptSummary(string subscriptionId, int? id =  null)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Event.EventDeliverySummary GetDeliveryAttemptSummary(string subscriptionId, int? id =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Event.EventDeliverySummary> response;
-			var client = Mozu.Api.Clients.Event.Push.Subscriptions.EventDeliverySummaryClient.GetDeliveryAttemptSummaryClient( subscriptionId,  id);
+			var client = Mozu.Api.Clients.Event.Push.Subscriptions.EventDeliverySummaryClient.GetDeliveryAttemptSummaryClient( subscriptionId,  id,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
 
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="subscriptionId"></param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Event.EventDeliverySummaryCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var eventdeliverysummary = new EventDeliverySummary();
-		///   var eventDeliverySummaryCollection = eventdeliverysummary.GetDeliveryAttemptSummaries( subscriptionId);
-		/// </code>
-		/// </example>
-		public virtual Mozu.Api.Contracts.Event.EventDeliverySummaryCollection GetDeliveryAttemptSummaries(string subscriptionId)
+		public virtual async Task<Mozu.Api.Contracts.Event.EventDeliverySummary> GetDeliveryAttemptSummaryAsync(string subscriptionId, int? id =  null, string responseFields =  null)
 		{
-			return GetDeliveryAttemptSummaries( subscriptionId,  null,  null,  null,  null);
+			MozuClient<Mozu.Api.Contracts.Event.EventDeliverySummary> response;
+			var client = Mozu.Api.Clients.Event.Push.Subscriptions.EventDeliverySummaryClient.GetDeliveryAttemptSummaryClient( subscriptionId,  id,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
 		}
 
 		/// <summary>
@@ -95,6 +72,7 @@ namespace Mozu.Api.Resources.Event.Push.Subscriptions
 		/// </summary>
 		/// <param name="filter"></param>
 		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
 		/// <param name="subscriptionId"></param>
@@ -104,16 +82,27 @@ namespace Mozu.Api.Resources.Event.Push.Subscriptions
 		/// <example>
 		/// <code>
 		///   var eventdeliverysummary = new EventDeliverySummary();
-		///   var eventDeliverySummaryCollection = eventdeliverysummary.GetDeliveryAttemptSummaries( subscriptionId,  startIndex,  pageSize,  sortBy,  filter);
+		///   var eventDeliverySummaryCollection = eventdeliverysummary.GetDeliveryAttemptSummaries( subscriptionId,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.Event.EventDeliverySummaryCollection GetDeliveryAttemptSummaries(string subscriptionId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Event.EventDeliverySummaryCollection GetDeliveryAttemptSummaries(string subscriptionId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Event.EventDeliverySummaryCollection> response;
-			var client = Mozu.Api.Clients.Event.Push.Subscriptions.EventDeliverySummaryClient.GetDeliveryAttemptSummariesClient( subscriptionId,  startIndex,  pageSize,  sortBy,  filter);
+			var client = Mozu.Api.Clients.Event.Push.Subscriptions.EventDeliverySummaryClient.GetDeliveryAttemptSummariesClient( subscriptionId,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.Event.EventDeliverySummaryCollection> GetDeliveryAttemptSummariesAsync(string subscriptionId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Event.EventDeliverySummaryCollection> response;
+			var client = Mozu.Api.Clients.Event.Push.Subscriptions.EventDeliverySummaryClient.GetDeliveryAttemptSummariesClient( subscriptionId,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 

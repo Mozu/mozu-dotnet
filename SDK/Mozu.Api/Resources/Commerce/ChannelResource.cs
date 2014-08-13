@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Commerce
 {
@@ -24,34 +25,18 @@ namespace Mozu.Api.Resources.Commerce
 		///
 		private readonly IApiContext _apiContext;
 
+		
 		public ChannelResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
 		}
-
-		
-		/// <summary>
-		/// Retrieves a list of channels defined for a tenant according to any filter or sort criteria specified in the request.
-		/// </summary>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var channel = new Channel();
-		///   var channelCollection = channel.GetChannels();
-		/// </code>
-		/// </example>
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelCollection GetChannels()
-		{
-			return GetChannels( null,  null,  null,  null);
-		}
-
+				
 		/// <summary>
 		/// Retrieves a list of channels defined for a tenant according to any filter or sort criteria specified in the request.
 		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
 		/// <returns>
@@ -60,16 +45,27 @@ namespace Mozu.Api.Resources.Commerce
 		/// <example>
 		/// <code>
 		///   var channel = new Channel();
-		///   var channelCollection = channel.GetChannels( startIndex,  pageSize,  sortBy,  filter);
+		///   var channelCollection = channel.GetChannels( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelCollection GetChannels(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelCollection GetChannels(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelCollection> response;
-			var client = Mozu.Api.Clients.Commerce.ChannelClient.GetChannelsClient( startIndex,  pageSize,  sortBy,  filter);
+			var client = Mozu.Api.Clients.Commerce.ChannelClient.GetChannelsClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelCollection> GetChannelsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelCollection> response;
+			var client = Mozu.Api.Clients.Commerce.ChannelClient.GetChannelsClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -77,28 +73,41 @@ namespace Mozu.Api.Resources.Commerce
 		/// Retrieves the details of the channel specified in the request.
 		/// </summary>
 		/// <param name="code">User-defined code that identifies the channel to retrieve.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Channels.Channel"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var channel = new Channel();
-		///   var channel = channel.GetChannel( code);
+		///   var channel = channel.GetChannel( code,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Channels.Channel GetChannel(string code)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Channels.Channel GetChannel(string code, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.Channel> response;
-			var client = Mozu.Api.Clients.Commerce.ChannelClient.GetChannelClient( code);
+			var client = Mozu.Api.Clients.Commerce.ChannelClient.GetChannelClient( code,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Channels.Channel> GetChannelAsync(string code, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.Channel> response;
+			var client = Mozu.Api.Clients.Commerce.ChannelClient.GetChannelClient( code,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
 		/// <summary>
 		/// Creates a new channel that defines a new logical business division to use for financial reporting.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="channel">Properties of the channel to create.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Channels.Channel"/>
@@ -106,16 +115,27 @@ namespace Mozu.Api.Resources.Commerce
 		/// <example>
 		/// <code>
 		///   var channel = new Channel();
-		///   var channel = channel.CreateChannel( channel);
+		///   var channel = channel.CreateChannel( channel,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Channels.Channel CreateChannel(Mozu.Api.Contracts.CommerceRuntime.Channels.Channel channel)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Channels.Channel CreateChannel(Mozu.Api.Contracts.CommerceRuntime.Channels.Channel channel, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.Channel> response;
-			var client = Mozu.Api.Clients.Commerce.ChannelClient.CreateChannelClient( channel);
+			var client = Mozu.Api.Clients.Commerce.ChannelClient.CreateChannelClient( channel,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Channels.Channel> CreateChannelAsync(Mozu.Api.Contracts.CommerceRuntime.Channels.Channel channel, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.Channel> response;
+			var client = Mozu.Api.Clients.Commerce.ChannelClient.CreateChannelClient( channel,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -123,6 +143,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// Updates one or more details of a defined channel, including the associated sites.
 		/// </summary>
 		/// <param name="code">User-defined code that identifies the channel to update.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="channel">Properties of a the channel to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Channels.Channel"/>
@@ -130,16 +151,27 @@ namespace Mozu.Api.Resources.Commerce
 		/// <example>
 		/// <code>
 		///   var channel = new Channel();
-		///   var channel = channel.UpdateChannel( channel,  code);
+		///   var channel = channel.UpdateChannel( channel,  code,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Channels.Channel UpdateChannel(Mozu.Api.Contracts.CommerceRuntime.Channels.Channel channel, string code)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Channels.Channel UpdateChannel(Mozu.Api.Contracts.CommerceRuntime.Channels.Channel channel, string code, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.Channel> response;
-			var client = Mozu.Api.Clients.Commerce.ChannelClient.UpdateChannelClient( channel,  code);
+			var client = Mozu.Api.Clients.Commerce.ChannelClient.UpdateChannelClient( channel,  code,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Channels.Channel> UpdateChannelAsync(Mozu.Api.Contracts.CommerceRuntime.Channels.Channel channel, string code, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.Channel> response;
+			var client = Mozu.Api.Clients.Commerce.ChannelClient.UpdateChannelClient( channel,  code,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -156,12 +188,22 @@ namespace Mozu.Api.Resources.Commerce
 		///   channel.DeleteChannel( code);
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual void DeleteChannel(string code)
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.ChannelClient.DeleteChannelClient( code);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
+
+		}
+
+		public virtual async Task DeleteChannelAsync(string code)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.ChannelClient.DeleteChannelClient( code);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
 
 		}
 

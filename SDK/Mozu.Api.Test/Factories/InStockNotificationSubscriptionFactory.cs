@@ -17,29 +17,30 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// Use the Customer In-Stock Notification Subscription resource to manage the subscriptions customer accounts use to send product notifications. This resource can send a notification when a product in a catalog returns to a site's active inventory after it is out of stock, or when a new product becomes available for the first time.
 	/// </summary>
 	public partial class InStockNotificationSubscriptionFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// 
+		/// Retrieves a list of in-stock notification subscriptions.
 		/// <example> 
 		///  <code> 
-		/// var result = InStockNotificationSubscriptionFactory.GetInStockNotificationSubscriptions(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = InStockNotificationSubscriptionFactory.GetInStockNotificationSubscriptions(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<InStockNotificationSubscriptionCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.InStockNotificationSubscriptionCollection GetInStockNotificationSubscriptions(ServiceClientMessageHandler handler, 
- 		 int? startIndex = null, int? pageSize = null, string sortBy = null, string filter = null, 
+ 		 int? startIndex = null, int? pageSize = null, string sortBy = null, string filter = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -47,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.InStockNotificationSubscriptionClient.GetInStockNotificationSubscriptionsClient(
-				 startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter		);
+				 startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -67,17 +68,17 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves the details of a subscription that sends a push notification when a product is available in a site's active stock.
 		/// <example> 
 		///  <code> 
-		/// var result = InStockNotificationSubscriptionFactory.GetInStockNotificationSubscription(handler : handler,  id :  id,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = InStockNotificationSubscriptionFactory.GetInStockNotificationSubscription(handler : handler,  id :  id,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<InStockNotificationSubscription/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.InStockNotificationSubscription GetInStockNotificationSubscription(ServiceClientMessageHandler handler, 
- 		 int id, 
+ 		 int id, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -85,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.InStockNotificationSubscriptionClient.GetInStockNotificationSubscriptionClient(
-				 id :  id		);
+				 id :  id,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -105,17 +106,17 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Creates a new subscription that notifies the customer when the product specified in the request is available in the active inventory of the defined location.
 		/// <example> 
 		///  <code> 
-		/// var result = InStockNotificationSubscriptionFactory.AddInStockNotificationSubscription(handler : handler,  inStockNotificationSubscription :  inStockNotificationSubscription,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = InStockNotificationSubscriptionFactory.AddInStockNotificationSubscription(handler : handler,  inStockNotificationSubscription :  inStockNotificationSubscription,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<InStockNotificationSubscription/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.InStockNotificationSubscription AddInStockNotificationSubscription(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.Customer.InStockNotificationSubscription inStockNotificationSubscription, 
+ 		 Mozu.Api.Contracts.Customer.InStockNotificationSubscription inStockNotificationSubscription, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -123,7 +124,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.InStockNotificationSubscriptionClient.AddInStockNotificationSubscriptionClient(
-				 inStockNotificationSubscription :  inStockNotificationSubscription		);
+				 inStockNotificationSubscription :  inStockNotificationSubscription,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -143,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Deletes a subscription for a customer in-stock notification.
 		/// <example> 
 		///  <code> 
 		/// var result = InStockNotificationSubscriptionFactory.DeleteInStockNotificationSubscription(handler : handler,  id :  id,  expectedCode: expectedCode, successCode: successCode); 

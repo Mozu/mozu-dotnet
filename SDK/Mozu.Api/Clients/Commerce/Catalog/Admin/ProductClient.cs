@@ -11,32 +11,16 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 {
 	/// <summary>
-	/// Use this resource to create products, view the attributes associated with existing products, and determine which sites feature a specific product.
+	/// Use the Product Administration resource to create new product definitions in the master catalog and determine which catalogs will feature products. You can also assign attribute values for defined products, manage product-level location inventory, and configure the variations of a product.
 	/// </summary>
 	public partial class ProductClient 	{
 		
-		/// <summary>
-		/// Retrieves a list of products according to any specified facets, filter criteria, and sort options.
-		/// </summary>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductCollection"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetProducts(dataViewMode);
-		///   var productCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductCollection> GetProductsClient(DataViewMode dataViewMode)
-		{
-			return GetProductsClient(dataViewMode,  null,  null,  null,  null,  null,  null,  null);
-		}
-
 		/// <summary>
 		/// Retrieves a list of products according to any specified facets, filter criteria, and sort options.
 		/// </summary>
@@ -45,6 +29,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
 		/// <param name="q">A list of product search terms to use in the query when searching across product code and product name. Separate multiple search terms with a space character.</param>
 		/// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
 		/// <returns>
@@ -52,40 +37,15 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetProducts(dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  q,  qLimit,  noCount);
+		///   var mozuClient=GetProducts(dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  q,  qLimit,  noCount,  responseFields);
 		///   var productCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductCollection> GetProductsClient(DataViewMode dataViewMode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string q =  null, int? qLimit =  null, bool? noCount =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductCollection> GetProductsClient(DataViewMode dataViewMode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string q =  null, int? qLimit =  null, bool? noCount =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.GetProductsUrl(filter, noCount, pageSize, q, qLimit, sortBy, startIndex);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.GetProductsUrl(startIndex, pageSize, sortBy, filter, q, qLimit, noCount, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductCollection>()
-									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
-;
-			return mozuClient;
-
-		}
-
-		/// <summary>
-		/// Retrieves an existing product.
-		/// </summary>
-		/// <param name="productCode">Merchant-created code associated with the product such as a SKU. Max length: 30. Accepts a to z, A to Z, Ãƒâ€¹-ÃƒËœ, 0 to 9, #, semicolon, commas, apostrophes, and Spaces, but no punctuation or other characters.</param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Product"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetProduct(dataViewMode,  productCode);
-		///   var productClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Product> GetProductClient(DataViewMode dataViewMode, string productCode)
-		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.GetProductUrl(productCode);
-			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Product>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
@@ -121,20 +81,21 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// Retrieves the details of a product associated with a specific catalog.
 		/// </summary>
-		/// <param name="catalogId"></param>
+		/// <param name="catalogId">The unique identifier of the catalog of products used by a site.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetProductInCatalog(dataViewMode,  productCode,  catalogId);
+		///   var mozuClient=GetProductInCatalog(dataViewMode,  productCode,  catalogId,  responseFields);
 		///   var productInCatalogInfoClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> GetProductInCatalogClient(DataViewMode dataViewMode, string productCode, int catalogId)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> GetProductInCatalogClient(DataViewMode dataViewMode, string productCode, int catalogId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.GetProductInCatalogUrl(catalogId, productCode);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.GetProductInCatalogUrl(productCode, catalogId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -145,26 +106,52 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
+		/// Retrieves the details of a product definition.
+		/// </summary>
+		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Product"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetProduct(dataViewMode,  productCode,  responseFields);
+		///   var productClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Product> GetProductClient(DataViewMode dataViewMode, string productCode, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.GetProductUrl(productCode, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Product>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Creates a new product definition in the specified master catalog.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="product">Properties of the new product. You must supply values for the product code, product name, and price.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Product"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddProduct(dataViewMode,  product);
+		///   var mozuClient=AddProduct( product,  responseFields);
 		///   var productClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Product> AddProductClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.Product product)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Product> AddProductClient(Mozu.Api.Contracts.ProductAdmin.Product product, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.AddProductUrl();
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.AddProductUrl(responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Product>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.Product>(product)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
-;
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.Product>(product);
 			return mozuClient;
 
 		}
@@ -173,50 +160,24 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// Associates a new product defined in the master catalog with a specific catalog.
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="productInCatalogInfoIn">Properties of the product to define for the specific catalog association.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddProductInCatalog(dataViewMode,  productInCatalogInfoIn,  productCode);
+		///   var mozuClient=AddProductInCatalog( productInCatalogInfoIn,  productCode,  responseFields);
 		///   var productInCatalogInfoClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> AddProductInCatalogClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo productInCatalogInfoIn, string productCode)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> AddProductInCatalogClient(Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo productInCatalogInfoIn, string productCode, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.AddProductInCatalogUrl(productCode);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.AddProductInCatalogUrl(productCode, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>(productInCatalogInfoIn)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
-;
-			return mozuClient;
-
-		}
-
-		/// <summary>
-		/// Updates one or more properties of a product definition in a master catalog.
-		/// </summary>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="product">Properties of the product definition to update in the master catalog.</param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Product"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=UpdateProduct(dataViewMode,  product,  productCode);
-		///   var productClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Product> UpdateProductClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.Product product, string productCode)
-		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.UpdateProductUrl(productCode);
-			const string verb = "PUT";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Product>()
-									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.Product>(product)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
-;
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>(productInCatalogInfoIn);
 			return mozuClient;
 
 		}
@@ -231,18 +192,17 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateProductInCatalogs(dataViewMode,  productInCatalogsIn,  productCode);
+		///   var mozuClient=UpdateProductInCatalogs( productInCatalogsIn,  productCode);
 		///   var productInCatalogInfoClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>> UpdateProductInCatalogsClient(DataViewMode dataViewMode, List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> productInCatalogsIn, string productCode)
+		public static MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>> UpdateProductInCatalogsClient(List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> productInCatalogsIn, string productCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.UpdateProductInCatalogsUrl(productCode);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>>(productInCatalogsIn)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
-;
+									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>>(productInCatalogsIn);
 			return mozuClient;
 
 		}
@@ -250,26 +210,52 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// Updates one or more properties of a product associated with a specific catalog.
 		/// </summary>
-		/// <param name="catalogId"></param>
+		/// <param name="catalogId">The unique identifier of the catalog of products used by a site.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="productInCatalogInfoIn">Properties of the product associated with the catalog specified in the request.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateProductInCatalog(dataViewMode,  productInCatalogInfoIn,  productCode,  catalogId);
+		///   var mozuClient=UpdateProductInCatalog( productInCatalogInfoIn,  productCode,  catalogId,  responseFields);
 		///   var productInCatalogInfoClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> UpdateProductInCatalogClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo productInCatalogInfoIn, string productCode, int catalogId)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> UpdateProductInCatalogClient(Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo productInCatalogInfoIn, string productCode, int catalogId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.UpdateProductInCatalogUrl(catalogId, productCode);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.UpdateProductInCatalogUrl(productCode, catalogId, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>(productInCatalogInfoIn)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
-;
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>(productInCatalogInfoIn);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// Updates one or more properties of a product definition in a master catalog.
+		/// </summary>
+		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="product">Properties of the product definition to update in the master catalog.</param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Product"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=UpdateProduct( product,  productCode,  responseFields);
+		///   var productClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Product> UpdateProductClient(Mozu.Api.Contracts.ProductAdmin.Product product, string productCode, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.UpdateProductUrl(productCode, responseFields);
+			const string verb = "PUT";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Product>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.Product>(product);
 			return mozuClient;
 
 		}
@@ -283,17 +269,16 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=DeleteProduct(dataViewMode,  productCode);
+		///   var mozuClient=DeleteProduct( productCode);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteProductClient(DataViewMode dataViewMode, string productCode)
+		public static MozuClient DeleteProductClient(string productCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.DeleteProductUrl(productCode);
 			const string verb = "DELETE";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
@@ -302,24 +287,23 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// Removes the product association defined for a specific catalog.
 		/// </summary>
-		/// <param name="catalogId"></param>
+		/// <param name="catalogId">The unique identifier of the catalog of products used by a site.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=DeleteProductInCatalog(dataViewMode,  productCode,  catalogId);
+		///   var mozuClient=DeleteProductInCatalog( productCode,  catalogId);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteProductInCatalogClient(DataViewMode dataViewMode, string productCode, int catalogId)
+		public static MozuClient DeleteProductInCatalogClient(string productCode, int catalogId)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.DeleteProductInCatalogUrl(catalogId, productCode);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.DeleteProductInCatalogUrl(productCode, catalogId);
 			const string verb = "DELETE";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 

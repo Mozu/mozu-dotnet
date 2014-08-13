@@ -17,23 +17,6 @@ namespace Mozu.Api.Urls.Commerce.Orders
 	{
 
 		/// <summary>
-        /// Get Resource Url for GetPickup
-        /// </summary>
-        /// <param name="orderId">Unique identifier of the order associated with the pickup.</param>
-        /// <param name="pickupId">Unique identifier of the pickup to retrieve.</param>
-        /// <returns>
-        /// String - Resource Url
-        /// </returns>
-        public static MozuUrl GetPickupUrl(string orderId, string pickupId)
-		{
-			var url = "/api/commerce/orders/{orderId}/pickups/{pickupId}";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "orderId", orderId);
-			mozuUrl.FormatUrl( "pickupId", pickupId);
-			return mozuUrl;
-		}
-
-		/// <summary>
         /// Get Resource Url for GetAvailablePickupFulfillmentActions
         /// </summary>
         /// <param name="orderId">Unique identifier of the order associated with the pickup.</param>
@@ -50,18 +33,39 @@ namespace Mozu.Api.Urls.Commerce.Orders
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for GetPickup
+        /// </summary>
+        /// <param name="orderId">Unique identifier of the order associated with the pickup.</param>
+        /// <param name="pickupId">Unique identifier of the pickup to retrieve.</param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetPickupUrl(string orderId, string pickupId, string responseFields =  null)
+		{
+			var url = "/api/commerce/orders/{orderId}/pickups/{pickupId}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "orderId", orderId);
+			mozuUrl.FormatUrl( "pickupId", pickupId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for CreatePickup
         /// </summary>
         /// <param name="orderId">Unique identifier of the order.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl CreatePickupUrl(string orderId)
+        public static MozuUrl CreatePickupUrl(string orderId, string responseFields =  null)
 		{
-			var url = "/api/commerce/orders/{orderId}/pickups";
+			var url = "/api/commerce/orders/{orderId}/pickups?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "orderId", orderId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -70,15 +74,17 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// </summary>
         /// <param name="orderId">Unique identifier of the order associated with the in-store pickup.</param>
         /// <param name="pickupId">Unique identifier of the pickup to update.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdatePickupUrl(string orderId, string pickupId)
+        public static MozuUrl UpdatePickupUrl(string orderId, string pickupId, string responseFields =  null)
 		{
-			var url = "/api/commerce/orders/{orderId}/pickups/{pickupId}";
+			var url = "/api/commerce/orders/{orderId}/pickups/{pickupId}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "orderId", orderId);
 			mozuUrl.FormatUrl( "pickupId", pickupId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

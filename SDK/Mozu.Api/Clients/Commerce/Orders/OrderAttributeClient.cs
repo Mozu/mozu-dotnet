@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Orders
 {
@@ -67,25 +68,6 @@ namespace Mozu.Api.Clients.Commerce.Orders
 									.WithBody<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute>>(orderAttributes);
 			return mozuClient;
 
-		}
-
-		/// <summary>
-		/// Updates one or more properties of an attribute defined for the order specified in the request.
-		/// </summary>
-		/// <param name="orderId">Identifier of the order for which to update attributes.</param>
-		/// <param name="orderAttributes">List of order attributes to update, including the properties of each defined attribute in the list.</param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute"/>}}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=UpdateOrderAttributes( orderAttributes,  orderId);
-		///   var orderAttributeClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute>> UpdateOrderAttributesClient(List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute> orderAttributes, string orderId)
-		{
-			return UpdateOrderAttributesClient( orderAttributes,  orderId,  null);
 		}
 
 		/// <summary>

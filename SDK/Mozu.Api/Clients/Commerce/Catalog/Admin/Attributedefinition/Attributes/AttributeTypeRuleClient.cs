@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 {
@@ -23,26 +24,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		/// <summary>
 		/// Retrieves a list of attribute type rules according to optional filter criteria and sort options. Attribute type rules help drive the behavior of attributes on a storefront page.
 		/// </summary>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.AttributeTypeRuleCollection"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetAttributeTypeRules(dataViewMode);
-		///   var attributeTypeRuleCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeTypeRuleCollection> GetAttributeTypeRulesClient(DataViewMode dataViewMode)
-		{
-			return GetAttributeTypeRulesClient(dataViewMode,  null,  null,  null,  null);
-		}
-
-		/// <summary>
-		/// Retrieves a list of attribute type rules according to optional filter criteria and sort options. Attribute type rules help drive the behavior of attributes on a storefront page.
-		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
@@ -51,13 +35,13 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetAttributeTypeRules(dataViewMode,  startIndex,  pageSize,  sortBy,  filter);
+		///   var mozuClient=GetAttributeTypeRules(dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		///   var attributeTypeRuleCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeTypeRuleCollection> GetAttributeTypeRulesClient(DataViewMode dataViewMode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeTypeRuleCollection> GetAttributeTypeRulesClient(DataViewMode dataViewMode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeTypeRuleUrl.GetAttributeTypeRulesUrl(filter, pageSize, sortBy, startIndex);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeTypeRuleUrl.GetAttributeTypeRulesUrl(startIndex, pageSize, sortBy, filter, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeTypeRuleCollection>()
 									.WithVerb(verb).WithResourceUrl(url)

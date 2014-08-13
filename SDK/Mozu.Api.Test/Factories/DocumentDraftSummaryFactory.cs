@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -32,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves a list of the documents currently in draft state, according to any defined filter and sort criteria.
 		/// <example> 
 		///  <code> 
-		/// var result = DocumentDraftSummaryFactory.ListDocumentDraftSummaries(handler : handler,  pageSize :  pageSize,  startIndex :  startIndex,  documentLists :  documentLists,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = DocumentDraftSummaryFactory.ListDocumentDraftSummaries(handler : handler,  pageSize :  pageSize,  startIndex :  startIndex,  documentLists :  documentLists,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<DocumentDraftSummaryPagedCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection ListDocumentDraftSummaries(ServiceClientMessageHandler handler, 
- 		 int? pageSize = null, int? startIndex = null, string documentLists = null,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 int? pageSize = null, int? startIndex = null, string documentLists = null, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -47,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.ListDocumentDraftSummariesClient(
-				 pageSize :  pageSize,  startIndex :  startIndex,  documentLists :  documentLists, dataViewMode: dataViewMode		);
+				 pageSize :  pageSize,  startIndex :  startIndex,  documentLists :  documentLists,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -70,14 +71,14 @@ namespace Mozu.Api.Test.Factories
 		/// Deletes the drafts of the specified documents. Published documents cannot be deleted.
 		/// <example> 
 		///  <code> 
-		/// var result = DocumentDraftSummaryFactory.DeleteDocumentDrafts(handler : handler,  documentIds :  documentIds,  documentLists :  documentLists,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = DocumentDraftSummaryFactory.DeleteDocumentDrafts(handler : handler,  documentIds :  documentIds,  documentLists :  documentLists,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static void DeleteDocumentDrafts(ServiceClientMessageHandler handler, 
- 		List<string> documentIds, string documentLists = null,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		List<string> documentIds, string documentLists = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
@@ -85,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.DeleteDocumentDraftsClient(
-				 documentIds :  documentIds,  documentLists :  documentLists, dataViewMode: dataViewMode		);
+				 documentIds :  documentIds,  documentLists :  documentLists		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -107,14 +108,14 @@ namespace Mozu.Api.Test.Factories
 		/// Publish one or more document drafts to live content on the site.
 		/// <example> 
 		///  <code> 
-		/// var result = DocumentDraftSummaryFactory.PublishDocuments(handler : handler,  documentIds :  documentIds,  documentLists :  documentLists,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = DocumentDraftSummaryFactory.PublishDocuments(handler : handler,  documentIds :  documentIds,  documentLists :  documentLists,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static void PublishDocuments(ServiceClientMessageHandler handler, 
- 		List<string> documentIds, string documentLists = null,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		List<string> documentIds, string documentLists = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
@@ -122,7 +123,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.PublishDocumentsClient(
-				 documentIds :  documentIds,  documentLists :  documentLists, dataViewMode: dataViewMode		);
+				 documentIds :  documentIds,  documentLists :  documentLists		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

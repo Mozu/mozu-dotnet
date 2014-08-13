@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Platform
 {
@@ -20,23 +21,6 @@ namespace Mozu.Api.Clients.Platform
 	/// </summary>
 	public partial class ReferenceDataClient 	{
 		
-		/// <summary>
-		/// Retrieves a specific address schema based on the country code provided. This operation allows the creation of custom shipping and billing address fields.
-		/// </summary>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Reference.AddressSchema"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetAddressSchema();
-		///   var addressSchemaClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Reference.AddressSchema> GetAddressSchemaClient()
-		{
-			return GetAddressSchemaClient( null);
-		}
-
 		/// <summary>
 		/// Retrieves a specific address schema based on the country code provided. This operation allows the creation of custom shipping and billing address fields.
 		/// </summary>
@@ -85,9 +69,9 @@ namespace Mozu.Api.Clients.Platform
 		}
 
 		/// <summary>
-		/// ***Always private and should not be published.***
+		/// Retrieves the details of a behavior based on the behavior ID specified in the request.
 		/// </summary>
-		/// <param name="behaviorId">***Always private and should not be published.***</param>
+		/// <param name="behaviorId">Unique identifier of the behavior.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.Behavior"/>}
 		/// </returns>
@@ -109,7 +93,7 @@ namespace Mozu.Api.Clients.Platform
 		}
 
 		/// <summary>
-		/// ***Always private and should not be published.***
+		/// Retrieves the list of behavior categories.
 		/// </summary>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.BehaviorCategoryCollection"/>}
@@ -132,9 +116,9 @@ namespace Mozu.Api.Clients.Platform
 		}
 
 		/// <summary>
-		/// ***Always private and should not be published.***
+		/// Retrieves the details of the behavior category specified in the request.
 		/// </summary>
-		/// <param name="categoryId">***Always private and should not be published.***</param>
+		/// <param name="categoryId">Unique identifier of the behavior category.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.BehaviorCategory"/>}
 		/// </returns>
@@ -156,26 +140,9 @@ namespace Mozu.Api.Clients.Platform
 		}
 
 		/// <summary>
-		/// ***Always private and should not be published.***
+		/// Retrieves a list of application behaviors.
 		/// </summary>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.BehaviorCollection"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetBehaviors();
-		///   var behaviorCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Core.BehaviorCollection> GetBehaviorsClient()
-		{
-			return GetBehaviorsClient( null);
-		}
-
-		/// <summary>
-		/// ***Always private and should not be published.***
-		/// </summary>
-		/// <param name="userType"></param>
+		/// <param name="userType">The user type associated with the behaviors to retrieve.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.BehaviorCollection"/>}
 		/// </returns>
@@ -309,23 +276,6 @@ namespace Mozu.Api.Clients.Platform
 ;
 			return mozuClient;
 
-		}
-
-		/// <summary>
-		/// Retrieves an array list of all units of measure the system supports.
-		/// </summary>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Reference.UnitOfMeasureCollection"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetUnitsOfMeasure();
-		///   var unitOfMeasureCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Reference.UnitOfMeasureCollection> GetUnitsOfMeasureClient()
-		{
-			return GetUnitsOfMeasureClient( null);
 		}
 
 		/// <summary>

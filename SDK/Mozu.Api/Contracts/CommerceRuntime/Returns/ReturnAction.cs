@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 
+
 namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 {
 		///

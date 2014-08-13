@@ -154,7 +154,7 @@ namespace Mozu.Api.Test.MsTestCases
             Thread.Sleep(3000);
             //Validation Error: Cannot publish drafts for masterCatalog in Live publishingMode
             PublishingScopeFactory.PublishDrafts(ApiMsgHandler, Generator.GeneratePublishingScope(false, new List<string>() { createdPro1.ProductCode }), expectedCode: HttpStatusCode.Conflict);
-            MasterCatalogFactory.UpdateMasterCatalog(ApiMsgHandler, masterCatalog: masterCatalog, masterCatalogId: masterCatalogId, dataViewMode: DataViewMode.Pending );
+            MasterCatalogFactory.UpdateMasterCatalog(ApiMsgHandler, masterCatalog: masterCatalog, masterCatalogId: masterCatalogId );
             createdPro1 = ProductFactory.AddProduct(ApiMsgHandler, Generator.GenerateProduct(myPT));
             productCode1.Add(createdPro1.ProductCode);
             Thread.Sleep(3000);
@@ -317,7 +317,7 @@ namespace Mozu.Api.Test.MsTestCases
             var masterCatalog = MasterCatalogFactory.GetMasterCatalog(ApiMsgHandler, masterCatalogId);
             if (masterCatalog.ProductPublishingMode.Equals("Live"))
             {
-                MasterCatalogFactory.UpdateMasterCatalog(ApiMsgHandler, masterCatalog: masterCatalog, masterCatalogId: masterCatalogId, dataViewMode: DataViewMode.Pending);
+                MasterCatalogFactory.UpdateMasterCatalog(ApiMsgHandler, masterCatalog: masterCatalog, masterCatalogId: masterCatalogId);
             }
             var attrObj = Generator.GenerateAttribute(isProperty: true);
             var createdAttr = AttributeFactory.AddAttribute(ApiMsgHandler, attrObj);
@@ -357,7 +357,7 @@ namespace Mozu.Api.Test.MsTestCases
             var masterCatalog = MasterCatalogFactory.GetMasterCatalog(ApiMsgHandler, masterCatalogId);
             if (masterCatalog.ProductPublishingMode.Equals("Live"))
             {
-                MasterCatalogFactory.UpdateMasterCatalog(ApiMsgHandler, masterCatalog: masterCatalog, masterCatalogId: masterCatalogId, dataViewMode: DataViewMode.Pending);
+                MasterCatalogFactory.UpdateMasterCatalog(ApiMsgHandler, masterCatalog: masterCatalog, masterCatalogId: masterCatalogId);
             }
             var attrObj = Generator.GenerateAttribute(isProperty: true);
             var createdAttr = AttributeFactory.AddAttribute(ApiMsgHandler, attrObj);
@@ -403,7 +403,7 @@ namespace Mozu.Api.Test.MsTestCases
                 var mode = MasterCatalogFactory.GetMasterCatalog(ApiMsgHandler, masterCatalogId);
                 if (mode.ProductPublishingMode.Equals("Pending"))
                 {
-                    MasterCatalogFactory.UpdateMasterCatalog(ApiMsgHandler, masterCatalog: masterCatalog, masterCatalogId: masterCatalogId, dataViewMode: DataViewMode.Live);
+                    MasterCatalogFactory.UpdateMasterCatalog(ApiMsgHandler, masterCatalog: masterCatalog, masterCatalogId: masterCatalogId);
                 }
             }
             var attrObj = Generator.GenerateAttribute(isProperty: true);
@@ -422,7 +422,7 @@ namespace Mozu.Api.Test.MsTestCases
             var mode1 = MasterCatalogFactory.GetMasterCatalog(ApiMsgHandler, masterCatalogId);
             if (mode1.ProductPublishingMode.Equals("Live"))
             {
-                MasterCatalogFactory.UpdateMasterCatalog(ApiMsgHandler, masterCatalog: masterCatalog, masterCatalogId: masterCatalogId, dataViewMode: DataViewMode.Pending);
+                MasterCatalogFactory.UpdateMasterCatalog(ApiMsgHandler, masterCatalog: masterCatalog, masterCatalogId: masterCatalogId);
             }
             var createdPro2 = ProductFactory.AddProduct(ApiMsgHandler, Generator.GenerateProduct(myPT));
             Thread.Sleep(3000);
@@ -459,7 +459,7 @@ namespace Mozu.Api.Test.MsTestCases
             Thread.Sleep(5000);
             productCode1.Add(createdPro1.ProductCode);
             ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Live, expectedCode: HttpStatusCode.NotFound);
-            MasterCatalogFactory.UpdateMasterCatalog(ApiMsgHandler, masterCatalog: masterCatalog, masterCatalogId: masterCatalogId, dataViewMode: DataViewMode.Pending, expectedCode: HttpStatusCode.Conflict);
+            MasterCatalogFactory.UpdateMasterCatalog(ApiMsgHandler, masterCatalog: masterCatalog, masterCatalogId: masterCatalogId, expectedCode: HttpStatusCode.Conflict);
             //PublishingScopeFactory.PublishDrafts(ApiMsgHandler, Generator.GeneratePublishingScope(false, null));
 
         }

@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Commerce.Customer
 {
@@ -24,15 +25,16 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		///
 		private readonly IApiContext _apiContext;
 
+		
 		public AddressValidationRequestResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
 		}
-
-		
+				
 		/// <summary>
 		/// Validates the customer address supplied in the request.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="addressValidationRequest">Properties of the address to validate.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.AddressValidationResponse"/>
@@ -40,16 +42,27 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <example>
 		/// <code>
 		///   var addressvalidationrequest = new AddressValidationRequest();
-		///   var addressValidationResponse = addressvalidationrequest.ValidateAddress( addressValidationRequest);
+		///   var addressValidationResponse = addressvalidationrequest.ValidateAddress( addressValidationRequest,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.Customer.AddressValidationResponse ValidateAddress(Mozu.Api.Contracts.Customer.AddressValidationRequest addressValidationRequest)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Customer.AddressValidationResponse ValidateAddress(Mozu.Api.Contracts.Customer.AddressValidationRequest addressValidationRequest, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.AddressValidationResponse> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.AddressValidationRequestClient.ValidateAddressClient( addressValidationRequest);
+			var client = Mozu.Api.Clients.Commerce.Customer.AddressValidationRequestClient.ValidateAddressClient( addressValidationRequest,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.Customer.AddressValidationResponse> ValidateAddressAsync(Mozu.Api.Contracts.Customer.AddressValidationRequest addressValidationRequest, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Customer.AddressValidationResponse> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.AddressValidationRequestClient.ValidateAddressClient( addressValidationRequest,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 

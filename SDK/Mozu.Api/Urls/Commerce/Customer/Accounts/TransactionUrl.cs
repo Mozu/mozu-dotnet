@@ -35,14 +35,16 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// Get Resource Url for AddTransaction
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl AddTransactionUrl(int accountId)
+        public static MozuUrl AddTransactionUrl(int accountId, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/{accountId}/transactions";
+			var url = "/api/commerce/customer/accounts/{accountId}/transactions?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "accountId", accountId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Platform
 {
@@ -24,6 +25,7 @@ namespace Mozu.Api.Resources.Platform
 		///
 		private readonly IApiContext _apiContext;
 
+		
 		public TenantResource() 
 		{
 			_apiContext = null;
@@ -32,11 +34,11 @@ namespace Mozu.Api.Resources.Platform
 		{
 			_apiContext = apiContext;
 		}
-
-		
+				
 		/// <summary>
 		/// Retrieve details about a specific tenant by providing the tenant ID.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="tenantId">Unique identifier of the Mozu tenant.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Tenant.Tenant"/>
@@ -44,20 +46,35 @@ namespace Mozu.Api.Resources.Platform
 		/// <example>
 		/// <code>
 		///   var tenant = new Tenant();
-		///   var tenant = tenant.GetTenant( tenantId);
+		///   var tenant = tenant.GetTenant( tenantId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.Tenant.Tenant GetTenant(int tenantId)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Tenant.Tenant GetTenant(int tenantId, string responseFields =  null)
 		{
 			var tenant = Cache.CacheManager.Instance.Get<Mozu.Api.Contracts.Tenant.Tenant>(tenantId.ToString());
 			if (tenant != null )
 				return tenant;
 MozuClient<Mozu.Api.Contracts.Tenant.Tenant> response;
-			var client = Mozu.Api.Clients.Platform.TenantClient.GetTenantClient( tenantId);
+			var client = Mozu.Api.Clients.Platform.TenantClient.GetTenantClient( tenantId,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			Cache.CacheManager.Instance.Add(response.Result(), tenantId.ToString());
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.Tenant.Tenant> GetTenantAsync(int tenantId, string responseFields =  null)
+		{
+			var tenant = Cache.CacheManager.Instance.Get<Mozu.Api.Contracts.Tenant.Tenant>(tenantId.ToString());
+			if (tenant != null )
+				return tenant;
+MozuClient<Mozu.Api.Contracts.Tenant.Tenant> response;
+			var client = Mozu.Api.Clients.Platform.TenantClient.GetTenantClient( tenantId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			Cache.CacheManager.Instance.Add(response.Result(), tenantId.ToString());
+			return await response.ResultAsync();
 
 		}
 

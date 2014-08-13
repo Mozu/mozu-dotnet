@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+
 using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.SiteSettings.Order
@@ -18,6 +19,8 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 		///
 		public class OrderProcessingSettings
 		{
+			public int? AbandonedOrderThresholdInMinutes { get; set; }
+
 			///
 			///Determines whether payment authorization occurs when the order is placed or when the order is shipped.
 			///

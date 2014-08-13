@@ -10,6 +10,7 @@
 
 using System;
 
+
 namespace Mozu.Api.Contracts.CommerceRuntime.Products
 {
 		///
@@ -17,6 +18,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 		///
 		public class ProductPrice
 		{
+			public decimal? CreditValue { get; set; }
+
 			public decimal? Msrp { get; set; }
 
 			///
@@ -29,6 +32,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			///
 			public decimal? SalePrice { get; set; }
 
+			///
+			///The override price defined by the tenant for this cart or order item.
+			///
 			public decimal? TenantOverridePrice { get; set; }
 
 		}

@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -29,7 +30,7 @@ namespace Mozu.Api.Test.Factories
 	{
 
 		/// <summary> 
-		/// Retrieves a list of attribute vocabulary values. To target a query, use one or several valid optional response groups.
+		/// Retrieves a list of vocabulary values defined for the attribute specified in the request.
 		/// <example> 
 		///  <code> 
 		/// var result = AttributeVocabularyValueFactory.GetAttributeVocabularyValues(handler : handler,  attributeFQN :  attributeFQN,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -67,16 +68,16 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves an attribute vocabulary value by providing the attribute FQN and value.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = AttributeVocabularyValueFactory.GetAttributeVocabularyValue(handler : handler,  attributeFQN :  attributeFQN,  value :  value,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<AttributeVocabularyValue/>(result); 
+		/// var result = AttributeVocabularyValueFactory.GetAttributeVocabularyValueLocalizedContents(handler : handler,  attributeFQN :  attributeFQN,  value :  value,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<List<AttributeVocabularyValueLocalizedContent>/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue GetAttributeVocabularyValue(ServiceClientMessageHandler handler, 
+		public static List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent> GetAttributeVocabularyValueLocalizedContents(ServiceClientMessageHandler handler, 
  		 string attributeFQN, string value,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
@@ -84,7 +85,7 @@ namespace Mozu.Api.Test.Factories
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.GetAttributeVocabularyValueClient(
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.GetAttributeVocabularyValueLocalizedContentsClient(
 				 attributeFQN :  attributeFQN,  value :  value, dataViewMode: dataViewMode		);
 			try
 			{
@@ -105,17 +106,131 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Adds a new attribute vocabulary value.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = AttributeVocabularyValueFactory.AddAttributeVocabularyValue(handler : handler,  attributeVocabularyValue :  attributeVocabularyValue,  attributeFQN :  attributeFQN,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = AttributeVocabularyValueFactory.GetAttributeVocabularyValueLocalizedContent(handler : handler,  attributeFQN :  attributeFQN,  value :  value,  localeCode :  localeCode,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<AttributeVocabularyValueLocalizedContent/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent GetAttributeVocabularyValueLocalizedContent(ServiceClientMessageHandler handler, 
+ 		 string attributeFQN, string value, string localeCode, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.GetAttributeVocabularyValueLocalizedContentClient(
+				 attributeFQN :  attributeFQN,  value :  value,  localeCode :  localeCode,  responseFields :  responseFields, dataViewMode: dataViewMode		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// Retrieves the details of a vocabulary value defined for an attribute by providing the attribute's fully qualified name and the value to retrieve.
+		/// <example> 
+		///  <code> 
+		/// var result = AttributeVocabularyValueFactory.GetAttributeVocabularyValue(handler : handler,  attributeFQN :  attributeFQN,  value :  value,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<AttributeVocabularyValue/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue GetAttributeVocabularyValue(ServiceClientMessageHandler handler, 
+ 		 string attributeFQN, string value, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.GetAttributeVocabularyValueClient(
+				 attributeFQN :  attributeFQN,  value :  value,  responseFields :  responseFields, dataViewMode: dataViewMode		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = AttributeVocabularyValueFactory.AddAttributeVocabularyValueLocalizedContent(handler : handler,  localizedContent :  localizedContent,  attributeFQN :  attributeFQN,  value :  value,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<AttributeVocabularyValueLocalizedContent/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent AddAttributeVocabularyValueLocalizedContent(ServiceClientMessageHandler handler, 
+ 		 Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent localizedContent, string attributeFQN, string value, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.AddAttributeVocabularyValueLocalizedContentClient(
+				 localizedContent :  localizedContent,  attributeFQN :  attributeFQN,  value :  value,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// Creates a vocabulary value for a defined product attribute.
+		/// <example> 
+		///  <code> 
+		/// var result = AttributeVocabularyValueFactory.AddAttributeVocabularyValue(handler : handler,  attributeVocabularyValue :  attributeVocabularyValue,  attributeFQN :  attributeFQN,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<AttributeVocabularyValue/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue AddAttributeVocabularyValue(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue attributeVocabularyValue, string attributeFQN,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue attributeVocabularyValue, string attributeFQN, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -123,7 +238,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.AddAttributeVocabularyValueClient(
-				 attributeVocabularyValue :  attributeVocabularyValue,  attributeFQN :  attributeFQN, dataViewMode: dataViewMode		);
+				 attributeVocabularyValue :  attributeVocabularyValue,  attributeFQN :  attributeFQN,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -146,14 +261,14 @@ namespace Mozu.Api.Test.Factories
 		/// Update existing vocabulary values for an attribute.
 		/// <example> 
 		///  <code> 
-		/// var result = AttributeVocabularyValueFactory.UpdateAttributeVocabularyValues(handler : handler,  vocabularyValues :  vocabularyValues,  attributeFQN :  attributeFQN,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = AttributeVocabularyValueFactory.UpdateAttributeVocabularyValues(handler : handler,  vocabularyValues :  vocabularyValues,  attributeFQN :  attributeFQN,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<List<AttributeVocabularyValue>/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue> UpdateAttributeVocabularyValues(ServiceClientMessageHandler handler, 
- 		 List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue> vocabularyValues, string attributeFQN,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue> vocabularyValues, string attributeFQN, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -161,7 +276,83 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.UpdateAttributeVocabularyValuesClient(
-				 vocabularyValues :  vocabularyValues,  attributeFQN :  attributeFQN, dataViewMode: dataViewMode		);
+				 vocabularyValues :  vocabularyValues,  attributeFQN :  attributeFQN		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = AttributeVocabularyValueFactory.UpdateAttributeVocabularyValueLocalizedContents(handler : handler,  localizedContent :  localizedContent,  attributeFQN :  attributeFQN,  value :  value,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<List<AttributeVocabularyValueLocalizedContent>/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent> UpdateAttributeVocabularyValueLocalizedContents(ServiceClientMessageHandler handler, 
+ 		 List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent> localizedContent, string attributeFQN, string value, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.UpdateAttributeVocabularyValueLocalizedContentsClient(
+				 localizedContent :  localizedContent,  attributeFQN :  attributeFQN,  value :  value		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = AttributeVocabularyValueFactory.UpdateAttributeVocabularyValueLocalizedContent(handler : handler,  localizedContent :  localizedContent,  attributeFQN :  attributeFQN,  value :  value,  localeCode :  localeCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<AttributeVocabularyValueLocalizedContent/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent UpdateAttributeVocabularyValueLocalizedContent(ServiceClientMessageHandler handler, 
+ 		 Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent localizedContent, string attributeFQN, string value, string localeCode, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.UpdateAttributeVocabularyValueLocalizedContentClient(
+				 localizedContent :  localizedContent,  attributeFQN :  attributeFQN,  value :  value,  localeCode :  localeCode,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -184,14 +375,14 @@ namespace Mozu.Api.Test.Factories
 		/// Updates existing attribute vocabulary values.
 		/// <example> 
 		///  <code> 
-		/// var result = AttributeVocabularyValueFactory.UpdateAttributeVocabularyValue(handler : handler,  attributeVocabularyValue :  attributeVocabularyValue,  attributeFQN :  attributeFQN,  value :  value,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = AttributeVocabularyValueFactory.UpdateAttributeVocabularyValue(handler : handler,  attributeVocabularyValue :  attributeVocabularyValue,  attributeFQN :  attributeFQN,  value :  value,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<AttributeVocabularyValue/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue UpdateAttributeVocabularyValue(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue attributeVocabularyValue, string attributeFQN, string value,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue attributeVocabularyValue, string attributeFQN, string value, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -199,7 +390,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.UpdateAttributeVocabularyValueClient(
-				 attributeVocabularyValue :  attributeVocabularyValue,  attributeFQN :  attributeFQN,  value :  value, dataViewMode: dataViewMode		);
+				 attributeVocabularyValue :  attributeVocabularyValue,  attributeFQN :  attributeFQN,  value :  value,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -222,14 +413,14 @@ namespace Mozu.Api.Test.Factories
 		/// Deletes an attribute's vocabulary value.
 		/// <example> 
 		///  <code> 
-		/// var result = AttributeVocabularyValueFactory.DeleteAttributeVocabularyValue(handler : handler,  attributeFQN :  attributeFQN,  value :  value,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = AttributeVocabularyValueFactory.DeleteAttributeVocabularyValue(handler : handler,  attributeFQN :  attributeFQN,  value :  value,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static void DeleteAttributeVocabularyValue(ServiceClientMessageHandler handler, 
- 		string attributeFQN, string value,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		string attributeFQN, string value, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
@@ -237,7 +428,44 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.DeleteAttributeVocabularyValueClient(
-				 attributeFQN :  attributeFQN,  value :  value, dataViewMode: dataViewMode		);
+				 attributeFQN :  attributeFQN,  value :  value		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+			}
+			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = AttributeVocabularyValueFactory.DeleteAttributeVocabularyValueLocalizedContent(handler : handler,  attributeFQN :  attributeFQN,  value :  value,  localeCode :  localeCode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static void DeleteAttributeVocabularyValueLocalizedContent(ServiceClientMessageHandler handler, 
+ 		string attributeFQN, string value, string localeCode, 
+		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.DeleteAttributeVocabularyValueLocalizedContentClient(
+				 attributeFQN :  attributeFQN,  value :  value,  localeCode :  localeCode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

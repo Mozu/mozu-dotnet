@@ -11,37 +11,22 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 {
 	/// <summary>
-	/// Manage shoppers' product selection process during a visit to the storefront. Update product options as shoppers pick and choose their product choices. A shopper cannot add a product to a cart until all of its required options have been selected.
+	/// Use the Storefront Products  resource to manage the shopper product selection process during a visit to the web storefront. You can update product options as shoppers pick and choose their product choices. A shopper cannot add a product to a cart until all of its required options have been selected.
 	/// </summary>
 	public partial class ProductClient 	{
 		
 		/// <summary>
 		/// Retrieves a list of products that appear on the storefront according to any specified filter criteria and sort options.
 		/// </summary>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductRuntime.ProductCollection"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetProducts();
-		///   var productCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductCollection> GetProductsClient()
-		{
-			return GetProductsClient( null,  null,  null,  null);
-		}
-
-		/// <summary>
-		/// Retrieves a list of products that appear on the storefront according to any specified filter criteria and sort options.
-		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
 		/// <returns>
@@ -49,13 +34,13 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetProducts( filter,  startIndex,  pageSize,  sortBy);
+		///   var mozuClient=GetProducts( filter,  startIndex,  pageSize,  sortBy,  responseFields);
 		///   var productCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductCollection> GetProductsClient(string filter =  null, int? startIndex =  null, int? pageSize =  null, string sortBy =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductCollection> GetProductsClient(string filter =  null, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductUrl.GetProductsUrl(filter, pageSize, sortBy, startIndex);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductUrl.GetProductsUrl(filter, startIndex, pageSize, sortBy, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -67,38 +52,21 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// <summary>
 		/// Retrieves the active inventory level information associated with the product or location specified in the request.
 		/// </summary>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetProductInventory( productCode);
-		///   var locationInventoryCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection> GetProductInventoryClient(string productCode)
-		{
-			return GetProductInventoryClient( productCode,  null);
-		}
-
-		/// <summary>
-		/// Retrieves the active inventory level information associated with the product or location specified in the request.
-		/// </summary>
 		/// <param name="locationCodes">Array of location codes for which to retrieve product inventory information.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetProductInventory( productCode,  locationCodes);
+		///   var mozuClient=GetProductInventory( productCode,  locationCodes,  responseFields);
 		///   var locationInventoryCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection> GetProductInventoryClient(string productCode, string locationCodes =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection> GetProductInventoryClient(string productCode, string locationCodes =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductUrl.GetProductInventoryUrl(locationCodes, productCode);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductUrl.GetProductInventoryUrl(productCode, locationCodes, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -110,40 +78,23 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// <summary>
 		/// Retrieves information about a single product given its product code.
 		/// </summary>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductRuntime.Product"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetProduct( productCode);
-		///   var productClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.Product> GetProductClient(string productCode)
-		{
-			return GetProductClient( productCode,  null,  null,  null);
-		}
-
-		/// <summary>
-		/// Retrieves information about a single product given its product code.
-		/// </summary>
 		/// <param name="allowInactive">If true, returns an inactive product as part of the query.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="skipInventoryCheck"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="skipInventoryCheck">If true, skip the inventory validation process for the specified product.</param>
 		/// <param name="variationProductCode">Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductRuntime.Product"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetProduct( productCode,  variationProductCode,  allowInactive,  skipInventoryCheck);
+		///   var mozuClient=GetProduct( productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  responseFields);
 		///   var productClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.Product> GetProductClient(string productCode, string variationProductCode =  null, bool? allowInactive =  null, bool? skipInventoryCheck =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.Product> GetProductClient(string productCode, string variationProductCode =  null, bool? allowInactive =  null, bool? skipInventoryCheck =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductUrl.GetProductUrl(allowInactive, productCode, skipInventoryCheck, variationProductCode);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductUrl.GetProductUrl(productCode, variationProductCode, allowInactive, skipInventoryCheck, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductRuntime.Product>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -153,43 +104,25 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		}
 
 		/// <summary>
-		/// Creates a new product selection. A create occurs each time a shopper selects a product option as they configure a product. Once all the required product options are configured, the product can be added to a cart.
-		/// </summary>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="productOptionSelections">For a product with shopper-configurable options, the properties of the product options selected by the shopper.</param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductRuntime.ConfiguredProduct"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=ConfiguredProduct( productOptionSelections,  productCode);
-		///   var configuredProductClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.ConfiguredProduct> ConfiguredProductClient(Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode)
-		{
-			return ConfiguredProductClient( productOptionSelections,  productCode,  null,  null);
-		}
-
-		/// <summary>
-		/// Creates a new product selection. A create occurs each time a shopper selects a product option as they configure a product. Once all the required product options are configured, the product can be added to a cart.
+		/// Creates a new product configuration each time a shopper selects a product option value. After the shopper defines values for all required product options, the shopper can add the product configuration to a cart.
 		/// </summary>
 		/// <param name="includeOptionDetails">If true, the response returns details about the product. If false, returns a product summary such as the product name, price, and sale price.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="skipInventoryCheck"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="skipInventoryCheck">If true, skip the inventory validation process for the specified product.</param>
 		/// <param name="productOptionSelections">For a product with shopper-configurable options, the properties of the product options selected by the shopper.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductRuntime.ConfiguredProduct"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=ConfiguredProduct( productOptionSelections,  productCode,  includeOptionDetails,  skipInventoryCheck);
+		///   var mozuClient=ConfiguredProduct( productOptionSelections,  productCode,  includeOptionDetails,  skipInventoryCheck,  responseFields);
 		///   var configuredProductClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.ConfiguredProduct> ConfiguredProductClient(Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode, bool? includeOptionDetails =  null, bool? skipInventoryCheck =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.ConfiguredProduct> ConfiguredProductClient(Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode, bool? includeOptionDetails =  null, bool? skipInventoryCheck =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductUrl.ConfiguredProductUrl(includeOptionDetails, productCode, skipInventoryCheck);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductUrl.ConfiguredProductUrl(productCode, includeOptionDetails, skipInventoryCheck, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductRuntime.ConfiguredProduct>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -202,39 +135,21 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// Validate the final state of shopper-selected options.
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="skipInventoryCheck">If true, skip the inventory validation process for the specified product.</param>
 		/// <param name="productOptionSelections">For a product with shopper-configurable options, the properties of the product options selected by the shopper.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductRuntime.ProductValidationSummary"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=ValidateProduct( productOptionSelections,  productCode);
+		///   var mozuClient=ValidateProduct( productOptionSelections,  productCode,  skipInventoryCheck,  responseFields);
 		///   var productValidationSummaryClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductValidationSummary> ValidateProductClient(Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode)
+		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductValidationSummary> ValidateProductClient(Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode, bool? skipInventoryCheck =  null, string responseFields =  null)
 		{
-			return ValidateProductClient( productOptionSelections,  productCode,  null);
-		}
-
-		/// <summary>
-		/// Validate the final state of shopper-selected options.
-		/// </summary>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="skipInventoryCheck"></param>
-		/// <param name="productOptionSelections">For a product with shopper-configurable options, the properties of the product options selected by the shopper.</param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductRuntime.ProductValidationSummary"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=ValidateProduct( productOptionSelections,  productCode,  skipInventoryCheck);
-		///   var productValidationSummaryClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductValidationSummary> ValidateProductClient(Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode, bool? skipInventoryCheck =  null)
-		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductUrl.ValidateProductUrl(productCode, skipInventoryCheck);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductUrl.ValidateProductUrl(productCode, skipInventoryCheck, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductValidationSummary>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -246,28 +161,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="productCode"></param>
-		/// <param name="discountSelections"></param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductRuntime.DiscountValidationSummary"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=ValidateDiscounts( discountSelections,  productCode);
-		///   var discountValidationSummaryClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.DiscountValidationSummary> ValidateDiscountsClient(Mozu.Api.Contracts.ProductRuntime.DiscountSelections discountSelections, string productCode)
-		{
-			return ValidateDiscountsClient( discountSelections,  productCode,  null,  null,  null,  null);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
 		/// <param name="allowInactive"></param>
 		/// <param name="customerAccountId"></param>
 		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="skipInventoryCheck"></param>
 		/// <param name="variationProductCode"></param>
 		/// <param name="discountSelections"></param>
@@ -276,17 +173,42 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=ValidateDiscounts( discountSelections,  productCode,  variationProductCode,  customerAccountId,  allowInactive,  skipInventoryCheck);
+		///   var mozuClient=ValidateDiscounts( discountSelections,  productCode,  variationProductCode,  customerAccountId,  allowInactive,  skipInventoryCheck,  responseFields);
 		///   var discountValidationSummaryClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.DiscountValidationSummary> ValidateDiscountsClient(Mozu.Api.Contracts.ProductRuntime.DiscountSelections discountSelections, string productCode, string variationProductCode =  null, int? customerAccountId =  null, bool? allowInactive =  null, bool? skipInventoryCheck =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.DiscountValidationSummary> ValidateDiscountsClient(Mozu.Api.Contracts.ProductRuntime.DiscountSelections discountSelections, string productCode, string variationProductCode =  null, int? customerAccountId =  null, bool? allowInactive =  null, bool? skipInventoryCheck =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductUrl.ValidateDiscountsUrl(allowInactive, customerAccountId, productCode, skipInventoryCheck, variationProductCode);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductUrl.ValidateDiscountsUrl(productCode, variationProductCode, customerAccountId, allowInactive, skipInventoryCheck, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductRuntime.DiscountValidationSummary>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.ProductRuntime.DiscountSelections>(discountSelections);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="query"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetProductInventories( query,  responseFields);
+		///   var locationInventoryCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection> GetProductInventoriesClient(Mozu.Api.Contracts.ProductRuntime.LocationInventoryQuery query, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductUrl.GetProductInventoriesUrl(responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.ProductRuntime.LocationInventoryQuery>(query);
 			return mozuClient;
 
 		}

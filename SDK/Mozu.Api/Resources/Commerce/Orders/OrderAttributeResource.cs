@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Commerce.Orders
 {
@@ -24,12 +25,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///
 		private readonly IApiContext _apiContext;
 
+		
 		public OrderAttributeResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
 		}
-
-		
+				
 		/// <summary>
 		/// Retrieves a list of the attributes defined for the order specified in the request.
 		/// </summary>
@@ -43,13 +44,24 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var orderAttribute = orderattribute.GetOrderAttributes( orderId);
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute> GetOrderAttributes(string orderId)
 		{
 			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute>> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.OrderAttributeClient.GetOrderAttributesClient( orderId);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute>> GetOrderAttributesAsync(string orderId)
+		{
+			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute>> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.OrderAttributeClient.GetOrderAttributesClient( orderId);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -67,33 +79,25 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var orderAttribute = orderattribute.CreateOrderAttributes( orderAttributes,  orderId);
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute> CreateOrderAttributes(List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute> orderAttributes, string orderId)
 		{
 			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute>> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.OrderAttributeClient.CreateOrderAttributesClient( orderAttributes,  orderId);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
 
 		}
 
-		/// <summary>
-		/// Updates one or more properties of an attribute defined for the order specified in the request.
-		/// </summary>
-		/// <param name="orderId">Identifier of the order for which to update attributes.</param>
-		/// <param name="orderAttributes">List of order attributes to update, including the properties of each defined attribute in the list.</param>
-		/// <returns>
-		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var orderattribute = new OrderAttribute();
-		///   var orderAttribute = orderattribute.UpdateOrderAttributes( orderAttributes,  orderId);
-		/// </code>
-		/// </example>
-		public virtual List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute> UpdateOrderAttributes(List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute> orderAttributes, string orderId)
+		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute>> CreateOrderAttributesAsync(List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute> orderAttributes, string orderId)
 		{
-			return UpdateOrderAttributes( orderAttributes,  orderId,  null);
+			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute>> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.OrderAttributeClient.CreateOrderAttributesClient( orderAttributes,  orderId);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
 		}
 
 		/// <summary>
@@ -111,13 +115,24 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var orderAttribute = orderattribute.UpdateOrderAttributes( orderAttributes,  orderId,  removeMissing);
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute> UpdateOrderAttributes(List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute> orderAttributes, string orderId, bool? removeMissing =  null)
 		{
 			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute>> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.OrderAttributeClient.UpdateOrderAttributesClient( orderAttributes,  orderId,  removeMissing);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute>> UpdateOrderAttributesAsync(List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute> orderAttributes, string orderId, bool? removeMissing =  null)
+		{
+			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute>> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.OrderAttributeClient.UpdateOrderAttributesClient( orderAttributes,  orderId,  removeMissing);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 

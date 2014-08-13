@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+
 using Mozu.Api.Contracts.CommerceRuntime.Commerce;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Products
@@ -32,13 +33,21 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 
 			public List<string> FulfillmentTypesSupported { get; set; }
 
+			public string GoodsType { get; set; }
+
 			///
 			///The alternate image description defined for the product, in the language specified in the locale code for the storefront.
 			///
 			public string ImageAlternateText { get; set; }
 
+			///
+			///The URL of the image file associated with a product on a storefront.
+			///
 			public string ImageUrl { get; set; }
 
+			///
+			///If true, this product cannot ship in a package with other items and must ship in a package by itself.
+			///
 			public bool? IsPackagedStandAlone { get; set; }
 
 			///
@@ -63,6 +72,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			///
 			public string ProductCode { get; set; }
 
+			///
+			///The unique identifier of the product reservation created for this item in the cart or order.
+			///
 			public int? ProductReservationId { get; set; }
 
 			///
@@ -70,6 +82,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			///
 			public string ProductType { get; set; }
 
+			///
+			///The usage type that applies to this product, which is Standard (a single product without configurable options), Configurable (a product that includes configurable option attributes), Bundle (a collection of products sold as a single entity), or Component (an invididual product that represents a component in a bundle).
+			///
 			public string ProductUsage { get; set; }
 
 			public string Upc { get; set; }
@@ -79,6 +94,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			///
 			public string VariationProductCode { get; set; }
 
+			///
+			///Collection of component products that make up a single product bundle with its own product code, added to a cart or order.
+			///
 			public List<BundledProduct> BundledProducts { get; set; }
 
 			///
@@ -101,6 +119,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			///
 			public ProductPrice Price { get; set; }
 
+			///
+			///Collection of property attributes defined for the item in the cart or order.
+			///
 			public List<ProductProperty> Properties { get; set; }
 
 		}

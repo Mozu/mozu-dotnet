@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -32,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves a list of categories according to any specified filter criteria and sort options.
 		/// <example> 
 		///  <code> 
-		/// var result = CategoryFactory.GetCategories(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CategoryFactory.GetCategories(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CategoryPagedCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.CategoryPagedCollection GetCategories(ServiceClientMessageHandler handler, 
- 		 int? startIndex = null, int? pageSize = null, string sortBy = null, string filter = null,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 int? startIndex = null, int? pageSize = null, string sortBy = null, string filter = null, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -47,7 +48,45 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.GetCategoriesClient(
-				 startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter, dataViewMode: dataViewMode		);
+				 startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields, dataViewMode: dataViewMode		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// Retrieves the list of subcategories within a category.
+		/// <example> 
+		///  <code> 
+		/// var result = CategoryFactory.GetChildCategories(handler : handler,  categoryId :  categoryId,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<CategoryCollection/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.ProductAdmin.CategoryCollection GetChildCategories(ServiceClientMessageHandler handler, 
+ 		 int categoryId, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.GetChildCategoriesClient(
+				 categoryId :  categoryId,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -70,14 +109,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves the details of a single category.
 		/// <example> 
 		///  <code> 
-		/// var result = CategoryFactory.GetCategory(handler : handler,  categoryId :  categoryId,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CategoryFactory.GetCategory(handler : handler,  categoryId :  categoryId,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Category/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.Category GetCategory(ServiceClientMessageHandler handler, 
- 		 int categoryId,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 int categoryId, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -85,7 +124,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.GetCategoryClient(
-				 categoryId :  categoryId, dataViewMode: dataViewMode		);
+				 categoryId :  categoryId,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -105,55 +144,17 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves the subcategories of a category. This is a list of subcategories at the same level (siblings). Use a list of siblings, for example, to display the categories in a horizontal list.
+		/// Adds a new category to the site's category hierarchy. Specify a ParentCategoryID to determine where to place the category in the hierarchy. If no ParentCategoryID is specified, the new category is a top-level category.
 		/// <example> 
 		///  <code> 
-		/// var result = CategoryFactory.GetChildCategories(handler : handler,  categoryId :  categoryId,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<CategoryCollection/>(result); 
-		/// return optionalCasting;
-		///  </code> 
-		/// </example> 
-		/// </summary>
-		public static Mozu.Api.Contracts.ProductAdmin.CategoryCollection GetChildCategories(ServiceClientMessageHandler handler, 
- 		 int categoryId,  DataViewMode dataViewMode= DataViewMode.Live, 
-		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
-		{
-			SetSdKparameters();
-			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
-			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
-			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.GetChildCategoriesClient(
-				 categoryId :  categoryId, dataViewMode: dataViewMode		);
-			try
-			{
-				apiClient.WithContext(handler.ApiContext).Execute();
-			}
-			catch (ApiException ex)
-			{
-				// Custom error handling for test cases can be placed here
-				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
-				if (customException != null)
-					throw customException;
-				return null;
-			}
-			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
-					 ? (apiClient.Result()) 
-					 : null;
-
-		}
-  
-		/// <summary> 
-		/// Adds a new category to the site's category hierarchy. Specify a ParentCategoryID to determine where to locate the category in the hierarchy. If a ParentCategoryID is not specified, the new category becomes a top-level category.
-		/// <example> 
-		///  <code> 
-		/// var result = CategoryFactory.AddCategory(handler : handler,  category :  category,  incrementSequence :  incrementSequence,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CategoryFactory.AddCategory(handler : handler,  category :  category,  incrementSequence :  incrementSequence,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Category/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.Category AddCategory(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ProductAdmin.Category category, bool? incrementSequence = null,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 Mozu.Api.Contracts.ProductAdmin.Category category, bool? incrementSequence = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -161,7 +162,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.AddCategoryClient(
-				 category :  category,  incrementSequence :  incrementSequence, dataViewMode: dataViewMode		);
+				 category :  category,  incrementSequence :  incrementSequence,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -181,17 +182,17 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Modifies a category such as moving it to another location in the category tree, or changing whether it is visible on the storefront. This PUT replaces the existing resource, so be sure to include all the information to maintain for the category.
+		/// Update the properties of a defined category or move it to another location in the category hierarchy. Because this operation replaces the defined resource,include all the information to maintain for the category in the request.
 		/// <example> 
 		///  <code> 
-		/// var result = CategoryFactory.UpdateCategory(handler : handler,  category :  category,  categoryId :  categoryId,  cascadeVisibility :  cascadeVisibility,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CategoryFactory.UpdateCategory(handler : handler,  category :  category,  categoryId :  categoryId,  cascadeVisibility :  cascadeVisibility,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Category/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.Category UpdateCategory(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ProductAdmin.Category category, int categoryId, bool? cascadeVisibility = null,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 Mozu.Api.Contracts.ProductAdmin.Category category, int categoryId, bool? cascadeVisibility = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -199,7 +200,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.UpdateCategoryClient(
-				 category :  category,  categoryId :  categoryId,  cascadeVisibility :  cascadeVisibility, dataViewMode: dataViewMode		);
+				 category :  category,  categoryId :  categoryId,  cascadeVisibility :  cascadeVisibility,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -222,14 +223,14 @@ namespace Mozu.Api.Test.Factories
 		/// Deletes the category specified by its category ID.
 		/// <example> 
 		///  <code> 
-		/// var result = CategoryFactory.DeleteCategoryById(handler : handler,  categoryId :  categoryId,  cascadeDelete :  cascadeDelete,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CategoryFactory.DeleteCategoryById(handler : handler,  categoryId :  categoryId,  cascadeDelete :  cascadeDelete,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static void DeleteCategoryById(ServiceClientMessageHandler handler, 
- 		int categoryId, bool? cascadeDelete = null,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		int categoryId, bool? cascadeDelete = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
@@ -237,7 +238,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.DeleteCategoryByIdClient(
-				 categoryId :  categoryId,  cascadeDelete :  cascadeDelete, dataViewMode: dataViewMode		);
+				 categoryId :  categoryId,  cascadeDelete :  cascadeDelete		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -32,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves a list of the transactions performed using a customer credit that update the balance of the credit.
 		/// <example> 
 		///  <code> 
-		/// var result = CreditTransactionFactory.GetTransactions(handler : handler,  code :  code,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CreditTransactionFactory.GetTransactions(handler : handler,  code :  code,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CreditTransactionCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.Credit.CreditTransactionCollection GetTransactions(ServiceClientMessageHandler handler, 
- 		 string code, int? startIndex = null, int? pageSize = null, string sortBy = null, string filter = null, 
+ 		 string code, int? startIndex = null, int? pageSize = null, string sortBy = null, string filter = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -47,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.Credits.CreditTransactionClient.GetTransactionsClient(
-				 code :  code,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter		);
+				 code :  code,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -70,14 +71,14 @@ namespace Mozu.Api.Test.Factories
 		/// Creates a new transaction and updates the amount of a store credit or gift card.
 		/// <example> 
 		///  <code> 
-		/// var result = CreditTransactionFactory.AddTransaction(handler : handler,  creditTransaction :  creditTransaction,  code :  code,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CreditTransactionFactory.AddTransaction(handler : handler,  creditTransaction :  creditTransaction,  code :  code,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CreditTransaction/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.Credit.CreditTransaction AddTransaction(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.Customer.Credit.CreditTransaction creditTransaction, string code, 
+ 		 Mozu.Api.Contracts.Customer.Credit.CreditTransaction creditTransaction, string code, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -85,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.Credits.CreditTransactionClient.AddTransactionClient(
-				 creditTransaction :  creditTransaction,  code :  code		);
+				 creditTransaction :  creditTransaction,  code :  code,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

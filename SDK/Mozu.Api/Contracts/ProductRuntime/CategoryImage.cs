@@ -10,6 +10,7 @@
 
 using System;
 
+
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
@@ -22,12 +23,10 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public string AltText { get; set; }
 
+			///
+			///The identifier of the category image in the Mozu CMS. Supply a value for either the CMS ID or Image URL parameter.
+			///
 			public string CmsId { get; set; }
-
-			///
-			///Image title that appears on the web storefront, set to the language specified by the site's LocaleCode.
-			///
-			public string ImageLabel { get; set; }
 
 			///
 			///URL of the product category image.
@@ -48,6 +47,11 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///The link or URL of the product category video. The file path name is set in the language specified by the LocaleCode.
 			///
 			public string VideoUrl { get; set; }
+
+			///
+			///Image title that appears on the web storefront, set to the language specified by the site's LocaleCode.
+			///
+			public string ImageLabel { get; set; }
 
 		}
 

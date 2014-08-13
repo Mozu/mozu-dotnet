@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+
 using Mozu.Api.Contracts.Core;
 using Mozu.Api.Contracts.CommerceRuntime.Commerce;
 
@@ -30,6 +31,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///
 			public decimal AmountCredited { get; set; }
 
+			///
+			///The total amount originally requested for this payment.
+			///
 			public decimal AmountRequested { get; set; }
 
 			///

@@ -17,13 +17,14 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the return shipments subresource to manage shipments for a return replacement.
+	/// Use the Return Shipments subresource to manage shipments for a return replacement.
 	/// </summary>
 	public partial class ReturnsShipmentFactory : BaseDataFactory
 	{
@@ -32,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves the details of the specified return replacement shipment.
 		/// <example> 
 		///  <code> 
-		/// var result = ShipmentFactory.GetShipment(handler : handler,  returnId :  returnId,  shipmentId :  shipmentId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ShipmentFactory.GetShipment(handler : handler,  returnId :  returnId,  shipmentId :  shipmentId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Shipment/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment GetShipment(ServiceClientMessageHandler handler, 
- 		 string returnId, string shipmentId, 
+ 		 string returnId, string shipmentId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -47,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Returns.ShipmentClient.GetShipmentClient(
-				 returnId :  returnId,  shipmentId :  shipmentId		);
+				 returnId :  returnId,  shipmentId :  shipmentId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

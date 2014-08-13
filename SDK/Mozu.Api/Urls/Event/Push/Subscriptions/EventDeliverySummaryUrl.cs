@@ -20,15 +20,17 @@ namespace Mozu.Api.Urls.Event.Push.Subscriptions
         /// Get Resource Url for GetDeliveryAttemptSummary
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="responseFields"></param>
         /// <param name="subscriptionId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetDeliveryAttemptSummaryUrl(int? id, string subscriptionId)
+        public static MozuUrl GetDeliveryAttemptSummaryUrl(string subscriptionId, int? id =  null, string responseFields =  null)
 		{
-			var url = "/api/event/push/subscriptions/{subscriptionId}/deliveryattempts/{id}";
+			var url = "/api/event/push/subscriptions/{subscriptionId}/deliveryattempts/{id}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "id", id);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "subscriptionId", subscriptionId);
 			return mozuUrl;
 		}
@@ -38,18 +40,20 @@ namespace Mozu.Api.Urls.Event.Push.Subscriptions
         /// </summary>
         /// <param name="filter"></param>
         /// <param name="pageSize"></param>
+        /// <param name="responseFields"></param>
         /// <param name="sortBy"></param>
         /// <param name="startIndex"></param>
         /// <param name="subscriptionId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetDeliveryAttemptSummariesUrl(string filter, int? pageSize, string sortBy, int? startIndex, string subscriptionId)
+        public static MozuUrl GetDeliveryAttemptSummariesUrl(string subscriptionId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
-			var url = "/api/event/push/subscriptions/{subscriptionId}/deliveryattempts?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
+			var url = "/api/event/push/subscriptions/{subscriptionId}/deliveryattempts?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "filter", filter);
 			mozuUrl.FormatUrl( "pageSize", pageSize);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "sortBy", sortBy);
 			mozuUrl.FormatUrl( "startIndex", startIndex);
 			mozuUrl.FormatUrl( "subscriptionId", subscriptionId);

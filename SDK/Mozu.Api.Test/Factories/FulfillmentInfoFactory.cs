@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -32,22 +33,22 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves a list of the fulfillment information for the specified order.
 		/// <example> 
 		///  <code> 
-		/// var result = FulfillmentInfoFactory.GetFulfillmentInfo(handler : handler,  orderId :  orderId,  draft :  draft,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = FulfillmentInfoFactory.GetFulfillmentInfo(handler : handler,  orderId :  orderId,  draft :  draft,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<FulfillmentInfo/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Fulfillment.FulfillmentInfo GetFulfillmentInfo(ServiceClientMessageHandler handler, 
- 		 string orderId, bool? draft = null, 
+ 		 string orderId, bool? draft = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Orders.FulfillmentInfo.FulfillmentInfoClient.GetFulfillmentInfoClient(
-				 orderId :  orderId,  draft :  draft		);
+			var apiClient = Mozu.Api.Clients.Commerce.Orders.FulfillmentInfoClient.GetFulfillmentInfoClient(
+				 orderId :  orderId,  draft :  draft,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -70,22 +71,22 @@ namespace Mozu.Api.Test.Factories
 		/// Updates one or more properties of fulfillment information for the specified order.
 		/// <example> 
 		///  <code> 
-		/// var result = FulfillmentInfoFactory.SetFulFillmentInfo(handler : handler,  fulfillmentInfo :  fulfillmentInfo,  orderId :  orderId,  updateMode :  updateMode,  version :  version,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = FulfillmentInfoFactory.SetFulFillmentInfo(handler : handler,  fulfillmentInfo :  fulfillmentInfo,  orderId :  orderId,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<FulfillmentInfo/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Fulfillment.FulfillmentInfo SetFulFillmentInfo(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.CommerceRuntime.Fulfillment.FulfillmentInfo fulfillmentInfo, string orderId, string updateMode = null, string version = null, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Fulfillment.FulfillmentInfo fulfillmentInfo, string orderId, string updateMode = null, string version = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Orders.FulfillmentInfo.FulfillmentInfoClient.SetFulFillmentInfoClient(
-				 fulfillmentInfo :  fulfillmentInfo,  orderId :  orderId,  updateMode :  updateMode,  version :  version		);
+			var apiClient = Mozu.Api.Clients.Commerce.Orders.FulfillmentInfoClient.SetFulFillmentInfoClient(
+				 fulfillmentInfo :  fulfillmentInfo,  orderId :  orderId,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

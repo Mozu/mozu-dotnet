@@ -11,6 +11,7 @@
 using System;
 using System.Collections.Generic;
 
+
 namespace Mozu.Api.Contracts.Reference
 {
 		///
@@ -18,6 +19,11 @@ namespace Mozu.Api.Contracts.Reference
 		///
 		public class Field
 		{
+			///
+			///Identifier of the field.
+			///
+			public int Id { get; set; }
+
 			///
 			///Label for the field.
 			///
@@ -27,11 +33,6 @@ namespace Mozu.Api.Contracts.Reference
 			///Sequence of the field.
 			///
 			public int Order { get; set; }
-
-			///
-			///Identifier of the field.
-			///
-			public int Id { get; set; }
 
 			///
 			///Type of field.

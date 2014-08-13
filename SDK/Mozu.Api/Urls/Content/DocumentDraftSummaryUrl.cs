@@ -21,16 +21,18 @@ namespace Mozu.Api.Urls.Content
         /// </summary>
         /// <param name="documentLists">Lists that contain the document drafts.</param>
         /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+        /// <param name="responseFields"></param>
         /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl ListDocumentDraftSummariesUrl(string documentLists, int? pageSize, int? startIndex)
+        public static MozuUrl ListDocumentDraftSummariesUrl(int? pageSize =  null, int? startIndex =  null, string documentLists =  null, string responseFields =  null)
 		{
-			var url = "/api/content/documentpublishing/draft?pageSize={pageSize}&startIndex={startIndex}&documentLists={documentLists}";
+			var url = "/api/content/documentpublishing/draft?pageSize={pageSize}&startIndex={startIndex}&documentLists={documentLists}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "documentLists", documentLists);
 			mozuUrl.FormatUrl( "pageSize", pageSize);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "startIndex", startIndex);
 			return mozuUrl;
 		}
@@ -42,7 +44,7 @@ namespace Mozu.Api.Urls.Content
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl DeleteDocumentDraftsUrl(string documentLists)
+        public static MozuUrl DeleteDocumentDraftsUrl(string documentLists =  null)
 		{
 			var url = "/api/content/documentpublishing/draft?documentLists={documentLists}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
@@ -57,7 +59,7 @@ namespace Mozu.Api.Urls.Content
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl PublishDocumentsUrl(string documentLists)
+        public static MozuUrl PublishDocumentsUrl(string documentLists =  null)
 		{
 			var url = "/api/content/documentpublishing/active?documentLists={documentLists}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;

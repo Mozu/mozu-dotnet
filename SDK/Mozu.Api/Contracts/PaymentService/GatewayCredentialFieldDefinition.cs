@@ -10,6 +10,7 @@
 
 using System;
 
+
 namespace Mozu.Api.Contracts.PaymentService
 {
 		///
@@ -32,6 +33,9 @@ namespace Mozu.Api.Contracts.PaymentService
 			///
 			public string Name { get; set; }
 
+			///
+			///The name of the Volusion store.
+			///
 			public string VolusionStoreName { get; set; }
 
 		}

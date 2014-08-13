@@ -11,12 +11,13 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 {
 	/// <summary>
-	/// Merchants can add and view internal notes for a customer account. For example, a merchant can track a customer's interests or complaints. Only merchants can add and view notes. Customers cannot see these notes from their My Account page.
+	/// Tenant administrators can add and view internal notes for a customer account. For example, a client can track a shopper's interests or complaints. Only clients can add and view notes. Shoppers cannot view these notes from the My Account page.
 	/// </summary>
 	public partial class CustomerNoteClient 	{
 		
@@ -25,18 +26,19 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account that contains the note being retrieved.</param>
 		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerNote"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetAccountNote( accountId,  noteId);
+		///   var mozuClient=GetAccountNote( accountId,  noteId,  responseFields);
 		///   var customerNoteClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerNote> GetAccountNoteClient(int accountId, int noteId)
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerNote> GetAccountNoteClient(int accountId, int noteId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerNoteUrl.GetAccountNoteUrl(accountId, noteId);
+			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerNoteUrl.GetAccountNoteUrl(accountId, noteId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerNote>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -49,26 +51,9 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// Retrieves a list of notes added to a customer account according to any specified filter criteria and sort options.
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerNoteCollection"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetAccountNotes( accountId);
-		///   var customerNoteCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerNoteCollection> GetAccountNotesClient(int accountId)
-		{
-			return GetAccountNotesClient( accountId,  null,  null,  null,  null);
-		}
-
-		/// <summary>
-		/// Retrieves a list of notes added to a customer account according to any specified filter criteria and sort options.
-		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
 		/// <returns>
@@ -76,13 +61,13 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetAccountNotes( accountId,  startIndex,  pageSize,  sortBy,  filter);
+		///   var mozuClient=GetAccountNotes( accountId,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		///   var customerNoteCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerNoteCollection> GetAccountNotesClient(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null)
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerNoteCollection> GetAccountNotesClient(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerNoteUrl.GetAccountNotesUrl(accountId, filter, pageSize, sortBy, startIndex);
+			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerNoteUrl.GetAccountNotesUrl(accountId, startIndex, pageSize, sortBy, filter, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerNoteCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -95,19 +80,20 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// Adds a new note to the specified customer account.
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account for which to create the note.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="note">Properties of the customer account note to create.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerNote"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddAccountNote( note,  accountId);
+		///   var mozuClient=AddAccountNote( note,  accountId,  responseFields);
 		///   var customerNoteClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerNote> AddAccountNoteClient(Mozu.Api.Contracts.Customer.CustomerNote note, int accountId)
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerNote> AddAccountNoteClient(Mozu.Api.Contracts.Customer.CustomerNote note, int accountId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerNoteUrl.AddAccountNoteUrl(accountId);
+			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerNoteUrl.AddAccountNoteUrl(accountId, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerNote>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -121,19 +107,20 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account note to modify.</param>
 		/// <param name="noteId">Unique identifier of the note to update.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="note">The new content to replace the existing note.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerNote"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateAccountNote( note,  accountId,  noteId);
+		///   var mozuClient=UpdateAccountNote( note,  accountId,  noteId,  responseFields);
 		///   var customerNoteClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerNote> UpdateAccountNoteClient(Mozu.Api.Contracts.Customer.CustomerNote note, int accountId, int noteId)
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerNote> UpdateAccountNoteClient(Mozu.Api.Contracts.Customer.CustomerNote note, int accountId, int noteId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerNoteUrl.UpdateAccountNoteUrl(accountId, noteId);
+			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerNoteUrl.UpdateAccountNoteUrl(accountId, noteId, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerNote>()
 									.WithVerb(verb).WithResourceUrl(url)

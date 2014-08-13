@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -32,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves information about all payment transactions submitted for the specified order.
 		/// <example> 
 		///  <code> 
-		/// var result = PaymentFactory.GetPayments(handler : handler,  orderId :  orderId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = PaymentFactory.GetPayments(handler : handler,  orderId :  orderId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<PaymentCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentCollection GetPayments(ServiceClientMessageHandler handler, 
- 		 string orderId, 
+ 		 string orderId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -47,45 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Orders.PaymentClient.GetPaymentsClient(
-				 orderId :  orderId		);
-			try
-			{
-				apiClient.WithContext(handler.ApiContext).Execute();
-			}
-			catch (ApiException ex)
-			{
-				// Custom error handling for test cases can be placed here
-				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
-				if (customException != null)
-					throw customException;
-				return null;
-			}
-			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
-					 ? (apiClient.Result()) 
-					 : null;
-
-		}
-  
-		/// <summary> 
-		/// Retrieves information about a specific payment transaction submitted for the specified order.
-		/// <example> 
-		///  <code> 
-		/// var result = PaymentFactory.GetPayment(handler : handler,  orderId :  orderId,  paymentId :  paymentId,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Payment/>(result); 
-		/// return optionalCasting;
-		///  </code> 
-		/// </example> 
-		/// </summary>
-		public static Mozu.Api.Contracts.CommerceRuntime.Payments.Payment GetPayment(ServiceClientMessageHandler handler, 
- 		 string orderId, string paymentId, 
-		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
-		{
-			SetSdKparameters();
-			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
-			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
-			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Orders.PaymentClient.GetPaymentClient(
-				 orderId :  orderId,  paymentId :  paymentId		);
+				 orderId :  orderId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -143,17 +106,55 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
+		/// Retrieves information about a specific payment transaction submitted for the specified order.
+		/// <example> 
+		///  <code> 
+		/// var result = PaymentFactory.GetPayment(handler : handler,  orderId :  orderId,  paymentId :  paymentId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Payment/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.CommerceRuntime.Payments.Payment GetPayment(ServiceClientMessageHandler handler, 
+ 		 string orderId, string paymentId, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Orders.PaymentClient.GetPaymentClient(
+				 orderId :  orderId,  paymentId :  paymentId,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
 		/// Performs the specified action for an individual order payment transaction.
 		/// <example> 
 		///  <code> 
-		/// var result = PaymentFactory.PerformPaymentAction(handler : handler,  action :  action,  orderId :  orderId,  paymentId :  paymentId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = PaymentFactory.PerformPaymentAction(handler : handler,  action :  action,  orderId :  orderId,  paymentId :  paymentId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Order/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order PerformPaymentAction(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentAction action, string orderId, string paymentId, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentAction action, string orderId, string paymentId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -161,7 +162,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Orders.PaymentClient.PerformPaymentActionClient(
-				 action :  action,  orderId :  orderId,  paymentId :  paymentId		);
+				 action :  action,  orderId :  orderId,  paymentId :  paymentId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -184,14 +185,14 @@ namespace Mozu.Api.Test.Factories
 		/// Creates a new payment transaction for the specified order and performs the specified action.
 		/// <example> 
 		///  <code> 
-		/// var result = PaymentFactory.CreatePaymentAction(handler : handler,  action :  action,  orderId :  orderId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = PaymentFactory.CreatePaymentAction(handler : handler,  action :  action,  orderId :  orderId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Order/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order CreatePaymentAction(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentAction action, string orderId, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentAction action, string orderId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -199,7 +200,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Orders.PaymentClient.CreatePaymentActionClient(
-				 action :  action,  orderId :  orderId		);
+				 action :  action,  orderId :  orderId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

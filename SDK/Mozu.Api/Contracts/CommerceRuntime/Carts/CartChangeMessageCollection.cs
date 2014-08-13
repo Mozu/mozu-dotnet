@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+
 using Mozu.Api.Contracts.CommerceRuntime.Commerce;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Carts

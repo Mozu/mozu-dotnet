@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -70,14 +71,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves the details of an option attribute defined for the specified product type.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductTypeOptionFactory.GetOption(handler : handler,  productTypeId :  productTypeId,  attributeFQN :  attributeFQN,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductTypeOptionFactory.GetOption(handler : handler,  productTypeId :  productTypeId,  attributeFQN :  attributeFQN,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<AttributeInProductType/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.AttributeInProductType GetOption(ServiceClientMessageHandler handler, 
- 		 int productTypeId, string attributeFQN,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 int productTypeId, string attributeFQN, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -85,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypeOptionClient.GetOptionClient(
-				 productTypeId :  productTypeId,  attributeFQN :  attributeFQN, dataViewMode: dataViewMode		);
+				 productTypeId :  productTypeId,  attributeFQN :  attributeFQN,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -108,14 +109,14 @@ namespace Mozu.Api.Test.Factories
 		/// Assigns an option attribute to the product type based on the information supplied in the request.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductTypeOptionFactory.AddOption(handler : handler,  attributeInProductType :  attributeInProductType,  productTypeId :  productTypeId,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductTypeOptionFactory.AddOption(handler : handler,  attributeInProductType :  attributeInProductType,  productTypeId :  productTypeId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<AttributeInProductType/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.AttributeInProductType AddOption(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ProductAdmin.AttributeInProductType attributeInProductType, int productTypeId,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 Mozu.Api.Contracts.ProductAdmin.AttributeInProductType attributeInProductType, int productTypeId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -123,7 +124,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypeOptionClient.AddOptionClient(
-				 attributeInProductType :  attributeInProductType,  productTypeId :  productTypeId, dataViewMode: dataViewMode		);
+				 attributeInProductType :  attributeInProductType,  productTypeId :  productTypeId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -146,14 +147,14 @@ namespace Mozu.Api.Test.Factories
 		/// Updates an option attribute definition for the specified product type.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductTypeOptionFactory.UpdateOption(handler : handler,  attributeInProductType :  attributeInProductType,  productTypeId :  productTypeId,  attributeFQN :  attributeFQN,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductTypeOptionFactory.UpdateOption(handler : handler,  attributeInProductType :  attributeInProductType,  productTypeId :  productTypeId,  attributeFQN :  attributeFQN,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<AttributeInProductType/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.AttributeInProductType UpdateOption(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ProductAdmin.AttributeInProductType attributeInProductType, int productTypeId, string attributeFQN,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 Mozu.Api.Contracts.ProductAdmin.AttributeInProductType attributeInProductType, int productTypeId, string attributeFQN, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -161,7 +162,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypeOptionClient.UpdateOptionClient(
-				 attributeInProductType :  attributeInProductType,  productTypeId :  productTypeId,  attributeFQN :  attributeFQN, dataViewMode: dataViewMode		);
+				 attributeInProductType :  attributeInProductType,  productTypeId :  productTypeId,  attributeFQN :  attributeFQN,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -184,14 +185,14 @@ namespace Mozu.Api.Test.Factories
 		/// Removes an option attribute definition for the specified product type.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductTypeOptionFactory.DeleteOption(handler : handler,  productTypeId :  productTypeId,  attributeFQN :  attributeFQN,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductTypeOptionFactory.DeleteOption(handler : handler,  productTypeId :  productTypeId,  attributeFQN :  attributeFQN,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static void DeleteOption(ServiceClientMessageHandler handler, 
- 		int productTypeId, string attributeFQN,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		int productTypeId, string attributeFQN, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
@@ -199,7 +200,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypeOptionClient.DeleteOptionClient(
-				 productTypeId :  productTypeId,  attributeFQN :  attributeFQN, dataViewMode: dataViewMode		);
+				 productTypeId :  productTypeId,  attributeFQN :  attributeFQN		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

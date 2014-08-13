@@ -54,7 +54,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateOrderAttributesUrl(string orderId, bool? removeMissing)
+        public static MozuUrl UpdateOrderAttributesUrl(string orderId, bool? removeMissing =  null)
 		{
 			var url = "/api/commerce/orders/{orderId}/attributes?removeMissing={removeMissing}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;

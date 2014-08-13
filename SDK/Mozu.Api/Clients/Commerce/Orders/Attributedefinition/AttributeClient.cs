@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Orders.Attributedefinition
 {
@@ -23,25 +24,9 @@ namespace Mozu.Api.Clients.Commerce.Orders.Attributedefinition
 		/// <summary>
 		/// Retrieves a list of order attributes according to any filter criteria or sort options.
 		/// </summary>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.Extensible.AttributeCollection"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetAttributes();
-		///   var attributeCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Core.Extensible.AttributeCollection> GetAttributesClient()
-		{
-			return GetAttributesClient( null,  null,  null,  null);
-		}
-
-		/// <summary>
-		/// Retrieves a list of order attributes according to any filter criteria or sort options.
-		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
 		/// <returns>
@@ -49,39 +34,15 @@ namespace Mozu.Api.Clients.Commerce.Orders.Attributedefinition
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetAttributes( startIndex,  pageSize,  sortBy,  filter);
+		///   var mozuClient=GetAttributes( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		///   var attributeCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Core.Extensible.AttributeCollection> GetAttributesClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null)
+		public static MozuClient<Mozu.Api.Contracts.Core.Extensible.AttributeCollection> GetAttributesClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Orders.Attributedefinition.AttributeUrl.GetAttributesUrl(filter, pageSize, sortBy, startIndex);
+			var url = Mozu.Api.Urls.Commerce.Orders.Attributedefinition.AttributeUrl.GetAttributesUrl(startIndex, pageSize, sortBy, filter, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Core.Extensible.AttributeCollection>()
-									.WithVerb(verb).WithResourceUrl(url)
-;
-			return mozuClient;
-
-		}
-
-		/// <summary>
-		/// Retrieves the details of the order attribute specified in the request.
-		/// </summary>
-		/// <param name="attributeFQN"></param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.Extensible.Attribute"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetAttribute( attributeFQN);
-		///   var attributeClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> GetAttributeClient(string attributeFQN)
-		{
-			var url = Mozu.Api.Urls.Commerce.Orders.Attributedefinition.AttributeUrl.GetAttributeUrl(attributeFQN);
-			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -106,6 +67,31 @@ namespace Mozu.Api.Clients.Commerce.Orders.Attributedefinition
 			var url = Mozu.Api.Urls.Commerce.Orders.Attributedefinition.AttributeUrl.GetAttributeVocabularyValuesUrl(attributeFQN);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<List<Mozu.Api.Contracts.Core.Extensible.AttributeVocabularyValue>>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// Retrieves the details of the order attribute specified in the request.
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.Extensible.Attribute"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetAttribute( attributeFQN,  responseFields);
+		///   var attributeClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> GetAttributeClient(string attributeFQN, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Orders.Attributedefinition.AttributeUrl.GetAttributeUrl(attributeFQN, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

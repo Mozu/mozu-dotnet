@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -32,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves the contents of an attribute associated with the specified customer account.
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAttributeFactory.GetAccountAttribute(handler : handler,  accountId :  accountId,  attributeFQN :  attributeFQN,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CustomerAttributeFactory.GetAccountAttribute(handler : handler,  accountId :  accountId,  attributeFQN :  attributeFQN,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CustomerAttribute/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.CustomerAttribute GetAccountAttribute(ServiceClientMessageHandler handler, 
- 		 int accountId, string attributeFQN, 
+ 		 int accountId, string attributeFQN, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -47,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.GetAccountAttributeClient(
-				 accountId :  accountId,  attributeFQN :  attributeFQN		);
+				 accountId :  accountId,  attributeFQN :  attributeFQN,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -70,14 +71,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves the list of customer account attributes.
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAttributeFactory.GetAccountAttributes(handler : handler,  accountId :  accountId,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CustomerAttributeFactory.GetAccountAttributes(handler : handler,  accountId :  accountId,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CustomerAttributeCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.CustomerAttributeCollection GetAccountAttributes(ServiceClientMessageHandler handler, 
- 		 int accountId, int? startIndex = null, int? pageSize = null, string sortBy = null, string filter = null, 
+ 		 int accountId, int? startIndex = null, int? pageSize = null, string sortBy = null, string filter = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -85,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.GetAccountAttributesClient(
-				 accountId :  accountId,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter		);
+				 accountId :  accountId,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -108,14 +109,14 @@ namespace Mozu.Api.Test.Factories
 		/// Applies a defined attribute to the customer account specified in the request and assigns a value to the customer attribute.
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAttributeFactory.AddAccountAttribute(handler : handler,  attribute :  attribute,  accountId :  accountId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CustomerAttributeFactory.AddAccountAttribute(handler : handler,  attribute :  attribute,  accountId :  accountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CustomerAttribute/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.CustomerAttribute AddAccountAttribute(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.Customer.CustomerAttribute attribute, int accountId, 
+ 		 Mozu.Api.Contracts.Customer.CustomerAttribute attribute, int accountId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -123,7 +124,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.AddAccountAttributeClient(
-				 attribute :  attribute,  accountId :  accountId		);
+				 attribute :  attribute,  accountId :  accountId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -146,14 +147,14 @@ namespace Mozu.Api.Test.Factories
 		/// Updates one or more details of a customer account attribute.
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAttributeFactory.UpdateAccountAttribute(handler : handler,  attribute :  attribute,  accountId :  accountId,  attributeFQN :  attributeFQN,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CustomerAttributeFactory.UpdateAccountAttribute(handler : handler,  attribute :  attribute,  accountId :  accountId,  attributeFQN :  attributeFQN,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CustomerAttribute/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.CustomerAttribute UpdateAccountAttribute(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.Customer.CustomerAttribute attribute, int accountId, string attributeFQN, 
+ 		 Mozu.Api.Contracts.Customer.CustomerAttribute attribute, int accountId, string attributeFQN, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -161,7 +162,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.UpdateAccountAttributeClient(
-				 attribute :  attribute,  accountId :  accountId,  attributeFQN :  attributeFQN		);
+				 attribute :  attribute,  accountId :  accountId,  attributeFQN :  attributeFQN,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

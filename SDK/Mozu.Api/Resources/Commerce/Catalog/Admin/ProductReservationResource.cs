@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 {
@@ -24,35 +25,25 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///
 		private readonly IApiContext _apiContext;
 
+		private readonly DataViewMode _dataViewMode;
+		
 		public ProductReservationResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
+			_dataViewMode = DataViewMode.Live;
 		}
-
-		
-		/// <summary>
-		/// Retrieves a list of product reservations according to any specified filter criteria and sort options.
-		/// </summary>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductReservationCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productreservation = new ProductReservation();
-		///   var productReservationCollection = productreservation.GetProductReservations(dataViewMode);
-		/// </code>
-		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductReservationCollection GetProductReservations(DataViewMode dataViewMode)
+		public ProductReservationResource(IApiContext apiContext, DataViewMode dataViewMode) 
 		{
-			return GetProductReservations(dataViewMode,  null,  null,  null,  null);
+			_apiContext = apiContext;
+			_dataViewMode = dataViewMode;
 		}
-
+				
 		/// <summary>
 		/// Retrieves a list of product reservations according to any specified filter criteria and sort options.
 		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
@@ -62,16 +53,27 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var productreservation = new ProductReservation();
-		///   var productReservationCollection = productreservation.GetProductReservations(dataViewMode,  startIndex,  pageSize,  sortBy,  filter);
+		///   var productReservationCollection = productreservation.GetProductReservations(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductReservationCollection GetProductReservations(DataViewMode dataViewMode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.ProductReservationCollection GetProductReservations(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductReservationCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.GetProductReservationsClient(dataViewMode,  startIndex,  pageSize,  sortBy,  filter);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.GetProductReservationsClient(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductReservationCollection> GetProductReservationsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductReservationCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.GetProductReservationsClient(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -79,6 +81,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// Retrieves the details of a product reservation.
 		/// </summary>
 		/// <param name="productReservationId">Unique identifier of the product reservation.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductReservation"/>
@@ -86,127 +89,132 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var productreservation = new ProductReservation();
-		///   var productReservation = productreservation.GetProductReservation(dataViewMode,  productReservationId);
+		///   var productReservation = productreservation.GetProductReservation(_dataViewMode,  productReservationId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductReservation GetProductReservation(DataViewMode dataViewMode, int productReservationId)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.ProductReservation GetProductReservation(int productReservationId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductReservation> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.GetProductReservationClient(dataViewMode,  productReservationId);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.GetProductReservationClient(_dataViewMode,  productReservationId,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
 
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="productReservations"></param>
-		/// <returns>
-		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductReservation"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productreservation = new ProductReservation();
-		///   var productReservation = productreservation.AddProductReservations(dataViewMode,  productReservations);
-		/// </code>
-		/// </example>
-		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> AddProductReservations(DataViewMode dataViewMode, List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductReservation> GetProductReservationAsync(int productReservationId, string responseFields =  null)
 		{
-			return AddProductReservations(dataViewMode,  productReservations,  null);
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductReservation> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.GetProductReservationClient(_dataViewMode,  productReservationId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
 		}
 
 		/// <summary>
-		/// 
+		/// Creates a new product reservation for a product. This action places a hold on the product inventory for the quantity specified during the ordering process.
 		/// </summary>
-		/// <param name="skipInventoryCheck"></param>
+		/// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="productReservations"></param>
+		/// <param name="productReservations">Details of the product reservations to add.</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductReservation"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var productreservation = new ProductReservation();
-		///   var productReservation = productreservation.AddProductReservations(dataViewMode,  productReservations,  skipInventoryCheck);
+		///   var productReservation = productreservation.AddProductReservations( productReservations,  skipInventoryCheck);
 		/// </code>
 		/// </example>
-		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> AddProductReservations(DataViewMode dataViewMode, List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations, bool? skipInventoryCheck =  null)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> AddProductReservations(List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations, bool? skipInventoryCheck =  null)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductReservation>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.AddProductReservationsClient(dataViewMode,  productReservations,  skipInventoryCheck);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.AddProductReservationsClient( productReservations,  skipInventoryCheck);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
 
 		}
 
+		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductReservation>> AddProductReservationsAsync(List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations, bool? skipInventoryCheck =  null)
+		{
+			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductReservation>> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.AddProductReservationsClient( productReservations,  skipInventoryCheck);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
 		/// <summary>
-		/// 
+		/// Commits a product reservation to decrement the product's inventory by the quantity specified then release the reservation once the order process completed successfully.
 		/// </summary>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="productReservations"></param>
+		/// <param name="productReservations">List of unique identifiers of the reservations to commit.</param>
 		/// <returns>
 		/// 
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var productreservation = new ProductReservation();
-		///   productreservation.CommitReservations(dataViewMode,  productReservations);
+		///   productreservation.CommitReservations( productReservations);
 		/// </code>
 		/// </example>
-		public virtual void CommitReservations(DataViewMode dataViewMode, List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void CommitReservations(List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.CommitReservationsClient(dataViewMode,  productReservations);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.CommitReservationsClient( productReservations);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="productReservations"></param>
-		/// <returns>
-		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductReservation"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productreservation = new ProductReservation();
-		///   var productReservation = productreservation.UpdateProductReservations(dataViewMode,  productReservations);
-		/// </code>
-		/// </example>
-		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> UpdateProductReservations(DataViewMode dataViewMode, List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations)
+		public virtual async Task CommitReservationsAsync(List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations)
 		{
-			return UpdateProductReservations(dataViewMode,  productReservations,  null);
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.CommitReservationsClient( productReservations);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+
 		}
 
 		/// <summary>
-		/// 
+		/// Updates an existing product reservation for a product.
 		/// </summary>
-		/// <param name="skipInventoryCheck"></param>
+		/// <param name="skipInventoryCheck">If true, skip the inventory validation process when updating this product reservation.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="productReservations"></param>
+		/// <param name="productReservations">Properties of the product reservations to update.</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductReservation"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var productreservation = new ProductReservation();
-		///   var productReservation = productreservation.UpdateProductReservations(dataViewMode,  productReservations,  skipInventoryCheck);
+		///   var productReservation = productreservation.UpdateProductReservations( productReservations,  skipInventoryCheck);
 		/// </code>
 		/// </example>
-		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> UpdateProductReservations(DataViewMode dataViewMode, List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations, bool? skipInventoryCheck =  null)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> UpdateProductReservations(List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations, bool? skipInventoryCheck =  null)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductReservation>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.UpdateProductReservationsClient(dataViewMode,  productReservations,  skipInventoryCheck);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.UpdateProductReservationsClient( productReservations,  skipInventoryCheck);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductReservation>> UpdateProductReservationsAsync(List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations, bool? skipInventoryCheck =  null)
+		{
+			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductReservation>> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.UpdateProductReservationsClient( productReservations,  skipInventoryCheck);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -221,15 +229,25 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var productreservation = new ProductReservation();
-		///   productreservation.DeleteProductReservation(dataViewMode,  productReservationId);
+		///   productreservation.DeleteProductReservation( productReservationId);
 		/// </code>
 		/// </example>
-		public virtual void DeleteProductReservation(DataViewMode dataViewMode, int productReservationId)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void DeleteProductReservation(int productReservationId)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.DeleteProductReservationClient(dataViewMode,  productReservationId);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.DeleteProductReservationClient( productReservationId);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
+
+		}
+
+		public virtual async Task DeleteProductReservationAsync(int productReservationId)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.DeleteProductReservationClient( productReservationId);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
 
 		}
 

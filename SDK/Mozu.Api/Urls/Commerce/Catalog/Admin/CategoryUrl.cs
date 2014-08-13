@@ -21,19 +21,38 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// </summary>
         /// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product category search results by any of its properties, including its position in the category hierarchy. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
         /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+        /// <param name="responseFields"></param>
         /// <param name="sortBy"></param>
         /// <param name="startIndex"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetCategoriesUrl(string filter, int? pageSize, string sortBy, int? startIndex)
+        public static MozuUrl GetCategoriesUrl(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/categories/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
+			var url = "/api/commerce/catalog/admin/categories/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "filter", filter);
 			mozuUrl.FormatUrl( "pageSize", pageSize);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "sortBy", sortBy);
 			mozuUrl.FormatUrl( "startIndex", startIndex);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for GetChildCategories
+        /// </summary>
+        /// <param name="categoryId">Unique identifier of the category for which to retrieve subcategories.</param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetChildCategoriesUrl(int categoryId, string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/categories/{categoryId}/children?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "categoryId", categoryId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -41,29 +60,16 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// Get Resource Url for GetCategory
         /// </summary>
         /// <param name="categoryId">Unique identifier of the category to retrieve.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetCategoryUrl(int categoryId)
+        public static MozuUrl GetCategoryUrl(int categoryId, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/categories/{categoryId}";
+			var url = "/api/commerce/catalog/admin/categories/{categoryId}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "categoryId", categoryId);
-			return mozuUrl;
-		}
-
-		/// <summary>
-        /// Get Resource Url for GetChildCategories
-        /// </summary>
-        /// <param name="categoryId">Unique identifier of the category whose subcategories are retrieved.</param>
-        /// <returns>
-        /// String - Resource Url
-        /// </returns>
-        public static MozuUrl GetChildCategoriesUrl(int categoryId)
-		{
-			var url = "/api/commerce/catalog/admin/categories/{categoryId}/children";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "categoryId", categoryId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -71,14 +77,16 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// Get Resource Url for AddCategory
         /// </summary>
         /// <param name="incrementSequence"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl AddCategoryUrl(bool? incrementSequence)
+        public static MozuUrl AddCategoryUrl(bool? incrementSequence =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/categories/?incrementSequence={incrementSequence}";
+			var url = "/api/commerce/catalog/admin/categories/?incrementSequence={incrementSequence}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "incrementSequence", incrementSequence);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -87,27 +95,29 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// </summary>
         /// <param name="cascadeVisibility">If true, when changing the display option for the category, change it for all subcategories also. Default: False.</param>
         /// <param name="categoryId">Unique identifier of the category to modify.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateCategoryUrl(bool? cascadeVisibility, int categoryId)
+        public static MozuUrl UpdateCategoryUrl(int categoryId, bool? cascadeVisibility =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/categories/{categoryId}?cascadeVisibility={cascadeVisibility}";
+			var url = "/api/commerce/catalog/admin/categories/{categoryId}?cascadeVisibility={cascadeVisibility}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "cascadeVisibility", cascadeVisibility);
 			mozuUrl.FormatUrl( "categoryId", categoryId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 				/// <summary>
         /// Get Resource Url for DeleteCategoryById
         /// </summary>
-        /// <param name="cascadeDelete">If true, any subcategories of a category are deleted when this category is deleted. Default: False.</param>
+        /// <param name="cascadeDelete">If true, also delete all subcategories associated with the specified category.</param>
         /// <param name="categoryId">Unique identifier of the category to delete.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl DeleteCategoryByIdUrl(bool? cascadeDelete, int categoryId)
+        public static MozuUrl DeleteCategoryByIdUrl(int categoryId, bool? cascadeDelete =  null)
 		{
 			var url = "/api/commerce/catalog/admin/categories/{categoryId}/?cascadeDelete={cascadeDelete}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;

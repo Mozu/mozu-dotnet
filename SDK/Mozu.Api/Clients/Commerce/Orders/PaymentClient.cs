@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Orders
 {
@@ -24,45 +25,21 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// Retrieves information about all payment transactions submitted for the specified order.
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentCollection"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetPayments( orderId);
+		///   var mozuClient=GetPayments( orderId,  responseFields);
 		///   var paymentCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentCollection> GetPaymentsClient(string orderId)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentCollection> GetPaymentsClient(string orderId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Orders.PaymentUrl.GetPaymentsUrl(orderId);
+			var url = Mozu.Api.Urls.Commerce.Orders.PaymentUrl.GetPaymentsUrl(orderId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentCollection>()
-									.WithVerb(verb).WithResourceUrl(url)
-;
-			return mozuClient;
-
-		}
-
-		/// <summary>
-		/// Retrieves information about a specific payment transaction submitted for the specified order.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order associated with the payment transaction.</param>
-		/// <param name="paymentId">Unique identifier of the payment transaction submitted for the order.</param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Payments.Payment"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetPayment( orderId,  paymentId);
-		///   var paymentClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Payments.Payment> GetPaymentClient(string orderId, string paymentId)
-		{
-			var url = Mozu.Api.Urls.Commerce.Orders.PaymentUrl.GetPaymentUrl(orderId, paymentId);
-			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Payments.Payment>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -95,23 +72,50 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		}
 
 		/// <summary>
+		/// Retrieves information about a specific payment transaction submitted for the specified order.
+		/// </summary>
+		/// <param name="orderId">Unique identifier of the order associated with the payment transaction.</param>
+		/// <param name="paymentId">Unique identifier of the payment transaction submitted for the order.</param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Payments.Payment"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetPayment( orderId,  paymentId,  responseFields);
+		///   var paymentClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Payments.Payment> GetPaymentClient(string orderId, string paymentId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Orders.PaymentUrl.GetPaymentUrl(orderId, paymentId, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Payments.Payment>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Performs the specified action for an individual order payment transaction.
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order associated with the payment.</param>
 		/// <param name="paymentId">Unique identifer of the payment for which to perform the action.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="action">The action to perform for the payment. Possible values are AuthAndCapture, AuthorizePayment, CapturePayment, VoidPayment, CreditPayment, RequestCheck, ApplyCheck, DeclineCheck.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=PerformPaymentAction( action,  orderId,  paymentId);
+		///   var mozuClient=PerformPaymentAction( action,  orderId,  paymentId,  responseFields);
 		///   var orderClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> PerformPaymentActionClient(Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentAction action, string orderId, string paymentId)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> PerformPaymentActionClient(Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentAction action, string orderId, string paymentId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Orders.PaymentUrl.PerformPaymentActionUrl(orderId, paymentId);
+			var url = Mozu.Api.Urls.Commerce.Orders.PaymentUrl.PerformPaymentActionUrl(orderId, paymentId, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -124,19 +128,20 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// Creates a new payment transaction for the specified order and performs the specified action.
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order for which to apply the payment.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="action">To action to perform for the newly created payment. Possible values are AuthAndCapture, AuthorizePayment, CapturePayment, VoidPayment, CreditPayment, RequestCheck, ApplyCheck, DeclineCheck.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=CreatePaymentAction( action,  orderId);
+		///   var mozuClient=CreatePaymentAction( action,  orderId,  responseFields);
 		///   var orderClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> CreatePaymentActionClient(Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentAction action, string orderId)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> CreatePaymentActionClient(Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentAction action, string orderId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Orders.PaymentUrl.CreatePaymentActionUrl(orderId);
+			var url = Mozu.Api.Urls.Commerce.Orders.PaymentUrl.CreatePaymentActionUrl(orderId, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order>()
 									.WithVerb(verb).WithResourceUrl(url)

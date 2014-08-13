@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 {
@@ -24,52 +25,46 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		///
 		private readonly IApiContext _apiContext;
 
+		
 		public CustomerAttributeResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
 		}
-
-		
+				
 		/// <summary>
 		/// Retrieves the contents of an attribute associated with the specified customer account.
 		/// </summary>
 		/// <param name="accountId">Identifier of the customer account associated with the attribute to retrieve.</param>
-		/// <param name="attributeFQN"></param>
+		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAttribute"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customerattribute = new CustomerAttribute();
-		///   var customerAttribute = customerattribute.GetAccountAttribute( accountId,  attributeFQN);
+		///   var customerAttribute = customerattribute.GetAccountAttribute( accountId,  attributeFQN,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.Customer.CustomerAttribute GetAccountAttribute(int accountId, string attributeFQN)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Customer.CustomerAttribute GetAccountAttribute(int accountId, string attributeFQN, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerAttribute> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.GetAccountAttributeClient( accountId,  attributeFQN);
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.GetAccountAttributeClient( accountId,  attributeFQN,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
 
 		}
 
-		/// <summary>
-		/// Retrieves the list of customer account attributes.
-		/// </summary>
-		/// <param name="accountId">Identifier of the customer account associated with the attributes to retrieve.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAttributeCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var customerattribute = new CustomerAttribute();
-		///   var customerAttributeCollection = customerattribute.GetAccountAttributes( accountId);
-		/// </code>
-		/// </example>
-		public virtual Mozu.Api.Contracts.Customer.CustomerAttributeCollection GetAccountAttributes(int accountId)
+		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAttribute> GetAccountAttributeAsync(int accountId, string attributeFQN, string responseFields =  null)
 		{
-			return GetAccountAttributes( accountId,  null,  null,  null,  null);
+			MozuClient<Mozu.Api.Contracts.Customer.CustomerAttribute> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.GetAccountAttributeClient( accountId,  attributeFQN,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
 		}
 
 		/// <summary>
@@ -78,6 +73,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <param name="accountId">Identifier of the customer account associated with the attributes to retrieve.</param>
 		/// <param name="filter"></param>
 		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
 		/// <returns>
@@ -86,16 +82,27 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <example>
 		/// <code>
 		///   var customerattribute = new CustomerAttribute();
-		///   var customerAttributeCollection = customerattribute.GetAccountAttributes( accountId,  startIndex,  pageSize,  sortBy,  filter);
+		///   var customerAttributeCollection = customerattribute.GetAccountAttributes( accountId,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.Customer.CustomerAttributeCollection GetAccountAttributes(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Customer.CustomerAttributeCollection GetAccountAttributes(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerAttributeCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.GetAccountAttributesClient( accountId,  startIndex,  pageSize,  sortBy,  filter);
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.GetAccountAttributesClient( accountId,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAttributeCollection> GetAccountAttributesAsync(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Customer.CustomerAttributeCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.GetAccountAttributesClient( accountId,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -103,6 +110,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// Applies a defined attribute to the customer account specified in the request and assigns a value to the customer attribute.
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="attribute"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAttribute"/>
@@ -110,16 +118,27 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <example>
 		/// <code>
 		///   var customerattribute = new CustomerAttribute();
-		///   var customerAttribute = customerattribute.AddAccountAttribute( attribute,  accountId);
+		///   var customerAttribute = customerattribute.AddAccountAttribute( attribute,  accountId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.Customer.CustomerAttribute AddAccountAttribute(Mozu.Api.Contracts.Customer.CustomerAttribute attribute, int accountId)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Customer.CustomerAttribute AddAccountAttribute(Mozu.Api.Contracts.Customer.CustomerAttribute attribute, int accountId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerAttribute> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.AddAccountAttributeClient( attribute,  accountId);
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.AddAccountAttributeClient( attribute,  accountId,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAttribute> AddAccountAttributeAsync(Mozu.Api.Contracts.Customer.CustomerAttribute attribute, int accountId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Customer.CustomerAttribute> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.AddAccountAttributeClient( attribute,  accountId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -128,6 +147,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// </summary>
 		/// <param name="accountId">Identifier of the customer account associated with the attribute.</param>
 		/// <param name="attributeFQN"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="attribute"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAttribute"/>
@@ -135,16 +155,27 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <example>
 		/// <code>
 		///   var customerattribute = new CustomerAttribute();
-		///   var customerAttribute = customerattribute.UpdateAccountAttribute( attribute,  accountId,  attributeFQN);
+		///   var customerAttribute = customerattribute.UpdateAccountAttribute( attribute,  accountId,  attributeFQN,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.Customer.CustomerAttribute UpdateAccountAttribute(Mozu.Api.Contracts.Customer.CustomerAttribute attribute, int accountId, string attributeFQN)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Customer.CustomerAttribute UpdateAccountAttribute(Mozu.Api.Contracts.Customer.CustomerAttribute attribute, int accountId, string attributeFQN, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerAttribute> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.UpdateAccountAttributeClient( attribute,  accountId,  attributeFQN);
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.UpdateAccountAttributeClient( attribute,  accountId,  attributeFQN,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAttribute> UpdateAccountAttributeAsync(Mozu.Api.Contracts.Customer.CustomerAttribute attribute, int accountId, string attributeFQN, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Customer.CustomerAttribute> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.UpdateAccountAttributeClient( attribute,  accountId,  attributeFQN,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -162,12 +193,22 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		///   customerattribute.DeleteAccountAttribute( accountId,  attributeFQN);
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual void DeleteAccountAttribute(int accountId, string attributeFQN)
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.DeleteAccountAttributeClient( accountId,  attributeFQN);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
+
+		}
+
+		public virtual async Task DeleteAccountAttributeAsync(int accountId, string attributeFQN)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.DeleteAccountAttributeClient( accountId,  attributeFQN);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
 
 		}
 

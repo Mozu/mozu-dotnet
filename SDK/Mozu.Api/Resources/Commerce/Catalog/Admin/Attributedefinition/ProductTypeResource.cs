@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 {
@@ -24,35 +25,25 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		///
 		private readonly IApiContext _apiContext;
 
+		private readonly DataViewMode _dataViewMode;
+		
 		public ProductTypeResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
+			_dataViewMode = DataViewMode.Live;
 		}
-
-		
-		/// <summary>
-		/// Retrieves a list of product types according to any specified filter criteria and sort options.
-		/// </summary>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductTypeCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var producttype = new ProductType();
-		///   var productTypeCollection = producttype.GetProductTypes(dataViewMode);
-		/// </code>
-		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductTypeCollection GetProductTypes(DataViewMode dataViewMode)
+		public ProductTypeResource(IApiContext apiContext, DataViewMode dataViewMode) 
 		{
-			return GetProductTypes(dataViewMode,  null,  null,  null,  null);
+			_apiContext = apiContext;
+			_dataViewMode = dataViewMode;
 		}
-
+				
 		/// <summary>
 		/// Retrieves a list of product types according to any specified filter criteria and sort options.
 		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product type search results by any of its properties. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+cont+shoes"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
@@ -62,16 +53,27 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// <example>
 		/// <code>
 		///   var producttype = new ProductType();
-		///   var productTypeCollection = producttype.GetProductTypes(dataViewMode,  startIndex,  pageSize,  sortBy,  filter);
+		///   var productTypeCollection = producttype.GetProductTypes(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductTypeCollection GetProductTypes(DataViewMode dataViewMode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.ProductTypeCollection GetProductTypes(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductTypeCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.ProductTypeClient.GetProductTypesClient(dataViewMode,  startIndex,  pageSize,  sortBy,  filter);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.ProductTypeClient.GetProductTypesClient(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductTypeCollection> GetProductTypesAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductTypeCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.ProductTypeClient.GetProductTypesClient(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -79,6 +81,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// Retrieves the details of the product type specified in the request.
 		/// </summary>
 		/// <param name="productTypeId">Identifier of the product type to retrieve.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductType"/>
@@ -86,22 +89,34 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// <example>
 		/// <code>
 		///   var producttype = new ProductType();
-		///   var productType = producttype.GetProductType(dataViewMode,  productTypeId);
+		///   var productType = producttype.GetProductType(_dataViewMode,  productTypeId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductType GetProductType(DataViewMode dataViewMode, int productTypeId)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.ProductType GetProductType(int productTypeId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductType> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.ProductTypeClient.GetProductTypeClient(dataViewMode,  productTypeId);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.ProductTypeClient.GetProductTypeClient(_dataViewMode,  productTypeId,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductType> GetProductTypeAsync(int productTypeId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductType> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.ProductTypeClient.GetProductTypeClient(_dataViewMode,  productTypeId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
 		/// <summary>
 		/// Creates a new product type based on the information supplied in the request.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="productType">Properties of the product type to create.</param>
 		/// <returns>
@@ -110,16 +125,27 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// <example>
 		/// <code>
 		///   var producttype = new ProductType();
-		///   var productType = producttype.AddProductType(dataViewMode,  productType);
+		///   var productType = producttype.AddProductType( productType,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductType AddProductType(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.ProductType productType)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.ProductType AddProductType(Mozu.Api.Contracts.ProductAdmin.ProductType productType, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductType> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.ProductTypeClient.AddProductTypeClient(dataViewMode,  productType);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.ProductTypeClient.AddProductTypeClient( productType,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductType> AddProductTypeAsync(Mozu.Api.Contracts.ProductAdmin.ProductType productType, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductType> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.ProductTypeClient.AddProductTypeClient( productType,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -127,6 +153,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// Updates one or more properties of a product type.
 		/// </summary>
 		/// <param name="productTypeId">Identifier of the product type to update.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="productType">The details of the product type to update.</param>
 		/// <returns>
@@ -135,16 +162,27 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// <example>
 		/// <code>
 		///   var producttype = new ProductType();
-		///   var productType = producttype.UpdateProductType(dataViewMode,  productType,  productTypeId);
+		///   var productType = producttype.UpdateProductType( productType,  productTypeId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductType UpdateProductType(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.ProductType productType, int productTypeId)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.ProductType UpdateProductType(Mozu.Api.Contracts.ProductAdmin.ProductType productType, int productTypeId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductType> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.ProductTypeClient.UpdateProductTypeClient(dataViewMode,  productType,  productTypeId);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.ProductTypeClient.UpdateProductTypeClient( productType,  productTypeId,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductType> UpdateProductTypeAsync(Mozu.Api.Contracts.ProductAdmin.ProductType productType, int productTypeId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductType> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.ProductTypeClient.UpdateProductTypeClient( productType,  productTypeId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -159,15 +197,25 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// <example>
 		/// <code>
 		///   var producttype = new ProductType();
-		///   producttype.DeleteProductType(dataViewMode,  productTypeId);
+		///   producttype.DeleteProductType( productTypeId);
 		/// </code>
 		/// </example>
-		public virtual void DeleteProductType(DataViewMode dataViewMode, int productTypeId)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void DeleteProductType(int productTypeId)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.ProductTypeClient.DeleteProductTypeClient(dataViewMode,  productTypeId);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.ProductTypeClient.DeleteProductTypeClient( productTypeId);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
+
+		}
+
+		public virtual async Task DeleteProductTypeAsync(int productTypeId)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.ProductTypeClient.DeleteProductTypeClient( productTypeId);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
 
 		}
 

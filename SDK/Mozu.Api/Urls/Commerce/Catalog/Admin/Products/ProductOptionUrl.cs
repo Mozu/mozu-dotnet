@@ -36,15 +36,17 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         /// </summary>
         /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
         /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetOptionUrl(string attributeFQN, string productCode)
+        public static MozuUrl GetOptionUrl(string productCode, string attributeFQN, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/products/{productCode}/Options/{attributeFQN}";
+			var url = "/api/commerce/catalog/admin/products/{productCode}/Options/{attributeFQN}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "attributeFQN", attributeFQN);
 			mozuUrl.FormatUrl( "productCode", productCode);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -52,14 +54,16 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         /// Get Resource Url for AddOption
         /// </summary>
         /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl AddOptionUrl(string productCode)
+        public static MozuUrl AddOptionUrl(string productCode, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/products/{productCode}/Options";
+			var url = "/api/commerce/catalog/admin/products/{productCode}/Options?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "productCode", productCode);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -68,15 +72,17 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         /// </summary>
         /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
         /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateOptionUrl(string attributeFQN, string productCode)
+        public static MozuUrl UpdateOptionUrl(string productCode, string attributeFQN, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/products/{productCode}/Options/{attributeFQN}";
+			var url = "/api/commerce/catalog/admin/products/{productCode}/Options/{attributeFQN}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "attributeFQN", attributeFQN);
 			mozuUrl.FormatUrl( "productCode", productCode);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -88,7 +94,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl DeleteOptionUrl(string attributeFQN, string productCode)
+        public static MozuUrl DeleteOptionUrl(string productCode, string attributeFQN)
 		{
 			var url = "/api/commerce/catalog/admin/products/{productCode}/Options/{attributeFQN}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;

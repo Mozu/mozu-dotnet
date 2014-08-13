@@ -10,6 +10,7 @@
 
 using System;
 
+
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
@@ -26,6 +27,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///The vocabulary value of an attribute defined for a product type.
 			///
 			public object Value { get; set; }
+
+			public AttributeVocabularyValueDisplayInfo DisplayInfo { get; set; }
 
 			///
 			///Navigates vocabulary value details for an attribute defined for a product type.

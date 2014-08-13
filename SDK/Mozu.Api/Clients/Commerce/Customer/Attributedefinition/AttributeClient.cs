@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Customer.Attributedefinition
 {
@@ -23,25 +24,9 @@ namespace Mozu.Api.Clients.Commerce.Customer.Attributedefinition
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.Extensible.AttributeCollection"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetAttributes();
-		///   var attributeCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Core.Extensible.AttributeCollection> GetAttributesClient()
-		{
-			return GetAttributesClient( null,  null,  null,  null);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
 		/// <param name="filter"></param>
 		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
 		/// <returns>
@@ -49,39 +34,15 @@ namespace Mozu.Api.Clients.Commerce.Customer.Attributedefinition
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetAttributes( startIndex,  pageSize,  sortBy,  filter);
+		///   var mozuClient=GetAttributes( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		///   var attributeCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Core.Extensible.AttributeCollection> GetAttributesClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null)
+		public static MozuClient<Mozu.Api.Contracts.Core.Extensible.AttributeCollection> GetAttributesClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.Attributedefinition.AttributeUrl.GetAttributesUrl(filter, pageSize, sortBy, startIndex);
+			var url = Mozu.Api.Urls.Commerce.Customer.Attributedefinition.AttributeUrl.GetAttributesUrl(startIndex, pageSize, sortBy, filter, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Core.Extensible.AttributeCollection>()
-									.WithVerb(verb).WithResourceUrl(url)
-;
-			return mozuClient;
-
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="attributeFQN"></param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.Extensible.Attribute"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetAttribute( attributeFQN);
-		///   var attributeClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> GetAttributeClient(string attributeFQN)
-		{
-			var url = Mozu.Api.Urls.Commerce.Customer.Attributedefinition.AttributeUrl.GetAttributeUrl(attributeFQN);
-			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -106,6 +67,31 @@ namespace Mozu.Api.Clients.Commerce.Customer.Attributedefinition
 			var url = Mozu.Api.Urls.Commerce.Customer.Attributedefinition.AttributeUrl.GetAttributeVocabularyValuesUrl(attributeFQN);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<List<Mozu.Api.Contracts.Core.Extensible.AttributeVocabularyValue>>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.Extensible.Attribute"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetAttribute( attributeFQN,  responseFields);
+		///   var attributeClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> GetAttributeClient(string attributeFQN, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Customer.Attributedefinition.AttributeUrl.GetAttributeUrl(attributeFQN, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

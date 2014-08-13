@@ -19,14 +19,16 @@ namespace Mozu.Api.Urls.Platform
 		/// <summary>
         /// Get Resource Url for GetTenant
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <param name="tenantId">Unique identifier of the Mozu tenant.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetTenantUrl(int tenantId)
+        public static MozuUrl GetTenantUrl(int tenantId, string responseFields =  null)
 		{
-			var url = "/api/platform/tenants/{tenantId}";
+			var url = "/api/platform/tenants/{tenantId}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "tenantId", tenantId);
 			return mozuUrl;
 		}

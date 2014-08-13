@@ -11,12 +11,13 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 {
 	/// <summary>
-	/// Use this resource to create products, view the attributes associated with existing products, and determine which sites feature a specific product.
+	/// Use the Product Administration resource to create new product definitions in the master catalog and determine which catalogs will feature products. You can also assign attribute values for defined products, manage product-level location inventory, and configure the variations of a product.
 	/// </summary>
 	public partial class ProductResource  	{
 		///
@@ -24,29 +25,19 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///
 		private readonly IApiContext _apiContext;
 
+		private readonly DataViewMode _dataViewMode;
+		
 		public ProductResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
+			_dataViewMode = DataViewMode.Live;
 		}
-
-		
-		/// <summary>
-		/// Retrieves a list of products according to any specified facets, filter criteria, and sort options.
-		/// </summary>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var product = new Product();
-		///   var productCollection = product.GetProducts(dataViewMode);
-		/// </code>
-		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductCollection GetProducts(DataViewMode dataViewMode)
+		public ProductResource(IApiContext apiContext, DataViewMode dataViewMode) 
 		{
-			return GetProducts(dataViewMode,  null,  null,  null,  null,  null,  null,  null);
+			_apiContext = apiContext;
+			_dataViewMode = dataViewMode;
 		}
-
+				
 		/// <summary>
 		/// Retrieves a list of products according to any specified facets, filter criteria, and sort options.
 		/// </summary>
@@ -55,6 +46,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
 		/// <param name="q">A list of product search terms to use in the query when searching across product code and product name. Separate multiple search terms with a space character.</param>
 		/// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
 		/// <returns>
@@ -63,39 +55,27 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var productCollection = product.GetProducts(dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  q,  qLimit,  noCount);
+		///   var productCollection = product.GetProducts(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  q,  qLimit,  noCount,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductCollection GetProducts(DataViewMode dataViewMode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string q =  null, int? qLimit =  null, bool? noCount =  null)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.ProductCollection GetProducts(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string q =  null, int? qLimit =  null, bool? noCount =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.GetProductsClient(dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  q,  qLimit,  noCount);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.GetProductsClient(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  q,  qLimit,  noCount,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
 
 		}
 
-		/// <summary>
-		/// Retrieves an existing product.
-		/// </summary>
-		/// <param name="productCode">Merchant-created code associated with the product such as a SKU. Max length: 30. Accepts a to z, A to Z, Ãƒâ€¹-ÃƒËœ, 0 to 9, #, semicolon, commas, apostrophes, and Spaces, but no punctuation or other characters.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Product"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var product = new Product();
-		///   var product = product.GetProduct(dataViewMode,  productCode);
-		/// </code>
-		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.Product GetProduct(DataViewMode dataViewMode, string productCode)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductCollection> GetProductsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string q =  null, int? qLimit =  null, bool? noCount =  null, string responseFields =  null)
 		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.Product> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.GetProductClient(dataViewMode,  productCode);
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.GetProductsClient(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  q,  qLimit,  noCount,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
-			return response.Result();
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -109,46 +89,105 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var productInCatalogInfo = product.GetProductInCatalogs(dataViewMode,  productCode);
+		///   var productInCatalogInfo = product.GetProductInCatalogs(_dataViewMode,  productCode);
 		/// </code>
 		/// </example>
-		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> GetProductInCatalogs(DataViewMode dataViewMode, string productCode)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> GetProductInCatalogs(string productCode)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.GetProductInCatalogsClient(dataViewMode,  productCode);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.GetProductInCatalogsClient(_dataViewMode,  productCode);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>> GetProductInCatalogsAsync(string productCode)
+		{
+			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.GetProductInCatalogsClient(_dataViewMode,  productCode);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
 		/// <summary>
 		/// Retrieves the details of a product associated with a specific catalog.
 		/// </summary>
-		/// <param name="catalogId"></param>
+		/// <param name="catalogId">The unique identifier of the catalog of products used by a site.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var productInCatalogInfo = product.GetProductInCatalog(dataViewMode,  productCode,  catalogId);
+		///   var productInCatalogInfo = product.GetProductInCatalog(_dataViewMode,  productCode,  catalogId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo GetProductInCatalog(DataViewMode dataViewMode, string productCode, int catalogId)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo GetProductInCatalog(string productCode, int catalogId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.GetProductInCatalogClient(dataViewMode,  productCode,  catalogId);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.GetProductInCatalogClient(_dataViewMode,  productCode,  catalogId,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> GetProductInCatalogAsync(string productCode, int catalogId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.GetProductInCatalogClient(_dataViewMode,  productCode,  catalogId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// Retrieves the details of a product definition.
+		/// </summary>
+		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Product"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var product = new Product();
+		///   var product = product.GetProduct(_dataViewMode,  productCode,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.Product GetProduct(string productCode, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Product> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.GetProductClient(_dataViewMode,  productCode,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Product> GetProductAsync(string productCode, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Product> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.GetProductClient(_dataViewMode,  productCode,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
 		/// <summary>
 		/// Creates a new product definition in the specified master catalog.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="product">Properties of the new product. You must supply values for the product code, product name, and price.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Product"/>
@@ -156,16 +195,27 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var product = product.AddProduct(dataViewMode,  product);
+		///   var product = product.AddProduct( product,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.Product AddProduct(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.Product product)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.Product AddProduct(Mozu.Api.Contracts.ProductAdmin.Product product, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.Product> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.AddProductClient(dataViewMode,  product);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.AddProductClient( product,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Product> AddProductAsync(Mozu.Api.Contracts.ProductAdmin.Product product, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Product> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.AddProductClient( product,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -173,6 +223,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// Associates a new product defined in the master catalog with a specific catalog.
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="productInCatalogInfoIn">Properties of the product to define for the specific catalog association.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo"/>
@@ -180,40 +231,27 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var productInCatalogInfo = product.AddProductInCatalog(dataViewMode,  productInCatalogInfoIn,  productCode);
+		///   var productInCatalogInfo = product.AddProductInCatalog( productInCatalogInfoIn,  productCode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo AddProductInCatalog(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo productInCatalogInfoIn, string productCode)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo AddProductInCatalog(Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo productInCatalogInfoIn, string productCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.AddProductInCatalogClient(dataViewMode,  productInCatalogInfoIn,  productCode);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.AddProductInCatalogClient( productInCatalogInfoIn,  productCode,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
 
 		}
 
-		/// <summary>
-		/// Updates one or more properties of a product definition in a master catalog.
-		/// </summary>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="product">Properties of the product definition to update in the master catalog.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Product"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var product = new Product();
-		///   var product = product.UpdateProduct(dataViewMode,  product,  productCode);
-		/// </code>
-		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.Product UpdateProduct(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.Product product, string productCode)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> AddProductInCatalogAsync(Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo productInCatalogInfoIn, string productCode, string responseFields =  null)
 		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.Product> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.UpdateProductClient(dataViewMode,  product,  productCode);
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.AddProductInCatalogClient( productInCatalogInfoIn,  productCode,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
-			return response.Result();
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -228,24 +266,36 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var productInCatalogInfo = product.UpdateProductInCatalogs(dataViewMode,  productInCatalogsIn,  productCode);
+		///   var productInCatalogInfo = product.UpdateProductInCatalogs( productInCatalogsIn,  productCode);
 		/// </code>
 		/// </example>
-		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> UpdateProductInCatalogs(DataViewMode dataViewMode, List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> productInCatalogsIn, string productCode)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> UpdateProductInCatalogs(List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> productInCatalogsIn, string productCode)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.UpdateProductInCatalogsClient(dataViewMode,  productInCatalogsIn,  productCode);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.UpdateProductInCatalogsClient( productInCatalogsIn,  productCode);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>> UpdateProductInCatalogsAsync(List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> productInCatalogsIn, string productCode)
+		{
+			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.UpdateProductInCatalogsClient( productInCatalogsIn,  productCode);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
 		/// <summary>
 		/// Updates one or more properties of a product associated with a specific catalog.
 		/// </summary>
-		/// <param name="catalogId"></param>
+		/// <param name="catalogId">The unique identifier of the catalog of products used by a site.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="productInCatalogInfoIn">Properties of the product associated with the catalog specified in the request.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo"/>
@@ -253,16 +303,63 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var productInCatalogInfo = product.UpdateProductInCatalog(dataViewMode,  productInCatalogInfoIn,  productCode,  catalogId);
+		///   var productInCatalogInfo = product.UpdateProductInCatalog( productInCatalogInfoIn,  productCode,  catalogId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo UpdateProductInCatalog(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo productInCatalogInfoIn, string productCode, int catalogId)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo UpdateProductInCatalog(Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo productInCatalogInfoIn, string productCode, int catalogId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.UpdateProductInCatalogClient(dataViewMode,  productInCatalogInfoIn,  productCode,  catalogId);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.UpdateProductInCatalogClient( productInCatalogInfoIn,  productCode,  catalogId,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> UpdateProductInCatalogAsync(Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo productInCatalogInfoIn, string productCode, int catalogId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.UpdateProductInCatalogClient( productInCatalogInfoIn,  productCode,  catalogId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// Updates one or more properties of a product definition in a master catalog.
+		/// </summary>
+		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="product">Properties of the product definition to update in the master catalog.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Product"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var product = new Product();
+		///   var product = product.UpdateProduct( product,  productCode,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.Product UpdateProduct(Mozu.Api.Contracts.ProductAdmin.Product product, string productCode, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Product> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.UpdateProductClient( product,  productCode,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Product> UpdateProductAsync(Mozu.Api.Contracts.ProductAdmin.Product product, string productCode, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Product> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.UpdateProductClient( product,  productCode,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -276,22 +373,32 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   product.DeleteProduct(dataViewMode,  productCode);
+		///   product.DeleteProduct( productCode);
 		/// </code>
 		/// </example>
-		public virtual void DeleteProduct(DataViewMode dataViewMode, string productCode)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void DeleteProduct(string productCode)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.DeleteProductClient(dataViewMode,  productCode);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.DeleteProductClient( productCode);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
+
+		}
+
+		public virtual async Task DeleteProductAsync(string productCode)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.DeleteProductClient( productCode);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
 
 		}
 
 		/// <summary>
 		/// Removes the product association defined for a specific catalog.
 		/// </summary>
-		/// <param name="catalogId"></param>
+		/// <param name="catalogId">The unique identifier of the catalog of products used by a site.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <returns>
 		/// 
@@ -299,15 +406,25 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   product.DeleteProductInCatalog(dataViewMode,  productCode,  catalogId);
+		///   product.DeleteProductInCatalog( productCode,  catalogId);
 		/// </code>
 		/// </example>
-		public virtual void DeleteProductInCatalog(DataViewMode dataViewMode, string productCode, int catalogId)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void DeleteProductInCatalog(string productCode, int catalogId)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.DeleteProductInCatalogClient(dataViewMode,  productCode,  catalogId);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.DeleteProductInCatalogClient( productCode,  catalogId);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
+
+		}
+
+		public virtual async Task DeleteProductInCatalogAsync(string productCode, int catalogId)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.DeleteProductInCatalogClient( productCode,  catalogId);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
 
 		}
 

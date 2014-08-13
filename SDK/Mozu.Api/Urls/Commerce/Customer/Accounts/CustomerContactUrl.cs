@@ -21,15 +21,17 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account whose contact information is being retrieved.</param>
         /// <param name="contactId">Unique identifier of the customer account contact to retrieve.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetAccountContactUrl(int accountId, int contactId)
+        public static MozuUrl GetAccountContactUrl(int accountId, int contactId, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/{accountId}/contacts/{contactId}";
+			var url = "/api/commerce/customer/accounts/{accountId}/contacts/{contactId}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "accountId", accountId);
 			mozuUrl.FormatUrl( "contactId", contactId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -39,18 +41,20 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// <param name="accountId">Unique identifier of the customer account associated with the contact information to retrieve.</param>
         /// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
         /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+        /// <param name="responseFields"></param>
         /// <param name="sortBy"></param>
         /// <param name="startIndex"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetAccountContactsUrl(int accountId, string filter, int? pageSize, string sortBy, int? startIndex)
+        public static MozuUrl GetAccountContactsUrl(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/{accountId}/contacts?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
+			var url = "/api/commerce/customer/accounts/{accountId}/contacts?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "accountId", accountId);
 			mozuUrl.FormatUrl( "filter", filter);
 			mozuUrl.FormatUrl( "pageSize", pageSize);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "sortBy", sortBy);
 			mozuUrl.FormatUrl( "startIndex", startIndex);
 			return mozuUrl;
@@ -60,14 +64,16 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// Get Resource Url for AddAccountContact
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account containing the new contact.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl AddAccountContactUrl(int accountId)
+        public static MozuUrl AddAccountContactUrl(int accountId, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/{accountId}/contacts";
+			var url = "/api/commerce/customer/accounts/{accountId}/contacts?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "accountId", accountId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -76,15 +82,17 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account whose contact information is being updated.</param>
         /// <param name="contactId">Unique identifer of the customer account contact being updated.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateAccountContactUrl(int accountId, int contactId)
+        public static MozuUrl UpdateAccountContactUrl(int accountId, int contactId, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/{accountId}/contacts/{contactId}";
+			var url = "/api/commerce/customer/accounts/{accountId}/contacts/{contactId}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "accountId", accountId);
 			mozuUrl.FormatUrl( "contactId", contactId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

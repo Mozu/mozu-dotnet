@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Platform.Applications
 {
@@ -24,6 +25,7 @@ namespace Mozu.Api.Resources.Platform.Applications
 		///
 		private readonly IApiContext _apiContext;
 
+		
 		public AuthTicketResource() 
 		{
 			_apiContext = null;
@@ -32,11 +34,11 @@ namespace Mozu.Api.Resources.Platform.Applications
 		{
 			_apiContext = apiContext;
 		}
-
-		
+				
 		/// <summary>
 		/// Generate an authentication ticket for an application.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="appAuthInfo">Authentication information required to generate an authentication ticket includes the application id and the shared secret.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AppDev.AuthTicket"/>
@@ -44,22 +46,34 @@ namespace Mozu.Api.Resources.Platform.Applications
 		/// <example>
 		/// <code>
 		///   var authticket = new AuthTicket();
-		///   var authTicket = authticket.AuthenticateApp( appAuthInfo);
+		///   var authTicket = authticket.AuthenticateApp( appAuthInfo,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.AppDev.AuthTicket AuthenticateApp(Mozu.Api.Contracts.AppDev.AppAuthInfo appAuthInfo)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.AppDev.AuthTicket AuthenticateApp(Mozu.Api.Contracts.AppDev.AppAuthInfo appAuthInfo, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.AppDev.AuthTicket> response;
-			var client = Mozu.Api.Clients.Platform.Applications.AuthTicketClient.AuthenticateAppClient( appAuthInfo);
+			var client = Mozu.Api.Clients.Platform.Applications.AuthTicketClient.AuthenticateAppClient( appAuthInfo,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.AppDev.AuthTicket> AuthenticateAppAsync(Mozu.Api.Contracts.AppDev.AppAuthInfo appAuthInfo, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.AppDev.AuthTicket> response;
+			var client = Mozu.Api.Clients.Platform.Applications.AuthTicketClient.AuthenticateAppClient( appAuthInfo,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
 		/// <summary>
 		/// Refreshes the application's authentication ticket and generates a new access token by providing the refresh token string.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="authTicketRequest">The refresh token string required to update the application authentication ticket.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AppDev.AuthTicket"/>
@@ -67,16 +81,27 @@ namespace Mozu.Api.Resources.Platform.Applications
 		/// <example>
 		/// <code>
 		///   var authticket = new AuthTicket();
-		///   var authTicket = authticket.RefreshAppAuthTicket( authTicketRequest);
+		///   var authTicket = authticket.RefreshAppAuthTicket( authTicketRequest,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.AppDev.AuthTicket RefreshAppAuthTicket(Mozu.Api.Contracts.AppDev.AuthTicketRequest authTicketRequest)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.AppDev.AuthTicket RefreshAppAuthTicket(Mozu.Api.Contracts.AppDev.AuthTicketRequest authTicketRequest, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.AppDev.AuthTicket> response;
-			var client = Mozu.Api.Clients.Platform.Applications.AuthTicketClient.RefreshAppAuthTicketClient( authTicketRequest);
+			var client = Mozu.Api.Clients.Platform.Applications.AuthTicketClient.RefreshAppAuthTicketClient( authTicketRequest,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.AppDev.AuthTicket> RefreshAppAuthTicketAsync(Mozu.Api.Contracts.AppDev.AuthTicketRequest authTicketRequest, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.AppDev.AuthTicket> response;
+			var client = Mozu.Api.Clients.Platform.Applications.AuthTicketClient.RefreshAppAuthTicketClient( authTicketRequest,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -93,12 +118,22 @@ namespace Mozu.Api.Resources.Platform.Applications
 		///   authticket.DeleteAppAuthTicket( refreshToken);
 		/// </code>
 		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual void DeleteAppAuthTicket(string refreshToken)
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Platform.Applications.AuthTicketClient.DeleteAppAuthTicketClient( refreshToken);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
+
+		}
+
+		public virtual async Task DeleteAppAuthTicketAsync(string refreshToken)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Platform.Applications.AuthTicketClient.DeleteAppAuthTicketClient( refreshToken);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
 
 		}
 

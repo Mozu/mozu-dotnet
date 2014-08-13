@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+
 using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Orders

@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -32,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves a facet specified by its unique identifier and displays its properties.
 		/// <example> 
 		///  <code> 
-		/// var result = FacetFactory.GetFacet(handler : handler,  facetId :  facetId,  validate :  validate,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = FacetFactory.GetFacet(handler : handler,  facetId :  facetId,  validate :  validate,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Facet/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.Facet GetFacet(ServiceClientMessageHandler handler, 
- 		 int facetId, bool? validate = null,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 int facetId, bool? validate = null, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -47,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.FacetClient.GetFacetClient(
-				 facetId :  facetId,  validate :  validate, dataViewMode: dataViewMode		);
+				 facetId :  facetId,  validate :  validate,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -70,14 +71,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves a list of the facets defined for the specified category.
 		/// <example> 
 		///  <code> 
-		/// var result = FacetFactory.GetFacetCategoryList(handler : handler,  categoryId :  categoryId,  includeAvailable :  includeAvailable,  validate :  validate,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = FacetFactory.GetFacetCategoryList(handler : handler,  categoryId :  categoryId,  includeAvailable :  includeAvailable,  validate :  validate,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<FacetSet/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.FacetSet GetFacetCategoryList(ServiceClientMessageHandler handler, 
- 		 int categoryId, bool? includeAvailable = null, bool? validate = null,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 int categoryId, bool? includeAvailable = null, bool? validate = null, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -85,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.FacetClient.GetFacetCategoryListClient(
-				 categoryId :  categoryId,  includeAvailable :  includeAvailable,  validate :  validate, dataViewMode: dataViewMode		);
+				 categoryId :  categoryId,  includeAvailable :  includeAvailable,  validate :  validate,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -105,17 +106,17 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Creates a new category, price, or attribute facet. Supply the category or attribute source to use for the facet values.
+		/// Creates a new category, price, or attribute facet. Define the category or attribute source to use for the facet values.
 		/// <example> 
 		///  <code> 
-		/// var result = FacetFactory.AddFacet(handler : handler,  facet :  facet, dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = FacetFactory.AddFacet(handler : handler,  facet :  facet,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Facet/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.Facet AddFacet(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ProductAdmin.Facet facet, DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 Mozu.Api.Contracts.ProductAdmin.Facet facet, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -123,7 +124,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.FacetClient.AddFacetClient(
-				 facet :  facet, dataViewMode: dataViewMode		);
+				 facet :  facet,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -146,14 +147,14 @@ namespace Mozu.Api.Test.Factories
 		/// Modifies one or more properties of a defined facet.
 		/// <example> 
 		///  <code> 
-		/// var result = FacetFactory.UpdateFacet(handler : handler,  facet :  facet,  facetId :  facetId,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = FacetFactory.UpdateFacet(handler : handler,  facet :  facet,  facetId :  facetId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Facet/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.Facet UpdateFacet(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ProductAdmin.Facet facet, int facetId,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 Mozu.Api.Contracts.ProductAdmin.Facet facet, int facetId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -161,7 +162,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.FacetClient.UpdateFacetClient(
-				 facet :  facet,  facetId :  facetId, dataViewMode: dataViewMode		);
+				 facet :  facet,  facetId :  facetId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -184,14 +185,14 @@ namespace Mozu.Api.Test.Factories
 		/// Deletes the facet specified by its unique identifier.
 		/// <example> 
 		///  <code> 
-		/// var result = FacetFactory.DeleteFacetById(handler : handler,  facetId :  facetId,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = FacetFactory.DeleteFacetById(handler : handler,  facetId :  facetId,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static void DeleteFacetById(ServiceClientMessageHandler handler, 
- 		int facetId,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		int facetId, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
@@ -199,7 +200,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.FacetClient.DeleteFacetByIdClient(
-				 facetId :  facetId, dataViewMode: dataViewMode		);
+				 facetId :  facetId		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

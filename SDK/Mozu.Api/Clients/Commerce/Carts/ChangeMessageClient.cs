@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Carts
 {
@@ -23,18 +24,19 @@ namespace Mozu.Api.Clients.Commerce.Carts
 		/// <summary>
 		/// Retrieves the messages associated with the current shopper's cart.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartChangeMessageCollection"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetMessages();
+		///   var mozuClient=GetMessages( responseFields);
 		///   var cartChangeMessageCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartChangeMessageCollection> GetMessagesClient()
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartChangeMessageCollection> GetMessagesClient(string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Carts.ChangeMessageUrl.GetMessagesUrl();
+			var url = Mozu.Api.Urls.Commerce.Carts.ChangeMessageUrl.GetMessagesUrl(responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartChangeMessageCollection>()
 									.WithVerb(verb).WithResourceUrl(url)

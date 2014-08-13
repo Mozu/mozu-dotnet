@@ -17,6 +17,7 @@ using Mozu.Api;
 using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 #endregion
 
@@ -32,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves a list of customer accounts.
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAccountFactory.GetAccounts(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  fields :  fields,  q :  q,  qLimit :  qLimit,  isAnonymous :  isAnonymous,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CustomerAccountFactory.GetAccounts(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  fields :  fields,  q :  q,  qLimit :  qLimit,  isAnonymous :  isAnonymous,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CustomerAccountCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.CustomerAccountCollection GetAccounts(ServiceClientMessageHandler handler, 
- 		 int? startIndex = null, int? pageSize = null, string sortBy = null, string filter = null, string fields = null, string q = null, int? qLimit = null, bool? isAnonymous = null, 
+ 		 int? startIndex = null, int? pageSize = null, string sortBy = null, string filter = null, string fields = null, string q = null, int? qLimit = null, bool? isAnonymous = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -47,7 +48,45 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetAccountsClient(
-				 startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  fields :  fields,  q :  q,  qLimit :  qLimit,  isAnonymous :  isAnonymous		);
+				 startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  fields :  fields,  q :  q,  qLimit :  qLimit,  isAnonymous :  isAnonymous,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// Retrieves the current login state of the customer account specified in the request.
+		/// <example> 
+		///  <code> 
+		/// var result = CustomerAccountFactory.GetLoginState(handler : handler,  accountId :  accountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<LoginState/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.Customer.LoginState GetLoginState(ServiceClientMessageHandler handler, 
+ 		 int accountId, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetLoginStateClient(
+				 accountId :  accountId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -70,14 +109,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieve details of a customer account.
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAccountFactory.GetAccount(handler : handler,  accountId :  accountId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CustomerAccountFactory.GetAccount(handler : handler,  accountId :  accountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CustomerAccount/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.CustomerAccount GetAccount(ServiceClientMessageHandler handler, 
- 		 int accountId, 
+ 		 int accountId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -85,45 +124,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetAccountClient(
-				 accountId :  accountId		);
-			try
-			{
-				apiClient.WithContext(handler.ApiContext).Execute();
-			}
-			catch (ApiException ex)
-			{
-				// Custom error handling for test cases can be placed here
-				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
-				if (customException != null)
-					throw customException;
-				return null;
-			}
-			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
-					 ? (apiClient.Result()) 
-					 : null;
-
-		}
-  
-		/// <summary> 
-		/// 
-		/// <example> 
-		///  <code> 
-		/// var result = CustomerAccountFactory.GetLoginState(handler : handler,  accountId :  accountId,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<LoginState/>(result); 
-		/// return optionalCasting;
-		///  </code> 
-		/// </example> 
-		/// </summary>
-		public static Mozu.Api.Contracts.Customer.LoginState GetLoginState(ServiceClientMessageHandler handler, 
- 		 int accountId, 
-		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
-		{
-			SetSdKparameters();
-			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
-			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
-			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetLoginStateClient(
-				 accountId :  accountId		);
+				 accountId :  accountId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -146,14 +147,14 @@ namespace Mozu.Api.Test.Factories
 		/// Creates a new customer account based on the information specified in the request.
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAccountFactory.AddAccount(handler : handler,  account :  account,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CustomerAccountFactory.AddAccount(handler : handler,  account :  account,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CustomerAccount/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.CustomerAccount AddAccount(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.Customer.CustomerAccount account, 
+ 		 Mozu.Api.Contracts.Customer.CustomerAccount account, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -161,7 +162,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.AddAccountClient(
-				 account :  account		);
+				 account :  account,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -218,17 +219,17 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Adds a new user login to a defined customer account.
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAccountFactory.AddLoginToExistingCustomer(handler : handler,  customerAuthInfo :  customerAuthInfo,  accountId :  accountId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CustomerAccountFactory.AddLoginToExistingCustomer(handler : handler,  customerAuthInfo :  customerAuthInfo,  accountId :  accountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CustomerAuthTicket/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.CustomerAuthTicket AddLoginToExistingCustomer(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.Customer.CustomerLoginInfo customerAuthInfo, int accountId, 
+ 		 Mozu.Api.Contracts.Customer.CustomerLoginInfo customerAuthInfo, int accountId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -236,7 +237,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.AddLoginToExistingCustomerClient(
-				 customerAuthInfo :  customerAuthInfo,  accountId :  accountId		);
+				 customerAuthInfo :  customerAuthInfo,  accountId :  accountId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -256,7 +257,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Updates the customer lifetime value of the specified customer account in the event of an order import or a lifetime value calculation error.
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerAccountFactory.RecomputeCustomerLifetimeValue(handler : handler,  accountId :  accountId,  expectedCode: expectedCode, successCode: successCode); 
@@ -293,7 +294,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Lock or unlock a customer account.
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerAccountFactory.SetLoginLocked(handler : handler,  isLocked :  isLocked,  accountId :  accountId,  expectedCode: expectedCode, successCode: successCode); 
@@ -330,7 +331,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Requires the password for the customer account to be changed.
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerAccountFactory.SetPasswordChangeRequired(handler : handler,  isPasswordChangeRequired :  isPasswordChangeRequired,  accountId :  accountId,  expectedCode: expectedCode, successCode: successCode); 
@@ -367,17 +368,17 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Creates a new customer account and logs the user associated with the customer account into the site.
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAccountFactory.AddAccountAndLogin(handler : handler,  accountAndAuthInfo :  accountAndAuthInfo,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CustomerAccountFactory.AddAccountAndLogin(handler : handler,  accountAndAuthInfo :  accountAndAuthInfo,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CustomerAuthTicket/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.CustomerAuthTicket AddAccountAndLogin(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.Customer.CustomerAccountAndAuthInfo accountAndAuthInfo, 
+ 		 Mozu.Api.Contracts.Customer.CustomerAccountAndAuthInfo accountAndAuthInfo, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -385,7 +386,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.AddAccountAndLoginClient(
-				 accountAndAuthInfo :  accountAndAuthInfo		);
+				 accountAndAuthInfo :  accountAndAuthInfo,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -405,17 +406,17 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Creates multiple customer accounts based on the information specified in the request.
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAccountFactory.AddAccounts(handler : handler,  customers :  customers,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CustomerAccountFactory.AddAccounts(handler : handler,  customers :  customers,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CustomerAccountCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.CustomerAccountCollection AddAccounts(ServiceClientMessageHandler handler, 
- 		 List<Mozu.Api.Contracts.Customer.CustomerAccountAndAuthInfo> customers, 
+ 		 List<Mozu.Api.Contracts.Customer.CustomerAccountAndAuthInfo> customers, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -423,7 +424,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.AddAccountsClient(
-				 customers :  customers		);
+				 customers :  customers,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -443,17 +444,17 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves the current login state of a customer account by providing the customer's email address.
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAccountFactory.GetLoginStateByEmailAddress(handler : handler,  emailAddress :  emailAddress,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CustomerAccountFactory.GetLoginStateByEmailAddress(handler : handler,  emailAddress :  emailAddress,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<LoginState/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.LoginState GetLoginStateByEmailAddress(ServiceClientMessageHandler handler, 
- 		 string emailAddress, 
+ 		 string emailAddress, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -461,7 +462,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetLoginStateByEmailAddressClient(
-				 emailAddress :  emailAddress		);
+				 emailAddress :  emailAddress,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -481,17 +482,17 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves the current login state of a customer account by providing the user name associated with the customer account.
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAccountFactory.GetLoginStateByUserName(handler : handler,  userName :  userName,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CustomerAccountFactory.GetLoginStateByUserName(handler : handler,  userName :  userName,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<LoginState/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.LoginState GetLoginStateByUserName(ServiceClientMessageHandler handler, 
- 		 string userName, 
+ 		 string userName, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -499,7 +500,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetLoginStateByUserNameClient(
-				 userName :  userName		);
+				 userName :  userName,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -519,7 +520,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Resets the password for a customer account.
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerAccountFactory.ResetPassword(handler : handler,  resetPasswordInfo :  resetPasswordInfo,  expectedCode: expectedCode, successCode: successCode); 
@@ -559,14 +560,14 @@ namespace Mozu.Api.Test.Factories
 		/// Updates a customer account.
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAccountFactory.UpdateAccount(handler : handler,  account :  account,  accountId :  accountId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CustomerAccountFactory.UpdateAccount(handler : handler,  account :  account,  accountId :  accountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CustomerAccount/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.CustomerAccount UpdateAccount(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.Customer.CustomerAccount account, int accountId, 
+ 		 Mozu.Api.Contracts.Customer.CustomerAccount account, int accountId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -574,7 +575,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.UpdateAccountClient(
-				 account :  account,  accountId :  accountId		);
+				 account :  account,  accountId :  accountId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

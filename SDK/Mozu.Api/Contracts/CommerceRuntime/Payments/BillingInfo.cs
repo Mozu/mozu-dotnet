@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+
 using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Payments
@@ -19,7 +20,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 		public class BillingInfo
 		{
 			///
-			///If true, the system overrides the customer's billing address information with the supplied fulfillment information. 
+			///If true, the system overrides the customer's billing address information with the supplied fulfillment information.
 			///
 			public bool IsSameBillingShippingAddress { get; set; }
 
@@ -28,6 +29,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///
 			public string PaymentType { get; set; }
 
+			///
+			///The code that identifies the store credit to apply to the order.
+			///
 			public string StoreCreditCode { get; set; }
 
 			///

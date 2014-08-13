@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 {
@@ -21,23 +22,25 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 	public partial class CardClient 	{
 		
 		/// <summary>
-		/// Retrieves all stored credit cards for the customer account.
+		/// Retrieves the details of a credit card stored with a customer account billing contact.
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CardCollection"/>}
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.Card"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetAccountCards( accountId);
-		///   var cardCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var mozuClient=GetAccountCard( accountId,  cardId,  responseFields);
+		///   var cardClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CardCollection> GetAccountCardsClient(int accountId)
+		public static MozuClient<Mozu.Api.Contracts.Customer.Card> GetAccountCardClient(int accountId, string cardId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CardUrl.GetAccountCardsUrl(accountId);
+			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CardUrl.GetAccountCardUrl(accountId, cardId, responseFields);
 			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CardCollection>()
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.Card>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -45,24 +48,24 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves all stored credit cards for the customer account.
 		/// </summary>
-		/// <param name="accountId"></param>
-		/// <param name="cardId"></param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.Card"/>}
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CardCollection"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetAccountCard( accountId,  cardId);
-		///   var cardClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var mozuClient=GetAccountCards( accountId,  responseFields);
+		///   var cardCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.Card> GetAccountCardClient(int accountId, string cardId)
+		public static MozuClient<Mozu.Api.Contracts.Customer.CardCollection> GetAccountCardsClient(int accountId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CardUrl.GetAccountCardUrl(accountId, cardId);
+			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CardUrl.GetAccountCardsUrl(accountId, responseFields);
 			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.Card>()
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CardCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -73,19 +76,20 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// Creates a new credit card record and stores it for the customer account.
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="card">Properties of the customer credit card to add to the account.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.Card"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddAccountCard( card,  accountId);
+		///   var mozuClient=AddAccountCard( card,  accountId,  responseFields);
 		///   var cardClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.Card> AddAccountCardClient(Mozu.Api.Contracts.Customer.Card card, int accountId)
+		public static MozuClient<Mozu.Api.Contracts.Customer.Card> AddAccountCardClient(Mozu.Api.Contracts.Customer.Card card, int accountId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CardUrl.AddAccountCardUrl(accountId);
+			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CardUrl.AddAccountCardUrl(accountId, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.Card>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -98,20 +102,21 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// Update one or more properties of a credit card defined for a customer account.
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="cardId"></param>
+		/// <param name="cardId">Unique identifier of the credit card.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="card">Properties of the customer account credit card to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.Card"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateAccountCard( card,  accountId,  cardId);
+		///   var mozuClient=UpdateAccountCard( card,  accountId,  cardId,  responseFields);
 		///   var cardClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.Card> UpdateAccountCardClient(Mozu.Api.Contracts.Customer.Card card, int accountId, string cardId)
+		public static MozuClient<Mozu.Api.Contracts.Customer.Card> UpdateAccountCardClient(Mozu.Api.Contracts.Customer.Card card, int accountId, string cardId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CardUrl.UpdateAccountCardUrl(accountId, cardId);
+			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CardUrl.UpdateAccountCardUrl(accountId, cardId, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.Card>()
 									.WithVerb(verb).WithResourceUrl(url)

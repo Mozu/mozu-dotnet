@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Event.Push
 {
@@ -23,25 +24,9 @@ namespace Mozu.Api.Clients.Event.Push
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Event.SubscriptionCollection"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetSubscriptions();
-		///   var subscriptionCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Event.SubscriptionCollection> GetSubscriptionsClient()
-		{
-			return GetSubscriptionsClient( null,  null,  null,  null);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
 		/// <param name="filter"></param>
 		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
 		/// <returns>
@@ -49,13 +34,13 @@ namespace Mozu.Api.Clients.Event.Push
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetSubscriptions( startIndex,  pageSize,  sortBy,  filter);
+		///   var mozuClient=GetSubscriptions( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		///   var subscriptionCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Event.SubscriptionCollection> GetSubscriptionsClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null)
+		public static MozuClient<Mozu.Api.Contracts.Event.SubscriptionCollection> GetSubscriptionsClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Event.Push.SubscriptionUrl.GetSubscriptionsUrl(filter, pageSize, sortBy, startIndex);
+			var url = Mozu.Api.Urls.Event.Push.SubscriptionUrl.GetSubscriptionsUrl(startIndex, pageSize, sortBy, filter, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Event.SubscriptionCollection>()
 									.WithVerb(verb).WithResourceUrl(url)

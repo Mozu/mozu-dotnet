@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Clients.Content.Documentlists
 {
@@ -20,32 +21,6 @@ namespace Mozu.Api.Clients.Content.Documentlists
 	/// </summary>
 	public partial class DocumentClient 	{
 		
-		/// <summary>
-		/// Retrieves a specific document within the specified document list by providing the document ID.
-		/// </summary>
-		/// <param name="documentId">Identifier of the document being retrieved.</param>
-		/// <param name="documentListName">The name of the document list associated with the document to retrieve.</param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.Document"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetDocument(dataViewMode,  documentListName,  documentId);
-		///   var documentClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Content.Document> GetDocumentClient(DataViewMode dataViewMode, string documentListName, string documentId)
-		{
-			var url = Mozu.Api.Urls.Content.Documentlists.DocumentUrl.GetDocumentUrl(documentId, documentListName);
-			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.Content.Document>()
-									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
-;
-			return mozuClient;
-
-		}
-
 		/// <summary>
 		/// Retrieve the content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
 		/// </summary>
@@ -62,7 +37,7 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		/// </example>
 		public static MozuClient<System.IO.Stream> GetDocumentContentClient(DataViewMode dataViewMode, string documentListName, string documentId)
 		{
-			var url = Mozu.Api.Urls.Content.Documentlists.DocumentUrl.GetDocumentContentUrl(documentId, documentListName);
+			var url = Mozu.Api.Urls.Content.Documentlists.DocumentUrl.GetDocumentContentUrl(documentListName, documentId);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -73,21 +48,30 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		}
 
 		/// <summary>
-		/// Retrieves a collection of documents according to any filter and sort criteria.
+		/// Retrieves a document within the specified document list.
 		/// </summary>
-		/// <param name="documentListName">The name of the document list.</param>
+		/// <param name="documentId">Identifier of the document being retrieved.</param>
+		/// <param name="documentListName">The name of the document list associated with the document to retrieve.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.DocumentCollection"/>}
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.Document"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetDocuments(dataViewMode,  documentListName);
-		///   var documentCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var mozuClient=GetDocument(dataViewMode,  documentListName,  documentId,  responseFields);
+		///   var documentClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Content.DocumentCollection> GetDocumentsClient(DataViewMode dataViewMode, string documentListName)
+		public static MozuClient<Mozu.Api.Contracts.Content.Document> GetDocumentClient(DataViewMode dataViewMode, string documentListName, string documentId, string responseFields =  null)
 		{
-			return GetDocumentsClient(dataViewMode,  documentListName,  null,  null,  null,  null);
+			var url = Mozu.Api.Urls.Content.Documentlists.DocumentUrl.GetDocumentUrl(documentListName, documentId, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Content.Document>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
+			return mozuClient;
+
 		}
 
 		/// <summary>
@@ -96,6 +80,7 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		/// <param name="documentListName">The name of the document list.</param>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter a document's search results by any of its properties, including its name or folder path. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+sw+Events"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
 		/// <returns>
@@ -103,13 +88,13 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetDocuments(dataViewMode,  documentListName,  filter,  sortBy,  pageSize,  startIndex);
+		///   var mozuClient=GetDocuments(dataViewMode,  documentListName,  filter,  sortBy,  pageSize,  startIndex,  responseFields);
 		///   var documentCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Content.DocumentCollection> GetDocumentsClient(DataViewMode dataViewMode, string documentListName, string filter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null)
+		public static MozuClient<Mozu.Api.Contracts.Content.DocumentCollection> GetDocumentsClient(DataViewMode dataViewMode, string documentListName, string filter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Content.Documentlists.DocumentUrl.GetDocumentsUrl(documentListName, filter, pageSize, sortBy, startIndex);
+			var url = Mozu.Api.Urls.Content.Documentlists.DocumentUrl.GetDocumentsUrl(documentListName, filter, sortBy, pageSize, startIndex, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Content.DocumentCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -120,26 +105,53 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		}
 
 		/// <summary>
-		/// Creates a new document in an existing list.
+		/// Creates a new document in an defined document list.
 		/// </summary>
 		/// <param name="documentListName">The descriptive alphanumeric document list name being created.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="document">The descriptive name of the newly created document.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.Document"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=CreateDocument(dataViewMode,  document,  documentListName);
+		///   var mozuClient=CreateDocument( document,  documentListName,  responseFields);
 		///   var documentClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Content.Document> CreateDocumentClient(DataViewMode dataViewMode, Mozu.Api.Contracts.Content.Document document, string documentListName)
+		public static MozuClient<Mozu.Api.Contracts.Content.Document> CreateDocumentClient(Mozu.Api.Contracts.Content.Document document, string documentListName, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Content.Documentlists.DocumentUrl.CreateDocumentUrl(documentListName);
+			var url = Mozu.Api.Urls.Content.Documentlists.DocumentUrl.CreateDocumentUrl(documentListName, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Content.Document>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.Content.Document>(document)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+									.WithBody<Mozu.Api.Contracts.Content.Document>(document);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// Updates the content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
+		/// </summary>
+		/// <param name="documentId">Unique identifier of the document.</param>
+		/// <param name="documentListName">The name of the document list associated with the document.</param>
+		/// <param name="stream">Input output stream that delivers information.</param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=UpdateDocumentContent( stream,  documentListName,  documentId,  contentType);
+		///mozuClient.WithBaseAddress(url).Execute();
+		/// </code>
+		/// </example>
+		public static MozuClient UpdateDocumentContentClient(System.IO.Stream stream, string documentListName, string documentId, String  contentType= null)
+		{
+			var url = Mozu.Api.Urls.Content.Documentlists.DocumentUrl.UpdateDocumentContentUrl(documentListName, documentId);
+			const string verb = "PUT";
+			var mozuClient = new MozuClient()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody(stream)									.WithHeader(Headers.CONTENT_TYPE ,contentType)
 ;
 			return mozuClient;
 
@@ -150,52 +162,24 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		/// </summary>
 		/// <param name="documentId">Unique identifier of the document to update.</param>
 		/// <param name="documentListName">Name of the document list associated with the document.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="document">Properties of the document to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.Document"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateDocument(dataViewMode,  document,  documentListName,  documentId);
+		///   var mozuClient=UpdateDocument( document,  documentListName,  documentId,  responseFields);
 		///   var documentClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Content.Document> UpdateDocumentClient(DataViewMode dataViewMode, Mozu.Api.Contracts.Content.Document document, string documentListName, string documentId)
+		public static MozuClient<Mozu.Api.Contracts.Content.Document> UpdateDocumentClient(Mozu.Api.Contracts.Content.Document document, string documentListName, string documentId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Content.Documentlists.DocumentUrl.UpdateDocumentUrl(documentId, documentListName);
+			var url = Mozu.Api.Urls.Content.Documentlists.DocumentUrl.UpdateDocumentUrl(documentListName, documentId, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Content.Document>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.Content.Document>(document)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
-;
-			return mozuClient;
-
-		}
-
-		/// <summary>
-		/// Updates the content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
-		/// </summary>
-		/// <param name="documentId">Unique identifier of the document.</param>
-		/// <param name="documentListName">The name of the document list associated with the document.</param>
-		/// <param name="stream"></param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=UpdateDocumentContent(dataViewMode,  stream,  documentListName,  documentId,  contentType);
-		///mozuClient.WithBaseAddress(url).Execute();
-		/// </code>
-		/// </example>
-		public static MozuClient UpdateDocumentContentClient(DataViewMode dataViewMode, System.IO.Stream stream, string documentListName, string documentId, String  contentType= null)
-		{
-			var url = Mozu.Api.Urls.Content.Documentlists.DocumentUrl.UpdateDocumentContentUrl(documentId, documentListName);
-			const string verb = "PUT";
-			var mozuClient = new MozuClient()
-									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody(stream)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
-									.WithHeader(Headers.CONTENT_TYPE ,contentType)
-;
+									.WithBody<Mozu.Api.Contracts.Content.Document>(document);
 			return mozuClient;
 
 		}
@@ -210,17 +194,16 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=DeleteDocument(dataViewMode,  documentListName,  documentId);
+		///   var mozuClient=DeleteDocument( documentListName,  documentId);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteDocumentClient(DataViewMode dataViewMode, string documentListName, string documentId)
+		public static MozuClient DeleteDocumentClient(string documentListName, string documentId)
 		{
-			var url = Mozu.Api.Urls.Content.Documentlists.DocumentUrl.DeleteDocumentUrl(documentId, documentListName);
+			var url = Mozu.Api.Urls.Content.Documentlists.DocumentUrl.DeleteDocumentUrl(documentListName, documentId);
 			const string verb = "DELETE";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
@@ -236,17 +219,16 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=DeleteDocumentContent(dataViewMode,  documentListName,  documentId);
+		///   var mozuClient=DeleteDocumentContent( documentListName,  documentId);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteDocumentContentClient(DataViewMode dataViewMode, string documentListName, string documentId)
+		public static MozuClient DeleteDocumentContentClient(string documentListName, string documentId)
 		{
-			var url = Mozu.Api.Urls.Content.Documentlists.DocumentUrl.DeleteDocumentContentUrl(documentId, documentListName);
+			var url = Mozu.Api.Urls.Content.Documentlists.DocumentUrl.DeleteDocumentContentUrl(documentListName, documentId);
 			const string verb = "DELETE";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 

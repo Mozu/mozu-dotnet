@@ -11,7 +11,8 @@
 using System;
 using System.Collections.Generic;
 using Mozu.Api.Security;
-
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Producttypes
 {
@@ -24,12 +25,19 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Productt
 		///
 		private readonly IApiContext _apiContext;
 
+		private readonly DataViewMode _dataViewMode;
+		
 		public ProductTypePropertyResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
+			_dataViewMode = DataViewMode.Live;
 		}
-
-		
+		public ProductTypePropertyResource(IApiContext apiContext, DataViewMode dataViewMode) 
+		{
+			_apiContext = apiContext;
+			_dataViewMode = dataViewMode;
+		}
+				
 		/// <summary>
 		/// Retrieves a list of product property attributes defined for a product type.
 		/// </summary>
@@ -41,16 +49,27 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Productt
 		/// <example>
 		/// <code>
 		///   var producttypeproperty = new ProductTypeProperty();
-		///   var attributeInProductType = producttypeproperty.GetProperties(dataViewMode,  productTypeId);
+		///   var attributeInProductType = producttypeproperty.GetProperties(_dataViewMode,  productTypeId);
 		/// </code>
 		/// </example>
-		public virtual List<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> GetProperties(DataViewMode dataViewMode, int productTypeId)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual List<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> GetProperties(int productTypeId)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypePropertyClient.GetPropertiesClient(dataViewMode,  productTypeId);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypePropertyClient.GetPropertiesClient(_dataViewMode,  productTypeId);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType>> GetPropertiesAsync(int productTypeId)
+		{
+			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType>> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypePropertyClient.GetPropertiesClient(_dataViewMode,  productTypeId);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -59,6 +78,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Productt
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="productTypeId">Identifier of the product type.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.AttributeInProductType"/>
@@ -66,16 +86,27 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Productt
 		/// <example>
 		/// <code>
 		///   var producttypeproperty = new ProductTypeProperty();
-		///   var attributeInProductType = producttypeproperty.GetProperty(dataViewMode,  productTypeId,  attributeFQN);
+		///   var attributeInProductType = producttypeproperty.GetProperty(_dataViewMode,  productTypeId,  attributeFQN,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.AttributeInProductType GetProperty(DataViewMode dataViewMode, int productTypeId, string attributeFQN)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.AttributeInProductType GetProperty(int productTypeId, string attributeFQN, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypePropertyClient.GetPropertyClient(dataViewMode,  productTypeId,  attributeFQN);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypePropertyClient.GetPropertyClient(_dataViewMode,  productTypeId,  attributeFQN,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> GetPropertyAsync(int productTypeId, string attributeFQN, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypePropertyClient.GetPropertyClient(_dataViewMode,  productTypeId,  attributeFQN,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -83,6 +114,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Productt
 		/// Assigns a property attribute to the specified product type, according to the information defined in the request.
 		/// </summary>
 		/// <param name="productTypeId">Identifier of the product type.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="attributeInProductType">Properties of the property attribute to define for the specified product type.</param>
 		/// <returns>
@@ -91,16 +123,27 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Productt
 		/// <example>
 		/// <code>
 		///   var producttypeproperty = new ProductTypeProperty();
-		///   var attributeInProductType = producttypeproperty.AddProperty(dataViewMode,  attributeInProductType,  productTypeId);
+		///   var attributeInProductType = producttypeproperty.AddProperty( attributeInProductType,  productTypeId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.AttributeInProductType AddProperty(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.AttributeInProductType attributeInProductType, int productTypeId)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.AttributeInProductType AddProperty(Mozu.Api.Contracts.ProductAdmin.AttributeInProductType attributeInProductType, int productTypeId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypePropertyClient.AddPropertyClient(dataViewMode,  attributeInProductType,  productTypeId);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypePropertyClient.AddPropertyClient( attributeInProductType,  productTypeId,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> AddPropertyAsync(Mozu.Api.Contracts.ProductAdmin.AttributeInProductType attributeInProductType, int productTypeId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypePropertyClient.AddPropertyClient( attributeInProductType,  productTypeId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -109,6 +152,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Productt
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="productTypeId">Identifier of the product type.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="attributeInProductType">Properties of the property attribute to define for the product type.</param>
 		/// <returns>
@@ -117,16 +161,27 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Productt
 		/// <example>
 		/// <code>
 		///   var producttypeproperty = new ProductTypeProperty();
-		///   var attributeInProductType = producttypeproperty.UpdateProperty(dataViewMode,  attributeInProductType,  productTypeId,  attributeFQN);
+		///   var attributeInProductType = producttypeproperty.UpdateProperty( attributeInProductType,  productTypeId,  attributeFQN,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual Mozu.Api.Contracts.ProductAdmin.AttributeInProductType UpdateProperty(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.AttributeInProductType attributeInProductType, int productTypeId, string attributeFQN)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.AttributeInProductType UpdateProperty(Mozu.Api.Contracts.ProductAdmin.AttributeInProductType attributeInProductType, int productTypeId, string attributeFQN, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypePropertyClient.UpdatePropertyClient(dataViewMode,  attributeInProductType,  productTypeId,  attributeFQN);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypePropertyClient.UpdatePropertyClient( attributeInProductType,  productTypeId,  attributeFQN,  responseFields);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
 			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> UpdatePropertyAsync(Mozu.Api.Contracts.ProductAdmin.AttributeInProductType attributeInProductType, int productTypeId, string attributeFQN, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypePropertyClient.UpdatePropertyClient( attributeInProductType,  productTypeId,  attributeFQN,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 
@@ -142,15 +197,25 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Productt
 		/// <example>
 		/// <code>
 		///   var producttypeproperty = new ProductTypeProperty();
-		///   producttypeproperty.DeleteProperty(dataViewMode,  productTypeId,  attributeFQN);
+		///   producttypeproperty.DeleteProperty( productTypeId,  attributeFQN);
 		/// </code>
 		/// </example>
-		public virtual void DeleteProperty(DataViewMode dataViewMode, int productTypeId, string attributeFQN)
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void DeleteProperty(int productTypeId, string attributeFQN)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypePropertyClient.DeletePropertyClient(dataViewMode,  productTypeId,  attributeFQN);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypePropertyClient.DeletePropertyClient( productTypeId,  attributeFQN);
 			client.WithContext(_apiContext);
-			response= client.Execute();
+			response = client.Execute();
+
+		}
+
+		public virtual async Task DeletePropertyAsync(int productTypeId, string attributeFQN)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypePropertyClient.DeletePropertyClient( productTypeId,  attributeFQN);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
 
 		}
 
