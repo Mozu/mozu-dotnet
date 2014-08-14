@@ -14,33 +14,30 @@ namespace Mozu.Api.WebToolKit
 {
     public abstract class AbstractWebApiBootstrapper : AbstractBootstrapper
     {
-       
+
+        private HttpConfiguration _httpConfiguration;
 
         public AbstractWebApiBootstrapper Bootstrap(HttpConfiguration httpConfiguration)
         {
-            base.Bootstrap();
-            InitDependencyResolvers(httpConfiguration);
+            Bootstrap();
             return this;
         }
 
-        private void InitDependencyResolvers(HttpConfiguration httpConfiguration)
+        public override void InitializeContainer(ContainerBuilder containerBuilder)
         {
+            base.InitializeContainer(containerBuilder);
             _containerBuilder.RegisterType<EventRouteHandler>().AsSelf();
             _containerBuilder.RegisterType<ApiLogger>().AsSelf().InstancePerRequest();
             _containerBuilder.RegisterType<MvcLoggingFilter>().AsSelf().InstancePerRequest();
             _containerBuilder.RegisterType<VersionController>().InstancePerRequest();
+        }
 
-            InitializeContainer(_containerBuilder);
 
-            Container = _containerBuilder.Build();
-
-          
-            PostInitialize();
-
-            if (httpConfiguration == null) return;
-            httpConfiguration.DependencyResolver = new AutofacWebApiDependencyResolver(Container);
-            httpConfiguration.MessageHandlers.Add(DependencyResolver.Current.GetService<ApiLogger>());
-            
+        public override void PostInitialize()
+        {
+            base.PostInitialize();
+            _httpConfiguration.DependencyResolver = new AutofacWebApiDependencyResolver(Container);
+            _httpConfiguration.MessageHandlers.Add(DependencyResolver.Current.GetService<ApiLogger>());
         }
 
     }
