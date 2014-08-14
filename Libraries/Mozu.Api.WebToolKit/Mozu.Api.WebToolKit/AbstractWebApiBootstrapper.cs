@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Web.Http;
 using System.Web.Mvc;
 using Autofac;
+using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using Mozu.Api.Logging;
 using Mozu.Api.ToolKit;
@@ -37,6 +38,7 @@ namespace Mozu.Api.WebToolKit
         {
             base.PostInitialize();
             _httpConfiguration.DependencyResolver = new AutofacWebApiDependencyResolver(Container);
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(Container));
             _httpConfiguration.MessageHandlers.Add(DependencyResolver.Current.GetService<ApiLogger>());
         }
 
