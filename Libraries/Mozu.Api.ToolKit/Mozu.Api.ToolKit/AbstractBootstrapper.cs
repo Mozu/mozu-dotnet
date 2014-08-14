@@ -24,6 +24,7 @@ namespace Mozu.Api.ToolKit
         private void InitDependencyResolvers()
         {
 
+            _containerBuilder.RegisterType<AppSetting>().As<IAppSetting>().SingleInstance();
             _containerBuilder.RegisterType<Log4NetServiceFactory>().As<ILoggingServiceFactory>().SingleInstance();
             _containerBuilder.RegisterType<Events.EventService>().As<IEventService>();
             _containerBuilder.RegisterType<Events.EventServiceFactory>().As<IEventServiceFactory>();
