@@ -14,7 +14,7 @@ namespace Mozu.Api.ToolKit.Events
     }
     public abstract class EventProcessorBase
     {
-        protected readonly ILogger Logger = LogManager.GetLogger(typeof(EventService));
+        private readonly ILogger _logger = LogManager.GetLogger(typeof(EventService));
         private string _action;
         protected IApiContext ApiContext;
         protected Event EventPayLoad;
@@ -38,7 +38,7 @@ namespace Mozu.Api.ToolKit.Events
             }
             catch (Exception exc)
             {
-                Logger.Error(exc);
+                _logger.Error(exc);
                 if (exc.InnerException != null)
                     throw exc.InnerException;
 
@@ -50,12 +50,13 @@ namespace Mozu.Api.ToolKit.Events
 
     public class OrderEventProcessor : EventProcessorBase, IEventProcessor
     {
+        private readonly ILogger _logger = LogManager.GetLogger(typeof(OrderEventProcessor));
         public async Task ProcessAsync(IComponentContext container, IApiContext apiContext, Event eventPayLoad)
         {
             EventPayLoad = eventPayLoad;
             ApiContext = apiContext;
             Container = container;
-            Logger.Info("Processing Order event");
+            _logger.Info("Processing Order event");
             var orderEvents = Container.Resolve<IOrderEvents>();
             if (orderEvents == null) throw new ArgumentNullException("IOrderEvents is not registered");
             await ExecuteAsync(orderEvents);
@@ -64,12 +65,13 @@ namespace Mozu.Api.ToolKit.Events
 
     public class ReturnEventProcessor : EventProcessorBase, IEventProcessor
     {
+        private readonly ILogger _logger = LogManager.GetLogger(typeof(ReturnEventProcessor));
         public async Task ProcessAsync(IComponentContext container, IApiContext apiContext, Event eventPayLoad)
         {
             EventPayLoad = eventPayLoad;
             ApiContext = apiContext;
             Container = container;
-            Logger.Info("Processing Return event");
+            _logger.Info("Processing Return event");
             var returnEvents = Container.Resolve<IReturnEvents>();
             if (returnEvents == null) throw new ArgumentNullException("IReturnEvents is not registered");
             await ExecuteAsync(returnEvents);
@@ -78,12 +80,13 @@ namespace Mozu.Api.ToolKit.Events
 
     public class CustomerAccountEventProcessor : EventProcessorBase, IEventProcessor
     {
+        private readonly ILogger _logger = LogManager.GetLogger(typeof(CustomerAccountEventProcessor));
         public async Task ProcessAsync(IComponentContext container, IApiContext apiContext, Event eventPayLoad)
         {
             EventPayLoad = eventPayLoad;
             ApiContext = apiContext;
             Container = container;
-            Logger.Info("Processing Customer Account event");
+            _logger.Info("Processing Customer Account event");
             var customerAccountEvents = Container.Resolve<ICustomerAccountEvents>();
             if (customerAccountEvents == null) throw new ArgumentNullException("ICustomerAccountEvents is not registered");
             await ExecuteAsync(customerAccountEvents);
@@ -92,12 +95,13 @@ namespace Mozu.Api.ToolKit.Events
 
     public class ProductEventProcessor : EventProcessorBase, IEventProcessor
     {
+        private readonly ILogger _logger = LogManager.GetLogger(typeof(ProductEventProcessor));
         public async Task ProcessAsync(IComponentContext container, IApiContext apiContext, Event eventPayLoad)
         {
             EventPayLoad = eventPayLoad;
             ApiContext = apiContext;
             Container = container;
-            Logger.Info("Processing Product event");
+            _logger.Info("Processing Product event");
             var productEvents = Container.Resolve<IProductEvents>();
             if (productEvents == null) throw new ArgumentNullException("IProductEvents is not registered");
             await ExecuteAsync(productEvents);
@@ -106,12 +110,13 @@ namespace Mozu.Api.ToolKit.Events
 
     public class DiscountEventProcessor : EventProcessorBase, IEventProcessor
     {
+        private readonly ILogger _logger = LogManager.GetLogger(typeof(DiscountEventProcessor));
         public async Task ProcessAsync(IComponentContext container, IApiContext apiContext, Event eventPayLoad)
         {
             EventPayLoad = eventPayLoad;
             ApiContext = apiContext;
             Container = container;
-            Logger.Info("Processing Discount event");
+            _logger.Info("Processing Discount event");
             var discountEvents = Container.Resolve<IDiscountEvents>();
             if (discountEvents == null) throw new ArgumentNullException("IDiscountEvents is not registered");
             await ExecuteAsync(discountEvents);
@@ -120,12 +125,13 @@ namespace Mozu.Api.ToolKit.Events
 
     public class ApplicationEventProcessor : EventProcessorBase, IEventProcessor
     {
+        private readonly ILogger _logger = LogManager.GetLogger(typeof(ApplicationEventProcessor));
         public async Task ProcessAsync(IComponentContext container, IApiContext apiContext, Event eventPayLoad)
         {
             EventPayLoad = eventPayLoad;
             ApiContext = apiContext;
             Container = container;
-            Logger.Info("Processing Application event");
+            _logger.Info("Processing Application event");
             var applicationEvents = Container.Resolve<IApplicationEvents>();
             if (applicationEvents == null) throw new ArgumentNullException("IApplicationEvents is not registered");
             await ExecuteAsync(applicationEvents);
