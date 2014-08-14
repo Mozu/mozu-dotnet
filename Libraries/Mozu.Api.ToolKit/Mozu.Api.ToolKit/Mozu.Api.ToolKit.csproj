@@ -54,7 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractBootstrapper.cs" />
+    <Compile Include="AbstractBootStrapper.cs" />
     <Compile Include="Config\AppSetting.cs" />
     <Compile Include="Config\IAppSetting.cs" />
     <Compile Include="Events\EventCategory.cs" />
@@ -75,7 +75,7 @@
     <Compile Include="Readers\WishlistCollectionReader.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Mozu.Api.TookKit.nuspec" />
+    <None Include="Mozu.Api.ToolKit.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

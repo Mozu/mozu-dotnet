@@ -11,7 +11,7 @@ namespace Mozu.Api.ToolKit
 {
     public abstract class AbstractBootstrapper
     {
-        private readonly ContainerBuilder _containerBuilder = new ContainerBuilder();
+        protected readonly ContainerBuilder _containerBuilder = new ContainerBuilder();
         public IContainer Container;
 
         public AbstractBootstrapper Bootstrap()
