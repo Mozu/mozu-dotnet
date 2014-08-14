@@ -20,6 +20,7 @@ namespace Mozu.Api.WebToolKit
 
         public AbstractWebApiBootstrapper Bootstrap(HttpConfiguration httpConfiguration)
         {
+            _httpConfiguration = httpConfiguration;
             Bootstrap();
             return this;
         }
