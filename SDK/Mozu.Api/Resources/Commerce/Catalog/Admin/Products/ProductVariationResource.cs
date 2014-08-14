@@ -198,14 +198,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <example>
 		/// <code>
 		///   var productvariation = new ProductVariation();
-		///   var productVariationDeltaPrice = productvariation.AddProductVariationLocalizedDeltaPrice( localizedDeltaPrice,  productCode,  variationKey,  responseFields);
+		///   var productVariationDeltaPrice = productvariation.AddProductVariationLocalizedDeltaPrice(_dataViewMode,  localizedDeltaPrice,  productCode,  variationKey,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice AddProductVariationLocalizedDeltaPrice(Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice localizedDeltaPrice, string productCode, string variationKey, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.AddProductVariationLocalizedDeltaPriceClient( localizedDeltaPrice,  productCode,  variationKey,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.AddProductVariationLocalizedDeltaPriceClient(_dataViewMode,  localizedDeltaPrice,  productCode,  variationKey,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -215,7 +215,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice> AddProductVariationLocalizedDeltaPriceAsync(Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice localizedDeltaPrice, string productCode, string variationKey, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.AddProductVariationLocalizedDeltaPriceClient( localizedDeltaPrice,  productCode,  variationKey,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.AddProductVariationLocalizedDeltaPriceClient(_dataViewMode,  localizedDeltaPrice,  productCode,  variationKey,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -234,14 +234,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <example>
 		/// <code>
 		///   var productvariation = new ProductVariation();
-		///   var productVariationDeltaPrice = productvariation.UpdateProductVariationLocalizedDeltaPrices( localizedDeltaPrice,  productCode,  variationKey);
+		///   var productVariationDeltaPrice = productvariation.UpdateProductVariationLocalizedDeltaPrices(_dataViewMode,  localizedDeltaPrice,  productCode,  variationKey);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice> UpdateProductVariationLocalizedDeltaPrices(List<Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice> localizedDeltaPrice, string productCode, string variationKey)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.UpdateProductVariationLocalizedDeltaPricesClient( localizedDeltaPrice,  productCode,  variationKey);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.UpdateProductVariationLocalizedDeltaPricesClient(_dataViewMode,  localizedDeltaPrice,  productCode,  variationKey);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -251,7 +251,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice>> UpdateProductVariationLocalizedDeltaPricesAsync(List<Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice> localizedDeltaPrice, string productCode, string variationKey)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.UpdateProductVariationLocalizedDeltaPricesClient( localizedDeltaPrice,  productCode,  variationKey);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.UpdateProductVariationLocalizedDeltaPricesClient(_dataViewMode,  localizedDeltaPrice,  productCode,  variationKey);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -272,14 +272,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <example>
 		/// <code>
 		///   var productvariation = new ProductVariation();
-		///   var productVariationDeltaPrice = productvariation.UpdateProductVariationLocalizedDeltaPrice( localizedDeltaPrice,  productCode,  variationKey,  currencyCode,  responseFields);
+		///   var productVariationDeltaPrice = productvariation.UpdateProductVariationLocalizedDeltaPrice(_dataViewMode,  localizedDeltaPrice,  productCode,  variationKey,  currencyCode,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice UpdateProductVariationLocalizedDeltaPrice(Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice localizedDeltaPrice, string productCode, string variationKey, string currencyCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.UpdateProductVariationLocalizedDeltaPriceClient( localizedDeltaPrice,  productCode,  variationKey,  currencyCode,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.UpdateProductVariationLocalizedDeltaPriceClient(_dataViewMode,  localizedDeltaPrice,  productCode,  variationKey,  currencyCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -289,7 +289,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice> UpdateProductVariationLocalizedDeltaPriceAsync(Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice localizedDeltaPrice, string productCode, string variationKey, string currencyCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.UpdateProductVariationLocalizedDeltaPriceClient( localizedDeltaPrice,  productCode,  variationKey,  currencyCode,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.UpdateProductVariationLocalizedDeltaPriceClient(_dataViewMode,  localizedDeltaPrice,  productCode,  variationKey,  currencyCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -309,14 +309,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <example>
 		/// <code>
 		///   var productvariation = new ProductVariation();
-		///   var productVariation = productvariation.UpdateProductVariation( productVariation,  productCode,  variationKey,  responseFields);
+		///   var productVariation = productvariation.UpdateProductVariation(_dataViewMode,  productVariation,  productCode,  variationKey,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.ProductVariation UpdateProductVariation(Mozu.Api.Contracts.ProductAdmin.ProductVariation productVariation, string productCode, string variationKey, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariation> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.UpdateProductVariationClient( productVariation,  productCode,  variationKey,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.UpdateProductVariationClient(_dataViewMode,  productVariation,  productCode,  variationKey,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -326,7 +326,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductVariation> UpdateProductVariationAsync(Mozu.Api.Contracts.ProductAdmin.ProductVariation productVariation, string productCode, string variationKey, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariation> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.UpdateProductVariationClient( productVariation,  productCode,  variationKey,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.UpdateProductVariationClient(_dataViewMode,  productVariation,  productCode,  variationKey,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -345,14 +345,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <example>
 		/// <code>
 		///   var productvariation = new ProductVariation();
-		///   var productVariationCollection = productvariation.UpdateProductVariations( productVariations,  productCode,  responseFields);
+		///   var productVariationCollection = productvariation.UpdateProductVariations(_dataViewMode,  productVariations,  productCode,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.ProductVariationCollection UpdateProductVariations(Mozu.Api.Contracts.ProductAdmin.ProductVariationCollection productVariations, string productCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.UpdateProductVariationsClient( productVariations,  productCode,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.UpdateProductVariationsClient(_dataViewMode,  productVariations,  productCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -362,7 +362,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductVariationCollection> UpdateProductVariationsAsync(Mozu.Api.Contracts.ProductAdmin.ProductVariationCollection productVariations, string productCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.UpdateProductVariationsClient( productVariations,  productCode,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.UpdateProductVariationsClient(_dataViewMode,  productVariations,  productCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -380,14 +380,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <example>
 		/// <code>
 		///   var productvariation = new ProductVariation();
-		///   productvariation.DeleteProductVariation( productCode,  variationKey);
+		///   productvariation.DeleteProductVariation(_dataViewMode,  productCode,  variationKey);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual void DeleteProductVariation(string productCode, string variationKey)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.DeleteProductVariationClient( productCode,  variationKey);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.DeleteProductVariationClient(_dataViewMode,  productCode,  variationKey);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 
@@ -396,7 +396,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		public virtual async Task DeleteProductVariationAsync(string productCode, string variationKey)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.DeleteProductVariationClient( productCode,  variationKey);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.DeleteProductVariationClient(_dataViewMode,  productCode,  variationKey);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 
@@ -414,14 +414,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <example>
 		/// <code>
 		///   var productvariation = new ProductVariation();
-		///   productvariation.DeleteProductVariationLocalizedDeltaPrice( productCode,  variationKey,  currencyCode);
+		///   productvariation.DeleteProductVariationLocalizedDeltaPrice(_dataViewMode,  productCode,  variationKey,  currencyCode);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual void DeleteProductVariationLocalizedDeltaPrice(string productCode, string variationKey, string currencyCode)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.DeleteProductVariationLocalizedDeltaPriceClient( productCode,  variationKey,  currencyCode);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.DeleteProductVariationLocalizedDeltaPriceClient(_dataViewMode,  productCode,  variationKey,  currencyCode);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 
@@ -430,7 +430,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		public virtual async Task DeleteProductVariationLocalizedDeltaPriceAsync(string productCode, string variationKey, string currencyCode)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.DeleteProductVariationLocalizedDeltaPriceClient( productCode,  variationKey,  currencyCode);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.DeleteProductVariationLocalizedDeltaPriceClient(_dataViewMode,  productCode,  variationKey,  currencyCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 

@@ -25,10 +25,17 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		///
 		private readonly IApiContext _apiContext;
 
+		private readonly DataViewMode _dataViewMode;
 		
 		public ProductResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
+			_dataViewMode = DataViewMode.Live;
+		}
+		public ProductResource(IApiContext apiContext, DataViewMode dataViewMode) 
+		{
+			_apiContext = apiContext;
+			_dataViewMode = dataViewMode;
 		}
 				
 		/// <summary>
@@ -45,14 +52,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var productCollection = product.GetProducts( filter,  startIndex,  pageSize,  sortBy,  responseFields);
+		///   var productCollection = product.GetProducts(_dataViewMode,  filter,  startIndex,  pageSize,  sortBy,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductRuntime.ProductCollection GetProducts(string filter =  null, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductsClient( filter,  startIndex,  pageSize,  sortBy,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductsClient(_dataViewMode,  filter,  startIndex,  pageSize,  sortBy,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -62,7 +69,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.ProductCollection> GetProductsAsync(string filter =  null, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductsClient( filter,  startIndex,  pageSize,  sortBy,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductsClient(_dataViewMode,  filter,  startIndex,  pageSize,  sortBy,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -81,14 +88,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var locationInventoryCollection = product.GetProductInventory( productCode,  locationCodes,  responseFields);
+		///   var locationInventoryCollection = product.GetProductInventory(_dataViewMode,  productCode,  locationCodes,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection GetProductInventory(string productCode, string locationCodes =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductInventoryClient( productCode,  locationCodes,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductInventoryClient(_dataViewMode,  productCode,  locationCodes,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -98,7 +105,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection> GetProductInventoryAsync(string productCode, string locationCodes =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductInventoryClient( productCode,  locationCodes,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductInventoryClient(_dataViewMode,  productCode,  locationCodes,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -119,14 +126,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var product = product.GetProduct( productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  responseFields);
+		///   var product = product.GetProduct(_dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductRuntime.Product GetProduct(string productCode, string variationProductCode =  null, bool? allowInactive =  null, bool? skipInventoryCheck =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.Product> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductClient( productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductClient(_dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -136,7 +143,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.Product> GetProductAsync(string productCode, string variationProductCode =  null, bool? allowInactive =  null, bool? skipInventoryCheck =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.Product> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductClient( productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductClient(_dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -269,14 +276,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var locationInventoryCollection = product.GetProductInventories( query,  responseFields);
+		///   var locationInventoryCollection = product.GetProductInventories(_dataViewMode,  query,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection GetProductInventories(Mozu.Api.Contracts.ProductRuntime.LocationInventoryQuery query, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductInventoriesClient( query,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductInventoriesClient(_dataViewMode,  query,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -286,7 +293,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection> GetProductInventoriesAsync(Mozu.Api.Contracts.ProductRuntime.LocationInventoryQuery query, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductInventoriesClient( query,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductInventoriesClient(_dataViewMode,  query,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

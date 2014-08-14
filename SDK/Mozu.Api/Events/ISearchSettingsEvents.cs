@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Threading.Tasks;
 using Mozu.Api.Contracts.Event;
 
 
@@ -15,7 +17,11 @@ namespace Mozu.Api.Events
 {
 	public interface ISearchSettingsEvents
 	{
+		[Obsolete("This method is obsolete; use the async method instead")]
 		void Updated(IApiContext apiContext, Event eventPayLoad);
+
+		Task UpdatedAsync(IApiContext apiContext, Event eventPayLoad);
+
 	}
 
 }

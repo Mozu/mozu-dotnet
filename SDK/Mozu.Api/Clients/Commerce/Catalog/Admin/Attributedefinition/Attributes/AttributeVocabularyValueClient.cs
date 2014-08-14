@@ -31,17 +31,16 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetAttributeVocabularyValues(dataViewMode,  attributeFQN);
+		///   var mozuClient=GetAttributeVocabularyValues( attributeFQN);
 		///   var attributeVocabularyValueClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue>> GetAttributeVocabularyValuesClient(DataViewMode dataViewMode, string attributeFQN)
+		public static MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue>> GetAttributeVocabularyValuesClient(string attributeFQN)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueUrl.GetAttributeVocabularyValuesUrl(attributeFQN);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue>>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
@@ -58,17 +57,16 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetAttributeVocabularyValueLocalizedContents(dataViewMode,  attributeFQN,  value);
+		///   var mozuClient=GetAttributeVocabularyValueLocalizedContents( attributeFQN,  value);
 		///   var attributeVocabularyValueLocalizedContentClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent>> GetAttributeVocabularyValueLocalizedContentsClient(DataViewMode dataViewMode, string attributeFQN, string value)
+		public static MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent>> GetAttributeVocabularyValueLocalizedContentsClient(string attributeFQN, string value)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueUrl.GetAttributeVocabularyValueLocalizedContentsUrl(attributeFQN, value);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent>>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
@@ -87,17 +85,16 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetAttributeVocabularyValueLocalizedContent(dataViewMode,  attributeFQN,  value,  localeCode,  responseFields);
+		///   var mozuClient=GetAttributeVocabularyValueLocalizedContent( attributeFQN,  value,  localeCode,  responseFields);
 		///   var attributeVocabularyValueLocalizedContentClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent> GetAttributeVocabularyValueLocalizedContentClient(DataViewMode dataViewMode, string attributeFQN, string value, string localeCode, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent> GetAttributeVocabularyValueLocalizedContentClient(string attributeFQN, string value, string localeCode, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueUrl.GetAttributeVocabularyValueLocalizedContentUrl(attributeFQN, value, localeCode, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValueLocalizedContent>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
@@ -115,17 +112,16 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetAttributeVocabularyValue(dataViewMode,  attributeFQN,  value,  responseFields);
+		///   var mozuClient=GetAttributeVocabularyValue( attributeFQN,  value,  responseFields);
 		///   var attributeVocabularyValueClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue> GetAttributeVocabularyValueClient(DataViewMode dataViewMode, string attributeFQN, string value, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue> GetAttributeVocabularyValueClient(string attributeFQN, string value, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueUrl.GetAttributeVocabularyValueUrl(attributeFQN, value, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeVocabularyValue>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 

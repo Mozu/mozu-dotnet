@@ -185,14 +185,14 @@ namespace Mozu.Api.Test.Factories
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = ProductExtraFactory.AddExtraValueLocalizedDeltaPrice(handler : handler,  localizedDeltaPrice :  localizedDeltaPrice,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductExtraFactory.AddExtraValueLocalizedDeltaPrice(handler : handler,  localizedDeltaPrice :  localizedDeltaPrice,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<ProductExtraValueDeltaPrice/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice AddExtraValueLocalizedDeltaPrice(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice localizedDeltaPrice, string productCode, string attributeFQN, string value, string responseFields = null, 
+ 		 Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice localizedDeltaPrice, string productCode, string attributeFQN, string value, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -200,7 +200,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.AddExtraValueLocalizedDeltaPriceClient(
-				 localizedDeltaPrice :  localizedDeltaPrice,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  responseFields :  responseFields		);
+				 localizedDeltaPrice :  localizedDeltaPrice,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -223,14 +223,14 @@ namespace Mozu.Api.Test.Factories
 		/// Configure an extra attribute for the product specified in the request.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductExtraFactory.AddExtra(handler : handler,  productExtra :  productExtra,  productCode :  productCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductExtraFactory.AddExtra(handler : handler,  productExtra :  productExtra,  productCode :  productCode,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<ProductExtra/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.ProductExtra AddExtra(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ProductAdmin.ProductExtra productExtra, string productCode, string responseFields = null, 
+ 		 Mozu.Api.Contracts.ProductAdmin.ProductExtra productExtra, string productCode, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -238,7 +238,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.AddExtraClient(
-				 productExtra :  productExtra,  productCode :  productCode,  responseFields :  responseFields		);
+				 productExtra :  productExtra,  productCode :  productCode,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -261,14 +261,14 @@ namespace Mozu.Api.Test.Factories
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = ProductExtraFactory.UpdateExtraValueLocalizedDeltaPrices(handler : handler,  localizedDeltaPrice :  localizedDeltaPrice,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductExtraFactory.UpdateExtraValueLocalizedDeltaPrices(handler : handler,  localizedDeltaPrice :  localizedDeltaPrice,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<List<ProductExtraValueDeltaPrice>/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> UpdateExtraValueLocalizedDeltaPrices(ServiceClientMessageHandler handler, 
- 		 List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> localizedDeltaPrice, string productCode, string attributeFQN, string value, 
+ 		 List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> localizedDeltaPrice, string productCode, string attributeFQN, string value,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -276,7 +276,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.UpdateExtraValueLocalizedDeltaPricesClient(
-				 localizedDeltaPrice :  localizedDeltaPrice,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value		);
+				 localizedDeltaPrice :  localizedDeltaPrice,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -299,14 +299,14 @@ namespace Mozu.Api.Test.Factories
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = ProductExtraFactory.UpdateExtraValueLocalizedDeltaPrice(handler : handler,  localizedDeltaPrice :  localizedDeltaPrice,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  currencyCode :  currencyCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductExtraFactory.UpdateExtraValueLocalizedDeltaPrice(handler : handler,  localizedDeltaPrice :  localizedDeltaPrice,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  currencyCode :  currencyCode,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<ProductExtraValueDeltaPrice/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice UpdateExtraValueLocalizedDeltaPrice(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice localizedDeltaPrice, string productCode, string attributeFQN, string value, string currencyCode, string responseFields = null, 
+ 		 Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice localizedDeltaPrice, string productCode, string attributeFQN, string value, string currencyCode, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -314,7 +314,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.UpdateExtraValueLocalizedDeltaPriceClient(
-				 localizedDeltaPrice :  localizedDeltaPrice,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  currencyCode :  currencyCode,  responseFields :  responseFields		);
+				 localizedDeltaPrice :  localizedDeltaPrice,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  currencyCode :  currencyCode,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -337,14 +337,14 @@ namespace Mozu.Api.Test.Factories
 		/// Updates the configuration of an extra attribute for the product specified in the request.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductExtraFactory.UpdateExtra(handler : handler,  productExtra :  productExtra,  productCode :  productCode,  attributeFQN :  attributeFQN,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductExtraFactory.UpdateExtra(handler : handler,  productExtra :  productExtra,  productCode :  productCode,  attributeFQN :  attributeFQN,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<ProductExtra/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.ProductExtra UpdateExtra(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ProductAdmin.ProductExtra productExtra, string productCode, string attributeFQN, string responseFields = null, 
+ 		 Mozu.Api.Contracts.ProductAdmin.ProductExtra productExtra, string productCode, string attributeFQN, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -352,7 +352,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.UpdateExtraClient(
-				 productExtra :  productExtra,  productCode :  productCode,  attributeFQN :  attributeFQN,  responseFields :  responseFields		);
+				 productExtra :  productExtra,  productCode :  productCode,  attributeFQN :  attributeFQN,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -375,14 +375,14 @@ namespace Mozu.Api.Test.Factories
 		/// Delete a product extra configuration for the product specified in the request.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductExtraFactory.DeleteExtra(handler : handler,  productCode :  productCode,  attributeFQN :  attributeFQN,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductExtraFactory.DeleteExtra(handler : handler,  productCode :  productCode,  attributeFQN :  attributeFQN,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static void DeleteExtra(ServiceClientMessageHandler handler, 
- 		string productCode, string attributeFQN, 
+ 		string productCode, string attributeFQN,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
@@ -390,7 +390,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.DeleteExtraClient(
-				 productCode :  productCode,  attributeFQN :  attributeFQN		);
+				 productCode :  productCode,  attributeFQN :  attributeFQN, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -412,14 +412,14 @@ namespace Mozu.Api.Test.Factories
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = ProductExtraFactory.DeleteExtraValueLocalizedDeltaPrice(handler : handler,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  currencyCode :  currencyCode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductExtraFactory.DeleteExtraValueLocalizedDeltaPrice(handler : handler,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  currencyCode :  currencyCode,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static void DeleteExtraValueLocalizedDeltaPrice(ServiceClientMessageHandler handler, 
- 		string productCode, string attributeFQN, string value, string currencyCode, 
+ 		string productCode, string attributeFQN, string value, string currencyCode,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
@@ -427,7 +427,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.DeleteExtraValueLocalizedDeltaPriceClient(
-				 productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  currencyCode :  currencyCode		);
+				 productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  currencyCode :  currencyCode, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

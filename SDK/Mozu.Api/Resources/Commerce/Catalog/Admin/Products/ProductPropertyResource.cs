@@ -196,14 +196,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <example>
 		/// <code>
 		///   var productproperty = new ProductProperty();
-		///   var productPropertyValueLocalizedContent = productproperty.AddPropertyValueLocalizedContent( localizedContent,  productCode,  attributeFQN,  value,  responseFields);
+		///   var productPropertyValueLocalizedContent = productproperty.AddPropertyValueLocalizedContent(_dataViewMode,  localizedContent,  productCode,  attributeFQN,  value,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent AddPropertyValueLocalizedContent(Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent localizedContent, string productCode, string attributeFQN, string value, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.AddPropertyValueLocalizedContentClient( localizedContent,  productCode,  attributeFQN,  value,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.AddPropertyValueLocalizedContentClient(_dataViewMode,  localizedContent,  productCode,  attributeFQN,  value,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -213,7 +213,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> AddPropertyValueLocalizedContentAsync(Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent localizedContent, string productCode, string attributeFQN, string value, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.AddPropertyValueLocalizedContentClient( localizedContent,  productCode,  attributeFQN,  value,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.AddPropertyValueLocalizedContentClient(_dataViewMode,  localizedContent,  productCode,  attributeFQN,  value,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -232,14 +232,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <example>
 		/// <code>
 		///   var productproperty = new ProductProperty();
-		///   var productProperty = productproperty.AddProperty( productProperty,  productCode,  responseFields);
+		///   var productProperty = productproperty.AddProperty(_dataViewMode,  productProperty,  productCode,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.ProductProperty AddProperty(Mozu.Api.Contracts.ProductAdmin.ProductProperty productProperty, string productCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductProperty> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.AddPropertyClient( productProperty,  productCode,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.AddPropertyClient(_dataViewMode,  productProperty,  productCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -249,7 +249,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductProperty> AddPropertyAsync(Mozu.Api.Contracts.ProductAdmin.ProductProperty productProperty, string productCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductProperty> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.AddPropertyClient( productProperty,  productCode,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.AddPropertyClient(_dataViewMode,  productProperty,  productCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -269,14 +269,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <example>
 		/// <code>
 		///   var productproperty = new ProductProperty();
-		///   var productPropertyValueLocalizedContent = productproperty.UpdatePropertyValueLocalizedContents( localizedContent,  productCode,  attributeFQN,  value);
+		///   var productPropertyValueLocalizedContent = productproperty.UpdatePropertyValueLocalizedContents(_dataViewMode,  localizedContent,  productCode,  attributeFQN,  value);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> UpdatePropertyValueLocalizedContents(List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> localizedContent, string productCode, string attributeFQN, string value)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.UpdatePropertyValueLocalizedContentsClient( localizedContent,  productCode,  attributeFQN,  value);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.UpdatePropertyValueLocalizedContentsClient(_dataViewMode,  localizedContent,  productCode,  attributeFQN,  value);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -286,7 +286,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent>> UpdatePropertyValueLocalizedContentsAsync(List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> localizedContent, string productCode, string attributeFQN, string value)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.UpdatePropertyValueLocalizedContentsClient( localizedContent,  productCode,  attributeFQN,  value);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.UpdatePropertyValueLocalizedContentsClient(_dataViewMode,  localizedContent,  productCode,  attributeFQN,  value);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -308,14 +308,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <example>
 		/// <code>
 		///   var productproperty = new ProductProperty();
-		///   var productPropertyValueLocalizedContent = productproperty.UpdatePropertyValueLocalizedContent( localizedContent,  productCode,  attributeFQN,  value,  localeCode,  responseFields);
+		///   var productPropertyValueLocalizedContent = productproperty.UpdatePropertyValueLocalizedContent(_dataViewMode,  localizedContent,  productCode,  attributeFQN,  value,  localeCode,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent UpdatePropertyValueLocalizedContent(Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent localizedContent, string productCode, string attributeFQN, string value, string localeCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.UpdatePropertyValueLocalizedContentClient( localizedContent,  productCode,  attributeFQN,  value,  localeCode,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.UpdatePropertyValueLocalizedContentClient(_dataViewMode,  localizedContent,  productCode,  attributeFQN,  value,  localeCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -325,7 +325,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> UpdatePropertyValueLocalizedContentAsync(Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent localizedContent, string productCode, string attributeFQN, string value, string localeCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.UpdatePropertyValueLocalizedContentClient( localizedContent,  productCode,  attributeFQN,  value,  localeCode,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.UpdatePropertyValueLocalizedContentClient(_dataViewMode,  localizedContent,  productCode,  attributeFQN,  value,  localeCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -345,14 +345,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <example>
 		/// <code>
 		///   var productproperty = new ProductProperty();
-		///   var productProperty = productproperty.UpdateProperty( productProperty,  productCode,  attributeFQN,  responseFields);
+		///   var productProperty = productproperty.UpdateProperty(_dataViewMode,  productProperty,  productCode,  attributeFQN,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.ProductProperty UpdateProperty(Mozu.Api.Contracts.ProductAdmin.ProductProperty productProperty, string productCode, string attributeFQN, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductProperty> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.UpdatePropertyClient( productProperty,  productCode,  attributeFQN,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.UpdatePropertyClient(_dataViewMode,  productProperty,  productCode,  attributeFQN,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -362,7 +362,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductProperty> UpdatePropertyAsync(Mozu.Api.Contracts.ProductAdmin.ProductProperty productProperty, string productCode, string attributeFQN, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductProperty> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.UpdatePropertyClient( productProperty,  productCode,  attributeFQN,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.UpdatePropertyClient(_dataViewMode,  productProperty,  productCode,  attributeFQN,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -380,14 +380,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <example>
 		/// <code>
 		///   var productproperty = new ProductProperty();
-		///   productproperty.DeleteProperty( productCode,  attributeFQN);
+		///   productproperty.DeleteProperty(_dataViewMode,  productCode,  attributeFQN);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual void DeleteProperty(string productCode, string attributeFQN)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.DeletePropertyClient( productCode,  attributeFQN);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.DeletePropertyClient(_dataViewMode,  productCode,  attributeFQN);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 
@@ -396,7 +396,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		public virtual async Task DeletePropertyAsync(string productCode, string attributeFQN)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.DeletePropertyClient( productCode,  attributeFQN);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.DeletePropertyClient(_dataViewMode,  productCode,  attributeFQN);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 
@@ -415,14 +415,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <example>
 		/// <code>
 		///   var productproperty = new ProductProperty();
-		///   productproperty.DeletePropertyValueLocalizedContent( productCode,  attributeFQN,  value,  localeCode);
+		///   productproperty.DeletePropertyValueLocalizedContent(_dataViewMode,  productCode,  attributeFQN,  value,  localeCode);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual void DeletePropertyValueLocalizedContent(string productCode, string attributeFQN, string value, string localeCode)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.DeletePropertyValueLocalizedContentClient( productCode,  attributeFQN,  value,  localeCode);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.DeletePropertyValueLocalizedContentClient(_dataViewMode,  productCode,  attributeFQN,  value,  localeCode);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 
@@ -431,7 +431,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		public virtual async Task DeletePropertyValueLocalizedContentAsync(string productCode, string attributeFQN, string value, string localeCode)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.DeletePropertyValueLocalizedContentClient( productCode,  attributeFQN,  value,  localeCode);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.DeletePropertyValueLocalizedContentClient(_dataViewMode,  productCode,  attributeFQN,  value,  localeCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 

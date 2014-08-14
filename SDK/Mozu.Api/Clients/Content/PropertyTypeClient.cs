@@ -32,16 +32,17 @@ namespace Mozu.Api.Clients.Content
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetPropertyTypes( pageSize,  startIndex,  responseFields);
+		///   var mozuClient=GetPropertyTypes(dataViewMode,  pageSize,  startIndex,  responseFields);
 		///   var propertyTypeCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Content.PropertyTypeCollection> GetPropertyTypesClient(int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Content.PropertyTypeCollection> GetPropertyTypesClient(DataViewMode dataViewMode, int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Content.PropertyTypeUrl.GetPropertyTypesUrl(pageSize, startIndex, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Content.PropertyTypeCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
+									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
@@ -57,16 +58,17 @@ namespace Mozu.Api.Clients.Content
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetPropertyType( propertyTypeName,  responseFields);
+		///   var mozuClient=GetPropertyType(dataViewMode,  propertyTypeName,  responseFields);
 		///   var propertyTypeClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Content.PropertyType> GetPropertyTypeClient(string propertyTypeName, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Content.PropertyType> GetPropertyTypeClient(DataViewMode dataViewMode, string propertyTypeName, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Content.PropertyTypeUrl.GetPropertyTypeUrl(propertyTypeName, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Content.PropertyType>()
 									.WithVerb(verb).WithResourceUrl(url)
+									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 

@@ -34,16 +34,17 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetProducts( filter,  startIndex,  pageSize,  sortBy,  responseFields);
+		///   var mozuClient=GetProducts(dataViewMode,  filter,  startIndex,  pageSize,  sortBy,  responseFields);
 		///   var productCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductCollection> GetProductsClient(string filter =  null, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductCollection> GetProductsClient(DataViewMode dataViewMode, string filter =  null, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductUrl.GetProductsUrl(filter, startIndex, pageSize, sortBy, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
+									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
@@ -60,16 +61,17 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetProductInventory( productCode,  locationCodes,  responseFields);
+		///   var mozuClient=GetProductInventory(dataViewMode,  productCode,  locationCodes,  responseFields);
 		///   var locationInventoryCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection> GetProductInventoryClient(string productCode, string locationCodes =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection> GetProductInventoryClient(DataViewMode dataViewMode, string productCode, string locationCodes =  null, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductUrl.GetProductInventoryUrl(productCode, locationCodes, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
+									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
@@ -88,16 +90,17 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetProduct( productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  responseFields);
+		///   var mozuClient=GetProduct(dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  responseFields);
 		///   var productClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.Product> GetProductClient(string productCode, string variationProductCode =  null, bool? allowInactive =  null, bool? skipInventoryCheck =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.Product> GetProductClient(DataViewMode dataViewMode, string productCode, string variationProductCode =  null, bool? allowInactive =  null, bool? skipInventoryCheck =  null, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductUrl.GetProductUrl(productCode, variationProductCode, allowInactive, skipInventoryCheck, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductRuntime.Product>()
 									.WithVerb(verb).WithResourceUrl(url)
+									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
@@ -198,17 +201,18 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetProductInventories( query,  responseFields);
+		///   var mozuClient=GetProductInventories(dataViewMode,  query,  responseFields);
 		///   var locationInventoryCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection> GetProductInventoriesClient(Mozu.Api.Contracts.ProductRuntime.LocationInventoryQuery query, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection> GetProductInventoriesClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductRuntime.LocationInventoryQuery query, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductUrl.GetProductInventoriesUrl(responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductRuntime.LocationInventoryQuery>(query);
+									.WithBody<Mozu.Api.Contracts.ProductRuntime.LocationInventoryQuery>(query)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
 			return mozuClient;
 
 		}

@@ -33,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves the properties of facets that aid in indexing and searching.
 		/// <example> 
 		///  <code> 
-		/// var result = FacetFactory.GetFacets(handler : handler,  documentListName :  documentListName,  propertyName :  propertyName,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = FacetFactory.GetFacets(handler : handler,  documentListName :  documentListName,  propertyName :  propertyName,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<List<Facet>/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static List<Mozu.Api.Contracts.Content.Facet> GetFacets(ServiceClientMessageHandler handler, 
- 		 string documentListName, string propertyName,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 string documentListName, string propertyName, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -48,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Content.Documentlists.FacetClient.GetFacetsClient(
-				 documentListName :  documentListName,  propertyName :  propertyName, dataViewMode: dataViewMode		);
+				 documentListName :  documentListName,  propertyName :  propertyName		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

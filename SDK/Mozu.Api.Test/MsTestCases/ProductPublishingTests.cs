@@ -111,18 +111,18 @@ namespace Mozu.Api.Test.MsTestCases
             var createdPro2 = ProductFactory.AddProduct(ApiMsgHandler, Generator.GenerateProduct(myPT));
             productCode1.Add(createdPro2.ProductCode);
             Thread.Sleep(3000);
-            var getPro1 = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Live, expectedCode: HttpStatusCode.NotFound);
-            var getPro2 = ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode, dataViewMode: DataViewMode.Live, expectedCode: HttpStatusCode.NotFound);
-            getPro1 = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Pending, expectedCode: HttpStatusCode.OK);
-            getPro2 = ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode, dataViewMode: DataViewMode.Pending, expectedCode: HttpStatusCode.OK);
+            var getPro1 = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode,  expectedCode: HttpStatusCode.NotFound);
+            var getPro2 = ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode,  expectedCode: HttpStatusCode.NotFound);
+            getPro1 = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode,  expectedCode: HttpStatusCode.OK);
+            getPro2 = ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode, expectedCode: HttpStatusCode.OK);
 
             //AllPending is true
             PublishingScopeFactory.PublishDrafts(ApiMsgHandler, Generator.GeneratePublishingScope(false, new List<string>() { createdPro1.ProductCode }));
-            getPro1 = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Live, expectedCode: HttpStatusCode.OK);
-            getPro2 = ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode, dataViewMode: DataViewMode.Live, expectedCode: HttpStatusCode.NotFound);
+            getPro1 = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode,  expectedCode: HttpStatusCode.OK);
+            getPro2 = ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode,  expectedCode: HttpStatusCode.NotFound);
 
-            getPro1 = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Pending, expectedCode: HttpStatusCode.OK);
-            getPro2 = ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode, dataViewMode: DataViewMode.Pending, expectedCode: HttpStatusCode.OK);
+            getPro1 = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode,  expectedCode: HttpStatusCode.OK);
+            getPro2 = ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode,  expectedCode: HttpStatusCode.OK);
         }
 
         /// <summary>
@@ -162,9 +162,9 @@ namespace Mozu.Api.Test.MsTestCases
             productCode1.Add(createdPro2.ProductCode);
             Thread.Sleep(5300);
             PublishingScopeFactory.PublishDrafts(ApiMsgHandler, Generator.GeneratePublishingScope(false, new List<string>() { createdPro1.ProductCode }));
-            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Live, expectedCode: HttpStatusCode.OK);
-            ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode, dataViewMode: DataViewMode.Live, expectedCode: HttpStatusCode.NotFound);
-            ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode, dataViewMode: DataViewMode.Pending, expectedCode: HttpStatusCode.OK);
+            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode,  expectedCode: HttpStatusCode.OK);
+            ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode,  expectedCode: HttpStatusCode.NotFound);
+            ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode,  expectedCode: HttpStatusCode.OK);
         }
 
         /// <summary>
@@ -196,9 +196,9 @@ namespace Mozu.Api.Test.MsTestCases
             Thread.Sleep(3000);
             //AllPending is false
             PublishingScopeFactory.PublishDrafts(ApiMsgHandler, Generator.GeneratePublishingScope(null, new List<string>() { createdPro1.ProductCode }));
-            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Live, expectedCode: HttpStatusCode.OK);
-            ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode, dataViewMode: DataViewMode.Live, expectedCode: HttpStatusCode.NotFound);
-            ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode, dataViewMode: DataViewMode.Pending, expectedCode: HttpStatusCode.OK);
+            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode,  expectedCode: HttpStatusCode.OK);
+            ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode,  expectedCode: HttpStatusCode.NotFound);
+            ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode,  expectedCode: HttpStatusCode.OK);
         }
 
         /// <summary>
@@ -260,10 +260,10 @@ namespace Mozu.Api.Test.MsTestCases
             Thread.Sleep(3000);
             //AllPending is true
             PublishingScopeFactory.DiscardDrafts(ApiMsgHandler, Generator.GeneratePublishingScope(true, new List<string>() { createdPro1.ProductCode }));
-            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Live, expectedCode: HttpStatusCode.NotFound);
-            ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode, dataViewMode: DataViewMode.Live, expectedCode: HttpStatusCode.NotFound);
-            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Pending, expectedCode: HttpStatusCode.NotFound);
-            ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode, dataViewMode: DataViewMode.Pending, expectedCode: HttpStatusCode.NotFound);
+            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode,  expectedCode: HttpStatusCode.NotFound);
+            ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode,  expectedCode: HttpStatusCode.NotFound);
+            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode,  expectedCode: HttpStatusCode.NotFound);
+            ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode,  expectedCode: HttpStatusCode.NotFound);
             ProductFactory.DeleteProduct(ApiMsgHandler, createdPro1.ProductCode, expectedCode: HttpStatusCode.NotFound);
             ProductFactory.DeleteProduct(ApiMsgHandler, createdPro2.ProductCode, expectedCode: HttpStatusCode.NotFound);
         }
@@ -297,10 +297,10 @@ namespace Mozu.Api.Test.MsTestCases
             Thread.Sleep(3000);
             //AllPending is false
             PublishingScopeFactory.DiscardDrafts(ApiMsgHandler, Generator.GeneratePublishingScope(false, new List<string>() { createdPro1.ProductCode }));
-            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Live, expectedCode: HttpStatusCode.NotFound);
-            ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode, dataViewMode: DataViewMode.Live, expectedCode: HttpStatusCode.NotFound);
-            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Pending, expectedCode: HttpStatusCode.NotFound);
-            ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode, dataViewMode: DataViewMode.Pending, expectedCode: HttpStatusCode.OK);
+            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode,  expectedCode: HttpStatusCode.NotFound);
+            ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode,  expectedCode: HttpStatusCode.NotFound);
+            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode,  expectedCode: HttpStatusCode.NotFound);
+            ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode,  expectedCode: HttpStatusCode.OK);
         }
 
         /// <summary>
@@ -335,10 +335,10 @@ namespace Mozu.Api.Test.MsTestCases
             Thread.Sleep(5000);
             //AllPending is null
             PublishingScopeFactory.DiscardDrafts(ApiMsgHandler, Generator.GeneratePublishingScope(null, new List<string>() { createdPro1.ProductCode }));
-            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Live, expectedCode: HttpStatusCode.NotFound);
-            ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode, dataViewMode: DataViewMode.Live, expectedCode: HttpStatusCode.NotFound);
-            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Pending, expectedCode: HttpStatusCode.NotFound);
-            ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode, dataViewMode: DataViewMode.Pending, expectedCode: HttpStatusCode.OK);
+            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode,  expectedCode: HttpStatusCode.NotFound);
+            ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode,  expectedCode: HttpStatusCode.NotFound);
+            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode,  expectedCode: HttpStatusCode.NotFound);
+            ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode,  expectedCode: HttpStatusCode.OK);
             //ProductFactory.DeleteProduct(ApiMsgHandler, createdPro1.ProductCode);
             //ProductFactory.DeleteProduct(ApiMsgHandler, createdPro2.ProductCode);
         }
@@ -418,7 +418,7 @@ namespace Mozu.Api.Test.MsTestCases
             var createdPro1 = ProductFactory.AddProduct(ApiMsgHandler, Generator.GenerateProduct(myPT));
             productCode1.Add(createdPro1.ProductCode);
             Thread.Sleep(3000);
-            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Live);
+            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode);
             var mode1 = MasterCatalogFactory.GetMasterCatalog(ApiMsgHandler, masterCatalogId);
             if (mode1.ProductPublishingMode.Equals("Live"))
             {
@@ -427,7 +427,7 @@ namespace Mozu.Api.Test.MsTestCases
             var createdPro2 = ProductFactory.AddProduct(ApiMsgHandler, Generator.GenerateProduct(myPT));
             Thread.Sleep(3000);
             productCode1.Add(createdPro2.ProductCode);
-            ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode, dataViewMode: DataViewMode.Live, expectedCode: HttpStatusCode.NotFound);
+            ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode,  expectedCode: HttpStatusCode.NotFound);
 
         }
 
@@ -458,7 +458,7 @@ namespace Mozu.Api.Test.MsTestCases
             var createdPro1 = ProductFactory.AddProduct(ApiMsgHandler, Generator.GenerateProduct(myPT));
             Thread.Sleep(5000);
             productCode1.Add(createdPro1.ProductCode);
-            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Live, expectedCode: HttpStatusCode.NotFound);
+            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode,  expectedCode: HttpStatusCode.NotFound);
             MasterCatalogFactory.UpdateMasterCatalog(ApiMsgHandler, masterCatalog: masterCatalog, masterCatalogId: masterCatalogId, expectedCode: HttpStatusCode.Conflict);
             //PublishingScopeFactory.PublishDrafts(ApiMsgHandler, Generator.GeneratePublishingScope(false, null));
 
@@ -507,10 +507,10 @@ namespace Mozu.Api.Test.MsTestCases
             proInfo = Generator.GenerateProductInCatalogInfo(TestBaseTenant.MasterCatalogs.First().Catalogs.Last().Id, createdCat2.Id);
             getPro.ProductInCatalogs.Add(proInfo);
             ProductFactory.UpdateProduct(ApiMsgHandler, getPro, createdPro1.ProductCode);
-            getPro = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Live);
+            getPro = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode);
             Assert.AreEqual(1, getPro.ProductInCatalogs.Count);
             PublishingScopeFactory.PublishDrafts(ApiMsgHandler, Generator.GeneratePublishingScope(null, new List<string>() { createdPro1.ProductCode }));
-            getPro = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Live);
+            getPro = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode);
             Assert.AreEqual(2, getPro.ProductInCatalogs.Count);
         }
 
@@ -543,10 +543,10 @@ namespace Mozu.Api.Test.MsTestCases
             string originalContent = createdPro1.Content.ProductName;
             createdPro1.Content = Generator.GenerateProductLocalizedContent(Generator.RandomString(5, Generator.RandomCharacterGroup.AlphaOnly));
             ProductFactory.UpdateProduct(ApiMsgHandler, createdPro1, createdPro1.ProductCode);
-            var getPro = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Live);
+            var getPro = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode);
             Assert.AreEqual(originalContent, getPro.Content.ProductName);
             PublishingScopeFactory.PublishDrafts(ApiMsgHandler, Generator.GeneratePublishingScope(null, new List<string>() { createdPro1.ProductCode }));
-            getPro = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Live);
+            getPro = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode);
             Assert.AreEqual(createdPro1.Content.ProductName, getPro.Content.ProductName);
         }
 
@@ -644,7 +644,7 @@ namespace Mozu.Api.Test.MsTestCases
 
             ProductFactory.UpdateProduct(ApiMsgHandler, prodInCatalog, createdPro1.ProductCode);
             Thread.Sleep(3000);
-            var products = ProductFactory.GetProducts(ApiMsgHandler, pageSize: 230, dataViewMode: DataViewMode.Live);
+            var products = ProductFactory.GetProducts(ApiMsgHandler, pageSize: 230);
             bool found1 = false;
             foreach (var pro in products.Items)
             {
@@ -698,7 +698,7 @@ namespace Mozu.Api.Test.MsTestCases
             var originalPrice = createdPro1.Price;
             prodInCatalog.Price = Generator.GenerateProductPrice(price: Generator.RandomDecimal(10, 50));
             ProductFactory.UpdateProduct(ApiMsgHandler, prodInCatalog, createdPro1.ProductCode);
-            var products = ProductFactory.GetProducts(ApiMsgHandler, pageSize: 200, dataViewMode: DataViewMode.Pending);
+            var products = ProductFactory.GetProducts(ApiMsgHandler, pageSize: 200);
             bool found1 = false;
             foreach (var pro in products.Items)
             {
@@ -739,10 +739,10 @@ namespace Mozu.Api.Test.MsTestCases
             var createdPro2 = ProductFactory.AddProduct(ApiMsgHandler, Generator.GenerateProduct(myPT));
             productCode1.Add(createdPro2.ProductCode);
             Thread.Sleep(3000);
-            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Live, expectedCode: HttpStatusCode.NotFound);
-            ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode, dataViewMode: DataViewMode.Live, expectedCode: HttpStatusCode.NotFound);
-            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Pending, expectedCode: HttpStatusCode.OK);
-            var getPro2 = ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode, dataViewMode: DataViewMode.Pending, expectedCode: HttpStatusCode.OK);
+            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode,  expectedCode: HttpStatusCode.NotFound);
+            ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode,  expectedCode: HttpStatusCode.NotFound);
+            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode,  expectedCode: HttpStatusCode.OK);
+            var getPro2 = ProductFactory.GetProduct(ApiMsgHandler, createdPro2.ProductCode,  expectedCode: HttpStatusCode.OK);
             Assert.AreEqual("New", getPro2.PublishingInfo.PublishedState);
         }
 
@@ -779,15 +779,15 @@ namespace Mozu.Api.Test.MsTestCases
             ProductFactory.AddProductInCatalog(ApiMsgHandler, proInfo, createdPro1.ProductCode);
             Thread.Sleep(3000);
             PublishingScopeFactory.PublishDrafts(ApiMsgHandler, Generator.GeneratePublishingScope(null, new List<string>() { createdPro1.ProductCode }));
-            var readPro = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Live);
+            var readPro = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode);
             Assert.AreEqual(createdCat1.Id, readPro.ProductInCatalogs.First().ProductCategories.First().CategoryId);
             //change product category from 1 to 2
             proInfo = Generator.GenerateProductInCatalogInfo(TestBaseTenant.MasterCatalogs.First().Catalogs.First().Id, createdCat2.Id);
             ProductFactory.UpdateProductInCatalog(ApiMsgHandler, proInfo, createdPro1.ProductCode, TestBaseTenant.MasterCatalogs.First().Catalogs.First().Id);
-            readPro = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Live);
+            readPro = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode);
             Assert.AreEqual(createdCat1.Id, readPro.ProductInCatalogs.First().ProductCategories.First().CategoryId);
             PublishingScopeFactory.PublishDrafts(ApiMsgHandler, Generator.GeneratePublishingScope(null, new List<string>() { createdPro1.ProductCode }));
-            readPro = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Live);
+            readPro = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode);
             Assert.AreEqual(createdCat2.Id, readPro.ProductInCatalogs.First().ProductCategories.First().CategoryId);
         }
 
@@ -822,14 +822,14 @@ namespace Mozu.Api.Test.MsTestCases
             ProductFactory.AddProductInCatalog(ApiMsgHandler, proInfo, createdPro1.ProductCode);
             Thread.Sleep(3000);
             PublishingScopeFactory.PublishDrafts(ApiMsgHandler, Generator.GeneratePublishingScope(null, new List<string>() { createdPro1.ProductCode }));
-            var getPro = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Live);
+            var getPro = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode);
             var originalInfo = getPro.ProductInCatalogs.First();
             var info = Generator.GenerateProductInCatalogInfo(TestBaseTenant.MasterCatalogs.First().Catalogs.First().Id, originalInfo.ProductCategories, Generator.RandomString(6, Generator.RandomCharacterGroup.AlphaOnly), Generator.RandomDecimal(10, 100), true, true, true, true);
             ProductFactory.UpdateProductInCatalog(ApiMsgHandler, info, createdPro1.ProductCode, TestBaseTenant.MasterCatalogs.First().Catalogs.First().Id);
-            var readInfo = ProductFactory.GetProductInCatalog(ApiMsgHandler, createdPro1.ProductCode, TestBaseTenant.MasterCatalogs.First().Catalogs.First().Id, dataViewMode: DataViewMode.Live);
+            var readInfo = ProductFactory.GetProductInCatalog(ApiMsgHandler, createdPro1.ProductCode, TestBaseTenant.MasterCatalogs.First().Catalogs.First().Id);
             Assert.AreEqual(originalInfo.Content.ProductName, readInfo.Content.ProductName);
             Assert.AreEqual(originalInfo.Price.Price.Value, readInfo.Price.Price.Value);
-            readInfo = ProductFactory.GetProductInCatalog(ApiMsgHandler, createdPro1.ProductCode, TestBaseTenant.MasterCatalogs.First().Catalogs.First().Id, dataViewMode: DataViewMode.Pending);
+            readInfo = ProductFactory.GetProductInCatalog(ApiMsgHandler, createdPro1.ProductCode, TestBaseTenant.MasterCatalogs.First().Catalogs.First().Id);
             Assert.AreEqual(info.Content.ProductName, readInfo.Content.ProductName);
             Assert.AreEqual(info.Price.Price.Value, readInfo.Price.Price.Value);
         }
@@ -868,10 +868,10 @@ namespace Mozu.Api.Test.MsTestCases
             Thread.Sleep(3000);
             PublishingScopeFactory.PublishDrafts(ApiMsgHandler, Generator.GeneratePublishingScope(null, new List<string>() { createdPro1.ProductCode }));
             ProductFactory.DeleteProductInCatalog(ApiMsgHandler1, createdPro1.ProductCode, TestBaseTenant.MasterCatalogs.First().Catalogs.First().Id);
-            ProductFactory.GetProductInCatalog(ApiMsgHandler1, createdPro1.ProductCode, TestBaseTenant.MasterCatalogs.First().Catalogs.First().Id, dataViewMode: DataViewMode.Live);
+            ProductFactory.GetProductInCatalog(ApiMsgHandler1, createdPro1.ProductCode, TestBaseTenant.MasterCatalogs.First().Catalogs.First().Id);
             PublishingScopeFactory.PublishDrafts(ApiMsgHandler, Generator.GeneratePublishingScope(null, new List<string>() { createdPro1.ProductCode }));
-            ProductFactory.GetProductInCatalog(ApiMsgHandler1, createdPro1.ProductCode, TestBaseTenant.MasterCatalogs.First().Catalogs.First().Id, dataViewMode: DataViewMode.Live, expectedCode: HttpStatusCode.NotFound);
-            ProductFactory.GetProductInCatalog(ApiMsgHandler1, createdPro1.ProductCode, TestBaseTenant.MasterCatalogs.First().Catalogs.First().Id, dataViewMode: DataViewMode.Pending, expectedCode: HttpStatusCode.NotFound);
+            ProductFactory.GetProductInCatalog(ApiMsgHandler1, createdPro1.ProductCode, TestBaseTenant.MasterCatalogs.First().Catalogs.First().Id,  expectedCode: HttpStatusCode.NotFound);
+            ProductFactory.GetProductInCatalog(ApiMsgHandler1, createdPro1.ProductCode, TestBaseTenant.MasterCatalogs.First().Catalogs.First().Id,  expectedCode: HttpStatusCode.NotFound);
 
         }
 
@@ -902,8 +902,8 @@ namespace Mozu.Api.Test.MsTestCases
             Thread.Sleep(3000);
             PublishingScopeFactory.PublishDrafts(ApiMsgHandler, Generator.GeneratePublishingScope(null, new List<string>() { createdPro1.ProductCode }));
             ProductFactory.DeleteProduct(ApiMsgHandler1, createdPro1.ProductCode);
-            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Live, expectedCode: HttpStatusCode.NotFound);
-            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Pending, expectedCode: HttpStatusCode.NotFound);
+            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode,  expectedCode: HttpStatusCode.NotFound);
+            ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode,  expectedCode: HttpStatusCode.NotFound);
 
         }
 
@@ -950,10 +950,10 @@ namespace Mozu.Api.Test.MsTestCases
             ProductFactory.AddProductInCatalog(ApiMsgHandler1, proInfo, createdPro1.ProductCode);
             Thread.Sleep(3000);
             //verify when mode=live          
-            var readPro = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Live);
+            var readPro = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode);
             Assert.AreEqual(1, readPro.ProductInCatalogs.Count);
             //verify when mode=pending          
-            readPro = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Pending);
+            readPro = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode);
             Assert.AreEqual(2, readPro.ProductInCatalogs.Count);
         }
 
@@ -991,10 +991,10 @@ namespace Mozu.Api.Test.MsTestCases
             variation.IsActive = true;
             ProductVariationFactory.UpdateProductVariation(ApiMsgHandler, variation, createdPro1.ProductCode,
                                                         variation.Variationkey);
-            var variations = ProductVariationFactory.GetProductVariations(ApiMsgHandler, createdPro1.ProductCode, filter: "isactive eq true", dataViewMode: DataViewMode.Live);
+            var variations = ProductVariationFactory.GetProductVariations(ApiMsgHandler, createdPro1.ProductCode, filter: "isactive eq true");
             Assert.AreEqual(0, variations.TotalCount);
 
-            variations = ProductVariationFactory.GetProductVariations(ApiMsgHandler, createdPro1.ProductCode, filter: "isactive eq true", dataViewMode: DataViewMode.Pending);
+            variations = ProductVariationFactory.GetProductVariations(ApiMsgHandler, createdPro1.ProductCode, filter: "isactive eq true");
             Assert.AreEqual(1, variations.TotalCount);
             foreach (var p in po)
             {
@@ -1039,10 +1039,10 @@ namespace Mozu.Api.Test.MsTestCases
             variation.IsActive = true;
             ProductVariationFactory.UpdateProductVariation(ApiMsgHandler, variation, createdPro1.ProductCode,
                                                         variation.Variationkey);
-            var getVar = ProductVariationFactory.GetProductVariation(ApiMsgHandler, createdPro1.ProductCode, variation.Variationkey, dataViewMode: DataViewMode.Live);
+            var getVar = ProductVariationFactory.GetProductVariation(ApiMsgHandler, createdPro1.ProductCode, variation.Variationkey);
             Assert.AreEqual(false, getVar.IsActive);
 
-            getVar = ProductVariationFactory.GetProductVariation(ApiMsgHandler, createdPro1.ProductCode, variation.Variationkey, dataViewMode: DataViewMode.Pending);
+            getVar = ProductVariationFactory.GetProductVariation(ApiMsgHandler, createdPro1.ProductCode, variation.Variationkey);
             Assert.AreEqual(true, getVar.IsActive);
             foreach (var p in po)
             {
@@ -1089,17 +1089,17 @@ namespace Mozu.Api.Test.MsTestCases
             var variationCollection = Generator.GenerateProductVariationCollection(productVariationList, 2);
 
             ProductVariationFactory.UpdateProductVariations(ApiMsgHandler, variationCollection, createdPro1.ProductCode);
-            var getVar = ProductVariationFactory.GetProductVariations(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Live, filter: "isactive eq true");
+            var getVar = ProductVariationFactory.GetProductVariations(ApiMsgHandler, createdPro1.ProductCode,  filter: "isactive eq true");
             Assert.AreEqual(0, getVar.TotalCount);
 
-            getVar = ProductVariationFactory.GetProductVariations(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Pending, filter: "isactive eq true");
+            getVar = ProductVariationFactory.GetProductVariations(ApiMsgHandler, createdPro1.ProductCode,  filter: "isactive eq true");
             Assert.AreEqual(2, getVar.TotalCount);
 
             var getPro = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode);
             Assert.AreEqual("Draft", getPro.PublishingInfo.PublishedState);
             //publish
             PublishingScopeFactory.PublishDrafts(ApiMsgHandler, Generator.GeneratePublishingScope(null, new List<string>() { createdPro1.ProductCode }));
-            getVar = ProductVariationFactory.GetProductVariations(ApiMsgHandler, createdPro1.ProductCode, dataViewMode: DataViewMode.Live, filter: "isactive eq true");
+            getVar = ProductVariationFactory.GetProductVariations(ApiMsgHandler, createdPro1.ProductCode,  filter: "isactive eq true");
             Assert.AreEqual(2, getVar.TotalCount);
             getPro = ProductFactory.GetProduct(ApiMsgHandler, createdPro1.ProductCode);
             Assert.AreEqual("Live", getPro.PublishingInfo.PublishedState);
@@ -1151,7 +1151,7 @@ namespace Mozu.Api.Test.MsTestCases
                                                         variation.Variationkey);
             PublishingScopeFactory.PublishDrafts(ApiMsgHandler, Generator.GeneratePublishingScope(null, new List<string>() { createdPro1.ProductCode }));
             ProductVariationFactory.DeleteProductVariation(ApiMsgHandler, createdPro1.ProductCode, variation.Variationkey);
-            var getVar = ProductVariationFactory.GetProductVariation(ApiMsgHandler, createdPro1.ProductCode, variation.Variationkey, dataViewMode: DataViewMode.Live);
+            var getVar = ProductVariationFactory.GetProductVariation(ApiMsgHandler, createdPro1.ProductCode, variation.Variationkey);
             Assert.AreEqual(false, getVar.VariationExists);
             foreach (var p in po)
             {

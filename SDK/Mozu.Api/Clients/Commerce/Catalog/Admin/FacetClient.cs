@@ -32,17 +32,16 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetFacet(dataViewMode,  facetId,  validate,  responseFields);
+		///   var mozuClient=GetFacet( facetId,  validate,  responseFields);
 		///   var facetClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Facet> GetFacetClient(DataViewMode dataViewMode, int facetId, bool? validate =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Facet> GetFacetClient(int facetId, bool? validate =  null, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.FacetUrl.GetFacetUrl(facetId, validate, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Facet>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
@@ -60,17 +59,16 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetFacetCategoryList(dataViewMode,  categoryId,  includeAvailable,  validate,  responseFields);
+		///   var mozuClient=GetFacetCategoryList( categoryId,  includeAvailable,  validate,  responseFields);
 		///   var facetSetClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.FacetSet> GetFacetCategoryListClient(DataViewMode dataViewMode, int categoryId, bool? includeAvailable =  null, bool? validate =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.FacetSet> GetFacetCategoryListClient(int categoryId, bool? includeAvailable =  null, bool? validate =  null, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.FacetUrl.GetFacetCategoryListUrl(categoryId, includeAvailable, validate, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.FacetSet>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 

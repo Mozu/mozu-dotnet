@@ -54,14 +54,14 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <example>
 		/// <code>
 		///   var view = new View();
-		///   var documentCollection = view.GetViewDocuments(_dataViewMode,  documentListName,  viewName,  filter,  sortBy,  pageSize,  startIndex,  responseFields);
+		///   var documentCollection = view.GetViewDocuments( documentListName,  viewName,  filter,  sortBy,  pageSize,  startIndex,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.Content.DocumentCollection GetViewDocuments(string documentListName, string viewName, string filter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentCollection> response;
-			var client = Mozu.Api.Clients.Content.Documentlists.ViewClient.GetViewDocumentsClient(_dataViewMode,  documentListName,  viewName,  filter,  sortBy,  pageSize,  startIndex,  responseFields);
+			var client = Mozu.Api.Clients.Content.Documentlists.ViewClient.GetViewDocumentsClient( documentListName,  viewName,  filter,  sortBy,  pageSize,  startIndex,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -71,7 +71,7 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		public virtual async Task<Mozu.Api.Contracts.Content.DocumentCollection> GetViewDocumentsAsync(string documentListName, string viewName, string filter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentCollection> response;
-			var client = Mozu.Api.Clients.Content.Documentlists.ViewClient.GetViewDocumentsClient(_dataViewMode,  documentListName,  viewName,  filter,  sortBy,  pageSize,  startIndex,  responseFields);
+			var client = Mozu.Api.Clients.Content.Documentlists.ViewClient.GetViewDocumentsClient( documentListName,  viewName,  filter,  sortBy,  pageSize,  startIndex,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

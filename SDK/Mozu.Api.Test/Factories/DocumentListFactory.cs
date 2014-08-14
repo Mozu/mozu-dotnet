@@ -109,14 +109,14 @@ namespace Mozu.Api.Test.Factories
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = DocumentListFactory.CreateDocumentList(handler : handler,  list :  list,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = DocumentListFactory.CreateDocumentList(handler : handler,  list :  list,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<DocumentList/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Content.DocumentList CreateDocumentList(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.Content.DocumentList list, string responseFields = null, 
+ 		 Mozu.Api.Contracts.Content.DocumentList list, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -124,7 +124,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Content.DocumentListClient.CreateDocumentListClient(
-				 list :  list,  responseFields :  responseFields		);
+				 list :  list,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

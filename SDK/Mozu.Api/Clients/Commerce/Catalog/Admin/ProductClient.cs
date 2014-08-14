@@ -141,17 +141,18 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddProduct( product,  responseFields);
+		///   var mozuClient=AddProduct(dataViewMode,  product,  responseFields);
 		///   var productClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Product> AddProductClient(Mozu.Api.Contracts.ProductAdmin.Product product, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Product> AddProductClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.Product product, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.AddProductUrl(responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Product>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.Product>(product);
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.Product>(product)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
 			return mozuClient;
 
 		}
@@ -167,17 +168,18 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddProductInCatalog( productInCatalogInfoIn,  productCode,  responseFields);
+		///   var mozuClient=AddProductInCatalog(dataViewMode,  productInCatalogInfoIn,  productCode,  responseFields);
 		///   var productInCatalogInfoClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> AddProductInCatalogClient(Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo productInCatalogInfoIn, string productCode, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> AddProductInCatalogClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo productInCatalogInfoIn, string productCode, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.AddProductInCatalogUrl(productCode, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>(productInCatalogInfoIn);
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>(productInCatalogInfoIn)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
 			return mozuClient;
 
 		}
@@ -192,17 +194,18 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateProductInCatalogs( productInCatalogsIn,  productCode);
+		///   var mozuClient=UpdateProductInCatalogs(dataViewMode,  productInCatalogsIn,  productCode);
 		///   var productInCatalogInfoClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>> UpdateProductInCatalogsClient(List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> productInCatalogsIn, string productCode)
+		public static MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>> UpdateProductInCatalogsClient(DataViewMode dataViewMode, List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> productInCatalogsIn, string productCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.UpdateProductInCatalogsUrl(productCode);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>>(productInCatalogsIn);
+									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>>(productInCatalogsIn)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
 			return mozuClient;
 
 		}
@@ -219,17 +222,18 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateProductInCatalog( productInCatalogInfoIn,  productCode,  catalogId,  responseFields);
+		///   var mozuClient=UpdateProductInCatalog(dataViewMode,  productInCatalogInfoIn,  productCode,  catalogId,  responseFields);
 		///   var productInCatalogInfoClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> UpdateProductInCatalogClient(Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo productInCatalogInfoIn, string productCode, int catalogId, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> UpdateProductInCatalogClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo productInCatalogInfoIn, string productCode, int catalogId, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.UpdateProductInCatalogUrl(productCode, catalogId, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>(productInCatalogInfoIn);
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>(productInCatalogInfoIn)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
 			return mozuClient;
 
 		}
@@ -245,17 +249,18 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateProduct( product,  productCode,  responseFields);
+		///   var mozuClient=UpdateProduct(dataViewMode,  product,  productCode,  responseFields);
 		///   var productClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Product> UpdateProductClient(Mozu.Api.Contracts.ProductAdmin.Product product, string productCode, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Product> UpdateProductClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.Product product, string productCode, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.UpdateProductUrl(productCode, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Product>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.Product>(product);
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.Product>(product)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
 			return mozuClient;
 
 		}
@@ -269,16 +274,17 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=DeleteProduct( productCode);
+		///   var mozuClient=DeleteProduct(dataViewMode,  productCode);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteProductClient(string productCode)
+		public static MozuClient DeleteProductClient(DataViewMode dataViewMode, string productCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.DeleteProductUrl(productCode);
 			const string verb = "DELETE";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
+									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
@@ -294,16 +300,17 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=DeleteProductInCatalog( productCode,  catalogId);
+		///   var mozuClient=DeleteProductInCatalog(dataViewMode,  productCode,  catalogId);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteProductInCatalogClient(string productCode, int catalogId)
+		public static MozuClient DeleteProductInCatalogClient(DataViewMode dataViewMode, string productCode, int catalogId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.DeleteProductInCatalogUrl(productCode, catalogId);
 			const string verb = "DELETE";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
+									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 

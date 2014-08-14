@@ -31,17 +31,16 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetAttributeLocalizedContents(dataViewMode,  attributeFQN);
+		///   var mozuClient=GetAttributeLocalizedContents( attributeFQN);
 		///   var attributeLocalizedContentClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent>> GetAttributeLocalizedContentsClient(DataViewMode dataViewMode, string attributeFQN)
+		public static MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent>> GetAttributeLocalizedContentsClient(string attributeFQN)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeLocalizedContentUrl.GetAttributeLocalizedContentsUrl(attributeFQN);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent>>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
@@ -59,17 +58,16 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetAttributeLocalizedContent(dataViewMode,  attributeFQN,  localeCode,  responseFields);
+		///   var mozuClient=GetAttributeLocalizedContent( attributeFQN,  localeCode,  responseFields);
 		///   var attributeLocalizedContentClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> GetAttributeLocalizedContentClient(DataViewMode dataViewMode, string attributeFQN, string localeCode, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> GetAttributeLocalizedContentClient(string attributeFQN, string localeCode, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeLocalizedContentUrl.GetAttributeLocalizedContentUrl(attributeFQN, localeCode, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 

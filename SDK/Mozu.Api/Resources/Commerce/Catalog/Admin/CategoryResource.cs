@@ -25,17 +25,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///
 		private readonly IApiContext _apiContext;
 
-		private readonly DataViewMode _dataViewMode;
 		
 		public CategoryResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
-			_dataViewMode = DataViewMode.Live;
-		}
-		public CategoryResource(IApiContext apiContext, DataViewMode dataViewMode) 
-		{
-			_apiContext = apiContext;
-			_dataViewMode = dataViewMode;
 		}
 				
 		/// <summary>
@@ -52,14 +45,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var category = new Category();
-		///   var categoryPagedCollection = category.GetCategories(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		///   var categoryPagedCollection = category.GetCategories( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.CategoryPagedCollection GetCategories(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.CategoryPagedCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.GetCategoriesClient(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.GetCategoriesClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -69,7 +62,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.CategoryPagedCollection> GetCategoriesAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.CategoryPagedCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.GetCategoriesClient(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.GetCategoriesClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -87,14 +80,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var category = new Category();
-		///   var categoryCollection = category.GetChildCategories(_dataViewMode,  categoryId,  responseFields);
+		///   var categoryCollection = category.GetChildCategories( categoryId,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.CategoryCollection GetChildCategories(int categoryId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.CategoryCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.GetChildCategoriesClient(_dataViewMode,  categoryId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.GetChildCategoriesClient( categoryId,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -104,7 +97,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.CategoryCollection> GetChildCategoriesAsync(int categoryId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.CategoryCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.GetChildCategoriesClient(_dataViewMode,  categoryId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.GetChildCategoriesClient( categoryId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -122,14 +115,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var category = new Category();
-		///   var category = category.GetCategory(_dataViewMode,  categoryId,  responseFields);
+		///   var category = category.GetCategory( categoryId,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.Category GetCategory(int categoryId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.Category> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.GetCategoryClient(_dataViewMode,  categoryId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.GetCategoryClient( categoryId,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -139,7 +132,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Category> GetCategoryAsync(int categoryId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.Category> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.GetCategoryClient(_dataViewMode,  categoryId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.GetCategoryClient( categoryId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

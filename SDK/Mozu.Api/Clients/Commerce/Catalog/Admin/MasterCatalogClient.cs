@@ -55,17 +55,16 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetMasterCatalog(dataViewMode,  masterCatalogId,  responseFields);
+		///   var mozuClient=GetMasterCatalog( masterCatalogId,  responseFields);
 		///   var masterCatalogClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.MasterCatalog> GetMasterCatalogClient(DataViewMode dataViewMode, int masterCatalogId, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.MasterCatalog> GetMasterCatalogClient(int masterCatalogId, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.MasterCatalogUrl.GetMasterCatalogUrl(masterCatalogId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.MasterCatalog>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 

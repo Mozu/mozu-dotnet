@@ -33,17 +33,16 @@ namespace Mozu.Api.Clients.Content
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=ListDocumentDraftSummaries(dataViewMode,  pageSize,  startIndex,  documentLists,  responseFields);
+		///   var mozuClient=ListDocumentDraftSummaries( pageSize,  startIndex,  documentLists,  responseFields);
 		///   var documentDraftSummaryPagedCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection> ListDocumentDraftSummariesClient(DataViewMode dataViewMode, int? pageSize =  null, int? startIndex =  null, string documentLists =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection> ListDocumentDraftSummariesClient(int? pageSize =  null, int? startIndex =  null, string documentLists =  null, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Content.DocumentDraftSummaryUrl.ListDocumentDraftSummariesUrl(pageSize, startIndex, documentLists, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 

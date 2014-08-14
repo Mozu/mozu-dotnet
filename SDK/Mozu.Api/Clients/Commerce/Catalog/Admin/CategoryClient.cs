@@ -34,17 +34,16 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetCategories(dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		///   var mozuClient=GetCategories( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		///   var categoryPagedCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.CategoryPagedCollection> GetCategoriesClient(DataViewMode dataViewMode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.CategoryPagedCollection> GetCategoriesClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.CategoryUrl.GetCategoriesUrl(startIndex, pageSize, sortBy, filter, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.CategoryPagedCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
@@ -60,17 +59,16 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetChildCategories(dataViewMode,  categoryId,  responseFields);
+		///   var mozuClient=GetChildCategories( categoryId,  responseFields);
 		///   var categoryCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.CategoryCollection> GetChildCategoriesClient(DataViewMode dataViewMode, int categoryId, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.CategoryCollection> GetChildCategoriesClient(int categoryId, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.CategoryUrl.GetChildCategoriesUrl(categoryId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.CategoryCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
@@ -86,17 +84,16 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetCategory(dataViewMode,  categoryId,  responseFields);
+		///   var mozuClient=GetCategory( categoryId,  responseFields);
 		///   var categoryClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Category> GetCategoryClient(DataViewMode dataViewMode, int categoryId, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Category> GetCategoryClient(int categoryId, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.CategoryUrl.GetCategoryUrl(categoryId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Category>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 

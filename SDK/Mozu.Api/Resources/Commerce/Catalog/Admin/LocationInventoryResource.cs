@@ -51,14 +51,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var locationinventory = new LocationInventory();
-		///   var locationInventory = locationinventory.GetLocationInventory(_dataViewMode,  locationCode,  productCode,  responseFields);
+		///   var locationInventory = locationinventory.GetLocationInventory( locationCode,  productCode,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.LocationInventory GetLocationInventory(string locationCode, string productCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.LocationInventory> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.LocationInventoryClient.GetLocationInventoryClient(_dataViewMode,  locationCode,  productCode,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.LocationInventoryClient.GetLocationInventoryClient( locationCode,  productCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -68,7 +68,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.LocationInventory> GetLocationInventoryAsync(string locationCode, string productCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.LocationInventory> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.LocationInventoryClient.GetLocationInventoryClient(_dataViewMode,  locationCode,  productCode,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.LocationInventoryClient.GetLocationInventoryClient( locationCode,  productCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -91,14 +91,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var locationinventory = new LocationInventory();
-		///   var locationInventoryCollection = locationinventory.GetLocationInventories(_dataViewMode,  locationCode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		///   var locationInventoryCollection = locationinventory.GetLocationInventories( locationCode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.LocationInventoryCollection GetLocationInventories(string locationCode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.LocationInventoryCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.LocationInventoryClient.GetLocationInventoriesClient(_dataViewMode,  locationCode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.LocationInventoryClient.GetLocationInventoriesClient( locationCode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -108,7 +108,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.LocationInventoryCollection> GetLocationInventoriesAsync(string locationCode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.LocationInventoryCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.LocationInventoryClient.GetLocationInventoriesClient(_dataViewMode,  locationCode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.LocationInventoryClient.GetLocationInventoriesClient( locationCode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -128,14 +128,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var locationinventory = new LocationInventory();
-		///   var locationInventory = locationinventory.AddLocationInventory( locationInventoryList,  locationCode,  performUpserts);
+		///   var locationInventory = locationinventory.AddLocationInventory(_dataViewMode,  locationInventoryList,  locationCode,  performUpserts);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual List<Mozu.Api.Contracts.ProductAdmin.LocationInventory> AddLocationInventory(List<Mozu.Api.Contracts.ProductAdmin.LocationInventory> locationInventoryList, string locationCode, bool? performUpserts =  null)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.LocationInventory>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.LocationInventoryClient.AddLocationInventoryClient( locationInventoryList,  locationCode,  performUpserts);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.LocationInventoryClient.AddLocationInventoryClient(_dataViewMode,  locationInventoryList,  locationCode,  performUpserts);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -145,7 +145,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.LocationInventory>> AddLocationInventoryAsync(List<Mozu.Api.Contracts.ProductAdmin.LocationInventory> locationInventoryList, string locationCode, bool? performUpserts =  null)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.LocationInventory>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.LocationInventoryClient.AddLocationInventoryClient( locationInventoryList,  locationCode,  performUpserts);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.LocationInventoryClient.AddLocationInventoryClient(_dataViewMode,  locationInventoryList,  locationCode,  performUpserts);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -164,14 +164,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var locationinventory = new LocationInventory();
-		///   var locationInventory = locationinventory.UpdateLocationInventory( locationInventoryAdjustments,  locationCode);
+		///   var locationInventory = locationinventory.UpdateLocationInventory(_dataViewMode,  locationInventoryAdjustments,  locationCode);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual List<Mozu.Api.Contracts.ProductAdmin.LocationInventory> UpdateLocationInventory(List<Mozu.Api.Contracts.ProductAdmin.LocationInventoryAdjustment> locationInventoryAdjustments, string locationCode)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.LocationInventory>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.LocationInventoryClient.UpdateLocationInventoryClient( locationInventoryAdjustments,  locationCode);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.LocationInventoryClient.UpdateLocationInventoryClient(_dataViewMode,  locationInventoryAdjustments,  locationCode);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -181,7 +181,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.LocationInventory>> UpdateLocationInventoryAsync(List<Mozu.Api.Contracts.ProductAdmin.LocationInventoryAdjustment> locationInventoryAdjustments, string locationCode)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.LocationInventory>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.LocationInventoryClient.UpdateLocationInventoryClient( locationInventoryAdjustments,  locationCode);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.LocationInventoryClient.UpdateLocationInventoryClient(_dataViewMode,  locationInventoryAdjustments,  locationCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -200,14 +200,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var locationinventory = new LocationInventory();
-		///   locationinventory.DeleteLocationInventory( locationCode,  productCode);
+		///   locationinventory.DeleteLocationInventory(_dataViewMode,  locationCode,  productCode);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual void DeleteLocationInventory(string locationCode, string productCode)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.LocationInventoryClient.DeleteLocationInventoryClient( locationCode,  productCode);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.LocationInventoryClient.DeleteLocationInventoryClient(_dataViewMode,  locationCode,  productCode);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 
@@ -216,7 +216,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		public virtual async Task DeleteLocationInventoryAsync(string locationCode, string productCode)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.LocationInventoryClient.DeleteLocationInventoryClient( locationCode,  productCode);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.LocationInventoryClient.DeleteLocationInventoryClient(_dataViewMode,  locationCode,  productCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 

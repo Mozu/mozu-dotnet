@@ -36,17 +36,16 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetViewDocuments(dataViewMode,  documentListName,  viewName,  filter,  sortBy,  pageSize,  startIndex,  responseFields);
+		///   var mozuClient=GetViewDocuments( documentListName,  viewName,  filter,  sortBy,  pageSize,  startIndex,  responseFields);
 		///   var documentCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Content.DocumentCollection> GetViewDocumentsClient(DataViewMode dataViewMode, string documentListName, string viewName, string filter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Content.DocumentCollection> GetViewDocumentsClient(string documentListName, string viewName, string filter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Content.Documentlists.ViewUrl.GetViewDocumentsUrl(documentListName, viewName, filter, sortBy, pageSize, startIndex, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Content.DocumentCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 

@@ -125,14 +125,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var productreservation = new ProductReservation();
-		///   var productReservation = productreservation.AddProductReservations( productReservations,  skipInventoryCheck);
+		///   var productReservation = productreservation.AddProductReservations(_dataViewMode,  productReservations,  skipInventoryCheck);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> AddProductReservations(List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations, bool? skipInventoryCheck =  null)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductReservation>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.AddProductReservationsClient( productReservations,  skipInventoryCheck);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.AddProductReservationsClient(_dataViewMode,  productReservations,  skipInventoryCheck);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -142,7 +142,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductReservation>> AddProductReservationsAsync(List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations, bool? skipInventoryCheck =  null)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductReservation>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.AddProductReservationsClient( productReservations,  skipInventoryCheck);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.AddProductReservationsClient(_dataViewMode,  productReservations,  skipInventoryCheck);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -160,14 +160,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var productreservation = new ProductReservation();
-		///   productreservation.CommitReservations( productReservations);
+		///   productreservation.CommitReservations(_dataViewMode,  productReservations);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual void CommitReservations(List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.CommitReservationsClient( productReservations);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.CommitReservationsClient(_dataViewMode,  productReservations);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 
@@ -176,7 +176,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		public virtual async Task CommitReservationsAsync(List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.CommitReservationsClient( productReservations);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.CommitReservationsClient(_dataViewMode,  productReservations);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 
@@ -194,14 +194,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var productreservation = new ProductReservation();
-		///   var productReservation = productreservation.UpdateProductReservations( productReservations,  skipInventoryCheck);
+		///   var productReservation = productreservation.UpdateProductReservations(_dataViewMode,  productReservations,  skipInventoryCheck);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> UpdateProductReservations(List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations, bool? skipInventoryCheck =  null)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductReservation>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.UpdateProductReservationsClient( productReservations,  skipInventoryCheck);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.UpdateProductReservationsClient(_dataViewMode,  productReservations,  skipInventoryCheck);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -211,7 +211,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductReservation>> UpdateProductReservationsAsync(List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations, bool? skipInventoryCheck =  null)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductReservation>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.UpdateProductReservationsClient( productReservations,  skipInventoryCheck);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.UpdateProductReservationsClient(_dataViewMode,  productReservations,  skipInventoryCheck);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -229,14 +229,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var productreservation = new ProductReservation();
-		///   productreservation.DeleteProductReservation( productReservationId);
+		///   productreservation.DeleteProductReservation(_dataViewMode,  productReservationId);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual void DeleteProductReservation(int productReservationId)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.DeleteProductReservationClient( productReservationId);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.DeleteProductReservationClient(_dataViewMode,  productReservationId);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 
@@ -245,7 +245,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		public virtual async Task DeleteProductReservationAsync(int productReservationId)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.DeleteProductReservationClient( productReservationId);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.DeleteProductReservationClient(_dataViewMode,  productReservationId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 

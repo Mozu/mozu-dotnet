@@ -44,7 +44,7 @@ namespace Mozu.Api.Test.Helpers
             {
                 ProductFactory.DeleteProduct(ApiMessageHandler, pro.ProductCode);
             }
-            var productTypes = ProductTypeFactory.GetProductTypes(handler: ApiMessageHandler, dataViewMode: DataViewMode.Live, successCode:HttpStatusCode.OK, expectedCode: HttpStatusCode.OK);
+            var productTypes = ProductTypeFactory.GetProductTypes(handler: ApiMessageHandler,  successCode:HttpStatusCode.OK, expectedCode: HttpStatusCode.OK);
             foreach (var pt in productTypes.Items)
             {
                 if (pt.AuditInfo.CreateDate.Value > DateTime.Now.AddDays(-1))
@@ -59,7 +59,7 @@ namespace Mozu.Api.Test.Helpers
                     }
                 }
             }
-            var attributes = AttributeFactory.GetAttributes(handler: ApiMessageHandler, dataViewMode: DataViewMode.Live, successCode: HttpStatusCode.OK, expectedCode: HttpStatusCode.OK);
+            var attributes = AttributeFactory.GetAttributes(handler: ApiMessageHandler,  successCode: HttpStatusCode.OK, expectedCode: HttpStatusCode.OK);
             if (attributes.TotalCount != 0)
             {
                 foreach (var attr in attributes.Items)

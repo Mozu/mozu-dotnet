@@ -25,17 +25,10 @@ namespace Mozu.Api.Resources.Content
 		///
 		private readonly IApiContext _apiContext;
 
-		private readonly DataViewMode _dataViewMode;
 		
 		public DocumentDraftSummaryResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
-			_dataViewMode = DataViewMode.Live;
-		}
-		public DocumentDraftSummaryResource(IApiContext apiContext, DataViewMode dataViewMode) 
-		{
-			_apiContext = apiContext;
-			_dataViewMode = dataViewMode;
 		}
 				
 		/// <summary>
@@ -51,14 +44,14 @@ namespace Mozu.Api.Resources.Content
 		/// <example>
 		/// <code>
 		///   var documentdraftsummary = new DocumentDraftSummary();
-		///   var documentDraftSummaryPagedCollection = documentdraftsummary.ListDocumentDraftSummaries(_dataViewMode,  pageSize,  startIndex,  documentLists,  responseFields);
+		///   var documentDraftSummaryPagedCollection = documentdraftsummary.ListDocumentDraftSummaries( pageSize,  startIndex,  documentLists,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection ListDocumentDraftSummaries(int? pageSize =  null, int? startIndex =  null, string documentLists =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection> response;
-			var client = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.ListDocumentDraftSummariesClient(_dataViewMode,  pageSize,  startIndex,  documentLists,  responseFields);
+			var client = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.ListDocumentDraftSummariesClient( pageSize,  startIndex,  documentLists,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -68,7 +61,7 @@ namespace Mozu.Api.Resources.Content
 		public virtual async Task<Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection> ListDocumentDraftSummariesAsync(int? pageSize =  null, int? startIndex =  null, string documentLists =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection> response;
-			var client = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.ListDocumentDraftSummariesClient(_dataViewMode,  pageSize,  startIndex,  documentLists,  responseFields);
+			var client = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.ListDocumentDraftSummariesClient( pageSize,  startIndex,  documentLists,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

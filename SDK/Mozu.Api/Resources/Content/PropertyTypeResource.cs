@@ -25,10 +25,17 @@ namespace Mozu.Api.Resources.Content
 		///
 		private readonly IApiContext _apiContext;
 
+		private readonly DataViewMode _dataViewMode;
 		
 		public PropertyTypeResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
+			_dataViewMode = DataViewMode.Live;
+		}
+		public PropertyTypeResource(IApiContext apiContext, DataViewMode dataViewMode) 
+		{
+			_apiContext = apiContext;
+			_dataViewMode = dataViewMode;
 		}
 				
 		/// <summary>
@@ -43,14 +50,14 @@ namespace Mozu.Api.Resources.Content
 		/// <example>
 		/// <code>
 		///   var propertytype = new PropertyType();
-		///   var propertyTypeCollection = propertytype.GetPropertyTypes( pageSize,  startIndex,  responseFields);
+		///   var propertyTypeCollection = propertytype.GetPropertyTypes(_dataViewMode,  pageSize,  startIndex,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.Content.PropertyTypeCollection GetPropertyTypes(int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.PropertyTypeCollection> response;
-			var client = Mozu.Api.Clients.Content.PropertyTypeClient.GetPropertyTypesClient( pageSize,  startIndex,  responseFields);
+			var client = Mozu.Api.Clients.Content.PropertyTypeClient.GetPropertyTypesClient(_dataViewMode,  pageSize,  startIndex,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -60,7 +67,7 @@ namespace Mozu.Api.Resources.Content
 		public virtual async Task<Mozu.Api.Contracts.Content.PropertyTypeCollection> GetPropertyTypesAsync(int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.PropertyTypeCollection> response;
-			var client = Mozu.Api.Clients.Content.PropertyTypeClient.GetPropertyTypesClient( pageSize,  startIndex,  responseFields);
+			var client = Mozu.Api.Clients.Content.PropertyTypeClient.GetPropertyTypesClient(_dataViewMode,  pageSize,  startIndex,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -78,14 +85,14 @@ namespace Mozu.Api.Resources.Content
 		/// <example>
 		/// <code>
 		///   var propertytype = new PropertyType();
-		///   var propertyType = propertytype.GetPropertyType( propertyTypeName,  responseFields);
+		///   var propertyType = propertytype.GetPropertyType(_dataViewMode,  propertyTypeName,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.Content.PropertyType GetPropertyType(string propertyTypeName, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.PropertyType> response;
-			var client = Mozu.Api.Clients.Content.PropertyTypeClient.GetPropertyTypeClient( propertyTypeName,  responseFields);
+			var client = Mozu.Api.Clients.Content.PropertyTypeClient.GetPropertyTypeClient(_dataViewMode,  propertyTypeName,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -95,7 +102,7 @@ namespace Mozu.Api.Resources.Content
 		public virtual async Task<Mozu.Api.Contracts.Content.PropertyType> GetPropertyTypeAsync(string propertyTypeName, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.PropertyType> response;
-			var client = Mozu.Api.Clients.Content.PropertyTypeClient.GetPropertyTypeClient( propertyTypeName,  responseFields);
+			var client = Mozu.Api.Clients.Content.PropertyTypeClient.GetPropertyTypeClient(_dataViewMode,  propertyTypeName,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

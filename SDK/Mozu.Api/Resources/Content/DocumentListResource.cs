@@ -120,14 +120,14 @@ namespace Mozu.Api.Resources.Content
 		/// <example>
 		/// <code>
 		///   var documentlist = new DocumentList();
-		///   var documentList = documentlist.CreateDocumentList( list,  responseFields);
+		///   var documentList = documentlist.CreateDocumentList(_dataViewMode,  list,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.Content.DocumentList CreateDocumentList(Mozu.Api.Contracts.Content.DocumentList list, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentList> response;
-			var client = Mozu.Api.Clients.Content.DocumentListClient.CreateDocumentListClient( list,  responseFields);
+			var client = Mozu.Api.Clients.Content.DocumentListClient.CreateDocumentListClient(_dataViewMode,  list,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -137,7 +137,7 @@ namespace Mozu.Api.Resources.Content
 		public virtual async Task<Mozu.Api.Contracts.Content.DocumentList> CreateDocumentListAsync(Mozu.Api.Contracts.Content.DocumentList list, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentList> response;
-			var client = Mozu.Api.Clients.Content.DocumentListClient.CreateDocumentListClient( list,  responseFields);
+			var client = Mozu.Api.Clients.Content.DocumentListClient.CreateDocumentListClient(_dataViewMode,  list,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

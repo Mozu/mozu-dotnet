@@ -195,14 +195,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var product = product.AddProduct( product,  responseFields);
+		///   var product = product.AddProduct(_dataViewMode,  product,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.Product AddProduct(Mozu.Api.Contracts.ProductAdmin.Product product, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.Product> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.AddProductClient( product,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.AddProductClient(_dataViewMode,  product,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -212,7 +212,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Product> AddProductAsync(Mozu.Api.Contracts.ProductAdmin.Product product, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.Product> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.AddProductClient( product,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.AddProductClient(_dataViewMode,  product,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -231,14 +231,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var productInCatalogInfo = product.AddProductInCatalog( productInCatalogInfoIn,  productCode,  responseFields);
+		///   var productInCatalogInfo = product.AddProductInCatalog(_dataViewMode,  productInCatalogInfoIn,  productCode,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo AddProductInCatalog(Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo productInCatalogInfoIn, string productCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.AddProductInCatalogClient( productInCatalogInfoIn,  productCode,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.AddProductInCatalogClient(_dataViewMode,  productInCatalogInfoIn,  productCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -248,7 +248,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> AddProductInCatalogAsync(Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo productInCatalogInfoIn, string productCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.AddProductInCatalogClient( productInCatalogInfoIn,  productCode,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.AddProductInCatalogClient(_dataViewMode,  productInCatalogInfoIn,  productCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -266,14 +266,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var productInCatalogInfo = product.UpdateProductInCatalogs( productInCatalogsIn,  productCode);
+		///   var productInCatalogInfo = product.UpdateProductInCatalogs(_dataViewMode,  productInCatalogsIn,  productCode);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> UpdateProductInCatalogs(List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> productInCatalogsIn, string productCode)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.UpdateProductInCatalogsClient( productInCatalogsIn,  productCode);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.UpdateProductInCatalogsClient(_dataViewMode,  productInCatalogsIn,  productCode);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -283,7 +283,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>> UpdateProductInCatalogsAsync(List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> productInCatalogsIn, string productCode)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.UpdateProductInCatalogsClient( productInCatalogsIn,  productCode);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.UpdateProductInCatalogsClient(_dataViewMode,  productInCatalogsIn,  productCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -303,14 +303,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var productInCatalogInfo = product.UpdateProductInCatalog( productInCatalogInfoIn,  productCode,  catalogId,  responseFields);
+		///   var productInCatalogInfo = product.UpdateProductInCatalog(_dataViewMode,  productInCatalogInfoIn,  productCode,  catalogId,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo UpdateProductInCatalog(Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo productInCatalogInfoIn, string productCode, int catalogId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.UpdateProductInCatalogClient( productInCatalogInfoIn,  productCode,  catalogId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.UpdateProductInCatalogClient(_dataViewMode,  productInCatalogInfoIn,  productCode,  catalogId,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -320,7 +320,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> UpdateProductInCatalogAsync(Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo productInCatalogInfoIn, string productCode, int catalogId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.UpdateProductInCatalogClient( productInCatalogInfoIn,  productCode,  catalogId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.UpdateProductInCatalogClient(_dataViewMode,  productInCatalogInfoIn,  productCode,  catalogId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -339,14 +339,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var product = product.UpdateProduct( product,  productCode,  responseFields);
+		///   var product = product.UpdateProduct(_dataViewMode,  product,  productCode,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.Product UpdateProduct(Mozu.Api.Contracts.ProductAdmin.Product product, string productCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.Product> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.UpdateProductClient( product,  productCode,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.UpdateProductClient(_dataViewMode,  product,  productCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -356,7 +356,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Product> UpdateProductAsync(Mozu.Api.Contracts.ProductAdmin.Product product, string productCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.Product> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.UpdateProductClient( product,  productCode,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.UpdateProductClient(_dataViewMode,  product,  productCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -373,14 +373,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   product.DeleteProduct( productCode);
+		///   product.DeleteProduct(_dataViewMode,  productCode);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual void DeleteProduct(string productCode)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.DeleteProductClient( productCode);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.DeleteProductClient(_dataViewMode,  productCode);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 
@@ -389,7 +389,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		public virtual async Task DeleteProductAsync(string productCode)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.DeleteProductClient( productCode);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.DeleteProductClient(_dataViewMode,  productCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 
@@ -406,14 +406,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   product.DeleteProductInCatalog( productCode,  catalogId);
+		///   product.DeleteProductInCatalog(_dataViewMode,  productCode,  catalogId);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual void DeleteProductInCatalog(string productCode, int catalogId)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.DeleteProductInCatalogClient( productCode,  catalogId);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.DeleteProductInCatalogClient(_dataViewMode,  productCode,  catalogId);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 
@@ -422,7 +422,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		public virtual async Task DeleteProductInCatalogAsync(string productCode, int catalogId)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.DeleteProductInCatalogClient( productCode,  catalogId);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.DeleteProductInCatalogClient(_dataViewMode,  productCode,  catalogId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 

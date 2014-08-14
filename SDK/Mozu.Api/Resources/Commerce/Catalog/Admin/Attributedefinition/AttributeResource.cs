@@ -25,17 +25,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		///
 		private readonly IApiContext _apiContext;
 
-		private readonly DataViewMode _dataViewMode;
 		
 		public AttributeResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
-			_dataViewMode = DataViewMode.Live;
-		}
-		public AttributeResource(IApiContext apiContext, DataViewMode dataViewMode) 
-		{
-			_apiContext = apiContext;
-			_dataViewMode = dataViewMode;
 		}
 				
 		/// <summary>
@@ -53,14 +46,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// <example>
 		/// <code>
 		///   var attribute = new Attribute();
-		///   var attributeCollection = attribute.GetAttributes(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		///   var attributeCollection = attribute.GetAttributes( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.AttributeCollection GetAttributes(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.AttributeClient.GetAttributesClient(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.AttributeClient.GetAttributesClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -70,7 +63,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.AttributeCollection> GetAttributesAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.AttributeClient.GetAttributesClient(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.AttributeClient.GetAttributesClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -89,14 +82,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// <example>
 		/// <code>
 		///   var attribute = new Attribute();
-		///   var attribute = attribute.GetAttribute(_dataViewMode,  attributeFQN,  responseFields);
+		///   var attribute = attribute.GetAttribute( attributeFQN,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.Attribute GetAttribute(string attributeFQN, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.Attribute> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.AttributeClient.GetAttributeClient(_dataViewMode,  attributeFQN,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.AttributeClient.GetAttributeClient( attributeFQN,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -106,7 +99,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Attribute> GetAttributeAsync(string attributeFQN, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.Attribute> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.AttributeClient.GetAttributeClient(_dataViewMode,  attributeFQN,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.AttributeClient.GetAttributeClient( attributeFQN,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

@@ -147,14 +147,14 @@ namespace Mozu.Api.Test.Factories
 		/// Creates a new document in an defined document list.
 		/// <example> 
 		///  <code> 
-		/// var result = DocumentFactory.CreateDocument(handler : handler,  document :  document,  documentListName :  documentListName,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = DocumentFactory.CreateDocument(handler : handler,  document :  document,  documentListName :  documentListName,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Document/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Content.Document CreateDocument(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.Content.Document document, string documentListName, string responseFields = null, 
+ 		 Mozu.Api.Contracts.Content.Document document, string documentListName, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -162,7 +162,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Content.Documentlists.DocumentClient.CreateDocumentClient(
-				 document :  document,  documentListName :  documentListName,  responseFields :  responseFields		);
+				 document :  document,  documentListName :  documentListName,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

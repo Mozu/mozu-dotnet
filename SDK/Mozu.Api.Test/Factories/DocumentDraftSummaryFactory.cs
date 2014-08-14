@@ -33,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves a list of the documents currently in draft state, according to any defined filter and sort criteria.
 		/// <example> 
 		///  <code> 
-		/// var result = DocumentDraftSummaryFactory.ListDocumentDraftSummaries(handler : handler,  pageSize :  pageSize,  startIndex :  startIndex,  documentLists :  documentLists,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = DocumentDraftSummaryFactory.ListDocumentDraftSummaries(handler : handler,  pageSize :  pageSize,  startIndex :  startIndex,  documentLists :  documentLists,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<DocumentDraftSummaryPagedCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection ListDocumentDraftSummaries(ServiceClientMessageHandler handler, 
- 		 int? pageSize = null, int? startIndex = null, string documentLists = null, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 int? pageSize = null, int? startIndex = null, string documentLists = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -48,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.ListDocumentDraftSummariesClient(
-				 pageSize :  pageSize,  startIndex :  startIndex,  documentLists :  documentLists,  responseFields :  responseFields, dataViewMode: dataViewMode		);
+				 pageSize :  pageSize,  startIndex :  startIndex,  documentLists :  documentLists,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

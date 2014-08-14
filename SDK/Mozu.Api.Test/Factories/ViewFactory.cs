@@ -33,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = ViewFactory.GetViewDocuments(handler : handler,  documentListName :  documentListName,  viewName :  viewName,  filter :  filter,  sortBy :  sortBy,  pageSize :  pageSize,  startIndex :  startIndex,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ViewFactory.GetViewDocuments(handler : handler,  documentListName :  documentListName,  viewName :  viewName,  filter :  filter,  sortBy :  sortBy,  pageSize :  pageSize,  startIndex :  startIndex,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<DocumentCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Content.DocumentCollection GetViewDocuments(ServiceClientMessageHandler handler, 
- 		 string documentListName, string viewName, string filter = null, string sortBy = null, int? pageSize = null, int? startIndex = null, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 string documentListName, string viewName, string filter = null, string sortBy = null, int? pageSize = null, int? startIndex = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -48,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Content.Documentlists.ViewClient.GetViewDocumentsClient(
-				 documentListName :  documentListName,  viewName :  viewName,  filter :  filter,  sortBy :  sortBy,  pageSize :  pageSize,  startIndex :  startIndex,  responseFields :  responseFields, dataViewMode: dataViewMode		);
+				 documentListName :  documentListName,  viewName :  viewName,  filter :  filter,  sortBy :  sortBy,  pageSize :  pageSize,  startIndex :  startIndex,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

@@ -33,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = AttributeLocalizedContentFactory.GetAttributeLocalizedContents(handler : handler,  attributeFQN :  attributeFQN,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = AttributeLocalizedContentFactory.GetAttributeLocalizedContents(handler : handler,  attributeFQN :  attributeFQN,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<List<AttributeLocalizedContent>/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static List<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> GetAttributeLocalizedContents(ServiceClientMessageHandler handler, 
- 		 string attributeFQN,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 string attributeFQN, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -48,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeLocalizedContentClient.GetAttributeLocalizedContentsClient(
-				 attributeFQN :  attributeFQN, dataViewMode: dataViewMode		);
+				 attributeFQN :  attributeFQN		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -71,14 +71,14 @@ namespace Mozu.Api.Test.Factories
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = AttributeLocalizedContentFactory.GetAttributeLocalizedContent(handler : handler,  attributeFQN :  attributeFQN,  localeCode :  localeCode,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = AttributeLocalizedContentFactory.GetAttributeLocalizedContent(handler : handler,  attributeFQN :  attributeFQN,  localeCode :  localeCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<AttributeLocalizedContent/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent GetAttributeLocalizedContent(ServiceClientMessageHandler handler, 
- 		 string attributeFQN, string localeCode, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 string attributeFQN, string localeCode, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -86,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeLocalizedContentClient.GetAttributeLocalizedContentClient(
-				 attributeFQN :  attributeFQN,  localeCode :  localeCode,  responseFields :  responseFields, dataViewMode: dataViewMode		);
+				 attributeFQN :  attributeFQN,  localeCode :  localeCode,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

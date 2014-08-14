@@ -25,17 +25,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Discounts
 		///
 		private readonly IApiContext _apiContext;
 
-		private readonly DataViewMode _dataViewMode;
 		
 		public DiscountTargetResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
-			_dataViewMode = DataViewMode.Live;
-		}
-		public DiscountTargetResource(IApiContext apiContext, DataViewMode dataViewMode) 
-		{
-			_apiContext = apiContext;
-			_dataViewMode = dataViewMode;
 		}
 				
 		/// <summary>
@@ -49,14 +42,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Discounts
 		/// <example>
 		/// <code>
 		///   var discounttarget = new DiscountTarget();
-		///   var discountTarget = discounttarget.GetDiscountTarget(_dataViewMode,  discountId,  responseFields);
+		///   var discountTarget = discounttarget.GetDiscountTarget( discountId,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.DiscountTarget GetDiscountTarget(int discountId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountTarget> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Discounts.DiscountTargetClient.GetDiscountTargetClient(_dataViewMode,  discountId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Discounts.DiscountTargetClient.GetDiscountTargetClient( discountId,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -66,7 +59,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Discounts
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.DiscountTarget> GetDiscountTargetAsync(int discountId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountTarget> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Discounts.DiscountTargetClient.GetDiscountTargetClient(_dataViewMode,  discountId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Discounts.DiscountTargetClient.GetDiscountTargetClient( discountId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

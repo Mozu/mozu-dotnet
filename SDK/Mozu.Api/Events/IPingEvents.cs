@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Threading.Tasks;
 using Mozu.Api.Contracts.Event;
 
 
@@ -15,7 +17,11 @@ namespace Mozu.Api.Events
 {
 	public interface IPingEvents
 	{
+		[Obsolete("This method is obsolete; use the async method instead")]
 		void Created(IApiContext apiContext, Event eventPayLoad);
+
+		Task CreatedAsync(IApiContext apiContext, Event eventPayLoad);
+
 	}
 
 }

@@ -79,7 +79,7 @@ namespace Mozu.Api.Test.MsTestCases
         public void GetAttributeVocabularyValuesTest1()
         {
 
-            var values = AttributeVocabularyValueFactory.GetAttributeVocabularyValues(handler: ApiMsgHandler, dataViewMode: DataViewMode.Pending, attributeFQN: "tenant~availability");
+            var values = AttributeVocabularyValueFactory.GetAttributeVocabularyValues(handler: ApiMsgHandler, attributeFQN: "tenant~availability");
             Assert.IsTrue(values.Count > 0);
         }
     }

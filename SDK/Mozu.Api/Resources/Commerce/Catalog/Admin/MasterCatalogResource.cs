@@ -25,17 +25,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///
 		private readonly IApiContext _apiContext;
 
-		private readonly DataViewMode _dataViewMode;
 		
 		public MasterCatalogResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
-			_dataViewMode = DataViewMode.Live;
-		}
-		public MasterCatalogResource(IApiContext apiContext, DataViewMode dataViewMode) 
-		{
-			_apiContext = apiContext;
-			_dataViewMode = dataViewMode;
 		}
 				
 		/// <summary>
@@ -83,14 +76,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var mastercatalog = new MasterCatalog();
-		///   var masterCatalog = mastercatalog.GetMasterCatalog(_dataViewMode,  masterCatalogId,  responseFields);
+		///   var masterCatalog = mastercatalog.GetMasterCatalog( masterCatalogId,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.MasterCatalog GetMasterCatalog(int masterCatalogId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.MasterCatalog> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.MasterCatalogClient.GetMasterCatalogClient(_dataViewMode,  masterCatalogId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.MasterCatalogClient.GetMasterCatalogClient( masterCatalogId,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -100,7 +93,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.MasterCatalog> GetMasterCatalogAsync(int masterCatalogId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.MasterCatalog> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.MasterCatalogClient.GetMasterCatalogClient(_dataViewMode,  masterCatalogId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.MasterCatalogClient.GetMasterCatalogClient( masterCatalogId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

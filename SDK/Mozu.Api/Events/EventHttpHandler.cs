@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using System.IO;
@@ -21,11 +22,15 @@ namespace Mozu.Api.Events
     /// <summary>
     /// 
     /// </summary>
-    public class EventHttpHandler: IHttpHandler
+    public class EventHttpHandler : IHttpAsyncHandler
     {
         private readonly IEventServiceFactory _eventServiceFactory;
-        private static ILogger _log = LogManager.GetLogger(typeof(EventHttpHandler));
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="eventServiceFactory"></param>
         public EventHttpHandler(IEventServiceFactory eventServiceFactory)
         {
             _eventServiceFactory = eventServiceFactory;
@@ -38,13 +43,76 @@ namespace Mozu.Api.Events
 
         public void ProcessRequest(HttpContext context)
         {
+
+            throw new NotImplementedException();
+        }
+
+        public IAsyncResult BeginProcessRequest(HttpContext context, AsyncCallback cb, object extraData)
+        {
+
+            var asynch = new AsyncEventOperation(cb, context, extraData, _eventServiceFactory);
+            asynch.StartAsyncWork();
+            return asynch;
+        }
+
+        public void EndProcessRequest(IAsyncResult result)
+        {
+
+        }
+    }
+
+    internal class AsyncEventOperation : IAsyncResult
+    {
+        private static ILogger _log = LogManager.GetLogger(typeof(EventHttpHandler));
+        private bool _completed;
+        private Object _state;
+        private AsyncCallback _callback;
+        private HttpContext _context;
+        private readonly IEventServiceFactory _eventServiceFactory;
+        bool IAsyncResult.IsCompleted
+        {
+            get { return _completed; }
+        }
+
+        WaitHandle IAsyncResult.AsyncWaitHandle
+        {
+            get { return null; }
+        }
+
+        Object IAsyncResult.AsyncState
+        {
+            get { return _state; }
+        }
+
+        bool IAsyncResult.CompletedSynchronously
+        {
+            get { return false; }
+        }
+
+        public AsyncEventOperation(AsyncCallback callback, HttpContext context, Object state, IEventServiceFactory eventServiceFactory)
+        {
+            _callback = callback;
+            _context = context;
+            _state = state;
+            _completed = false;
+            _eventServiceFactory = eventServiceFactory;
+        }
+
+        public void StartAsyncWork()
+        {
+            ThreadPool.QueueUserWorkItem(new WaitCallback(Process), null);
+        }
+
+
+        private async void Process(Object workItemState)
+        {
             //create http objects used to read request 
-            var request = context.Request;
-            var response = context.Response;
+            var request = _context.Request;
+            var response = _context.Response;
 
             //get file path to use as comparison and determine when to take action on event
             //load headers into apicontext
-			var apiContext = new ApiContext(request.Headers);
+            var apiContext = new ApiContext(request.Headers);
 
             //read request into stream
             var jsonRequest = string.Empty;
@@ -57,17 +125,19 @@ namespace Mozu.Api.Events
             response.Clear();
             response.ClearHeaders();
 
-            _log.Debug(String.Format("CorrelationId:{0},Headers : {1}", apiContext.CorrelationId,HttpHelper.GetAllheaders(request.Headers)));
-            _log.Debug(String.Format("CorrelationId:{0},Processing event : {1}",apiContext.CorrelationId, jsonRequest));
+            _log.Debug(String.Format("CorrelationId:{0},Headers : {1}", apiContext.CorrelationId, HttpHelper.GetAllheaders(request.Headers)));
+            _log.Debug(String.Format("CorrelationId:{0},Processing event : {1}", apiContext.CorrelationId, jsonRequest));
+
             var requestDate = DateTime.Parse(apiContext.Date, null, DateTimeStyles.AssumeUniversal).ToUniversalTime();
             var currentDate = DateTime.UtcNow;
+
             _log.Info(String.Format("Current DateTime : {0}", currentDate));
             _log.Info(String.Format("Request DateTime : {0}", requestDate));
+
             var diff = (currentDate - requestDate).TotalSeconds;
-            if (SHA256Generator.GetHash(AppAuthenticator.Instance.AppAuthInfo.SharedSecret, apiContext.Date, jsonRequest) !=
-                apiContext.HMACSha256 || diff > MozuConfig.EventTimeoutInSeconds)
+            if (SHA256Generator.GetHash(AppAuthenticator.Instance.AppAuthInfo.SharedSecret, apiContext.Date, jsonRequest) != apiContext.HMACSha256 || diff > MozuConfig.EventTimeoutInSeconds)
             {
-                _log.Error(String.Format("CorrelationId:{0},Could not validate security token , request header HMACSHA256 : {1}", apiContext.CorrelationId,apiContext.HMACSha256));
+                _log.Error(String.Format("CorrelationId:{0},Could not validate security token , request header HMACSHA256 : {1}", apiContext.CorrelationId, apiContext.HMACSha256));
                 response.StatusCode = 403;
             }
             else
@@ -77,17 +147,20 @@ namespace Mozu.Api.Events
                     var eventPayload = JsonConvert.DeserializeObject<Event>(jsonRequest);
                     //var eventServiceFactory = new EventServiceFactory();
                     var eventService = _eventServiceFactory.GetEventService();
-                    eventService.ProcessEvent(apiContext, eventPayload);
-                    _log.Info(string.Format("CorrelationId:{0},Event processing done , EventId : {1}",apiContext.CorrelationId, eventPayload.Id));
+                    if (string.IsNullOrEmpty(apiContext.CorrelationId))
+                        apiContext.CorrelationId = eventPayload.CorrelationId;
+
+                    await eventService.ProcessEventAsync(apiContext, eventPayload);
+
+                    _log.Info(string.Format("CorrelationId:{0},Event processing done , EventId : {1}", apiContext.CorrelationId, eventPayload.Id));
                     response.StatusCode = 200;
                     response.StatusDescription = "OK";
-
                 }
                 catch (Exception exc)
                 {
                     response.StatusCode = 500;
                     response.StatusDescription = exc.Message;
-                    response.ContentType = context.Request.ContentType;
+                    response.ContentType = _context.Request.ContentType;
                     _log.Error(exc.Message, exc);
                     if (exc.InnerException != null)
                         response.Write(JsonConvert.SerializeObject(exc.InnerException));
@@ -97,9 +170,9 @@ namespace Mozu.Api.Events
             }
 
             response.Flush();
-            context.ApplicationInstance.CompleteRequest();
+            _completed = true;
+            _callback(this);
 
         }
-
     }
 }

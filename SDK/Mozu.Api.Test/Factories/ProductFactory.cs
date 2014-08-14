@@ -185,14 +185,14 @@ namespace Mozu.Api.Test.Factories
 		/// Creates a new product definition in the specified master catalog.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductFactory.AddProduct(handler : handler,  product :  product,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductFactory.AddProduct(handler : handler,  product :  product,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Product/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.Product AddProduct(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ProductAdmin.Product product, string responseFields = null, 
+ 		 Mozu.Api.Contracts.ProductAdmin.Product product, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -200,7 +200,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.AddProductClient(
-				 product :  product,  responseFields :  responseFields		);
+				 product :  product,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -223,14 +223,14 @@ namespace Mozu.Api.Test.Factories
 		/// Associates a new product defined in the master catalog with a specific catalog.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductFactory.AddProductInCatalog(handler : handler,  productInCatalogInfoIn :  productInCatalogInfoIn,  productCode :  productCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductFactory.AddProductInCatalog(handler : handler,  productInCatalogInfoIn :  productInCatalogInfoIn,  productCode :  productCode,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<ProductInCatalogInfo/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo AddProductInCatalog(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo productInCatalogInfoIn, string productCode, string responseFields = null, 
+ 		 Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo productInCatalogInfoIn, string productCode, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -238,7 +238,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.AddProductInCatalogClient(
-				 productInCatalogInfoIn :  productInCatalogInfoIn,  productCode :  productCode,  responseFields :  responseFields		);
+				 productInCatalogInfoIn :  productInCatalogInfoIn,  productCode :  productCode,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -261,14 +261,14 @@ namespace Mozu.Api.Test.Factories
 		/// Updates the properties of a product specific to each catalog associated with the product.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductFactory.UpdateProductInCatalogs(handler : handler,  productInCatalogsIn :  productInCatalogsIn,  productCode :  productCode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductFactory.UpdateProductInCatalogs(handler : handler,  productInCatalogsIn :  productInCatalogsIn,  productCode :  productCode,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<List<ProductInCatalogInfo>/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> UpdateProductInCatalogs(ServiceClientMessageHandler handler, 
- 		 List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> productInCatalogsIn, string productCode, 
+ 		 List<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo> productInCatalogsIn, string productCode,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -276,7 +276,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.UpdateProductInCatalogsClient(
-				 productInCatalogsIn :  productInCatalogsIn,  productCode :  productCode		);
+				 productInCatalogsIn :  productInCatalogsIn,  productCode :  productCode, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -299,14 +299,14 @@ namespace Mozu.Api.Test.Factories
 		/// Updates one or more properties of a product associated with a specific catalog.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductFactory.UpdateProductInCatalog(handler : handler,  productInCatalogInfoIn :  productInCatalogInfoIn,  productCode :  productCode,  catalogId :  catalogId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductFactory.UpdateProductInCatalog(handler : handler,  productInCatalogInfoIn :  productInCatalogInfoIn,  productCode :  productCode,  catalogId :  catalogId,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<ProductInCatalogInfo/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo UpdateProductInCatalog(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo productInCatalogInfoIn, string productCode, int catalogId, string responseFields = null, 
+ 		 Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo productInCatalogInfoIn, string productCode, int catalogId, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -314,7 +314,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.UpdateProductInCatalogClient(
-				 productInCatalogInfoIn :  productInCatalogInfoIn,  productCode :  productCode,  catalogId :  catalogId,  responseFields :  responseFields		);
+				 productInCatalogInfoIn :  productInCatalogInfoIn,  productCode :  productCode,  catalogId :  catalogId,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -337,14 +337,14 @@ namespace Mozu.Api.Test.Factories
 		/// Updates one or more properties of a product definition in a master catalog.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductFactory.UpdateProduct(handler : handler,  product :  product,  productCode :  productCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductFactory.UpdateProduct(handler : handler,  product :  product,  productCode :  productCode,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Product/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.Product UpdateProduct(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ProductAdmin.Product product, string productCode, string responseFields = null, 
+ 		 Mozu.Api.Contracts.ProductAdmin.Product product, string productCode, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -352,7 +352,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.UpdateProductClient(
-				 product :  product,  productCode :  productCode,  responseFields :  responseFields		);
+				 product :  product,  productCode :  productCode,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -375,14 +375,14 @@ namespace Mozu.Api.Test.Factories
 		/// Deletes the specified product from a master catalog.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductFactory.DeleteProduct(handler : handler,  productCode :  productCode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductFactory.DeleteProduct(handler : handler,  productCode :  productCode,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static void DeleteProduct(ServiceClientMessageHandler handler, 
- 		string productCode, 
+ 		string productCode,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
@@ -390,7 +390,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.DeleteProductClient(
-				 productCode :  productCode		);
+				 productCode :  productCode, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -412,14 +412,14 @@ namespace Mozu.Api.Test.Factories
 		/// Removes the product association defined for a specific catalog.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductFactory.DeleteProductInCatalog(handler : handler,  productCode :  productCode,  catalogId :  catalogId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductFactory.DeleteProductInCatalog(handler : handler,  productCode :  productCode,  catalogId :  catalogId,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static void DeleteProductInCatalog(ServiceClientMessageHandler handler, 
- 		string productCode, int catalogId, 
+ 		string productCode, int catalogId,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
@@ -427,7 +427,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.DeleteProductInCatalogClient(
-				 productCode :  productCode,  catalogId :  catalogId		);
+				 productCode :  productCode,  catalogId :  catalogId, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

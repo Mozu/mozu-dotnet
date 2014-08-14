@@ -109,14 +109,14 @@ namespace Mozu.Api.Test.Factories
 		/// Creates a new product reservation for a product. This action places a hold on the product inventory for the quantity specified during the ordering process.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductReservationFactory.AddProductReservations(handler : handler,  productReservations :  productReservations,  skipInventoryCheck :  skipInventoryCheck,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductReservationFactory.AddProductReservations(handler : handler,  productReservations :  productReservations,  skipInventoryCheck :  skipInventoryCheck,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<List<ProductReservation>/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> AddProductReservations(ServiceClientMessageHandler handler, 
- 		 List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations, bool? skipInventoryCheck = null, 
+ 		 List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations, bool? skipInventoryCheck = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -124,7 +124,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.AddProductReservationsClient(
-				 productReservations :  productReservations,  skipInventoryCheck :  skipInventoryCheck		);
+				 productReservations :  productReservations,  skipInventoryCheck :  skipInventoryCheck, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -147,14 +147,14 @@ namespace Mozu.Api.Test.Factories
 		/// Commits a product reservation to decrement the product's inventory by the quantity specified then release the reservation once the order process completed successfully.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductReservationFactory.CommitReservations(handler : handler,  productReservations :  productReservations,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductReservationFactory.CommitReservations(handler : handler,  productReservations :  productReservations, dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static void CommitReservations(ServiceClientMessageHandler handler, 
- 		List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations, 
+ 		List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations, DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
@@ -162,7 +162,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.CommitReservationsClient(
-				 productReservations :  productReservations		);
+				 productReservations :  productReservations, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -184,14 +184,14 @@ namespace Mozu.Api.Test.Factories
 		/// Updates an existing product reservation for a product.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductReservationFactory.UpdateProductReservations(handler : handler,  productReservations :  productReservations,  skipInventoryCheck :  skipInventoryCheck,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductReservationFactory.UpdateProductReservations(handler : handler,  productReservations :  productReservations,  skipInventoryCheck :  skipInventoryCheck,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<List<ProductReservation>/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> UpdateProductReservations(ServiceClientMessageHandler handler, 
- 		 List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations, bool? skipInventoryCheck = null, 
+ 		 List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations, bool? skipInventoryCheck = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -199,7 +199,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.UpdateProductReservationsClient(
-				 productReservations :  productReservations,  skipInventoryCheck :  skipInventoryCheck		);
+				 productReservations :  productReservations,  skipInventoryCheck :  skipInventoryCheck, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -222,14 +222,14 @@ namespace Mozu.Api.Test.Factories
 		/// Deletes a product reservation. For example, delete a reservation when an order is not processed to return the product quantity back to inventory.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductReservationFactory.DeleteProductReservation(handler : handler,  productReservationId :  productReservationId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductReservationFactory.DeleteProductReservation(handler : handler,  productReservationId :  productReservationId,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static void DeleteProductReservation(ServiceClientMessageHandler handler, 
- 		int productReservationId, 
+ 		int productReservationId,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
@@ -237,7 +237,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductReservationClient.DeleteProductReservationClient(
-				 productReservationId :  productReservationId		);
+				 productReservationId :  productReservationId, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

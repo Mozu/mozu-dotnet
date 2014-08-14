@@ -142,17 +142,18 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddPropertyValueLocalizedContent( localizedContent,  productCode,  attributeFQN,  value,  responseFields);
+		///   var mozuClient=AddPropertyValueLocalizedContent(dataViewMode,  localizedContent,  productCode,  attributeFQN,  value,  responseFields);
 		///   var productPropertyValueLocalizedContentClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> AddPropertyValueLocalizedContentClient(Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent localizedContent, string productCode, string attributeFQN, string value, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> AddPropertyValueLocalizedContentClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent localizedContent, string productCode, string attributeFQN, string value, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductPropertyUrl.AddPropertyValueLocalizedContentUrl(productCode, attributeFQN, value, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent>(localizedContent);
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent>(localizedContent)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
 			return mozuClient;
 
 		}
@@ -168,17 +169,18 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddProperty( productProperty,  productCode,  responseFields);
+		///   var mozuClient=AddProperty(dataViewMode,  productProperty,  productCode,  responseFields);
 		///   var productPropertyClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductProperty> AddPropertyClient(Mozu.Api.Contracts.ProductAdmin.ProductProperty productProperty, string productCode, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductProperty> AddPropertyClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.ProductProperty productProperty, string productCode, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductPropertyUrl.AddPropertyUrl(productCode, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductProperty>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductProperty>(productProperty);
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductProperty>(productProperty)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
 			return mozuClient;
 
 		}
@@ -195,17 +197,18 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdatePropertyValueLocalizedContents( localizedContent,  productCode,  attributeFQN,  value);
+		///   var mozuClient=UpdatePropertyValueLocalizedContents(dataViewMode,  localizedContent,  productCode,  attributeFQN,  value);
 		///   var productPropertyValueLocalizedContentClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent>> UpdatePropertyValueLocalizedContentsClient(List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> localizedContent, string productCode, string attributeFQN, string value)
+		public static MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent>> UpdatePropertyValueLocalizedContentsClient(DataViewMode dataViewMode, List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> localizedContent, string productCode, string attributeFQN, string value)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductPropertyUrl.UpdatePropertyValueLocalizedContentsUrl(productCode, attributeFQN, value);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent>>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent>>(localizedContent);
+									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent>>(localizedContent)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
 			return mozuClient;
 
 		}
@@ -224,17 +227,18 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdatePropertyValueLocalizedContent( localizedContent,  productCode,  attributeFQN,  value,  localeCode,  responseFields);
+		///   var mozuClient=UpdatePropertyValueLocalizedContent(dataViewMode,  localizedContent,  productCode,  attributeFQN,  value,  localeCode,  responseFields);
 		///   var productPropertyValueLocalizedContentClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> UpdatePropertyValueLocalizedContentClient(Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent localizedContent, string productCode, string attributeFQN, string value, string localeCode, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> UpdatePropertyValueLocalizedContentClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent localizedContent, string productCode, string attributeFQN, string value, string localeCode, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductPropertyUrl.UpdatePropertyValueLocalizedContentUrl(productCode, attributeFQN, value, localeCode, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent>(localizedContent);
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent>(localizedContent)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
 			return mozuClient;
 
 		}
@@ -251,17 +255,18 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateProperty( productProperty,  productCode,  attributeFQN,  responseFields);
+		///   var mozuClient=UpdateProperty(dataViewMode,  productProperty,  productCode,  attributeFQN,  responseFields);
 		///   var productPropertyClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductProperty> UpdatePropertyClient(Mozu.Api.Contracts.ProductAdmin.ProductProperty productProperty, string productCode, string attributeFQN, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductProperty> UpdatePropertyClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.ProductProperty productProperty, string productCode, string attributeFQN, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductPropertyUrl.UpdatePropertyUrl(productCode, attributeFQN, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductProperty>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductProperty>(productProperty);
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductProperty>(productProperty)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
 			return mozuClient;
 
 		}
@@ -276,16 +281,17 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=DeleteProperty( productCode,  attributeFQN);
+		///   var mozuClient=DeleteProperty(dataViewMode,  productCode,  attributeFQN);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient DeletePropertyClient(string productCode, string attributeFQN)
+		public static MozuClient DeletePropertyClient(DataViewMode dataViewMode, string productCode, string attributeFQN)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductPropertyUrl.DeletePropertyUrl(productCode, attributeFQN);
 			const string verb = "DELETE";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
+									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
@@ -303,16 +309,17 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=DeletePropertyValueLocalizedContent( productCode,  attributeFQN,  value,  localeCode);
+		///   var mozuClient=DeletePropertyValueLocalizedContent(dataViewMode,  productCode,  attributeFQN,  value,  localeCode);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient DeletePropertyValueLocalizedContentClient(string productCode, string attributeFQN, string value, string localeCode)
+		public static MozuClient DeletePropertyValueLocalizedContentClient(DataViewMode dataViewMode, string productCode, string attributeFQN, string value, string localeCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductPropertyUrl.DeletePropertyValueLocalizedContentUrl(productCode, attributeFQN, value, localeCode);
 			const string verb = "DELETE";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
+									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 

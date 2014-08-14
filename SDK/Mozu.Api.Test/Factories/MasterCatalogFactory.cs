@@ -71,14 +71,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieve the details of the master catalog specified in the request.
 		/// <example> 
 		///  <code> 
-		/// var result = MasterCatalogFactory.GetMasterCatalog(handler : handler,  masterCatalogId :  masterCatalogId,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = MasterCatalogFactory.GetMasterCatalog(handler : handler,  masterCatalogId :  masterCatalogId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<MasterCatalog/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.MasterCatalog GetMasterCatalog(ServiceClientMessageHandler handler, 
- 		 int masterCatalogId, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 int masterCatalogId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -86,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.MasterCatalogClient.GetMasterCatalogClient(
-				 masterCatalogId :  masterCatalogId,  responseFields :  responseFields, dataViewMode: dataViewMode		);
+				 masterCatalogId :  masterCatalogId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

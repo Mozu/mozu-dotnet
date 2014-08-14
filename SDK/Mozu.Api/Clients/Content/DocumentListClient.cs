@@ -84,17 +84,18 @@ namespace Mozu.Api.Clients.Content
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=CreateDocumentList( list,  responseFields);
+		///   var mozuClient=CreateDocumentList(dataViewMode,  list,  responseFields);
 		///   var documentListClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Content.DocumentList> CreateDocumentListClient(Mozu.Api.Contracts.Content.DocumentList list, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Content.DocumentList> CreateDocumentListClient(DataViewMode dataViewMode, Mozu.Api.Contracts.Content.DocumentList list, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Content.DocumentListUrl.CreateDocumentListUrl(responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Content.DocumentList>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.Content.DocumentList>(list);
+									.WithBody<Mozu.Api.Contracts.Content.DocumentList>(list)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
 			return mozuClient;
 
 		}

@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System;
+using System.Threading.Tasks;
 using Mozu.Api.Contracts.Event;
 
 
@@ -15,7 +17,11 @@ namespace Mozu.Api.Events
 {
 	public interface IShipmentEvents
 	{
+		[Obsolete("This method is obsolete; use the async method instead")]
 		void Fulfilled(IApiContext apiContext, Event eventPayLoad);
+
+		Task FulfilledAsync(IApiContext apiContext, Event eventPayLoad);
+
 	}
 
 }

@@ -31,17 +31,16 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetFacets(dataViewMode,  documentListName,  propertyName);
+		///   var mozuClient=GetFacets( documentListName,  propertyName);
 		///   var facetClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<List<Mozu.Api.Contracts.Content.Facet>> GetFacetsClient(DataViewMode dataViewMode, string documentListName, string propertyName)
+		public static MozuClient<List<Mozu.Api.Contracts.Content.Facet>> GetFacetsClient(string documentListName, string propertyName)
 		{
 			var url = Mozu.Api.Urls.Content.Documentlists.FacetUrl.GetFacetsUrl(documentListName, propertyName);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<List<Mozu.Api.Contracts.Content.Facet>>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 

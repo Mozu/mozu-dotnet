@@ -33,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Deletes the draft version of product changes for each product code specified in the request.
 		/// <example> 
 		///  <code> 
-		/// var result = PublishingScopeFactory.DiscardDrafts(handler : handler,  publishScope :  publishScope,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = PublishingScopeFactory.DiscardDrafts(handler : handler,  publishScope :  publishScope, dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static void DiscardDrafts(ServiceClientMessageHandler handler, 
- 		Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope, 
+ 		Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope, DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
@@ -48,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.DiscardDraftsClient(
-				 publishScope :  publishScope		);
+				 publishScope :  publishScope, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -70,14 +70,14 @@ namespace Mozu.Api.Test.Factories
 		/// Publishes the draft version of product changes for each product code specified in the request, and changes the product publish state to "live".
 		/// <example> 
 		///  <code> 
-		/// var result = PublishingScopeFactory.PublishDrafts(handler : handler,  publishScope :  publishScope,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = PublishingScopeFactory.PublishDrafts(handler : handler,  publishScope :  publishScope, dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static void PublishDrafts(ServiceClientMessageHandler handler, 
- 		Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope, 
+ 		Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope, DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
@@ -85,7 +85,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.PublishDraftsClient(
-				 publishScope :  publishScope		);
+				 publishScope :  publishScope, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

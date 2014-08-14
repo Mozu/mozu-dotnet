@@ -33,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = DocumentTypeFactory.GetDocumentTypes(handler : handler,  pageSize :  pageSize,  startIndex :  startIndex,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = DocumentTypeFactory.GetDocumentTypes(handler : handler,  pageSize :  pageSize,  startIndex :  startIndex,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<DocumentTypeCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Content.DocumentTypeCollection GetDocumentTypes(ServiceClientMessageHandler handler, 
- 		 int? pageSize = null, int? startIndex = null, string responseFields = null, 
+ 		 int? pageSize = null, int? startIndex = null, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -48,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Content.DocumentTypeClient.GetDocumentTypesClient(
-				 pageSize :  pageSize,  startIndex :  startIndex,  responseFields :  responseFields		);
+				 pageSize :  pageSize,  startIndex :  startIndex,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -71,14 +71,14 @@ namespace Mozu.Api.Test.Factories
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = DocumentTypeFactory.GetDocumentType(handler : handler,  documentTypeName :  documentTypeName,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = DocumentTypeFactory.GetDocumentType(handler : handler,  documentTypeName :  documentTypeName,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<DocumentType/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Content.DocumentType GetDocumentType(ServiceClientMessageHandler handler, 
- 		 string documentTypeName, string responseFields = null, 
+ 		 string documentTypeName, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -86,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Content.DocumentTypeClient.GetDocumentTypeClient(
-				 documentTypeName :  documentTypeName,  responseFields :  responseFields		);
+				 documentTypeName :  documentTypeName,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -109,14 +109,14 @@ namespace Mozu.Api.Test.Factories
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = DocumentTypeFactory.CreateDocumentType(handler : handler,  documentType :  documentType,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = DocumentTypeFactory.CreateDocumentType(handler : handler,  documentType :  documentType,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<DocumentType/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Content.DocumentType CreateDocumentType(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.Content.DocumentType documentType, string responseFields = null, 
+ 		 Mozu.Api.Contracts.Content.DocumentType documentType, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -124,7 +124,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Content.DocumentTypeClient.CreateDocumentTypeClient(
-				 documentType :  documentType,  responseFields :  responseFields		);
+				 documentType :  documentType,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

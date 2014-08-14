@@ -25,17 +25,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		///
 		private readonly IApiContext _apiContext;
 
-		private readonly DataViewMode _dataViewMode;
 		
 		public AttributeLocalizedContentResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
-			_dataViewMode = DataViewMode.Live;
-		}
-		public AttributeLocalizedContentResource(IApiContext apiContext, DataViewMode dataViewMode) 
-		{
-			_apiContext = apiContext;
-			_dataViewMode = dataViewMode;
 		}
 				
 		/// <summary>
@@ -49,14 +42,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		/// <example>
 		/// <code>
 		///   var attributelocalizedcontent = new AttributeLocalizedContent();
-		///   var attributeLocalizedContent = attributelocalizedcontent.GetAttributeLocalizedContents(_dataViewMode,  attributeFQN);
+		///   var attributeLocalizedContent = attributelocalizedcontent.GetAttributeLocalizedContents( attributeFQN);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual List<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> GetAttributeLocalizedContents(string attributeFQN)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeLocalizedContentClient.GetAttributeLocalizedContentsClient(_dataViewMode,  attributeFQN);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeLocalizedContentClient.GetAttributeLocalizedContentsClient( attributeFQN);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -66,7 +59,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent>> GetAttributeLocalizedContentsAsync(string attributeFQN)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeLocalizedContentClient.GetAttributeLocalizedContentsClient(_dataViewMode,  attributeFQN);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeLocalizedContentClient.GetAttributeLocalizedContentsClient( attributeFQN);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -86,14 +79,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		/// <example>
 		/// <code>
 		///   var attributelocalizedcontent = new AttributeLocalizedContent();
-		///   var attributeLocalizedContent = attributelocalizedcontent.GetAttributeLocalizedContent(_dataViewMode,  attributeFQN,  localeCode,  responseFields);
+		///   var attributeLocalizedContent = attributelocalizedcontent.GetAttributeLocalizedContent( attributeFQN,  localeCode,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent GetAttributeLocalizedContent(string attributeFQN, string localeCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeLocalizedContentClient.GetAttributeLocalizedContentClient(_dataViewMode,  attributeFQN,  localeCode,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeLocalizedContentClient.GetAttributeLocalizedContentClient( attributeFQN,  localeCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -103,7 +96,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> GetAttributeLocalizedContentAsync(string attributeFQN, string localeCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeLocalizedContentClient.GetAttributeLocalizedContentClient(_dataViewMode,  attributeFQN,  localeCode,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeLocalizedContentClient.GetAttributeLocalizedContentClient( attributeFQN,  localeCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

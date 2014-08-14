@@ -89,17 +89,18 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddProductReservations( productReservations,  skipInventoryCheck);
+		///   var mozuClient=AddProductReservations(dataViewMode,  productReservations,  skipInventoryCheck);
 		///   var productReservationClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductReservation>> AddProductReservationsClient(List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations, bool? skipInventoryCheck =  null)
+		public static MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductReservation>> AddProductReservationsClient(DataViewMode dataViewMode, List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations, bool? skipInventoryCheck =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductReservationUrl.AddProductReservationsUrl(skipInventoryCheck);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductReservation>>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.ProductReservation>>(productReservations);
+									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.ProductReservation>>(productReservations)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
 			return mozuClient;
 
 		}
@@ -114,17 +115,18 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=CommitReservations( productReservations);
+		///   var mozuClient=CommitReservations(dataViewMode,  productReservations);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient CommitReservationsClient(List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations)
+		public static MozuClient CommitReservationsClient(DataViewMode dataViewMode, List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductReservationUrl.CommitReservationsUrl();
 			const string verb = "POST";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.ProductReservation>>(productReservations);
+									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.ProductReservation>>(productReservations)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
 			return mozuClient;
 
 		}
@@ -140,17 +142,18 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateProductReservations( productReservations,  skipInventoryCheck);
+		///   var mozuClient=UpdateProductReservations(dataViewMode,  productReservations,  skipInventoryCheck);
 		///   var productReservationClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductReservation>> UpdateProductReservationsClient(List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations, bool? skipInventoryCheck =  null)
+		public static MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductReservation>> UpdateProductReservationsClient(DataViewMode dataViewMode, List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations, bool? skipInventoryCheck =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductReservationUrl.UpdateProductReservationsUrl(skipInventoryCheck);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductReservation>>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.ProductReservation>>(productReservations);
+									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.ProductReservation>>(productReservations)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
 			return mozuClient;
 
 		}
@@ -165,16 +168,17 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=DeleteProductReservation( productReservationId);
+		///   var mozuClient=DeleteProductReservation(dataViewMode,  productReservationId);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteProductReservationClient(int productReservationId)
+		public static MozuClient DeleteProductReservationClient(DataViewMode dataViewMode, int productReservationId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductReservationUrl.DeleteProductReservationUrl(productReservationId);
 			const string verb = "DELETE";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
+									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 

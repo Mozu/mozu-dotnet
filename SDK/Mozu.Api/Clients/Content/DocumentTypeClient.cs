@@ -32,16 +32,17 @@ namespace Mozu.Api.Clients.Content
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetDocumentTypes( pageSize,  startIndex,  responseFields);
+		///   var mozuClient=GetDocumentTypes(dataViewMode,  pageSize,  startIndex,  responseFields);
 		///   var documentTypeCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Content.DocumentTypeCollection> GetDocumentTypesClient(int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Content.DocumentTypeCollection> GetDocumentTypesClient(DataViewMode dataViewMode, int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Content.DocumentTypeUrl.GetDocumentTypesUrl(pageSize, startIndex, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Content.DocumentTypeCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
+									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
@@ -57,16 +58,17 @@ namespace Mozu.Api.Clients.Content
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetDocumentType( documentTypeName,  responseFields);
+		///   var mozuClient=GetDocumentType(dataViewMode,  documentTypeName,  responseFields);
 		///   var documentTypeClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Content.DocumentType> GetDocumentTypeClient(string documentTypeName, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Content.DocumentType> GetDocumentTypeClient(DataViewMode dataViewMode, string documentTypeName, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Content.DocumentTypeUrl.GetDocumentTypeUrl(documentTypeName, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Content.DocumentType>()
 									.WithVerb(verb).WithResourceUrl(url)
+									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
@@ -82,17 +84,18 @@ namespace Mozu.Api.Clients.Content
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=CreateDocumentType( documentType,  responseFields);
+		///   var mozuClient=CreateDocumentType(dataViewMode,  documentType,  responseFields);
 		///   var documentTypeClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Content.DocumentType> CreateDocumentTypeClient(Mozu.Api.Contracts.Content.DocumentType documentType, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Content.DocumentType> CreateDocumentTypeClient(DataViewMode dataViewMode, Mozu.Api.Contracts.Content.DocumentType documentType, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Content.DocumentTypeUrl.CreateDocumentTypeUrl(responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Content.DocumentType>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.Content.DocumentType>(documentType);
+									.WithBody<Mozu.Api.Contracts.Content.DocumentType>(documentType)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
 			return mozuClient;
 
 		}

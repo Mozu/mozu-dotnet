@@ -25,17 +25,10 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		///
 		private readonly IApiContext _apiContext;
 
-		private readonly DataViewMode _dataViewMode;
 		
 		public FacetResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
-			_dataViewMode = DataViewMode.Live;
-		}
-		public FacetResource(IApiContext apiContext, DataViewMode dataViewMode) 
-		{
-			_apiContext = apiContext;
-			_dataViewMode = dataViewMode;
 		}
 				
 		/// <summary>
@@ -49,14 +42,14 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <example>
 		/// <code>
 		///   var facet = new Facet();
-		///   var facet = facet.GetFacets(_dataViewMode,  documentListName,  propertyName);
+		///   var facet = facet.GetFacets( documentListName,  propertyName);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual List<Mozu.Api.Contracts.Content.Facet> GetFacets(string documentListName, string propertyName)
 		{
 			MozuClient<List<Mozu.Api.Contracts.Content.Facet>> response;
-			var client = Mozu.Api.Clients.Content.Documentlists.FacetClient.GetFacetsClient(_dataViewMode,  documentListName,  propertyName);
+			var client = Mozu.Api.Clients.Content.Documentlists.FacetClient.GetFacetsClient( documentListName,  propertyName);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -66,7 +59,7 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		public virtual async Task<List<Mozu.Api.Contracts.Content.Facet>> GetFacetsAsync(string documentListName, string propertyName)
 		{
 			MozuClient<List<Mozu.Api.Contracts.Content.Facet>> response;
-			var client = Mozu.Api.Clients.Content.Documentlists.FacetClient.GetFacetsClient(_dataViewMode,  documentListName,  propertyName);
+			var client = Mozu.Api.Clients.Content.Documentlists.FacetClient.GetFacetsClient( documentListName,  propertyName);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

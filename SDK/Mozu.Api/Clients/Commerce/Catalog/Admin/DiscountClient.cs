@@ -34,17 +34,16 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetDiscounts(dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		///   var mozuClient=GetDiscounts( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		///   var discountCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountCollection> GetDiscountsClient(DataViewMode dataViewMode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountCollection> GetDiscountsClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.DiscountUrl.GetDiscountsUrl(startIndex, pageSize, sortBy, filter, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
@@ -60,17 +59,16 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetDiscountContent(dataViewMode,  discountId,  responseFields);
+		///   var mozuClient=GetDiscountContent( discountId,  responseFields);
 		///   var discountLocalizedContentClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent> GetDiscountContentClient(DataViewMode dataViewMode, int discountId, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent> GetDiscountContentClient(int discountId, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.DiscountUrl.GetDiscountContentUrl(discountId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
@@ -86,17 +84,16 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetDiscount(dataViewMode,  discountId,  responseFields);
+		///   var mozuClient=GetDiscount( discountId,  responseFields);
 		///   var discountClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Discount> GetDiscountClient(DataViewMode dataViewMode, int discountId, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Discount> GetDiscountClient(int discountId, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.DiscountUrl.GetDiscountUrl(discountId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Discount>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
@@ -111,17 +108,16 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GenerateRandomCoupon(dataViewMode,  responseFields);
+		///   var mozuClient=GenerateRandomCoupon( responseFields);
 		///   var stringClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<string> GenerateRandomCouponClient(DataViewMode dataViewMode, string responseFields =  null)
+		public static MozuClient<string> GenerateRandomCouponClient(string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.DiscountUrl.GenerateRandomCouponUrl(responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<string>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 

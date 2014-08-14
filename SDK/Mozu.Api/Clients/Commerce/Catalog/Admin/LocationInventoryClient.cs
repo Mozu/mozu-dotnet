@@ -33,17 +33,16 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetLocationInventory(dataViewMode,  locationCode,  productCode,  responseFields);
+		///   var mozuClient=GetLocationInventory( locationCode,  productCode,  responseFields);
 		///   var locationInventoryClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.LocationInventory> GetLocationInventoryClient(DataViewMode dataViewMode, string locationCode, string productCode, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.LocationInventory> GetLocationInventoryClient(string locationCode, string productCode, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.LocationInventoryUrl.GetLocationInventoryUrl(locationCode, productCode, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.LocationInventory>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
@@ -64,17 +63,16 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetLocationInventories(dataViewMode,  locationCode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		///   var mozuClient=GetLocationInventories( locationCode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		///   var locationInventoryCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.LocationInventoryCollection> GetLocationInventoriesClient(DataViewMode dataViewMode, string locationCode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.LocationInventoryCollection> GetLocationInventoriesClient(string locationCode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.LocationInventoryUrl.GetLocationInventoriesUrl(locationCode, startIndex, pageSize, sortBy, filter, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.LocationInventoryCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
@@ -92,17 +90,18 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddLocationInventory( locationInventoryList,  locationCode,  performUpserts);
+		///   var mozuClient=AddLocationInventory(dataViewMode,  locationInventoryList,  locationCode,  performUpserts);
 		///   var locationInventoryClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<List<Mozu.Api.Contracts.ProductAdmin.LocationInventory>> AddLocationInventoryClient(List<Mozu.Api.Contracts.ProductAdmin.LocationInventory> locationInventoryList, string locationCode, bool? performUpserts =  null)
+		public static MozuClient<List<Mozu.Api.Contracts.ProductAdmin.LocationInventory>> AddLocationInventoryClient(DataViewMode dataViewMode, List<Mozu.Api.Contracts.ProductAdmin.LocationInventory> locationInventoryList, string locationCode, bool? performUpserts =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.LocationInventoryUrl.AddLocationInventoryUrl(locationCode, performUpserts);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<List<Mozu.Api.Contracts.ProductAdmin.LocationInventory>>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.LocationInventory>>(locationInventoryList);
+									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.LocationInventory>>(locationInventoryList)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
 			return mozuClient;
 
 		}
@@ -118,17 +117,18 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateLocationInventory( locationInventoryAdjustments,  locationCode);
+		///   var mozuClient=UpdateLocationInventory(dataViewMode,  locationInventoryAdjustments,  locationCode);
 		///   var locationInventoryClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<List<Mozu.Api.Contracts.ProductAdmin.LocationInventory>> UpdateLocationInventoryClient(List<Mozu.Api.Contracts.ProductAdmin.LocationInventoryAdjustment> locationInventoryAdjustments, string locationCode)
+		public static MozuClient<List<Mozu.Api.Contracts.ProductAdmin.LocationInventory>> UpdateLocationInventoryClient(DataViewMode dataViewMode, List<Mozu.Api.Contracts.ProductAdmin.LocationInventoryAdjustment> locationInventoryAdjustments, string locationCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.LocationInventoryUrl.UpdateLocationInventoryUrl(locationCode);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<List<Mozu.Api.Contracts.ProductAdmin.LocationInventory>>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.LocationInventoryAdjustment>>(locationInventoryAdjustments);
+									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.LocationInventoryAdjustment>>(locationInventoryAdjustments)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
 			return mozuClient;
 
 		}
@@ -144,16 +144,17 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=DeleteLocationInventory( locationCode,  productCode);
+		///   var mozuClient=DeleteLocationInventory(dataViewMode,  locationCode,  productCode);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteLocationInventoryClient(string locationCode, string productCode)
+		public static MozuClient DeleteLocationInventoryClient(DataViewMode dataViewMode, string locationCode, string productCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.LocationInventoryUrl.DeleteLocationInventoryUrl(locationCode, productCode);
 			const string verb = "DELETE";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
+									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
