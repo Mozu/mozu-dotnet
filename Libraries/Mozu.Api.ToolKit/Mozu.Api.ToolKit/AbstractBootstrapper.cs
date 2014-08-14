@@ -1,4 +1,7 @@
-﻿using Autofac;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using Autofac;
 using Mozu.Api.Contracts.AppDev;
 using Mozu.Api.Events;
 using Mozu.Api.Logging;
@@ -24,7 +27,28 @@ namespace Mozu.Api.ToolKit
         private void InitDependencyResolvers()
         {
 
-            _containerBuilder.RegisterType<AppSetting>().As<IAppSetting>().SingleInstance();
+            var appName = ConfigurationManager.AppSettings["AppName"];
+            var configPath = ConfigurationManager.AppSettings["ConfigPath"];
+            var environment = ConfigurationManager.AppSettings["Environment"];
+
+            if (!string.IsNullOrEmpty(appName) && !string.IsNullOrEmpty(configPath) &&
+                !String.IsNullOrEmpty(environment))
+            {
+                var appParams = new List<NamedParameter>
+                {
+                    
+                    new NamedParameter("configPath",  configPath),
+                    new NamedParameter("appName", appName),
+                    new NamedParameter("environment", environment)
+                };
+
+                _containerBuilder.RegisterType<AppSetting>().As<IAppSetting>().SingleInstance().WithParameters(appParams);
+
+            }
+            else
+            {
+                _containerBuilder.RegisterType<AppSetting>().As<IAppSetting>().SingleInstance();
+            }
             _containerBuilder.RegisterType<Log4NetServiceFactory>().As<ILoggingServiceFactory>().SingleInstance();
             _containerBuilder.RegisterType<Events.EventService>().As<IEventService>();
             _containerBuilder.RegisterType<Events.EventServiceFactory>().As<IEventServiceFactory>();
