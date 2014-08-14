@@ -11,10 +11,11 @@
     <releaseNotes />
     <copyright>Copyright 2014</copyright>
     <tags>"Mozu"</tags>
-	  <dependencies>
+    <dependencies>
       <dependency id="Mozu.Api.SDK" version="" />
-	  <dependency id="Autofac.Mvc5" version="3.2.0" />
-	  <dependency id="Autofac.WebApi2" version="3.3.0" />
+      <dependency id="Mozu.Api.ToolKit" version="" />
+      <dependency id="Autofac.Mvc5" version="3.2.0" />
+      <dependency id="Autofac.WebApi2" version="3.3.0" />
     </dependencies>
     <references>
       <reference file="Mozu.Api.WebToolKit.dll" />

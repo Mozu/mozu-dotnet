@@ -5,32 +5,30 @@ using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.WebApi;
 using Mozu.Api.Logging;
+using Mozu.Api.ToolKit;
 using Mozu.Api.WebToolKit.Events;
 using Mozu.Api.WebToolKit.Logging;
 using Mozu.Api.WebToolKit.Controllers;
 
 namespace Mozu.Api.WebToolKit
 {
-    public abstract class AbstractWebApiBootstrapper
+    public abstract class AbstractWebApiBootstrapper : AbstractBootstrapper
     {
-        //private readonly AutofacContainerFactory _containerFactory = new AutofacContainerFactory();
-        private readonly ContainerBuilder _containerBuilder = new ContainerBuilder();
-        public IContainer Container;
+       
 
         public AbstractWebApiBootstrapper Bootstrap(HttpConfiguration httpConfiguration)
         {
+            base.Bootstrap();
             InitDependencyResolvers(httpConfiguration);
-
             return this;
         }
 
         private void InitDependencyResolvers(HttpConfiguration httpConfiguration)
         {
-           
             _containerBuilder.RegisterType<EventRouteHandler>().AsSelf();
-            _containerBuilder.RegisterType<ApiLogger>().AsSelf().InstancePerApiRequest();
-            _containerBuilder.RegisterType<MvcLoggingFilter>().AsSelf().InstancePerApiRequest();
-            _containerBuilder.RegisterType<VersionController>().InstancePerApiRequest();
+            _containerBuilder.RegisterType<ApiLogger>().AsSelf().InstancePerRequest();
+            _containerBuilder.RegisterType<MvcLoggingFilter>().AsSelf().InstancePerRequest();
+            _containerBuilder.RegisterType<VersionController>().InstancePerRequest();
 
             InitializeContainer(_containerBuilder);
 
@@ -43,17 +41,7 @@ namespace Mozu.Api.WebToolKit
             httpConfiguration.DependencyResolver = new AutofacWebApiDependencyResolver(Container);
             httpConfiguration.MessageHandlers.Add(DependencyResolver.Current.GetService<ApiLogger>());
             
-
-            
         }
 
-        public virtual void InitializeContainer(ContainerBuilder containerBuilder)
-        {
-        }
-
-        public virtual void PostInitialize()
-        {
-            
-        }
     }
 }
