@@ -270,7 +270,7 @@ namespace Mozu.Api
 			var stringContent = await HttpResponse.Content.ReadAsStringAsync();
 
 			if (_log.IsDebugEnabled)
-				await _log.Debug(string.Format("{0} {1}", GetCorrelationId(), stringContent));
+				_log.Debug(string.Format("{0} {1}", GetCorrelationId(), stringContent));
 
 			return await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<TResult>(stringContent, new JsonSerializerSettings { DateTimeZoneHandling = DateTimeZoneHandling.Utc }));
 		}
@@ -357,7 +357,6 @@ namespace Mozu.Api
 
 				if (string.IsNullOrEmpty(_apiContext.TenantUrl))
 				{
-                    _log.Info( String.Format("Tenant {0} URL is empty. Getting tenant info.", _apiContext.TenantId));
 					var tenantResource = new TenantResource();
 					var tenant = tenantResource.GetTenant(_apiContext.TenantId);
 
