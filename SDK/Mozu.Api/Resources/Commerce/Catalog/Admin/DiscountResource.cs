@@ -25,10 +25,17 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///
 		private readonly IApiContext _apiContext;
 
+		private readonly DataViewMode _dataViewMode;
 		
 		public DiscountResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
+			_dataViewMode = DataViewMode.Live;
+		}
+		public DiscountResource(IApiContext apiContext, DataViewMode dataViewMode) 
+		{
+			_apiContext = apiContext;
+			_dataViewMode = dataViewMode;
 		}
 				
 		/// <summary>
@@ -45,14 +52,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var discount = new Discount();
-		///   var discountCollection = discount.GetDiscounts( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		///   var discountCollection = discount.GetDiscounts(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.DiscountCollection GetDiscounts(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountsClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountsClient(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -62,7 +69,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.DiscountCollection> GetDiscountsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountsClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountsClient(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -80,14 +87,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var discount = new Discount();
-		///   var discountLocalizedContent = discount.GetDiscountContent( discountId,  responseFields);
+		///   var discountLocalizedContent = discount.GetDiscountContent(_dataViewMode,  discountId,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent GetDiscountContent(int discountId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountContentClient( discountId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountContentClient(_dataViewMode,  discountId,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -97,7 +104,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent> GetDiscountContentAsync(int discountId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountContentClient( discountId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountContentClient(_dataViewMode,  discountId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -115,14 +122,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var discount = new Discount();
-		///   var discount = discount.GetDiscount( discountId,  responseFields);
+		///   var discount = discount.GetDiscount(_dataViewMode,  discountId,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.Discount GetDiscount(int discountId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.Discount> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountClient( discountId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountClient(_dataViewMode,  discountId,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -132,7 +139,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Discount> GetDiscountAsync(int discountId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.Discount> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountClient( discountId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountClient(_dataViewMode,  discountId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

@@ -31,16 +31,17 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Discounts
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetDiscountTarget( discountId,  responseFields);
+		///   var mozuClient=GetDiscountTarget(dataViewMode,  discountId,  responseFields);
 		///   var discountTargetClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountTarget> GetDiscountTargetClient(int discountId, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountTarget> GetDiscountTargetClient(DataViewMode dataViewMode, int discountId, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Discounts.DiscountTargetUrl.GetDiscountTargetUrl(discountId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountTarget>()
 									.WithVerb(verb).WithResourceUrl(url)
+									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
