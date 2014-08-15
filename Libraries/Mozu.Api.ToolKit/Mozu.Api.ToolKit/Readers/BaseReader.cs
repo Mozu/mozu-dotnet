@@ -2,7 +2,7 @@
 
 namespace Mozu.Api.ToolKit.Readers
 {
-    public abstract class BasePagedCollectionReader
+    public abstract class BaseReader
     {
         public IApiContext Context { get; set; }
         public string Filter { get; set; }

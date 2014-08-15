@@ -5,7 +5,7 @@ using Mozu.Api.Resources.Commerce.Customer;
 
 namespace Mozu.Api.ToolKit.Readers
 {
-    public class CustomerAccountCollectionReader : BasePagedCollectionReader
+    public class CustomerAccountReader : BaseReader
     {
         private CustomerAccountCollection _results = null;
 

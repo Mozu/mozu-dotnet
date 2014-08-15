@@ -9,7 +9,7 @@ using Attribute = Mozu.Api.Contracts.ProductAdmin.Attribute;
 
 namespace Mozu.Api.ToolKit.Readers
 {
-    public class AttributeCollectionReader : BasePagedCollectionReader
+    public class AttributeReader : BaseReader
     {
         private AttributeCollection _results;
 

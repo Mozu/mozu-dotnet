@@ -66,15 +66,15 @@
     <Compile Include="Logging\Log4NetService.cs" />
     <Compile Include="Logging\Log4NetServiceFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Readers\AttributeCollectionReader.cs" />
-    <Compile Include="Readers\BasePagedCollectionReader.cs" />
-    <Compile Include="Readers\CustomerAccountCollectionReader.cs" />
-    <Compile Include="Readers\DiscountCollectionReader.cs" />
-    <Compile Include="Readers\DocumentCollectionReader.cs" />
-    <Compile Include="Readers\OrderPagedCollectionReader.cs" />
-    <Compile Include="Readers\ProductAdminCollectionReader.cs" />
-    <Compile Include="Readers\ProductRuntimeCollectionReader.cs" />
-    <Compile Include="Readers\WishlistCollectionReader.cs" />
+    <Compile Include="Readers\AttributeReader.cs" />
+    <Compile Include="Readers\BaseReader.cs" />
+    <Compile Include="Readers\CustomerAccountReader.cs" />
+    <Compile Include="Readers\DiscountReader.cs" />
+    <Compile Include="Readers\DocumentReader.cs" />
+    <Compile Include="Readers\OrderReader.cs" />
+    <Compile Include="Readers\ProductAdminReader.cs" />
+    <Compile Include="Readers\ProductRuntimeReader.cs" />
+    <Compile Include="Readers\WishlistReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Mozu.Api.ToolKit.nuspec" />

@@ -1,18 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Mozu.Api.Contracts.CommerceRuntime.Orders;
+using Mozu.Api.Contracts.CommerceRuntime.Wishlists;
 using Mozu.Api.Resources.Commerce;
 
 namespace Mozu.Api.ToolKit.Readers
 {
-    public class OrderPagedCollectionReader : BasePagedCollectionReader
+    public class WishlistReader : BaseReader
     {
-        private OrderCollection _results = null;
+        private WishlistCollection _results = null;
 
         protected override async Task<bool> GetDataAsync()
         {
-            var resource = new OrderResource(Context);
-            _results = await resource.GetOrdersAsync(startIndex: StartIndex, pageSize:PageSize, sortBy:SortBy, filter:Filter, q:Q, qLimit:QLimit, responseFields:ResponseFields);
+            var resource = new WishlistResource(Context);
+            _results = await resource.GetWishlistsAsync(startIndex: StartIndex, pageSize: PageSize, sortBy: SortBy, filter: Filter, q: Q, qLimit: QLimit, responseFields:ResponseFields);
 
             TotalCount = _results.TotalCount;
             PageCount = _results.PageCount;
@@ -20,10 +20,9 @@ namespace Mozu.Api.ToolKit.Readers
             return _results.Items != null && _results.Items.Count > 0;
         }
 
-        public List<Order> Items
+        public List<Wishlist> Items
         {
             get { return _results.Items; }
         }
-
     }
 }

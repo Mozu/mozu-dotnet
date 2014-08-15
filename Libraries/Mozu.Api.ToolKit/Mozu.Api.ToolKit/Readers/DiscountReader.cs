@@ -5,7 +5,7 @@ using Mozu.Api.Resources.Commerce.Catalog.Admin;
 
 namespace Mozu.Api.ToolKit.Readers
 {
-    public class DiscountCollectionReader : BasePagedCollectionReader
+    public class DiscountReader : BaseReader
     {
         private DiscountCollection _results = null;
         public DataViewMode DataViewMode { get; set; }

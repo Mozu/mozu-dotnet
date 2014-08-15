@@ -8,7 +8,7 @@ using Mozu.Api.Resources.Content.Documentlists;
 
 namespace Mozu.Api.ToolKit.Readers
 {
-    public class DocumentCollectionReader : BasePagedCollectionReader
+    public class DocumentReader : BaseReader
     {
         private DocumentCollection _results = null; 
         public string DocumentListName { get; set; }
