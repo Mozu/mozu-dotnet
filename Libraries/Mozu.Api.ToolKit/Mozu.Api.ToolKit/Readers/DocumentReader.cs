@@ -12,11 +12,11 @@ namespace Mozu.Api.ToolKit.Readers
     {
         private DocumentCollection _results = null; 
         public string DocumentListName { get; set; }
-        public DataViewMode DataViewMode { get; set; }
+        public DataViewMode? DataViewMode { get; set; }
 
         protected override async Task<bool> GetDataAsync()
         {
-            var resource = new DocumentResource(Context,DataViewMode);
+            var resource = new DocumentResource(Context,DataViewMode.HasValue ? DataViewMode.Value : Api.DataViewMode.Live);
             _results = await resource.GetDocumentsAsync(DocumentListName, startIndex: StartIndex, pageSize: PageSize, sortBy: SortBy, filter: Filter, responseFields: ResponseFields);
 
             TotalCount = _results.TotalCount;

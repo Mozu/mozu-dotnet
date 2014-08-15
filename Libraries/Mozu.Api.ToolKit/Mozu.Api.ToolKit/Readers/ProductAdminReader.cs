@@ -9,12 +9,12 @@ namespace Mozu.Api.ToolKit.Readers
     {
         private ProductCollection _results = null;
 
-        public DataViewMode DataViewMode { get; set; }
+        public DataViewMode? DataViewMode { get; set; }
 
         protected override async Task<bool> GetDataAsync()
         {
          
-            var resource = new ProductResource(Context, DataViewMode);
+            var resource = new ProductResource(Context, DataViewMode.HasValue ? DataViewMode.Value : Api.DataViewMode.Live);
             _results = await resource.GetProductsAsync(startIndex: StartIndex, pageSize: PageSize, sortBy: SortBy, filter: Filter, q: Q, qLimit: QLimit,responseFields:ResponseFields);
 
             TotalCount = _results.TotalCount;
