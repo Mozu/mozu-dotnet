@@ -1,6 +1,5 @@
 obj
 bin
-packages
 *.user
 *.vspscc
 *.suo
