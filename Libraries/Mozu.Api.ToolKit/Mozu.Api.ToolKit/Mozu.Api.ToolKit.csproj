@@ -68,6 +68,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Readers\AttributeReader.cs" />
     <Compile Include="Readers\BaseReader.cs" />
+    <Compile Include="Readers\CategoryReader.cs" />
     <Compile Include="Readers\CustomerAccountReader.cs" />
     <Compile Include="Readers\DiscountReader.cs" />
     <Compile Include="Readers\DocumentReader.cs" />
