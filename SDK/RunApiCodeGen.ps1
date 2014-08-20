@@ -37,7 +37,10 @@ if ($RunPublisher)
     Write-Host $publisherRequestBodyJson
     
     try {
-        Invoke-RestMethod -Method Post -Uri $uri -Body $publisherRequestBodyJson -Headers $headers  -ContentType "application/json"
+        $response = Invoke-WebRequest -Method Post -Uri $uri -Body $publisherRequestBodyJson -Headers $headers -ContentType "application/json; charset=utf-8" -UseBasicParsing
+        Write-Host $response
+        Write-Host $response.Headers
+        Write-Host $response.StatusCode
     }
     catch [System.Net.WebException] {
          Write-Host $_.Exception.ToString()
@@ -80,7 +83,7 @@ Write-Host $jsonBody
 
 try 
 {
-    $response = Invoke-WebRequest -Method Post -Uri "$CodeGenServer/sdkcodegen" -Body $jsonBody -Headers $headers -ContentType "application/json; charset=utf-8" -ErrorAction Stop -UseBasicParsing
+    $response = Invoke-WebRequest -Method Post -Uri "$CodeGenServer/sdkcodegen" -Body $jsonBody  -ContentType "application/json; charset=utf-8" -ErrorAction Stop -UseBasicParsing
     Write-Host $response.StatusCode
     Write-Host $response.Headers
 }
