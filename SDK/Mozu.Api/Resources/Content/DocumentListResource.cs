@@ -183,6 +183,39 @@ namespace Mozu.Api.Resources.Content
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="documentId"></param>
+		/// <param name="stream"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documentlist = new DocumentList();
+		///   documentlist.LegacyR4_UpdateDocumentContent( stream,  documentId,  contentType);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void LegacyR4_UpdateDocumentContent(System.IO.Stream stream, string documentId, String  contentType= null)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Content.DocumentListClient.LegacyR4_UpdateDocumentContentClient( stream,  documentId,  contentType);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+
+		}
+
+		public virtual async Task LegacyR4_UpdateDocumentContentAsync(System.IO.Stream stream, string documentId, String  contentType= null)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Content.DocumentListClient.LegacyR4_UpdateDocumentContentClient( stream,  documentId,  contentType);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="documentListName"></param>
 		/// <returns>
 		/// 

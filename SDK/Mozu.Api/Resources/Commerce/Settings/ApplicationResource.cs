@@ -34,30 +34,31 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		/// <summary>
 		/// Retrieve the settings of a third-party application.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.Application.Application"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var application = new Application();
-		///   var application = application.ThirdPartyGetApplication();
+		///   var application = application.ThirdPartyGetApplication( responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.SiteSettings.Application.Application ThirdPartyGetApplication()
+		public virtual Mozu.Api.Contracts.SiteSettings.Application.Application ThirdPartyGetApplication(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.SiteSettings.Application.Application> response;
-			var client = Mozu.Api.Clients.Commerce.Settings.ApplicationClient.ThirdPartyGetApplicationClient();
+			var client = Mozu.Api.Clients.Commerce.Settings.ApplicationClient.ThirdPartyGetApplicationClient( responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
 
 		}
 
-		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Application.Application> ThirdPartyGetApplicationAsync()
+		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Application.Application> ThirdPartyGetApplicationAsync(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.SiteSettings.Application.Application> response;
-			var client = Mozu.Api.Clients.Commerce.Settings.ApplicationClient.ThirdPartyGetApplicationClient();
+			var client = Mozu.Api.Clients.Commerce.Settings.ApplicationClient.ThirdPartyGetApplicationClient( responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -67,6 +68,7 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		/// <summary>
 		/// Initializes an application with the necessary configured settings.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="application">Properties of the application to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.Application.Application"/>
@@ -74,24 +76,24 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		/// <example>
 		/// <code>
 		///   var application = new Application();
-		///   var application = application.ThirdPartyUpdateApplication( application);
+		///   var application = application.ThirdPartyUpdateApplication( application,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.SiteSettings.Application.Application ThirdPartyUpdateApplication(Mozu.Api.Contracts.SiteSettings.Application.Application application)
+		public virtual Mozu.Api.Contracts.SiteSettings.Application.Application ThirdPartyUpdateApplication(Mozu.Api.Contracts.SiteSettings.Application.Application application, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.SiteSettings.Application.Application> response;
-			var client = Mozu.Api.Clients.Commerce.Settings.ApplicationClient.ThirdPartyUpdateApplicationClient( application);
+			var client = Mozu.Api.Clients.Commerce.Settings.ApplicationClient.ThirdPartyUpdateApplicationClient( application,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
 
 		}
 
-		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Application.Application> ThirdPartyUpdateApplicationAsync(Mozu.Api.Contracts.SiteSettings.Application.Application application)
+		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Application.Application> ThirdPartyUpdateApplicationAsync(Mozu.Api.Contracts.SiteSettings.Application.Application application, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.SiteSettings.Application.Application> response;
-			var client = Mozu.Api.Clients.Commerce.Settings.ApplicationClient.ThirdPartyUpdateApplicationClient( application);
+			var client = Mozu.Api.Clients.Commerce.Settings.ApplicationClient.ThirdPartyUpdateApplicationClient( application,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

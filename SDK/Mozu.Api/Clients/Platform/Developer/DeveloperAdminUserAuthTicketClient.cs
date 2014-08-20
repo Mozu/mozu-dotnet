@@ -25,19 +25,20 @@ namespace Mozu.Api.Clients.Platform.Developer
 		/// Generate an authentication ticket for a developer account.
 		/// </summary>
 		/// <param name="developerAccountId">Unique identifier of the developer account.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="userAuthInfo">The user authentication information required to generate the developer account user authentication ticket, which consists of a user name and password.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=CreateDeveloperUserAuthTicket( userAuthInfo,  developerAccountId);
+		///   var mozuClient=CreateDeveloperUserAuthTicket( userAuthInfo,  developerAccountId,  responseFields);
 		///   var developerAdminUserAuthTicketClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket> CreateDeveloperUserAuthTicketClient(Mozu.Api.Contracts.Core.UserAuthInfo userAuthInfo, int? developerAccountId =  null)
+		public static MozuClient<Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket> CreateDeveloperUserAuthTicketClient(Mozu.Api.Contracts.Core.UserAuthInfo userAuthInfo, int? developerAccountId =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Platform.Developer.DeveloperAdminUserAuthTicketUrl.CreateDeveloperUserAuthTicketUrl(developerAccountId);
+			var url = Mozu.Api.Urls.Platform.Developer.DeveloperAdminUserAuthTicketUrl.CreateDeveloperUserAuthTicketUrl(developerAccountId, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -50,19 +51,20 @@ namespace Mozu.Api.Clients.Platform.Developer
 		/// Generates a new developer account authentication ticket for the specified tenant by supplying the defined refresh token information.
 		/// </summary>
 		/// <param name="developerAccountId">Unique identifier of the developer account.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="existingAuthTicket">Properties of the authentication ticket to refresh. The refresh token is required to complete this request.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=RefreshDeveloperAuthTicket( existingAuthTicket,  developerAccountId);
+		///   var mozuClient=RefreshDeveloperAuthTicket( existingAuthTicket,  developerAccountId,  responseFields);
 		///   var developerAdminUserAuthTicketClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket> RefreshDeveloperAuthTicketClient(Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket existingAuthTicket, int? developerAccountId =  null)
+		public static MozuClient<Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket> RefreshDeveloperAuthTicketClient(Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket existingAuthTicket, int? developerAccountId =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Platform.Developer.DeveloperAdminUserAuthTicketUrl.RefreshDeveloperAuthTicketUrl(developerAccountId);
+			var url = Mozu.Api.Urls.Platform.Developer.DeveloperAdminUserAuthTicketUrl.RefreshDeveloperAuthTicketUrl(developerAccountId, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket>()
 									.WithVerb(verb).WithResourceUrl(url)

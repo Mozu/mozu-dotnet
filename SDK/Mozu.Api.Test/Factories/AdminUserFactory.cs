@@ -30,25 +30,25 @@ namespace Mozu.Api.Test.Factories
 	{
 
 		/// <summary> 
-		/// Retrieves the details of the specified administrator user account.
+		/// Retrieves a list of the Mozu tenants or development stores for which the specified user has an assigned role.
 		/// <example> 
 		///  <code> 
-		/// var result = AdminUserFactory.GetUser(handler : handler,  userId :  userId,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<User/>(result); 
+		/// var result = AdminUserFactory.GetTenantScopesForUser(handler : handler,  userId :  userId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<TenantCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.Core.User GetUser(ServiceClientMessageHandler handler, 
- 		 string userId, 
+		public static Mozu.Api.Contracts.Tenant.TenantCollection GetTenantScopesForUser(ServiceClientMessageHandler handler, 
+ 		 string userId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Platform.Adminuser.AdminUserClient.GetUserClient(
-				 userId :  userId		);
+			var apiClient = Mozu.Api.Clients.Platform.Adminuser.AdminUserClient.GetTenantScopesForUserClient(
+				 userId :  userId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -68,25 +68,25 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves a list of the Mozu tenants or development stores for which the specified user has an assigned role.
+		/// Retrieves the details of the specified administrator user account.
 		/// <example> 
 		///  <code> 
-		/// var result = AdminUserFactory.GetTenantScopesForUser(handler : handler,  userId :  userId,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<TenantCollection/>(result); 
+		/// var result = AdminUserFactory.GetUser(handler : handler,  userId :  userId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<User/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.Tenant.TenantCollection GetTenantScopesForUser(ServiceClientMessageHandler handler, 
- 		 string userId, 
+		public static Mozu.Api.Contracts.Core.User GetUser(ServiceClientMessageHandler handler, 
+ 		 string userId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Platform.Adminuser.AdminUserClient.GetTenantScopesForUserClient(
-				 userId :  userId		);
+			var apiClient = Mozu.Api.Clients.Platform.Adminuser.AdminUserClient.GetUserClient(
+				 userId :  userId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

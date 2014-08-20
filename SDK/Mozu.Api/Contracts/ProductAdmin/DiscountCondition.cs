@@ -19,6 +19,22 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class DiscountCondition
 		{
+			public int? MinimumQuantityProductsRequiredInCategories { get; set; }
+
+			public int? MinimumQuantityRequiredProducts { get; set; }
+
+			public bool? RequiresAuthenticatedUser { get; set; }
+
+			///
+			///If true, redemption of this discount requires entry of a coupon code.
+			///
+			public bool RequiresCoupon { get; set; }
+
+			///
+			///The earliest date and time this discount can be redeemed.
+			///
+			public DateTime? StartDate { get; set; }
+
 			///
 			///If the discount is a coupon, the code required to redeem the coupon.
 			///
@@ -47,22 +63,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///The minimum order amount required to redeem this discount.
 			///
 			public decimal? MinimumOrderAmount { get; set; }
-
-			public int? MinimumQuantityProductsRequiredInCategories { get; set; }
-
-			public int? MinimumQuantityRequiredProducts { get; set; }
-
-			public bool? RequiresAuthenticatedUser { get; set; }
-
-			///
-			///If true, redemption of this discount requires entry of a coupon code.
-			///
-			public bool RequiresCoupon { get; set; }
-
-			///
-			///The earliest date and time this discount can be redeemed.
-			///
-			public DateTime? StartDate { get; set; }
 
 			///
 			///List of customer segments associated with the discount. Shoppers who are members of an associated customer segment can redeem this discount.

@@ -35,30 +35,31 @@ namespace Mozu.Api.Resources.Platform
 		/// 
 		/// </summary>
 		/// <param name="appId"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.InstalledApplications.Application"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var application = new Application();
-		///   var application = application.GetApplication( appId);
+		///   var application = application.GetApplication( appId,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.InstalledApplications.Application GetApplication(string appId)
+		public virtual Mozu.Api.Contracts.InstalledApplications.Application GetApplication(string appId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.InstalledApplications.Application> response;
-			var client = Mozu.Api.Clients.Platform.ApplicationClient.GetApplicationClient( appId);
+			var client = Mozu.Api.Clients.Platform.ApplicationClient.GetApplicationClient( appId,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
 
 		}
 
-		public virtual async Task<Mozu.Api.Contracts.InstalledApplications.Application> GetApplicationAsync(string appId)
+		public virtual async Task<Mozu.Api.Contracts.InstalledApplications.Application> GetApplicationAsync(string appId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.InstalledApplications.Application> response;
-			var client = Mozu.Api.Clients.Platform.ApplicationClient.GetApplicationClient( appId);
+			var client = Mozu.Api.Clients.Platform.ApplicationClient.GetApplicationClient( appId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -69,6 +70,7 @@ namespace Mozu.Api.Resources.Platform
 		/// 
 		/// </summary>
 		/// <param name="appId"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="application"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.InstalledApplications.Application"/>
@@ -76,24 +78,24 @@ namespace Mozu.Api.Resources.Platform
 		/// <example>
 		/// <code>
 		///   var application = new Application();
-		///   var application = application.UpdateApplication( application,  appId);
+		///   var application = application.UpdateApplication( application,  appId,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.InstalledApplications.Application UpdateApplication(Mozu.Api.Contracts.InstalledApplications.Application application, string appId)
+		public virtual Mozu.Api.Contracts.InstalledApplications.Application UpdateApplication(Mozu.Api.Contracts.InstalledApplications.Application application, string appId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.InstalledApplications.Application> response;
-			var client = Mozu.Api.Clients.Platform.ApplicationClient.UpdateApplicationClient( application,  appId);
+			var client = Mozu.Api.Clients.Platform.ApplicationClient.UpdateApplicationClient( application,  appId,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
 
 		}
 
-		public virtual async Task<Mozu.Api.Contracts.InstalledApplications.Application> UpdateApplicationAsync(Mozu.Api.Contracts.InstalledApplications.Application application, string appId)
+		public virtual async Task<Mozu.Api.Contracts.InstalledApplications.Application> UpdateApplicationAsync(Mozu.Api.Contracts.InstalledApplications.Application application, string appId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.InstalledApplications.Application> response;
-			var client = Mozu.Api.Clients.Platform.ApplicationClient.UpdateApplicationClient( application,  appId);
+			var client = Mozu.Api.Clients.Platform.ApplicationClient.UpdateApplicationClient( application,  appId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

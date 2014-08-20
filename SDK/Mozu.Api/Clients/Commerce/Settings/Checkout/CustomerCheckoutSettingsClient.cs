@@ -24,18 +24,19 @@ namespace Mozu.Api.Clients.Commerce.Settings.Checkout
 		/// <summary>
 		/// Retrieves all checkout settings defined for the site: Payment settings, such as the payment gateway ID and credentials, supported credit cards, and more; Customer Checkout settings, such as whether login is required, and any custom attributes; and Order Processing settings, such as when payment is authorized and captured, and any custom attributes.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Order.CustomerCheckoutSettings"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetCustomerCheckoutSettings();
+		///   var mozuClient=GetCustomerCheckoutSettings( responseFields);
 		///   var customerCheckoutSettingsClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.SiteSettings.Order.CustomerCheckoutSettings> GetCustomerCheckoutSettingsClient()
+		public static MozuClient<Mozu.Api.Contracts.SiteSettings.Order.CustomerCheckoutSettings> GetCustomerCheckoutSettingsClient(string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Settings.Checkout.CustomerCheckoutSettingsUrl.GetCustomerCheckoutSettingsUrl();
+			var url = Mozu.Api.Urls.Commerce.Settings.Checkout.CustomerCheckoutSettingsUrl.GetCustomerCheckoutSettingsUrl(responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.SiteSettings.Order.CustomerCheckoutSettings>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -47,19 +48,20 @@ namespace Mozu.Api.Clients.Commerce.Settings.Checkout
 		/// <summary>
 		/// Modifies existing site checkout settings. Modify Payment, Customer Checkout, and Order Processing settings in one PUT.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="customerCheckoutSettings">All the properties to update in the checkout settings.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Order.CustomerCheckoutSettings"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateCustomerCheckoutSettings( customerCheckoutSettings);
+		///   var mozuClient=UpdateCustomerCheckoutSettings( customerCheckoutSettings,  responseFields);
 		///   var customerCheckoutSettingsClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.SiteSettings.Order.CustomerCheckoutSettings> UpdateCustomerCheckoutSettingsClient(Mozu.Api.Contracts.SiteSettings.Order.CustomerCheckoutSettings customerCheckoutSettings)
+		public static MozuClient<Mozu.Api.Contracts.SiteSettings.Order.CustomerCheckoutSettings> UpdateCustomerCheckoutSettingsClient(Mozu.Api.Contracts.SiteSettings.Order.CustomerCheckoutSettings customerCheckoutSettings, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Settings.Checkout.CustomerCheckoutSettingsUrl.UpdateCustomerCheckoutSettingsUrl();
+			var url = Mozu.Api.Urls.Commerce.Settings.Checkout.CustomerCheckoutSettingsUrl.UpdateCustomerCheckoutSettingsUrl(responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.SiteSettings.Order.CustomerCheckoutSettings>()
 									.WithVerb(verb).WithResourceUrl(url)

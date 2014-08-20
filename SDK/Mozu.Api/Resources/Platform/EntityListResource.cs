@@ -175,6 +175,38 @@ namespace Mozu.Api.Resources.Platform
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="entityListFullName"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var entitylist = new EntityList();
+		///   entitylist.DeleteEntityList( entityListFullName);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void DeleteEntityList(string entityListFullName)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Platform.EntityListClient.DeleteEntityListClient( entityListFullName);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+
+		}
+
+		public virtual async Task DeleteEntityListAsync(string entityListFullName)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Platform.EntityListClient.DeleteEntityListClient( entityListFullName);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+
+		}
+
 
 	}
 

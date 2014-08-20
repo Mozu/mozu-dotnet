@@ -19,39 +19,45 @@ namespace Mozu.Api.Urls.Commerce.Settings.Shipping
 		/// <summary>
         /// Get Resource Url for GetOrderHandlingFee
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetOrderHandlingFeeUrl()
+        public static MozuUrl GetOrderHandlingFeeUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/settings/shipping/orderhandlingfee";
+			var url = "/api/commerce/settings/shipping/orderhandlingfee?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 				/// <summary>
         /// Get Resource Url for CreateOrderHandlingFee
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl CreateOrderHandlingFeeUrl()
+        public static MozuUrl CreateOrderHandlingFeeUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/settings/shipping/orderhandlingfee";
+			var url = "/api/commerce/settings/shipping/orderhandlingfee?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 				/// <summary>
         /// Get Resource Url for UpdateOrderHandlingFee
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateOrderHandlingFeeUrl()
+        public static MozuUrl UpdateOrderHandlingFeeUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/settings/shipping/orderhandlingfee";
+			var url = "/api/commerce/settings/shipping/orderhandlingfee?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

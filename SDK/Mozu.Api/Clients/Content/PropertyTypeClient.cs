@@ -74,6 +74,83 @@ namespace Mozu.Api.Clients.Content
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="propertyType"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.PropertyType"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=CreatePropertyType( propertyType,  responseFields);
+		///   var propertyTypeClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.Content.PropertyType> CreatePropertyTypeClient(Mozu.Api.Contracts.Content.PropertyType propertyType, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Content.PropertyTypeUrl.CreatePropertyTypeUrl(responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Content.PropertyType>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.Content.PropertyType>(propertyType);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="propertyTypeName"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="propertyType"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.PropertyType"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=UpdatePropertyType(dataViewMode,  propertyType,  propertyTypeName,  responseFields);
+		///   var propertyTypeClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.Content.PropertyType> UpdatePropertyTypeClient(DataViewMode dataViewMode, Mozu.Api.Contracts.Content.PropertyType propertyType, string propertyTypeName, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Content.PropertyTypeUrl.UpdatePropertyTypeUrl(propertyTypeName, responseFields);
+			const string verb = "PUT";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Content.PropertyType>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.Content.PropertyType>(propertyType)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="propertyTypeName"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=DeletePropertyType(dataViewMode,  propertyTypeName);
+		///mozuClient.WithBaseAddress(url).Execute();
+		/// </code>
+		/// </example>
+		public static MozuClient DeletePropertyTypeClient(DataViewMode dataViewMode, string propertyTypeName)
+		{
+			var url = Mozu.Api.Urls.Content.PropertyTypeUrl.DeletePropertyTypeUrl(propertyTypeName);
+			const string verb = "DELETE";
+			var mozuClient = new MozuClient()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
+			return mozuClient;
+
+		}
+
 
 	}
 

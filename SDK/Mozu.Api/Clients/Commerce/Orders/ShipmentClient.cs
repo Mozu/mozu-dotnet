@@ -50,19 +50,20 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <summary>
 		/// Retrieves the available shipping methods applicable to the order. Typically used to display available shipping method options on the checkout page.
 		/// </summary>
+		/// <param name="draft"></param>
 		/// <param name="orderId">Unique identifier of the order for the available shipment methods being retrieved.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.ShippingRate"/>}}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetAvailableShipmentMethods( orderId);
+		///   var mozuClient=GetAvailableShipmentMethods( orderId,  draft);
 		///   var shippingRateClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.ShippingRate>> GetAvailableShipmentMethodsClient(string orderId)
+		public static MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.ShippingRate>> GetAvailableShipmentMethodsClient(string orderId, bool? draft =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Orders.ShipmentUrl.GetAvailableShipmentMethodsUrl(orderId);
+			var url = Mozu.Api.Urls.Commerce.Orders.ShipmentUrl.GetAvailableShipmentMethodsUrl(orderId, draft);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.ShippingRate>>()
 									.WithVerb(verb).WithResourceUrl(url)

@@ -67,6 +67,7 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 		/// <summary>
 		/// Creates a new territory for which to calculate sales tax.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="taxableTerritory">Properties of the taxable territory to create.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory"/>
@@ -74,24 +75,24 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 		/// <example>
 		/// <code>
 		///   var taxableterritory = new TaxableTerritory();
-		///   var taxableTerritory = taxableterritory.AddTaxableTerritory( taxableTerritory);
+		///   var taxableTerritory = taxableterritory.AddTaxableTerritory( taxableTerritory,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory AddTaxableTerritory(Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory taxableTerritory)
+		public virtual Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory AddTaxableTerritory(Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory taxableTerritory, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory> response;
-			var client = Mozu.Api.Clients.Commerce.Settings.General.TaxableTerritoryClient.AddTaxableTerritoryClient( taxableTerritory);
+			var client = Mozu.Api.Clients.Commerce.Settings.General.TaxableTerritoryClient.AddTaxableTerritoryClient( taxableTerritory,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
 
 		}
 
-		public virtual async Task<Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory> AddTaxableTerritoryAsync(Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory taxableTerritory)
+		public virtual async Task<Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory> AddTaxableTerritoryAsync(Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory taxableTerritory, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory> response;
-			var client = Mozu.Api.Clients.Commerce.Settings.General.TaxableTerritoryClient.AddTaxableTerritoryClient( taxableTerritory);
+			var client = Mozu.Api.Clients.Commerce.Settings.General.TaxableTerritoryClient.AddTaxableTerritoryClient( taxableTerritory,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

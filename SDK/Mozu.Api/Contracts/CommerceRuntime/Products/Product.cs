@@ -20,6 +20,17 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 		///
 		public class Product
 		{
+			public string MfgPartNumber { get; set; }
+
+			///
+			///Short description of the product in the language specified in the locale code for the storefront.
+			///
+			public string Description { get; set; }
+
+			public bool? DiscountsRestricted { get; set; }
+
+			public DateTime? DiscountsRestrictedEndDate { get; set; }
+
 			public DateTime? DiscountsRestrictedStartDate { get; set; }
 
 			public List<string> FulfillmentTypesSupported { get; set; }
@@ -50,8 +61,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			///If true, the entity is subject to sales tax based on the relevant tax rate.
 			///
 			public bool? IsTaxable { get; set; }
-
-			public string MfgPartNumber { get; set; }
 
 			///
 			///The name of the product that appears on the storefront.
@@ -84,15 +93,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			///Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
 			///
 			public string VariationProductCode { get; set; }
-
-			///
-			///Short description of the product in the language specified in the locale code for the storefront.
-			///
-			public string Description { get; set; }
-
-			public bool? DiscountsRestricted { get; set; }
-
-			public DateTime? DiscountsRestrictedEndDate { get; set; }
 
 			///
 			///Collection of component products that make up a single product bundle with its own product code, added to a cart or order.

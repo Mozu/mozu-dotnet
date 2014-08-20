@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 
 using Mozu.Api.Contracts.CommerceRuntime.Commerce;
 
@@ -19,20 +20,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 		///
 		public class CartChangeMessageCollection
 		{
-			///
-			///The number of commerce runtime cart change messages transactions that can exist in a collection.
-			///
-			public int Capacity { get; set; }
+			public int TotalCount { get; set; }
 
-			///
-			///The number of messages in the collection.
-			///
-			public int Count { get; set; }
-
-			///
-			///Container for an item in a collection.
-			///
-			public ChangeMessage Item { get; set; }
+			public List<ChangeMessage> Items { get; set; }
 
 		}
 

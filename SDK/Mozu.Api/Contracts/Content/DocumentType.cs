@@ -10,7 +10,9 @@
 
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.Content
 {
@@ -33,6 +35,8 @@ namespace Mozu.Api.Contracts.Content
 			public string Namespace { get; set; }
 
 			public string Version { get; set; }
+
+			public JObject Metadata { get; set; }
 
 			public List<Property> Properties { get; set; }
 

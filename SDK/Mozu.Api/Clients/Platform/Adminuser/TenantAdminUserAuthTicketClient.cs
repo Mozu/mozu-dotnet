@@ -24,6 +24,7 @@ namespace Mozu.Api.Clients.Platform.Adminuser
 		/// <summary>
 		/// Creates an authentication ticket for the supplied user to specify in API requests associated with the supplied tenant.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="tenantId">Unique identifier of the development or production tenant for which to generate the user authentication ticket.</param>
 		/// <param name="userAuthInfo">The user authentication information required to generate the user authentication ticket, which consists of a user name and password.</param>
 		/// <returns>
@@ -31,13 +32,13 @@ namespace Mozu.Api.Clients.Platform.Adminuser
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=CreateUserAuthTicket( userAuthInfo,  tenantId);
+		///   var mozuClient=CreateUserAuthTicket( userAuthInfo,  tenantId,  responseFields);
 		///   var tenantAdminUserAuthTicketClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket> CreateUserAuthTicketClient(Mozu.Api.Contracts.Core.UserAuthInfo userAuthInfo, int? tenantId =  null)
+		public static MozuClient<Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket> CreateUserAuthTicketClient(Mozu.Api.Contracts.Core.UserAuthInfo userAuthInfo, int? tenantId =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Platform.Adminuser.TenantAdminUserAuthTicketUrl.CreateUserAuthTicketUrl(tenantId);
+			var url = Mozu.Api.Urls.Platform.Adminuser.TenantAdminUserAuthTicketUrl.CreateUserAuthTicketUrl(tenantId, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -49,6 +50,7 @@ namespace Mozu.Api.Clients.Platform.Adminuser
 		/// <summary>
 		/// Generates a new user authentication ticket for the specified tenant by supplying the user's existing refresh token information.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="tenantId"></param>
 		/// <param name="existingAuthTicket">Properties of the authentication ticket to refresh. The refresh token is required to complete this request.</param>
 		/// <returns>
@@ -56,13 +58,13 @@ namespace Mozu.Api.Clients.Platform.Adminuser
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=RefreshAuthTicket( existingAuthTicket,  tenantId);
+		///   var mozuClient=RefreshAuthTicket( existingAuthTicket,  tenantId,  responseFields);
 		///   var tenantAdminUserAuthTicketClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket> RefreshAuthTicketClient(Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket existingAuthTicket, int? tenantId =  null)
+		public static MozuClient<Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket> RefreshAuthTicketClient(Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket existingAuthTicket, int? tenantId =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Platform.Adminuser.TenantAdminUserAuthTicketUrl.RefreshAuthTicketUrl(tenantId);
+			var url = Mozu.Api.Urls.Platform.Adminuser.TenantAdminUserAuthTicketUrl.RefreshAuthTicketUrl(tenantId, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket>()
 									.WithVerb(verb).WithResourceUrl(url)

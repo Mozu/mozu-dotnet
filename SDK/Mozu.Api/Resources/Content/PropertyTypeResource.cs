@@ -109,6 +109,109 @@ namespace Mozu.Api.Resources.Content
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="propertyType"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Content.PropertyType"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var propertytype = new PropertyType();
+		///   var propertyType = propertytype.CreatePropertyType( propertyType,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Content.PropertyType CreatePropertyType(Mozu.Api.Contracts.Content.PropertyType propertyType, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Content.PropertyType> response;
+			var client = Mozu.Api.Clients.Content.PropertyTypeClient.CreatePropertyTypeClient( propertyType,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.Content.PropertyType> CreatePropertyTypeAsync(Mozu.Api.Contracts.Content.PropertyType propertyType, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Content.PropertyType> response;
+			var client = Mozu.Api.Clients.Content.PropertyTypeClient.CreatePropertyTypeClient( propertyType,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="propertyTypeName"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="propertyType"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Content.PropertyType"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var propertytype = new PropertyType();
+		///   var propertyType = propertytype.UpdatePropertyType(_dataViewMode,  propertyType,  propertyTypeName,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Content.PropertyType UpdatePropertyType(Mozu.Api.Contracts.Content.PropertyType propertyType, string propertyTypeName, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Content.PropertyType> response;
+			var client = Mozu.Api.Clients.Content.PropertyTypeClient.UpdatePropertyTypeClient(_dataViewMode,  propertyType,  propertyTypeName,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.Content.PropertyType> UpdatePropertyTypeAsync(Mozu.Api.Contracts.Content.PropertyType propertyType, string propertyTypeName, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Content.PropertyType> response;
+			var client = Mozu.Api.Clients.Content.PropertyTypeClient.UpdatePropertyTypeClient(_dataViewMode,  propertyType,  propertyTypeName,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="propertyTypeName"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var propertytype = new PropertyType();
+		///   propertytype.DeletePropertyType(_dataViewMode,  propertyTypeName);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void DeletePropertyType(string propertyTypeName)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Content.PropertyTypeClient.DeletePropertyTypeClient(_dataViewMode,  propertyTypeName);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+
+		}
+
+		public virtual async Task DeletePropertyTypeAsync(string propertyTypeName)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Content.PropertyTypeClient.DeletePropertyTypeClient(_dataViewMode,  propertyTypeName);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+
+		}
+
 
 	}
 

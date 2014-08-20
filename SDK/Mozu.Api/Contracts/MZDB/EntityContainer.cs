@@ -9,7 +9,9 @@
 //------------------------------------------------------------------------------
 
 using System;
+using Newtonsoft.Json.Linq;
 
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.MZDB
 {
@@ -23,7 +25,7 @@ namespace Mozu.Api.Contracts.MZDB
 
 			public string Id { get; set; }
 
-			public string ListFQN { get; set; }
+			public string ListFullName { get; set; }
 
 			public string LocaleCode { get; set; }
 
@@ -38,6 +40,8 @@ namespace Mozu.Api.Contracts.MZDB
 			public DateTime UpdateDate { get; set; }
 
 			public string UserId { get; set; }
+
+			public JObject Item { get; set; }
 
 		}
 

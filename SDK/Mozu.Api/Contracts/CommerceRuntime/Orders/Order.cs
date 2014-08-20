@@ -11,8 +11,8 @@
 using System;
 using System.Collections.Generic;
 
-using Mozu.Api.Contracts.Core;
 using Mozu.Api.Contracts.CommerceRuntime.Commerce;
+using Mozu.Api.Contracts.Core;
 using Mozu.Api.Contracts.CommerceRuntime.Payments;
 using Mozu.Api.Contracts.CommerceRuntime.Fulfillment;
 using Mozu.Api.Contracts.CommerceRuntime.Discounts;
@@ -131,7 +131,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public decimal? HandlingAmount { get; set; }
 
-			public decimal? HandlingSubtotal { get; set; }
+			public decimal? HandlingSubTotal { get; set; }
 
 			///
 			///If the handling fee for the order is subject to sales tax, the total tax amount.
@@ -301,11 +301,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public string WebSessionId { get; set; }
 
 			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
-
-			///
 			///Properties of an ad-hoc price adjustment for an order.
 			///
 			public Adjustment Adjustment { get; set; }
@@ -314,6 +309,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///Paged list collection of order attributes.
 			///
 			public List<OrderAttribute> Attributes { get; set; }
+
+			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
 
 			///
 			///Container for the customer billing information associated with an order.
@@ -331,6 +331,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///Properties of the item fulfillment information associated with the order. Shoppers can fulfill order items using in-store pickup or direct shipping.
 			///
 			public FulfillmentInfo FulfillmentInfo { get; set; }
+
+			public List<AppliedDiscount> HandlingDiscounts { get; set; }
 
 			public List<InvalidCoupon> InvalidCoupons { get; set; }
 

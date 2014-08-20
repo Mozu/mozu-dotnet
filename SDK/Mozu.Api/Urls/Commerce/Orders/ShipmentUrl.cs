@@ -38,14 +38,16 @@ namespace Mozu.Api.Urls.Commerce.Orders
 		/// <summary>
         /// Get Resource Url for GetAvailableShipmentMethods
         /// </summary>
+        /// <param name="draft"></param>
         /// <param name="orderId">Unique identifier of the order for the available shipment methods being retrieved.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetAvailableShipmentMethodsUrl(string orderId)
+        public static MozuUrl GetAvailableShipmentMethodsUrl(string orderId, bool? draft =  null)
 		{
-			var url = "/api/commerce/orders/{orderId}/shipments/methods";
+			var url = "/api/commerce/orders/{orderId}/shipments/methods?draft={draft}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "draft", draft);
 			mozuUrl.FormatUrl( "orderId", orderId);
 			return mozuUrl;
 		}

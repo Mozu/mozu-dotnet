@@ -125,6 +125,30 @@ namespace Mozu.Api.Clients.Platform
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="entityListFullName"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=DeleteEntityList( entityListFullName);
+		///mozuClient.WithBaseAddress(url).Execute();
+		/// </code>
+		/// </example>
+		public static MozuClient DeleteEntityListClient(string entityListFullName)
+		{
+			var url = Mozu.Api.Urls.Platform.EntityListUrl.DeleteEntityListUrl(entityListFullName);
+			const string verb = "DELETE";
+			var mozuClient = new MozuClient()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
 
 	}
 

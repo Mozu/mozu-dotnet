@@ -19,13 +19,15 @@ namespace Mozu.Api.Urls.Commerce.Settings
 		/// <summary>
         /// Get Resource Url for GetSiteShippingSettings
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetSiteShippingSettingsUrl()
+        public static MozuUrl GetSiteShippingSettingsUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/settings/shipping/";
+			var url = "/api/commerce/settings/shipping/?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

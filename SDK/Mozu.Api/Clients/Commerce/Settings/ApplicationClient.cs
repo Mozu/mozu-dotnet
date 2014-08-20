@@ -24,18 +24,19 @@ namespace Mozu.Api.Clients.Commerce.Settings
 		/// <summary>
 		/// Retrieve the settings of a third-party application.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Application.Application"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=ThirdPartyGetApplication();
+		///   var mozuClient=ThirdPartyGetApplication( responseFields);
 		///   var applicationClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.SiteSettings.Application.Application> ThirdPartyGetApplicationClient()
+		public static MozuClient<Mozu.Api.Contracts.SiteSettings.Application.Application> ThirdPartyGetApplicationClient(string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Settings.ApplicationUrl.ThirdPartyGetApplicationUrl();
+			var url = Mozu.Api.Urls.Commerce.Settings.ApplicationUrl.ThirdPartyGetApplicationUrl(responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.SiteSettings.Application.Application>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -47,19 +48,20 @@ namespace Mozu.Api.Clients.Commerce.Settings
 		/// <summary>
 		/// Initializes an application with the necessary configured settings.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="application">Properties of the application to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Application.Application"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=ThirdPartyUpdateApplication( application);
+		///   var mozuClient=ThirdPartyUpdateApplication( application,  responseFields);
 		///   var applicationClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.SiteSettings.Application.Application> ThirdPartyUpdateApplicationClient(Mozu.Api.Contracts.SiteSettings.Application.Application application)
+		public static MozuClient<Mozu.Api.Contracts.SiteSettings.Application.Application> ThirdPartyUpdateApplicationClient(Mozu.Api.Contracts.SiteSettings.Application.Application application, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Settings.ApplicationUrl.ThirdPartyUpdateApplicationUrl();
+			var url = Mozu.Api.Urls.Commerce.Settings.ApplicationUrl.ThirdPartyUpdateApplicationUrl(responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.SiteSettings.Application.Application>()
 									.WithVerb(verb).WithResourceUrl(url)

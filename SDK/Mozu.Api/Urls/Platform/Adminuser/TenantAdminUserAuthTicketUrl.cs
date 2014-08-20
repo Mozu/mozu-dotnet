@@ -19,14 +19,16 @@ namespace Mozu.Api.Urls.Platform.Adminuser
 				/// <summary>
         /// Get Resource Url for CreateUserAuthTicket
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <param name="tenantId">Unique identifier of the development or production tenant for which to generate the user authentication ticket.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl CreateUserAuthTicketUrl(int? tenantId =  null)
+        public static MozuUrl CreateUserAuthTicketUrl(int? tenantId =  null, string responseFields =  null)
 		{
-			var url = "/api/platform/adminuser/authtickets/tenants?tenantId={tenantId}";
+			var url = "/api/platform/adminuser/authtickets/tenants?tenantId={tenantId}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "tenantId", tenantId);
 			return mozuUrl;
 		}
@@ -34,14 +36,16 @@ namespace Mozu.Api.Urls.Platform.Adminuser
 				/// <summary>
         /// Get Resource Url for RefreshAuthTicket
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <param name="tenantId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl RefreshAuthTicketUrl(int? tenantId =  null)
+        public static MozuUrl RefreshAuthTicketUrl(int? tenantId =  null, string responseFields =  null)
 		{
-			var url = "/api/platform/adminuser/authtickets/tenants?tenantId={tenantId}";
+			var url = "/api/platform/adminuser/authtickets/tenants?tenantId={tenantId}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "tenantId", tenantId);
 			return mozuUrl;
 		}

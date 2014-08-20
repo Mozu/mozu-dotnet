@@ -24,18 +24,19 @@ namespace Mozu.Api.Clients.Commerce.Settings
 		/// <summary>
 		/// Retrieves a list of the shipping settings configured for a site.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingSettings"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetSiteShippingSettings();
+		///   var mozuClient=GetSiteShippingSettings( responseFields);
 		///   var siteShippingSettingsClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingSettings> GetSiteShippingSettingsClient()
+		public static MozuClient<Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingSettings> GetSiteShippingSettingsClient(string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Settings.SiteShippingSettingsUrl.GetSiteShippingSettingsUrl();
+			var url = Mozu.Api.Urls.Commerce.Settings.SiteShippingSettingsUrl.GetSiteShippingSettingsUrl(responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingSettings>()
 									.WithVerb(verb).WithResourceUrl(url)

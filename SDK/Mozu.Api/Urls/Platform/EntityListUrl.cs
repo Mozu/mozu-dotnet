@@ -88,7 +88,22 @@ namespace Mozu.Api.Urls.Platform
 			return mozuUrl;
 		}
 
-				
+				/// <summary>
+        /// Get Resource Url for DeleteEntityList
+        /// </summary>
+        /// <param name="entityListFullName"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl DeleteEntityListUrl(string entityListFullName)
+		{
+			var url = "/api/platform/entitylists/{entityListFullName}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "entityListFullName", entityListFullName);
+			return mozuUrl;
+		}
+
+		
 	}
 }
 

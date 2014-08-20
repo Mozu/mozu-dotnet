@@ -28,8 +28,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public string Name { get; set; }
 
-			public string Zone { get; set; }
-
 		}
 
 }

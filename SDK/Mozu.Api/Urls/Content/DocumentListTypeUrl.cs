@@ -11,37 +11,39 @@
 using System;
 using System.Collections.Generic;
 
-namespace Mozu.Api.Urls.Commerce.Settings
+namespace Mozu.Api.Urls.Content
 {
-	public partial class GeneralSettingsUrl 
+	public partial class DocumentListTypeUrl 
 	{
 
-		/// <summary>
-        /// Get Resource Url for GetGeneralSettings
+				/// <summary>
+        /// Get Resource Url for CreateDocumentListType
         /// </summary>
         /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetGeneralSettingsUrl(string responseFields =  null)
+        public static MozuUrl CreateDocumentListTypeUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/settings/general/?responseFields={responseFields}";
+			var url = "/api/content/documentlistTypes/?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
-						/// <summary>
-        /// Get Resource Url for UpdateGeneralSettings
+				/// <summary>
+        /// Get Resource Url for UpdateDocumentListType
         /// </summary>
+        /// <param name="documentListTypeFQN"></param>
         /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateGeneralSettingsUrl(string responseFields =  null)
+        public static MozuUrl UpdateDocumentListTypeUrl(string documentListTypeFQN, string responseFields =  null)
 		{
-			var url = "/api/commerce/settings/general/?responseFields={responseFields}";
+			var url = "/api/content/documentlistTypes/{documentListTypeName}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "documentListTypeFQN", documentListTypeFQN);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
