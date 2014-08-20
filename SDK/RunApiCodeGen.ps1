@@ -25,16 +25,19 @@ if ($RunPublisher)
 
     $headers = @{
         "x-vol-app-claims" = "$AppClaim"
-        "accept" = "application/json"
     };
+    
+    
 
-    $body = "{
-        ""major"" : ""$major"",
-        ""minor"" : ""$minor""
-    }";
+    $publisherRequestBody = New-Object psobject
+    Add-Member -InputObject $publisherRequestBody -MemberType NoteProperty -Name Major -Value $major
+    Add-Member -InputObject $publisherRequestBody -MemberType NoteProperty -Name Minor -Value $minor
 
+    $publisherRequestBodyJson = $publisherRequestBody | ConvertTo-Json
+    Write-Host $publisherRequestBodyJson
+    
     try {
-        Invoke-RestMethod -Method Post -Uri $uri -Body $body -Headers $headers  -ContentType "application/json"
+        Invoke-RestMethod -Method Post -Uri $uri -Body $publisherRequestBodyJson -Headers $headers  -ContentType "application/json"
     }
     catch [System.Net.WebException] {
          Write-Host $_.Exception.ToString()
