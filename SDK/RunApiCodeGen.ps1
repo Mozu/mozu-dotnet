@@ -25,16 +25,22 @@ if ($RunPublisher)
 
     $headers = @{
         "x-vol-app-claims" = "$AppClaim"
-        "accept" = "application/json"
     };
+    
+    
 
-    $body = "{
-        ""major"" : ""$major"",
-        ""minor"" : ""$minor""
-    }";
+    $publisherRequestBody = New-Object psobject
+    Add-Member -InputObject $publisherRequestBody -MemberType NoteProperty -Name Major -Value $major
+    Add-Member -InputObject $publisherRequestBody -MemberType NoteProperty -Name Minor -Value $minor
 
+    $publisherRequestBodyJson = $publisherRequestBody | ConvertTo-Json
+    Write-Host $publisherRequestBodyJson
+    
     try {
-        Invoke-RestMethod -Method Post -Uri $uri -Body $body -Headers $headers  -ContentType "application/json"
+        $response = Invoke-WebRequest -Method Post -Uri $uri -Body $publisherRequestBodyJson -Headers $headers -ContentType "application/json; charset=utf-8" -UseBasicParsing
+        Write-Host $response
+        Write-Host $response.Headers
+        Write-Host $response.StatusCode
     }
     catch [System.Net.WebException] {
          Write-Host $_.Exception.ToString()
@@ -77,7 +83,7 @@ Write-Host $jsonBody
 
 try 
 {
-    $response = Invoke-WebRequest -Method Post -Uri "$CodeGenServer/sdkcodegen" -Body $jsonBody -Headers $headers -ContentType "application/json; charset=utf-8" -ErrorAction Stop -UseBasicParsing
+    $response = Invoke-WebRequest -Method Post -Uri "$CodeGenServer/sdkcodegen" -Body $jsonBody  -ContentType "application/json; charset=utf-8" -ErrorAction Stop -UseBasicParsing
     Write-Host $response.StatusCode
     Write-Host $response.Headers
 }
