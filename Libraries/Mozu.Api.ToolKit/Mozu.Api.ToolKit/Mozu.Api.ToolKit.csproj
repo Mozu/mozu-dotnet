@@ -72,9 +72,13 @@
     <Compile Include="Readers\CustomerAccountReader.cs" />
     <Compile Include="Readers\DiscountReader.cs" />
     <Compile Include="Readers\DocumentReader.cs" />
+    <Compile Include="Readers\LocationInventoryReader.cs" />
+    <Compile Include="Readers\LocationReader.cs" />
     <Compile Include="Readers\OrderReader.cs" />
     <Compile Include="Readers\ProductAdminReader.cs" />
     <Compile Include="Readers\ProductRuntimeReader.cs" />
+    <Compile Include="Readers\ProductTypeReader.cs" />
+    <Compile Include="Readers\ProductVariationReader.cs" />
     <Compile Include="Readers\WishlistReader.cs" />
   </ItemGroup>
   <ItemGroup>
