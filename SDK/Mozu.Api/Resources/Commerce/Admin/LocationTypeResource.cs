@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		{
 			_apiContext = apiContext;
 		}
+
+		public LocationTypeResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new LocationTypeResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieve a list of all location types defined for the tenant.

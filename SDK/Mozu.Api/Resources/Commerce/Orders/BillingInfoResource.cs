@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		{
 			_apiContext = apiContext;
 		}
+
+		public BillingInfoResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new BillingInfoResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves the billing information associated with an order.

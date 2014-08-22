@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		{
 			_apiContext = apiContext;
 		}
+
+		public FulfillmentActionResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new FulfillmentActionResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Sets the fulfillment action to "Ship" or "PickUp". To ship an order or prepare it for in-store pickup, the order must have a customer name, the "Open" or "OpenAndProcessing" status. To ship the order, it must also have the full shipping address and shipping method. Shipping all packages or picking up all pickups for an order will complete a paid order.

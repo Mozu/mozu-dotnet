@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce
 		{
 			_apiContext = apiContext;
 		}
+
+		public ChannelResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new ChannelResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a list of channels defined for a tenant according to any filter or sort criteria specified in the request.

@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		{
 			_apiContext = apiContext;
 		}
+
+		public ShipmentResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new ShipmentResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves the details of the order shipment specified in the request.

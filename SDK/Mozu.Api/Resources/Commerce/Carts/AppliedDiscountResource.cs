@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		{
 			_apiContext = apiContext;
 		}
+
+		public AppliedDiscountResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new AppliedDiscountResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// 

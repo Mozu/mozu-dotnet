@@ -32,6 +32,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 			_apiContext = apiContext;
 			_dataViewMode = DataViewMode.Live;
 		}
+
+		public LocationInventoryResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new LocationInventoryResource(_apiContext.CloneWith(contextModification));
+		}
+
 		public LocationInventoryResource(IApiContext apiContext, DataViewMode dataViewMode) 
 		{
 			_apiContext = apiContext;

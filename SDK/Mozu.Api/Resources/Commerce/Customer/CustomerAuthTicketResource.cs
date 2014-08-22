@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		{
 			_apiContext = apiContext;
 		}
+
+		public CustomerAuthTicketResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new CustomerAuthTicketResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// 

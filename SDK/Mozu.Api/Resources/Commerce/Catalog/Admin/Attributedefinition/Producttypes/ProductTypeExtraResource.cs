@@ -32,6 +32,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Productt
 			_apiContext = apiContext;
 			_dataViewMode = DataViewMode.Live;
 		}
+
+		public ProductTypeExtraResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new ProductTypeExtraResource(_apiContext.CloneWith(contextModification));
+		}
+
 		public ProductTypeExtraResource(IApiContext apiContext, DataViewMode dataViewMode) 
 		{
 			_apiContext = apiContext;

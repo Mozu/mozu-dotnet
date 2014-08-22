@@ -34,6 +34,12 @@ namespace Mozu.Api.Resources.Platform.Developer
 		{
 			_apiContext = apiContext;
 		}
+
+		public DeveloperAdminUserAuthTicketResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new DeveloperAdminUserAuthTicketResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Generate an authentication ticket for a developer account.

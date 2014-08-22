@@ -34,6 +34,12 @@ namespace Mozu.Api.Resources.Platform.Adminuser
 		{
 			_apiContext = apiContext;
 		}
+
+		public TenantAdminUserAuthTicketResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new TenantAdminUserAuthTicketResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Creates an authentication ticket for the supplied user to specify in API requests associated with the supplied tenant.

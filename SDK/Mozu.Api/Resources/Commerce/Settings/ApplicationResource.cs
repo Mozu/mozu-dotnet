@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		{
 			_apiContext = apiContext;
 		}
+
+		public ApplicationResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new ApplicationResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieve the settings of a third-party application.

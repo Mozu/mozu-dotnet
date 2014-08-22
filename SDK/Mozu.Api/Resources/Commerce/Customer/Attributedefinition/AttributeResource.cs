@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Customer.Attributedefinition
 		{
 			_apiContext = apiContext;
 		}
+
+		public AttributeResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new AttributeResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// 

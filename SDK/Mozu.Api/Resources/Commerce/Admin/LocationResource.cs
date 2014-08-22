@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		{
 			_apiContext = apiContext;
 		}
+
+		public LocationResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new LocationResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a list of all locations associated with a tenant, according to any filter and sort criteria specified in the request.

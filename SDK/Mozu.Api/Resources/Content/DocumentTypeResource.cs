@@ -32,6 +32,12 @@ namespace Mozu.Api.Resources.Content
 			_apiContext = apiContext;
 			_dataViewMode = DataViewMode.Live;
 		}
+
+		public DocumentTypeResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new DocumentTypeResource(_apiContext.CloneWith(contextModification));
+		}
+
 		public DocumentTypeResource(IApiContext apiContext, DataViewMode dataViewMode) 
 		{
 			_apiContext = apiContext;

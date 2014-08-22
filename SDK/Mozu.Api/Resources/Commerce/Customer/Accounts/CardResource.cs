@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		{
 			_apiContext = apiContext;
 		}
+
+		public CardResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new CardResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves the details of a credit card stored with a customer account billing contact.

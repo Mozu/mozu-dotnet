@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Platform
 		{
 			_apiContext = apiContext;
 		}
+
+		public TenantDataResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new TenantDataResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves the value of a record in the Mozu database.

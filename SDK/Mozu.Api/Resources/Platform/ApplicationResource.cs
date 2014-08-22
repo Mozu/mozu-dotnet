@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Platform
 		{
 			_apiContext = apiContext;
 		}
+
+		public ApplicationResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new ApplicationResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// 

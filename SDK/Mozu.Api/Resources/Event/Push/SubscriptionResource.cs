@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Event.Push
 		{
 			_apiContext = apiContext;
 		}
+
+		public SubscriptionResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new SubscriptionResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// 

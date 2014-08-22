@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		{
 			_apiContext = apiContext;
 		}
+
+		public CustomerAttributeResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new CustomerAttributeResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves the contents of an attribute associated with the specified customer account.

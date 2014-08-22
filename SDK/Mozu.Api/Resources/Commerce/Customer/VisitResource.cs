@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		{
 			_apiContext = apiContext;
 		}
+
+		public VisitResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new VisitResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a list of customer visits according to any filter or sort criteria specified in the request.

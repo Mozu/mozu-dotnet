@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Settings.Checkout
 		{
 			_apiContext = apiContext;
 		}
+
+		public PaymentSettingsResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new PaymentSettingsResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves the details of the third-party payment service workflows configured for the site.

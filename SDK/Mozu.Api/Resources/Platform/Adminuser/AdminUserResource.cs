@@ -34,6 +34,12 @@ namespace Mozu.Api.Resources.Platform.Adminuser
 		{
 			_apiContext = apiContext;
 		}
+
+		public AdminUserResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new AdminUserResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a list of the Mozu tenants or development stores for which the specified user has an assigned role.

@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		{
 			_apiContext = apiContext;
 		}
+
+		public MasterCatalogResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new MasterCatalogResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieve the details of all master catalog associated with a tenant.

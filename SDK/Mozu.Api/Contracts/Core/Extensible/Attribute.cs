@@ -20,17 +20,6 @@ namespace Mozu.Api.Contracts.Core.Extensible
 		///
 		public class Attribute
 		{
-			public bool? IsVisible { get; set; }
-
-			///
-			///Namespace associated with this extensible attribute.
-			///
-			public string Namespace { get; set; }
-
-			public int? Order { get; set; }
-
-			public string ValueType { get; set; }
-
 			///
 			///Name of this extensible attribute defined in Mozu Admin.
 			///
@@ -65,6 +54,17 @@ namespace Mozu.Api.Contracts.Core.Extensible
 			public bool? IsMultiValued { get; set; }
 
 			public bool? IsRequired { get; set; }
+
+			public bool? IsVisible { get; set; }
+
+			///
+			///Namespace associated with this extensible attribute.
+			///
+			public string Namespace { get; set; }
+
+			public int? Order { get; set; }
+
+			public string ValueType { get; set; }
 
 			///
 			///List of metadata key-value pairs defined for an extensible attribute.

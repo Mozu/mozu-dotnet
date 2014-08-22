@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		{
 			_apiContext = apiContext;
 		}
+
+		public SiteShippingSettingsResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new SiteShippingSettingsResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a list of the shipping settings configured for a site.

@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		{
 			_apiContext = apiContext;
 		}
+
+		public AddressValidationRequestResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new AddressValidationRequestResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Validates the customer address supplied in the request.

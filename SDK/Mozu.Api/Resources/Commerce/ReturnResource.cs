@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce
 		{
 			_apiContext = apiContext;
 		}
+
+		public ReturnResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new ReturnResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a list of all returns according to any filter and sort criteria.

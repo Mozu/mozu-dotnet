@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		{
 			_apiContext = apiContext;
 		}
+
+		public FacetResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new FacetResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves the properties of facets that aid in indexing and searching.

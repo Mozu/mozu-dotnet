@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		{
 			_apiContext = apiContext;
 		}
+
+		public OrderItemResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new OrderItemResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves the details of a single order item.

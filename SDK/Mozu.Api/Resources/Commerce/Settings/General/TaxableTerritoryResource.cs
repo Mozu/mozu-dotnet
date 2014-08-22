@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 		{
 			_apiContext = apiContext;
 		}
+
+		public TaxableTerritoryResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new TaxableTerritoryResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a list of the taxable territories configured for the site.

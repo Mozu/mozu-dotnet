@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		{
 			_apiContext = apiContext;
 		}
+
+		public OrderValidationResultResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new OrderValidationResultResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// 

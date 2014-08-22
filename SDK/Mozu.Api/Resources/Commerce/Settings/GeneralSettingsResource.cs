@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		{
 			_apiContext = apiContext;
 		}
+
+		public GeneralSettingsResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new GeneralSettingsResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieve a site's general global settings.

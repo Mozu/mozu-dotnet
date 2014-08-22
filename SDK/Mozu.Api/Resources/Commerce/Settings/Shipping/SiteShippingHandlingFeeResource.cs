@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Settings.Shipping
 		{
 			_apiContext = apiContext;
 		}
+
+		public SiteShippingHandlingFeeResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new SiteShippingHandlingFeeResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves the details of the order handling fee configured for the site.

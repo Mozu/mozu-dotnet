@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Customer.Credits
 		{
 			_apiContext = apiContext;
 		}
+
+		public CreditAuditEntryResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new CreditAuditEntryResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves the list of audit entries for the credit, according to any filter or sort criteria specified in the request.

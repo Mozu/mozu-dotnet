@@ -34,6 +34,12 @@ namespace Mozu.Api.Resources.Platform
 		{
 			_apiContext = apiContext;
 		}
+
+		public ReferenceDataResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new ReferenceDataResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a specific address schema based on the country code provided. This operation allows the creation of custom shipping and billing address fields.

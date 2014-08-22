@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		{
 			_apiContext = apiContext;
 		}
+
+		public OrderNoteResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new OrderNoteResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a list of all notes for an order.

@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce
 		{
 			_apiContext = apiContext;
 		}
+
+		public WishlistResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new WishlistResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a list of shopper wish lists according to any filter and sort criteria.

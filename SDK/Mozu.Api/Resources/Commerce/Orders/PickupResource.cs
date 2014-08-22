@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		{
 			_apiContext = apiContext;
 		}
+
+		public PickupResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new PickupResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a list of the actions available to perform for the pickup specified in the request.

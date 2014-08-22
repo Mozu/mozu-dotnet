@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		{
 			_apiContext = apiContext;
 		}
+
+		public CategoryResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new CategoryResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a list of categories according to any specified filter criteria and sort options.

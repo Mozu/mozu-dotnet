@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Productt
 		{
 			_apiContext = apiContext;
 		}
+
+		public ProductTypeVariationResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new ProductTypeVariationResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Generates the variations possible for a product associated with the product type based on the option values supplied in the request.

@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		{
 			_apiContext = apiContext;
 		}
+
+		public ListViewResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new ListViewResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// 

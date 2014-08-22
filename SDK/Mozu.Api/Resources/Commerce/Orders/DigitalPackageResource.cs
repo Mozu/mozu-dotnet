@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		{
 			_apiContext = apiContext;
 		}
+
+		public DigitalPackageResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new DigitalPackageResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// 

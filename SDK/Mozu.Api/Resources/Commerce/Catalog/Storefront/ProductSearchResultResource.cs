@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		{
 			_apiContext = apiContext;
 		}
+
+		public ProductSearchResultResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new ProductSearchResultResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Searches the categories displayed on the storefront for products or product options that the shopper types in a search query.

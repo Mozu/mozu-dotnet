@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce
 		{
 			_apiContext = apiContext;
 		}
+
+		public OrderResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new OrderResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a list of orders according to any specified filter criteria and sort options.

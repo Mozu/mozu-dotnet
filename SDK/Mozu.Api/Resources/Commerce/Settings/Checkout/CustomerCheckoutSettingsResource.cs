@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Settings.Checkout
 		{
 			_apiContext = apiContext;
 		}
+
+		public CustomerCheckoutSettingsResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new CustomerCheckoutSettingsResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves all checkout settings defined for the site: Payment settings, such as the payment gateway ID and credentials, supported credit cards, and more; Customer Checkout settings, such as whether login is required, and any custom attributes; and Order Processing settings, such as when payment is authorized and captured, and any custom attributes.

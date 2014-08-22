@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		{
 			_apiContext = apiContext;
 		}
+
+		public FulfillmentInfoResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new FulfillmentInfoResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a list of the fulfillment information for the specified order.

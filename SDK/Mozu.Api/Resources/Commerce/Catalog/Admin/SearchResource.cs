@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		{
 			_apiContext = apiContext;
 		}
+
+		public SearchResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new SearchResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// 

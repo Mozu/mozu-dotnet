@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce
 		{
 			_apiContext = apiContext;
 		}
+
+		public InStockNotificationSubscriptionResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new InStockNotificationSubscriptionResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a list of in-stock notification subscriptions.

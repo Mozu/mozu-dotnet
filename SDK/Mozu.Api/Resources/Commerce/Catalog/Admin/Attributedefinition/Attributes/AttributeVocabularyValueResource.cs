@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		{
 			_apiContext = apiContext;
 		}
+
+		public AttributeVocabularyValueResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new AttributeVocabularyValueResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a list of vocabulary values defined for the attribute specified in the request.

@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		{
 			_apiContext = apiContext;
 		}
+
+		public TransactionResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new TransactionResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a list of transactions associated with the customer account specified in the request.

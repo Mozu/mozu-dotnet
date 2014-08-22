@@ -26,8 +26,8 @@ namespace Mozu.Api.Test.MsTestCases
                                   ApplicationId = appId,
                                   SharedSecret = sharedSecret
                               };
-
-            var authenticator = AppAuthenticator.Initialize(appAuthInfo, baseAppAuthUrl);
+            MozuConfig.BaseAppAuthUrl = baseAppAuthUrl;
+            var authenticator = AppAuthenticator.Initialize(appAuthInfo);
             authenticator.EnsureAuthTicket();
 
             Assert.IsNotNull(appAuthInfo);
@@ -52,7 +52,8 @@ namespace Mozu.Api.Test.MsTestCases
 				SharedSecret = sharedSecret
 			};
 
-			await AppAuthenticator.InitializeAsync(appAuthInfo, baseAppAuthUrl);
+		    MozuConfig.BaseAppAuthUrl = baseAppAuthUrl;
+			await AppAuthenticator.InitializeAsync(appAuthInfo);
 
 			Assert.IsNotNull(AppAuthenticator.Instance);
 			Assert.IsNotNull(AppAuthenticator.Instance.AppAuthTicket);

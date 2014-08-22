@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		{
 			_apiContext = apiContext;
 		}
+
+		public AdjustmentResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new AdjustmentResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Applies a shipping adjustment to the specified order.

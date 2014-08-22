@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Platform
 		{
 			_apiContext = apiContext;
 		}
+
+		public EntityListResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new EntityListResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// 
