@@ -39,22 +39,15 @@ namespace Mozu.Api.ToolKit.Config
             if (Settings.ContainsKey("SmptServer"))
                 SMTPServerUrl = Settings["SmptServer"].ToString();
 
-            //if (!Settings.ContainsKey("MozuAuthUrl"))
-            //    throw new Exception("MozuAuthUrl is not set in config file");
 
-            //BaseUrl = Settings["BaseUrl"].ToString();
-
+            if (Settings.ContainsKey("MozuAuthUrl"))
+                BaseUrl = Settings["MozuAuthUrl"].ToString();
 
             if (Settings.ContainsKey("AppName"))
                 AppName = Settings["AppName"].ToString();
 
             SetProperties();
-
-            if (String.IsNullOrEmpty(ApplicationId))
-                throw new Exception("ApplicationID not set in config file");
-
-            if (String.IsNullOrEmpty(SharedSecret))
-                throw new Exception("SharedSecret not set in config file");
+           
         }
 
 
