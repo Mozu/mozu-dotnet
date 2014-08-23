@@ -270,7 +270,7 @@ namespace Mozu.Api
 			var stringContent = await HttpResponse.Content.ReadAsStringAsync();
 
 			if (_log.IsDebugEnabled)
-				await _log.Debug(string.Format("{0} {1}", GetCorrelationId(), stringContent));
+				 _log.Debug(string.Format("{0} {1}", GetCorrelationId(), stringContent));
 
 			return await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<TResult>(stringContent, new JsonSerializerSettings { DateTimeZoneHandling = DateTimeZoneHandling.Utc }));
 		}
