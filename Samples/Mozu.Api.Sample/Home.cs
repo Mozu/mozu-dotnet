@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Mozu.Api.Contracts.AppDev;
 using Mozu.Api.Contracts.Core;
 using Mozu.Api.Contracts.Tenant;
-using Mozu.Api.Logging;
 using Mozu.Api.Resources.Platform;
-using Mozu.Api.Sample.Logging;
 using Mozu.Api.Security;
 using System.Linq;
-using System.Configuration;
 
 namespace Mozu.Api.Sample
 {
@@ -20,21 +16,15 @@ namespace Mozu.Api.Sample
         public Home()
         {
             InitializeComponent();
-            ILoggingService loggingService = (new Log4NetServiceFactory()).GetLoggingService();
-
-            LogManager.LoggingService = loggingService;
+            new Bootstrapper().Bootstrap();
             MozuConfig.EnableCache = false;
         }
 
-        private string GetAuthBaseUrl()
-        {
-            return ConfigurationManager.AppSettings["MozuBaseUrl"].ToString();
-        }
 
         private ApiContext _apiContext;
         private AuthenticationProfile _userInfo;
 
-        private void btnAuthenticate_Click(object sender, EventArgs e)
+        private async void btnAuthenticate_Click(object sender, EventArgs e)
         {
             try
             {
@@ -51,12 +41,12 @@ namespace Mozu.Api.Sample
                         txtEmail.Text.Contains(".") &&
                         txtPassword.Text.Length > 5)
                     {
-                        AppAuthenticator.Initialize(appAuthInfo, GetAuthBaseUrl());
+                        await AppAuthenticator.InitializeAsync(appAuthInfo);
                         btnAuthenticate.Text = "Loading Scopes...";
                         panelAPI.Visible = true;
                         panelTenant.Visible = true;
                         var userAuthInfo = new UserAuthInfo {EmailAddress = txtEmail.Text, Password = txtPassword.Text};
-                        _userInfo = UserAuthenticator.Authenticate(userAuthInfo, AuthenticationScope.Tenant);
+                        _userInfo = await UserAuthenticator.AuthenticateAsync(userAuthInfo, AuthenticationScope.Tenant);
 
                         panelTenant.Visible = true;
                         _userInfo.AuthorizedScopes.Insert(0, new Scope {Id = -1, Name = "[Select Tenant]"});
@@ -113,7 +103,7 @@ namespace Mozu.Api.Sample
 
 
         private Tenant _tenant;
-        private void cbTenant_changed(object sender, EventArgs e)
+        private async void cbTenant_changed(object sender, EventArgs e)
         {
             try
             {
@@ -123,7 +113,7 @@ namespace Mozu.Api.Sample
                 if (scope.Id == -1) return;
 
                 var tenantResource = new TenantResource();
-                _tenant = tenantResource.GetTenant(scope.Id);
+                _tenant = await tenantResource.GetTenantAsync(scope.Id);
                 var sites = _tenant.Sites;
                 cbSite.DataSource = sites;
                 cbSite.DisplayMember = "Name";
