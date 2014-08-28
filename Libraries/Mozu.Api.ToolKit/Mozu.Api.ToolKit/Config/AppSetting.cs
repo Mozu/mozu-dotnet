@@ -15,6 +15,9 @@ namespace Mozu.Api.ToolKit.Config
         public string SMTPServerUrl { get; private set; }
         public string BaseUrl { get; private set; }
         public string Log4NetConfig { get; private set; }
+
+        public string MozuNamespace { get; set; }
+
         public IDictionary<string, Object> Settings { get; private set; }
 
         public AppSetting()
@@ -53,12 +56,21 @@ namespace Mozu.Api.ToolKit.Config
 
         private void SetProperties()
         {
-           
+
             if (Settings.ContainsKey("ApplicationId"))
+            {
                 ApplicationId = Settings["ApplicationId"].ToString();
+
+                var props = ApplicationId.Split('.');
+                if (props.Length > 1)
+                    MozuNamespace = props[0];
+            }
+
 
             if (Settings.ContainsKey("SharedSecret"))
                 SharedSecret = Settings["SharedSecret"].ToString();
+
+
         }
 
         private void Init(string configPath, string appName, string environment)
