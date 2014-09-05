@@ -38,15 +38,24 @@
     </Reference>
     <Reference Include="Mozu.Api, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Mozu.Api.SDK.1.9.0-dev6\lib\net45\Mozu.Api.dll</HintPath>
+      <HintPath>..\packages\Mozu.Api.SDK.1.9.0-dev1408212009\lib\net45\Mozu.Api.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.1.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.1.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -72,12 +81,17 @@
     <Compile Include="Readers\CustomerAccountReader.cs" />
     <Compile Include="Readers\DiscountReader.cs" />
     <Compile Include="Readers\DocumentReader.cs" />
+    <Compile Include="Readers\LocationInventoryReader.cs" />
+    <Compile Include="Readers\LocationReader.cs" />
     <Compile Include="Readers\OrderReader.cs" />
     <Compile Include="Readers\ProductAdminReader.cs" />
     <Compile Include="Readers\ProductRuntimeReader.cs" />
+    <Compile Include="Readers\ProductTypeReader.cs" />
+    <Compile Include="Readers\ProductVariationReader.cs" />
     <Compile Include="Readers\WishlistReader.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Mozu.Api.ToolKit.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>

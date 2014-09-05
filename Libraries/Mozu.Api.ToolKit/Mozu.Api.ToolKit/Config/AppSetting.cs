@@ -15,6 +15,9 @@ namespace Mozu.Api.ToolKit.Config
         public string SMTPServerUrl { get; private set; }
         public string BaseUrl { get; private set; }
         public string Log4NetConfig { get; private set; }
+
+        public string MozuNamespace { get; set; }
+
         public IDictionary<string, Object> Settings { get; private set; }
 
         public AppSetting()
@@ -39,33 +42,35 @@ namespace Mozu.Api.ToolKit.Config
             if (Settings.ContainsKey("SmptServer"))
                 SMTPServerUrl = Settings["SmptServer"].ToString();
 
-            if (!Settings.ContainsKey("MozuAuthUrl"))
-                throw new Exception("MozuAuthUrl is not set in config file");
 
-            BaseUrl = Settings["BaseUrl"].ToString();
-
+            if (Settings.ContainsKey("MozuAuthUrl"))
+                BaseUrl = Settings["MozuAuthUrl"].ToString();
 
             if (Settings.ContainsKey("AppName"))
                 AppName = Settings["AppName"].ToString();
 
             SetProperties();
-
-            if (String.IsNullOrEmpty(ApplicationId))
-                throw new Exception("ApplicationID not set in config file");
-
-            if (String.IsNullOrEmpty(SharedSecret))
-                throw new Exception("SharedSecret not set in config file");
+           
         }
 
 
         private void SetProperties()
         {
-           
+
             if (Settings.ContainsKey("ApplicationId"))
+            {
                 ApplicationId = Settings["ApplicationId"].ToString();
+
+                var props = ApplicationId.Split('.');
+                if (props.Length > 1)
+                    MozuNamespace = props[0];
+            }
+
 
             if (Settings.ContainsKey("SharedSecret"))
                 SharedSecret = Settings["SharedSecret"].ToString();
+
+
         }
 
         private void Init(string configPath, string appName, string environment)

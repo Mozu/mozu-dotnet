@@ -21,6 +21,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 		///
 		public class ReturnItem
 		{
+			public string Id { get; set; }
+
 			///
 			///Unique identifier of the item in the original completed order. All return items should be associated with a corresponding order item.
 			///

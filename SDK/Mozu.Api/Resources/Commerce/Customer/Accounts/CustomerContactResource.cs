@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		{
 			_apiContext = apiContext;
 		}
+
+		public CustomerContactResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new CustomerContactResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves the specified contact for a customer account such as a billing or shipping contact.

@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		{
 			_apiContext = apiContext;
 		}
+
+		public CustomerSegmentResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new CustomerSegmentResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a list of defined customer segments according to any filter and sort criteria.

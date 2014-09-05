@@ -12,22 +12,13 @@ using System;
 using System.Collections.Generic;
 
 
-namespace Mozu.Api.Contracts.AppDev
+namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 {
-		///
-		///	Paged collection of development or release packages associated with an application version.
-		///
-		public class PackageCollection
+		public class ReturnItemCollection
 		{
-			///
-			///The number of results listed in the query collection, represented by a signed 64-bit (8-byte) integer. This value is system-supplied and read-only.
-			///
 			public int TotalCount { get; set; }
 
-			///
-			///An array list of objects in the returned collection.
-			///
-			public List<Package> Items { get; set; }
+			public List<ReturnItem> Items { get; set; }
 
 		}
 

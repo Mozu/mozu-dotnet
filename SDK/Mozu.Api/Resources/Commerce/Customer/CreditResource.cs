@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		{
 			_apiContext = apiContext;
 		}
+
+		public CreditResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new CreditResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a list of store credits applied to customer accounts, according any filter and sort criteria specified in the request.

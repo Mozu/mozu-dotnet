@@ -10,7 +10,9 @@
 
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.MZDB
 {
@@ -20,8 +22,6 @@ namespace Mozu.Api.Contracts.MZDB
 
 			public string Filter { get; set; }
 
-			public object MetaData { get; set; }
-
 			public string Name { get; set; }
 
 			public string Security { get; set; }
@@ -29,6 +29,8 @@ namespace Mozu.Api.Contracts.MZDB
 			public List<string> Usages { get; set; }
 
 			public List<ListViewField> Fields { get; set; }
+
+			public JObject MetaData { get; set; }
 
 		}
 

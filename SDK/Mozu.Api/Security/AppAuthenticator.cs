@@ -52,77 +52,79 @@ namespace Mozu.Api.Security
             get { return _appAuthInfo; }
         }
 
-		public static AppAuthenticator Initialize(AppAuthInfo appAuthInfo, string baseAppAuthUrl, RefreshInterval refreshInterval = null)
+        public static AppAuthenticator Initialize(AppAuthInfo appAuthInfo, RefreshInterval refreshInterval = null)
+        {
+
+			var baseAppAuthUrl = MozuConfig.BaseAppAuthUrl;
+
+            if (appAuthInfo == null || string.IsNullOrEmpty(baseAppAuthUrl))
+                throw new Exception("AppAuthInfo or Base App auth Url cannot be null or empty");
+
+            if (String.IsNullOrEmpty(appAuthInfo.ApplicationId) || String.IsNullOrEmpty(appAuthInfo.SharedSecret))
+                throw new Exception("ApplicationId or Shared Secret is missing");
+
+            if (_auth == null || (_auth != null && _auth.AppAuthInfo.ApplicationId != appAuthInfo.ApplicationId))
+            {
+                lock (_lockObj)
+                {
+                    try
+                    {
+                        _log.Info("Initializing App");
+                        var uri = new Uri(baseAppAuthUrl);
+                        HttpHelper.UrlScheme = uri.Scheme;
+                        _auth = new AppAuthenticator(appAuthInfo, baseAppAuthUrl, refreshInterval);
+                        _auth.AuthenticateApp();
+                        _log.Info("Initializing App..Done");
+
+                    }
+                    catch (ApiException exc)
+                    {
+                        _log.Error(exc.Message, exc);
+                        _auth = null;
+                        throw exc;
+                    }
+                }
+            }
+
+            return _auth;
+        }
+
+		public static async Task<AppAuthenticator> InitializeAsync(AppAuthInfo appAuthInfo,  RefreshInterval refreshInterval = null)
 		{
+            var baseAppAuthUrl = MozuConfig.BaseAppAuthUrl;
 			if (appAuthInfo == null || string.IsNullOrEmpty(baseAppAuthUrl))
 				throw new Exception("AppAuthInfo or Base App auth Url cannot be null or empty");
 
 			if (String.IsNullOrEmpty(appAuthInfo.ApplicationId) || String.IsNullOrEmpty(appAuthInfo.SharedSecret))
 				throw new Exception("ApplicationId or Shared Secret is missing");
 
-			if (_auth == null || (_auth != null && _auth.AppAuthInfo.ApplicationId != appAuthInfo.ApplicationId))
-			{
-				lock (_lockObj)
-				{
-					try
-					{
-						_log.Info("Initializing App");
-						var uri = new Uri(baseAppAuthUrl);
-						HttpHelper.UrlScheme = uri.Scheme;
-						_auth = new AppAuthenticator(appAuthInfo, baseAppAuthUrl, refreshInterval);
-						_auth.AuthenticateApp();
-						_log.Info("Initializing App..Done");
+		    if (_auth != null && _auth.AppAuthInfo.ApplicationId == appAuthInfo.ApplicationId)
+		        return _auth;
+		    try
+		    {
+		        _log.Info("Initializing App");
+		        var uri = new Uri(baseAppAuthUrl);
+		        HttpHelper.UrlScheme = uri.Scheme;
+		        var tmp = new AppAuthenticator(appAuthInfo, baseAppAuthUrl, refreshInterval);
+		        await tmp.AuthenticateAppAsync();
+		        lock (_lockObj)
+		        {
+		            _auth = tmp;
+		        }
+		        _log.Info("Initializing App..Done");
 
-					}
-					catch (ApiException exc)
-					{
-						_log.Error(exc.Message, exc);
-						_auth = null;
-						throw exc;
-					}
-				}
-			}
+		    }
+		    catch (ApiException exc)
+		    {
+		        _log.Error(exc.Message, exc);
+		        lock (_lockObj)
+		        {
+		            _auth = null;
+		        }
+		        throw exc;
+		    }
 
-			return _auth;
-		}
-
-		public static async Task<AppAuthenticator> InitializeAsync(AppAuthInfo appAuthInfo, string baseAppAuthUrl, RefreshInterval refreshInterval = null)
-		{
-			if (appAuthInfo == null || string.IsNullOrEmpty(baseAppAuthUrl))
-				throw new Exception("AppAuthInfo or Base App auth Url cannot be null or empty");
-
-			if (String.IsNullOrEmpty(appAuthInfo.ApplicationId) || String.IsNullOrEmpty(appAuthInfo.SharedSecret))
-				throw new Exception("ApplicationId or Shared Secret is missing");
-
-			if (_auth == null || (_auth != null && _auth.AppAuthInfo.ApplicationId != appAuthInfo.ApplicationId))
-			{
-					try
-					{
-						await _log.Info("Initializing App");
-						var uri = new Uri(baseAppAuthUrl);
-						HttpHelper.UrlScheme = uri.Scheme;
-						var tmp = new AppAuthenticator(appAuthInfo, baseAppAuthUrl, refreshInterval);
-						await tmp.AuthenticateAppAsync();
-						lock (_lockObj)
-						{
-							_auth = tmp;
-						}
-						await _log.Info("Initializing App..Done");
-
-					}
-					catch (ApiException exc)
-					{
-						_log.Error(exc.Message, exc);
-						lock (_lockObj)
-						{
-							_auth = null;
-						}
-						throw exc;
-					}
-
-			}
-
-			return _auth;
+		    return _auth;
 		}
 
 		/// <summary>
@@ -141,16 +143,16 @@ namespace Mozu.Api.Security
             MozuConfig.ApplicationId = appAuthInfo.ApplicationId;
         }
 
-		public static void DeleteAuth()
-		{
-			if (_auth != null)
-			{
-				var resourceUrl = AuthTicketUrl.DeleteAppAuthTicketUrl(_auth.AppAuthTicket.RefreshToken);
-				var client = new HttpClient { BaseAddress = new Uri(_auth.BaseUrl) };
-				var response = client.DeleteAsync(resourceUrl.Url).Result;
-				ResponseHelper.EnsureSuccess(response);
-			}
-		}
+        public static void DeleteAuth()
+        {
+            if (_auth != null)
+            {
+                var resourceUrl = AuthTicketUrl.DeleteAppAuthTicketUrl(_auth.AppAuthTicket.RefreshToken);
+                var client = new HttpClient { BaseAddress = new Uri(_auth.BaseUrl) };
+                var response = client.DeleteAsync(resourceUrl.Url).Result;
+                ResponseHelper.EnsureSuccess(response);
+            }
+        }
 
 		public static async Task DeleteAuthAsync()
 		{
@@ -166,25 +168,25 @@ namespace Mozu.Api.Security
 		/// <summary>
         /// Do application authentication
         /// </summary>
-		private void AuthenticateApp()
-		{
-			var resourceUrl = AuthTicketUrl.AuthenticateAppUrl();
-			_log.Info(String.Format("App authentication Url : {0}{1}", BaseUrl, resourceUrl.Url));
-			var client = new HttpClient { BaseAddress = new Uri(BaseUrl) };
-			var stringContent = JsonConvert.SerializeObject(_appAuthInfo);
-			var response = client.PostAsync(resourceUrl.Url, new StringContent(stringContent, Encoding.UTF8, "application/json")).Result;
-			ResponseHelper.EnsureSuccess(response);
+        private void AuthenticateApp()
+        {
+            var resourceUrl = AuthTicketUrl.AuthenticateAppUrl();
+            _log.Info(String.Format("App authentication Url : {0}{1}", BaseUrl, resourceUrl.Url) );
+            var client = new HttpClient { BaseAddress = new Uri(BaseUrl) };
+            var stringContent = JsonConvert.SerializeObject(_appAuthInfo);
+            var response = client.PostAsync(resourceUrl.Url, new StringContent(stringContent, Encoding.UTF8, "application/json")).Result;
+            ResponseHelper.EnsureSuccess(response);
 
-			AppAuthTicket = response.Content.ReadAsAsync<AuthTicket>().Result;
+            AppAuthTicket = response.Content.ReadAsAsync<AuthTicket>().Result;
 
-			SetRefreshIntervals(true);
+            SetRefreshIntervals(true);
 
 
 		}
 		private async Task AuthenticateAppAsync()
 		{
 			var resourceUrl = AuthTicketUrl.AuthenticateAppUrl();
-			await _log.Info(String.Format("App authentication Url : {0}{1}", BaseUrl, resourceUrl.Url));
+			_log.Info(String.Format("App authentication Url : {0}{1}", BaseUrl, resourceUrl.Url));
 			var client = new HttpClient { BaseAddress = new Uri(BaseUrl) };
 			var stringContent = JsonConvert.SerializeObject(_appAuthInfo);
 			var response = await client.PostAsync(resourceUrl.Url, new StringContent(stringContent, Encoding.UTF8, "application/json"));
@@ -198,22 +200,22 @@ namespace Mozu.Api.Security
         /// <summary>
         /// Refresh the application auth ticket using the refresh token
         /// </summary>
-		private void RefreshAppAuthTicket()
-		{
+        private void RefreshAppAuthTicket()
+        {
 
-			var resourceUrl = AuthTicketUrl.RefreshAppAuthTicketUrl();
-			_log.Info(String.Format("App authentication refresh Url : {0}{1}", BaseUrl, resourceUrl.Url));
+            var resourceUrl = AuthTicketUrl.RefreshAppAuthTicketUrl();
+            _log.Info(String.Format("App authentication refresh Url : {0}{1}", BaseUrl, resourceUrl.Url));
 			var client = new HttpClient { BaseAddress = new Uri(BaseUrl) };
-			var authTicketRequest = new AuthTicketRequest { RefreshToken = AppAuthTicket.RefreshToken };
-			var stringContent = JsonConvert.SerializeObject(authTicketRequest);
+            var authTicketRequest = new AuthTicketRequest { RefreshToken = AppAuthTicket.RefreshToken };
+            var stringContent = JsonConvert.SerializeObject(authTicketRequest);
 
-			var response = client.PutAsync(resourceUrl.Url, new StringContent(stringContent, Encoding.UTF8, "application/json")).Result;
+            var response = client.PutAsync(resourceUrl.Url, new StringContent(stringContent, Encoding.UTF8, "application/json")).Result;
+            
+            ResponseHelper.EnsureSuccess(response);
 
-			ResponseHelper.EnsureSuccess(response);
+            AppAuthTicket = response.Content.ReadAsAsync<AuthTicket>().Result;
 
-			AppAuthTicket = response.Content.ReadAsAsync<AuthTicket>().Result;
-
-			SetRefreshIntervals(false);
+            SetRefreshIntervals(false);
 
 		}
 
@@ -221,7 +223,7 @@ namespace Mozu.Api.Security
 		{
 
 			var resourceUrl = AuthTicketUrl.RefreshAppAuthTicketUrl();
-			await _log.Info(String.Format("App authentication refresh Url : {0}{1}", BaseUrl, resourceUrl.Url));
+			_log.Info(String.Format("App authentication refresh Url : {0}{1}", BaseUrl, resourceUrl.Url));
 			var client = new HttpClient { BaseAddress = new Uri(BaseUrl) };
 			var authTicketRequest = new AuthTicketRequest { RefreshToken = AppAuthTicket.RefreshToken };
 			var stringContent = JsonConvert.SerializeObject(authTicketRequest);
@@ -279,12 +281,12 @@ namespace Mozu.Api.Security
 
 			if (AppAuthTicket == null || DateTime.UtcNow >= _refreshInterval.RefreshTokenExpiration)
 			{
-				await _log.Info("Refresh token Expired");
+				_log.Info("Refresh token Expired");
 				await AuthenticateAppAsync();
 			}
 			else if (DateTime.UtcNow >= _refreshInterval.AccessTokenExpiration)
 			{
-				await _log.Info("Access token expored");
+				_log.Info("Access token expored");
 				await RefreshAppAuthTicketAsync();
 			}
 

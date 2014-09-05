@@ -189,6 +189,7 @@
     <Compile Include="Clients\Content\Documentlists\DocumentTreeClient.cs" />
     <Compile Include="Clients\Content\Documentlists\FacetClient.cs" />
     <Compile Include="Clients\Content\Documentlists\ViewClient.cs" />
+    <Compile Include="Clients\Content\DocumentListTypeClient.cs" />
     <Compile Include="Clients\Content\DocumentTypeClient.cs" />
     <Compile Include="Clients\Content\PropertyTypeClient.cs" />
     <Compile Include="Clients\Event\EventNotificationClient.cs" />
@@ -198,7 +199,6 @@
     <Compile Include="Clients\Platform\Adminuser\TenantAdminUserAuthTicketClient.cs" />
     <Compile Include="Clients\Platform\ApplicationClient.cs" />
     <Compile Include="Clients\Platform\Applications\AuthTicketClient.cs" />
-    <Compile Include="Clients\Platform\Developer\ApplicationClient.cs" />
     <Compile Include="Clients\Platform\Developer\DeveloperAdminUserAuthTicketClient.cs" />
     <Compile Include="Clients\Platform\EntityListClient.cs" />
     <Compile Include="Clients\Platform\Entitylists\EntityClient.cs" />
@@ -213,15 +213,8 @@
     <Compile Include="Contracts\AdminUser\DeveloperAdminUserAuthTicket.cs" />
     <Compile Include="Contracts\AdminUser\TenantAdminUserAuthTicket.cs" />
     <Compile Include="Contracts\AppDev\AppAuthInfo.cs" />
-    <Compile Include="Contracts\AppDev\Application.cs" />
-    <Compile Include="Contracts\AppDev\ApplicationCollection.cs" />
     <Compile Include="Contracts\AppDev\AuthTicket.cs" />
     <Compile Include="Contracts\AppDev\AuthTicketRequest.cs" />
-    <Compile Include="Contracts\AppDev\FileMetadata.cs" />
-    <Compile Include="Contracts\AppDev\FolderMetadata.cs" />
-    <Compile Include="Contracts\AppDev\Package.cs" />
-    <Compile Include="Contracts\AppDev\PackageCollection.cs" />
-    <Compile Include="Contracts\AppDev\RenameInfo.cs" />
     <Compile Include="Contracts\CommerceRuntime\Carts\Cart.cs" />
     <Compile Include="Contracts\CommerceRuntime\Carts\CartChangeMessageCollection.cs" />
     <Compile Include="Contracts\CommerceRuntime\Carts\CartItem.cs" />
@@ -280,6 +273,7 @@
     <Compile Include="Contracts\CommerceRuntime\Returns\ReturnBundle.cs" />
     <Compile Include="Contracts\CommerceRuntime\Returns\ReturnCollection.cs" />
     <Compile Include="Contracts\CommerceRuntime\Returns\ReturnItem.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Returns\ReturnItemCollection.cs" />
     <Compile Include="Contracts\CommerceRuntime\Returns\ReturnReason.cs" />
     <Compile Include="Contracts\CommerceRuntime\Wishlists\Wishlist.cs" />
     <Compile Include="Contracts\CommerceRuntime\Wishlists\WishlistCollection.cs" />
@@ -289,8 +283,10 @@
     <Compile Include="Contracts\Content\DocumentCollection.cs" />
     <Compile Include="Contracts\Content\DocumentDraftSummary.cs" />
     <Compile Include="Contracts\Content\DocumentDraftSummaryPagedCollection.cs" />
+    <Compile Include="Contracts\Content\DocumentInstallation.cs" />
     <Compile Include="Contracts\Content\DocumentList.cs" />
     <Compile Include="Contracts\Content\DocumentListCollection.cs" />
+    <Compile Include="Contracts\Content\DocumentListType.cs" />
     <Compile Include="Contracts\Content\DocumentType.cs" />
     <Compile Include="Contracts\Content\DocumentTypeCollection.cs" />
     <Compile Include="Contracts\Content\Facet.cs" />
@@ -479,6 +475,7 @@
     <Compile Include="Contracts\ProductAdmin\ProductVariationOption.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductVariationPagedCollection.cs" />
     <Compile Include="Contracts\ProductAdmin\PublishingScope.cs" />
+    <Compile Include="Contracts\ProductAdmin\Search\SearchSynonymSettings.cs" />
     <Compile Include="Contracts\ProductAdmin\SearchSettings.cs" />
     <Compile Include="Contracts\ProductAdmin\SiteSearchKeywordRelevancySettings.cs" />
     <Compile Include="Contracts\ProductAdmin\SiteSearchPhraseRelevancySettings.cs" />
@@ -487,6 +484,7 @@
     <Compile Include="Contracts\ProductAdmin\TargetedCategory.cs" />
     <Compile Include="Contracts\ProductAdmin\TargetedProduct.cs" />
     <Compile Include="Contracts\ProductAdmin\TargetedShippingMethod.cs" />
+    <Compile Include="Contracts\ProductAdmin\TargetedShippingZone.cs" />
     <Compile Include="Contracts\ProductRuntime\AppliedDiscount.cs" />
     <Compile Include="Contracts\ProductRuntime\AttributeDetail.cs" />
     <Compile Include="Contracts\ProductRuntime\AttributeValidation.cs" />
@@ -689,6 +687,7 @@
     <Compile Include="Resources\Content\Documentlists\DocumentTreeResource.cs" />
     <Compile Include="Resources\Content\Documentlists\FacetResource.cs" />
     <Compile Include="Resources\Content\Documentlists\ViewResource.cs" />
+    <Compile Include="Resources\Content\DocumentListTypeResource.cs" />
     <Compile Include="Resources\Content\DocumentTypeResource.cs" />
     <Compile Include="Resources\Content\PropertyTypeResource.cs" />
     <Compile Include="Resources\Event\EventNotificationResource.cs" />
@@ -698,7 +697,6 @@
     <Compile Include="Resources\Platform\Adminuser\TenantAdminUserAuthTicketResource.cs" />
     <Compile Include="Resources\Platform\ApplicationResource.cs" />
     <Compile Include="Resources\Platform\Applications\AuthTicketResource.cs" />
-    <Compile Include="Resources\Platform\Developer\ApplicationResource.cs" />
     <Compile Include="Resources\Platform\Developer\DeveloperAdminUserAuthTicketResource.cs" />
     <Compile Include="Resources\Platform\EntityListResource.cs" />
     <Compile Include="Resources\Platform\Entitylists\EntityContainerResource.cs" />
@@ -797,6 +795,7 @@
     <Compile Include="Urls\Content\Documentlists\DocumentUrl.cs" />
     <Compile Include="Urls\Content\Documentlists\FacetUrl.cs" />
     <Compile Include="Urls\Content\Documentlists\ViewUrl.cs" />
+    <Compile Include="Urls\Content\DocumentListTypeUrl.cs" />
     <Compile Include="Urls\Content\DocumentListUrl.cs" />
     <Compile Include="Urls\Content\DocumentTypeUrl.cs" />
     <Compile Include="Urls\Content\PropertyTypeUrl.cs" />
@@ -807,7 +806,6 @@
     <Compile Include="Urls\Platform\Adminuser\TenantAdminUserAuthTicketUrl.cs" />
     <Compile Include="Urls\Platform\Applications\AuthTicketUrl.cs" />
     <Compile Include="Urls\Platform\ApplicationUrl.cs" />
-    <Compile Include="Urls\Platform\Developer\ApplicationUrl.cs" />
     <Compile Include="Urls\Platform\Developer\DeveloperAdminUserAuthTicketUrl.cs" />
     <Compile Include="Urls\Platform\Entitylists\EntityContainerUrl.cs" />
     <Compile Include="Urls\Platform\Entitylists\EntityUrl.cs" />
@@ -821,7 +819,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Mozu.Api.nuspec" />
+    <None Include="Mozu.Api.nuspec">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

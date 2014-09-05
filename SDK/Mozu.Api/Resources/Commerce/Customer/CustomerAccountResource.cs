@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		{
 			_apiContext = apiContext;
 		}
+
+		public CustomerAccountResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new CustomerAccountResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a list of customer accounts.

@@ -52,7 +52,54 @@ namespace Mozu.Api.Urls.Content
 			return mozuUrl;
 		}
 
-								
+				/// <summary>
+        /// Get Resource Url for CreatePropertyType
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl CreatePropertyTypeUrl(string responseFields =  null)
+		{
+			var url = "/api/content/propertytypes/?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+				/// <summary>
+        /// Get Resource Url for UpdatePropertyType
+        /// </summary>
+        /// <param name="propertyTypeName"></param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl UpdatePropertyTypeUrl(string propertyTypeName, string responseFields =  null)
+		{
+			var url = "/api/content/propertytypes/{propertyTypeName}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "propertyTypeName", propertyTypeName);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+				/// <summary>
+        /// Get Resource Url for DeletePropertyType
+        /// </summary>
+        /// <param name="propertyTypeName"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl DeletePropertyTypeUrl(string propertyTypeName)
+		{
+			var url = "/api/content/propertytypes/{propertyTypeName}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "propertyTypeName", propertyTypeName);
+			return mozuUrl;
+		}
+
+		
 	}
 }
 

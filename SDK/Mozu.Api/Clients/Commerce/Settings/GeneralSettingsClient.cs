@@ -24,18 +24,19 @@ namespace Mozu.Api.Clients.Commerce.Settings
 		/// <summary>
 		/// Retrieve a site's general global settings.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.General.GeneralSettings"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetGeneralSettings();
+		///   var mozuClient=GetGeneralSettings( responseFields);
 		///   var generalSettingsClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.SiteSettings.General.GeneralSettings> GetGeneralSettingsClient()
+		public static MozuClient<Mozu.Api.Contracts.SiteSettings.General.GeneralSettings> GetGeneralSettingsClient(string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Settings.GeneralSettingsUrl.GetGeneralSettingsUrl();
+			var url = Mozu.Api.Urls.Commerce.Settings.GeneralSettingsUrl.GetGeneralSettingsUrl(responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.SiteSettings.General.GeneralSettings>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -47,19 +48,20 @@ namespace Mozu.Api.Clients.Commerce.Settings
 		/// <summary>
 		/// Updates a site's general global settings.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="generalSettings">The properties of the site's general settings to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.General.GeneralSettings"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateGeneralSettings( generalSettings);
+		///   var mozuClient=UpdateGeneralSettings( generalSettings,  responseFields);
 		///   var generalSettingsClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.SiteSettings.General.GeneralSettings> UpdateGeneralSettingsClient(Mozu.Api.Contracts.SiteSettings.General.GeneralSettings generalSettings)
+		public static MozuClient<Mozu.Api.Contracts.SiteSettings.General.GeneralSettings> UpdateGeneralSettingsClient(Mozu.Api.Contracts.SiteSettings.General.GeneralSettings generalSettings, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Settings.GeneralSettingsUrl.UpdateGeneralSettingsUrl();
+			var url = Mozu.Api.Urls.Commerce.Settings.GeneralSettingsUrl.UpdateGeneralSettingsUrl(responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.SiteSettings.General.GeneralSettings>()
 									.WithVerb(verb).WithResourceUrl(url)

@@ -18,6 +18,10 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		///
 		public class BundledProductSummary
 		{
+			public decimal? CreditValue { get; set; }
+
+			public string GoodsType { get; set; }
+
 			///
 			///If true, the component product of the bundle should not ship in a package with the rest of the product bundle, and should ship in a package by itself. System-supplied and read only.
 			///
@@ -48,10 +52,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///The quantity of a component product in its product bundle.
 			///
 			public int Quantity { get; set; }
-
-			public decimal? CreditValue { get; set; }
-
-			public string GoodsType { get; set; }
 
 			public ProductInventoryInfo InventoryInfo { get; set; }
 

@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		{
 			_apiContext = apiContext;
 		}
+
+		public AttributeLocalizedContentResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new AttributeLocalizedContentResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// 

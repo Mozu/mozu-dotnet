@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Returns
 		{
 			_apiContext = apiContext;
 		}
+
+		public PackageResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new PackageResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves the package label image supplied by the carrier for a return replacement.

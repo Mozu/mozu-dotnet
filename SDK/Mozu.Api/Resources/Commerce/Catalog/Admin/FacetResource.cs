@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		{
 			_apiContext = apiContext;
 		}
+
+		public FacetResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new FacetResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a facet specified by its unique identifier and displays its properties.

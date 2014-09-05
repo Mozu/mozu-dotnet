@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		{
 			_apiContext = apiContext;
 		}
+
+		public AttributeResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new AttributeResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a paged list of attributes according to any specified filter criteria and sort options.

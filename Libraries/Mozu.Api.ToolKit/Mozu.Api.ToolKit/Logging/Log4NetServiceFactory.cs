@@ -10,6 +10,7 @@ namespace Mozu.Api.ToolKit.Logging
     {
         protected static readonly Object Lock = new Object();
         protected static bool IsInitialized;
+        private readonly IAppSetting _appSetting;
 
         public ILoggingService GetLoggingService()
         {
@@ -17,25 +18,32 @@ namespace Mozu.Api.ToolKit.Logging
         }
 
         public Log4NetServiceFactory(IAppSetting appSetting)
-		{
-			LoadLog4NetConfigFile(appSetting.Log4NetConfig);
+        {
+            _appSetting = appSetting;
+			LoadLog4NetConfigFile();
 		}
 
 	
-		private void LoadLog4NetConfigFile(string configFile)
+		private void LoadLog4NetConfigFile()
 		{
-			lock (Lock)
-			{
-				if (IsInitialized) return;
+            if (IsInitialized) return;
+		    lock (Lock)
+		    {
 
-                var configFileNameIsAFullPath = File.Exists(configFile);
-				if (configFileNameIsAFullPath)
-				{
-					XmlConfigurator.ConfigureAndWatch(new FileInfo(configFile));
-				}
-				
-				IsInitialized = true;
-			}
+		        if (_appSetting.Settings.ContainsKey("log4net.config"))
+		        {
+                    XmlConfigurator.ConfigureAndWatch(new FileInfo(_appSetting.Settings["log4net.config"].ToString()));
+    	        }
+		        else if (File.Exists(_appSetting.Log4NetConfig))
+		        {
+		            XmlConfigurator.ConfigureAndWatch(new FileInfo(_appSetting.Log4NetConfig));
+		        }
+		        else
+		        {
+		            BasicConfigurator.Configure();
+		        }
+                IsInitialized = true;
+		    }
 		}
     }
 }

@@ -9,7 +9,9 @@
 //------------------------------------------------------------------------------
 
 using System;
+using Newtonsoft.Json.Linq;
 
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.Content
 {
@@ -66,6 +68,11 @@ namespace Mozu.Api.Contracts.Content
 			///Date and time when the entity was last updated, represented in UTC Date/Time.
 			///
 			public DateTime? UpdateDate { get; set; }
+
+			///
+			///List of properties for the given property value.
+			///
+			public JObject Properties { get; set; }
 
 		}
 

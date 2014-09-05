@@ -11,6 +11,7 @@ namespace Mozu.Api
         private static bool _enableCache = true;
         private static int _capabilityTimeoutInSeconds = 180;
         private static int _eventTimeoutInSeconds = 180;
+		private static string _baseAppAuthUrl = "https://home.mozu.com";
 
         public static string SharedSecret { get; internal set; }
         public static string ApplicationId { get; internal set; }
@@ -32,5 +33,11 @@ namespace Mozu.Api
             get { return _eventTimeoutInSeconds; }
             set { _eventTimeoutInSeconds = value; } 
         }
+
+		public static string BaseAppAuthUrl
+		{
+			get { return _baseAppAuthUrl; }
+			set { _baseAppAuthUrl = value; }
+		}
     }
 }

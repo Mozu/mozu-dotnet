@@ -270,7 +270,7 @@ namespace Mozu.Api
 			var stringContent = await HttpResponse.Content.ReadAsStringAsync();
 
 			if (_log.IsDebugEnabled)
-				_log.Debug(string.Format("{0} {1}", GetCorrelationId(), stringContent));
+				 _log.Debug(string.Format("{0} {1}", GetCorrelationId(), stringContent));
 
 			return await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<TResult>(stringContent, new JsonSerializerSettings { DateTimeZoneHandling = DateTimeZoneHandling.Utc }));
 		}
@@ -282,25 +282,24 @@ namespace Mozu.Api
 			_apiContext = apiContext;
 
 		    if (_apiContext == null) return;
-			if (_apiContext.TenantId > 0)
-			{
+
+            if (_apiContext.TenantId > 0)
 				AddHeader(Headers.X_VOL_TENANT, _apiContext.TenantId.ToString());
-			}
-
+		
 			if (_apiContext.SiteId.HasValue && _apiContext.SiteId.Value > 0)
-			{
 				AddHeader(Headers.X_VOL_SITE, _apiContext.SiteId.Value.ToString());
-			}
-
+	
             if (_apiContext.MasterCatalogId.HasValue && _apiContext.MasterCatalogId.Value > 0)
-			{
 				AddHeader(Headers.X_VOL_MASTER_CATALOG, _apiContext.MasterCatalogId.Value.ToString());
-			}
-
+	
             if (_apiContext.CatalogId.HasValue && _apiContext.CatalogId.Value > 0)
-			{
 				AddHeader(Headers.X_VOL_CATALOG, _apiContext.CatalogId.Value.ToString());
-			}
+	
+            if (!string.IsNullOrEmpty(_apiContext.Locale))
+                AddHeader(Headers.X_VOL_LOCALE, _apiContext.Locale);
+
+            if (!string.IsNullOrEmpty(_apiContext.Currency))
+                AddHeader(Headers.X_VOL_CURRENCY, _apiContext.Currency);
 		}
 
         protected void SetBaseAddress(string baseAddress)
@@ -357,6 +356,7 @@ namespace Mozu.Api
 
 				if (string.IsNullOrEmpty(_apiContext.TenantUrl))
 				{
+                    _log.Info( String.Format("Tenant {0} URL is empty. Getting tenant info.", _apiContext.TenantId));
 					var tenantResource = new TenantResource();
 					var tenant = tenantResource.GetTenant(_apiContext.TenantId);
 
@@ -434,6 +434,7 @@ namespace Mozu.Api
                 else
                     _headers.Add(Headers.X_VOL_APP_CLAIMS, _apiContext.AppAuthClaim);
             }
+
             
             AddHeader(Headers.X_VOL_VERSION, Version.ApiVersion);
 

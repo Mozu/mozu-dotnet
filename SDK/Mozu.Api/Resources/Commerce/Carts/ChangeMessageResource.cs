@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		{
 			_apiContext = apiContext;
 		}
+
+		public ChangeMessageResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new ChangeMessageResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves the messages associated with the current shopper's cart.

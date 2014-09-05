@@ -32,6 +32,12 @@ namespace Mozu.Api.Resources.Content.Documentlists
 			_apiContext = apiContext;
 			_dataViewMode = DataViewMode.Live;
 		}
+
+		public ViewResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new ViewResource(_apiContext.CloneWith(contextModification));
+		}
+
 		public ViewResource(IApiContext apiContext, DataViewMode dataViewMode) 
 		{
 			_apiContext = apiContext;

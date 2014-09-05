@@ -23,6 +23,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public int Id { get; set; }
 
+			public bool IsDeleted { get; set; }
+
 			///
 			///The name of the master catalog.
 			///

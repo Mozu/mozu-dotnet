@@ -25,7 +25,12 @@ namespace Mozu.Api
         Tenant Tenant { get; }
 	    string Date { get; }
 
+		string Locale { get; set; }
+		string Currency { get; set; }
+
         AuthTicket UserAuthTicket { get; set; }
+
+		IApiContext CloneWith(Action<IApiContext> contextModification);
 	}
 
     [Serializable]
@@ -44,7 +49,9 @@ namespace Mozu.Api
         public Tenant Tenant { get; set; }
         public AuthTicket UserAuthTicket { get; set; }
 
-        public string Date { get; protected set; }
+		public string Date { get; protected set; }
+		public string Locale { get; set; }
+		public string Currency { get; set; }
 
 		public ApiContext()
 		{
@@ -131,7 +138,9 @@ namespace Mozu.Api
             HMACSha256 = HttpHelper.GetHeaderValue(Headers.X_VOL_HMAC_SHA256, headers);
 		    Date = HttpHelper.GetHeaderValue(Headers.DATE, headers);
             MasterCatalogId = HttpHelper.ParseFirstValue(Headers.X_VOL_MASTER_CATALOG, headers);
-            CatalogId = HttpHelper.ParseFirstValue(Headers.X_VOL_CATALOG, headers);
+			CatalogId = HttpHelper.ParseFirstValue(Headers.X_VOL_CATALOG, headers);
+			Locale = HttpHelper.GetHeaderValue(Headers.X_VOL_LOCALE, headers);
+			Currency = HttpHelper.GetHeaderValue(Headers.X_VOL_CURRENCY, headers);
 			
 
 			if (!String.IsNullOrEmpty(TenantUrl))
@@ -146,7 +155,11 @@ namespace Mozu.Api
 
 		}
 
-       
+		public IApiContext CloneWith(Action<IApiContext> contextModification)
+		{
+			contextModification(this);
+			return this;
+		}
 
         private void SetBySite(Site site)
         {

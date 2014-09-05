@@ -15,10 +15,6 @@ namespace Mozu.Api.Contracts.MZDB
 {
 		public class ListViewField
 		{
-			public bool IsQueryable { get; set; }
-
-			public bool IsSortable { get; set; }
-
 			public string Name { get; set; }
 
 			public string Target { get; set; }

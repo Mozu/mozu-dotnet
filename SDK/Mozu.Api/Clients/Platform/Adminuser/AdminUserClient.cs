@@ -22,23 +22,24 @@ namespace Mozu.Api.Clients.Platform.Adminuser
 	public partial class AdminUserClient 	{
 		
 		/// <summary>
-		/// Retrieves the details of the specified administrator user account.
+		/// Retrieves a list of the Mozu tenants or development stores for which the specified user has an assigned role.
 		/// </summary>
-		/// <param name="userId">Unique identifier of the administrator account to retrieve.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.User"/>}
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Tenant.TenantCollection"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetUser( userId);
-		///   var userClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var mozuClient=GetTenantScopesForUser( userId,  responseFields);
+		///   var tenantCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Core.User> GetUserClient(string userId)
+		public static MozuClient<Mozu.Api.Contracts.Tenant.TenantCollection> GetTenantScopesForUserClient(string userId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Platform.Adminuser.AdminUserUrl.GetUserUrl(userId);
+			var url = Mozu.Api.Urls.Platform.Adminuser.AdminUserUrl.GetTenantScopesForUserUrl(userId, responseFields);
 			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.Core.User>()
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Tenant.TenantCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -46,23 +47,24 @@ namespace Mozu.Api.Clients.Platform.Adminuser
 		}
 
 		/// <summary>
-		/// Retrieves a list of the Mozu tenants or development stores for which the specified user has an assigned role.
+		/// Retrieves the details of the specified administrator user account.
 		/// </summary>
-		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="userId">Unique identifier of the administrator account to retrieve.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Tenant.TenantCollection"/>}
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.User"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetTenantScopesForUser( userId);
-		///   var tenantCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var mozuClient=GetUser( userId,  responseFields);
+		///   var userClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Tenant.TenantCollection> GetTenantScopesForUserClient(string userId)
+		public static MozuClient<Mozu.Api.Contracts.Core.User> GetUserClient(string userId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Platform.Adminuser.AdminUserUrl.GetTenantScopesForUserUrl(userId);
+			var url = Mozu.Api.Urls.Platform.Adminuser.AdminUserUrl.GetUserUrl(userId, responseFields);
 			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.Tenant.TenantCollection>()
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Core.User>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

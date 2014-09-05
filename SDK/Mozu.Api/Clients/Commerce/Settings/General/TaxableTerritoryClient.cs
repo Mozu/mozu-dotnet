@@ -47,19 +47,20 @@ namespace Mozu.Api.Clients.Commerce.Settings.General
 		/// <summary>
 		/// Creates a new territory for which to calculate sales tax.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="taxableTerritory">Properties of the taxable territory to create.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddTaxableTerritory( taxableTerritory);
+		///   var mozuClient=AddTaxableTerritory( taxableTerritory,  responseFields);
 		///   var taxableTerritoryClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory> AddTaxableTerritoryClient(Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory taxableTerritory)
+		public static MozuClient<Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory> AddTaxableTerritoryClient(Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory taxableTerritory, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Settings.General.TaxableTerritoryUrl.AddTaxableTerritoryUrl();
+			var url = Mozu.Api.Urls.Commerce.Settings.General.TaxableTerritoryUrl.AddTaxableTerritoryUrl(responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory>()
 									.WithVerb(verb).WithResourceUrl(url)

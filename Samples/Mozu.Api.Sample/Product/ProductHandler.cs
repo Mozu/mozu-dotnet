@@ -1,21 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using Mozu.Api;
 using Mozu.Api.Contracts.ProductAdmin;
-using Mozu.Api.Resources.Commerce.Catalog.Admin;
-using Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition;
-using Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attributes;
-using Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Producttypes;
-using Mozu.Api.Resources.Commerce.Catalog.Admin.Products;
-using Mozu.Api.Resources.Platform;
+using Mozu.Api.ToolKit.Readers;
 
 namespace Mozu.Api.Sample.ProductHandler
 {
@@ -29,14 +16,25 @@ namespace Mozu.Api.Sample.ProductHandler
             _apiContext = apiContext;
         }
 
-        private void btnGetProducts_Click(object sender, EventArgs e)
+        private async void btnGetProducts_Click(object sender, EventArgs e)
         {
             btnGetProducts.Text = "Getting Products...";
-            var productResource = new ProductResource(_apiContext);
-            ProductCollection products = productResource.GetProducts(DataViewMode.Live);
 
-            if (productResource != null && products.Items.Count > 0)
-                dataGridViewProducts.DataSource = products.Items;
+            var reader = new ProductAdminReader
+            {
+                Context = _apiContext,
+                PageSize = 200,
+                StartIndex = 0
+            };
+
+            var products = new List<Product>();
+
+            while (await reader.ReadAsync())
+            {
+                products.AddRange(reader.Items);
+            }
+
+            dataGridViewProducts.DataSource = products;
             btnGetProducts.Text = "Refresh Product List";
 
         }

@@ -138,6 +138,7 @@
     <Compile Include="Factories\DocumentDraftSummaryFactory.cs" />
     <Compile Include="Factories\DocumentFactory.cs" />
     <Compile Include="Factories\DocumentListFactory.cs" />
+    <Compile Include="Factories\DocumentListTypeFactory.cs" />
     <Compile Include="Factories\DocumentTreeFactory.cs" />
     <Compile Include="Factories\DocumentTypeFactory.cs" />
     <Compile Include="Factories\EntityContainerFactory.cs" />

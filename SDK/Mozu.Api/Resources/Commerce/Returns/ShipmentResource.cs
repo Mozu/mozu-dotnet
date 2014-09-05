@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Returns
 		{
 			_apiContext = apiContext;
 		}
+
+		public ShipmentResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new ShipmentResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves the details of the specified return replacement shipment.

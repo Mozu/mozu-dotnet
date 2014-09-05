@@ -34,6 +34,12 @@ namespace Mozu.Api.Resources.Event
 		{
 			_apiContext = apiContext;
 		}
+
+		public EventNotificationResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new EventNotificationResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a list of events.

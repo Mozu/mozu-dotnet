@@ -60,6 +60,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			public string LocationCode { get; set; }
 
 			///
+			///The total value of the return to the merchant for accounting purposes. This total represents the combined product loss and shipping loss associated with the return.
+			///
+			public decimal? LossTotal { get; set; }
+
+			///
 			///If this return is associated with a previously completed order, the unique identifier of the original order.
 			///
 			public string OriginalOrderId { get; set; }
@@ -138,11 +143,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///Unique identifier of the web session in which the return was created or last modified, which is system-supplied and read only.
 			///
 			public string WebSessionId { get; set; }
-
-			///
-			///The total value of the return to the merchant for accounting purposes. This total represents the combined product loss and shipping loss associated with the return.
-			///
-			public decimal? LossTotal { get; set; }
 
 			///
 			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.

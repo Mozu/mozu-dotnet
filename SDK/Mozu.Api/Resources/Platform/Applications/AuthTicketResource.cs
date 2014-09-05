@@ -34,6 +34,12 @@ namespace Mozu.Api.Resources.Platform.Applications
 		{
 			_apiContext = apiContext;
 		}
+
+		public AuthTicketResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new AuthTicketResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Generate an authentication ticket for an application.

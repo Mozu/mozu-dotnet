@@ -34,6 +34,12 @@ namespace Mozu.Api.Resources.Platform
 		{
 			_apiContext = apiContext;
 		}
+
+		public TenantResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new TenantResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieve details about a specific tenant by providing the tenant ID.

@@ -57,6 +57,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string Status { get; set; }
 
 			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
 			///List of conditions that must be met for the discount to apply.
 			///
 			public DiscountCondition Conditions { get; set; }
@@ -70,11 +75,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///Properties of the target object to which the discount applies, such as a product or an order.
 			///
 			public DiscountTarget Target { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
 
 		}
 

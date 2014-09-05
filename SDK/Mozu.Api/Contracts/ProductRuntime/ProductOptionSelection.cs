@@ -19,16 +19,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		public class ProductOptionSelection
 		{
 			///
-			///The fully qualified name of the attribute, which is a user defined attribute identifier.
-			///
-			public string AttributeFQN { get; set; }
-
-			///
-			///Identifier of the value of this attribute.
-			///
-			public int? AttributeValueId { get; set; }
-
-			///
 			///The custom value the shopper entered for an option set up in product admin.
 			///
 			public object ShopperEnteredValue { get; set; }
@@ -37,6 +27,16 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///The attribute value.
 			///
 			public object Value { get; set; }
+
+			///
+			///The fully qualified name of the attribute, which is a user defined attribute identifier.
+			///
+			public string AttributeFQN { get; set; }
+
+			///
+			///Identifier of the value of this attribute.
+			///
+			public int? AttributeValueId { get; set; }
 
 		}
 

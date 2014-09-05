@@ -9,7 +9,10 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.MZDB
 {
@@ -22,6 +25,8 @@ namespace Mozu.Api.Contracts.MZDB
 			public int StartIndex { get; set; }
 
 			public int TotalCount { get; set; }
+
+			public List<JObject> Items { get; set; }
 
 		}
 

@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce
 		{
 			_apiContext = apiContext;
 		}
+
+		public CartResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new CartResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves the cart specified in the request.

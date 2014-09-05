@@ -8,37 +8,26 @@ using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
-using Mozu.Api.Events;
-using Mozu.Api.Logging;
-using Mozu.Api.Sample.Web.Logging;
+using Mozu.Api.WebToolKit;
 
 namespace Mozu.Api.Sample.Web
 {
-    public class Bootstrapper
+    public class Bootstrapper : AbstractWebApiBootstrapper
     {
-        //public static IContainer Container { get; internal set; }
 
-        public static void Register()
+        public override void InitializeContainer(ContainerBuilder containerBuilder)
         {
-            var builder = new ContainerBuilder();
-            // Register the Web API controllers.
-            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
-
-            // Register other dependencies.
-
-            builder.RegisterType<EventServiceFactory>().As<IEventServiceFactory>().SingleInstance();
-            builder.Register(c => new EventHttpHandler(c.Resolve<IEventServiceFactory>())).AsSelf().SingleInstance();
-            builder.RegisterType<Log4NetService>().As<ILoggingService>().SingleInstance();
-            builder.RegisterType<EventRouteHandler>().AsSelf().InstancePerApiRequest();
-            
-            // Build the container.
-            var container = builder.Build();
-            // Create the depenedency resolver.
-            var resolver = new AutofacWebApiDependencyResolver(container);
-
-            // Configure Web API with the dependency resolver.
-            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
-            GlobalConfiguration.Configuration.DependencyResolver = resolver;
+            base.InitializeContainer(containerBuilder);
+            containerBuilder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+            containerBuilder.RegisterControllers(Assembly.GetExecutingAssembly());
         }
+
+        public override void PostInitialize()
+        {
+            base.PostInitialize();
+
+        }
+
+
     }
 }

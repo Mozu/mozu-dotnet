@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using Mozu.Api.Contracts.CommerceRuntime.Orders;
 using Mozu.Api.Resources.Commerce;
 using Mozu.Api.Resources.Commerce.Orders;
+using Mozu.Api.ToolKit.Readers;
 
 namespace Mozu.Api.Sample.OrderHandler
 {
@@ -15,14 +17,24 @@ namespace Mozu.Api.Sample.OrderHandler
             _apiContext = apiContext;
         }
 
-        private void btnGetOrders_Click(object sender, EventArgs e)
+        private async void btnGetOrders_Click(object sender, EventArgs e)
         {
             btnGetOrders.Text = "Getting Orders...";
-            var orderResource = new OrderResource(_apiContext);
-            OrderCollection orders = orderResource.GetOrders();
 
-            if (orders != null && orders.Items.Count > 0)
-                dataGridViewOrders.DataSource = orders.Items;
+            var orderReader = new OrderReader
+            {
+                Context = _apiContext,
+                PageSize = 200,
+                StartIndex = 0
+            };
+
+            var orders = new List<Order>();
+            while (await orderReader.ReadAsync())
+            {
+                orders.AddRange(orderReader.Items);
+            }
+    
+            dataGridViewOrders.DataSource = orders;
             btnGetOrders.Text = "Refresh Orders";
         }
 
@@ -31,17 +43,14 @@ namespace Mozu.Api.Sample.OrderHandler
 
         }
 
-        private void btnGetOrderByGuid_Click(object sender, EventArgs e)
+        private async void btnGetOrderByGuid_Click(object sender, EventArgs e)
         {
             var orderGuid = txtOrderGuid.Text;
-            if (orderGuid.Length > 10)
-            {
-                var orderResource = new OrderResource(_apiContext);
-                Order order = orderResource.GetOrder(orderGuid);
+            var orderResource = new OrderResource(_apiContext);
+            var order = await orderResource.GetOrderAsync(orderGuid);
 
-                if (order != null && order.Items.Count > 0)
-                    dataGridViewOrders.DataSource = order.Items;
-            }
+            if (order != null && order.Items.Count > 0)
+                dataGridViewOrders.DataSource = order.Items;
         }
 
     }

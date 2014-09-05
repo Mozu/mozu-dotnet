@@ -32,6 +32,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 			_apiContext = apiContext;
 			_dataViewMode = DataViewMode.Live;
 		}
+
+		public DiscountResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new DiscountResource(_apiContext.CloneWith(contextModification));
+		}
+
 		public DiscountResource(IApiContext apiContext, DataViewMode dataViewMode) 
 		{
 			_apiContext = apiContext;

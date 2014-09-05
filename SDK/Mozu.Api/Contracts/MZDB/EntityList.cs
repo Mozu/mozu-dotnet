@@ -10,7 +10,9 @@
 
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.MZDB
 {
@@ -36,6 +38,8 @@ namespace Mozu.Api.Contracts.MZDB
 
 			public DateTime UpdateDate { get; set; }
 
+			public List<string> Usages { get; set; }
+
 			public bool UseSystemAssignedId { get; set; }
 
 			public IndexedProperty IdProperty { get; set; }
@@ -47,6 +51,8 @@ namespace Mozu.Api.Contracts.MZDB
 			public IndexedProperty IndexC { get; set; }
 
 			public IndexedProperty IndexD { get; set; }
+
+			public JObject Metadata { get; set; }
 
 			public List<ListView> Views { get; set; }
 

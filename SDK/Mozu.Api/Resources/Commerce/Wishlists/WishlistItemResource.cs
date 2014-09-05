@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Wishlists
 		{
 			_apiContext = apiContext;
 		}
+
+		public WishlistItemResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new WishlistItemResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves the details of an item in a shopper wish list.

@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce
 		{
 			_apiContext = apiContext;
 		}
+
+		public LocationResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new LocationResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves the details of the location specified in the request.

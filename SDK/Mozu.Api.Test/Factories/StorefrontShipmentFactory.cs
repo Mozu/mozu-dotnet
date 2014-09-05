@@ -71,14 +71,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves the available shipping methods applicable to the order. Typically used to display available shipping method options on the checkout page.
 		/// <example> 
 		///  <code> 
-		/// var result = ShipmentFactory.GetAvailableShipmentMethods(handler : handler,  orderId :  orderId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ShipmentFactory.GetAvailableShipmentMethods(handler : handler,  orderId :  orderId,  draft :  draft,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<List<ShippingRate>/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static List<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.ShippingRate> GetAvailableShipmentMethods(ServiceClientMessageHandler handler, 
- 		 string orderId, 
+ 		 string orderId, bool? draft = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -86,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Orders.ShipmentClient.GetAvailableShipmentMethodsClient(
-				 orderId :  orderId		);
+				 orderId :  orderId,  draft :  draft		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

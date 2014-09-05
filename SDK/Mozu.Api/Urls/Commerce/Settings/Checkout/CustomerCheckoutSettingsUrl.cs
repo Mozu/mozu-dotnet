@@ -19,26 +19,30 @@ namespace Mozu.Api.Urls.Commerce.Settings.Checkout
 		/// <summary>
         /// Get Resource Url for GetCustomerCheckoutSettings
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetCustomerCheckoutSettingsUrl()
+        public static MozuUrl GetCustomerCheckoutSettingsUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/settings/checkout/customercheckoutsettings";
+			var url = "/api/commerce/settings/checkout/customercheckoutsettings?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 						/// <summary>
         /// Get Resource Url for UpdateCustomerCheckoutSettings
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateCustomerCheckoutSettingsUrl()
+        public static MozuUrl UpdateCustomerCheckoutSettingsUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/settings/checkout/customercheckoutsettings";
+			var url = "/api/commerce/settings/checkout/customercheckoutsettings?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		{
 			_apiContext = apiContext;
 		}
+
+		public AttributeTypeRuleResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new AttributeTypeRuleResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a list of attribute type rules according to optional filter criteria and sort options. Attribute type rules help drive the behavior of attributes on a storefront page.

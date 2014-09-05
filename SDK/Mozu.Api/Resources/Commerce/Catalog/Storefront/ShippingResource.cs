@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		{
 			_apiContext = apiContext;
 		}
+
+		public ShippingResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new ShippingResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// 

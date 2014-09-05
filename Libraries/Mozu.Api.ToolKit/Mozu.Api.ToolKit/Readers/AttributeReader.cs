@@ -20,7 +20,7 @@ namespace Mozu.Api.ToolKit.Readers
 
             TotalCount = _results.TotalCount;
             PageCount = _results.PageCount;
-
+            PageSize = _results.PageSize;
             return _results.Items != null && _results.Items.Count > 0;
         }
 

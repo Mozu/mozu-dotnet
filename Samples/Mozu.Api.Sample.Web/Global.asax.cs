@@ -17,13 +17,12 @@ namespace Mozu.Api.Sample.Web
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-            Bootstrapper.Register();
+            new Bootstrapper().Bootstrap();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            MozuConfig.Register();
         }
     }
 }

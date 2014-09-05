@@ -56,6 +56,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public List<TargetedShippingMethod> ShippingMethods { get; set; }
 
+			public List<TargetedShippingZone> ShippingZones { get; set; }
+
 		}
 
 }

@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		{
 			_apiContext = apiContext;
 		}
+
+		public LocationUsageResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new LocationUsageResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves the configured site location usages for the location usage code specified in the request.

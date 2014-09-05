@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		{
 			_apiContext = apiContext;
 		}
+
+		public CustomerSegmentResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new CustomerSegmentResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves the list of segments associated with a customer account.

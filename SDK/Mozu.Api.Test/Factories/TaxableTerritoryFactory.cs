@@ -71,14 +71,14 @@ namespace Mozu.Api.Test.Factories
 		/// Creates a new territory for which to calculate sales tax.
 		/// <example> 
 		///  <code> 
-		/// var result = TaxableTerritoryFactory.AddTaxableTerritory(handler : handler,  taxableTerritory :  taxableTerritory,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = TaxableTerritoryFactory.AddTaxableTerritory(handler : handler,  taxableTerritory :  taxableTerritory,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<TaxableTerritory/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory AddTaxableTerritory(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory taxableTerritory, 
+ 		 Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory taxableTerritory, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -86,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Settings.General.TaxableTerritoryClient.AddTaxableTerritoryClient(
-				 taxableTerritory :  taxableTerritory		);
+				 taxableTerritory :  taxableTerritory,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

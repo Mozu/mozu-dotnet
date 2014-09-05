@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		{
 			_apiContext = apiContext;
 		}
+
+		public OrderAttributeResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new OrderAttributeResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a list of the attributes defined for the order specified in the request.

@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Event.Push.Subscriptions
 		{
 			_apiContext = apiContext;
 		}
+
+		public EventDeliverySummaryResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new EventDeliverySummaryResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// 

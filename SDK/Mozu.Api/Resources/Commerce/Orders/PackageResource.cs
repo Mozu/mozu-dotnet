@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		{
 			_apiContext = apiContext;
 		}
+
+		public PackageResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new PackageResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a list of the actions available to perform for a package associated with order fulfillment.

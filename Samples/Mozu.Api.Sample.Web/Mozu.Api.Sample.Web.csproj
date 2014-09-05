@@ -61,16 +61,22 @@
       <HintPath>packages\Autofac.WebApi2.3.3.3\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
-      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+      <HintPath>packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Mozu.Api, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Mozu.Api">
+      <HintPath>packages\Mozu.Api.SDK.1.10.1-dev1408262202\lib\net45\Mozu.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="Mozu.Api.ToolKit">
+      <HintPath>packages\Mozu.Api.ToolKit.1.1.1-dev1408261236\lib\Mozu.Api.ToolKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Mozu.Api.WebToolKit, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\Mozu.Api.SDK.1.7.0.30\lib\Mozu.Api.dll</HintPath>
+      <HintPath>packages\Mozu.Api.WebToolKit.1.1.1-dev1408261250\lib\Mozu.Api.WebToolKit.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -145,7 +151,6 @@
     <Compile Include="App_Start\Bootstrapper.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\MozuConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Code\OrderEventHandler.cs" />
@@ -154,8 +159,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Logging\Log4NetLogger.cs" />
-    <Compile Include="Logging\Log4NetService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

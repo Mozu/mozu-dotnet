@@ -29,6 +29,11 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string CmsId { get; set; }
 
 			///
+			///Image title that appears on the web storefront, set to the language specified by the site's LocaleCode.
+			///
+			public string ImageLabel { get; set; }
+
+			///
 			///URL of the product category image.
 			///
 			public string ImageUrl { get; set; }
@@ -47,11 +52,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///The link or URL of the product category video. The file path name is set in the language specified by the LocaleCode.
 			///
 			public string VideoUrl { get; set; }
-
-			///
-			///Image title that appears on the web storefront, set to the language specified by the site's LocaleCode.
-			///
-			public string ImageLabel { get; set; }
 
 		}
 

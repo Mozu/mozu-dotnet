@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Customer.Credits
 		{
 			_apiContext = apiContext;
 		}
+
+		public CreditTransactionResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new CreditTransactionResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a list of the transactions performed using a customer credit that update the balance of the credit.

@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Content
 		{
 			_apiContext = apiContext;
 		}
+
+		public DocumentDraftSummaryResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new DocumentDraftSummaryResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves a list of the documents currently in draft state, according to any defined filter and sort criteria.

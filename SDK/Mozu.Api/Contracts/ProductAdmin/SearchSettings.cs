@@ -11,11 +11,14 @@
 using System;
 using System.Collections.Generic;
 
+using Mozu.Api.Contracts.ProductAdmin.Search;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		public class SearchSettings
 		{
+			public SearchSynonymSettings SearchSynonymSettings { get; set; }
+
 			public List<SiteSearchSettings> SiteSearchSettings { get; set; }
 
 		}

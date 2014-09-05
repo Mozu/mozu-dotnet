@@ -63,13 +63,13 @@ namespace Mozu.Api.Test.Helpers
         {
             try
             {
+                MozuConfig.BaseAppAuthUrl = BaseAuthAppUrl;
                 AppAuthenticator.Initialize(
                     appAuthInfo: new AppAuthInfo()
                     {
                         ApplicationId = AppId,
                         SharedSecret = SharedSecret
-                    },
-                    baseAppAuthUrl: BaseAuthAppUrl);
+                    } );
                 IsIntialized = true;
             }
             catch (Exception ex)

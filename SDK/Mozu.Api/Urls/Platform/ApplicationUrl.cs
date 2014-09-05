@@ -20,14 +20,16 @@ namespace Mozu.Api.Urls.Platform
         /// Get Resource Url for GetApplication
         /// </summary>
         /// <param name="appId"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetApplicationUrl(string appId)
+        public static MozuUrl GetApplicationUrl(string appId, string responseFields =  null)
 		{
-			var url = "/api/platform/applications/{appId}";
+			var url = "/api/platform/applications/{appId}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "appId", appId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -35,14 +37,16 @@ namespace Mozu.Api.Urls.Platform
         /// Get Resource Url for UpdateApplication
         /// </summary>
         /// <param name="appId"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateApplicationUrl(string appId)
+        public static MozuUrl UpdateApplicationUrl(string appId, string responseFields =  null)
 		{
-			var url = "/api/platform/applications/{appId}";
+			var url = "/api/platform/applications/{appId}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "appId", appId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

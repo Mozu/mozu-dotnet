@@ -20,14 +20,16 @@ namespace Mozu.Api.Urls.Platform.Developer
         /// Get Resource Url for CreateDeveloperUserAuthTicket
         /// </summary>
         /// <param name="developerAccountId">Unique identifier of the developer account.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl CreateDeveloperUserAuthTicketUrl(int? developerAccountId =  null)
+        public static MozuUrl CreateDeveloperUserAuthTicketUrl(int? developerAccountId =  null, string responseFields =  null)
 		{
-			var url = "/api/platform/developer/authtickets/?developerAccountId={developerAccountId}";
+			var url = "/api/platform/developer/authtickets/?developerAccountId={developerAccountId}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
 			mozuUrl.FormatUrl( "developerAccountId", developerAccountId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -35,14 +37,16 @@ namespace Mozu.Api.Urls.Platform.Developer
         /// Get Resource Url for RefreshDeveloperAuthTicket
         /// </summary>
         /// <param name="developerAccountId">Unique identifier of the developer account.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl RefreshDeveloperAuthTicketUrl(int? developerAccountId =  null)
+        public static MozuUrl RefreshDeveloperAuthTicketUrl(int? developerAccountId =  null, string responseFields =  null)
 		{
-			var url = "/api/platform/developer/authtickets/?developerAccountId={developerAccountId}";
+			var url = "/api/platform/developer/authtickets/?developerAccountId={developerAccountId}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
 			mozuUrl.FormatUrl( "developerAccountId", developerAccountId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

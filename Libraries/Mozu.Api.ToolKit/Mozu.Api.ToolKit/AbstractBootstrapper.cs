@@ -70,8 +70,13 @@ namespace Mozu.Api.ToolKit
             LogManager.LoggingService = Container.Resolve<ILoggingServiceFactory>().GetLoggingService();
             var appSetting = Container.Resolve<IAppSetting>();
 
-            if (!string.IsNullOrEmpty(appSetting.ApplicationId) && !string.IsNullOrEmpty(appSetting.SharedSecret) && !string.IsNullOrEmpty(appSetting.BaseUrl))
-                AppAuthenticator.Initialize(new AppAuthInfo { ApplicationId = appSetting.ApplicationId, SharedSecret = appSetting.SharedSecret }, appSetting.BaseUrl);
+            if (!string.IsNullOrEmpty(appSetting.ApplicationId) && !string.IsNullOrEmpty(appSetting.SharedSecret))
+            {
+                if (!string.IsNullOrEmpty(appSetting.BaseUrl))
+                    MozuConfig.BaseAppAuthUrl = appSetting.BaseUrl;
+                var appAuthenticator = AppAuthenticator.InitializeAsync(new AppAuthInfo { ApplicationId = appSetting.ApplicationId, SharedSecret = appSetting.SharedSecret }).Result;
+
+            }
 
 
             PostInitialize();

@@ -55,6 +55,42 @@ namespace Mozu.Api.Urls.Commerce
 		}
 
 		/// <summary>
+        /// Get Resource Url for GetReturnItem
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <param name="returnId"></param>
+        /// <param name="returnItemId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetReturnItemUrl(string returnId, string returnItemId, string responseFields =  null)
+		{
+			var url = "/api/commerce/returns/{returnId}/items/{returnItemId}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "returnId", returnId);
+			mozuUrl.FormatUrl( "returnItemId", returnItemId);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for GetReturnItems
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <param name="returnId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetReturnItemsUrl(string returnId, string responseFields =  null)
+		{
+			var url = "/api/commerce/returns/{returnId}/items?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "returnId", returnId);
+			return mozuUrl;
+		}
+
+		/// <summary>
         /// Get Resource Url for GetAvailablePaymentActionsForReturn
         /// </summary>
         /// <param name="paymentId">Unique identifier of the payment for which to perform the action.</param>
@@ -140,6 +176,23 @@ namespace Mozu.Api.Urls.Commerce
 		}
 
 		/// <summary>
+        /// Get Resource Url for CreateReturnItem
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <param name="returnId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl CreateReturnItemUrl(string returnId, string responseFields =  null)
+		{
+			var url = "/api/commerce/returns/{returnId}/items?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "returnId", returnId);
+			return mozuUrl;
+		}
+
+		/// <summary>
         /// Get Resource Url for PerformPaymentActionForReturn
         /// </summary>
         /// <param name="paymentId">Unique identifier of the return payment to update.</param>
@@ -208,6 +261,23 @@ namespace Mozu.Api.Urls.Commerce
 		}
 
 				/// <summary>
+        /// Get Resource Url for DeleteOrderItem
+        /// </summary>
+        /// <param name="returnId"></param>
+        /// <param name="returnItemId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl DeleteOrderItemUrl(string returnId, string returnItemId)
+		{
+			var url = "/api/commerce/returns/{orderId}/items/{orderItemId}?updatemode={updateMode}&version={version}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "returnId", returnId);
+			mozuUrl.FormatUrl( "returnItemId", returnItemId);
+			return mozuUrl;
+		}
+
+		/// <summary>
         /// Get Resource Url for DeleteReturn
         /// </summary>
         /// <param name="returnId">Unique identifier of the return to delete.</param>

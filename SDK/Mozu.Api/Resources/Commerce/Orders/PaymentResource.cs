@@ -30,6 +30,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		{
 			_apiContext = apiContext;
 		}
+
+		public PaymentResource CloneWithApiContext(Action<IApiContext> contextModification) 
+		{
+			return new PaymentResource(_apiContext.CloneWith(contextModification));
+		}
+
 				
 		/// <summary>
 		/// Retrieves information about all payment transactions submitted for the specified order.
