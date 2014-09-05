@@ -19,11 +19,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		///
 		public class Product
 		{
-			///
-			///Date and time when the entity was created, represented in UTC Date/Time.
-			///
-			public DateTime CreateDate { get; set; }
-
 			public List<string> FulfillmentTypesSupported { get; set; }
 
 			public string GoodsType { get; set; }
@@ -82,6 +77,11 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///Product code that represents the product variation selected based on the option values the shopper entered.
 			///
 			public string VariationProductCode { get; set; }
+
+			///
+			///Date and time when the entity was created, represented in UTC Date/Time.
+			///
+			public DateTime CreateDate { get; set; }
 
 			///
 			///List of shipping discounts that can be applied to the product.

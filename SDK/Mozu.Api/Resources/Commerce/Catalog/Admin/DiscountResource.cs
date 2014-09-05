@@ -35,7 +35,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 
 		public DiscountResource CloneWithApiContext(Action<IApiContext> contextModification) 
 		{
-			return new DiscountResource(_apiContext.CloneWith(contextModification));
+			return new DiscountResource(_apiContext.CloneWith(contextModification), _dataViewMode);
 		}
 
 		public DiscountResource(IApiContext apiContext, DataViewMode dataViewMode) 
