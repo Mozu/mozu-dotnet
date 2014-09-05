@@ -24,18 +24,19 @@ namespace Mozu.Api.Clients.Commerce.Settings
 		/// <summary>
 		/// Retrieves the configured site location usages for the location usage code specified in the request.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Location.LocationUsageCollection"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetLocationUsages();
+		///   var mozuClient=GetLocationUsages( responseFields);
 		///   var locationUsageCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Location.LocationUsageCollection> GetLocationUsagesClient()
+		public static MozuClient<Mozu.Api.Contracts.Location.LocationUsageCollection> GetLocationUsagesClient(string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Settings.LocationUsageUrl.GetLocationUsagesUrl();
+			var url = Mozu.Api.Urls.Commerce.Settings.LocationUsageUrl.GetLocationUsagesUrl(responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Location.LocationUsageCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -48,18 +49,19 @@ namespace Mozu.Api.Clients.Commerce.Settings
 		/// Retrieves the location usages for the site specified in the request header.
 		/// </summary>
 		/// <param name="code">Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Location.LocationUsage"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetLocationUsage( code);
+		///   var mozuClient=GetLocationUsage( code,  responseFields);
 		///   var locationUsageClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Location.LocationUsage> GetLocationUsageClient(string code)
+		public static MozuClient<Mozu.Api.Contracts.Location.LocationUsage> GetLocationUsageClient(string code, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Settings.LocationUsageUrl.GetLocationUsageUrl(code);
+			var url = Mozu.Api.Urls.Commerce.Settings.LocationUsageUrl.GetLocationUsageUrl(code, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Location.LocationUsage>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -72,19 +74,20 @@ namespace Mozu.Api.Clients.Commerce.Settings
 		/// Updates the location usage for the site based on the location usage code specified in the request.
 		/// </summary>
 		/// <param name="code">Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="usage">Properties of the location usage type to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Location.LocationUsage"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateLocationUsage( usage,  code);
+		///   var mozuClient=UpdateLocationUsage( usage,  code,  responseFields);
 		///   var locationUsageClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Location.LocationUsage> UpdateLocationUsageClient(Mozu.Api.Contracts.Location.LocationUsage usage, string code)
+		public static MozuClient<Mozu.Api.Contracts.Location.LocationUsage> UpdateLocationUsageClient(Mozu.Api.Contracts.Location.LocationUsage usage, string code, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Settings.LocationUsageUrl.UpdateLocationUsageUrl(code);
+			var url = Mozu.Api.Urls.Commerce.Settings.LocationUsageUrl.UpdateLocationUsageUrl(code, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Location.LocationUsage>()
 									.WithVerb(verb).WithResourceUrl(url)

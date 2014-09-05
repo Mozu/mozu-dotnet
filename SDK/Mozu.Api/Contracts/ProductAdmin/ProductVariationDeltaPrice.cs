@@ -25,9 +25,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public string CurrencyCode { get; set; }
 
-			///
-			///The manufacturer's suggested retail price, as defined by the supplier.
-			///
 			public decimal? Msrp { get; set; }
 
 			///

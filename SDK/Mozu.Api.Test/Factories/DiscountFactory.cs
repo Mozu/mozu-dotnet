@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Creates a new discount or coupon to apply to a product, category, order, or shipping.
+		/// Creates a discount.
 		/// <example> 
 		///  <code> 
 		/// var result = DiscountFactory.CreateDiscount(handler : handler,  discount :  discount,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -220,7 +220,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates the localizable content for the specified discount or rename the discount without modifying its other properties.
+		/// Modifies the localized content for the specified discount. Rename the discount without modifying any other discount properties.
 		/// <example> 
 		///  <code> 
 		/// var result = DiscountFactory.UpdateDiscountContent(handler : handler,  content :  content,  discountId :  discountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -258,7 +258,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates one or more properties of a defined discount.
+		/// Modifies a discount.
 		/// <example> 
 		///  <code> 
 		/// var result = DiscountFactory.UpdateDiscount(handler : handler,  discount :  discount,  discountId :  discountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

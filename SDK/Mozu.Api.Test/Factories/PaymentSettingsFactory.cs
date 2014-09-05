@@ -24,7 +24,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Payment Settings resource to specify settings when creating payments for order checkout on the site.
+	/// Specify settings when creating payments for order checkout on the site.
 	/// </summary>
 	public partial class PaymentSettingsFactory : BaseDataFactory
 	{

@@ -129,32 +129,6 @@ namespace Mozu.Api.Clients.Content
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="documentId"></param>
-		/// <param name="stream"></param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=LegacyR4_UpdateDocumentContent( stream,  documentId,  contentType);
-		///mozuClient.WithBaseAddress(url).Execute();
-		/// </code>
-		/// </example>
-		public static MozuClient LegacyR4_UpdateDocumentContentClient(System.IO.Stream stream, string documentId, String  contentType= null)
-		{
-			var url = Mozu.Api.Urls.Content.DocumentListUrl.LegacyR4_UpdateDocumentContentUrl(documentId);
-			const string verb = "PUT";
-			var mozuClient = new MozuClient()
-									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody(stream)									.WithHeader(Headers.CONTENT_TYPE ,contentType)
-;
-			return mozuClient;
-
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
 		/// <param name="documentListName"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />

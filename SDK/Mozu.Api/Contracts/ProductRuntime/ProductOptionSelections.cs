@@ -25,7 +25,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string VariationProductCode { get; set; }
 
 			///
-			///List of option attributes associated with the product and the associated values currently defined for this product configuration.
+			///List of product options and values currently selected.
 			///
 			public List<ProductOptionSelection> Options { get; set; }
 

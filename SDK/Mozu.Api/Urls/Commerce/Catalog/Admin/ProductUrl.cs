@@ -63,7 +63,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetProductInCatalog
         /// </summary>
-        /// <param name="catalogId">The unique identifier of the catalog of products used by a site.</param>
+        /// <param name="catalogId"></param>
         /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
         /// <param name="responseFields"></param>
         /// <returns>
@@ -82,7 +82,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetProduct
         /// </summary>
-        /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+        /// <param name="productCode">Merchant-created code associated with the product such as a SKU. Max length: 30. Accepts a to z, A to Z, Ãƒâ€¹-ÃƒËœ, 0 to 9, #, semicolon, commas, apostrophes, and Spaces, but no punctuation or other characters.</param>
         /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
@@ -146,7 +146,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for UpdateProductInCatalog
         /// </summary>
-        /// <param name="catalogId">The unique identifier of the catalog of products used by a site.</param>
+        /// <param name="catalogId"></param>
         /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
         /// <param name="responseFields"></param>
         /// <returns>
@@ -197,7 +197,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for DeleteProductInCatalog
         /// </summary>
-        /// <param name="catalogId">The unique identifier of the catalog of products used by a site.</param>
+        /// <param name="catalogId"></param>
         /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
         /// <returns>
         /// String - Resource Url

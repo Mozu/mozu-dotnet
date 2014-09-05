@@ -79,11 +79,11 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Creates a new product reservation for a product. This action places a hold on the product inventory for the quantity specified during the ordering process.
+		/// 
 		/// </summary>
-		/// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
+		/// <param name="skipInventoryCheck"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="productReservations">Details of the product reservations to add.</param>
+		/// <param name="productReservations"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductReservation"/>}}
 		/// </returns>
@@ -106,10 +106,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Commits a product reservation to decrement the product's inventory by the quantity specified then release the reservation once the order process completed successfully.
+		/// 
 		/// </summary>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="productReservations">List of unique identifiers of the reservations to commit.</param>
+		/// <param name="productReservations"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
@@ -132,11 +132,11 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Updates an existing product reservation for a product.
+		/// 
 		/// </summary>
-		/// <param name="skipInventoryCheck">If true, skip the inventory validation process when updating this product reservation.</param>
+		/// <param name="skipInventoryCheck"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="productReservations">Properties of the product reservations to update.</param>
+		/// <param name="productReservations"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductReservation"/>}}
 		/// </returns>

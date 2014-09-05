@@ -30,19 +30,10 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public string CompanyOrOrganization { get; set; }
 
-			///
-			///The email address associated with the customer account.
-			///
 			public string EmailAddress { get; set; }
 
-			///
-			///Unique identifier an external system uses to identify this customer account.
-			///
 			public string ExternalId { get; set; }
 
-			///
-			///The first name associated with the customer account.
-			///
 			public string FirstName { get; set; }
 
 			///
@@ -50,19 +41,10 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public int Id { get; set; }
 
-			///
-			///If true, this customer account represents an anonymous shopper.
-			///
 			public bool IsAnonymous { get; set; }
 
-			///
-			///The last name associated with the customer account.
-			///
 			public string LastName { get; set; }
 
-			///
-			///Language used for the entity. Currently, only "en-US" is supported.
-			///
 			public string LocaleCode { get; set; }
 
 			///
@@ -76,13 +58,10 @@ namespace Mozu.Api.Contracts.Customer
 			public string TaxId { get; set; }
 
 			///
-			///Unique identifier of the user associated with the customer account. All customer accounts must have a defined user ID. If the shopper user is anonymous, the user ID represents a system-generated user ID string.
+			///Unique identifier of the user associated with the customer account.
 			///
 			public string UserId { get; set; }
 
-			///
-			///The user name of the user associated with the customer account.
-			///
 			public string UserName { get; set; }
 
 			///
@@ -110,9 +89,6 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public List<CustomerNote> Notes { get; set; }
 
-			///
-			///List of customer segments associated with the customer account. Customer accounts can be members of any number of segments.
-			///
 			public List<CustomerSegment> Segments { get; set; }
 
 		}

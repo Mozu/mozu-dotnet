@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves the list of subcategories within a category.
+		/// Retrieves the subcategories of a category. This is a list of subcategories at the same level (siblings). Use a list of siblings, for example, to display the categories in a horizontal list.
 		/// <example> 
 		///  <code> 
 		/// var result = CategoryFactory.GetChildCategories(handler : handler,  categoryId :  categoryId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Adds a new category to the site's category hierarchy. Specify a ParentCategoryID to determine where to place the category in the hierarchy. If no ParentCategoryID is specified, the new category is a top-level category.
+		/// Adds a new category to the site's category hierarchy. Specify a ParentCategoryID to determine where to locate the category in the hierarchy. If a ParentCategoryID is not specified, the new category becomes a top-level category.
 		/// <example> 
 		///  <code> 
 		/// var result = CategoryFactory.AddCategory(handler : handler,  category :  category,  incrementSequence :  incrementSequence,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Update the properties of a defined category or move it to another location in the category hierarchy. Because this operation replaces the defined resource,include all the information to maintain for the category in the request.
+		/// Modifies a category such as moving it to another location in the category tree, or changing whether it is visible on the storefront. This PUT replaces the existing resource, so be sure to include all the information to maintain for the category.
 		/// <example> 
 		///  <code> 
 		/// var result = CategoryFactory.UpdateCategory(handler : handler,  category :  category,  categoryId :  categoryId,  cascadeVisibility :  cascadeVisibility,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

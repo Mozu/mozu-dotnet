@@ -19,8 +19,8 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
 		/// <summary>
         /// Get Resource Url for GetAccountCard
         /// </summary>
-        /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
+        /// <param name="accountId"></param>
+        /// <param name="cardId"></param>
         /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
@@ -73,7 +73,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// Get Resource Url for UpdateAccountCard
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="cardId">Unique identifier of the credit card.</param>
+        /// <param name="cardId"></param>
         /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url

@@ -23,9 +23,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public bool? ManageStock { get; set; }
 
-			///
-			///The location code for the direct ship location associated with the available online stock.
-			///
 			public string OnlineLocationCode { get; set; }
 
 			///

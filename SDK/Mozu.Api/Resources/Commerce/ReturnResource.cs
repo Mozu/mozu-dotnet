@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce
 {
 	/// <summary>
-	/// Use the Returns resource to manage returned items that were previously fufilled. Returns can include any number of items associated with an original Mozu order. Each return must either be associated with an original order or a product definition to represent each returned item.
+	/// Use the returns subresource to manage returned items that were previously fufilled. Returns can include any number of items associated with an original Mozu order. Each return must either be associated with an original order or a product definition to represent each returned item.
 	/// </summary>
 	public partial class ReturnResource  	{
 		///
@@ -78,7 +78,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// Retrieves a list of the actions available to perform for the specified return based on its current state.
 		/// </summary>
-		/// <param name="returnId">Unique identifier of the return for which to retrieve available actions.</param>
+		/// <param name="returnId">Retrieves a list of the actions available to perform for the specified return based on its current state.</param>
 		/// <returns>
 		/// List{string}
 		/// </returns>
@@ -466,10 +466,10 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// Updates the return by performing the action specified in the request.
+		/// Updates the return by performing the specified action.
 		/// </summary>
 		/// <param name="responseFields"></param>
-		/// <param name="action">The name of the return action to perform, such as "Reject" or "Authorize".</param>
+		/// <param name="action">The name of the return action to perform, such as "Refund" or "Replace".</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection"/>
 		/// </returns>

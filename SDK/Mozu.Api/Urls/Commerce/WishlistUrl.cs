@@ -63,9 +63,9 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetWishlistByName
         /// </summary>
-        /// <param name="customerAccountId">The unique identifier of the customer account for which to retrieve wish lists.</param>
+        /// <param name="customerAccountId"></param>
         /// <param name="responseFields"></param>
-        /// <param name="wishlistName">The name of the wish list to retrieve.</param>
+        /// <param name="wishlistName"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

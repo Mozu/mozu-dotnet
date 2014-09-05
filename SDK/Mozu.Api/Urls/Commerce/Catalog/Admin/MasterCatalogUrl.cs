@@ -34,7 +34,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetMasterCatalog
         /// </summary>
-        /// <param name="masterCatalogId">The unique identifier of the master catalog associated with the entity.</param>
+        /// <param name="masterCatalogId"></param>
         /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url

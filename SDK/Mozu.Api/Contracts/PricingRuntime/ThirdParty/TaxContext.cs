@@ -14,39 +14,18 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.PricingRuntime.ThirdParty
 {
-		///
-		///	Properties of the taxable context associated with the order or return.
-		///
 		public class TaxContext
 		{
-			///
-			///Unique identifier of the customer.
-			///
 			public string CustomerId { get; set; }
 
-			///
-			///Unique identifier of the tax context.
-			///
 			public string TaxContextId { get; set; }
 
-			///
-			///If the order is exempt from sales tax, the unique identifier of the tax exempt entity.
-			///
 			public string TaxExemptId { get; set; }
 
-			///
-			///The taxable amount that can be levied against shipping charges.
-			///
 			public bool? TaxShipping { get; set; }
 
-			///
-			///The address to which item in the order will ship.
-			///
 			public Address DestinationAddress { get; set; }
 
-			///
-			///The address from which the item in the order will ship.
-			///
 			public Address OriginAddress { get; set; }
 
 		}

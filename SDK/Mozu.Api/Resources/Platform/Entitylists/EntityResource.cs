@@ -49,7 +49,7 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		/// <example>
 		/// <code>
 		///   var entity = new Entity();
-		///   var json = entity.GetEntity( entityListFullName,  id,  responseFields);
+		///   var jObject = entity.GetEntity( entityListFullName,  id,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
@@ -124,7 +124,7 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		/// <example>
 		/// <code>
 		///   var entity = new Entity();
-		///   var json = entity.InsertEntity( item,  entityListFullName,  responseFields);
+		///   var jObject = entity.InsertEntity( item,  entityListFullName,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
@@ -161,7 +161,7 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		/// <example>
 		/// <code>
 		///   var entity = new Entity();
-		///   var json = entity.UpdateEntity( item,  entityListFullName,  id,  responseFields);
+		///   var jObject = entity.UpdateEntity( item,  entityListFullName,  id,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]

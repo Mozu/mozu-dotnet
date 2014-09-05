@@ -34,7 +34,7 @@ namespace Mozu.Api.Clients.Platform.Entitylists
 		/// <example>
 		/// <code>
 		///   var mozuClient=GetViewEntity( entityListFullName,  viewName,  entityId,  responseFields);
-		///   var jsonClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var jObjectClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
 		public static MozuClient<JObject> GetViewEntityClient(string entityListFullName, string viewName, string entityId, string responseFields =  null)

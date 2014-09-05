@@ -34,7 +34,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			public decimal? DiscountedTotal { get; set; }
 
 			///
-			///Estimated amount of discounts applied to the item in the wish list, which is system-supplied and read-only.  This property value is not calculated at this time and is reserved for future functionality.
+			///Estimated amount of discounts applied to the item in the wish list, which is system-supplied and read-only.                      This property value is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? DiscountTotal { get; set; }
 
