@@ -35,7 +35,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Productt
 
 		public ProductTypePropertyResource CloneWithApiContext(Action<IApiContext> contextModification) 
 		{
-			return new ProductTypePropertyResource(_apiContext.CloneWith(contextModification));
+			return new ProductTypePropertyResource(_apiContext.CloneWith(contextModification), _dataViewMode);
 		}
 
 		public ProductTypePropertyResource(IApiContext apiContext, DataViewMode dataViewMode) 

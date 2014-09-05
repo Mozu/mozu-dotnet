@@ -35,7 +35,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 
 		public ProductResource CloneWithApiContext(Action<IApiContext> contextModification) 
 		{
-			return new ProductResource(_apiContext.CloneWith(contextModification));
+			return new ProductResource(_apiContext.CloneWith(contextModification), _dataViewMode);
 		}
 
 		public ProductResource(IApiContext apiContext, DataViewMode dataViewMode) 

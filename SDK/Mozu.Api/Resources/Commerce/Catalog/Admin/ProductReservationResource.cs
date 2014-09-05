@@ -35,7 +35,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 
 		public ProductReservationResource CloneWithApiContext(Action<IApiContext> contextModification) 
 		{
-			return new ProductReservationResource(_apiContext.CloneWith(contextModification));
+			return new ProductReservationResource(_apiContext.CloneWith(contextModification), _dataViewMode);
 		}
 
 		public ProductReservationResource(IApiContext apiContext, DataViewMode dataViewMode) 
