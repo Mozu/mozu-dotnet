@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Customer Account Segments subresource to view the customer segments associated with a customer account.
+	/// 
 	/// </summary>
 	public partial class CustomerSegmentAccountsFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves the list of segments associated with a customer account.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerSegmentFactory.GetAccountSegments(handler : handler,  accountId :  accountId,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

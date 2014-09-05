@@ -38,6 +38,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public string SourceId { get; set; }
 
+			public string ValidationType { get; set; }
+
 		}
 
 }

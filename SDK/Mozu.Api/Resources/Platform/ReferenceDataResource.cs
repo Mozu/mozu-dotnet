@@ -45,30 +45,31 @@ namespace Mozu.Api.Resources.Platform
 		/// Retrieves a specific address schema based on the country code provided. This operation allows the creation of custom shipping and billing address fields.
 		/// </summary>
 		/// <param name="countryCode">The 2-letter geographic code representing the country for the physical or mailing address. Currently limited to the US.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Reference.AddressSchema"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var referencedata = new ReferenceData();
-		///   var addressSchema = referencedata.GetAddressSchema( countryCode);
+		///   var addressSchema = referencedata.GetAddressSchema( countryCode,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Reference.AddressSchema GetAddressSchema(string countryCode =  null)
+		public virtual Mozu.Api.Contracts.Reference.AddressSchema GetAddressSchema(string countryCode =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Reference.AddressSchema> response;
-			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetAddressSchemaClient( countryCode);
+			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetAddressSchemaClient( countryCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
 
 		}
 
-		public virtual async Task<Mozu.Api.Contracts.Reference.AddressSchema> GetAddressSchemaAsync(string countryCode =  null)
+		public virtual async Task<Mozu.Api.Contracts.Reference.AddressSchema> GetAddressSchemaAsync(string countryCode =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Reference.AddressSchema> response;
-			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetAddressSchemaClient( countryCode);
+			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetAddressSchemaClient( countryCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -78,30 +79,31 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// Retrieves the entire list of address schemas that the system supports.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Reference.AddressSchemaCollection"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var referencedata = new ReferenceData();
-		///   var addressSchemaCollection = referencedata.GetAddressSchemas();
+		///   var addressSchemaCollection = referencedata.GetAddressSchemas( responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Reference.AddressSchemaCollection GetAddressSchemas()
+		public virtual Mozu.Api.Contracts.Reference.AddressSchemaCollection GetAddressSchemas(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Reference.AddressSchemaCollection> response;
-			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetAddressSchemasClient();
+			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetAddressSchemasClient( responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
 
 		}
 
-		public virtual async Task<Mozu.Api.Contracts.Reference.AddressSchemaCollection> GetAddressSchemasAsync()
+		public virtual async Task<Mozu.Api.Contracts.Reference.AddressSchemaCollection> GetAddressSchemasAsync(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Reference.AddressSchemaCollection> response;
-			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetAddressSchemasClient();
+			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetAddressSchemasClient( responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -109,33 +111,34 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
-		/// Retrieves the details of a behavior based on the behavior ID specified in the request.
+		/// ***Always private and should not be published.***
 		/// </summary>
-		/// <param name="behaviorId">Unique identifier of the behavior.</param>
+		/// <param name="behaviorId">***Always private and should not be published.***</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Core.Behavior"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var referencedata = new ReferenceData();
-		///   var behavior = referencedata.GetBehavior( behaviorId);
+		///   var behavior = referencedata.GetBehavior( behaviorId,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Core.Behavior GetBehavior(int behaviorId)
+		public virtual Mozu.Api.Contracts.Core.Behavior GetBehavior(int behaviorId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Core.Behavior> response;
-			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetBehaviorClient( behaviorId);
+			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetBehaviorClient( behaviorId,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
 
 		}
 
-		public virtual async Task<Mozu.Api.Contracts.Core.Behavior> GetBehaviorAsync(int behaviorId)
+		public virtual async Task<Mozu.Api.Contracts.Core.Behavior> GetBehaviorAsync(int behaviorId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Core.Behavior> response;
-			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetBehaviorClient( behaviorId);
+			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetBehaviorClient( behaviorId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -143,66 +146,34 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
-		/// Retrieves the list of behavior categories.
+		/// ***Always private and should not be published.***
 		/// </summary>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Core.BehaviorCategoryCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var referencedata = new ReferenceData();
-		///   var behaviorCategoryCollection = referencedata.GetBehaviorCategories();
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Core.BehaviorCategoryCollection GetBehaviorCategories()
-		{
-			MozuClient<Mozu.Api.Contracts.Core.BehaviorCategoryCollection> response;
-			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetBehaviorCategoriesClient();
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
-
-		public virtual async Task<Mozu.Api.Contracts.Core.BehaviorCategoryCollection> GetBehaviorCategoriesAsync()
-		{
-			MozuClient<Mozu.Api.Contracts.Core.BehaviorCategoryCollection> response;
-			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetBehaviorCategoriesClient();
-			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
-			return await response.ResultAsync();
-
-		}
-
-		/// <summary>
-		/// Retrieves the details of the behavior category specified in the request.
-		/// </summary>
-		/// <param name="categoryId">Unique identifier of the behavior category.</param>
+		/// <param name="categoryId">***Always private and should not be published.***</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Core.BehaviorCategory"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var referencedata = new ReferenceData();
-		///   var behaviorCategory = referencedata.GetBehaviorCategory( categoryId);
+		///   var behaviorCategory = referencedata.GetBehaviorCategory( categoryId,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Core.BehaviorCategory GetBehaviorCategory(int categoryId)
+		public virtual Mozu.Api.Contracts.Core.BehaviorCategory GetBehaviorCategory(int categoryId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Core.BehaviorCategory> response;
-			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetBehaviorCategoryClient( categoryId);
+			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetBehaviorCategoryClient( categoryId,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
 
 		}
 
-		public virtual async Task<Mozu.Api.Contracts.Core.BehaviorCategory> GetBehaviorCategoryAsync(int categoryId)
+		public virtual async Task<Mozu.Api.Contracts.Core.BehaviorCategory> GetBehaviorCategoryAsync(int categoryId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Core.BehaviorCategory> response;
-			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetBehaviorCategoryClient( categoryId);
+			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetBehaviorCategoryClient( categoryId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -210,33 +181,68 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
-		/// Retrieves a list of application behaviors.
+		/// ***Always private and should not be published.***
 		/// </summary>
-		/// <param name="userType">The user type associated with the behaviors to retrieve.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Core.BehaviorCollection"/>
+		/// <see cref="Mozu.Api.Contracts.Core.BehaviorCategoryCollection"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var referencedata = new ReferenceData();
-		///   var behaviorCollection = referencedata.GetBehaviors( userType);
+		///   var behaviorCategoryCollection = referencedata.GetBehaviorCategories( responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Core.BehaviorCollection GetBehaviors(string userType =  null)
+		public virtual Mozu.Api.Contracts.Core.BehaviorCategoryCollection GetBehaviorCategories(string responseFields =  null)
 		{
-			MozuClient<Mozu.Api.Contracts.Core.BehaviorCollection> response;
-			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetBehaviorsClient( userType);
+			MozuClient<Mozu.Api.Contracts.Core.BehaviorCategoryCollection> response;
+			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetBehaviorCategoriesClient( responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
 
 		}
 
-		public virtual async Task<Mozu.Api.Contracts.Core.BehaviorCollection> GetBehaviorsAsync(string userType =  null)
+		public virtual async Task<Mozu.Api.Contracts.Core.BehaviorCategoryCollection> GetBehaviorCategoriesAsync(string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Core.BehaviorCategoryCollection> response;
+			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetBehaviorCategoriesClient( responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// ***Always private and should not be published.***
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="userType"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Core.BehaviorCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var referencedata = new ReferenceData();
+		///   var behaviorCollection = referencedata.GetBehaviors( userType,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Core.BehaviorCollection GetBehaviors(string userType =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Core.BehaviorCollection> response;
-			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetBehaviorsClient( userType);
+			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetBehaviorsClient( userType,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		public virtual async Task<Mozu.Api.Contracts.Core.BehaviorCollection> GetBehaviorsAsync(string userType =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Core.BehaviorCollection> response;
+			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetBehaviorsClient( userType,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -246,30 +252,31 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// Retrieves the list of content locales the system supports. Content locales indicate the language used and the country where the language is used.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Reference.ContentLocaleCollection"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var referencedata = new ReferenceData();
-		///   var contentLocaleCollection = referencedata.GetContentLocales();
+		///   var contentLocaleCollection = referencedata.GetContentLocales( responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Reference.ContentLocaleCollection GetContentLocales()
+		public virtual Mozu.Api.Contracts.Reference.ContentLocaleCollection GetContentLocales(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Reference.ContentLocaleCollection> response;
-			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetContentLocalesClient();
+			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetContentLocalesClient( responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
 
 		}
 
-		public virtual async Task<Mozu.Api.Contracts.Reference.ContentLocaleCollection> GetContentLocalesAsync()
+		public virtual async Task<Mozu.Api.Contracts.Reference.ContentLocaleCollection> GetContentLocalesAsync(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Reference.ContentLocaleCollection> response;
-			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetContentLocalesClient();
+			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetContentLocalesClient( responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -279,30 +286,31 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// Retrieves the entire list of countries that the system supports.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Reference.CountryCollection"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var referencedata = new ReferenceData();
-		///   var countryCollection = referencedata.GetCountries();
+		///   var countryCollection = referencedata.GetCountries( responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Reference.CountryCollection GetCountries()
+		public virtual Mozu.Api.Contracts.Reference.CountryCollection GetCountries(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Reference.CountryCollection> response;
-			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetCountriesClient();
+			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetCountriesClient( responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
 
 		}
 
-		public virtual async Task<Mozu.Api.Contracts.Reference.CountryCollection> GetCountriesAsync()
+		public virtual async Task<Mozu.Api.Contracts.Reference.CountryCollection> GetCountriesAsync(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Reference.CountryCollection> response;
-			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetCountriesClient();
+			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetCountriesClient( responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -312,30 +320,31 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// Retrieves the entire list of currencies that the system supports.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Reference.CurrencyCollection"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var referencedata = new ReferenceData();
-		///   var currencyCollection = referencedata.GetCurrencies();
+		///   var currencyCollection = referencedata.GetCurrencies( responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Reference.CurrencyCollection GetCurrencies()
+		public virtual Mozu.Api.Contracts.Reference.CurrencyCollection GetCurrencies(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Reference.CurrencyCollection> response;
-			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetCurrenciesClient();
+			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetCurrenciesClient( responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
 
 		}
 
-		public virtual async Task<Mozu.Api.Contracts.Reference.CurrencyCollection> GetCurrenciesAsync()
+		public virtual async Task<Mozu.Api.Contracts.Reference.CurrencyCollection> GetCurrenciesAsync(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Reference.CurrencyCollection> response;
-			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetCurrenciesClient();
+			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetCurrenciesClient( responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -345,30 +354,31 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// Retrieves the entire list of time zones that the system supports.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Reference.TimeZoneCollection"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var referencedata = new ReferenceData();
-		///   var timeZoneCollection = referencedata.GetTimeZones();
+		///   var timeZoneCollection = referencedata.GetTimeZones( responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Reference.TimeZoneCollection GetTimeZones()
+		public virtual Mozu.Api.Contracts.Reference.TimeZoneCollection GetTimeZones(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Reference.TimeZoneCollection> response;
-			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetTimeZonesClient();
+			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetTimeZonesClient( responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
 
 		}
 
-		public virtual async Task<Mozu.Api.Contracts.Reference.TimeZoneCollection> GetTimeZonesAsync()
+		public virtual async Task<Mozu.Api.Contracts.Reference.TimeZoneCollection> GetTimeZonesAsync(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Reference.TimeZoneCollection> response;
-			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetTimeZonesClient();
+			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetTimeZonesClient( responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -378,30 +388,31 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// Retrieves the entire list of top-level internet domains that the system supports.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Reference.TopLevelDomainCollection"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var referencedata = new ReferenceData();
-		///   var topLevelDomainCollection = referencedata.GetTopLevelDomains();
+		///   var topLevelDomainCollection = referencedata.GetTopLevelDomains( responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Reference.TopLevelDomainCollection GetTopLevelDomains()
+		public virtual Mozu.Api.Contracts.Reference.TopLevelDomainCollection GetTopLevelDomains(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Reference.TopLevelDomainCollection> response;
-			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetTopLevelDomainsClient();
+			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetTopLevelDomainsClient( responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
 
 		}
 
-		public virtual async Task<Mozu.Api.Contracts.Reference.TopLevelDomainCollection> GetTopLevelDomainsAsync()
+		public virtual async Task<Mozu.Api.Contracts.Reference.TopLevelDomainCollection> GetTopLevelDomainsAsync(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Reference.TopLevelDomainCollection> response;
-			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetTopLevelDomainsClient();
+			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetTopLevelDomainsClient( responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -412,30 +423,31 @@ namespace Mozu.Api.Resources.Platform
 		/// Retrieves an array list of all units of measure the system supports.
 		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Reference.UnitOfMeasureCollection"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var referencedata = new ReferenceData();
-		///   var unitOfMeasureCollection = referencedata.GetUnitsOfMeasure( filter);
+		///   var unitOfMeasureCollection = referencedata.GetUnitsOfMeasure( filter,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Reference.UnitOfMeasureCollection GetUnitsOfMeasure(string filter =  null)
+		public virtual Mozu.Api.Contracts.Reference.UnitOfMeasureCollection GetUnitsOfMeasure(string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Reference.UnitOfMeasureCollection> response;
-			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetUnitsOfMeasureClient( filter);
+			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetUnitsOfMeasureClient( filter,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
 
 		}
 
-		public virtual async Task<Mozu.Api.Contracts.Reference.UnitOfMeasureCollection> GetUnitsOfMeasureAsync(string filter =  null)
+		public virtual async Task<Mozu.Api.Contracts.Reference.UnitOfMeasureCollection> GetUnitsOfMeasureAsync(string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Reference.UnitOfMeasureCollection> response;
-			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetUnitsOfMeasureClient( filter);
+			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetUnitsOfMeasureClient( filter,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

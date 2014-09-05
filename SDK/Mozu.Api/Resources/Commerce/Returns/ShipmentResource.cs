@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Returns
 {
 	/// <summary>
-	/// Use the Return Shipments subresource to manage shipments for a return replacement.
+	/// Use the return shipments subresource to manage shipments for a return replacement.
 	/// </summary>
 	public partial class ShipmentResource  	{
 		///

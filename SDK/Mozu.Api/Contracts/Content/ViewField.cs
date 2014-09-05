@@ -13,7 +13,7 @@ using System;
 
 namespace Mozu.Api.Contracts.Content
 {
-		public class ViewFields
+		public class ViewField
 		{
 			public bool IsQueryable { get; set; }
 

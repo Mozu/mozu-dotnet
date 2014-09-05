@@ -13,19 +13,10 @@ using System;
 
 namespace Mozu.Api.Contracts.Customer
 {
-		///
-		///	The authentication information required to generate an authentication ticket for a customer account.
-		///
 		public class CustomerUserAuthInfo
 		{
-			///
-			///The password of the user associated with the customer account.
-			///
 			public string Password { get; set; }
 
-			///
-			///The user name of the user associated with the customer account.
-			///
 			public string Username { get; set; }
 
 		}

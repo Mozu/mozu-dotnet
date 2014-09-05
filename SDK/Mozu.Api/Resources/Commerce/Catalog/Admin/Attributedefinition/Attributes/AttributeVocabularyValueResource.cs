@@ -38,7 +38,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 
 				
 		/// <summary>
-		/// Retrieves a list of vocabulary values defined for the attribute specified in the request.
+		/// Retrieves a list of attribute vocabulary values. To target a query, use one or several valid optional response groups.
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
@@ -147,7 +147,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		}
 
 		/// <summary>
-		/// Retrieves the details of a vocabulary value defined for an attribute by providing the attribute's fully qualified name and the value to retrieve.
+		/// Retrieves an attribute vocabulary value by providing the attribute FQN and value.
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="responseFields"></param>
@@ -222,7 +222,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		}
 
 		/// <summary>
-		/// Creates a vocabulary value for a defined product attribute.
+		/// Adds a new attribute vocabulary value.
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="responseFields"></param>

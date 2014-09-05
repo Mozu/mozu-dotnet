@@ -79,7 +79,7 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		/// </summary>
 		/// <param name="documentListName">The name of the document list associated with the document.</param>
 		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
-		/// <param name="stream">Input output stream that delivers information.</param>
+		/// <param name="stream"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
@@ -106,7 +106,7 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		/// </summary>
 		/// <param name="documentListName">The name of the document list associated with the document.</param>
 		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
-		/// <param name="stream">Input output stream that delivers information.</param>
+		/// <param name="stream"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

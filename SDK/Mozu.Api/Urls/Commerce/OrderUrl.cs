@@ -61,7 +61,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetTaxableOrders
         /// </summary>
-        /// <param name="orderId">Unique identifier of the order to retrieve.</param>
+        /// <param name="orderId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

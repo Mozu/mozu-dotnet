@@ -33,9 +33,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public bool? IsActive { get; set; }
 
-			///
-			///If true, this product cannot ship in a package with other products and must ship in a package by itself.
-			///
 			public bool? IsPackagedStandAlone { get; set; }
 
 			///
@@ -67,9 +64,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public string ProductType { get; set; }
 
-			///
-			///The usage type that applies to this product, which is Standard (a single product without configurable options), Configurable (a product that includes configurable option attributes), Bundle (a collection of products sold as a single entity), or Component (an invididual product that represents a component in a bundle).
-			///
 			public string ProductUsage { get; set; }
 
 			///
@@ -78,7 +72,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string PublishState { get; set; }
 
 			///
-			///The universal product code associated with the product. The UPC of a product is unique across all sales channels.
+			///The universal product code (UPC code) of the product.
 			///
 			public string Upc { get; set; }
 
@@ -94,9 +88,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public List<Discount> AvailableShippingDiscounts { get; set; }
 
-			///
-			///Properties of a collection of component products that make up a single product bundle with its own product code.
-			///
 			public List<BundledProduct> BundledProducts { get; set; }
 
 			///
@@ -125,7 +116,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public List<ProductOption> Options { get; set; }
 
 			///
-			///Unit price that the tenant intends to sell the product if no sale price is set.
+			///Price that the merchant intends to sell the product which is not necessarily the list price. This is the price the merchant intends to sell the product if no sale price is present.
 			///
 			public ProductPrice Price { get; set; }
 
@@ -137,7 +128,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public ProductPricingBehaviorInfo PricingBehavior { get; set; }
 
 			///
-			///The list of product property attributes defined for the product.
+			///The list of product properties set up in product admin.
 			///
 			public List<ProductProperty> Properties { get; set; }
 

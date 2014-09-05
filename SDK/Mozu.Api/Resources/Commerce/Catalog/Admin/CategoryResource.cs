@@ -76,9 +76,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Retrieves the list of subcategories within a category.
+		/// Retrieves the subcategories of a category. This is a list of subcategories at the same level (siblings). Use a list of siblings, for example, to display the categories in a horizontal list.
 		/// </summary>
-		/// <param name="categoryId">Unique identifier of the category for which to retrieve subcategories.</param>
+		/// <param name="categoryId">Unique identifier of the category whose subcategories are retrieved.</param>
 		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.CategoryCollection"/>
@@ -146,11 +146,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Adds a new category to the site's category hierarchy. Specify a ParentCategoryID to determine where to place the category in the hierarchy. If no ParentCategoryID is specified, the new category is a top-level category.
+		/// Adds a new category to the site's category hierarchy. Specify a ParentCategoryID to determine where to locate the category in the hierarchy. If a ParentCategoryID is not specified, the new category becomes a top-level category.
 		/// </summary>
 		/// <param name="incrementSequence"></param>
 		/// <param name="responseFields"></param>
-		/// <param name="category">Properties of the new category to create. You must specify a name and parent category if you want to create it as a subcategory.</param>
+		/// <param name="category">Properties of the new category. Required properties: ParentCategoryID and Content.Name.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Category"/>
 		/// </returns>
@@ -182,7 +182,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Update the properties of a defined category or move it to another location in the category hierarchy. Because this operation replaces the defined resource,include all the information to maintain for the category in the request.
+		/// Modifies a category such as moving it to another location in the category tree, or changing whether it is visible on the storefront. This PUT replaces the existing resource, so be sure to include all the information to maintain for the category.
 		/// </summary>
 		/// <param name="cascadeVisibility">If true, when changing the display option for the category, change it for all subcategories also. Default: False.</param>
 		/// <param name="categoryId">Unique identifier of the category to modify.</param>
@@ -221,7 +221,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// Deletes the category specified by its category ID.
 		/// </summary>
-		/// <param name="cascadeDelete">If true, also delete all subcategories associated with the specified category.</param>
+		/// <param name="cascadeDelete">If true, any subcategories of a category are deleted when this category is deleted. Default: False.</param>
 		/// <param name="categoryId">Unique identifier of the category to delete.</param>
 		/// <returns>
 		/// 

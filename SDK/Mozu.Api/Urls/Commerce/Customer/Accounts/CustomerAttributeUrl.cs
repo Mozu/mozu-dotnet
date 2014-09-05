@@ -20,7 +20,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// Get Resource Url for GetAccountAttribute
         /// </summary>
         /// <param name="accountId">Identifier of the customer account associated with the attribute to retrieve.</param>
-        /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+        /// <param name="attributeFQN"></param>
         /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url

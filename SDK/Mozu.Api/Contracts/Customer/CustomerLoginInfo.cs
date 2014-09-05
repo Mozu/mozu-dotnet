@@ -13,29 +13,14 @@ using System;
 
 namespace Mozu.Api.Contracts.Customer
 {
-		///
-		///	The login information for a customer account.
-		///
 		public class CustomerLoginInfo
 		{
-			///
-			///The email address associated with the customer login.
-			///
 			public string EmailAddress { get; set; }
 
-			///
-			///If true, this customer account data was imported from an external program.
-			///
 			public bool? IsImport { get; set; }
 
-			///
-			///The password associated with the customer login.
-			///
 			public string Password { get; set; }
 
-			///
-			///The user name associated with the customer login.
-			///
 			public string Username { get; set; }
 
 		}

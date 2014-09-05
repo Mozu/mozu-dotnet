@@ -28,9 +28,6 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public int OrderCount { get; set; }
 
-			///
-			///The number of visits to a site associated with a customer account.
-			///
 			public int VisitsCount { get; set; }
 
 			///
