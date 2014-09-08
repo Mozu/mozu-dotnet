@@ -35,7 +35,7 @@ namespace Mozu.Api.Resources.Content
 
 		public PropertyTypeResource CloneWithApiContext(Action<IApiContext> contextModification) 
 		{
-			return new PropertyTypeResource(_apiContext.CloneWith(contextModification));
+			return new PropertyTypeResource(_apiContext.CloneWith(contextModification), _dataViewMode);
 		}
 
 		public PropertyTypeResource(IApiContext apiContext, DataViewMode dataViewMode) 
