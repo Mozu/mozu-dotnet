@@ -49,7 +49,7 @@ namespace Mozu.Api.WebToolKit.Logging
             {
                 if (_logger.IsDebugEnabled)
                 {
-                    if (response.IsSuccessStatusCode)
+                    if (response.IsSuccessStatusCode && response.Content != null)
                         _logger.Debug(response.Content.ReadAsStringAsync().Result);
 
                     _logger.Debug(String.Format("End Time: {0}", DateTime.Now));
