@@ -146,9 +146,9 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		}
 
 		/// <summary>
-		/// Associates an unclaimed customer credit with the shopper user authenticated in the request header.
+		/// 
 		/// </summary>
-		/// <param name="code">The code that represents the credit to claim for the shopper.</param>
+		/// <param name="code"></param>
 		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Credit.Credit"/>

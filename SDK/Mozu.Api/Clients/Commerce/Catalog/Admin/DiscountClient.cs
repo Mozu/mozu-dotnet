@@ -127,10 +127,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Creates a new discount or coupon to apply to a product, category, order, or shipping.
+		/// Creates a discount.
 		/// </summary>
 		/// <param name="responseFields"></param>
-		/// <param name="discount">Properties of the discount to create. You must specify the discount name, amount type, start date, and target.</param>
+		/// <param name="discount">Properties of the discount to create. Required properties: Content.Name, AmountType, StartDate, and Target.Type.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Discount"/>}
 		/// </returns>
@@ -152,11 +152,11 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Updates the localizable content for the specified discount or rename the discount without modifying its other properties.
+		/// Modifies the localized content for the specified discount. Rename the discount without modifying any other discount properties.
 		/// </summary>
 		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
 		/// <param name="responseFields"></param>
-		/// <param name="content">The discount content to update, including the discount name.</param>
+		/// <param name="content">New Name and/or LocaleCode. Properties of the content to update. Required property: Name.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent"/>}
 		/// </returns>
@@ -178,11 +178,11 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Updates one or more properties of a defined discount.
+		/// Modifies a discount.
 		/// </summary>
-		/// <param name="discountId">Unique identifier of the discount to update.</param>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
 		/// <param name="responseFields"></param>
-		/// <param name="discount">Properties of the discount to update.</param>
+		/// <param name="discount">Properties of the discount to update. Required properties: Content.Name, AmountType, StartDate, and Target.Type. Any unspecified properties are set to null and boolean variables are set to false.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Discount"/>}
 		/// </returns>

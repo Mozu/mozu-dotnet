@@ -163,7 +163,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="locationCode">User-defined code that uniquely identifies the location.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="locationInventoryAdjustments">Properties of the inventory adjustments to perform for the specified location.</param>
+		/// <param name="locationInventoryAdjustments"></param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.LocationInventory"/>}
 		/// </returns>

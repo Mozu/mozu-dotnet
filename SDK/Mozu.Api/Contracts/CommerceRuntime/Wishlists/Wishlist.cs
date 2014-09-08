@@ -39,7 +39,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			public int? CustomerAccountId { get; set; }
 
 			///
-			///The interaction type the shopper uses to create the wish list, which is Website, Store, Call, or Unknown. This property is not used at this time and is reserved for future functionality.
+			///The interaction type the shopper uses to create the wish list, wich is Website, Store, Call, or Unknown. This property is not used at this time and is reserved for future functionality.
 			///
 			public string CustomerInteractionType { get; set; }
 
@@ -54,7 +54,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			public decimal? DiscountedTotal { get; set; }
 
 			///
-			///Estimated amount of discounts applied to all items in the wish list, which is system-supplied and read-only.   This property value is not calculated at this time and is reserved for future functionality.
+			///Estimated amount of discounts applied to all items in the wish list, which is system-supplied and read-only.                                This property value is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? DiscountTotal { get; set; }
 
@@ -63,9 +63,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			///
 			public DateTime? ExpirationDate { get; set; }
 
-			///
-			///The identifier an external program uses to identify the Mozu wish list.
-			///
 			public string ExternalId { get; set; }
 
 			///
@@ -83,14 +80,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			///
 			public string Id { get; set; }
 
-			///
-			///If this wish list was imported from an external program, the date and time the wish list was imported.
-			///
 			public DateTime? ImportDate { get; set; }
 
-			///
-			///If true, this wish list was imported from an external program.
-			///
 			public bool? IsImport { get; set; }
 
 			///

@@ -30,7 +30,7 @@ namespace Mozu.Api.Test.Factories
 	{
 
 		/// <summary> 
-		/// Retrieves a list of vocabulary values defined for the attribute specified in the request.
+		/// Retrieves a list of attribute vocabulary values. To target a query, use one or several valid optional response groups.
 		/// <example> 
 		///  <code> 
 		/// var result = AttributeVocabularyValueFactory.GetAttributeVocabularyValues(handler : handler,  attributeFQN :  attributeFQN,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves the details of a vocabulary value defined for an attribute by providing the attribute's fully qualified name and the value to retrieve.
+		/// Retrieves an attribute vocabulary value by providing the attribute FQN and value.
 		/// <example> 
 		///  <code> 
 		/// var result = AttributeVocabularyValueFactory.GetAttributeVocabularyValue(handler : handler,  attributeFQN :  attributeFQN,  value :  value,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -220,7 +220,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Creates a vocabulary value for a defined product attribute.
+		/// Adds a new attribute vocabulary value.
 		/// <example> 
 		///  <code> 
 		/// var result = AttributeVocabularyValueFactory.AddAttributeVocabularyValue(handler : handler,  attributeVocabularyValue :  attributeVocabularyValue,  attributeFQN :  attributeFQN,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

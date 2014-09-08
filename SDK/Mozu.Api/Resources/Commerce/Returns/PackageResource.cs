@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Returns
 {
 	/// <summary>
-	/// Use the Return Packages subresource to manage physical packages used to ship return replacement items.
+	/// Use the return packages subresource to manage physical packages used to ship return replacement items.
 	/// </summary>
 	public partial class PackageResource  	{
 		///

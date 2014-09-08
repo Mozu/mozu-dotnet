@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Customer In-Stock Notification Subscription resource to manage the subscriptions customer accounts use to send product notifications. This resource can send a notification when a product in a catalog returns to a site's active inventory after it is out of stock, or when a new product becomes available for the first time.
+	/// 
 	/// </summary>
 	public partial class InStockNotificationSubscriptionFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves a list of in-stock notification subscriptions.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = InStockNotificationSubscriptionFactory.GetInStockNotificationSubscriptions(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves the details of a subscription that sends a push notification when a product is available in a site's active stock.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = InStockNotificationSubscriptionFactory.GetInStockNotificationSubscription(handler : handler,  id :  id,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Creates a new subscription that notifies the customer when the product specified in the request is available in the active inventory of the defined location.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = InStockNotificationSubscriptionFactory.AddInStockNotificationSubscription(handler : handler,  inStockNotificationSubscription :  inStockNotificationSubscription,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Deletes a subscription for a customer in-stock notification.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = InStockNotificationSubscriptionFactory.DeleteInStockNotificationSubscription(handler : handler,  id :  id,  expectedCode: expectedCode, successCode: successCode); 

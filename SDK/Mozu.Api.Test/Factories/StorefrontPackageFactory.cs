@@ -24,7 +24,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Packages subresource to manage the physical packages to ship for an order.
+	/// Use the packages subresource to manage the physical packages to ship for an order.
 	/// </summary>
 	public partial class StorefrontPackageFactory : BaseDataFactory
 	{

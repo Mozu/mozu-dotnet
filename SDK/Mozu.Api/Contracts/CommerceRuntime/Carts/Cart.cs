@@ -30,9 +30,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 
 			public List<string> CouponCodes { get; set; }
 
-			///
-			///3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
-			///
 			public string CurrencyCode { get; set; }
 
 			///

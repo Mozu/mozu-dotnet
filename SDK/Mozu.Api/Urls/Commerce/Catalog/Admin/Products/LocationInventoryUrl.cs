@@ -45,7 +45,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         /// Get Resource Url for GetLocationInventory
         /// </summary>
         /// <param name="locationCode">User-defined code that identifies the location.</param>
-        /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+        /// <param name="productCode"></param>
         /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
@@ -64,7 +64,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         /// Get Resource Url for AddLocationInventory
         /// </summary>
         /// <param name="performUpserts"></param>
-        /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+        /// <param name="productCode">ProductCodeBase</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

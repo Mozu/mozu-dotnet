@@ -14,7 +14,7 @@ using System;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	The site category to which a product belongs.
+		///	The category to which a product belongs.
 		///
 		public class ProductCategory
 		{

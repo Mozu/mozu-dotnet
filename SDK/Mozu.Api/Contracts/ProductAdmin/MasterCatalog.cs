@@ -18,9 +18,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class MasterCatalog
 		{
-			///
-			///The unique identifier of the master catalog associated with the entity.
-			///
 			public int Id { get; set; }
 
 			public bool IsDeleted { get; set; }

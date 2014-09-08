@@ -13,14 +13,8 @@ using System;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
-		///
-		///	Properties of a customer segment used to group sets of customers for targeted reporting and discounts.
-		///
 		public class CustomerSegment
 		{
-			///
-			///Unique identifier of the customer segment.
-			///
 			public int Id { get; set; }
 
 		}

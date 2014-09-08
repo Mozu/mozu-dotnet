@@ -25,12 +25,10 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		///
 		private readonly IApiContext _apiContext;
 
-		private readonly DataViewMode _dataViewMode;
 		
 		public ViewResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
-			_dataViewMode = DataViewMode.Live;
 		}
 
 		public ViewResource CloneWithApiContext(Action<IApiContext> contextModification) 
@@ -38,11 +36,6 @@ namespace Mozu.Api.Resources.Content.Documentlists
 			return new ViewResource(_apiContext.CloneWith(contextModification));
 		}
 
-		public ViewResource(IApiContext apiContext, DataViewMode dataViewMode) 
-		{
-			_apiContext = apiContext;
-			_dataViewMode = dataViewMode;
-		}
 				
 		/// <summary>
 		/// 
@@ -78,148 +71,6 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentCollection> response;
 			var client = Mozu.Api.Clients.Content.Documentlists.ViewClient.GetViewDocumentsClient( documentListName,  viewName,  filter,  sortBy,  pageSize,  startIndex,  responseFields);
-			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
-			return await response.ResultAsync();
-
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="documentListName"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="viewName"></param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Content.View"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var view = new View();
-		///   var view = view.GetDocumentListView(_dataViewMode,  documentListName,  viewName,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Content.View GetDocumentListView(string documentListName, string viewName, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Content.View> response;
-			var client = Mozu.Api.Clients.Content.Documentlists.ViewClient.GetDocumentListViewClient(_dataViewMode,  documentListName,  viewName,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
-
-		public virtual async Task<Mozu.Api.Contracts.Content.View> GetDocumentListViewAsync(string documentListName, string viewName, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Content.View> response;
-			var client = Mozu.Api.Clients.Content.Documentlists.ViewClient.GetDocumentListViewClient(_dataViewMode,  documentListName,  viewName,  responseFields);
-			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
-			return await response.ResultAsync();
-
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="documentListName"></param>
-		/// <param name="responseFields"></param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Content.ViewCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var view = new View();
-		///   var viewCollection = view.GetDocumentListViews(_dataViewMode,  documentListName,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Content.ViewCollection GetDocumentListViews(string documentListName, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Content.ViewCollection> response;
-			var client = Mozu.Api.Clients.Content.Documentlists.ViewClient.GetDocumentListViewsClient(_dataViewMode,  documentListName,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
-
-		public virtual async Task<Mozu.Api.Contracts.Content.ViewCollection> GetDocumentListViewsAsync(string documentListName, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Content.ViewCollection> response;
-			var client = Mozu.Api.Clients.Content.Documentlists.ViewClient.GetDocumentListViewsClient(_dataViewMode,  documentListName,  responseFields);
-			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
-			return await response.ResultAsync();
-
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="documentListName"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="viewName"></param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Content.View"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var view = new View();
-		///   var view = view.UpdateDocumentListView( documentListName,  viewName,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Content.View UpdateDocumentListView(string documentListName, string viewName, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Content.View> response;
-			var client = Mozu.Api.Clients.Content.Documentlists.ViewClient.UpdateDocumentListViewClient( documentListName,  viewName,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
-
-		public virtual async Task<Mozu.Api.Contracts.Content.View> UpdateDocumentListViewAsync(string documentListName, string viewName, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Content.View> response;
-			var client = Mozu.Api.Clients.Content.Documentlists.ViewClient.UpdateDocumentListViewClient( documentListName,  viewName,  responseFields);
-			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
-			return await response.ResultAsync();
-
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="documentListName"></param>
-		/// <param name="viewName"></param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Content.View"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var view = new View();
-		///   var view = view.DeleteDocumentListView( documentListName,  viewName);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Content.View DeleteDocumentListView(string documentListName, string viewName)
-		{
-			MozuClient<Mozu.Api.Contracts.Content.View> response;
-			var client = Mozu.Api.Clients.Content.Documentlists.ViewClient.DeleteDocumentListViewClient( documentListName,  viewName);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
-
-		public virtual async Task<Mozu.Api.Contracts.Content.View> DeleteDocumentListViewAsync(string documentListName, string viewName)
-		{
-			MozuClient<Mozu.Api.Contracts.Content.View> response;
-			var client = Mozu.Api.Clients.Content.Documentlists.ViewClient.DeleteDocumentListViewClient( documentListName,  viewName);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

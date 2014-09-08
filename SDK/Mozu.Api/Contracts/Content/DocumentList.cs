@@ -12,7 +12,6 @@ using System;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
-using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.Content
 {
@@ -24,7 +23,7 @@ namespace Mozu.Api.Contracts.Content
 			public string DocumentListType { get; set; }
 
 			///
-			///List of document types associated with this document list.
+			///A document type is a template.
 			///
 			public List<string> DocumentTypes { get; set; }
 

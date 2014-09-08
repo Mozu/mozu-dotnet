@@ -74,7 +74,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 				/// <summary>
         /// Get Resource Url for AssociateCreditToShopper
         /// </summary>
-        /// <param name="code">The code that represents the credit to claim for the shopper.</param>
+        /// <param name="code"></param>
         /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url

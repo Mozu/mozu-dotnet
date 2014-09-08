@@ -17,12 +17,12 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Commerce.Admin
 {
 	/// <summary>
-	/// Use the Location Types resource to manage the types of locations your tenant maintains, such as warehouses, physical storefronts, and kiosks.
+	/// 
 	/// </summary>
 	public partial class LocationTypeClient 	{
 		
 		/// <summary>
-		/// Retrieve a list of all location types defined for the tenant.
+		/// 
 		/// </summary>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.Location.LocationType"/>}}
@@ -45,21 +45,22 @@ namespace Mozu.Api.Clients.Commerce.Admin
 		}
 
 		/// <summary>
-		/// Retrieves the details of the location type specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="locationTypeCode">The user-defined code that identifies the location type.</param>
+		/// <param name="locationTypeCode"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Location.LocationType"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetLocationType( locationTypeCode);
+		///   var mozuClient=GetLocationType( locationTypeCode,  responseFields);
 		///   var locationTypeClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Location.LocationType> GetLocationTypeClient(string locationTypeCode)
+		public static MozuClient<Mozu.Api.Contracts.Location.LocationType> GetLocationTypeClient(string locationTypeCode, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Admin.LocationTypeUrl.GetLocationTypeUrl(locationTypeCode);
+			var url = Mozu.Api.Urls.Commerce.Admin.LocationTypeUrl.GetLocationTypeUrl(locationTypeCode, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Location.LocationType>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -69,21 +70,22 @@ namespace Mozu.Api.Clients.Commerce.Admin
 		}
 
 		/// <summary>
-		/// Creates a new location type based on the information specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="locationType">Properties of the location type to create.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="locationType"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Location.LocationType"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddLocationType( locationType);
+		///   var mozuClient=AddLocationType( locationType,  responseFields);
 		///   var locationTypeClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Location.LocationType> AddLocationTypeClient(Mozu.Api.Contracts.Location.LocationType locationType)
+		public static MozuClient<Mozu.Api.Contracts.Location.LocationType> AddLocationTypeClient(Mozu.Api.Contracts.Location.LocationType locationType, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Admin.LocationTypeUrl.AddLocationTypeUrl();
+			var url = Mozu.Api.Urls.Commerce.Admin.LocationTypeUrl.AddLocationTypeUrl(responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Location.LocationType>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -93,22 +95,23 @@ namespace Mozu.Api.Clients.Commerce.Admin
 		}
 
 		/// <summary>
-		/// Updates the name of a defined location type.
+		/// 
 		/// </summary>
-		/// <param name="locationTypeCode">The user-defined code that identifies the location type.</param>
-		/// <param name="locationType">Properties of the location type to update.</param>
+		/// <param name="locationTypeCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="locationType"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Location.LocationType"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateLocationType( locationType,  locationTypeCode);
+		///   var mozuClient=UpdateLocationType( locationType,  locationTypeCode,  responseFields);
 		///   var locationTypeClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Location.LocationType> UpdateLocationTypeClient(Mozu.Api.Contracts.Location.LocationType locationType, string locationTypeCode)
+		public static MozuClient<Mozu.Api.Contracts.Location.LocationType> UpdateLocationTypeClient(Mozu.Api.Contracts.Location.LocationType locationType, string locationTypeCode, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Admin.LocationTypeUrl.UpdateLocationTypeUrl(locationTypeCode);
+			var url = Mozu.Api.Urls.Commerce.Admin.LocationTypeUrl.UpdateLocationTypeUrl(locationTypeCode, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Location.LocationType>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -118,9 +121,9 @@ namespace Mozu.Api.Clients.Commerce.Admin
 		}
 
 		/// <summary>
-		/// Deletes the location type specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="locationTypeCode">User-defined code used to identify the location type.</param>
+		/// <param name="locationTypeCode"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

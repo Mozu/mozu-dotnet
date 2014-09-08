@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Location Types resource to manage the types of locations your tenant maintains, such as warehouses, physical storefronts, and kiosks.
+	/// 
 	/// </summary>
 	public partial class LocationTypeFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieve a list of all location types defined for the tenant.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = LocationTypeFactory.GetLocationTypes(handler : handler,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,17 +68,17 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves the details of the location type specified in the request.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = LocationTypeFactory.GetLocationType(handler : handler,  locationTypeCode :  locationTypeCode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = LocationTypeFactory.GetLocationType(handler : handler,  locationTypeCode :  locationTypeCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<LocationType/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Location.LocationType GetLocationType(ServiceClientMessageHandler handler, 
- 		 string locationTypeCode, 
+ 		 string locationTypeCode, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -86,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Admin.LocationTypeClient.GetLocationTypeClient(
-				 locationTypeCode :  locationTypeCode		);
+				 locationTypeCode :  locationTypeCode,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -106,17 +106,17 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Creates a new location type based on the information specified in the request.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = LocationTypeFactory.AddLocationType(handler : handler,  locationType :  locationType,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = LocationTypeFactory.AddLocationType(handler : handler,  locationType :  locationType,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<LocationType/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Location.LocationType AddLocationType(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.Location.LocationType locationType, 
+ 		 Mozu.Api.Contracts.Location.LocationType locationType, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -124,7 +124,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Admin.LocationTypeClient.AddLocationTypeClient(
-				 locationType :  locationType		);
+				 locationType :  locationType,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -144,17 +144,17 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates the name of a defined location type.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = LocationTypeFactory.UpdateLocationType(handler : handler,  locationType :  locationType,  locationTypeCode :  locationTypeCode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = LocationTypeFactory.UpdateLocationType(handler : handler,  locationType :  locationType,  locationTypeCode :  locationTypeCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<LocationType/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Location.LocationType UpdateLocationType(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.Location.LocationType locationType, string locationTypeCode, 
+ 		 Mozu.Api.Contracts.Location.LocationType locationType, string locationTypeCode, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -162,7 +162,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Admin.LocationTypeClient.UpdateLocationTypeClient(
-				 locationType :  locationType,  locationTypeCode :  locationTypeCode		);
+				 locationType :  locationType,  locationTypeCode :  locationTypeCode,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Deletes the location type specified in the request.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = LocationTypeFactory.DeleteLocationType(handler : handler,  locationTypeCode :  locationTypeCode,  expectedCode: expectedCode, successCode: successCode); 

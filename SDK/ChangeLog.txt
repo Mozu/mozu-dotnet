@@ -1,0 +1,775 @@
+Events
+0.    Added - Attribute.Attribute Created
+1.    Added - Attribute.Attribute Deleted
+2.    Added - Attribute.Attribute Updated
+3.    Added - Discount.Discount Expired
+4.    Added - Facet.Facet Created
+5.    Added - Facet.Facet Deleted
+6.    Added - Facet.Facet Updated
+7.    Added - MZDB.MzdbEntity Created
+8.    Added - MZDB.MzdbEntity Deleted
+9.    Added - MZDB.MzdbEntity Updated
+10.    Added - Order.Order Abandoned
+11.    Added - ProductType.ProductType Created
+12.    Added - ProductType.ProductType Deleted
+13.    Added - ProductType.ProductType Updated
+14.    Added - SearchSettings.SearchSettings Updated
+
+Operation Params
+0.    Added - commerce.admin.locations.AddLocation- Param : responseFields
+1.    Added - commerce.admin.locations.GetLocation- Param : responseFields
+2.    Added - commerce.admin.locations.UpdateLocation- Param : responseFields
+3.    Added - commerce.admin.locations.GetLocations- Param : responseFields
+4.    Added - commerce.admin.locationtypes.AddLocationType- Param : responseFields
+5.    Added - commerce.admin.locationtypes.GetLocationType- Param : responseFields
+6.    Added - commerce.admin.locationtypes.UpdateLocationType- Param : responseFields
+7.    Added - commerce.carts.cartcoupons.ApplyCoupon- Param : responseFields
+8.    Added - commerce.carts.cartitems.GetCartItems- Param : responseFields
+9.    Added - commerce.carts.cartitems.AddItemToCart- Param : responseFields
+10.    Added - commerce.carts.cartitems.GetCartItem- Param : responseFields
+11.    Added - commerce.carts.cartitems.UpdateCartItem- Param : responseFields
+12.    Added - commerce.carts.cartitems.UpdateCartItemQuantity- Param : responseFields
+13.    Added - commerce.carts.messages.GetMessages- Param : responseFields
+14.    Added - commerce.carts.GetCartSummary- Param : responseFields
+15.    Added - commerce.carts.GetOrCreateCart- Param : responseFields
+16.    Added - commerce.carts.GetCart- Param : responseFields
+17.    Added - commerce.carts.GetUserCart- Param : responseFields
+18.    Added - commerce.carts.GetUserCartSummary- Param : responseFields
+19.    Added - commerce.carts.UpdateCart- Param : responseFields
+20.    Added - commerce.catalog.admin.attributedefinition.attributes.localizedcontent.DeleteLocalizedContent- Param : attributeFQN
+21.    Added - commerce.catalog.admin.attributedefinition.attributes.localizedcontent.GetAttributeLocalizedContent- Param : attributeFQN
+22.    Added - commerce.catalog.admin.attributedefinition.attributes.localizedcontent.GetAttributeLocalizedContents- Param : attributeFQN
+23.    Added - commerce.catalog.admin.attributedefinition.attributes.localizedcontent.AddLocalizedContent- Param : attributeFQN
+24.    Added - commerce.catalog.admin.attributedefinition.attributes.localizedcontent.UpdateLocalizedContent- Param : attributeFQN
+25.    Added - commerce.catalog.admin.attributedefinition.attributes.localizedcontent.UpdateLocalizedContents- Param : attributeFQN
+26.    Added - commerce.catalog.admin.attributedefinition.attributes.localizedcontent.DeleteLocalizedContent- Param : localeCode
+27.    Added - commerce.catalog.admin.attributedefinition.attributes.localizedcontent.GetAttributeLocalizedContent- Param : localeCode
+28.    Added - commerce.catalog.admin.attributedefinition.attributes.localizedcontent.UpdateLocalizedContent- Param : localeCode
+29.    Added - commerce.catalog.admin.attributedefinition.attributes.localizedcontent.AddLocalizedContent- Param : localizedContent
+30.    Added - commerce.catalog.admin.attributedefinition.attributes.localizedcontent.UpdateLocalizedContent- Param : localizedContent
+31.    Added - commerce.catalog.admin.attributedefinition.attributes.localizedcontent.UpdateLocalizedContents- Param : localizedContent
+32.    Added - commerce.catalog.admin.attributedefinition.attributes.localizedcontent.AddLocalizedContent- Param : responseFields
+33.    Added - commerce.catalog.admin.attributedefinition.attributes.localizedcontent.GetAttributeLocalizedContent- Param : responseFields
+34.    Added - commerce.catalog.admin.attributedefinition.attributes.localizedcontent.UpdateLocalizedContent- Param : responseFields
+35.    Added - commerce.catalog.admin.attributedefinition.attributes.AddAttribute- Param : responseFields
+36.    Added - commerce.catalog.admin.attributedefinition.attributes.GetAttribute- Param : responseFields
+37.    Added - commerce.catalog.admin.attributedefinition.attributes.RegisterNamespace- Param : responseFields
+38.    Added - commerce.catalog.admin.attributedefinition.attributes.UpdateAttribute- Param : responseFields
+39.    Added - commerce.catalog.admin.attributedefinition.attributes.GetAttributes- Param : responseFields
+40.    Added - commerce.catalog.admin.attributedefinition.attributes.typerules.GetAttributeTypeRules- Param : responseFields
+41.    Added - commerce.catalog.admin.attributedefinition.attributes.vocabularyvalues.DeleteAttributeVocabularyValueLocalizedContent- Param : localeCode
+42.    Added - commerce.catalog.admin.attributedefinition.attributes.vocabularyvalues.GetAttributeVocabularyValueLocalizedContent- Param : localeCode
+43.    Added - commerce.catalog.admin.attributedefinition.attributes.vocabularyvalues.UpdateAttributeVocabularyValueLocalizedContent- Param : localeCode
+44.    Added - commerce.catalog.admin.attributedefinition.attributes.vocabularyvalues.AddAttributeVocabularyValueLocalizedContent- Param : localizedContent
+45.    Added - commerce.catalog.admin.attributedefinition.attributes.vocabularyvalues.UpdateAttributeVocabularyValueLocalizedContent- Param : localizedContent
+46.    Added - commerce.catalog.admin.attributedefinition.attributes.vocabularyvalues.UpdateAttributeVocabularyValueLocalizedContents- Param : localizedContent
+47.    Added - commerce.catalog.admin.attributedefinition.attributes.vocabularyvalues.AddAttributeVocabularyValue- Param : responseFields
+48.    Added - commerce.catalog.admin.attributedefinition.attributes.vocabularyvalues.GetAttributeVocabularyValue- Param : responseFields
+49.    Added - commerce.catalog.admin.attributedefinition.attributes.vocabularyvalues.AddAttributeVocabularyValueLocalizedContent- Param : responseFields
+50.    Added - commerce.catalog.admin.attributedefinition.attributes.vocabularyvalues.GetAttributeVocabularyValueLocalizedContent- Param : responseFields
+51.    Added - commerce.catalog.admin.attributedefinition.attributes.vocabularyvalues.UpdateAttributeVocabularyValue- Param : responseFields
+52.    Added - commerce.catalog.admin.attributedefinition.attributes.vocabularyvalues.UpdateAttributeVocabularyValueLocalizedContent- Param : responseFields
+53.    Added - commerce.catalog.admin.attributedefinition.producttypes.extras.AddExtra- Param : responseFields
+54.    Added - commerce.catalog.admin.attributedefinition.producttypes.extras.GetExtra- Param : responseFields
+55.    Added - commerce.catalog.admin.attributedefinition.producttypes.extras.UpdateExtra- Param : responseFields
+56.    Added - commerce.catalog.admin.attributedefinition.producttypes.options.AddOption- Param : responseFields
+57.    Added - commerce.catalog.admin.attributedefinition.producttypes.options.GetOption- Param : responseFields
+58.    Added - commerce.catalog.admin.attributedefinition.producttypes.options.UpdateOption- Param : responseFields
+59.    Added - commerce.catalog.admin.attributedefinition.producttypes.properties.AddProperty- Param : responseFields
+60.    Added - commerce.catalog.admin.attributedefinition.producttypes.properties.GetProperty- Param : responseFields
+61.    Added - commerce.catalog.admin.attributedefinition.producttypes.properties.UpdateProperty- Param : responseFields
+62.    Added - commerce.catalog.admin.attributedefinition.producttypes.AddProductType- Param : responseFields
+63.    Added - commerce.catalog.admin.attributedefinition.producttypes.GetProductType- Param : responseFields
+64.    Added - commerce.catalog.admin.attributedefinition.producttypes.UpdateProductType- Param : responseFields
+65.    Added - commerce.catalog.admin.attributedefinition.producttypes.GetProductTypes- Param : responseFields
+66.    Added - commerce.catalog.admin.attributedefinition.producttypes.variations.GenerateProductVariations- Param : responseFields
+67.    Added - commerce.catalog.admin.categories.GetCategory- Param : responseFields
+68.    Added - commerce.catalog.admin.categories.GetChildCategories- Param : responseFields
+69.    Added - commerce.catalog.admin.categories.AddCategory- Param : responseFields
+70.    Added - commerce.catalog.admin.categories.UpdateCategory- Param : responseFields
+71.    Added - commerce.catalog.admin.categories.GetCategories- Param : responseFields
+72.    Added - commerce.catalog.admin.discounts.GenerateRandomCoupon- Param : responseFields
+73.    Added - commerce.catalog.admin.discounts.CreateDiscount- Param : responseFields
+74.    Added - commerce.catalog.admin.discounts.GetDiscount- Param : responseFields
+75.    Added - commerce.catalog.admin.discounts.GetDiscountContent- Param : responseFields
+76.    Added - commerce.catalog.admin.discounts.UpdateDiscount- Param : responseFields
+77.    Added - commerce.catalog.admin.discounts.UpdateDiscountContent- Param : responseFields
+78.    Added - commerce.catalog.admin.discounts.GetDiscounts- Param : responseFields
+79.    Added - commerce.catalog.admin.discounts.target.GetDiscountTarget- Param : responseFields
+80.    Added - commerce.catalog.admin.discounts.target.UpdateDiscountTarget- Param : responseFields
+81.    Added - commerce.catalog.admin.facets.AddFacet- Param : responseFields
+82.    Added - commerce.catalog.admin.facets.GetFacet- Param : responseFields
+83.    Added - commerce.catalog.admin.facets.UpdateFacet- Param : responseFields
+84.    Added - commerce.catalog.admin.facets.GetFacetCategoryList- Param : responseFields
+85.    Added - commerce.catalog.admin.locationinventory.GetLocationInventory- Param : responseFields
+86.    Added - commerce.catalog.admin.locationinventory.GetLocationInventories- Param : responseFields
+87.    Added - commerce.catalog.admin.mastercatalogs.GetMasterCatalogs- Param : responseFields
+88.    Added - commerce.catalog.admin.mastercatalogs.GetMasterCatalog- Param : responseFields
+89.    Added - commerce.catalog.admin.mastercatalogs.UpdateMasterCatalog- Param : responseFields
+90.    Added - commerce.catalog.admin.productreservations.GetProductReservation- Param : responseFields
+91.    Added - commerce.catalog.admin.productreservations.GetProductReservations- Param : responseFields
+92.    Added - commerce.catalog.admin.products.extras.DeleteExtraValueLocalizedDeltaPrice- Param : currencyCode
+93.    Added - commerce.catalog.admin.products.extras.GetExtraValueLocalizedDeltaPrice- Param : currencyCode
+94.    Added - commerce.catalog.admin.products.extras.UpdateExtraValueLocalizedDeltaPrice- Param : currencyCode
+95.    Added - commerce.catalog.admin.products.extras.AddExtraValueLocalizedDeltaPrice- Param : localizedDeltaPrice
+96.    Added - commerce.catalog.admin.products.extras.UpdateExtraValueLocalizedDeltaPrice- Param : localizedDeltaPrice
+97.    Added - commerce.catalog.admin.products.extras.UpdateExtraValueLocalizedDeltaPrices- Param : localizedDeltaPrice
+98.    Added - commerce.catalog.admin.products.extras.AddExtra- Param : responseFields
+99.    Added - commerce.catalog.admin.products.extras.GetExtra- Param : responseFields
+100.    Added - commerce.catalog.admin.products.extras.UpdateExtra- Param : responseFields
+101.    Added - commerce.catalog.admin.products.extras.AddExtraValueLocalizedDeltaPrice- Param : responseFields
+102.    Added - commerce.catalog.admin.products.extras.GetExtraValueLocalizedDeltaPrice- Param : responseFields
+103.    Added - commerce.catalog.admin.products.extras.UpdateExtraValueLocalizedDeltaPrice- Param : responseFields
+104.    Added - commerce.catalog.admin.products.extras.DeleteExtraValueLocalizedDeltaPrice- Param : value
+105.    Added - commerce.catalog.admin.products.extras.GetExtraValueLocalizedDeltaPrice- Param : value
+106.    Added - commerce.catalog.admin.products.extras.GetExtraValueLocalizedDeltaPrices- Param : value
+107.    Added - commerce.catalog.admin.products.extras.AddExtraValueLocalizedDeltaPrice- Param : value
+108.    Added - commerce.catalog.admin.products.extras.UpdateExtraValueLocalizedDeltaPrice- Param : value
+109.    Added - commerce.catalog.admin.products.extras.UpdateExtraValueLocalizedDeltaPrices- Param : value
+110.    Added - commerce.catalog.admin.products.LocationInventory.GetLocationInventory- Param : responseFields
+111.    Added - commerce.catalog.admin.products.LocationInventory.GetLocationInventories- Param : responseFields
+112.    Added - commerce.catalog.admin.products.options.AddOption- Param : responseFields
+113.    Added - commerce.catalog.admin.products.options.GetOption- Param : responseFields
+114.    Added - commerce.catalog.admin.products.options.UpdateOption- Param : responseFields
+115.    Added - commerce.catalog.admin.products.properties.DeletePropertyValueLocalizedContent- Param : localeCode
+116.    Added - commerce.catalog.admin.products.properties.GetPropertyValueLocalizedContent- Param : localeCode
+117.    Added - commerce.catalog.admin.products.properties.UpdatePropertyValueLocalizedContent- Param : localeCode
+118.    Added - commerce.catalog.admin.products.properties.AddPropertyValueLocalizedContent- Param : localizedContent
+119.    Added - commerce.catalog.admin.products.properties.UpdatePropertyValueLocalizedContent- Param : localizedContent
+120.    Added - commerce.catalog.admin.products.properties.UpdatePropertyValueLocalizedContents- Param : localizedContent
+121.    Added - commerce.catalog.admin.products.properties.AddProperty- Param : responseFields
+122.    Added - commerce.catalog.admin.products.properties.GetProperty- Param : responseFields
+123.    Added - commerce.catalog.admin.products.properties.UpdateProperty- Param : responseFields
+124.    Added - commerce.catalog.admin.products.properties.AddPropertyValueLocalizedContent- Param : responseFields
+125.    Added - commerce.catalog.admin.products.properties.GetPropertyValueLocalizedContent- Param : responseFields
+126.    Added - commerce.catalog.admin.products.properties.UpdatePropertyValueLocalizedContent- Param : responseFields
+127.    Added - commerce.catalog.admin.products.properties.DeletePropertyValueLocalizedContent- Param : value
+128.    Added - commerce.catalog.admin.products.properties.GetPropertyValueLocalizedContent- Param : value
+129.    Added - commerce.catalog.admin.products.properties.GetPropertyValueLocalizedContents- Param : value
+130.    Added - commerce.catalog.admin.products.properties.AddPropertyValueLocalizedContent- Param : value
+131.    Added - commerce.catalog.admin.products.properties.UpdatePropertyValueLocalizedContent- Param : value
+132.    Added - commerce.catalog.admin.products.properties.UpdatePropertyValueLocalizedContents- Param : value
+133.    Added - commerce.catalog.admin.products.AddProduct- Param : responseFields
+134.    Added - commerce.catalog.admin.products.GetProduct- Param : responseFields
+135.    Added - commerce.catalog.admin.products.AddProductInCatalog- Param : responseFields
+136.    Added - commerce.catalog.admin.products.GetProductInCatalog- Param : responseFields
+137.    Added - commerce.catalog.admin.products.UpdateProduct- Param : responseFields
+138.    Added - commerce.catalog.admin.products.UpdateProductInCatalog- Param : responseFields
+139.    Added - commerce.catalog.admin.products.GetProducts- Param : responseFields
+140.    Added - commerce.catalog.admin.products.variations.DeleteProductVariationLocalizedDeltaPrice- Param : currencyCode
+141.    Added - commerce.catalog.admin.products.variations.GetProductVariationLocalizedDeltaPrice- Param : currencyCode
+142.    Added - commerce.catalog.admin.products.variations.UpdateProductVariationLocalizedDeltaPrice- Param : currencyCode
+143.    Added - commerce.catalog.admin.products.variations.AddProductVariationLocalizedDeltaPrice- Param : localizedDeltaPrice
+144.    Added - commerce.catalog.admin.products.variations.UpdateProductVariationLocalizedDeltaPrice- Param : localizedDeltaPrice
+145.    Added - commerce.catalog.admin.products.variations.UpdateProductVariationLocalizedDeltaPrices- Param : localizedDeltaPrice
+146.    Added - commerce.catalog.admin.products.variations.GetProductVariation- Param : responseFields
+147.    Added - commerce.catalog.admin.products.variations.UpdateProductVariations- Param : responseFields
+148.    Added - commerce.catalog.admin.products.variations.AddProductVariationLocalizedDeltaPrice- Param : responseFields
+149.    Added - commerce.catalog.admin.products.variations.GetProductVariationLocalizedDeltaPrice- Param : responseFields
+150.    Added - commerce.catalog.admin.products.variations.UpdateProductVariation- Param : responseFields
+151.    Added - commerce.catalog.admin.products.variations.UpdateProductVariationLocalizedDeltaPrice- Param : responseFields
+152.    Added - commerce.catalog.admin.products.variations.GetProductVariations- Param : responseFields
+153.    Added - commerce.catalog.admin.search.UpdateSynonymDefinitionCollection- Param : collection
+154.    Added - commerce.catalog.admin.search.GetSynonymDefinitionCollection- Param : localeCode
+155.    Added - commerce.catalog.admin.search.UpdateSynonymDefinitionCollection- Param : localeCode
+156.    Added - commerce.catalog.admin.search.GetSettings- Param : responseFields
+157.    Added - commerce.catalog.admin.search.GetSites- Param : responseFields
+158.    Added - commerce.catalog.admin.search.GetSitesForTenant- Param : responseFields
+159.    Added - commerce.catalog.admin.search.GetSynonymDefinitionCollection- Param : responseFields
+160.    Added - commerce.catalog.admin.search.UpdateSettings- Param : responseFields
+161.    Added - commerce.catalog.admin.search.UpdateSynonymDefinitionCollection- Param : responseFields
+162.    Added - commerce.catalog.admin.search.UpdateSettings- Param : settings
+163.    Added - commerce.catalog.admin.search.GetSitesForTenant- Param : tenantId
+164.    Added - commerce.catalog.storefront.categories.GetCategoryTree- Param : responseFields
+165.    Added - commerce.catalog.storefront.categories.GetCategory- Param : responseFields
+166.    Added - commerce.catalog.storefront.categories.GetCategories- Param : responseFields
+167.    Added - commerce.catalog.storefront.products.GetProductInventories- Param : query
+168.    Added - commerce.catalog.storefront.products.GetProductInventories- Param : responseFields
+169.    Added - commerce.catalog.storefront.products.GetProductInventory- Param : responseFields
+170.    Added - commerce.catalog.storefront.products.ValidateProduct- Param : responseFields
+171.    Added - commerce.catalog.storefront.products.ConfiguredProduct- Param : responseFields
+172.    Added - commerce.catalog.storefront.products.GetProduct- Param : responseFields
+173.    Added - commerce.catalog.storefront.products.GetProducts- Param : responseFields
+174.    Added - commerce.catalog.storefront.products.ValidateDiscounts- Param : responseFields
+175.    Added - commerce.catalog.storefront.productsearch.Suggest- Param : groups
+176.    Added - commerce.catalog.storefront.productsearch.Suggest- Param : responseFields
+177.    Added - commerce.catalog.storefront.productsearch.Search- Param : responseFields
+178.    Added - commerce.catalog.storefront.shipping.GetShippableCountries- Param : responseFields
+179.    Added - commerce.catalog.storefront.shipping.GetLabels- Param : responseFields
+180.    Added - commerce.catalog.storefront.shipping.GetRates- Param : responseFields
+181.    Added - commerce.channelgroups.CreateChannelGroup- Param : responseFields
+182.    Added - commerce.channelgroups.GetChannelGroup- Param : responseFields
+183.    Added - commerce.channelgroups.UpdateChannelGroup- Param : responseFields
+184.    Added - commerce.channelgroups.GetChannelGroups- Param : responseFields
+185.    Added - commerce.channels.CreateChannel- Param : responseFields
+186.    Added - commerce.channels.GetChannel- Param : responseFields
+187.    Added - commerce.channels.UpdateChannel- Param : responseFields
+188.    Added - commerce.channels.GetChannels- Param : responseFields
+189.    Added - commerce.customer.accounts.attributes.AddAccountAttribute- Param : responseFields
+190.    Added - commerce.customer.accounts.attributes.GetAccountAttribute- Param : responseFields
+191.    Added - commerce.customer.accounts.attributes.UpdateAccountAttribute- Param : responseFields
+192.    Added - commerce.customer.accounts.attributes.GetAccountAttributes- Param : responseFields
+193.    Added - commerce.customer.accounts.cards.GetAccountCards- Param : responseFields
+194.    Added - commerce.customer.accounts.cards.AddAccountCard- Param : responseFields
+195.    Added - commerce.customer.accounts.cards.GetAccountCard- Param : responseFields
+196.    Added - commerce.customer.accounts.cards.UpdateAccountCard- Param : responseFields
+197.    Added - commerce.customer.accounts.contacts.AddAccountContact- Param : responseFields
+198.    Added - commerce.customer.accounts.contacts.GetAccountContact- Param : responseFields
+199.    Added - commerce.customer.accounts.contacts.UpdateAccountContact- Param : responseFields
+200.    Added - commerce.customer.accounts.contacts.GetAccountContacts- Param : responseFields
+201.    Added - commerce.customer.accounts.notes.AddAccountNote- Param : responseFields
+202.    Added - commerce.customer.accounts.notes.GetAccountNote- Param : responseFields
+203.    Added - commerce.customer.accounts.notes.UpdateAccountNote- Param : responseFields
+204.    Added - commerce.customer.accounts.notes.GetAccountNotes- Param : responseFields
+205.    Added - commerce.customer.accounts.AddAccount- Param : responseFields
+206.    Added - commerce.customer.accounts.AddAccountAndLogin- Param : responseFields
+207.    Added - commerce.customer.accounts.AddAccounts- Param : responseFields
+208.    Added - commerce.customer.accounts.GetAccount- Param : responseFields
+209.    Added - commerce.customer.accounts.GetLoginState- Param : responseFields
+210.    Added - commerce.customer.accounts.GetLoginStateByEmailAddress- Param : responseFields
+211.    Added - commerce.customer.accounts.GetLoginStateByUserName- Param : responseFields
+212.    Added - commerce.customer.accounts.AddLoginToExistingCustomer- Param : responseFields
+213.    Added - commerce.customer.accounts.UpdateAccount- Param : responseFields
+214.    Added - commerce.customer.accounts.GetAccounts- Param : responseFields
+215.    Added - commerce.customer.accounts.segments.GetAccountSegments- Param : responseFields
+216.    Added - commerce.customer.accounts.transactions.AddTransaction- Param : responseFields
+217.    Added - commerce.customer.addressvalidation.ValidateAddress- Param : responseFields
+218.    Added - commerce.customer.attributedefinition.attributes.CreateAttribute- Param : responseFields
+219.    Added - commerce.customer.attributedefinition.attributes.GetAttribute- Param : responseFields
+220.    Added - commerce.customer.attributedefinition.attributes.RegisterNamespace- Param : responseFields
+221.    Added - commerce.customer.attributedefinition.attributes.AddAttributeVocabularyValue- Param : responseFields
+222.    Added - commerce.customer.attributedefinition.attributes.UpdateAttribute- Param : responseFields
+223.    Added - commerce.customer.attributedefinition.attributes.UpdateAttributeVocabularyValue- Param : responseFields
+224.    Added - commerce.customer.attributedefinition.attributes.GetAttributes- Param : responseFields
+225.    Added - commerce.customer.authtickets.CreateUserAuthTicket- Param : responseFields
+226.    Added - commerce.customer.authtickets.RefreshUserAuthTicket- Param : responseFields
+227.    Added - commerce.customer.credits.auditentries.GetAuditEntries- Param : responseFields
+228.    Added - commerce.customer.credits.AddCredit- Param : responseFields
+229.    Added - commerce.customer.credits.AssociateCreditToShopper- Param : responseFields
+230.    Added - commerce.customer.credits.GetCredit- Param : responseFields
+231.    Added - commerce.customer.credits.UpdateCredit- Param : responseFields
+232.    Added - commerce.customer.credits.GetCredits- Param : responseFields
+233.    Added - commerce.customer.credits.transactions.AddTransaction- Param : responseFields
+234.    Added - commerce.customer.credits.transactions.GetTransactions- Param : responseFields
+235.    Added - commerce.customer.segments.AddSegment- Param : responseFields
+236.    Added - commerce.customer.segments.GetSegment- Param : responseFields
+237.    Added - commerce.customer.segments.UpdateSegment- Param : responseFields
+238.    Added - commerce.customer.segments.GetSegments- Param : responseFields
+239.    Added - commerce.customer.visits.AddVisit- Param : responseFields
+240.    Added - commerce.customer.visits.GetVisit- Param : responseFields
+241.    Added - commerce.customer.visits.UpdateVisit- Param : responseFields
+242.    Added - commerce.customer.visits.GetVisits- Param : responseFields
+243.    Added - commerce.instocknotifications.AddInStockNotificationSubscription- Param : responseFields
+244.    Added - commerce.instocknotifications.GetInStockNotificationSubscription- Param : responseFields
+245.    Added - commerce.instocknotifications.GetInStockNotificationSubscriptions- Param : responseFields
+246.    Added - commerce.orders.attributedefinition.attributes.CreateAttribute- Param : responseFields
+247.    Added - commerce.orders.attributedefinition.attributes.GetAttribute- Param : responseFields
+248.    Added - commerce.orders.attributedefinition.attributes.RegisterNamespace- Param : responseFields
+249.    Added - commerce.orders.attributedefinition.attributes.AddAttributeVocabularyValue- Param : responseFields
+250.    Added - commerce.orders.attributedefinition.attributes.UpdateAttribute- Param : responseFields
+251.    Added - commerce.orders.attributedefinition.attributes.UpdateAttributeVocabularyValue- Param : responseFields
+252.    Added - commerce.orders.attributedefinition.attributes.GetAttributes- Param : responseFields
+253.    Added - commerce.orders.billinginfo.GetBillingInfo- Param : responseFields
+254.    Added - commerce.orders.billinginfo.SetBillingInfo- Param : responseFields
+255.    Added - commerce.orders.digitalpackages.CreateDigitalPackage- Param : digitalPackage
+256.    Added - commerce.orders.digitalpackages.UpdateDigitalPackage- Param : digitalPackage
+257.    Added - commerce.orders.digitalpackages.GetDigitalPackage- Param : digitalPackageId
+258.    Added - commerce.orders.digitalpackages.DeleteDigitalPackage- Param : digitalPackageId
+259.    Added - commerce.orders.digitalpackages.GetAvailableDigitalPackageFulfillmentActions- Param : digitalPackageId
+260.    Added - commerce.orders.digitalpackages.UpdateDigitalPackage- Param : digitalPackageId
+261.    Added - commerce.orders.digitalpackages.GetAvailableDigitalPackageFulfillmentActions- Param : orderId
+262.    Added - commerce.orders.digitalpackages.CreateDigitalPackage- Param : orderId
+263.    Added - commerce.orders.digitalpackages.DeleteDigitalPackage- Param : orderId
+264.    Added - commerce.orders.digitalpackages.GetDigitalPackage- Param : orderId
+265.    Added - commerce.orders.digitalpackages.UpdateDigitalPackage- Param : orderId
+266.    Added - commerce.orders.digitalpackages.CreateDigitalPackage- Param : responseFields
+267.    Added - commerce.orders.digitalpackages.GetDigitalPackage- Param : responseFields
+268.    Added - commerce.orders.digitalpackages.UpdateDigitalPackage- Param : responseFields
+269.    Added - commerce.orders.fulfillment.PerformFulfillmentAction- Param : responseFields
+270.    Added - commerce.orders.fulfillmentinfo.GetFulfillmentInfo- Param : responseFields
+271.    Added - commerce.orders.fulfillmentinfo.SetFulFillmentInfo- Param : responseFields
+272.    Added - commerce.orders.orderadjustment.ApplyAdjustment- Param : responseFields
+273.    Added - commerce.orders.orderadjustment.ApplyShippingAdjustment- Param : responseFields
+274.    Added - commerce.orders.ordercoupons.ApplyCoupon- Param : responseFields
+275.    Added - commerce.orders.orderitems.GetOrderItems- Param : responseFields
+276.    Added - commerce.orders.orderitems.GetOrderItem- Param : responseFields
+277.    Added - commerce.orders.orderitems.CreateOrderItem- Param : responseFields
+278.    Added - commerce.orders.orderitems.UpdateItemFulfillment- Param : responseFields
+279.    Added - commerce.orders.orderitems.UpdateItemProductPrice- Param : responseFields
+280.    Added - commerce.orders.orderitems.UpdateItemQuantity- Param : responseFields
+281.    Added - commerce.orders.orderitems.UpdateOrderItemDiscount- Param : responseFields
+282.    Added - commerce.orders.ordernotes.CreateOrderNote- Param : responseFields
+283.    Added - commerce.orders.ordernotes.GetOrderNote- Param : responseFields
+284.    Added - commerce.orders.ordernotes.UpdateOrderNote- Param : responseFields
+285.    Added - commerce.orders.packages.CreatePackage- Param : responseFields
+286.    Added - commerce.orders.packages.GetPackage- Param : responseFields
+287.    Added - commerce.orders.packages.UpdatePackage- Param : responseFields
+288.    Added - commerce.orders.payments.GetPayments- Param : responseFields
+289.    Added - commerce.orders.payments.CreatePaymentAction- Param : responseFields
+290.    Added - commerce.orders.payments.GetPayment- Param : responseFields
+291.    Added - commerce.orders.payments.PerformPaymentAction- Param : responseFields
+292.    Added - commerce.orders.pickups.CreatePickup- Param : responseFields
+293.    Added - commerce.orders.pickups.GetPickup- Param : responseFields
+294.    Added - commerce.orders.pickups.UpdatePickup- Param : responseFields
+295.    Added - commerce.orders.ChangeOrderUserId- Param : responseFields
+296.    Added - commerce.orders.CreateOrder- Param : responseFields
+297.    Added - commerce.orders.CreateOrderFromCart- Param : responseFields
+298.    Added - commerce.orders.GetOrder- Param : responseFields
+299.    Added - commerce.orders.PerformOrderAction- Param : responseFields
+300.    Added - commerce.orders.UpdateOrder- Param : responseFields
+301.    Added - commerce.orders.UpdateOrderDiscount- Param : responseFields
+302.    Added - commerce.orders.GetOrders- Param : responseFields
+303.    Added - commerce.orders.shipments.GetAvailableShipmentMethods- Param : draft
+304.    Added - commerce.orders.shipments.GetShipment- Param : responseFields
+305.    Added - commerce.orders.validationresults.AddValidationResult- Param : responseFields
+306.    Added - commerce.returns.packages.CreatePackage- Param : responseFields
+307.    Added - commerce.returns.packages.GetPackage- Param : responseFields
+308.    Added - commerce.returns.packages.UpdatePackage- Param : responseFields
+309.    Added - commerce.returns.CreateReturn- Param : responseFields
+310.    Added - commerce.returns.GetPayments- Param : responseFields
+311.    Added - commerce.returns.GetReturn- Param : responseFields
+312.    Added - commerce.returns.GetReturnItems- Param : responseFields
+313.    Added - commerce.returns.PerformReturnActions- Param : responseFields
+314.    Added - commerce.returns.CreatePaymentActionForReturn- Param : responseFields
+315.    Added - commerce.returns.CreateReturnItem- Param : responseFields
+316.    Added - commerce.returns.GetPayment- Param : responseFields
+317.    Added - commerce.returns.GetReturnItem- Param : responseFields
+318.    Added - commerce.returns.UpdateReturn- Param : responseFields
+319.    Added - commerce.returns.PerformPaymentActionForReturn- Param : responseFields
+320.    Added - commerce.returns.GetReturns- Param : responseFields
+321.    Added - commerce.returns.CreateReturnItem- Param : returnItem
+322.    Added - commerce.returns.DeleteOrderItem- Param : returnItemId
+323.    Added - commerce.returns.GetReturnItem- Param : returnItemId
+324.    Added - commerce.returns.shipments.GetShipment- Param : responseFields
+325.    Added - commerce.settings.applications.ThirdPartyGetApplication- Param : responseFields
+326.    Added - commerce.settings.applications.ThirdPartyUpdateApplication- Param : responseFields
+327.    Added - commerce.settings.checkout.customercheckoutsettings.GetCustomerCheckoutSettings- Param : responseFields
+328.    Added - commerce.settings.checkout.customercheckoutsettings.UpdateCustomerCheckoutSettings- Param : responseFields
+329.    Added - commerce.settings.checkout.orderprocessingsettings.GetOrderProcessingSettings- Param : responseFields
+330.    Added - commerce.settings.checkout.orderprocessingsettings.UpdateOrderProcessingSettings- Param : responseFields
+331.    Added - commerce.settings.checkout.paymentsettings.GetPaymentSettings- Param : responseFields
+332.    Added - commerce.settings.checkout.paymentsettings.CreateGateway- Param : responseFields
+333.    Added - commerce.settings.checkout.paymentsettings.GetActiveGatewayForCountry- Param : responseFields
+334.    Added - commerce.settings.checkout.paymentsettings.GetGateway- Param : responseFields
+335.    Added - commerce.settings.checkout.paymentsettings.UpdatePaymentSettings- Param : responseFields
+336.    Added - commerce.settings.checkout.paymentsettings.UpdateGateway- Param : responseFields
+337.    Added - commerce.settings.checkout.GetCheckoutSettings- Param : responseFields
+338.    Added - commerce.settings.general.GetGeneralSettings- Param : responseFields
+339.    Added - commerce.settings.general.CreateGeneralSettings- Param : responseFields
+340.    Added - commerce.settings.general.UpdateGeneralSettings- Param : responseFields
+341.    Added - commerce.settings.general.taxableterritories.AddTaxableTerritory- Param : responseFields
+342.    Added - commerce.settings.locationUsages.GetLocationUsages- Param : responseFields
+343.    Added - commerce.settings.locationUsages.GetLocationUsage- Param : responseFields
+344.    Added - commerce.settings.locationUsages.UpdateLocationUsage- Param : responseFields
+345.    Added - commerce.settings.shipping.orderhandlingfee.GetOrderHandlingFee- Param : responseFields
+346.    Added - commerce.settings.shipping.orderhandlingfee.CreateOrderHandlingFee- Param : responseFields
+347.    Added - commerce.settings.shipping.orderhandlingfee.UpdateOrderHandlingFee- Param : responseFields
+348.    Added - commerce.settings.shipping.GetSiteShippingSettings- Param : responseFields
+349.    Added - commerce.settings.shipping.CreateSiteShippingSettings- Param : responseFields
+350.    Added - commerce.settings.shipping.UpdateSiteShippingSettings- Param : responseFields
+351.    Added - commerce.storefront.GetDirectShipLocation- Param : responseFields
+352.    Added - commerce.storefront.GetInStorePickupLocation- Param : responseFields
+353.    Added - commerce.storefront.GetLocation- Param : responseFields
+354.    Added - commerce.storefront.GetLocationInUsageType- Param : responseFields
+355.    Added - commerce.storefront.GetInStorePickupLocations- Param : responseFields
+356.    Added - commerce.storefront.GetLocationsInUsageType- Param : responseFields
+357.    Added - commerce.wishlists.CreateWishlist- Param : responseFields
+358.    Added - commerce.wishlists.GetWishlist- Param : responseFields
+359.    Added - commerce.wishlists.GetWishlistByName- Param : responseFields
+360.    Added - commerce.wishlists.UpdateWishlist- Param : responseFields
+361.    Added - commerce.wishlists.GetWishlists- Param : responseFields
+362.    Added - commerce.wishlists.wishlistitems.AddItemToWishlist- Param : responseFields
+363.    Added - commerce.wishlists.wishlistitems.GetWishlistItem- Param : responseFields
+364.    Added - commerce.wishlists.wishlistitems.UpdateWishlistItem- Param : responseFields
+365.    Added - commerce.wishlists.wishlistitems.UpdateWishlistItemQuantity- Param : responseFields
+366.    Added - commerce.wishlists.wishlistitems.GetWishlistItems- Param : responseFields
+367.    Added - commerce.wishlists.wishlistitems.GetWishlistItemsByWishlistName- Param : responseFields
+368.    Added - content.documentlists.R4Legacy_CreateDocument- Param : document
+369.    Added - content.documentlists.R4Legacy_UpdateDocument- Param : document
+370.    Added - content.documentlists.LegacyR4_UpdateDocumentContent- Param : documentId
+371.    Added - content.documentlists.R4Legacy_DeleteDocument- Param : documentId
+372.    Added - content.documentlists.R4Legacy_DeleteDocumentContent- Param : documentId
+373.    Added - content.documentlists.R4Legacy_GetDocument- Param : documentId
+374.    Added - content.documentlists.R4Legacy_GetDocumentContent- Param : documentId
+375.    Added - content.documentlists.R4Legacy_GetDocumentContentHead- Param : documentId
+376.    Added - content.documentlists.R4Legacy_UpdateDocument- Param : documentId
+377.    Added - content.documentlists.LegacyR4_DeleteTreeDocumentContent- Param : documentName
+378.    Added - content.documentlists.LegacyR4_UpdateTreeDocumentContent- Param : documentName
+379.    Added - content.documentlists.R4Legacy_GetTreeDocument- Param : documentName
+380.    Added - content.documentlists.R4Legacy_GetTreeDocumentContent- Param : documentName
+381.    Added - content.documentlists.R4Legacy_GetTreeDocumentContentHead- Param : documentName
+382.    Added - content.documentlists.documents.CreateDocument- Param : responseFields
+383.    Added - content.documentlists.documents.GetDocument- Param : responseFields
+384.    Added - content.documentlists.documents.PatchDocument- Param : responseFields
+385.    Added - content.documentlists.documents.UpdateDocument- Param : responseFields
+386.    Added - content.documentlists.documents.GetDocuments- Param : responseFields
+387.    Added - content.documentlists.documentTree.GetTreeDocument- Param : responseFields
+388.    Added - content.documentlists.R4Legacy_GetDocuments- Param : filter
+389.    Added - content.documentlists.folders.CreateFolder- Param : responseFields
+390.    Added - content.documentlists.folders.GetFolder- Param : responseFields
+391.    Added - content.documentlists.folders.UpdateFolder- Param : responseFields
+392.    Added - content.documentlists.folders.GetFolders- Param : responseFields
+393.    Added - content.documentlists.foldertree.GetFolderTree- Param : responseFields
+394.    Added - content.documentlists.CreateDocumentList- Param : responseFields
+395.    Added - content.documentlists.GetDocumentList- Param : responseFields
+396.    Added - content.documentlists.R4Legacy_CreateDocument- Param : responseFields
+397.    Added - content.documentlists.R4Legacy_GetDocument- Param : responseFields
+398.    Added - content.documentlists.R4Legacy_GetTreeDocument- Param : responseFields
+399.    Added - content.documentlists.GetDocumentLists- Param : responseFields
+400.    Added - content.documentlists.R4Legacy_UpdateDocument- Param : responseFields
+401.    Added - content.documentlists.UpdateDocumentList- Param : responseFields
+402.    Added - content.documentlists.R4Legacy_GetDocuments- Param : responseFields
+403.    Added - content.documentlists.R4Legacy_GetDocuments- Param : sortBy
+404.    Added - content.documentlists.LegacyR4_DeleteTreeDocumentContent- Param : stream
+405.    Added - content.documentlists.LegacyR4_UpdateDocumentContent- Param : stream
+406.    Added - content.documentlists.LegacyR4_UpdateTreeDocumentContent- Param : stream
+407.    Added - content.documentlists.views.GetViewDocuments- Param : documentListName
+408.    Added - content.documentlists.views.GetViewDocuments- Param : filter
+409.    Added - content.documentlists.views.GetViewDocuments- Param : pageSize
+410.    Added - content.documentlists.views.GetViewDocuments- Param : responseFields
+411.    Added - content.documentlists.views.GetViewDocuments- Param : sortBy
+412.    Added - content.documentlists.views.GetViewDocuments- Param : startIndex
+413.    Added - content.documentlists.views.GetViewDocuments- Param : viewName
+414.    Added - content.documentlistTypes.UpdateDocumentListType- Param : documentListTypeFQN
+415.    Added - content.documentlistTypes.CreateDocumentListType- Param : list
+416.    Added - content.documentlistTypes.UpdateDocumentListType- Param : list
+417.    Added - content.documentlistTypes.CreateDocumentListType- Param : responseFields
+418.    Added - content.documentlistTypes.UpdateDocumentListType- Param : responseFields
+419.    Added - content.documentpublishing.ListDocumentDraftSummaries- Param : responseFields
+420.    Added - content.documenttypes.CreateDocumentType- Param : responseFields
+421.    Added - content.documenttypes.GetDocumentType- Param : responseFields
+422.    Added - content.documenttypes.GetDocumentTypes- Param : responseFields
+423.    Added - content.documenttypes.UpdateDocumentType- Param : responseFields
+424.    Added - content.propertytypes.CreatePropertyType- Param : responseFields
+425.    Added - content.propertytypes.GetPropertyType- Param : responseFields
+426.    Added - content.propertytypes.GetPropertyTypes- Param : responseFields
+427.    Added - content.propertytypes.UpdatePropertyType- Param : responseFields
+428.    Added - event.pull.CreateEvent- Param : responseFields
+429.    Added - event.pull.GetEvent- Param : responseFields
+430.    Added - event.pull.GetEvents- Param : responseFields
+431.    Added - event.push.subscriptions.deliveryattempts.GetDeliveryAttemptSummary- Param : responseFields
+432.    Added - event.push.subscriptions.deliveryattempts.PerformEventDeliveryAction- Param : responseFields
+433.    Added - event.push.subscriptions.deliveryattempts.GetDeliveryAttemptSummaries- Param : responseFields
+434.    Added - event.push.subscriptions.CreateSubscription- Param : responseFields
+435.    Added - event.push.subscriptions.GetSubscription- Param : responseFields
+436.    Added - event.push.subscriptions.UpdateSubscription- Param : responseFields
+437.    Added - event.push.subscriptions.GetSubscriptions- Param : responseFields
+438.    Added - event.push.subscriptions.tenants.AddSubscribingTenant- Param : responseFields
+439.    Added - event.push.subscriptions.tenants.GetSubscribingTenant- Param : responseFields
+440.    Added - event.push.subscriptions.tenants.UpdateSubscribingTenant- Param : responseFields
+441.    Added - event.push.subscriptions.tenants.AddSubscribingSite- Param : responseFields
+442.    Added - event.push.subscriptions.tenants.GetSubscribingSite- Param : responseFields
+443.    Added - event.push.subscriptions.tenants.UpdateSubscribingSite- Param : responseFields
+444.    Added - event.push.subscriptions.tenants.GetSubscribingTenants- Param : responseFields
+445.    Added - event.push.subscriptions.tenants.GetSubscribingSites- Param : responseFields
+446.    Added - event.push.subscriptions.tenants.DeleteSubscribingSite- Param : siteId
+447.    Added - event.push.subscriptions.tenants.GetSubscribingSite- Param : siteId
+448.    Added - event.push.subscriptions.tenants.AddSubscribingSite- Param : subscribingSite
+449.    Added - event.push.subscriptions.tenants.UpdateSubscribingSite- Param : subscribingSite
+450.    Added - event.push.subscriptions.tokens.PerformTokenReplacement- Param : responseFields
+451.    Added - ordervalidationcapability.ValidateOrder- Param : responseFields
+452.    Added - platform.adminuser.accounts.GetTenantScopesForUser- Param : responseFields
+453.    Added - platform.adminuser.accounts.GetUser- Param : responseFields
+454.    Added - platform.adminuser.authtickets.CreateUserAuthTicket- Param : responseFields
+455.    Added - platform.adminuser.authtickets.RefreshAuthTicket- Param : responseFields
+456.    Added - platform.applications.authtickets.AuthenticateApp- Param : responseFields
+457.    Added - platform.applications.authtickets.RefreshAppAuthTicket- Param : responseFields
+458.    Added - platform.applications.GetApplication- Param : responseFields
+459.    Added - platform.applications.UpdateApplication- Param : responseFields
+460.    Added - platform.developer.authtickets.CreateDeveloperUserAuthTicket- Param : responseFields
+461.    Added - platform.developer.authtickets.RefreshDeveloperAuthTicket- Param : responseFields
+462.    Added - platform.entitylists.Entities.DeleteEntity- Param : entityListFullName
+463.    Added - platform.entitylists.Entities.GetEntities- Param : entityListFullName
+464.    Added - platform.entitylists.Entities.GetEntity- Param : entityListFullName
+465.    Added - platform.entitylists.Entities.InsertEntity- Param : entityListFullName
+466.    Added - platform.entitylists.Entities.UpdateEntity- Param : entityListFullName
+467.    Added - platform.entitylists.Entities.GetEntities- Param : filter
+468.    Added - platform.entitylists.Entities.DeleteEntity- Param : id
+469.    Added - platform.entitylists.Entities.GetEntity- Param : id
+470.    Added - platform.entitylists.Entities.UpdateEntity- Param : id
+471.    Added - platform.entitylists.Entities.InsertEntity- Param : item
+472.    Added - platform.entitylists.Entities.UpdateEntity- Param : item
+473.    Added - platform.entitylists.Entities.GetEntities- Param : pageSize
+474.    Added - platform.entitylists.Entities.GetEntity- Param : responseFields
+475.    Added - platform.entitylists.Entities.InsertEntity- Param : responseFields
+476.    Added - platform.entitylists.Entities.UpdateEntity- Param : responseFields
+477.    Added - platform.entitylists.Entities.GetEntities- Param : responseFields
+478.    Added - platform.entitylists.Entities.GetEntities- Param : sortBy
+479.    Added - platform.entitylists.Entities.GetEntities- Param : startIndex
+480.    Added - platform.entitylists.EntityContainers.GetEntityContainer- Param : entityListFullName
+481.    Added - platform.entitylists.EntityContainers.GetEntityContainers- Param : entityListFullName
+482.    Added - platform.entitylists.EntityContainers.GetEntityContainers- Param : filter
+483.    Added - platform.entitylists.EntityContainers.GetEntityContainer- Param : id
+484.    Added - platform.entitylists.EntityContainers.GetEntityContainers- Param : pageSize
+485.    Added - platform.entitylists.EntityContainers.GetEntityContainer- Param : responseFields
+486.    Added - platform.entitylists.EntityContainers.GetEntityContainers- Param : responseFields
+487.    Added - platform.entitylists.EntityContainers.GetEntityContainers- Param : sortBy
+488.    Added - platform.entitylists.EntityContainers.GetEntityContainers- Param : startIndex
+489.    Added - platform.entitylists.CreateEntityList- Param : entityList
+490.    Added - platform.entitylists.UpdateEntityList- Param : entityList
+491.    Added - platform.entitylists.DeleteEntityList- Param : entityListFullName
+492.    Added - platform.entitylists.GetEntityList- Param : entityListFullName
+493.    Added - platform.entitylists.UpdateEntityList- Param : entityListFullName
+494.    Added - platform.entitylists.GetEntityLists- Param : filter
+495.    Added - platform.entitylists.ListViews.GetViewEntity- Param : entityId
+496.    Added - platform.entitylists.ListViews.GetViewEntityContainer- Param : entityId
+497.    Added - platform.entitylists.ListViews.CreateEntityListView- Param : entityListFullName
+498.    Added - platform.entitylists.ListViews.DeleteEntityListView- Param : entityListFullName
+499.    Added - platform.entitylists.ListViews.GetEntityListView- Param : entityListFullName
+500.    Added - platform.entitylists.ListViews.GetEntityListViews- Param : entityListFullName
+501.    Added - platform.entitylists.ListViews.GetViewEntities- Param : entityListFullName
+502.    Added - platform.entitylists.ListViews.GetViewEntity- Param : entityListFullName
+503.    Added - platform.entitylists.ListViews.GetViewEntityContainer- Param : entityListFullName
+504.    Added - platform.entitylists.ListViews.GetViewEntityContainers- Param : entityListFullName
+505.    Added - platform.entitylists.ListViews.UpdateEntityListView- Param : entityListFullName
+506.    Added - platform.entitylists.ListViews.GetViewEntities- Param : filter
+507.    Added - platform.entitylists.ListViews.GetViewEntityContainers- Param : filter
+508.    Added - platform.entitylists.ListViews.CreateEntityListView- Param : listView
+509.    Added - platform.entitylists.ListViews.UpdateEntityListView- Param : listView
+510.    Added - platform.entitylists.ListViews.GetViewEntities- Param : pageSize
+511.    Added - platform.entitylists.ListViews.GetViewEntityContainers- Param : pageSize
+512.    Added - platform.entitylists.ListViews.GetEntityListViews- Param : responseFields
+513.    Added - platform.entitylists.ListViews.CreateEntityListView- Param : responseFields
+514.    Added - platform.entitylists.ListViews.GetEntityListView- Param : responseFields
+515.    Added - platform.entitylists.ListViews.GetViewEntity- Param : responseFields
+516.    Added - platform.entitylists.ListViews.GetViewEntityContainer- Param : responseFields
+517.    Added - platform.entitylists.ListViews.UpdateEntityListView- Param : responseFields
+518.    Added - platform.entitylists.ListViews.GetViewEntities- Param : responseFields
+519.    Added - platform.entitylists.ListViews.GetViewEntityContainers- Param : responseFields
+520.    Added - platform.entitylists.ListViews.GetViewEntities- Param : startIndex
+521.    Added - platform.entitylists.ListViews.GetViewEntityContainers- Param : startIndex
+522.    Added - platform.entitylists.ListViews.GetEntityListView- Param : viewName
+523.    Added - platform.entitylists.ListViews.GetViewEntities- Param : viewName
+524.    Added - platform.entitylists.ListViews.GetViewEntity- Param : viewName
+525.    Added - platform.entitylists.ListViews.GetViewEntityContainer- Param : viewName
+526.    Added - platform.entitylists.ListViews.GetViewEntityContainers- Param : viewName
+527.    Added - platform.entitylists.ListViews.UpdateEntityListView- Param : viewName
+528.    Added - platform.entitylists.ListViews.DeleteEntityListView- Param : viewName
+529.    Added - platform.entitylists.GetEntityLists- Param : pageSize
+530.    Added - platform.entitylists.CreateEntityList- Param : responseFields
+531.    Added - platform.entitylists.GetEntityList- Param : responseFields
+532.    Added - platform.entitylists.UpdateEntityList- Param : responseFields
+533.    Added - platform.entitylists.GetEntityLists- Param : responseFields
+534.    Added - platform.entitylists.GetEntityLists- Param : sortBy
+535.    Added - platform.entitylists.GetEntityLists- Param : startIndex
+536.    Added - platform.reference.GetAddressSchemas- Param : responseFields
+537.    Added - platform.reference.GetBehaviorCategories- Param : responseFields
+538.    Added - platform.reference.GetCarriers- Param : responseFields
+539.    Added - platform.reference.GetContentLocales- Param : responseFields
+540.    Added - platform.reference.GetCountries- Param : responseFields
+541.    Added - platform.reference.GetCreditTypes- Param : responseFields
+542.    Added - platform.reference.GetCurrencies- Param : responseFields
+543.    Added - platform.reference.GetInternationalTaxRates- Param : responseFields
+544.    Added - platform.reference.GetTimeZones- Param : responseFields
+545.    Added - platform.reference.GetTopLevelDomains- Param : responseFields
+546.    Added - platform.reference.GetAddressSchema- Param : responseFields
+547.    Added - platform.reference.GetBehavior- Param : responseFields
+548.    Added - platform.reference.GetBehaviorCategory- Param : responseFields
+549.    Added - platform.reference.GetBehaviorInternal- Param : responseFields
+550.    Added - platform.reference.GetBehaviors- Param : responseFields
+551.    Added - platform.reference.GetBehaviorsInternal- Param : responseFields
+552.    Added - platform.reference.GetUnitsOfMeasure- Param : responseFields
+553.    Added - platform.sitedata.GetDBValue- Param : responseFields
+554.    Added - platform.sitedata.GetAllDbEntries- Param : responseFields
+555.    Added - platform.tenantdata.GetDBValue- Param : responseFields
+556.    Added - platform.tenantdata.GetAllDbEntries- Param : responseFields
+557.    Added - platform.tenants.GetTenant- Param : responseFields
+558.    Added - platform.tenants.GetTenantAppEntitlements- Param : responseFields
+559.    Added - platform.tenants.GetTenantEntitlements- Param : responseFields
+560.    Added - platform.tenants.LookupByDomain- Param : responseFields
+561.    Added - platform.tenants.AddCatalog- Param : responseFields
+562.    Added - platform.tenants.AddMasterCatalog- Param : responseFields
+563.    Added - platform.tenants.AddTenantEntitlement- Param : responseFields
+564.    Added - platform.tenants.GetTenantEntitlement- Param : responseFields
+565.    Added - platform.tenants.UpdateTenant- Param : responseFields
+566.    Added - platform.tenants.GetTenantInternal- Param : responseFields
+567.    Added - platform.tenants.GetTenantSiteAppEntitlement- Param : responseFields
+568.    Added - platform.tenants.UpdateCatalog- Param : responseFields
+569.    Added - platform.tenants.UpdateMasterCatalog- Param : responseFields
+570.    Added - platform.tenants.UpdateTenantEntitlement- Param : responseFields
+571.    Added - platform.tenants.GetTenants- Param : responseFields
+572.    Added - platform.tenants.sites.AddSite- Param : responseFields
+573.    Added - platform.tenants.sites.GetSiteEntitlements- Param : responseFields
+574.    Added - platform.tenants.sites.AddDomainToSite- Param : responseFields
+575.    Added - platform.tenants.sites.AddSiteEntitlement- Param : responseFields
+576.    Added - platform.tenants.sites.GetSite- Param : responseFields
+577.    Added - platform.tenants.sites.GetSiteEntitlement- Param : responseFields
+578.    Added - platform.tenants.sites.UpdateSite- Param : responseFields
+579.    Added - platform.tenants.sites.UpdateSiteEntitlement- Param : responseFields
+580.    Added - platform.userdata.GetDBValue- Param : responseFields
+581.    Added - platform.userdata.GetAllDbEntries- Param : responseFields
+582.    Added - tax.GetTax- Param : responseFields
+583.    Removed - commerce.catalog.storefront.productsearch.Suggest- Param : q
+584.    Removed - event.push.subscriptions.tenants.sites.GetSubscribingSites- Param : filter
+585.    Removed - event.push.subscriptions.tenants.sites.GetSubscribingSites- Param : pageSize
+586.    Removed - event.push.subscriptions.tenants.sites.DeleteSubscribingSite- Param : siteId
+587.    Removed - event.push.subscriptions.tenants.sites.GetSubscribingSite- Param : siteId
+588.    Removed - event.push.subscriptions.tenants.sites.GetSubscribingSites- Param : sortBy
+589.    Removed - event.push.subscriptions.tenants.sites.GetSubscribingSites- Param : startIndex
+590.    Removed - event.push.subscriptions.tenants.sites.AddSubscribingSite- Param : subscribingSite
+591.    Removed - event.push.subscriptions.tenants.sites.UpdateSubscribingSite- Param : subscribingSite
+592.    Removed - event.push.subscriptions.tenants.sites.AddSubscribingSite- Param : subscriptionId
+593.    Removed - event.push.subscriptions.tenants.sites.DeleteSubscribingSite- Param : subscriptionId
+594.    Removed - event.push.subscriptions.tenants.sites.GetSubscribingSite- Param : subscriptionId
+595.    Removed - event.push.subscriptions.tenants.sites.UpdateSubscribingSite- Param : subscriptionId
+596.    Removed - event.push.subscriptions.tenants.sites.GetSubscribingSites- Param : subscriptionId
+597.    Removed - event.push.subscriptions.tenants.sites.AddSubscribingSite- Param : tenantId
+598.    Removed - event.push.subscriptions.tenants.sites.DeleteSubscribingSite- Param : tenantId
+599.    Removed - event.push.subscriptions.tenants.sites.GetSubscribingSite- Param : tenantId
+600.    Removed - event.push.subscriptions.tenants.sites.UpdateSubscribingSite- Param : tenantId
+601.    Removed - event.push.subscriptions.tenants.sites.GetSubscribingSites- Param : tenantId
+602.    Removed - platform.developer.applications.GetApplication- Param : applicationId
+603.    Removed - platform.developer.applications.AddPackage- Param : applicationVersionId
+604.    Removed - platform.developer.applications.AddPackageFile- Param : applicationVersionId
+605.    Removed - platform.developer.applications.ChangePackageFileNameOrPath- Param : applicationVersionId
+606.    Removed - platform.developer.applications.DeletePackageFile- Param : applicationVersionId
+607.    Removed - platform.developer.applications.GetApplicationVersion- Param : applicationVersionId
+608.    Removed - platform.developer.applications.GetPackage- Param : applicationVersionId
+609.    Removed - platform.developer.applications.GetPackageFilesZip- Param : applicationVersionId
+610.    Removed - platform.developer.applications.GetPackageItemMetadata- Param : applicationVersionId
+611.    Removed - platform.developer.applications.GetPackageItemsMetadata- Param : applicationVersionId
+612.    Removed - platform.developer.applications.GetPackages- Param : applicationVersionId
+613.    Removed - platform.developer.applications.UpdatePackageFile- Param : applicationVersionId
+614.    Removed - platform.developer.applications.AddPackageFile- Param : filepath
+615.    Removed - platform.developer.applications.DeletePackageFile- Param : filepath
+616.    Removed - platform.developer.applications.UpdatePackageFile- Param : filepath
+617.    Removed - platform.developer.applications.GetPackageItemMetadata- Param : itempath
+618.    Removed - platform.developer.applications.AddPackage- Param : package
+619.    Removed - platform.developer.applications.AddPackageFile- Param : packageId
+620.    Removed - platform.developer.applications.ChangePackageFileNameOrPath- Param : packageId
+621.    Removed - platform.developer.applications.DeletePackageFile- Param : packageId
+622.    Removed - platform.developer.applications.GetPackage- Param : packageId
+623.    Removed - platform.developer.applications.GetPackageFilesZip- Param : packageId
+624.    Removed - platform.developer.applications.GetPackageItemMetadata- Param : packageId
+625.    Removed - platform.developer.applications.GetPackageItemsMetadata- Param : packageId
+626.    Removed - platform.developer.applications.UpdatePackageFile- Param : packageId
+627.    Removed - platform.developer.applications.ChangePackageFileNameOrPath- Param : renameInfo
+628.    Removed - platform.developer.applications.AddPackageFile- Param : stream
+629.    Removed - platform.developer.applications.UpdatePackageFile- Param : stream
+
+Operations
+0.    Added - commerce.catalog.admin.attributedefinition.attributes.localizedcontent.AddLocalizedContent - POST
+1.    Added - commerce.catalog.admin.attributedefinition.attributes.localizedcontent.DeleteLocalizedContent - DELETE
+2.    Added - commerce.catalog.admin.attributedefinition.attributes.localizedcontent.GetAttributeLocalizedContent - GET
+3.    Added - commerce.catalog.admin.attributedefinition.attributes.localizedcontent.GetAttributeLocalizedContents - GET
+4.    Added - commerce.catalog.admin.attributedefinition.attributes.localizedcontent.UpdateLocalizedContent - PUT
+5.    Added - commerce.catalog.admin.attributedefinition.attributes.localizedcontent.UpdateLocalizedContents - PUT
+6.    Added - commerce.catalog.admin.attributedefinition.attributes.vocabularyvalues.AddAttributeVocabularyValueLocalizedContent - POST
+7.    Added - commerce.catalog.admin.attributedefinition.attributes.vocabularyvalues.DeleteAttributeVocabularyValueLocalizedContent - DELETE
+8.    Added - commerce.catalog.admin.attributedefinition.attributes.vocabularyvalues.GetAttributeVocabularyValueLocalizedContent - GET
+9.    Added - commerce.catalog.admin.attributedefinition.attributes.vocabularyvalues.GetAttributeVocabularyValueLocalizedContents - GET
+10.    Added - commerce.catalog.admin.attributedefinition.attributes.vocabularyvalues.UpdateAttributeVocabularyValueLocalizedContent - PUT
+11.    Added - commerce.catalog.admin.attributedefinition.attributes.vocabularyvalues.UpdateAttributeVocabularyValueLocalizedContents - PUT
+12.    Added - commerce.catalog.admin.products.extras.AddExtraValueLocalizedDeltaPrice - POST
+13.    Added - commerce.catalog.admin.products.extras.DeleteExtraValueLocalizedDeltaPrice - DELETE
+14.    Added - commerce.catalog.admin.products.extras.GetExtraValueLocalizedDeltaPrice - GET
+15.    Added - commerce.catalog.admin.products.extras.GetExtraValueLocalizedDeltaPrices - GET
+16.    Added - commerce.catalog.admin.products.extras.UpdateExtraValueLocalizedDeltaPrice - PUT
+17.    Added - commerce.catalog.admin.products.extras.UpdateExtraValueLocalizedDeltaPrices - PUT
+18.    Added - commerce.catalog.admin.products.properties.AddPropertyValueLocalizedContent - POST
+19.    Added - commerce.catalog.admin.products.properties.DeletePropertyValueLocalizedContent - DELETE
+20.    Added - commerce.catalog.admin.products.properties.GetPropertyValueLocalizedContent - GET
+21.    Added - commerce.catalog.admin.products.properties.GetPropertyValueLocalizedContents - GET
+22.    Added - commerce.catalog.admin.products.properties.UpdatePropertyValueLocalizedContent - PUT
+23.    Added - commerce.catalog.admin.products.properties.UpdatePropertyValueLocalizedContents - PUT
+24.    Added - commerce.catalog.admin.products.variations.AddProductVariationLocalizedDeltaPrice - POST
+25.    Added - commerce.catalog.admin.products.variations.DeleteProductVariationLocalizedDeltaPrice - DELETE
+26.    Added - commerce.catalog.admin.products.variations.GetProductVariationLocalizedDeltaPrice - GET
+27.    Added - commerce.catalog.admin.products.variations.GetProductVariationLocalizedDeltaPrices - GET
+28.    Added - commerce.catalog.admin.products.variations.UpdateProductVariationLocalizedDeltaPrice - PUT
+29.    Added - commerce.catalog.admin.products.variations.UpdateProductVariationLocalizedDeltaPrices - PUT
+30.    Added - commerce.catalog.admin.search.GetSettings - GET
+31.    Added - commerce.catalog.admin.search.GetSites - GET
+32.    Added - commerce.catalog.admin.search.GetSitesForTenant - GET
+33.    Added - commerce.catalog.admin.search.GetSynonymDefinitionCollection - GET
+34.    Added - commerce.catalog.admin.search.ReindexPod - POST
+35.    Added - commerce.catalog.admin.search.ReindexSite - POST
+36.    Added - commerce.catalog.admin.search.ReindexTenant - POST
+37.    Added - commerce.catalog.admin.search.UpdateSettings - PUT
+38.    Added - commerce.catalog.admin.search.UpdateSynonymDefinitionCollection - POST
+39.    Added - commerce.catalog.storefront.products.GetProductInventories - POST
+40.    Added - commerce.orders.digitalpackages.CreateDigitalPackage - POST
+41.    Added - commerce.orders.digitalpackages.DeleteDigitalPackage - DELETE
+42.    Added - commerce.orders.digitalpackages.GetAvailableDigitalPackageFulfillmentActions - GET
+43.    Added - commerce.orders.digitalpackages.GetDigitalPackage - GET
+44.    Added - commerce.orders.digitalpackages.UpdateDigitalPackage - PUT
+45.    Added - commerce.returns.CreateReturnItem - POST
+46.    Added - commerce.returns.DeleteOrderItem - DELETE
+47.    Added - commerce.returns.GetReturnItem - GET
+48.    Added - commerce.returns.GetReturnItems - GET
+49.    Added - content.documentlists.documents.PatchDocument - PATCH
+50.    Added - content.documentlists.LegacyR4_DeleteTreeDocumentContent - DELETE
+51.    Added - content.documentlists.LegacyR4_UpdateDocumentContent - PUT
+52.    Added - content.documentlists.LegacyR4_UpdateTreeDocumentContent - PUT
+53.    Added - content.documentlists.R4Legacy_CreateDocument - POST
+54.    Added - content.documentlists.R4Legacy_DeleteDocument - DELETE
+55.    Added - content.documentlists.R4Legacy_DeleteDocumentContent - DELETE
+56.    Added - content.documentlists.R4Legacy_GetDocument - GET
+57.    Added - content.documentlists.R4Legacy_GetDocumentContent - GET
+58.    Added - content.documentlists.R4Legacy_GetDocumentContentHead - HEAD
+59.    Added - content.documentlists.R4Legacy_GetDocuments - GET
+60.    Added - content.documentlists.R4Legacy_GetTreeDocument - GET
+61.    Added - content.documentlists.R4Legacy_GetTreeDocumentContent - GET
+62.    Added - content.documentlists.R4Legacy_GetTreeDocumentContentHead - HEAD
+63.    Added - content.documentlists.R4Legacy_UpdateDocument - PUT
+64.    Added - content.documentlists.views.GetViewDocuments - GET
+65.    Added - content.documentlistTypes.CreateDocumentListType - POST
+66.    Added - content.documentlistTypes.UpdateDocumentListType - PUT
+67.    Added - event.push.subscriptions.tenants.AddSubscribingSite - POST
+68.    Added - event.push.subscriptions.tenants.DeleteSubscribingSite - DELETE
+69.    Added - event.push.subscriptions.tenants.GetSubscribingSite - GET
+70.    Added - event.push.subscriptions.tenants.GetSubscribingSites - GET
+71.    Added - event.push.subscriptions.tenants.UpdateSubscribingSite - PUT
+72.    Added - platform.entitylists.CreateEntityList - POST
+73.    Added - platform.entitylists.DeleteEntityList - DELETE
+74.    Added - platform.entitylists.Entities.DeleteEntity - DELETE
+75.    Added - platform.entitylists.Entities.GetEntities - GET
+76.    Added - platform.entitylists.Entities.GetEntity - GET
+77.    Added - platform.entitylists.Entities.InsertEntity - POST
+78.    Added - platform.entitylists.Entities.UpdateEntity - PUT
+79.    Added - platform.entitylists.EntityContainers.GetEntityContainer - GET
+80.    Added - platform.entitylists.EntityContainers.GetEntityContainers - GET
+81.    Added - platform.entitylists.GetEntityList - GET
+82.    Added - platform.entitylists.GetEntityLists - GET
+83.    Added - platform.entitylists.ListViews.CreateEntityListView - POST
+84.    Added - platform.entitylists.ListViews.DeleteEntityListView - DELETE
+85.    Added - platform.entitylists.ListViews.GetEntityListView - GET
+86.    Added - platform.entitylists.ListViews.GetEntityListViews - GET
+87.    Added - platform.entitylists.ListViews.GetViewEntities - GET
+88.    Added - platform.entitylists.ListViews.GetViewEntity - GET
+89.    Added - platform.entitylists.ListViews.GetViewEntityContainer - GET
+90.    Added - platform.entitylists.ListViews.GetViewEntityContainers - GET
+91.    Added - platform.entitylists.ListViews.UpdateEntityListView - PUT
+92.    Added - platform.entitylists.UpdateEntityList - PUT
+93.    Removed - content.propertytypes.PropertyValueTypes - GET
+94.    Removed - event.push.subscriptions.tenants.sites.AddSubscribingSite - POST
+95.    Removed - event.push.subscriptions.tenants.sites.DeleteSubscribingSite - DELETE
+96.    Removed - event.push.subscriptions.tenants.sites.GetSubscribingSite - GET
+97.    Removed - event.push.subscriptions.tenants.sites.GetSubscribingSites - GET
+98.    Removed - event.push.subscriptions.tenants.sites.UpdateSubscribingSite - PUT
+99.    Removed - platform.developer.applications.AddPackage - POST
+100.    Removed - platform.developer.applications.AddPackageFile - POST
+101.    Removed - platform.developer.applications.ChangePackageFileNameOrPath - POST
+102.    Removed - platform.developer.applications.DeletePackageFile - DELETE
+103.    Removed - platform.developer.applications.GetAllApplications - GET
+104.    Removed - platform.developer.applications.GetApplication - GET
+105.    Removed - platform.developer.applications.GetApplicationVersion - GET
+106.    Removed - platform.developer.applications.GetPackage - GET
+107.    Removed - platform.developer.applications.GetPackageFilesZip - GET
+108.    Removed - platform.developer.applications.GetPackageItemMetadata - GET
+109.    Removed - platform.developer.applications.GetPackageItemsMetadata - GET
+110.    Removed - platform.developer.applications.GetPackages - GET
+111.    Removed - platform.developer.applications.UpdatePackageFile - PUT
+
+Resources
+0.    Added - commerce.catalog.admin.attributedefinition.attributes.localizedcontent | commerce/catalog/admin/attributedefinition/attributes/localizedcontent
+1.    Added - commerce.catalog.admin.search | commerce/catalog/admin/search
+2.    Added - commerce.orders.digitalpackages | commerce/orders/digitalpackages
+3.    Added - content.documentlists.views | content/documentlists/views
+4.    Added - content.documentlistTypes | content/documentlistTypes
+5.    Added - platform.entitylists | platform/entitylists
+6.    Added - platform.entitylists.Entities | platform/entitylists/Entities
+7.    Added - platform.entitylists.EntityContainers | platform/entitylists/EntityContainers
+8.    Added - platform.entitylists.ListViews | platform/entitylists/ListViews
+9.    Removed - event.push.subscriptions.tenants.sites | event/push/subscriptions/tenants/sites
+10.    Removed - platform.developer.applications | platform/developer/applications

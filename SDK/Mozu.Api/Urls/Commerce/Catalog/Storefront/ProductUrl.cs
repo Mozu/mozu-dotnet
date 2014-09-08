@@ -64,7 +64,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
         /// <param name="allowInactive">If true, returns an inactive product as part of the query.</param>
         /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
         /// <param name="responseFields"></param>
-        /// <param name="skipInventoryCheck">If true, skip the inventory validation process for the specified product.</param>
+        /// <param name="skipInventoryCheck"></param>
         /// <param name="variationProductCode">Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.</param>
         /// <returns>
         /// String - Resource Url
@@ -87,7 +87,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
         /// <param name="includeOptionDetails">If true, the response returns details about the product. If false, returns a product summary such as the product name, price, and sale price.</param>
         /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
         /// <param name="responseFields"></param>
-        /// <param name="skipInventoryCheck">If true, skip the inventory validation process for the specified product.</param>
+        /// <param name="skipInventoryCheck"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -107,7 +107,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
         /// </summary>
         /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
         /// <param name="responseFields"></param>
-        /// <param name="skipInventoryCheck">If true, skip the inventory validation process for the specified product.</param>
+        /// <param name="skipInventoryCheck"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

@@ -14,18 +14,15 @@ using System;
 namespace Mozu.Api.Contracts.Core
 {
 		///
-		///	Properties of a category of application behaviors.
+		///	***Always private and should not be published.***
 		///
 		public class BehaviorCategory
 		{
 			///
-			///Unique identifier of the behavior.
+			///Identifier of the entity.
 			///
 			public int Id { get; set; }
 
-			///
-			///The name of the behavior.
-			///
 			public string Name { get; set; }
 
 		}

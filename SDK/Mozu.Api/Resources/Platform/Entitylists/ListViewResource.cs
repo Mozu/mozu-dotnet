@@ -50,7 +50,7 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		/// <example>
 		/// <code>
 		///   var listview = new ListView();
-		///   var json = listview.GetViewEntity( entityListFullName,  viewName,  entityId,  responseFields);
+		///   var jObject = listview.GetViewEntity( entityListFullName,  viewName,  entityId,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]

@@ -294,8 +294,7 @@
     <Compile Include="Contracts\Content\PropertyType.cs" />
     <Compile Include="Contracts\Content\PropertyTypeCollection.cs" />
     <Compile Include="Contracts\Content\View.cs" />
-    <Compile Include="Contracts\Content\ViewCollection.cs" />
-    <Compile Include="Contracts\Content\ViewFields.cs" />
+    <Compile Include="Contracts\Content\ViewField.cs" />
     <Compile Include="Contracts\Core\Address.cs" />
     <Compile Include="Contracts\Core\AuditInfo.cs" />
     <Compile Include="Contracts\Core\Behavior.cs" />
@@ -584,7 +583,6 @@
     <Compile Include="Events\ICustomerSegmentEvents.cs" />
     <Compile Include="Events\IDiscountEvents.cs" />
     <Compile Include="Events\IFacetEvents.cs" />
-    <Compile Include="Events\ILocationEvents.cs" />
     <Compile Include="Events\ILocationTypeEvents.cs" />
     <Compile Include="Events\IOrderEvents.cs" />
     <Compile Include="Events\IPingEvents.cs" />

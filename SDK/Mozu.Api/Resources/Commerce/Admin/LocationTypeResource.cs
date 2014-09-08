@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Admin
 {
 	/// <summary>
-	/// Use the Location Types resource to manage the types of locations your tenant maintains, such as warehouses, physical storefronts, and kiosks.
+	/// 
 	/// </summary>
 	public partial class LocationTypeResource  	{
 		///
@@ -38,7 +38,7 @@ namespace Mozu.Api.Resources.Commerce.Admin
 
 				
 		/// <summary>
-		/// Retrieve a list of all location types defined for the tenant.
+		/// 
 		/// </summary>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.Location.LocationType"/>}
@@ -71,33 +71,34 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		}
 
 		/// <summary>
-		/// Retrieves the details of the location type specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="locationTypeCode">The user-defined code that identifies the location type.</param>
+		/// <param name="locationTypeCode"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Location.LocationType"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var locationtype = new LocationType();
-		///   var locationType = locationtype.GetLocationType( locationTypeCode);
+		///   var locationType = locationtype.GetLocationType( locationTypeCode,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Location.LocationType GetLocationType(string locationTypeCode)
+		public virtual Mozu.Api.Contracts.Location.LocationType GetLocationType(string locationTypeCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Location.LocationType> response;
-			var client = Mozu.Api.Clients.Commerce.Admin.LocationTypeClient.GetLocationTypeClient( locationTypeCode);
+			var client = Mozu.Api.Clients.Commerce.Admin.LocationTypeClient.GetLocationTypeClient( locationTypeCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
 
 		}
 
-		public virtual async Task<Mozu.Api.Contracts.Location.LocationType> GetLocationTypeAsync(string locationTypeCode)
+		public virtual async Task<Mozu.Api.Contracts.Location.LocationType> GetLocationTypeAsync(string locationTypeCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Location.LocationType> response;
-			var client = Mozu.Api.Clients.Commerce.Admin.LocationTypeClient.GetLocationTypeClient( locationTypeCode);
+			var client = Mozu.Api.Clients.Commerce.Admin.LocationTypeClient.GetLocationTypeClient( locationTypeCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -105,33 +106,34 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		}
 
 		/// <summary>
-		/// Creates a new location type based on the information specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="locationType">Properties of the location type to create.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="locationType"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Location.LocationType"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var locationtype = new LocationType();
-		///   var locationType = locationtype.AddLocationType( locationType);
+		///   var locationType = locationtype.AddLocationType( locationType,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Location.LocationType AddLocationType(Mozu.Api.Contracts.Location.LocationType locationType)
+		public virtual Mozu.Api.Contracts.Location.LocationType AddLocationType(Mozu.Api.Contracts.Location.LocationType locationType, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Location.LocationType> response;
-			var client = Mozu.Api.Clients.Commerce.Admin.LocationTypeClient.AddLocationTypeClient( locationType);
+			var client = Mozu.Api.Clients.Commerce.Admin.LocationTypeClient.AddLocationTypeClient( locationType,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
 
 		}
 
-		public virtual async Task<Mozu.Api.Contracts.Location.LocationType> AddLocationTypeAsync(Mozu.Api.Contracts.Location.LocationType locationType)
+		public virtual async Task<Mozu.Api.Contracts.Location.LocationType> AddLocationTypeAsync(Mozu.Api.Contracts.Location.LocationType locationType, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Location.LocationType> response;
-			var client = Mozu.Api.Clients.Commerce.Admin.LocationTypeClient.AddLocationTypeClient( locationType);
+			var client = Mozu.Api.Clients.Commerce.Admin.LocationTypeClient.AddLocationTypeClient( locationType,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -139,34 +141,35 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		}
 
 		/// <summary>
-		/// Updates the name of a defined location type.
+		/// 
 		/// </summary>
-		/// <param name="locationTypeCode">The user-defined code that identifies the location type.</param>
-		/// <param name="locationType">Properties of the location type to update.</param>
+		/// <param name="locationTypeCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="locationType"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Location.LocationType"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var locationtype = new LocationType();
-		///   var locationType = locationtype.UpdateLocationType( locationType,  locationTypeCode);
+		///   var locationType = locationtype.UpdateLocationType( locationType,  locationTypeCode,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Location.LocationType UpdateLocationType(Mozu.Api.Contracts.Location.LocationType locationType, string locationTypeCode)
+		public virtual Mozu.Api.Contracts.Location.LocationType UpdateLocationType(Mozu.Api.Contracts.Location.LocationType locationType, string locationTypeCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Location.LocationType> response;
-			var client = Mozu.Api.Clients.Commerce.Admin.LocationTypeClient.UpdateLocationTypeClient( locationType,  locationTypeCode);
+			var client = Mozu.Api.Clients.Commerce.Admin.LocationTypeClient.UpdateLocationTypeClient( locationType,  locationTypeCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
 
 		}
 
-		public virtual async Task<Mozu.Api.Contracts.Location.LocationType> UpdateLocationTypeAsync(Mozu.Api.Contracts.Location.LocationType locationType, string locationTypeCode)
+		public virtual async Task<Mozu.Api.Contracts.Location.LocationType> UpdateLocationTypeAsync(Mozu.Api.Contracts.Location.LocationType locationType, string locationTypeCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Location.LocationType> response;
-			var client = Mozu.Api.Clients.Commerce.Admin.LocationTypeClient.UpdateLocationTypeClient( locationType,  locationTypeCode);
+			var client = Mozu.Api.Clients.Commerce.Admin.LocationTypeClient.UpdateLocationTypeClient( locationType,  locationTypeCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -174,9 +177,9 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		}
 
 		/// <summary>
-		/// Deletes the location type specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="locationTypeCode">User-defined code used to identify the location type.</param>
+		/// <param name="locationTypeCode"></param>
 		/// <returns>
 		/// 
 		/// </returns>
