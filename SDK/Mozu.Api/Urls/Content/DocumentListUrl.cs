@@ -84,21 +84,6 @@ namespace Mozu.Api.Urls.Content
 			return mozuUrl;
 		}
 
-		/// <summary>
-        /// Get Resource Url for LegacyR4_UpdateDocumentContent
-        /// </summary>
-        /// <param name="documentId"></param>
-        /// <returns>
-        /// String - Resource Url
-        /// </returns>
-        public static MozuUrl LegacyR4_UpdateDocumentContentUrl(string documentId)
-		{
-			var url = "/api/content/documentlists/files/documents/{documentId}/content";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "documentId", documentId);
-			return mozuUrl;
-		}
-
 				/// <summary>
         /// Get Resource Url for DeleteDocumentList
         /// </summary>

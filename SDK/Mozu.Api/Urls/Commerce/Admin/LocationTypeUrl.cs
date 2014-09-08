@@ -32,50 +32,56 @@ namespace Mozu.Api.Urls.Commerce.Admin
 		/// <summary>
         /// Get Resource Url for GetLocationType
         /// </summary>
-        /// <param name="locationTypeCode">The user-defined code that identifies the location type.</param>
+        /// <param name="locationTypeCode"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetLocationTypeUrl(string locationTypeCode)
+        public static MozuUrl GetLocationTypeUrl(string locationTypeCode, string responseFields =  null)
 		{
-			var url = "/api/commerce/admin/locationtypes/{locationTypeCode}";
+			var url = "/api/commerce/admin/locationtypes/{locationTypeCode}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "locationTypeCode", locationTypeCode);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 				/// <summary>
         /// Get Resource Url for AddLocationType
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl AddLocationTypeUrl()
+        public static MozuUrl AddLocationTypeUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/admin/locationtypes/";
+			var url = "/api/commerce/admin/locationtypes/?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 				/// <summary>
         /// Get Resource Url for UpdateLocationType
         /// </summary>
-        /// <param name="locationTypeCode">The user-defined code that identifies the location type.</param>
+        /// <param name="locationTypeCode"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateLocationTypeUrl(string locationTypeCode)
+        public static MozuUrl UpdateLocationTypeUrl(string locationTypeCode, string responseFields =  null)
 		{
-			var url = "/api/commerce/admin/locationtypes/{locationTypeCode}";
+			var url = "/api/commerce/admin/locationtypes/{locationTypeCode}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "locationTypeCode", locationTypeCode);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 				/// <summary>
         /// Get Resource Url for DeleteLocationType
         /// </summary>
-        /// <param name="locationTypeCode">User-defined code used to identify the location type.</param>
+        /// <param name="locationTypeCode"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

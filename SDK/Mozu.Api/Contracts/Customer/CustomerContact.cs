@@ -35,9 +35,6 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public string Email { get; set; }
 
-			///
-			///The fax number associated with the customer account.
-			///
 			public string FaxNumber { get; set; }
 
 			///
@@ -49,6 +46,8 @@ namespace Mozu.Api.Contracts.Customer
 			///Identifier of the customer contact.
 			///
 			public int Id { get; set; }
+
+			public string Label { get; set; }
 
 			///
 			///The last name or surname of the contact. The maximum character length is 200.
@@ -75,9 +74,6 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public Phone PhoneNumbers { get; set; }
 
-			///
-			///List of the types associated with a customer contact, such as Billing or Fulfillment.
-			///
 			public List<ContactType> Types { get; set; }
 
 		}

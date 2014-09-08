@@ -27,7 +27,7 @@ namespace Mozu.Api.Contracts.Reference
 			///
 			///The number of results listed in the query collection, represented by a signed 64-bit (8-byte) integer. This value is system-supplied and read-only.
 			///
-			public long TotalCount { get; set; }
+			public int TotalCount { get; set; }
 
 		}
 

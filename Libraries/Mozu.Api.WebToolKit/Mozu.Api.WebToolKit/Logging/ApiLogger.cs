@@ -45,13 +45,18 @@ namespace Mozu.Api.WebToolKit.Logging
 
             response.Headers.Add(Headers.X_VOL_CORRELATION, corrId.ToString());
 
-            if (_logger.IsDebugEnabled)
+            try
             {
-                if (response.IsSuccessStatusCode && response.Content != null)
-                    _logger.Debug(response.Content.ReadAsStringAsync().Result);
+                if (_logger.IsDebugEnabled)
+                {
+                    if (response.IsSuccessStatusCode && response.Content != null)
+                        _logger.Debug(response.Content.ReadAsStringAsync().Result);
 
-                _logger.Debug(String.Format("End Time: {0}", DateTime.Now));
+                    _logger.Debug(String.Format("End Time: {0}", DateTime.Now));
+                }
+
             }
+            catch (Exception exc){}
                 
             
             return response;

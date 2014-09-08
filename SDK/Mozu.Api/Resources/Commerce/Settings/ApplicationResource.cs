@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Settings
 {
 	/// <summary>
-	/// Use the Applications resource to update site-specific settings for installed applications.
+	/// Use the applications subresource to update site settings for installed applications.
 	/// </summary>
 	public partial class ApplicationResource  	{
 		///

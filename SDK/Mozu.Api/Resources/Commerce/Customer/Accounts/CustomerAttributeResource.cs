@@ -41,7 +41,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// Retrieves the contents of an attribute associated with the specified customer account.
 		/// </summary>
 		/// <param name="accountId">Identifier of the customer account associated with the attribute to retrieve.</param>
-		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+		/// <param name="attributeFQN"></param>
 		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAttribute"/>

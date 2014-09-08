@@ -11,7 +11,6 @@
 using System;
 using Newtonsoft.Json.Linq;
 
-using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.Content
 {

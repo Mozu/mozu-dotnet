@@ -48,7 +48,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// Retrieve the details of the master catalog specified in the request.
 		/// </summary>
-		/// <param name="masterCatalogId">The unique identifier of the master catalog associated with the entity.</param>
+		/// <param name="masterCatalogId"></param>
 		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.MasterCatalog"/>}

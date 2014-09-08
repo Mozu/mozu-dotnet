@@ -19,13 +19,15 @@ namespace Mozu.Api.Urls.Commerce.Settings
 		/// <summary>
         /// Get Resource Url for GetLocationUsages
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetLocationUsagesUrl()
+        public static MozuUrl GetLocationUsagesUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/settings/locationUsages/";
+			var url = "/api/commerce/settings/locationUsages/?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -33,14 +35,16 @@ namespace Mozu.Api.Urls.Commerce.Settings
         /// Get Resource Url for GetLocationUsage
         /// </summary>
         /// <param name="code">Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetLocationUsageUrl(string code)
+        public static MozuUrl GetLocationUsageUrl(string code, string responseFields =  null)
 		{
-			var url = "/api/commerce/settings/locationUsages/{code}";
+			var url = "/api/commerce/settings/locationUsages/{code}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "code", code);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -48,14 +52,16 @@ namespace Mozu.Api.Urls.Commerce.Settings
         /// Get Resource Url for UpdateLocationUsage
         /// </summary>
         /// <param name="code">Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateLocationUsageUrl(string code)
+        public static MozuUrl UpdateLocationUsageUrl(string code, string responseFields =  null)
 		{
-			var url = "/api/commerce/settings/locationUsages/{code}";
+			var url = "/api/commerce/settings/locationUsages/{code}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "code", code);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

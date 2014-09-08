@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves a document within the specified document list.
+		/// Retrieves a specific document within the specified document list by providing the document ID.
 		/// <example> 
 		///  <code> 
 		/// var result = DocumentFactory.GetDocument(handler : handler,  documentListName :  documentListName,  documentId :  documentId,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Creates a new document in an defined document list.
+		/// Creates a new document in an existing list.
 		/// <example> 
 		///  <code> 
 		/// var result = DocumentFactory.CreateDocument(handler : handler,  document :  document,  documentListName :  documentListName,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 

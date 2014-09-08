@@ -21,7 +21,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
         /// </summary>
         /// <param name="fields">The fields to include in the response.</param>
         /// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-        /// <param name="isAnonymous">If true, retrieve anonymous shopper accounts in the response.</param>
+        /// <param name="isAnonymous"></param>
         /// <param name="pageSize"></param>
         /// <param name="q">A list of customer account search terms to use in the query when searching across customer name and email. Separate multiple search terms with a space character.</param>
         /// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
@@ -50,7 +50,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for GetLoginState
         /// </summary>
-        /// <param name="accountId">Unique identifier of the customer account.</param>
+        /// <param name="accountId"></param>
         /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
@@ -114,7 +114,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for AddLoginToExistingCustomer
         /// </summary>
-        /// <param name="accountId">Unique identifier of the customer account.</param>
+        /// <param name="accountId"></param>
         /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
@@ -131,7 +131,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for RecomputeCustomerLifetimeValue
         /// </summary>
-        /// <param name="accountId">The unique identifier of the customer account for which to calculate customer lifetime value.</param>
+        /// <param name="accountId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -146,7 +146,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for SetLoginLocked
         /// </summary>
-        /// <param name="accountId">The unique identifier of the customer account.</param>
+        /// <param name="accountId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -161,7 +161,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for SetPasswordChangeRequired
         /// </summary>
-        /// <param name="accountId">Unique identifier of the customer account.</param>
+        /// <param name="accountId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -206,7 +206,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for GetLoginStateByEmailAddress
         /// </summary>
-        /// <param name="emailAddress">The email address associated with the customer account.</param>
+        /// <param name="emailAddress"></param>
         /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
@@ -224,7 +224,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
         /// Get Resource Url for GetLoginStateByUserName
         /// </summary>
         /// <param name="responseFields"></param>
-        /// <param name="userName">The user name associated with the customer account.</param>
+        /// <param name="userName"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

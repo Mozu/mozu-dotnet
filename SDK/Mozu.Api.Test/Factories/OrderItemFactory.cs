@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Adds a new item to a defined order.
+		/// Adds a new item to an existing order.
 		/// <example> 
 		///  <code> 
 		/// var result = OrderItemFactory.CreateOrderItem(handler : handler,  orderItem :  orderItem,  orderId :  orderId,  updateMode :  updateMode,  version :  version,  skipInventoryCheck :  skipInventoryCheck,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates the item fulfillment information for the order specified in the request.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = OrderItemFactory.UpdateItemFulfillment(handler : handler,  orderItem :  orderItem,  orderId :  orderId,  orderItemId :  orderItemId,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -296,7 +296,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Removes a previously added item from a defined order.
+		/// Removes a previously added item from an existing order.
 		/// <example> 
 		///  <code> 
 		/// var result = OrderItemFactory.DeleteOrderItem(handler : handler,  orderId :  orderId,  orderItemId :  orderItemId,  updateMode :  updateMode,  version :  version,  expectedCode: expectedCode, successCode: successCode); 

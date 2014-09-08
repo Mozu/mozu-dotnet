@@ -42,7 +42,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetChildCategories
         /// </summary>
-        /// <param name="categoryId">Unique identifier of the category for which to retrieve subcategories.</param>
+        /// <param name="categoryId">Unique identifier of the category whose subcategories are retrieved.</param>
         /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
@@ -112,7 +112,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for DeleteCategoryById
         /// </summary>
-        /// <param name="cascadeDelete">If true, also delete all subcategories associated with the specified category.</param>
+        /// <param name="cascadeDelete">If true, any subcategories of a category are deleted when this category is deleted. Default: False.</param>
         /// <param name="categoryId">Unique identifier of the category to delete.</param>
         /// <returns>
         /// String - Resource Url

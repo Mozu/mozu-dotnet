@@ -34,14 +34,8 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///
 			public DateTime OrderDate { get; set; }
 
-			///
-			///The unique identifier of the original order, used to track order changes for tax purposes.
-			///
 			public string OriginalDocumentCode { get; set; }
 
-			///
-			///The date and time the original order was placed.
-			///
 			public DateTime OriginalOrderDate { get; set; }
 
 			///
@@ -49,9 +43,6 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///
 			public decimal ShippingAmount { get; set; }
 
-			///
-			///The type of request for which to tax this entity, which is "Order" or "Return."
-			///
 			public string TaxRequestType { get; set; }
 
 			///
