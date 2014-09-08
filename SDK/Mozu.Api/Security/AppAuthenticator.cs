@@ -4,11 +4,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Mozu.Api.Contracts.AppDev;
 using Mozu.Api.Logging;
-using Mozu.Api.Resources.Platform.Applications;
 using Mozu.Api.Urls.Platform.Applications;
 using Mozu.Api.Utilities;
 using Newtonsoft.Json;
-using AuthTicket = Mozu.Api.Contracts.AppDev.AuthTicket;
 
 namespace Mozu.Api.Security
 {
@@ -37,7 +35,6 @@ namespace Mozu.Api.Security
 		/// The baseUrl for App Auth.  Once an app auths with this base url, all subsequent MOZU API calls will go to this base url.
 		/// </summary>
         public string BaseUrl { get; private set; }
-
         
 
 		public static AppAuthenticator Instance
@@ -45,7 +42,7 @@ namespace Mozu.Api.Security
 			get { return _auth; }
 		}
 
-        public static bool UseSSL { get; protected set; }
+        public static bool UseSSL { get; set; }
 
         internal AppAuthInfo AppAuthInfo
         {
