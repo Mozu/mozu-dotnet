@@ -22,9 +22,6 @@ In Microsoft Visual Studio<br>
 <ul>
 <li>Open Mozu.Api.sln file.</li>
 <li>Build and Run the Sample app solution.</li>
-<li>On the sample app UI (shown below), select the "Sandbox" environment.</li>
-<li>Enter the application ID and Shared Secret (from Dev Center).</li>
-<li>After authentication, you’ll be able to launch UI’s for retrieving products and orders.</li>
 <li>Enter the application ID and Shared Secret (from Dev Center).</li>
 <li>After authentication, you will be able to launch UI's for retrieving products and orders.</li>
 </ul>
