@@ -24,33 +24,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 		public class WishlistItem
 		{
 			///
-			///Shopper-entered comments for an item in a wish list.
-			///
-			public string Comments { get; set; }
-
-			///
-			///The subtotal of the wishlist item including any applied discount calculations. This property value is not calculated at this time and is reserved for future functionality.
-			///
-			public decimal? DiscountedTotal { get; set; }
-
-			///
-			///Estimated amount of discounts applied to the item in the wish list, which is system-supplied and read-only.  This property value is not calculated at this time and is reserved for future functionality.
-			///
-			public decimal? DiscountTotal { get; set; }
-
-			///
-			///The extended total of an item in a wish list. This property value is not calculated at this time and is reserved for future functionality.
-			///
-			public decimal? ExtendedTotal { get; set; }
-
-			///
-			///The fee total of an item in a wish list. This property value is not calculated at this time and is reserved for future functionality.
-			///
-			public decimal? FeeTotal { get; set; }
-
-			public decimal? HandlingAmount { get; set; }
-
-			///
 			///Unique identifier of an item in a shopper wish list.
 			///
 			public string Id { get; set; }
@@ -114,6 +87,33 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			///The total of an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? Total { get; set; }
+
+			///
+			///Shopper-entered comments for an item in a wish list.
+			///
+			public string Comments { get; set; }
+
+			///
+			///The subtotal of the wishlist item including any applied discount calculations. This property value is not calculated at this time and is reserved for future functionality.
+			///
+			public decimal? DiscountedTotal { get; set; }
+
+			///
+			///Estimated amount of discounts applied to the item in the wish list, which is system-supplied and read-only.                      This property value is not calculated at this time and is reserved for future functionality.
+			///
+			public decimal? DiscountTotal { get; set; }
+
+			///
+			///The extended total of an item in a wish list. This property value is not calculated at this time and is reserved for future functionality.
+			///
+			public decimal? ExtendedTotal { get; set; }
+
+			///
+			///The fee total of an item in a wish list. This property value is not calculated at this time and is reserved for future functionality.
+			///
+			public decimal? FeeTotal { get; set; }
+
+			public decimal? HandlingAmount { get; set; }
 
 			///
 			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.

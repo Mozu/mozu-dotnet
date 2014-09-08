@@ -28,9 +28,6 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public string CardType { get; set; }
 
-			///
-			///Unique identifier of the customer account contact associated with the credit card.
-			///
 			public int ContactId { get; set; }
 
 			///

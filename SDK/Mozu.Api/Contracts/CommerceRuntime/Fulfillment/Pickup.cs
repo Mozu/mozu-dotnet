@@ -33,9 +33,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			///
 			public DateTime? FulfillmentDate { get; set; }
 
-			///
-			///The location code that represents the location where the shopper will fulfill this pickup.
-			///
 			public string FulfillmentLocationCode { get; set; }
 
 			///

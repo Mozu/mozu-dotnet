@@ -157,8 +157,26 @@ namespace Mozu.Api
 
 		public IApiContext CloneWith(Action<IApiContext> contextModification)
 		{
-			contextModification(this);
-			return this;
+			var cloned = new ApiContext()
+			{
+				AppAuthClaim = (string)this.AppAuthClaim.Clone(),
+				CatalogId = this.CatalogId,
+				CorrelationId = this.CorrelationId,
+				Currency = (string)this.Currency.Clone(),
+				Date = (string)this.Date.Clone(),
+				HMACSha256 = (string)this.HMACSha256.Clone(),
+				Locale = (string)this.Locale.Clone(),
+				MasterCatalogId = this.MasterCatalogId,
+				SiteId = this.SiteId,
+				SiteUrl = (string)this.SiteUrl.Clone(),
+				Tenant = this.Tenant,
+				TenantId = this.TenantId,
+				TenantUrl = (string)this.TenantUrl.Clone(),
+				UserAuthTicket = this.UserAuthTicket
+			};
+
+			contextModification(cloned);
+			return cloned;
 		}
 
         private void SetBySite(Site site)

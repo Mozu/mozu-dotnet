@@ -15,7 +15,7 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
-		///	Properties of a product configuration with shopper-selected options.
+		///	Properties of a created product selection.
 		///
 		public class ConfiguredProduct
 		{
@@ -40,9 +40,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public List<Discount> AvailableShippingDiscounts { get; set; }
 
-			///
-			///Properties of the inventory of the configured product, including the number of items in stock, whether the item appears on the storefront, and whether the item is out of stock or can be back ordered.
-			///
 			public ProductInventoryInfo InventoryInfo { get; set; }
 
 			///
@@ -56,7 +53,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public List<ProductOption> Options { get; set; }
 
 			///
-			///Unit price that the tenant intends to sell the product if no sale price is set.
+			///Price that the merchant intends to sell the product which is not necessarily the list price. This is the price the merchant intends to sell the product if no sale price is present.
 			///
 			public ProductPrice Price { get; set; }
 

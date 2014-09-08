@@ -35,7 +35,7 @@ namespace Mozu.Api.Resources.Content.Documentlists
 
 		public DocumentTreeResource CloneWithApiContext(Action<IApiContext> contextModification) 
 		{
-			return new DocumentTreeResource(_apiContext.CloneWith(contextModification));
+			return new DocumentTreeResource(_apiContext.CloneWith(contextModification), _dataViewMode);
 		}
 
 		public DocumentTreeResource(IApiContext apiContext, DataViewMode dataViewMode) 
@@ -120,7 +120,7 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// </summary>
 		/// <param name="documentListName">The name of the document list associated with the document.</param>
 		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
-		/// <param name="stream">Input output stream that delivers information.</param>
+		/// <param name="stream"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -154,7 +154,7 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// </summary>
 		/// <param name="documentListName">The name of the document list associated with the document.</param>
 		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
-		/// <param name="stream">Input output stream that delivers information.</param>
+		/// <param name="stream"></param>
 		/// <returns>
 		/// 
 		/// </returns>

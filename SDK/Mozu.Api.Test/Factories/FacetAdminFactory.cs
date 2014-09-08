@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Creates a new category, price, or attribute facet. Define the category or attribute source to use for the facet values.
+		/// Creates a new category, price, or attribute facet. Supply the category or attribute source to use for the facet values.
 		/// <example> 
 		///  <code> 
 		/// var result = FacetFactory.AddFacet(handler : handler,  facet :  facet,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

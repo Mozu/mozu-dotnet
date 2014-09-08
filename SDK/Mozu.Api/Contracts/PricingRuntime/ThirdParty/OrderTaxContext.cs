@@ -14,29 +14,14 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.PricingRuntime.ThirdParty
 {
-		///
-		///	Properties of the tax context applicable for the order.
-		///
 		public class OrderTaxContext
 		{
-			///
-			///Tax amount applied to the handling fee defined for orders on this site.
-			///
 			public decimal HandlingFeeTax { get; set; }
 
-			///
-			///Tax amount applied to the order.
-			///
 			public decimal OrderTax { get; set; }
 
-			///
-			///Tax amount applied to the shipping costs on the order.
-			///
 			public decimal ShippingTax { get; set; }
 
-			///
-			///Properties of the tax context applicable for line items in an order.
-			///
 			public List<ItemTaxContext> ItemTaxContexts { get; set; }
 
 		}

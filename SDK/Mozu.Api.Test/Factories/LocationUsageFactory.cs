@@ -33,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves the configured site location usages for the location usage code specified in the request.
 		/// <example> 
 		///  <code> 
-		/// var result = LocationUsageFactory.GetLocationUsages(handler : handler,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = LocationUsageFactory.GetLocationUsages(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<LocationUsageCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Location.LocationUsageCollection GetLocationUsages(ServiceClientMessageHandler handler, 
- 		 
+ 		 string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -48,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Settings.LocationUsageClient.GetLocationUsagesClient(
-						);
+				 responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -71,14 +71,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves the location usages for the site specified in the request header.
 		/// <example> 
 		///  <code> 
-		/// var result = LocationUsageFactory.GetLocationUsage(handler : handler,  code :  code,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = LocationUsageFactory.GetLocationUsage(handler : handler,  code :  code,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<LocationUsage/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Location.LocationUsage GetLocationUsage(ServiceClientMessageHandler handler, 
- 		 string code, 
+ 		 string code, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -86,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Settings.LocationUsageClient.GetLocationUsageClient(
-				 code :  code		);
+				 code :  code,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -109,14 +109,14 @@ namespace Mozu.Api.Test.Factories
 		/// Updates the location usage for the site based on the location usage code specified in the request.
 		/// <example> 
 		///  <code> 
-		/// var result = LocationUsageFactory.UpdateLocationUsage(handler : handler,  usage :  usage,  code :  code,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = LocationUsageFactory.UpdateLocationUsage(handler : handler,  usage :  usage,  code :  code,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<LocationUsage/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Location.LocationUsage UpdateLocationUsage(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.Location.LocationUsage usage, string code, 
+ 		 Mozu.Api.Contracts.Location.LocationUsage usage, string code, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -124,7 +124,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Settings.LocationUsageClient.UpdateLocationUsageClient(
-				 usage :  usage,  code :  code		);
+				 usage :  usage,  code :  code,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

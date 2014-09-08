@@ -35,7 +35,7 @@ namespace Mozu.Api.Resources.Content
 
 		public DocumentListResource CloneWithApiContext(Action<IApiContext> contextModification) 
 		{
-			return new DocumentListResource(_apiContext.CloneWith(contextModification));
+			return new DocumentListResource(_apiContext.CloneWith(contextModification), _dataViewMode);
 		}
 
 		public DocumentListResource(IApiContext apiContext, DataViewMode dataViewMode) 
@@ -183,39 +183,6 @@ namespace Mozu.Api.Resources.Content
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
-
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="documentId"></param>
-		/// <param name="stream"></param>
-		/// <returns>
-		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var documentlist = new DocumentList();
-		///   documentlist.LegacyR4_UpdateDocumentContent( stream,  documentId,  contentType);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void LegacyR4_UpdateDocumentContent(System.IO.Stream stream, string documentId, String  contentType= null)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Content.DocumentListClient.LegacyR4_UpdateDocumentContentClient( stream,  documentId,  contentType);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		public virtual async Task LegacyR4_UpdateDocumentContentAsync(System.IO.Stream stream, string documentId, String  contentType= null)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Content.DocumentListClient.LegacyR4_UpdateDocumentContentClient( stream,  documentId,  contentType);
-			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
 
 		}
 

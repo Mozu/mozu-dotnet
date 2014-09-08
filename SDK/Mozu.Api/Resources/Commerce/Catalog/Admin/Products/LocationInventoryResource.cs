@@ -35,7 +35,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 		public LocationInventoryResource CloneWithApiContext(Action<IApiContext> contextModification) 
 		{
-			return new LocationInventoryResource(_apiContext.CloneWith(contextModification));
+			return new LocationInventoryResource(_apiContext.CloneWith(contextModification), _dataViewMode);
 		}
 
 		public LocationInventoryResource(IApiContext apiContext, DataViewMode dataViewMode) 
@@ -87,7 +87,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// Retrieves the details of the inventory of the product in the location specified in the request.
 		/// </summary>
 		/// <param name="locationCode">User-defined code that identifies the location.</param>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="productCode"></param>
 		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.LocationInventory"/>
@@ -123,7 +123,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// Creates a new location inventory definition for the product code specified in the request.
 		/// </summary>
 		/// <param name="performUpserts"></param>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="productCode">ProductCodeBase</param>
 		/// <param name="locationInventoryList">Array list of the location inventory definitions associated with the product code specified in the request. For each location, you must define the locationCode value and the stockOnHand value. All other properties in the array are system-supplied and read only.</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.LocationInventory"/>}
@@ -159,7 +159,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// Updates the current level of stock at each location associated with the product code specified in the request.
 		/// </summary>
 		/// <param name="productCode">The product code of the product for which to update active stock on hand inventory at a specified location.</param>
-		/// <param name="locationInventoryAdjustments">Properties of the inventory adjustments to perform for the specified location.</param>
+		/// <param name="locationInventoryAdjustments"></param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.LocationInventory"/>}
 		/// </returns>

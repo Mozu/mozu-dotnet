@@ -18,6 +18,13 @@ namespace Mozu.Api.Contracts.Tenant
 		///
 		public class Catalog
 		{
+			///
+			///The date and time the catalog was deleted.
+			///
+			public DateTime DeleteDate { get; set; }
+
+			public int Id { get; set; }
+
 			public DateTime CreateDate { get; set; }
 
 			///
@@ -29,13 +36,6 @@ namespace Mozu.Api.Contracts.Tenant
 			///The default locale code for the product catalog. Currently, only "en-US" is supported.
 			///
 			public string DefaultLocaleCode { get; set; }
-
-			///
-			///The date and time the catalog was deleted.
-			///
-			public DateTime DeleteDate { get; set; }
-
-			public int Id { get; set; }
 
 			///
 			///If true, the catalog has been deleted.

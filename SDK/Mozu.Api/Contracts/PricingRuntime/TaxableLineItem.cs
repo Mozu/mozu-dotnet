@@ -39,9 +39,6 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///
 			public string ProductCode { get; set; }
 
-			///
-			///The name of the product that represents a line item in a taxable order.
-			///
 			public string ProductName { get; set; }
 
 			///
@@ -49,9 +46,6 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///
 			public int Quantity { get; set; }
 
-			///
-			///The reason the item is either taxed or returned.
-			///
 			public string Reason { get; set; }
 
 			///

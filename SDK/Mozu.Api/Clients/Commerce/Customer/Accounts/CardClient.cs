@@ -22,10 +22,10 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 	public partial class CardClient 	{
 		
 		/// <summary>
-		/// Retrieves the details of a credit card stored with a customer account billing contact.
+		/// 
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
+		/// <param name="accountId"></param>
+		/// <param name="cardId"></param>
 		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.Card"/>}
@@ -102,7 +102,7 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// Update one or more properties of a credit card defined for a customer account.
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="cardId">Unique identifier of the credit card.</param>
+		/// <param name="cardId"></param>
 		/// <param name="responseFields"></param>
 		/// <param name="card">Properties of the customer account credit card to update.</param>
 		/// <returns>

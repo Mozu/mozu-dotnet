@@ -48,7 +48,7 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		}
 
 		/// <summary>
-		/// Retrieves a document within the specified document list.
+		/// Retrieves a specific document within the specified document list by providing the document ID.
 		/// </summary>
 		/// <param name="documentId">Identifier of the document being retrieved.</param>
 		/// <param name="documentListName">The name of the document list associated with the document to retrieve.</param>
@@ -105,7 +105,7 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		}
 
 		/// <summary>
-		/// Creates a new document in an defined document list.
+		/// Creates a new document in an existing list.
 		/// </summary>
 		/// <param name="documentListName">The descriptive alphanumeric document list name being created.</param>
 		/// <param name="responseFields"></param>
@@ -136,7 +136,7 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		/// </summary>
 		/// <param name="documentId">Unique identifier of the document.</param>
 		/// <param name="documentListName">The name of the document list associated with the document.</param>
-		/// <param name="stream">Input output stream that delivers information.</param>
+		/// <param name="stream"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

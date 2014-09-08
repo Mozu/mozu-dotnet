@@ -19,11 +19,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		public class AttributeDetail
 		{
 			///
-			///Description of the attribute in the language specified by the locale code.
-			///
-			public string Description { get; set; }
-
-			///
 			///The data type (such as datetime or string) associated with the attribute.
 			///
 			public string DataType { get; set; }
@@ -32,6 +27,11 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///Unique sequence of the attribute for its data type.
 			///
 			public int DataTypeSequence { get; set; }
+
+			///
+			///Description of the attribute in the language specified by the locale code.
+			///
+			public string Description { get; set; }
 
 			public string DisplayIntention { get; set; }
 

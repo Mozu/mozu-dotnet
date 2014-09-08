@@ -27,7 +27,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string LocaleCode { get; set; }
 
 			///
-			///The localizable name of the discount.
+			///Name of the localized content.
 			///
 			public string Name { get; set; }
 

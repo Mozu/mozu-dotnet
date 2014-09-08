@@ -34,9 +34,6 @@ namespace Mozu.Api.Contracts.SiteSettings.Application
 			///
 			public bool? Initialized { get; set; }
 
-			///
-			///If true, the application type is Extension.
-			///
 			public bool? IsExtension { get; set; }
 
 			///

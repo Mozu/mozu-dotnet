@@ -24,7 +24,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Document Types resource to view the document types supplied by the Content API.
+	/// The DocumentTypes resource is a part of the Content Service.
 	/// </summary>
 	public partial class DocumentTypeFactory : BaseDataFactory
 	{

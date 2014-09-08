@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 {
 	/// <summary>
-	/// Use the Product Administration resource to create new product definitions in the master catalog and determine which catalogs will feature products. You can also assign attribute values for defined products, manage product-level location inventory, and configure the variations of a product.
+	/// Use this resource to create products, view the attributes associated with existing products, and determine which sites feature a specific product.
 	/// </summary>
 	public partial class ProductResource  	{
 		///
@@ -35,7 +35,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 
 		public ProductResource CloneWithApiContext(Action<IApiContext> contextModification) 
 		{
-			return new ProductResource(_apiContext.CloneWith(contextModification));
+			return new ProductResource(_apiContext.CloneWith(contextModification), _dataViewMode);
 		}
 
 		public ProductResource(IApiContext apiContext, DataViewMode dataViewMode) 
@@ -122,7 +122,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// Retrieves the details of a product associated with a specific catalog.
 		/// </summary>
-		/// <param name="catalogId">The unique identifier of the catalog of products used by a site.</param>
+		/// <param name="catalogId"></param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <param name="responseFields"></param>
 		/// <returns>
@@ -156,9 +156,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Retrieves the details of a product definition.
+		/// Retrieves an existing product.
 		/// </summary>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="productCode">Merchant-created code associated with the product such as a SKU. Max length: 30. Accepts a to z, A to Z, Ãƒâ€¹-ÃƒËœ, 0 to 9, #, semicolon, commas, apostrophes, and Spaces, but no punctuation or other characters.</param>
 		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Product"/>
@@ -299,7 +299,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// Updates one or more properties of a product associated with a specific catalog.
 		/// </summary>
-		/// <param name="catalogId">The unique identifier of the catalog of products used by a site.</param>
+		/// <param name="catalogId"></param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <param name="responseFields"></param>
 		/// <param name="productInCatalogInfoIn">Properties of the product associated with the catalog specified in the request.</param>
@@ -404,7 +404,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// Removes the product association defined for a specific catalog.
 		/// </summary>
-		/// <param name="catalogId">The unique identifier of the catalog of products used by a site.</param>
+		/// <param name="catalogId"></param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <returns>
 		/// 

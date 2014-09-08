@@ -26,7 +26,7 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// </summary>
 		/// <param name="fields">The fields to include in the response.</param>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-		/// <param name="isAnonymous">If true, retrieve anonymous shopper accounts in the response.</param>
+		/// <param name="isAnonymous"></param>
 		/// <param name="pageSize"></param>
 		/// <param name="q">A list of customer account search terms to use in the query when searching across customer name and email. Separate multiple search terms with a space character.</param>
 		/// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
@@ -54,9 +54,9 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// Retrieves the current login state of the customer account specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="accountId"></param>
 		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.LoginState"/>}
@@ -154,11 +154,11 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// Adds a new user login to a defined customer account.
+		/// 
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="accountId"></param>
 		/// <param name="responseFields"></param>
-		/// <param name="customerAuthInfo">The authentication information for the customer account.</param>
+		/// <param name="customerAuthInfo"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>}
 		/// </returns>
@@ -180,9 +180,9 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// Updates the customer lifetime value of the specified customer account in the event of an order import or a lifetime value calculation error.
+		/// 
 		/// </summary>
-		/// <param name="accountId">The unique identifier of the customer account for which to calculate customer lifetime value.</param>
+		/// <param name="accountId"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
@@ -204,10 +204,10 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// Lock or unlock a customer account.
+		/// 
 		/// </summary>
-		/// <param name="accountId">The unique identifier of the customer account.</param>
-		/// <param name="isLocked">If true, the customer account is locked from logging in.</param>
+		/// <param name="accountId"></param>
+		/// <param name="isLocked"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
@@ -229,10 +229,10 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// Requires the password for the customer account to be changed.
+		/// 
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="isPasswordChangeRequired">If true, the password for the customer account must be changed.</param>
+		/// <param name="accountId"></param>
+		/// <param name="isPasswordChangeRequired"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
@@ -254,10 +254,10 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// Creates a new customer account and logs the user associated with the customer account into the site.
+		/// 
 		/// </summary>
 		/// <param name="responseFields"></param>
-		/// <param name="accountAndAuthInfo">Properties of the customer account to create, including the user authentication information.</param>
+		/// <param name="accountAndAuthInfo"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>}
 		/// </returns>
@@ -279,10 +279,10 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// Creates multiple customer accounts based on the information specified in the request.
+		/// 
 		/// </summary>
 		/// <param name="responseFields"></param>
-		/// <param name="customers">Properties of the customer accounts to create.</param>
+		/// <param name="customers"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerAccountCollection"/>}
 		/// </returns>
@@ -304,9 +304,9 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// Retrieves the current login state of a customer account by providing the customer's email address.
+		/// 
 		/// </summary>
-		/// <param name="emailAddress">The email address associated with the customer account.</param>
+		/// <param name="emailAddress"></param>
 		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.LoginState"/>}
@@ -329,10 +329,10 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// Retrieves the current login state of a customer account by providing the user name associated with the customer account.
+		/// 
 		/// </summary>
 		/// <param name="responseFields"></param>
-		/// <param name="userName">The user name associated with the customer account.</param>
+		/// <param name="userName"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.LoginState"/>}
 		/// </returns>
@@ -354,9 +354,9 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// Resets the password for a customer account.
+		/// 
 		/// </summary>
-		/// <param name="resetPasswordInfo">Information required to reset the password for a customer account.</param>
+		/// <param name="resetPasswordInfo"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

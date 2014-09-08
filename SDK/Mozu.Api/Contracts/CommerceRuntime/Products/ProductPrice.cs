@@ -32,9 +32,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			///
 			public decimal? SalePrice { get; set; }
 
-			///
-			///The override price defined by the tenant for this cart or order item.
-			///
 			public decimal? TenantOverridePrice { get; set; }
 
 		}

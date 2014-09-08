@@ -24,7 +24,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Customer Authentication Tickets resource to generate and refresh authentication tickets for customer accounts.
+	/// 
 	/// </summary>
 	public partial class CustomerAuthTicketFactory : BaseDataFactory
 	{
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Generates a new authentication ticket for a customer account.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerAuthTicketFactory.CreateUserAuthTicket(handler : handler,  userAuthInfo :  userAuthInfo,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Refreshes an existing authentication ticket for a customer account by providing the refresh token string.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerAuthTicketFactory.RefreshUserAuthTicket(handler : handler,  refreshToken :  refreshToken,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

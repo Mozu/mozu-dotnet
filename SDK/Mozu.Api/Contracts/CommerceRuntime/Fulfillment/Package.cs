@@ -33,10 +33,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			///
 			public DateTime? FulfillmentDate { get; set; }
 
-			///
-			///The location code that represents the location from which this package will ship.
-			///
 			public string FulfillmentLocationCode { get; set; }
+
+			public bool HasLabel { get; set; }
 
 			///
 			///Unique identifier of a package.

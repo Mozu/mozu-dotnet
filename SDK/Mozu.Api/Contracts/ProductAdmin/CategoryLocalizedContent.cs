@@ -20,26 +20,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class CategoryLocalizedContent
 		{
 			///
-			///Description of the product category in the language specified by the locale code.
-			///
-			public string Description { get; set; }
-
-			///
-			///Language used for the entity. Currently, only "en-US" is supported.
-			///
-			public string LocaleCode { get; set; }
-
-			///
-			///Description defined for the product category metadata, used to manage internal product information, in the language specified by the locale code.
-			///
-			public string MetaTagDescription { get; set; }
-
-			///
-			///Keywords defined for the product category metadata, used to manage internal product information, in the language specified by the locale code.
-			///
-			public string MetaTagKeywords { get; set; }
-
-			///
 			///Title defined for the product category metadata, used to manage internal product information, in the language specified by the locale code.
 			///
 			public string MetaTagTitle { get; set; }
@@ -58,6 +38,26 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///Human-readable identifier to assign to the category to generate user-friendly URLs.
 			///
 			public string Slug { get; set; }
+
+			///
+			///Description of the product category in the language specified by the locale code.
+			///
+			public string Description { get; set; }
+
+			///
+			///Language used for the entity. Currently, only "en-US" is supported.
+			///
+			public string LocaleCode { get; set; }
+
+			///
+			///Description defined for the product category metadata, used to manage internal product information, in the language specified by the locale code.
+			///
+			public string MetaTagDescription { get; set; }
+
+			///
+			///Keywords defined for the product category metadata, used to manage internal product information, in the language specified by the locale code.
+			///
+			public string MetaTagKeywords { get; set; }
 
 			///
 			///Array of localized product category images in the language specified by the LocaleCode.

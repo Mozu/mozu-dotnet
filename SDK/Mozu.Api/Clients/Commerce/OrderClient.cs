@@ -52,7 +52,7 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// Retrieves the actions available to perform for an order based on its current status.
+		/// Retrieves available order actions which depends on the status of the order. Actions are "CreateOrder," "SubmitOrder," "SetOrderAsProcessing," "CloseOrder," or "CancelOrder."
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the available order actions to get.</param>
 		/// <returns>
@@ -76,9 +76,9 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// Retrieves an order for the purpose of splitting it into multiple taxable orders in order to fulfill the order in multiple locations.
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order to retrieve.</param>
+		/// <param name="orderId"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.PricingRuntime.TaxableOrder"/>}}
 		/// </returns>
@@ -154,7 +154,7 @@ namespace Mozu.Api.Clients.Commerce
 		/// Creates a new order for no-cart quick-ordering scenarios.
 		/// </summary>
 		/// <param name="responseFields"></param>
-		/// <param name="order">Properties of the order to create and submit.</param>
+		/// <param name="order">All properties of the order to place.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>}
 		/// </returns>
@@ -176,11 +176,11 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// Perform the specified action for an order. The actions you can perform depend on the current status of the order.
+		/// Perform the specified action for an order. Available actions depend on the current status of the order. When in doubt, first get a list of available order actions.
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="responseFields"></param>
-		/// <param name="action">The action to perform for the order.</param>
+		/// <param name="action">Action to perform, which can be "CreateOrder," "SubmitOrder," "SetOrderAsProcessing," "CloseOrder," or "CancelOrder."</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>}
 		/// </returns>

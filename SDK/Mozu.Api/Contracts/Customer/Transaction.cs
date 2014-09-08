@@ -23,6 +23,8 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public decimal Amount { get; set; }
 
+			public string CurrencyCode { get; set; }
+
 			///
 			///The date and time the customer transaction occurred.
 			///

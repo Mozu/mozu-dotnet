@@ -15,7 +15,7 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.CommerceRuntime.Discounts
 {
 		///
-		///	Properties of a discount defined for a product, order, or shipping on a web storefront.
+		///	Properties of a discount defined for a product or order in a storefront.
 		///
 		public class Discount
 		{

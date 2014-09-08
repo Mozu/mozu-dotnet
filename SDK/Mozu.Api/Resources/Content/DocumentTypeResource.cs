@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Content
 {
 	/// <summary>
-	/// Use the Document Types resource to view the document types supplied by the Content API.
+	/// The DocumentTypes resource is a part of the Content Service.
 	/// </summary>
 	public partial class DocumentTypeResource  	{
 		///
@@ -35,7 +35,7 @@ namespace Mozu.Api.Resources.Content
 
 		public DocumentTypeResource CloneWithApiContext(Action<IApiContext> contextModification) 
 		{
-			return new DocumentTypeResource(_apiContext.CloneWith(contextModification));
+			return new DocumentTypeResource(_apiContext.CloneWith(contextModification), _dataViewMode);
 		}
 
 		public DocumentTypeResource(IApiContext apiContext, DataViewMode dataViewMode) 

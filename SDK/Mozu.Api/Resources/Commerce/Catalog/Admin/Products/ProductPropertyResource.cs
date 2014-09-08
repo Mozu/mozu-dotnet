@@ -35,7 +35,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 		public ProductPropertyResource CloneWithApiContext(Action<IApiContext> contextModification) 
 		{
-			return new ProductPropertyResource(_apiContext.CloneWith(contextModification));
+			return new ProductPropertyResource(_apiContext.CloneWith(contextModification), _dataViewMode);
 		}
 
 		public ProductPropertyResource(IApiContext apiContext, DataViewMode dataViewMode) 
@@ -156,7 +156,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// Retrieves the details of a property attribute configuration for the product specified in the request.
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="productCode"></param>
 		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductProperty"/>

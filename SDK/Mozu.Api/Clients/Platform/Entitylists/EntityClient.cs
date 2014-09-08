@@ -33,7 +33,7 @@ namespace Mozu.Api.Clients.Platform.Entitylists
 		/// <example>
 		/// <code>
 		///   var mozuClient=GetEntity( entityListFullName,  id,  responseFields);
-		///   var jsonClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var jObjectClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
 		public static MozuClient<JObject> GetEntityClient(string entityListFullName, string id, string responseFields =  null)
@@ -88,7 +88,7 @@ namespace Mozu.Api.Clients.Platform.Entitylists
 		/// <example>
 		/// <code>
 		///   var mozuClient=InsertEntity( item,  entityListFullName,  responseFields);
-		///   var jsonClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var jObjectClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
 		public static MozuClient<JObject> InsertEntityClient(JObject item, string entityListFullName, string responseFields =  null)
@@ -97,7 +97,7 @@ namespace Mozu.Api.Clients.Platform.Entitylists
 			const string verb = "POST";
 			var mozuClient = new MozuClient<JObject>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<JObject>(item);
+									.WithBody(item);
 			return mozuClient;
 
 		}
@@ -115,7 +115,7 @@ namespace Mozu.Api.Clients.Platform.Entitylists
 		/// <example>
 		/// <code>
 		///   var mozuClient=UpdateEntity( item,  entityListFullName,  id,  responseFields);
-		///   var jsonClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var jObjectClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
 		public static MozuClient<JObject> UpdateEntityClient(JObject item, string entityListFullName, string id, string responseFields =  null)
@@ -124,7 +124,7 @@ namespace Mozu.Api.Clients.Platform.Entitylists
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<JObject>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<JObject>(item);
+									.WithBody(item);
 			return mozuClient;
 
 		}
