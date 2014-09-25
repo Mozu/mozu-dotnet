@@ -18,7 +18,6 @@ namespace Mozu.Api.ToolKit.Readers
             PageSize = _results.PageSize;
             return _results.Items != null && _results.Items.Count > 0;
         }
-
         public List<CustomerSegment> Items
         {
             get { return _results.Items; }
