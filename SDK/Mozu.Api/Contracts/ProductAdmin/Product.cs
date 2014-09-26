@@ -16,15 +16,18 @@ using Mozu.Api.Contracts.Core;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	Properties of the product such as product code, product name, and product price.
+		///	Properties of a product in a master catalog. Product properties include discounts, localizable content, inventory information, attribute configurations, price data, and the catalogs associated with a product.
 		///
 		public class Product
 		{
 			///
-			///Merchant-generated product code for the product that any variation stems from.
+			///Product code defined by the tenant administrator to use as a base prefix when generating product codes for any variations of this product.
 			///
 			public string BaseProductCode { get; set; }
 
+			///
+			///Describes the types of fulfillment that are supported for this product. A product can support direct ship, in-store pickup, or both. Supported fulfillment types are defined at the master catalog level. Client administrators cannot override the supported fulfillment types at the catalog level.
+			///
 			public List<string> FulfillmentTypesSupported { get; set; }
 
 			///
@@ -33,7 +36,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public bool HasConfigurableOptions { get; set; }
 
 			///
-			///If true, this product has stand alone options that a shopper can select which can exist without product variations. Stand alone options. System-supplied and read-only.
+			///If true, this product has standalone options that a shopper can select without configuring a defined product variations. System-supplied and read only.
 			///
 			public bool HasStandAloneOptions { get; set; }
 
@@ -48,20 +51,23 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public bool? IsRecurring { get; set; }
 
 			///
-			///If true, the entity is subject to tax based on the relevant tax rate.
+			///If true, the entity is subject to sales tax based on the relevant tax rate.
 			///
 			public bool? IsTaxable { get; set; }
 
 			///
-			///If true, the entity is valid for the product type provided.
+			///If true, this product is valid for the assigned product type.
 			///
 			public bool? IsValidForProductType { get; set; }
 
 			///
-			///If true, the product in this request is a product variation of a product that has configurable options. System-supplied and read-only.
+			///If true, this configured product represents a product variation defined with configurable options. System-supplied and read only.
 			///
 			public bool IsVariation { get; set; }
 
+			///
+			///The unique identifier of the master catalog associated with the entity.
+			///
 			public int? MasterCatalogId { get; set; }
 
 			///
@@ -75,10 +81,13 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public int? ProductSequence { get; set; }
 
 			///
-			///Identifier of the product type.
+			///Unique identifier of the product type assigned for this product. Tenant administrators can only define one product type per product.
 			///
 			public int? ProductTypeId { get; set; }
 
+			///
+			///The usage type that applies to this product, which is Standard (a single product without configurable options), Configurable (a product that includes configurable option attributes), Bundle (a collection of products sold as a single entity), or Component (an invididual product that represents a component in a bundle).
+			///
 			public string ProductUsage { get; set; }
 
 			///
@@ -92,7 +101,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string StandAlonePackageType { get; set; }
 
 			///
-			///The universal product code (UPC code) of the product.
+			///The universal product code associated with the product. The UPC of a product is unique across all sales channels.
 			///
 			public string Upc { get; set; }
 
@@ -111,15 +120,15 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public AuditInfo AuditInfo { get; set; }
 
+			///
+			///Properties of a collection of component products that make up a single product bundle with its own product code. Tenants can define product bundles for any product type that supports the Bundle product usage.
+			///
 			public List<BundledProduct> BundledProducts { get; set; }
 
-			///
-			///Product content set in product admin.
-			///
 			public ProductLocalizedContent Content { get; set; }
 
 			///
-			///The list of extras set up in product admin.
+			///List of extra product attributes defined for this product.
 			///
 			public List<ProductExtra> Extras { get; set; }
 
@@ -129,7 +138,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public ProductInventoryInfo InventoryInfo { get; set; }
 
 			///
-			///The list of options set up in product admin.
+			///List of option product attributes defined for this product.
 			///
 			public List<ProductOption> Options { get; set; }
 
@@ -153,8 +162,14 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public Measurement PackageWidth { get; set; }
 
+			///
+			///Unit price that the client intends to sell the product if no sale price is set.
+			///
 			public ProductPrice Price { get; set; }
 
+			///
+			///Describes the behavior the system uses when determining the price of the product.
+			///
 			public ProductPricingBehaviorInfo PricingBehavior { get; set; }
 
 			///
@@ -163,7 +178,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public List<ProductInCatalogInfo> ProductInCatalogs { get; set; }
 
 			///
-			///The list of product properties to set in product admin.
+			///List of property product attributes defined for this product.
 			///
 			public List<ProductProperty> Properties { get; set; }
 
@@ -173,14 +188,17 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public ProductPublishingInfo PublishingInfo { get; set; }
 
 			///
-			///search engine optimized product content.
+			///The search engine optimized content defined for this product.
 			///
 			public ProductLocalizedSEOContent SeoContent { get; set; }
 
+			///
+			///Supplier-defined properties assigned for the product.
+			///
 			public ProductSupplierInfo SupplierInfo { get; set; }
 
 			///
-			///The list of product variation options that exist in product admin.
+			///The list of product variation configurations defined for this product based on its available product option attributes.
 			///
 			public List<ProductVariationOption> VariationOptions { get; set; }
 

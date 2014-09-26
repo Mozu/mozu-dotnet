@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 
 
 namespace Mozu.Api.Contracts.Event
@@ -29,9 +30,14 @@ namespace Mozu.Api.Contracts.Event
 
 			public int? SiteId { get; set; }
 
+			///
+			///Unique identifier of the Mozu tenant.
+			///
 			public int? TenantId { get; set; }
 
 			public string Topic { get; set; }
+
+			public List<EventExtendedProperty> ExtendedProperties { get; set; }
 
 		}
 

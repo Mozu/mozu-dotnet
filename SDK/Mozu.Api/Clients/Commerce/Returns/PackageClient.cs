@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Commerce.Returns
 {
 	/// <summary>
-	/// Use the return packages subresource to manage physical packages used to ship return replacement items.
+	/// Use the Return Packages subresource to manage physical packages used to ship return replacement items.
 	/// </summary>
 	public partial class PackageClient 	{
 		
@@ -50,7 +50,7 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		/// Retrieves the details of a package of return replacement items.
 		/// </summary>
 		/// <param name="packageId">Unique identifier of the return replacement package to retrieve.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="returnId">Unique identifier of the return associated with the replacement package to retrieve.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>}
@@ -75,7 +75,7 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		/// <summary>
 		/// Creates a new physical package of return replacement items.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="returnId">Unique identifier of the return for which to create a replacement package.</param>
 		/// <param name="package">Properties of the physical package for a return replacement.</param>
 		/// <returns>
@@ -102,7 +102,7 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		/// Updates one or more properties of a package associated with a return replacement.
 		/// </summary>
 		/// <param name="packageId">Unique identifier of the return replacement package to update.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="returnId">Unique identifier of the return associated with the replacement package to update.</param>
 		/// <param name="package">Properties of the return replacement package to update.</param>
 		/// <returns>

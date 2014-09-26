@@ -76,7 +76,7 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			public string LogoText { get; set; }
 
 			///
-			///The mobile theme is the storefront name for the theme.
+			///The name of the theme to use when viewing this website on a mobile device.
 			///
 			public string MobileTheme { get; set; }
 
@@ -100,6 +100,9 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			///
 			public string SiteTimeZone { get; set; }
 
+			///
+			///The name of the theme to use when viewing the website on a mobile device.
+			///
 			public string TabletTheme { get; set; }
 
 			///

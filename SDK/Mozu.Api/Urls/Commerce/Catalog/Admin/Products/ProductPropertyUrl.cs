@@ -54,9 +54,9 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         /// Get Resource Url for GetPropertyValueLocalizedContent
         /// </summary>
         /// <param name="attributeFQN"></param>
-        /// <param name="localeCode"></param>
+        /// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
         /// <param name="productCode"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="value"></param>
         /// <returns>
         /// String - Resource Url
@@ -77,8 +77,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         /// Get Resource Url for GetProperty
         /// </summary>
         /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-        /// <param name="productCode"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -97,7 +97,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         /// </summary>
         /// <param name="attributeFQN"></param>
         /// <param name="productCode"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="value"></param>
         /// <returns>
         /// String - Resource Url
@@ -117,7 +117,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         /// Get Resource Url for AddProperty
         /// </summary>
         /// <param name="productCode"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -153,9 +153,9 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         /// Get Resource Url for UpdatePropertyValueLocalizedContent
         /// </summary>
         /// <param name="attributeFQN"></param>
-        /// <param name="localeCode"></param>
+        /// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
         /// <param name="productCode"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="value"></param>
         /// <returns>
         /// String - Resource Url
@@ -177,7 +177,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         /// </summary>
         /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
         /// <param name="productCode"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -212,7 +212,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         /// Get Resource Url for DeletePropertyValueLocalizedContent
         /// </summary>
         /// <param name="attributeFQN"></param>
-        /// <param name="localeCode"></param>
+        /// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
         /// <param name="productCode"></param>
         /// <param name="value"></param>
         /// <returns>

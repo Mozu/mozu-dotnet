@@ -37,7 +37,7 @@ namespace Mozu.Api.Urls.Commerce.Returns
         /// Get Resource Url for GetPackage
         /// </summary>
         /// <param name="packageId">Unique identifier of the return replacement package to retrieve.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="returnId">Unique identifier of the return associated with the replacement package to retrieve.</param>
         /// <returns>
         /// String - Resource Url
@@ -55,7 +55,7 @@ namespace Mozu.Api.Urls.Commerce.Returns
 				/// <summary>
         /// Get Resource Url for CreatePackage
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="returnId">Unique identifier of the return for which to create a replacement package.</param>
         /// <returns>
         /// String - Resource Url
@@ -73,7 +73,7 @@ namespace Mozu.Api.Urls.Commerce.Returns
         /// Get Resource Url for UpdatePackage
         /// </summary>
         /// <param name="packageId">Unique identifier of the return replacement package to update.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="returnId">Unique identifier of the return associated with the replacement package to update.</param>
         /// <returns>
         /// String - Resource Url

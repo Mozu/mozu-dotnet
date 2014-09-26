@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
 		/// <summary>
         /// Get Resource Url for GetValidationResults
         /// </summary>
-        /// <param name="orderId"></param>
+        /// <param name="orderId">Unique identifier of the order.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -34,8 +34,8 @@ namespace Mozu.Api.Urls.Commerce.Orders
 						/// <summary>
         /// Get Resource Url for AddValidationResult
         /// </summary>
-        /// <param name="orderId"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="orderId">Unique identifier of the order.</param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

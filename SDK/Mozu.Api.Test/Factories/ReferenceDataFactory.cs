@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// ***Always private and should not be published.***
+		/// Retrieves the details of a behavior based on the behavior ID specified in the request.
 		/// <example> 
 		///  <code> 
 		/// var result = ReferenceDataFactory.GetBehavior(handler : handler,  behaviorId :  behaviorId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// ***Always private and should not be published.***
+		/// Retrieves the details of the behavior category specified in the request.
 		/// <example> 
 		///  <code> 
 		/// var result = ReferenceDataFactory.GetBehaviorCategory(handler : handler,  categoryId :  categoryId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// ***Always private and should not be published.***
+		/// Retrieves the list of behavior categories.
 		/// <example> 
 		///  <code> 
 		/// var result = ReferenceDataFactory.GetBehaviorCategories(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -220,7 +220,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// ***Always private and should not be published.***
+		/// Retrieves a list of application behaviors.
 		/// <example> 
 		///  <code> 
 		/// var result = ReferenceDataFactory.GetBehaviors(handler : handler,  userType :  userType,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

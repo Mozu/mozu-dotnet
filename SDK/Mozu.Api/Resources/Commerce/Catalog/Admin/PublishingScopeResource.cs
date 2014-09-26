@@ -35,7 +35,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 
 		public PublishingScopeResource CloneWithApiContext(Action<IApiContext> contextModification) 
 		{
-			return new PublishingScopeResource(_apiContext.CloneWith(contextModification));
+			return new PublishingScopeResource(_apiContext.CloneWith(contextModification), _dataViewMode);
 		}
 
 		public PublishingScopeResource(IApiContext apiContext, DataViewMode dataViewMode) 

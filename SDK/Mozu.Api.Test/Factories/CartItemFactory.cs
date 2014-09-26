@@ -24,7 +24,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the cart items subresource to manage a collection of items in an active shopping cart.
+	/// Use the Cart Items subresource to manage a collection of items in an active shopping cart.
 	/// </summary>
 	public partial class CartItemFactory : BaseDataFactory
 	{

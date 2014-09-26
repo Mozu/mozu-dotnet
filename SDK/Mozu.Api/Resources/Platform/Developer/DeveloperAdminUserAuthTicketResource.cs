@@ -45,7 +45,7 @@ namespace Mozu.Api.Resources.Platform.Developer
 		/// Generate an authentication ticket for a developer account.
 		/// </summary>
 		/// <param name="developerAccountId">Unique identifier of the developer account.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="userAuthInfo">The user authentication information required to generate the developer account user authentication ticket, which consists of a user name and password.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket"/>
@@ -81,7 +81,7 @@ namespace Mozu.Api.Resources.Platform.Developer
 		/// Generates a new developer account authentication ticket for the specified tenant by supplying the defined refresh token information.
 		/// </summary>
 		/// <param name="developerAccountId">Unique identifier of the developer account.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="existingAuthTicket">Properties of the authentication ticket to refresh. The refresh token is required to complete this request.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket"/>

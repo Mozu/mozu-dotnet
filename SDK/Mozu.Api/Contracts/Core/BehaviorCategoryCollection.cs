@@ -15,7 +15,7 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.Core
 {
 		///
-		///	***Always private and should not be published.***
+		///	List of categories of application behaviors.
 		///
 		public class BehaviorCategoryCollection
 		{

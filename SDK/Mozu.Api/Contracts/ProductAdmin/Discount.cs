@@ -30,10 +30,13 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string AmountType { get; set; }
 
 			///
-			///The most recent number of redeemed discounts.
+			///The number of times this discount has been redeemed.
 			///
 			public int? CurrentRedemptionCount { get; set; }
 
+			///
+			///If true, this discount does not apply to a line item product with a defined sale price. The default is false, which applies the discount to products with and without defined sale prices.
+			///
 			public bool? DoesNotApplyToSalePrice { get; set; }
 
 			///
@@ -41,6 +44,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public int? Id { get; set; }
 
+			///
+			///The maximum number of times an individual shopper can redeem the discount.
+			///
 			public int? MaximumUsesPerUser { get; set; }
 
 			///
@@ -58,6 +64,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public AuditInfo AuditInfo { get; set; }
 
+			///
+			///List of conditions that must be met for the discount to apply.
+			///
 			public DiscountCondition Conditions { get; set; }
 
 			///

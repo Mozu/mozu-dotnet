@@ -20,10 +20,18 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		public class Product
 		{
 			///
+			///Product code that represents the product variation selected based on the option values the shopper entered.
+			///
+			public string VariationProductCode { get; set; }
+
+			///
 			///Date and time when the entity was created, represented in UTC Date/Time.
 			///
 			public DateTime CreateDate { get; set; }
 
+			///
+			///The list of fulfillment types the product supports.
+			///
 			public List<string> FulfillmentTypesSupported { get; set; }
 
 			public string GoodsType { get; set; }
@@ -33,6 +41,9 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public bool? IsActive { get; set; }
 
+			///
+			///If true, this product cannot ship in a package with other products and must ship in a package by itself.
+			///
 			public bool? IsPackagedStandAlone { get; set; }
 
 			///
@@ -45,8 +56,14 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public bool IsTaxable { get; set; }
 
+			///
+			///The manufacturer part number defined for the product.
+			///
 			public string MfgPartNumber { get; set; }
 
+			///
+			///The list of manufacturer part numbers defined for the product.
+			///
 			public List<string> MfgPartNumbers { get; set; }
 
 			///
@@ -64,6 +81,9 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public string ProductType { get; set; }
 
+			///
+			///The usage type that applies to this product, which is Standard (a single product without configurable options), Configurable (a product that includes configurable option attributes), Bundle (a collection of products sold as a single entity), or Component (an invididual product that represents a component in a bundle).
+			///
 			public string ProductUsage { get; set; }
 
 			///
@@ -72,22 +92,23 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string PublishState { get; set; }
 
 			///
-			///The universal product code (UPC code) of the product.
+			///The universal product code associated with the product. The UPC of a product is unique across all sales channels.
 			///
 			public string Upc { get; set; }
 
+			///
+			///The list of universal product codes defined for the product.
+			///
 			public List<string> UpCs { get; set; }
-
-			///
-			///Product code that represents the product variation selected based on the option values the shopper entered.
-			///
-			public string VariationProductCode { get; set; }
 
 			///
 			///List of shipping discounts that can be applied to the product.
 			///
 			public List<Discount> AvailableShippingDiscounts { get; set; }
 
+			///
+			///Properties of a collection of component products that make up a single product bundle with its own product code.
+			///
 			public List<BundledProduct> BundledProducts { get; set; }
 
 			///
@@ -116,7 +137,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public List<ProductOption> Options { get; set; }
 
 			///
-			///Price that the merchant intends to sell the product which is not necessarily the list price. This is the price the merchant intends to sell the product if no sale price is present.
+			///Unit price that the tenant intends to sell the product if no sale price is set.
 			///
 			public ProductPrice Price { get; set; }
 
@@ -125,10 +146,13 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public ProductPriceRange PriceRange { get; set; }
 
+			///
+			///Describes the behavior the system uses when determining the price of the product.
+			///
 			public ProductPricingBehaviorInfo PricingBehavior { get; set; }
 
 			///
-			///The list of product properties set up in product admin.
+			///The list of product property attributes defined for the product.
 			///
 			public List<ProductProperty> Properties { get; set; }
 

@@ -361,6 +361,7 @@
     <Compile Include="Contracts\Event\EventDeliveryAttempt.cs" />
     <Compile Include="Contracts\Event\EventDeliverySummary.cs" />
     <Compile Include="Contracts\Event\EventDeliverySummaryCollection.cs" />
+    <Compile Include="Contracts\Event\EventExtendedProperty.cs" />
     <Compile Include="Contracts\Event\EventSummary.cs" />
     <Compile Include="Contracts\Event\HttpStatus.cs" />
     <Compile Include="Contracts\Event\SubscribingSite.cs" />

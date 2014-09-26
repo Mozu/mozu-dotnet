@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves the details of a wish list by supplying the wish list name.
 		/// <example> 
 		///  <code> 
 		/// var result = WishlistFactory.GetWishlistByName(handler : handler,  customerAccountId :  customerAccountId,  wishlistName :  wishlistName,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

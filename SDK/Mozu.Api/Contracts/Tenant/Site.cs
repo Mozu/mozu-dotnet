@@ -18,6 +18,9 @@ namespace Mozu.Api.Contracts.Tenant
 		///
 		public class Site
 		{
+			///
+			///The unique identifier of the catalog of products used by a site.
+			///
 			public int CatalogId { get; set; }
 
 			public string CountryCode { get; set; }

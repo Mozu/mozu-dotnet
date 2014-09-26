@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Returns
 {
 	/// <summary>
-	/// Use the return shipments subresource to manage shipments for a return replacement.
+	/// Use the Return Shipments subresource to manage shipments for a return replacement.
 	/// </summary>
 	public partial class ShipmentResource  	{
 		///
@@ -40,7 +40,7 @@ namespace Mozu.Api.Resources.Commerce.Returns
 		/// <summary>
 		/// Retrieves the details of the specified return replacement shipment.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="returnId">Unique identifier of the return associated with the replacement shipment to retrieve.</param>
 		/// <param name="shipmentId">Unique identifier of the return replacement shipment to retrieve.</param>
 		/// <returns>

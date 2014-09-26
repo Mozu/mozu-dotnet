@@ -14,8 +14,14 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.ProductRuntime
 {
+		///
+		///	The discounts to evaluate for a specified product code at the time of purchase.
+		///
 		public class DiscountSelections
 		{
+			///
+			///List of discount IDs to evaluate for a product code.
+			///
 			public List<int> DiscountIds { get; set; }
 
 		}

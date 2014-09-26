@@ -53,6 +53,10 @@ namespace Mozu.Api.Test.Helpers
             //ConfigurationManager.RefreshSection("appSettings");
            // var envir = ConfigurationManager.AppSettings["Environment"];
             // Create configuration reader that reads the files once
+            var configFile = ConfigurationManager.AppSettings["SDKConfig"];
+            if (!File.Exists(configFile))
+                throw new Exception(configFile+" not found");
+
             var sdkConfigFile = ConfigurationManager.AppSettings["SDKConfig"];
             if (!File.Exists(sdkConfigFile))
                 throw new FileNotFoundException(sdkConfigFile);

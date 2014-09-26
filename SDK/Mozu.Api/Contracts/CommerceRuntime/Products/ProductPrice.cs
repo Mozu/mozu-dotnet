@@ -18,8 +18,14 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 		///
 		public class ProductPrice
 		{
+			///
+			///The credit value when the product happens to be a gift card or similar product.
+			///
 			public decimal? CreditValue { get; set; }
 
+			///
+			///The manufacturer's suggested retail price for the product.
+			///
 			public decimal? Msrp { get; set; }
 
 			///
@@ -32,6 +38,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			///
 			public decimal? SalePrice { get; set; }
 
+			///
+			///The override price defined by the tenant for this cart or order item.
+			///
 			public decimal? TenantOverridePrice { get; set; }
 
 		}

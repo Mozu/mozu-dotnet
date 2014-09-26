@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieve a list of items in a customer wish list by supplying the wish list name.
 		/// <example> 
 		///  <code> 
 		/// var result = WishlistItemFactory.GetWishlistItemsByWishlistName(handler : handler,  customerAccountId :  customerAccountId,  wishlistName :  wishlistName,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

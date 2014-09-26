@@ -26,6 +26,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			///
 			public List<string> AvailableActions { get; set; }
 
+			///
+			///The code of the product to be fulfilled.
+			///
 			public string Code { get; set; }
 
 			///
@@ -33,6 +36,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			///
 			public DateTime? FulfillmentDate { get; set; }
 
+			///
+			///The location code that represents the location from which this package will ship.
+			///
 			public string FulfillmentLocationCode { get; set; }
 
 			public bool HasLabel { get; set; }
@@ -77,6 +83,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			///
 			public AuditInfo AuditInfo { get; set; }
 
+			///
+			///List of change messages associated with the package.
+			///
 			public List<ChangeMessage> ChangeMessages { get; set; }
 
 			///

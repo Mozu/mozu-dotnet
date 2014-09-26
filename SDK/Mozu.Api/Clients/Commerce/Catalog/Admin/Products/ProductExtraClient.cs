@@ -79,7 +79,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// <param name="attributeFQN"></param>
 		/// <param name="currencyCode"></param>
 		/// <param name="productCode"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="value"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>}
@@ -107,7 +107,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtra"/>}
 		/// </returns>
@@ -134,7 +134,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// </summary>
 		/// <param name="attributeFQN"></param>
 		/// <param name="productCode"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="value"></param>
 		/// <param name="localizedDeltaPrice"></param>
 		/// <returns>
@@ -162,7 +162,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// Configure an extra attribute for the product specified in the request.
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="productExtra">Properties of the product extra to configure for the specified product.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtra"/>}
@@ -219,7 +219,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// <param name="attributeFQN"></param>
 		/// <param name="currencyCode"></param>
 		/// <param name="productCode"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="value"></param>
 		/// <param name="localizedDeltaPrice"></param>
 		/// <returns>
@@ -248,7 +248,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="productExtra">Properties of the extra attribute to update for the specified product.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtra"/>}
@@ -303,7 +303,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// <param name="attributeFQN"></param>
 		/// <param name="currencyCode"></param>
 		/// <param name="productCode"></param>
-		/// <param name="value"></param>
+		/// <param name="value">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

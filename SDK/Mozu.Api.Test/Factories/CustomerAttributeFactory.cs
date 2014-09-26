@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Removes the attribute specified in the request from the customer account.
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerAttributeFactory.DeleteAccountAttribute(handler : handler,  accountId :  accountId,  attributeFQN :  attributeFQN,  expectedCode: expectedCode, successCode: successCode); 

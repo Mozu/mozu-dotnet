@@ -11,6 +11,7 @@
 using System;
 using Newtonsoft.Json.Linq;
 
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.MZDB
 {
@@ -26,12 +27,18 @@ namespace Mozu.Api.Contracts.MZDB
 
 			public string ListFullName { get; set; }
 
+			///
+			///Language used for the entity. Currently, only "en-US" is supported.
+			///
 			public string LocaleCode { get; set; }
 
 			public int? MasterCatalogId { get; set; }
 
 			public int? SiteId { get; set; }
 
+			///
+			///Unique identifier of the Mozu tenant.
+			///
 			public int TenantId { get; set; }
 
 			public string UpdateBy { get; set; }

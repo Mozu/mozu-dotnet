@@ -35,7 +35,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 		public ProductPropertyResource CloneWithApiContext(Action<IApiContext> contextModification) 
 		{
-			return new ProductPropertyResource(_apiContext.CloneWith(contextModification));
+			return new ProductPropertyResource(_apiContext.CloneWith(contextModification), _dataViewMode);
 		}
 
 		public ProductPropertyResource(IApiContext apiContext, DataViewMode dataViewMode) 
@@ -118,9 +118,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// 
 		/// </summary>
 		/// <param name="attributeFQN"></param>
-		/// <param name="localeCode"></param>
+		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
 		/// <param name="productCode"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="value"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent"/>
@@ -156,8 +156,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// Retrieves the details of a property attribute configuration for the product specified in the request.
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-		/// <param name="productCode"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductProperty"/>
 		/// </returns>
@@ -193,9 +193,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// </summary>
 		/// <param name="attributeFQN"></param>
 		/// <param name="productCode"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="value"></param>
-		/// <param name="localizedContent"></param>
+		/// <param name="localizedContent">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent"/>
 		/// </returns>
@@ -230,7 +230,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// Configures a property attribute for the product specified in the request.
 		/// </summary>
 		/// <param name="productCode"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="productProperty">Properties of the property attribute to configure for a product.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductProperty"/>
@@ -303,9 +303,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// 
 		/// </summary>
 		/// <param name="attributeFQN"></param>
-		/// <param name="localeCode"></param>
+		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
 		/// <param name="productCode"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="value"></param>
 		/// <param name="localizedContent"></param>
 		/// <returns>
@@ -343,7 +343,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="productCode"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="productProperty">Details of the property attribute to update for the product configuration.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductProperty"/>
@@ -412,7 +412,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// 
 		/// </summary>
 		/// <param name="attributeFQN"></param>
-		/// <param name="localeCode"></param>
+		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
 		/// <param name="productCode"></param>
 		/// <param name="value"></param>
 		/// <returns>

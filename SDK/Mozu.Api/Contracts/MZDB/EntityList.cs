@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.MZDB
 {
@@ -33,6 +34,9 @@ namespace Mozu.Api.Contracts.MZDB
 
 			public string NameSpace { get; set; }
 
+			///
+			///Unique identifier of the Mozu tenant.
+			///
 			public int TenantId { get; set; }
 
 			public DateTime UpdateDate { get; set; }

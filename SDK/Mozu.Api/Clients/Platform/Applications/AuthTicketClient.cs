@@ -24,7 +24,7 @@ namespace Mozu.Api.Clients.Platform.Applications
 		/// <summary>
 		/// Generate an authentication ticket for an application.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="appAuthInfo">Authentication information required to generate an authentication ticket includes the application id and the shared secret.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.AppDev.AuthTicket"/>}
@@ -49,7 +49,7 @@ namespace Mozu.Api.Clients.Platform.Applications
 		/// <summary>
 		/// Refreshes the application's authentication ticket and generates a new access token by providing the refresh token string.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="authTicketRequest">The refresh token string required to update the application authentication ticket.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.AppDev.AuthTicket"/>}

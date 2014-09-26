@@ -35,7 +35,7 @@ namespace Mozu.Api.Resources.Content
 
 		public DocumentListResource CloneWithApiContext(Action<IApiContext> contextModification) 
 		{
-			return new DocumentListResource(_apiContext.CloneWith(contextModification));
+			return new DocumentListResource(_apiContext.CloneWith(contextModification), _dataViewMode);
 		}
 
 		public DocumentListResource(IApiContext apiContext, DataViewMode dataViewMode) 
@@ -48,7 +48,7 @@ namespace Mozu.Api.Resources.Content
 		/// Retrieves a collection of document lists.
 		/// </summary>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="startIndex"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentListCollection"/>
@@ -84,7 +84,7 @@ namespace Mozu.Api.Resources.Content
 		/// Retrieve the details of a document list by providing the list name.
 		/// </summary>
 		/// <param name="documentListName">The name of the document list.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentList"/>
 		/// </returns>
@@ -118,7 +118,7 @@ namespace Mozu.Api.Resources.Content
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="list"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentList"/>
@@ -154,7 +154,7 @@ namespace Mozu.Api.Resources.Content
 		/// 
 		/// </summary>
 		/// <param name="documentListName"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="list"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentList"/>

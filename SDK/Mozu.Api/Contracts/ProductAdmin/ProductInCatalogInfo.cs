@@ -20,6 +20,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class ProductInCatalogInfo
 		{
+			///
+			///The unique identifier of the catalog of products used by a site.
+			///
 			public int CatalogId { get; set; }
 
 			///

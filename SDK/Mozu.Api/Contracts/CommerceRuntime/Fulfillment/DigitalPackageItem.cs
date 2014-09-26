@@ -15,12 +15,24 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 {
 		public class DigitalPackageItem
 		{
+			///
+			///This specifies the fulfillment type of digital package item.
+			///
 			public string FulfillmentItemType { get; set; }
 
+			///
+			///Specifies the gift card code for the digital package item.
+			///
 			public string GiftCardCode { get; set; }
 
+			///
+			///The product code is the code of the digital product to be fulfilled.
+			///
 			public string ProductCode { get; set; }
 
+			///
+			///This specifies the quantity of the digital order item.
+			///
 			public int Quantity { get; set; }
 
 		}

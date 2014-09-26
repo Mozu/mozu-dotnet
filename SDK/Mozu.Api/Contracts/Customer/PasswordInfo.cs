@@ -13,10 +13,19 @@ using System;
 
 namespace Mozu.Api.Contracts.Customer
 {
+		///
+		///	The information required to modify a shopper account password.
+		///
 		public class PasswordInfo
 		{
+			///
+			///The new account password value.
+			///
 			public string NewPassword { get; set; }
 
+			///
+			///The previous shopper account password value.
+			///
 			public string OldPassword { get; set; }
 
 		}

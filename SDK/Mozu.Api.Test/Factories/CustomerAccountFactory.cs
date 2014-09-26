@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves the current login state of the customer account specified in the request.
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerAccountFactory.GetLoginState(handler : handler,  accountId :  accountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Modify the password associated with a customer account.
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerAccountFactory.ChangePassword(handler : handler,  passwordInfo :  passwordInfo,  accountId :  accountId,  expectedCode: expectedCode, successCode: successCode); 
@@ -219,7 +219,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Adds a new user login to a defined customer account.
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerAccountFactory.AddLoginToExistingCustomer(handler : handler,  customerAuthInfo :  customerAuthInfo,  accountId :  accountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -257,7 +257,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Updates the customer lifetime value of the specified customer account in the event of an order import or a lifetime value calculation error.
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerAccountFactory.RecomputeCustomerLifetimeValue(handler : handler,  accountId :  accountId,  expectedCode: expectedCode, successCode: successCode); 
@@ -294,7 +294,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Lock or unlock a customer account.
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerAccountFactory.SetLoginLocked(handler : handler,  isLocked :  isLocked,  accountId :  accountId,  expectedCode: expectedCode, successCode: successCode); 
@@ -331,7 +331,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Requires the password for the customer account to be changed.
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerAccountFactory.SetPasswordChangeRequired(handler : handler,  isPasswordChangeRequired :  isPasswordChangeRequired,  accountId :  accountId,  expectedCode: expectedCode, successCode: successCode); 
@@ -368,7 +368,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Creates a new customer account and logs the user associated with the customer account into the site.
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerAccountFactory.AddAccountAndLogin(handler : handler,  accountAndAuthInfo :  accountAndAuthInfo,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -406,7 +406,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Creates multiple customer accounts based on the information specified in the request.
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerAccountFactory.AddAccounts(handler : handler,  customers :  customers,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -444,7 +444,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves the current login state of a customer account by providing the customer's email address.
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerAccountFactory.GetLoginStateByEmailAddress(handler : handler,  emailAddress :  emailAddress,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -482,7 +482,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves the current login state of a customer account by providing the user name associated with the customer account.
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerAccountFactory.GetLoginStateByUserName(handler : handler,  userName :  userName,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -520,7 +520,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Resets the password for a customer account.
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerAccountFactory.ResetPassword(handler : handler,  resetPasswordInfo :  resetPasswordInfo,  expectedCode: expectedCode, successCode: successCode); 

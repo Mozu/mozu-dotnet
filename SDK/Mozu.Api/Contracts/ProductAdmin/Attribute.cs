@@ -70,6 +70,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool? IsProperty { get; set; }
 
+			///
+			///The unique identifier of the master catalog associated with the entity.
+			///
 			public int? MasterCatalogId { get; set; }
 
 			///
@@ -99,6 +102,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public List<AttributeLocalizedContent> LocalizedContent { get; set; }
 
+			///
+			///This API type provides the search and indexing settings for the attribute.
+			///
 			public AttributeSearchSettings SearchSettings { get; set; }
 
 			///
