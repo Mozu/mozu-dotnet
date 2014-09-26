@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 
 using Mozu.Api.Contracts.Core;
 
@@ -19,8 +20,14 @@ namespace Mozu.Api.Contracts.Event
 		///
 		public class Event
 		{
+			///
+			///The unique identifier of the catalog of products used by a site.
+			///
 			public int? CatalogId { get; set; }
 
+			///
+			///The unique identifier of the API request associated with the event action, which might contain multiple actions.
+			///
 			public string CorrelationId { get; set; }
 
 			///
@@ -38,6 +45,9 @@ namespace Mozu.Api.Contracts.Event
 			///
 			public bool? IsTest { get; set; }
 
+			///
+			///The unique identifier of the master catalog associated with the entity.
+			///
 			public int? MasterCatalogId { get; set; }
 
 			public int? SiteId { get; set; }
@@ -56,6 +66,8 @@ namespace Mozu.Api.Contracts.Event
 			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 			///
 			public AuditInfo AuditInfo { get; set; }
+
+			public List<EventExtendedProperty> ExtendedProperties { get; set; }
 
 		}
 

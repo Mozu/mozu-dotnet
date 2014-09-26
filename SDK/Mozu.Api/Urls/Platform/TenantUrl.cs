@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Platform
 		/// <summary>
         /// Get Resource Url for GetTenant
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="tenantId">Unique identifier of the Mozu tenant.</param>
         /// <returns>
         /// String - Resource Url

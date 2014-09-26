@@ -24,6 +24,41 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 		public class WishlistItem
 		{
 			///
+			///The status of the item that indicates whether an item in a wish list can be purchased. Possible values are "Purchasable" which indicates the item can be purchased, "NotPurchasable" which indicates the item is out of stock or otherwise unavailable, or "Missing" which indicates the item has been deleted from the catalog since it was added to the wish list.
+			///
+			public string PurchasableStatusType { get; set; }
+
+			///
+			///The quantity of an item in a shopper wish list.
+			///
+			public int Quantity { get; set; }
+
+			///
+			///The total amount of tax levied against shipping charges for an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
+			///
+			public decimal? ShippingTaxTotal { get; set; }
+
+			///
+			///The total amount of shipping for an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
+			///
+			public decimal? ShippingTotal { get; set; }
+
+			///
+			///The subtotal of an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
+			///
+			public decimal? Subtotal { get; set; }
+
+			///
+			///The taxable total of an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
+			///
+			public decimal? TaxableTotal { get; set; }
+
+			///
+			///The total of an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
+			///
+			public decimal? Total { get; set; }
+
+			///
 			///Shopper-entered comments for an item in a wish list.
 			///
 			public string Comments { get; set; }
@@ -34,7 +69,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			public decimal? DiscountedTotal { get; set; }
 
 			///
-			///Estimated amount of discounts applied to the item in the wish list, which is system-supplied and read-only.                      This property value is not calculated at this time and is reserved for future functionality.
+			///Estimated amount of discounts applied to the item in the wish list, which is system-supplied and read-only.  This property value is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? DiscountTotal { get; set; }
 
@@ -81,41 +116,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			public string PriorityType { get; set; }
 
 			///
-			///The status of the item that indicates whether an item in a wish list can be purchased. Possible values are "Purchasable" which indicates the item can be purchased, "NotPurchasable" which indicates the item is out of stock or otherwise unavailable, or "Missing" which indicates the item has been deleted from the catalog since it was added to the wish list.
-			///
-			public string PurchasableStatusType { get; set; }
-
-			///
-			///The quantity of an item in a shopper wish list.
-			///
-			public int Quantity { get; set; }
-
-			///
-			///The total amount of tax levied against shipping charges for an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
-			///
-			public decimal? ShippingTaxTotal { get; set; }
-
-			///
-			///The total amount of shipping for an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
-			///
-			public decimal? ShippingTotal { get; set; }
-
-			///
-			///The subtotal of an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
-			///
-			public decimal? Subtotal { get; set; }
-
-			///
-			///The taxable total of an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
-			///
-			public decimal? TaxableTotal { get; set; }
-
-			///
-			///The total of an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
-			///
-			public decimal? Total { get; set; }
-
-			///
 			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 			///
 			public AuditInfo AuditInfo { get; set; }
@@ -125,6 +125,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			///
 			public Product Product { get; set; }
 
+			///
+			///List of product discounts that apply to the item in the wishlist.
+			///
 			public AppliedLineItemProductDiscount ProductDiscount { get; set; }
 
 			///

@@ -24,7 +24,7 @@ namespace Mozu.Api.Clients.Commerce.Carts
 		/// <summary>
 		/// Retrieves the messages associated with the current shopper's cart.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartChangeMessageCollection"/>}
 		/// </returns>

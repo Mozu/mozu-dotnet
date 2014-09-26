@@ -32,7 +32,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 				/// <summary>
         /// Get Resource Url for CreateUserAuthTicket
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -47,8 +47,8 @@ namespace Mozu.Api.Urls.Commerce.Customer
 				/// <summary>
         /// Get Resource Url for RefreshUserAuthTicket
         /// </summary>
-        /// <param name="refreshToken"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="refreshToken">The refresh token string required to refresh a user's authentication ticket.</param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

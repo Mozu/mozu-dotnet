@@ -24,7 +24,7 @@ namespace Mozu.Api.Clients.Platform.Adminuser
 		/// <summary>
 		/// Creates an authentication ticket for the supplied user to specify in API requests associated with the supplied tenant.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="tenantId">Unique identifier of the development or production tenant for which to generate the user authentication ticket.</param>
 		/// <param name="userAuthInfo">The user authentication information required to generate the user authentication ticket, which consists of a user name and password.</param>
 		/// <returns>
@@ -50,7 +50,7 @@ namespace Mozu.Api.Clients.Platform.Adminuser
 		/// <summary>
 		/// Generates a new user authentication ticket for the specified tenant by supplying the user's existing refresh token information.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="tenantId"></param>
 		/// <param name="existingAuthTicket">Properties of the authentication ticket to refresh. The refresh token is required to complete this request.</param>
 		/// <returns>

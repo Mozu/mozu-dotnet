@@ -20,7 +20,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// Get Resource Url for GetPayments
         /// </summary>
         /// <param name="orderId">Unique identifier of the order.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -55,7 +55,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// </summary>
         /// <param name="orderId">Unique identifier of the order associated with the payment transaction.</param>
         /// <param name="paymentId">Unique identifier of the payment transaction submitted for the order.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -74,7 +74,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// </summary>
         /// <param name="orderId">Unique identifier of the order associated with the payment.</param>
         /// <param name="paymentId">Unique identifer of the payment for which to perform the action.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -92,7 +92,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// Get Resource Url for CreatePaymentAction
         /// </summary>
         /// <param name="orderId">Unique identifier of the order for which to apply the payment.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

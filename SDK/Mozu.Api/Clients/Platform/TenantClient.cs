@@ -24,7 +24,7 @@ namespace Mozu.Api.Clients.Platform
 		/// <summary>
 		/// Retrieve details about a specific tenant by providing the tenant ID.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="tenantId">Unique identifier of the Mozu tenant.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Tenant.Tenant"/>}

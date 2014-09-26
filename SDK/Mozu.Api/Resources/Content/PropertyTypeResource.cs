@@ -35,7 +35,7 @@ namespace Mozu.Api.Resources.Content
 
 		public PropertyTypeResource CloneWithApiContext(Action<IApiContext> contextModification) 
 		{
-			return new PropertyTypeResource(_apiContext.CloneWith(contextModification));
+			return new PropertyTypeResource(_apiContext.CloneWith(contextModification), _dataViewMode);
 		}
 
 		public PropertyTypeResource(IApiContext apiContext, DataViewMode dataViewMode) 
@@ -45,11 +45,11 @@ namespace Mozu.Api.Resources.Content
 		}
 				
 		/// <summary>
-		/// 
+		/// Retrieves a list of the content property types.
 		/// </summary>
-		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="startIndex"></param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.PropertyTypeCollection"/>
 		/// </returns>
@@ -81,10 +81,10 @@ namespace Mozu.Api.Resources.Content
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves the details of the content property type.
 		/// </summary>
-		/// <param name="propertyTypeName"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="propertyTypeName">The name of the content property type.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.PropertyType"/>
 		/// </returns>
@@ -118,7 +118,7 @@ namespace Mozu.Api.Resources.Content
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="propertyType"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.PropertyType"/>
@@ -154,7 +154,7 @@ namespace Mozu.Api.Resources.Content
 		/// 
 		/// </summary>
 		/// <param name="propertyTypeName"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="propertyType"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.PropertyType"/>

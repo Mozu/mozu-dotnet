@@ -28,8 +28,14 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///
 			public string ChannelCode { get; set; }
 
+			///
+			///The coupon codes applied to the cart. When the customer proceeds to checkout, the coupons applied to the cart apply to the order.
+			///
 			public List<string> CouponCodes { get; set; }
 
+			///
+			///3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
+			///
 			public string CurrencyCode { get; set; }
 
 			///
@@ -152,6 +158,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///
 			public FulfillmentInfo FulfillmentInfo { get; set; }
 
+			///
+			///The list of invalid coupons the shopper attempted to enter for the cart.
+			///
 			public List<InvalidCoupon> InvalidCoupons { get; set; }
 
 			///

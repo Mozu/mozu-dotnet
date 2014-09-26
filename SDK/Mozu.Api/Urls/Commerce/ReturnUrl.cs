@@ -21,7 +21,7 @@ namespace Mozu.Api.Urls.Commerce
         /// </summary>
         /// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
         /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
         /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
         /// <returns>
@@ -42,7 +42,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetAvailableReturnActions
         /// </summary>
-        /// <param name="returnId">Retrieves a list of the actions available to perform for the specified return based on its current state.</param>
+        /// <param name="returnId">Unique identifier of the return for which to retrieve available actions.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -57,7 +57,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetReturnItem
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="returnId"></param>
         /// <param name="returnItemId"></param>
         /// <returns>
@@ -76,7 +76,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetReturnItems
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="returnId"></param>
         /// <returns>
         /// String - Resource Url
@@ -111,7 +111,7 @@ namespace Mozu.Api.Urls.Commerce
         /// Get Resource Url for GetPayment
         /// </summary>
         /// <param name="paymentId">Unique identifier of the return payment to retrieve.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="returnId">Unique identifier of the return associated with the payment.</param>
         /// <returns>
         /// String - Resource Url
@@ -129,7 +129,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetPayments
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="returnId">Returns the details of the refund payment associated with the return specified in the request.</param>
         /// <returns>
         /// String - Resource Url
@@ -146,7 +146,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetReturn
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="returnId">Returns the properties of the return specified in the request as well as system-supplied information.</param>
         /// <returns>
         /// String - Resource Url
@@ -163,7 +163,7 @@ namespace Mozu.Api.Urls.Commerce
 				/// <summary>
         /// Get Resource Url for CreateReturn
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -178,7 +178,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for CreateReturnItem
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="returnId"></param>
         /// <returns>
         /// String - Resource Url
@@ -196,7 +196,7 @@ namespace Mozu.Api.Urls.Commerce
         /// Get Resource Url for PerformPaymentActionForReturn
         /// </summary>
         /// <param name="paymentId">Unique identifier of the return payment to update.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="returnId">Unique identifier of the return associated with the refund payment.</param>
         /// <returns>
         /// String - Resource Url
@@ -214,7 +214,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for CreatePaymentActionForReturn
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="returnId">Unique identifier of the return associated with the payment action.</param>
         /// <returns>
         /// String - Resource Url
@@ -231,7 +231,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for PerformReturnActions
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -246,7 +246,7 @@ namespace Mozu.Api.Urls.Commerce
 				/// <summary>
         /// Get Resource Url for UpdateReturn
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="returnId">Unique identifier of the return.</param>
         /// <returns>
         /// String - Resource Url

@@ -339,6 +339,13 @@ namespace Mozu.Api
 
         protected void ValidateContext()
 		{
+
+            if (AppAuthenticator.Instance == null)
+            {
+                var apiException = new ApiException("Application has not been authenticated. Use AppAuthenticator.Initialize to initialize the app.");
+                throw apiException;
+            }
+
 			if (_resourceUrl.Location == MozuUrl.UrlLocation.TENANT_POD)
 			{
 				if (_apiContext == null)
@@ -356,7 +363,6 @@ namespace Mozu.Api
 
 				if (string.IsNullOrEmpty(_apiContext.TenantUrl))
 				{
-                    _log.Info( String.Format("Tenant {0} URL is empty. Getting tenant info.", _apiContext.TenantId));
 					var tenantResource = new TenantResource();
 					var tenant = tenantResource.GetTenant(_apiContext.TenantId);
 

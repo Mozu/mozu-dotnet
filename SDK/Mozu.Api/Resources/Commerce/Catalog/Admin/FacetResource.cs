@@ -41,7 +41,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// Retrieves a facet specified by its unique identifier and displays its properties.
 		/// </summary>
 		/// <param name="facetId">Unique identifier of the facet to retrieve.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="validate">Validates that the product category associated with a facet is active. System-supplied and read only.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Facet"/>
@@ -78,7 +78,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="categoryId">Unique identifier of the category associated with the facets to retrieve.</param>
 		/// <param name="includeAvailable">If true, returns a list of the attributes and categories associated with a product type that have not been defined as a facet for the category.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="validate">Validates that the product category associated with a facet is active. System-supplied and read only.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.FacetSet"/>
@@ -111,10 +111,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Creates a new category, price, or attribute facet. Supply the category or attribute source to use for the facet values.
+		/// Creates a new category, price, or attribute facet. Define the category or attribute source to use for the facet values.
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="facet">Properties of the new facet to create. Required properties: Source, FacetType, IsHidden, and CategoryId.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="facet">Properties of the new facet to create. You must specify the source, type, and category.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Facet"/>
 		/// </returns>
@@ -149,8 +149,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// Modifies one or more properties of a defined facet.
 		/// </summary>
 		/// <param name="facetId">Unique identifier of the facet to modify.</param>
-		/// <param name="responseFields"></param>
-		/// <param name="facet">Properties of the defined facet to modify. Required properties: Source, FacetType, IsHidden, and CategoryId.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="facet">Properties of the defined facet to modify.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Facet"/>
 		/// </returns>

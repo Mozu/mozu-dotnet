@@ -17,15 +17,15 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Commerce.Orders
 {
 	/// <summary>
-	/// 
+	/// A digital package is a package in a digital format.
 	/// </summary>
 	public partial class DigitalPackageClient 	{
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="digitalPackageId"></param>
-		/// <param name="orderId"></param>
+		/// <param name="digitalPackageId">This parameter supplies package ID to get fulfillment actions for the digital package.</param>
+		/// <param name="orderId">This parameter provides the unique identifier of the order on which to get a list of available actions.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{string}}
 		/// </returns>
@@ -47,11 +47,11 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		}
 
 		/// <summary>
-		/// 
+		/// This operation retreives a digital package within an order and it requires two parameters: orderId and digitalPackageId.
 		/// </summary>
-		/// <param name="digitalPackageId"></param>
-		/// <param name="orderId"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="digitalPackageId">This parameter provides the digital package Id.</param>
+		/// <param name="orderId">This parameter provides the unique identifier of the order with which to associate the digital package.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.DigitalPackage"/>}
 		/// </returns>
@@ -73,11 +73,11 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		}
 
 		/// <summary>
-		/// 
+		/// Lets you apply a digital package to the order using the orderId and digitalPackage parameters.
 		/// </summary>
-		/// <param name="orderId"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="digitalPackage"></param>
+		/// <param name="orderId">The orderID is a required paramter for the digitalpackages operation. The orderId is a unique identifier of the order with which to associate the digital package.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="digitalPackage">The digitalPackage parameter is a required parameter for the CreateDigitalPackages operation. The digitalPackage is the digital package to create and add to the order.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.DigitalPackage"/>}
 		/// </returns>
@@ -99,12 +99,12 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		}
 
 		/// <summary>
-		/// 
+		/// This method operates on one digital package, specified by the id given. This method ensures that the digital package ID provided is in the order with the id given, and then updates the properties of that package with the properties of the one passed in using the ‘digitalpackage’ parameter.
 		/// </summary>
-		/// <param name="digitalPackageId"></param>
-		/// <param name="orderId"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="digitalPackage"></param>
+		/// <param name="digitalPackageId">This parameter specifies the digital package to update in the order.</param>
+		/// <param name="orderId">This parameter provides the unique identifier of the order with which to associate the digital package.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="digitalPackage">This parameter provides the package content to update in the order.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.DigitalPackage"/>}
 		/// </returns>
@@ -126,10 +126,10 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		}
 
 		/// <summary>
-		/// 
+		/// This operation deletes a digital package from an order. This operation requires three parameters: orderId, digitalPackageId, and digitalPackage.
 		/// </summary>
-		/// <param name="digitalPackageId"></param>
-		/// <param name="orderId"></param>
+		/// <param name="digitalPackageId">The digitalPackage ID is unique package ID to update on the order.</param>
+		/// <param name="orderId">The orderId is unique identifier of the order with which to associate the package.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

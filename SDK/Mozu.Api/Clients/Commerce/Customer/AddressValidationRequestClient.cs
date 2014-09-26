@@ -24,7 +24,7 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <summary>
 		/// Validates the customer address supplied in the request.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="addressValidationRequest">Properties of the address to validate.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.AddressValidationResponse"/>}

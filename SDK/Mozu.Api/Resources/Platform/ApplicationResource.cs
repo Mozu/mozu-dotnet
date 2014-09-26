@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Platform
 {
 	/// <summary>
-	/// 
+	/// Use the Applications resource to update and retrieve details about the applications installed for your tenant.
 	/// </summary>
 	public partial class ApplicationResource  	{
 		///
@@ -38,10 +38,10 @@ namespace Mozu.Api.Resources.Platform
 
 				
 		/// <summary>
-		/// 
+		/// Retrieves the details of the installed application specified in the request.
 		/// </summary>
-		/// <param name="appId"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="appId">The application ID that represents the application to retrieve.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.InstalledApplications.Application"/>
 		/// </returns>
@@ -73,11 +73,11 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
-		/// 
+		/// Updates one or more properties of the application specified in the request.
 		/// </summary>
-		/// <param name="appId"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="application"></param>
+		/// <param name="appId">The application ID that represents the application to update.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="application">Properties of the application to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.InstalledApplications.Application"/>
 		/// </returns>

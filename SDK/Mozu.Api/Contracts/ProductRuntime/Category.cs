@@ -24,6 +24,9 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public int CategoryId { get; set; }
 
+			///
+			///If true, the category is displayed on the website storefront.
+			///
 			public bool IsDisplayed { get; set; }
 
 			///

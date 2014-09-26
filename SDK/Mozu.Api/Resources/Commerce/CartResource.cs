@@ -41,7 +41,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// Retrieves the cart specified in the request.
 		/// </summary>
 		/// <param name="cartId">Identifier of the cart to retrieve.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>
 		/// </returns>
@@ -75,7 +75,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// Retrieves a cart's contents for the current shopper. If the shopper does not have an active cart on the site, the service creates one.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>
 		/// </returns>
@@ -109,7 +109,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// Retrieves summary information associated with the cart of the current shopper, including the number of items, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary"/>
 		/// </returns>
@@ -143,7 +143,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// Retrieves summary information associated with the cart of user specified in the request, including the number of items in the cart, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="userId">Unique identifier of the user whose cart details you want to retrieve.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary"/>
@@ -178,7 +178,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// Retrieves the cart of the user specified in the request.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="userId">Unique identifier of the user whose cart you want to retrieve.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>
@@ -213,7 +213,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// Update the current shopper's cart.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="cart">All of the properties of the cart to update. The product code is required.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>

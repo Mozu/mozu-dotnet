@@ -55,7 +55,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// </summary>
         /// <param name="orderId">Unique identifier of the order associated with the package to retrieve.</param>
         /// <param name="packageId">Unique identifier of the package to retrieve.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -73,7 +73,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// Get Resource Url for CreatePackage
         /// </summary>
         /// <param name="orderId">Unique identifier of the order associated with this package.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -91,7 +91,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// </summary>
         /// <param name="orderId">Unique identifier of the order associated with the package to update.</param>
         /// <param name="packageId">Unique identifier of the package of order items to update.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

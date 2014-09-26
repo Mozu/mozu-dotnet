@@ -19,6 +19,16 @@ namespace Mozu.Api.Contracts.Core
 		public class UserSystemData
 		{
 			///
+			///Date and time when the entity was created, represented in UTC Date/Time.
+			///
+			public DateTime? CreatedOn { get; set; }
+
+			///
+			///The number of failed authentication attempts associated with the user.
+			///
+			public byte FailedLoginAttemptCount { get; set; }
+
+			///
 			///The date and time the initial login was unsuccessful, which is system-supplied and read only. Each time user authentication fails, an update occurs on this field.
 			///
 			public DateTime? FirstFailedLoginAttemptOn { get; set; }
@@ -39,12 +49,12 @@ namespace Mozu.Api.Contracts.Core
 			public DateTime? LastLockedOn { get; set; }
 
 			///
-			/// When the user last logged into the store. System-supplied and read-only.
+			///When the user last logged into the store. System-supplied and read-only.
 			///
 			public DateTime? LastLoginOn { get; set; }
 
 			///
-			/// When the password was last modified. System-supplied and read-only.
+			///When the password was last modified. System-supplied and read-only.
 			///
 			public DateTime? LastPasswordChangeOn { get; set; }
 
@@ -57,16 +67,6 @@ namespace Mozu.Api.Contracts.Core
 			///Date and time when the entity was last updated, represented in UTC Date/Time.
 			///
 			public DateTime? UpdatedOn { get; set; }
-
-			///
-			///Date and time when the entity was created, represented in UTC Date/Time.
-			///
-			public DateTime? CreatedOn { get; set; }
-
-			///
-			///The number of failed authentication attempts associated with the user.
-			///
-			public byte FailedLoginAttemptCount { get; set; }
 
 		}
 

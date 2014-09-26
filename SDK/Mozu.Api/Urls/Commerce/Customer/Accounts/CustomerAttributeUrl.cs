@@ -20,8 +20,8 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// Get Resource Url for GetAccountAttribute
         /// </summary>
         /// <param name="accountId">Identifier of the customer account associated with the attribute to retrieve.</param>
-        /// <param name="attributeFQN"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -41,7 +41,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// <param name="accountId">Identifier of the customer account associated with the attributes to retrieve.</param>
         /// <param name="filter"></param>
         /// <param name="pageSize"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="sortBy"></param>
         /// <param name="startIndex"></param>
         /// <returns>
@@ -64,7 +64,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// Get Resource Url for AddAccountAttribute
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -81,8 +81,8 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// Get Resource Url for UpdateAccountAttribute
         /// </summary>
         /// <param name="accountId">Identifier of the customer account associated with the attribute.</param>
-        /// <param name="attributeFQN"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -99,8 +99,8 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
 				/// <summary>
         /// Get Resource Url for DeleteAccountAttribute
         /// </summary>
-        /// <param name="accountId"></param>
-        /// <param name="attributeFQN"></param>
+        /// <param name="accountId">Unique identifier of the customer account.</param>
+        /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

@@ -52,8 +52,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes
         /// Get Resource Url for GetAttributeVocabularyValueLocalizedContent
         /// </summary>
         /// <param name="attributeFQN"></param>
-        /// <param name="localeCode"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="value"></param>
         /// <returns>
         /// String - Resource Url
@@ -73,7 +73,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes
         /// Get Resource Url for GetAttributeVocabularyValue
         /// </summary>
         /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="value">The actual unique value of the attribute vocabulary to retrieve. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.</param>
         /// <returns>
         /// String - Resource Url
@@ -92,7 +92,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes
         /// Get Resource Url for AddAttributeVocabularyValueLocalizedContent
         /// </summary>
         /// <param name="attributeFQN"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="value"></param>
         /// <returns>
         /// String - Resource Url
@@ -111,7 +111,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes
         /// Get Resource Url for AddAttributeVocabularyValue
         /// </summary>
         /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -161,7 +161,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes
         /// </summary>
         /// <param name="attributeFQN"></param>
         /// <param name="localeCode"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="value"></param>
         /// <returns>
         /// String - Resource Url
@@ -181,7 +181,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes
         /// Get Resource Url for UpdateAttributeVocabularyValue
         /// </summary>
         /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="value">The actual unique value of the attribute vocabulary value to update. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.</param>
         /// <returns>
         /// String - Resource Url
@@ -217,7 +217,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes
         /// Get Resource Url for DeleteAttributeVocabularyValueLocalizedContent
         /// </summary>
         /// <param name="attributeFQN"></param>
-        /// <param name="localeCode"></param>
+        /// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
         /// <param name="value"></param>
         /// <returns>
         /// String - Resource Url

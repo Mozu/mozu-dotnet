@@ -13,22 +13,43 @@ using System;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Discounts
 {
+		///
+		///	Discount applied to the order, which is a negative number, which is to be subtracted from the original price to get the final price for a particular line item. If multiple discounts for the order exist, this is the value most advantageous to the shopper.
+		///
 		public class AppliedLineItemProductDiscount
 		{
+			///
+			///Determines if the discount applies to the sale price of the order.
+			///
 			public bool? AppliesToSalePrice { get; set; }
 
+			///
+			///Alphanumeric code associated with the coupon or promotion that results in a discounted price.
+			///
 			public string CouponCode { get; set; }
 
+			///
+			///The number of the line items that are used for this particular discount.
+			///
 			public int DiscountQuantity { get; set; }
 
 			public bool? Excluded { get; set; }
 
+			///
+			///The value of the applied discount. This is a negative number, which is subtracted from the original price to get the final price.
+			///
 			public decimal? Impact { get; set; }
 
+			///
+			///The impact of this discount for each discount quantity.
+			///
 			public decimal? ImpactPerUnit { get; set; }
 
 			public int? ProductQuantity { get; set; }
 
+			///
+			///This describes discounts that apply to the order, if any. For example, when the subtotal of the order exceeds a certain amount, or a discount for free shipping.
+			///
 			public Discount Discount { get; set; }
 
 		}

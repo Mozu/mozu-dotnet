@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Content
 {
 	/// <summary>
-	/// The DocumentTypes resource is a part of the Content Service.
+	/// Use the Document Types resource to view the document types supplied by the Content API.
 	/// </summary>
 	public partial class DocumentTypeResource  	{
 		///
@@ -35,7 +35,7 @@ namespace Mozu.Api.Resources.Content
 
 		public DocumentTypeResource CloneWithApiContext(Action<IApiContext> contextModification) 
 		{
-			return new DocumentTypeResource(_apiContext.CloneWith(contextModification));
+			return new DocumentTypeResource(_apiContext.CloneWith(contextModification), _dataViewMode);
 		}
 
 		public DocumentTypeResource(IApiContext apiContext, DataViewMode dataViewMode) 
@@ -45,11 +45,11 @@ namespace Mozu.Api.Resources.Content
 		}
 				
 		/// <summary>
-		/// 
+		/// Retrieves a paged list of the system-defined document types.
 		/// </summary>
-		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="startIndex"></param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentTypeCollection"/>
 		/// </returns>
@@ -81,10 +81,10 @@ namespace Mozu.Api.Resources.Content
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves a system-defined document type.
 		/// </summary>
-		/// <param name="documentTypeName"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="documentTypeName">The name of the document type to retrieve.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentType"/>
 		/// </returns>
@@ -118,7 +118,7 @@ namespace Mozu.Api.Resources.Content
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="documentType"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentType"/>
@@ -154,7 +154,7 @@ namespace Mozu.Api.Resources.Content
 		/// 
 		/// </summary>
 		/// <param name="documentTypeName"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="documentType"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentType"/>

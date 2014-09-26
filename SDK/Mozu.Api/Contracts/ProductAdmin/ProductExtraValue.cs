@@ -29,6 +29,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool? IsDefaulted { get; set; }
 
+			///
+			///When setting up the extra on a parent product, you can specify a quantity. You can have an extra that is a quantity > 1 of another product.
+			///
 			public int? Quantity { get; set; }
 
 			///

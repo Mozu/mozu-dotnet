@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// Use the Storefront Shipping resource to retrieve shipping rate information from the website.
 	/// </summary>
 	public partial class StorefrontShippingFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// 
+		/// Retrieves the shipping rates applicable for the site.
 		/// <example> 
 		///  <code> 
 		/// var result = ShippingFactory.GetRates(handler : handler,  rateRequest :  rateRequest,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
