@@ -14,7 +14,7 @@ using System;
 namespace Mozu.Api.Contracts.Content
 {
 		///
-		///	A high level description of the document draft.
+		///	Summary properties of an unpublished document draft.
 		///
 		public class DocumentDraftSummary
 		{

@@ -19,9 +19,9 @@ namespace Mozu.Api.Urls.Commerce.Carts
 						/// <summary>
         /// Get Resource Url for ApplyCoupon
         /// </summary>
-        /// <param name="cartId"></param>
-        /// <param name="couponCode"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="cartId">Unique identifier of the cart to which to apply the coupon.</param>
+        /// <param name="couponCode">Code associated with the coupon to apply to the cart.</param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -38,7 +38,7 @@ namespace Mozu.Api.Urls.Commerce.Carts
 				/// <summary>
         /// Get Resource Url for RemoveCoupons
         /// </summary>
-        /// <param name="cartId"></param>
+        /// <param name="cartId">Unique identifier of the cart.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -53,8 +53,8 @@ namespace Mozu.Api.Urls.Commerce.Carts
 		/// <summary>
         /// Get Resource Url for RemoveCoupon
         /// </summary>
-        /// <param name="cartId"></param>
-        /// <param name="couponCode"></param>
+        /// <param name="cartId">Unique identifier of the cart.</param>
+        /// <param name="couponCode">Code associated with the coupon to remove from the cart.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

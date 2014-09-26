@@ -18,13 +18,6 @@ namespace Mozu.Api.Contracts.Tenant
 		///
 		public class Catalog
 		{
-			///
-			///The date and time the catalog was deleted.
-			///
-			public DateTime DeleteDate { get; set; }
-
-			public int Id { get; set; }
-
 			public DateTime CreateDate { get; set; }
 
 			///
@@ -38,6 +31,13 @@ namespace Mozu.Api.Contracts.Tenant
 			public string DefaultLocaleCode { get; set; }
 
 			///
+			///The date and time the catalog was deleted.
+			///
+			public DateTime DeleteDate { get; set; }
+
+			public int Id { get; set; }
+
+			///
 			///If true, the catalog has been deleted.
 			///
 			public bool IsDeleted { get; set; }
@@ -49,8 +49,14 @@ namespace Mozu.Api.Contracts.Tenant
 			///
 			public string Name { get; set; }
 
+			///
+			///The current status of the product catalog.
+			///
 			public string Status { get; set; }
 
+			///
+			///Unique identifier of the Mozu tenant.
+			///
 			public int TenantId { get; set; }
 
 			public DateTime UpdateDate { get; set; }

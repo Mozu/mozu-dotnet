@@ -15,24 +15,27 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	Specifies what to discount such as the type of discount and which products, categories, or shipping methods are eligible for the discount. Discount types can include the percentage off, specific monetary amount, or free shipping. This parameter also specifies the minimum monetary amount that the order must meet for the discount to apply.
+		///	Properties of the target to which the discount applies, such as the type of discount and which products, categories, or shipping methods are eligible for the discount and the properties of this discount target.
 		///
 		public class DiscountTarget
 		{
 			///
-			///If true, the target discount applies to all products sold on the storefront.
+			///If true, the target discount applies to all products sold on the site, regardless of product category.
 			///
 			public bool? IncludeAllProducts { get; set; }
 
+			///
+			///When a condition is specified, this property limits the number of items that are targeted for each discount redemption with an order. If multiple redemptions are allowed for each order then multiples of this value are allowed in multiples of the associated condition. If no condition is specified, then this value is not used. If null and condition exists, then defaults to 1.
+			///
 			public int? MaximumQuantityPerRedemption { get; set; }
 
 			///
-			///The type of target to which the discount applies, such as a product or shipping.
+			///Properties of the object to which this discount is targeted, which can be Product or Shipping. If the discount type is Product, the target properties describe the product or product categories to which the discount applies. If the discount type is Shipping, the target properties describe the shipping methods eligible for the discount.
 			///
 			public string Type { get; set; }
 
 			///
-			///The product categories to which the discount can apply.
+			///The product categories to which the discount can apply. When a discount applies to a category, all products in the category are eligible for the discount.
 			///
 			public List<TargetedCategory> Categories { get; set; }
 
@@ -47,12 +50,12 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public List<TargetedProduct> ExcludedProducts { get; set; }
 
 			///
-			///The products to which the discount can apply.
+			///List of  product codes that represent the products to which the discount can apply.
 			///
 			public List<TargetedProduct> Products { get; set; }
 
 			///
-			///The list of shipping method parameters that describe a method including the code, localized content, and audit information.
+			///The list of shipping method codes that represents the shipping service types to which the discount can apply.
 			///
 			public List<TargetedShippingMethod> ShippingMethods { get; set; }
 

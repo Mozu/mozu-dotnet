@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Provide dynamic search results to shoppers as they browse and search for products on the storefront. Suggest possible search terms as the shopper enters text.
+	/// Use the Product Search resource to provide dynamic search results to shoppers as they browse and search for products on the web storefront, and to suggest possible search terms as the shopper enters text.
 	/// </summary>
 	public partial class StorefrontProductSearchResultFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Searches the categories displayed on the storefront for products or product options that the shopper types in a search query.
+		/// Searches the categories displayed on the web storefront for products or product options that the shopper types in a search query.
 		/// <example> 
 		///  <code> 
 		/// var result = ProductSearchResultFactory.Search(handler : handler,  query :  query,  filter :  filter,  facetTemplate :  facetTemplate,  facetTemplateSubset :  facetTemplateSubset,  facet :  facet,  facetFieldRangeQuery :  facetFieldRangeQuery,  facetHierPrefix :  facetHierPrefix,  facetHierValue :  facetHierValue,  facetHierDepth :  facetHierDepth,  facetStartIndex :  facetStartIndex,  facetPageSize :  facetPageSize,  facetSettings :  facetSettings,  facetValueFilter :  facetValueFilter,  sortBy :  sortBy,  pageSize :  pageSize,  startIndex :  startIndex,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

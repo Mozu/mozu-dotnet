@@ -21,6 +21,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 		///
 		public class ReturnItem
 		{
+			///
+			///Unique identifier of the return whose items you want to get.
+			///
 			public string Id { get; set; }
 
 			///
@@ -63,6 +66,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///
 			public decimal? ShippingLossTaxAmount { get; set; }
 
+			///
+			///Properties of a collection of component products that make up a single returned product bundle with its own product code.
+			///
 			public List<ReturnBundle> BundledProducts { get; set; }
 
 			///

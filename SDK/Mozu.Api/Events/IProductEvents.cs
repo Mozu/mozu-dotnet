@@ -18,6 +18,11 @@ namespace Mozu.Api.Events
 	public interface IProductEvents
 	{
 		[Obsolete("This method is obsolete; use the async method instead")]
+		void CodeRenamed(IApiContext apiContext, Event eventPayLoad);
+
+		Task CodeRenamedAsync(IApiContext apiContext, Event eventPayLoad);
+
+		[Obsolete("This method is obsolete; use the async method instead")]
 		void Created(IApiContext apiContext, Event eventPayLoad);
 
 		Task CreatedAsync(IApiContext apiContext, Event eventPayLoad);

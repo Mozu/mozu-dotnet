@@ -26,6 +26,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			///
 			public List<string> AvailableActions { get; set; }
 
+			///
+			///The specific code that represents pickup.
+			///
 			public string Code { get; set; }
 
 			///
@@ -33,6 +36,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			///
 			public DateTime? FulfillmentDate { get; set; }
 
+			///
+			///The location code that represents the location where the shopper will fulfill this pickup.
+			///
 			public string FulfillmentLocationCode { get; set; }
 
 			///
@@ -50,6 +56,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			///
 			public AuditInfo AuditInfo { get; set; }
 
+			///
+			///List of change messages associated with the pickup.
+			///
 			public List<ChangeMessage> ChangeMessages { get; set; }
 
 			///

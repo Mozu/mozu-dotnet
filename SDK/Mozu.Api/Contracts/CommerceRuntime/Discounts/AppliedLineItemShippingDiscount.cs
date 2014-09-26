@@ -13,14 +13,26 @@ using System;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Discounts
 {
+		///
+		///	The value of the shipping discount for each line item.
+		///
 		public class AppliedLineItemShippingDiscount
 		{
+			///
+			///The number of the line item that is used for this particular discount.
+			///
 			public int DiscountQuantity { get; set; }
 
+			///
+			///The impact of this discount for each discount quantity.
+			///
 			public decimal ImpactPerUnit { get; set; }
 
 			public string MethodCode { get; set; }
 
+			///
+			///This describes shipping discounts that apply to a line item in the order, if any.
+			///
 			public AppliedDiscount Discount { get; set; }
 
 		}

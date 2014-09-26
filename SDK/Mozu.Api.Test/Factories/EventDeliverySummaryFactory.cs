@@ -30,7 +30,7 @@ namespace Mozu.Api.Test.Factories
 	{
 
 		/// <summary> 
-		/// 
+		/// This operation method is the external/public event entity used specifically in pull/poll event scenarios.
 		/// <example> 
 		///  <code> 
 		/// var result = EventDeliverySummaryFactory.GetDeliveryAttemptSummary(handler : handler,  subscriptionId :  subscriptionId,  id :  id,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

@@ -24,7 +24,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// A digital package is a package in a digital format.
 	/// </summary>
 	public partial class DigitalPackageFactory : BaseDataFactory
 	{
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// This operation retreives a digital package within an order and it requires two parameters: orderId and digitalPackageId.
 		/// <example> 
 		///  <code> 
 		/// var result = DigitalPackageFactory.GetDigitalPackage(handler : handler,  orderId :  orderId,  digitalPackageId :  digitalPackageId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Lets you apply a digital package to the order using the orderId and digitalPackage parameters.
 		/// <example> 
 		///  <code> 
 		/// var result = DigitalPackageFactory.CreateDigitalPackage(handler : handler,  digitalPackage :  digitalPackage,  orderId :  orderId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// This method operates on one digital package, specified by the id given. This method ensures that the digital package ID provided is in the order with the id given, and then updates the properties of that package with the properties of the one passed in using the ‘digitalpackage’ parameter.
 		/// <example> 
 		///  <code> 
 		/// var result = DigitalPackageFactory.UpdateDigitalPackage(handler : handler,  digitalPackage :  digitalPackage,  orderId :  orderId,  digitalPackageId :  digitalPackageId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// This operation deletes a digital package from an order. This operation requires three parameters: orderId, digitalPackageId, and digitalPackage.
 		/// <example> 
 		///  <code> 
 		/// var result = DigitalPackageFactory.DeleteDigitalPackage(handler : handler,  orderId :  orderId,  digitalPackageId :  digitalPackageId,  expectedCode: expectedCode, successCode: successCode); 

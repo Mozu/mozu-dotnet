@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Platform.Adminuser
 				/// <summary>
         /// Get Resource Url for CreateUserAuthTicket
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="tenantId">Unique identifier of the development or production tenant for which to generate the user authentication ticket.</param>
         /// <returns>
         /// String - Resource Url
@@ -36,7 +36,7 @@ namespace Mozu.Api.Urls.Platform.Adminuser
 				/// <summary>
         /// Get Resource Url for RefreshAuthTicket
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="tenantId"></param>
         /// <returns>
         /// String - Resource Url

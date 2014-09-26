@@ -15,6 +15,9 @@ using Mozu.Api.Contracts.ProductAdmin.Search;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
+		///
+		///	The settings to control product search and indexing behavior.
+		///
 		public class SearchSettings
 		{
 			public SearchSynonymSettings SearchSynonymSettings { get; set; }

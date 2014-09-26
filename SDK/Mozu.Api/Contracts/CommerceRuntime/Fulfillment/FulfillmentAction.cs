@@ -24,6 +24,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			///
 			public string ActionName { get; set; }
 
+			///
+			///The digital package ID identifies the package to update on the order.
+			///
 			public List<string> DigitalPackageIds { get; set; }
 
 			///

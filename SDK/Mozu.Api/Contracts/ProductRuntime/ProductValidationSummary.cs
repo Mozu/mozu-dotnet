@@ -19,10 +19,16 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		///
 		public class ProductValidationSummary
 		{
+			///
+			///List of fulfillment types that the product supports.
+			///
 			public List<string> FulfillmentTypesSupported { get; set; }
 
 			public string GoodsType { get; set; }
 
+			///
+			///If true, this product should not be packaged with other items and should ship by itself.
+			///
 			public bool? IsPackagedStandAlone { get; set; }
 
 			///
@@ -30,6 +36,9 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public bool IsTaxable { get; set; }
 
+			///
+			///The manufacturer's part number for the product.
+			///
 			public string MfgPartNumber { get; set; }
 
 			///
@@ -49,8 +58,14 @@ namespace Mozu.Api.Contracts.ProductRuntime
 
 			public string ProductType { get; set; }
 
+			///
+			///The usage type of this product, which is Standard (a single product without configurable options), Configurable (a product that includes configurable option attributes), Bundle (a collection of products sold as a single entity), or Component (an invididual product that represents a component in a bundle).
+			///
 			public string ProductUsage { get; set; }
 
+			///
+			///The universal product code defined for the product.
+			///
 			public string Upc { get; set; }
 
 			///
@@ -58,6 +73,9 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public string VariationProductCode { get; set; }
 
+			///
+			///Properties of a collection of component products that make up a single product bundle with its own product code.
+			///
 			public List<BundledProductSummary> BundledProducts { get; set; }
 
 			///
@@ -85,6 +103,9 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public ProductPrice Price { get; set; }
 
+			///
+			///Properties that describe the behavior the system uses when determining the price of the product.
+			///
 			public ProductPricingBehaviorInfo PricingBehavior { get; set; }
 
 			///

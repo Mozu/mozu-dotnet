@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Settings.Checkout
 {
 	/// <summary>
-	/// Specify settings when creating payments for order checkout on the site.
+	/// Use the Payment Settings resource to specify settings when creating payments for order checkout on the site.
 	/// </summary>
 	public partial class PaymentSettingsResource  	{
 		///

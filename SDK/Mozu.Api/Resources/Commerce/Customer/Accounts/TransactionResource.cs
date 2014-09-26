@@ -75,7 +75,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// Creates a new transaction for the customer account specified in the request.
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="transaction">Properties of the transaction to create for the customer account.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Transaction"/>

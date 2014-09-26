@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 {
 	/// <summary>
-	/// Manage shoppers' product selection process during a visit to the storefront. Update product options as shoppers pick and choose their product choices. A shopper cannot add a product to a cart until all of its required options have been selected.
+	/// Use the Storefront Products  resource to manage the shopper product selection process during a visit to the web storefront. You can update product options as shoppers pick and choose their product choices. A shopper cannot add a product to a cart until all of its required options have been selected.
 	/// </summary>
 	public partial class ProductResource  	{
 		///
@@ -45,7 +45,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		}
 				
 		/// <summary>
-		/// Retrieves a list of products that appear on the storefront according to any specified filter criteria and sort options.
+		/// Retrieves a list of products that appear on the web storefront according to any specified filter criteria and sort options.
 		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
@@ -124,7 +124,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <param name="allowInactive">If true, returns an inactive product as part of the query.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <param name="responseFields"></param>
-		/// <param name="skipInventoryCheck"></param>
+		/// <param name="skipInventoryCheck">If true, skip the inventory validation process for the specified product.</param>
 		/// <param name="variationProductCode">Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.Product"/>
@@ -157,12 +157,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		}
 
 		/// <summary>
-		/// Creates a new product selection. A create occurs each time a shopper selects a product option as they configure a product. Once all the required product options are configured, the product can be added to a cart.
+		/// Creates a new product configuration each time a shopper selects a product option value. After the shopper defines values for all required product options, the shopper can add the product configuration to a cart.
 		/// </summary>
 		/// <param name="includeOptionDetails">If true, the response returns details about the product. If false, returns a product summary such as the product name, price, and sale price.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <param name="responseFields"></param>
-		/// <param name="skipInventoryCheck"></param>
+		/// <param name="skipInventoryCheck">If true, skip the inventory validation process for the specified product.</param>
 		/// <param name="productOptionSelections">For a product with shopper-configurable options, the properties of the product options selected by the shopper.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.ConfiguredProduct"/>
@@ -198,8 +198,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// Validate the final state of shopper-selected options.
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields"></param>
-		/// <param name="skipInventoryCheck"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="skipInventoryCheck">If true, skip the inventory validation process for the specified product.</param>
 		/// <param name="productOptionSelections">For a product with shopper-configurable options, the properties of the product options selected by the shopper.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.ProductValidationSummary"/>
@@ -232,15 +232,15 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		}
 
 		/// <summary>
-		/// 
+		/// Evaluates whether a collection of discounts specified in the request can be redeemed for the supplied product code.
 		/// </summary>
-		/// <param name="allowInactive"></param>
-		/// <param name="customerAccountId"></param>
-		/// <param name="productCode"></param>
+		/// <param name="allowInactive">If true, this operation returns inactive product discounts as part of the POST.</param>
+		/// <param name="customerAccountId">Unique ID of the customer account associated with the shopper requesting the discount.</param>
+		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <param name="responseFields"></param>
-		/// <param name="skipInventoryCheck"></param>
-		/// <param name="variationProductCode"></param>
-		/// <param name="discountSelections"></param>
+		/// <param name="skipInventoryCheck">If true, do not validate the product inventory when evaluating the list of discounts.</param>
+		/// <param name="variationProductCode">Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.</param>
+		/// <param name="discountSelections">List of discount IDs to evaluate for the specified product.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.DiscountValidationSummary"/>
 		/// </returns>

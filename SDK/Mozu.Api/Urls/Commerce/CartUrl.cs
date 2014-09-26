@@ -20,7 +20,7 @@ namespace Mozu.Api.Urls.Commerce
         /// Get Resource Url for GetCart
         /// </summary>
         /// <param name="cartId">Identifier of the cart to retrieve.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -36,7 +36,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetOrCreateCart
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -51,7 +51,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetCartSummary
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -66,7 +66,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetUserCartSummary
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="userId">Unique identifier of the user whose cart details you want to retrieve.</param>
         /// <returns>
         /// String - Resource Url
@@ -83,7 +83,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetUserCart
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="userId">Unique identifier of the user whose cart you want to retrieve.</param>
         /// <returns>
         /// String - Resource Url
@@ -100,7 +100,7 @@ namespace Mozu.Api.Urls.Commerce
 						/// <summary>
         /// Get Resource Url for UpdateCart
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

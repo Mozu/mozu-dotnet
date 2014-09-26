@@ -20,7 +20,7 @@ namespace Mozu.Api.Urls.Platform
         /// Get Resource Url for GetDBValue
         /// </summary>
         /// <param name="dbEntryQuery">The database entry query string used to retrieve the record information.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

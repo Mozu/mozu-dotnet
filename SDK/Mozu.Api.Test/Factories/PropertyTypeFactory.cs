@@ -30,7 +30,7 @@ namespace Mozu.Api.Test.Factories
 	{
 
 		/// <summary> 
-		/// 
+		/// Retrieves a list of the content property types.
 		/// <example> 
 		///  <code> 
 		/// var result = PropertyTypeFactory.GetPropertyTypes(handler : handler,  pageSize :  pageSize,  startIndex :  startIndex,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves the details of the content property type.
 		/// <example> 
 		///  <code> 
 		/// var result = PropertyTypeFactory.GetPropertyType(handler : handler,  propertyTypeName :  propertyTypeName,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 

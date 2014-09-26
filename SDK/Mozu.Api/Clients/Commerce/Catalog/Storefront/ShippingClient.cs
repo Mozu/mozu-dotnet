@@ -17,15 +17,15 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 {
 	/// <summary>
-	/// 
+	/// Use the Storefront Shipping resource to retrieve shipping rate information from the website.
 	/// </summary>
 	public partial class ShippingClient 	{
 		
 		/// <summary>
-		/// 
+		/// Retrieves the shipping rates applicable for the site.
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="rateRequest"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="rateRequest">Properties of the shipping rate request sent on behalf of the storefront website.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ShippingRuntime.RatesResponse"/>}
 		/// </returns>

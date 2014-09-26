@@ -18,12 +18,21 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		///
 		public class ProductPrice
 		{
+			///
+			///The list price of the product in the catalog.
+			///
 			public decimal? CatalogListPrice { get; set; }
 
+			///
+			///The sale price defined for the product in the catalog.
+			///
 			public decimal? CatalogSalePrice { get; set; }
 
 			public decimal? CreditValue { get; set; }
 
+			///
+			///The manufacturer's suggested retail price for the product.
+			///
 			public decimal? Msrp { get; set; }
 
 			///
@@ -31,6 +40,9 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public decimal? Price { get; set; }
 
+			///
+			///The price type that displays on the storefront website for the Price field, which is List, MAP, or CatalogSalePrice
+			///
 			public string PriceType { get; set; }
 
 			///
@@ -38,6 +50,9 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public decimal? SalePrice { get; set; }
 
+			///
+			///The price type that displays on the storefront website for the Sale Price field, which is CatalogSalePrice, DiscountedList, or DiscountedCatalogSalePrice
+			///
 			public string SalePriceType { get; set; }
 
 			///

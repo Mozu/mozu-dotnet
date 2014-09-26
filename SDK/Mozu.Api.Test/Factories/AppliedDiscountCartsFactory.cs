@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// Use the Cart Coupons resource to apply a coupon to a defined cart or remove a coupon from a cart. When the shopper proceeds to checkout, the coupons applied to the cart apply to the order.
 	/// </summary>
 	public partial class AppliedDiscountCartsFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// 
+		/// Applies a defined coupon to the cart specified in the request.
 		/// <example> 
 		///  <code> 
 		/// var result = AppliedDiscountFactory.ApplyCoupon(handler : handler,  cartId :  cartId,  couponCode :  couponCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Removes one or more applied coupons from the cart specified in the request.
 		/// <example> 
 		///  <code> 
 		/// var result = AppliedDiscountFactory.RemoveCoupons(handler : handler,  cartId :  cartId,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Removes an applied coupon from the cart specified in the request.
 		/// <example> 
 		///  <code> 
 		/// var result = AppliedDiscountFactory.RemoveCoupon(handler : handler,  cartId :  cartId,  couponCode :  couponCode,  expectedCode: expectedCode, successCode: successCode); 

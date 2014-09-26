@@ -120,6 +120,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///
 			public Product Product { get; set; }
 
+			///
+			///Product discounts displays a list of all applicable discount.
+			///
 			public AppliedLineItemProductDiscount ProductDiscount { get; set; }
 
 			///

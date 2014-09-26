@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// Use the Applications resource to update and retrieve details about the applications installed for your tenant.
 	/// </summary>
 	public partial class ApplicationFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// 
+		/// Retrieves the details of the installed application specified in the request.
 		/// <example> 
 		///  <code> 
 		/// var result = ApplicationFactory.GetApplication(handler : handler,  appId :  appId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Updates one or more properties of the application specified in the request.
 		/// <example> 
 		///  <code> 
 		/// var result = ApplicationFactory.UpdateApplication(handler : handler,  application :  application,  appId :  appId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

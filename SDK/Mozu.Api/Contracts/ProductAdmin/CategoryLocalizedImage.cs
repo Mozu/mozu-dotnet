@@ -19,10 +19,23 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class CategoryLocalizedImage
 		{
 			///
-			///Descriptive text associated with the image or video that appears on the web  storefront.
+			///Integer that represents the sequential order of this category image or video.
+			///
+			public int? Sequence { get; set; }
+
+			///
+			///The URL of the product category video. The path name is set in the language specified by the LocaleCode.
+			///
+			public string VideoUrl { get; set; }
+
+			///
+			///Descriptive text associated with the image or video that appears on the web storefront.
 			///
 			public string AltText { get; set; }
 
+			///
+			///The identifier of the category image in the Mozu CMS. Supply a value for either the CMS ID or Image URL parameter.
+			///
 			public string CmsId { get; set; }
 
 			///
@@ -49,16 +62,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///Type of media specification required to successfully render the image, video, or other media content for the product category.
 			///
 			public string MediaType { get; set; }
-
-			///
-			///Integer that represents the sequential order of this category image or video.
-			///
-			public int? Sequence { get; set; }
-
-			///
-			///The URL of the product category video. The path name is set in the language specified by the LocaleCode.
-			///
-			public string VideoUrl { get; set; }
 
 		}
 

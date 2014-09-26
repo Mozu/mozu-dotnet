@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Manage shoppers' product selection process during a visit to the storefront. Update product options as shoppers pick and choose their product choices. A shopper cannot add a product to a cart until all of its required options have been selected.
+	/// Use the Storefront Products  resource to manage the shopper product selection process during a visit to the web storefront. You can update product options as shoppers pick and choose their product choices. A shopper cannot add a product to a cart until all of its required options have been selected.
 	/// </summary>
 	public partial class StorefrontProductFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves a list of products that appear on the storefront according to any specified filter criteria and sort options.
+		/// Retrieves a list of products that appear on the web storefront according to any specified filter criteria and sort options.
 		/// <example> 
 		///  <code> 
 		/// var result = ProductFactory.GetProducts(handler : handler,  filter :  filter,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Creates a new product selection. A create occurs each time a shopper selects a product option as they configure a product. Once all the required product options are configured, the product can be added to a cart.
+		/// Creates a new product configuration each time a shopper selects a product option value. After the shopper defines values for all required product options, the shopper can add the product configuration to a cart.
 		/// <example> 
 		///  <code> 
 		/// var result = ProductFactory.ConfiguredProduct(handler : handler,  productOptionSelections :  productOptionSelections,  productCode :  productCode,  includeOptionDetails :  includeOptionDetails,  skipInventoryCheck :  skipInventoryCheck,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -220,7 +220,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Evaluates whether a collection of discounts specified in the request can be redeemed for the supplied product code.
 		/// <example> 
 		///  <code> 
 		/// var result = ProductFactory.ValidateDiscounts(handler : handler,  discountSelections :  discountSelections,  productCode :  productCode,  variationProductCode :  variationProductCode,  customerAccountId :  customerAccountId,  allowInactive :  allowInactive,  skipInventoryCheck :  skipInventoryCheck,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

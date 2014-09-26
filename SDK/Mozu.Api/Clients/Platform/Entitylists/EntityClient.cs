@@ -26,14 +26,14 @@ namespace Mozu.Api.Clients.Platform.Entitylists
 		/// </summary>
 		/// <param name="entityListFullName"></param>
 		/// <param name="id"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{JObject}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=GetEntity( entityListFullName,  id,  responseFields);
-		///   var jObjectClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var jsonClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
 		public static MozuClient<JObject> GetEntityClient(string entityListFullName, string id, string responseFields =  null)
@@ -51,9 +51,9 @@ namespace Mozu.Api.Clients.Platform.Entitylists
 		/// 
 		/// </summary>
 		/// <param name="entityListFullName"></param>
-		/// <param name="filter"></param>
+		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
 		/// <returns>
@@ -80,7 +80,7 @@ namespace Mozu.Api.Clients.Platform.Entitylists
 		/// 
 		/// </summary>
 		/// <param name="entityListFullName"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="item"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{JObject}
@@ -88,7 +88,7 @@ namespace Mozu.Api.Clients.Platform.Entitylists
 		/// <example>
 		/// <code>
 		///   var mozuClient=InsertEntity( item,  entityListFullName,  responseFields);
-		///   var jObjectClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var jsonClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
 		public static MozuClient<JObject> InsertEntityClient(JObject item, string entityListFullName, string responseFields =  null)
@@ -97,7 +97,7 @@ namespace Mozu.Api.Clients.Platform.Entitylists
 			const string verb = "POST";
 			var mozuClient = new MozuClient<JObject>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody(item);
+									.WithBody<JObject>(item);
 			return mozuClient;
 
 		}
@@ -107,7 +107,7 @@ namespace Mozu.Api.Clients.Platform.Entitylists
 		/// </summary>
 		/// <param name="entityListFullName"></param>
 		/// <param name="id"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="item"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{JObject}
@@ -115,7 +115,7 @@ namespace Mozu.Api.Clients.Platform.Entitylists
 		/// <example>
 		/// <code>
 		///   var mozuClient=UpdateEntity( item,  entityListFullName,  id,  responseFields);
-		///   var jObjectClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var jsonClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
 		public static MozuClient<JObject> UpdateEntityClient(JObject item, string entityListFullName, string id, string responseFields =  null)
@@ -124,7 +124,7 @@ namespace Mozu.Api.Clients.Platform.Entitylists
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<JObject>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody(item);
+									.WithBody<JObject>(item);
 			return mozuClient;
 
 		}
