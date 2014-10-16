@@ -45,8 +45,14 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public string Name { get; set; }
 
+			///
+			///Indicates whether the attribute value is searchable in the storefont by a shopper.
+			///
 			public bool SearchableInStorefront { get; set; }
 
+			///
+			///If true, the system indexes the display value of string attributes instead of the canonical value for searching. The canonical value is always used for filtering. This does not apply for for non-string attributes.
+			///
 			public bool SearchDisplayValue { get; set; }
 
 			///

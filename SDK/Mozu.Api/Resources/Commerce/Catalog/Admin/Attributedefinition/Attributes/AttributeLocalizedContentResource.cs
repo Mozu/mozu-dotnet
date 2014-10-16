@@ -76,8 +76,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		/// 
 		/// </summary>
 		/// <param name="attributeFQN"></param>
-		/// <param name="localeCode"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent"/>
@@ -113,7 +113,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		/// 
 		/// </summary>
 		/// <param name="attributeFQN"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="localizedContent"></param>
 		/// <returns>
@@ -186,8 +186,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		/// 
 		/// </summary>
 		/// <param name="attributeFQN"></param>
-		/// <param name="localeCode"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="localizedContent"></param>
 		/// <returns>
@@ -224,7 +224,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		/// 
 		/// </summary>
 		/// <param name="attributeFQN"></param>
-		/// <param name="localeCode"></param>
+		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// 

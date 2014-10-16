@@ -20,7 +20,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// Get Resource Url for GetFacet
         /// </summary>
         /// <param name="facetId">Unique identifier of the facet to retrieve.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="validate">Validates that the product category associated with a facet is active. System-supplied and read only.</param>
         /// <returns>
         /// String - Resource Url
@@ -40,7 +40,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// </summary>
         /// <param name="categoryId">Unique identifier of the category associated with the facets to retrieve.</param>
         /// <param name="includeAvailable">If true, returns a list of the attributes and categories associated with a product type that have not been defined as a facet for the category.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="validate">Validates that the product category associated with a facet is active. System-supplied and read only.</param>
         /// <returns>
         /// String - Resource Url
@@ -59,7 +59,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for AddFacet
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -75,7 +75,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// Get Resource Url for UpdateFacet
         /// </summary>
         /// <param name="facetId">Unique identifier of the facet to modify.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

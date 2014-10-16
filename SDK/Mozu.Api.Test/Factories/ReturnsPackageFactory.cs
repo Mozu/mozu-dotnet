@@ -24,7 +24,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the return packages subresource to manage physical packages used to ship return replacement items.
+	/// Use the Return Packages subresource to manage physical packages used to ship return replacement items.
 	/// </summary>
 	public partial class ReturnsPackageFactory : BaseDataFactory
 	{

@@ -19,9 +19,9 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
 		/// <summary>
         /// Get Resource Url for GetAccountCard
         /// </summary>
-        /// <param name="accountId"></param>
-        /// <param name="cardId"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="accountId">Unique identifier of the customer account.</param>
+        /// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -39,7 +39,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// Get Resource Url for GetAccountCards
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -56,7 +56,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// Get Resource Url for AddAccountCard
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -73,8 +73,8 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// Get Resource Url for UpdateAccountCard
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="cardId"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="cardId">Unique identifier of the credit card.</param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

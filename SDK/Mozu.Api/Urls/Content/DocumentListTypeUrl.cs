@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Content
 				/// <summary>
         /// Get Resource Url for CreateDocumentListType
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -35,7 +35,7 @@ namespace Mozu.Api.Urls.Content
         /// Get Resource Url for UpdateDocumentListType
         /// </summary>
         /// <param name="documentListTypeFQN"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

@@ -41,7 +41,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// Retrieves the details of the order shipment specified in the request.
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order associated with the shipment to retrieve.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="shipmentId">Unique identifier of the shipment to retrieve.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment"/>

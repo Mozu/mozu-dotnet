@@ -25,16 +25,23 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 		public class Order
 		{
 			///
-			///If true, the order is exempt from applied sales tax.
+			///The date and time the order was accepted by the tenant.
 			///
-			public bool? IsTaxExempt { get; set; }
-
 			public DateTime? AcceptedDate { get; set; }
 
+			///
+			///If true, the customer account associated with the order is opted in to receive marketing materials.
+			///
 			public bool? AcceptsMarketing { get; set; }
 
+			///
+			///The amount of the order the shopper can receive in the event of a return. This amount represents the amount captured at the time the order was submitted, not when the order was returned.
+			///
 			public decimal AmountAvailableForRefund { get; set; }
 
+			///
+			///The total amount of the order not currently associated with a payment. The shopper must create one or more payments to satisfy this amount before the order can be fully paid.
+			///
 			public decimal AmountRemainingForPayment { get; set; }
 
 			///
@@ -73,7 +80,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public int? CustomerAccountId { get; set; }
 
 			///
-			///The type of interaction the shopper used to submit the order. Possibel values are Website, Call, Store, or Unknown.
+			///The type of interaction the shopper used to submit the order. Possible values are Website, Call, Store, or Unknown.
 			///
 			public string CustomerInteractionType { get; set; }
 
@@ -107,6 +114,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public DateTime? ExpirationDate { get; set; }
 
+			///
+			///Unique identifier used by an external program to identify a Mozu order.
+			///
 			public string ExternalId { get; set; }
 
 			///
@@ -131,6 +141,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public decimal? HandlingTaxTotal { get; set; }
 
+			///
+			///This total represents the handling amount value with any applied discounts.
+			///
 			public decimal? HandlingTotal { get; set; }
 
 			///
@@ -143,6 +156,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public string Id { get; set; }
 
+			///
+			///If the order was imported from an external program, the date and time the order was imported into Mozu.
+			///
 			public DateTime? ImportDate { get; set; }
 
 			///
@@ -155,12 +171,20 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public bool? IsDraft { get; set; }
 
+			///
+			///If true, the shopper can return any of the items in this order to the tenant.
+			///
 			public bool IsEligibleForReturns { get; set; }
 
 			///
 			///If true, this order was submitted using an external system, and the order record was imported into Mozu.
 			///
 			public bool? IsImport { get; set; }
+
+			///
+			///If true, the order is exempt from applied sales tax.
+			///
+			public bool? IsTaxExempt { get; set; }
 
 			///
 			///The total amount of tax applied to items in the order.
@@ -186,6 +210,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///Identifier of the cart prior to the customer proceeding to checkout.
 			///
 			public string OriginalCartId { get; set; }
+
+			public string ParentOrderId { get; set; }
 
 			///
 			///If this order was created to fulfill an item replacement as part of a return merchandise authorization (RMA), the unique identifier of the return.
@@ -228,7 +254,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public string SourceDevice { get; set; }
 
 			///
-			///The current status of this order. Possible values are "New", "Open", "Processing", "Closed", or "Cancelled". System-supplied and read-only.
+			///The current status of this order. Possible values are "Pending", "Submitted", "Processing", "Pending Review", "Closed", or "Cancelled". System-supplied and read-only.
 			///
 			public string Status { get; set; }
 
@@ -262,6 +288,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public decimal TotalCollected { get; set; }
 
+			///
+			///This specifies the order type. This means, was this order placed online or offline? Online means shopper created the order at checkout, offline means the order was a phone order.
+			///
 			public string Type { get; set; }
 
 			///
@@ -304,6 +333,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public List<ChangeMessage> ChangeMessages { get; set; }
 
+			///
+			///Specifies the fulfillment of digital packages associated with this order.
+			///
 			public List<DigitalPackage> DigitalPackages { get; set; }
 
 			///
@@ -313,6 +345,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 
 			public List<AppliedDiscount> HandlingDiscounts { get; set; }
 
+			///
+			///List of invalid coupon codes the shopper entered for the order.
+			///
 			public List<InvalidCoupon> InvalidCoupons { get; set; }
 
 			///
@@ -365,6 +400,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public ShopperNotes ShopperNotes { get; set; }
 
+			///
+			///Response returned by an order validation capability application.
+			///
 			public List<OrderValidationResult> ValidationResults { get; set; }
 
 		}

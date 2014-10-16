@@ -19,9 +19,9 @@ namespace Mozu.Api.Urls.Platform
 		/// <summary>
         /// Get Resource Url for GetEntityLists
         /// </summary>
-        /// <param name="filter"></param>
+        /// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
         /// <param name="pageSize"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="sortBy"></param>
         /// <param name="startIndex"></param>
         /// <returns>
@@ -43,7 +43,7 @@ namespace Mozu.Api.Urls.Platform
         /// Get Resource Url for GetEntityList
         /// </summary>
         /// <param name="entityListFullName"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -59,7 +59,7 @@ namespace Mozu.Api.Urls.Platform
 				/// <summary>
         /// Get Resource Url for CreateEntityList
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -75,7 +75,7 @@ namespace Mozu.Api.Urls.Platform
         /// Get Resource Url for UpdateEntityList
         /// </summary>
         /// <param name="entityListFullName"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

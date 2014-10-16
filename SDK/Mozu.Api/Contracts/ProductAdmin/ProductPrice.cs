@@ -18,6 +18,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class ProductPrice
 		{
+			///
+			///The credit amount of the product.
+			///
 			public decimal? CreditValue { get; set; }
 
 			///
@@ -25,12 +28,24 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public string IsoCurrencyCode { get; set; }
 
+			///
+			///The minimum advertised price a client can charge for the associated product, as determined by the supplier. Client administrators can override the minimum advertised price at the catalog level.
+			///
 			public decimal? Map { get; set; }
 
+			///
+			///If the product has a supplier-defined minimum advertised price, the date and time after which the client can sell the product for less than the minimum advertised price.
+			///
 			public DateTime? MapEndDate { get; set; }
 
+			///
+			///If the product has a supplier-defined minimum advertised price, the date and time after which the client cannot sell the product for less than the minimum advertised price.
+			///
 			public DateTime? MapStartDate { get; set; }
 
+			///
+			///The manufacturer's suggested retail price, as defined by the supplier.
+			///
 			public decimal? Msrp { get; set; }
 
 			///

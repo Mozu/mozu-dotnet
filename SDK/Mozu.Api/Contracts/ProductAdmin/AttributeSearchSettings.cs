@@ -13,12 +13,24 @@ using System;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
+		///
+		///	Attribute search settings are a container for all of the search and indexing settings of an attribute.
+		///
 		public class AttributeSearchSettings
 		{
+			///
+			///Indicates whether the attribute value is searchable in the merchant catalog admin.
+			///
 			public bool SearchableInAdmin { get; set; }
 
+			///
+			///Indicates whether the attribute value is searchable on the public storefront.
+			///
 			public bool SearchableInStorefront { get; set; }
 
+			///
+			///If true, the system indexs the display value of string attributes instead of the canonical value for searching. Always use the canonical value for filtering. This does not apply for for non-string attributes.
+			///
 			public bool SearchDisplayValue { get; set; }
 
 		}

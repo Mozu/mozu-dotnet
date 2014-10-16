@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// The DocumentTypes resource is a part of the Content Service.
+	/// Use the Document Types resource to view the document types supplied by the Content API.
 	/// </summary>
 	public partial class DocumentTypeFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// 
+		/// Retrieves a paged list of the system-defined document types.
 		/// <example> 
 		///  <code> 
 		/// var result = DocumentTypeFactory.GetDocumentTypes(handler : handler,  pageSize :  pageSize,  startIndex :  startIndex,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves a system-defined document type.
 		/// <example> 
 		///  <code> 
 		/// var result = DocumentTypeFactory.GetDocumentType(handler : handler,  documentTypeName :  documentTypeName,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 

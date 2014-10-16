@@ -41,7 +41,7 @@ namespace Mozu.Api.Resources.Platform
 		/// Retrieves the value of a record in the Mozu database.
 		/// </summary>
 		/// <param name="dbEntryQuery">The database entry query string used to retrieve the record information.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// string
 		/// </returns>

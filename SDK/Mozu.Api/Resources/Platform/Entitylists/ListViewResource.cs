@@ -42,7 +42,7 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		/// </summary>
 		/// <param name="entityId"></param>
 		/// <param name="entityListFullName"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="viewName"></param>
 		/// <returns>
 		/// JObject
@@ -50,7 +50,7 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		/// <example>
 		/// <code>
 		///   var listview = new ListView();
-		///   var jObject = listview.GetViewEntity( entityListFullName,  viewName,  entityId,  responseFields);
+		///   var json = listview.GetViewEntity( entityListFullName,  viewName,  entityId,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
@@ -78,9 +78,9 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		/// 
 		/// </summary>
 		/// <param name="entityListFullName"></param>
-		/// <param name="filter"></param>
+		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="startIndex"></param>
 		/// <param name="viewName"></param>
 		/// <returns>
@@ -118,7 +118,7 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		/// </summary>
 		/// <param name="entityId"></param>
 		/// <param name="entityListFullName"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="viewName"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.MZDB.EntityContainer"/>
@@ -154,9 +154,9 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		/// 
 		/// </summary>
 		/// <param name="entityListFullName"></param>
-		/// <param name="filter"></param>
+		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="startIndex"></param>
 		/// <param name="viewName"></param>
 		/// <returns>
@@ -193,7 +193,7 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		/// 
 		/// </summary>
 		/// <param name="entityListFullName"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="viewName"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.MZDB.ListView"/>
@@ -229,7 +229,7 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		/// 
 		/// </summary>
 		/// <param name="entityListFullName"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.MZDB.ListViewCollection"/>
 		/// </returns>
@@ -264,7 +264,7 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		/// 
 		/// </summary>
 		/// <param name="entityListFullName"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="listView"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.MZDB.ListView"/>
@@ -300,7 +300,7 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		/// 
 		/// </summary>
 		/// <param name="entityListFullName"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="viewName"></param>
 		/// <param name="listView"></param>
 		/// <returns>

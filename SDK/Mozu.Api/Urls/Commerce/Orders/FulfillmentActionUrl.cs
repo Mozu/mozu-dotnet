@@ -20,7 +20,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// Get Resource Url for PerformFulfillmentAction
         /// </summary>
         /// <param name="orderId">Unique identifier of the order for which to perform the fulfillment action.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Updated order with a new fulfillment status resulting from the action supplied in the request.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

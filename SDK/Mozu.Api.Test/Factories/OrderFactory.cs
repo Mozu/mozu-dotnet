@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves available order actions which depends on the status of the order. Actions are "CreateOrder," "SubmitOrder," "SetOrderAsProcessing," "CloseOrder," or "CancelOrder."
+		/// Retrieves the actions available to perform for an order based on its current status.
 		/// <example> 
 		///  <code> 
 		/// var result = OrderFactory.GetAvailableActions(handler : handler,  orderId :  orderId,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves an order for the purpose of splitting it into multiple taxable orders in order to fulfill the order in multiple locations.
 		/// <example> 
 		///  <code> 
 		/// var result = OrderFactory.GetTaxableOrders(handler : handler,  orderId :  orderId,  expectedCode: expectedCode, successCode: successCode); 
@@ -258,7 +258,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Perform the specified action for an order. Available actions depend on the current status of the order. When in doubt, first get a list of available order actions.
+		/// Perform the specified action for an order. The actions you can perform depend on the current status of the order.
 		/// <example> 
 		///  <code> 
 		/// var result = OrderFactory.PerformOrderAction(handler : handler,  action :  action,  orderId :  orderId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

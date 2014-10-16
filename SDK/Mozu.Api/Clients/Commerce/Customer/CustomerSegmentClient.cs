@@ -17,18 +17,18 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Commerce.Customer
 {
 	/// <summary>
-	/// 
+	/// Use the Customer Segments resource to manage the segments that enable a client to manage groups of customers and target discounts for these segments. After a customer segment is defined, you can associate any number of customer accounts with it.
 	/// </summary>
 	public partial class CustomerSegmentClient 	{
 		
 		/// <summary>
-		/// 
+		/// Retrieves a list of defined customer segments according to any filter and sort criteria.
 		/// </summary>
-		/// <param name="filter"></param>
-		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="sortBy"></param>
-		/// <param name="startIndex"></param>
+		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerSegmentCollection"/>}
 		/// </returns>
@@ -50,10 +50,10 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves the details of the customer segment specified in the request. This operation does not return a list of the customer accounts associated with the segment.
 		/// </summary>
-		/// <param name="id"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerSegment"/>}
 		/// </returns>
@@ -75,10 +75,10 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Creates a new customer segments. New customer segments do not have any associated customer accounts.
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="segment"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="segment">Properties of the customer segment to add.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerSegment"/>}
 		/// </returns>
@@ -100,10 +100,10 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Adds one or more customer accounts to a defined customer segment.
 		/// </summary>
-		/// <param name="id"></param>
-		/// <param name="accountIds"></param>
+		/// <param name="id">Unique identifier of the customer segment for which to add the associated customer accounts.</param>
+		/// <param name="accountIds">List of customer account IDs to add to the customer segment specified in the request.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
@@ -125,11 +125,11 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Updates the details of the customer segment specified in the request.
 		/// </summary>
-		/// <param name="id"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="segment"></param>
+		/// <param name="id">Unique identifier of the customer segment.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="segment">Properties of the customer segment to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerSegment"/>}
 		/// </returns>
@@ -151,9 +151,9 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Deletes a customer segment specified by its unique identifier. Deleting a segment removes any customer account associations, but does not delete the customer account itself.
 		/// </summary>
-		/// <param name="id"></param>
+		/// <param name="id">Unique identifier of the customer segment to delete.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
@@ -175,10 +175,10 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Removes the specified customer accounts from a defined customer segment. You must create the request body to perform this operation.
 		/// </summary>
-		/// <param name="id"></param>
-		/// <param name="accountIds"></param>
+		/// <param name="id">Unique identifier of the segment from which to remove the customer accounts.</param>
+		/// <param name="accountIds">List of customer account identifiers to remove from the specified customer segments.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

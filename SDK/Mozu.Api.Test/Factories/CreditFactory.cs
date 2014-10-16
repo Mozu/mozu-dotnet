@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Associates an unclaimed customer credit with the shopper user authenticated in the request header.
 		/// <example> 
 		///  <code> 
 		/// var result = CreditFactory.AssociateCreditToShopper(handler : handler,  code :  code,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

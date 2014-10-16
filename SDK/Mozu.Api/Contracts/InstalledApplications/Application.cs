@@ -14,18 +14,39 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.InstalledApplications
 {
+		///
+		///	Properties of an application installed in a tenant.
+		///
 		public class Application
 		{
+			///
+			///The unique identifier of the application in Mozu Dev Center.
+			///
 			public string AppId { get; set; }
 
+			///
+			///If true, the application is enabled for the tenant. System-supplied and read-only.
+			///
 			public bool? Enabled { get; set; }
 
+			///
+			///If true, the third party application settings have been configured and the application is initialized.
+			///
 			public bool? Initialized { get; set; }
 
+			///
+			///If true, the application type is Extension.
+			///
 			public bool? IsExtension { get; set; }
 
+			///
+			///The URL defined for the application that represents the configuration website for the capability.
+			///
 			public string UiConfigurationUrl { get; set; }
 
+			///
+			///List of capabilities installed in a tenant.
+			///
 			public List<Capability> Capabilities { get; set; }
 
 		}

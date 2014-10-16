@@ -35,6 +35,9 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public string Email { get; set; }
 
+			///
+			///The fax number associated with the customer account.
+			///
 			public string FaxNumber { get; set; }
 
 			///
@@ -60,6 +63,11 @@ namespace Mozu.Api.Contracts.Customer
 			public string MiddleNameOrInitial { get; set; }
 
 			///
+			///List of the types associated with a customer contact, such as Billing or Fulfillment.
+			///
+			public List<ContactType> Types { get; set; }
+
+			///
 			///Address associated with the customer account contact.
 			///
 			public Address Address { get; set; }
@@ -73,8 +81,6 @@ namespace Mozu.Api.Contracts.Customer
 			///List of phone numbers associated with the customer account contact.
 			///
 			public Phone PhoneNumbers { get; set; }
-
-			public List<ContactType> Types { get; set; }
 
 		}
 

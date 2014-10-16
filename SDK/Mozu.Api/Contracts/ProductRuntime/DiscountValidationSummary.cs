@@ -14,8 +14,14 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.ProductRuntime
 {
+		///
+		///	List of discounts the shopper can redeem for a product in its current state.
+		///
 		public class DiscountValidationSummary
 		{
+			///
+			///List of discount IDs the shopper can redeem for a product in its current state.
+			///
 			public List<Discount> ApplicableDiscounts { get; set; }
 
 		}

@@ -15,31 +15,43 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.Core
 {
 		///
-		///	***Always private and should not be published.***
+		///	Properties of an application behavior.
 		///
 		public class Behavior
 		{
 			///
-			///Unique identifier for the storefront container used to organize products.
+			///Unique identifier of the behavior category.
 			///
 			public int CategoryId { get; set; }
 
 			///
-			///Identifier of the entity.
+			///Unique identifier of the behavior.
 			///
 			public int Id { get; set; }
 
+			///
+			///If true, this application behavior is not part of the public Mozu API.
+			///
 			public bool IsPrivate { get; set; }
 
+			///
+			///The name of the behavior.
+			///
 			public string Name { get; set; }
 
 			///
-			///For validation purposes, the integer value must be a list of behavior Id's.
+			///For validation purposes, the integer value must be a list of behavior IDs.
 			///
 			public List<int> RequiresBehaviorIds { get; set; }
 
+			///
+			///Provides a list of system roles for a specified behavior.
+			///
 			public List<string> SystemRoles { get; set; }
 
+			///
+			///The user types that are valid for this behavior.
+			///
 			public List<string> ValidUserTypes { get; set; }
 
 		}

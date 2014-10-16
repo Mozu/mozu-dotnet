@@ -49,7 +49,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public string FulfillmentLocationCode { get; set; }
 
 			///
-			///The method used to fulfill the item in the order, which is "PickUp" or "Ship".
+			///The method used to fulfill the item in the order, which is "PickUp" or "Ship". The fulfillment method for the order depends on the supported fulfillment types defined for the product.
 			///
 			public string FulfillmentMethod { get; set; }
 
@@ -125,6 +125,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public Product Product { get; set; }
 
+			///
+			///The discount that applies to the product.
+			///
 			public AppliedLineItemProductDiscount ProductDiscount { get; set; }
 
 			///

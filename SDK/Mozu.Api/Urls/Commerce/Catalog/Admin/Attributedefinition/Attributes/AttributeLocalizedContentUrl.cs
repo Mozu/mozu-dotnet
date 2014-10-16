@@ -35,8 +35,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes
         /// Get Resource Url for GetAttributeLocalizedContent
         /// </summary>
         /// <param name="attributeFQN"></param>
-        /// <param name="localeCode"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -54,7 +54,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes
         /// Get Resource Url for AddLocalizedContent
         /// </summary>
         /// <param name="attributeFQN"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -86,8 +86,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes
         /// Get Resource Url for UpdateLocalizedContent
         /// </summary>
         /// <param name="attributeFQN"></param>
-        /// <param name="localeCode"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -105,7 +105,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes
         /// Get Resource Url for DeleteLocalizedContent
         /// </summary>
         /// <param name="attributeFQN"></param>
-        /// <param name="localeCode"></param>
+        /// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

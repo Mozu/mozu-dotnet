@@ -49,7 +49,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
@@ -87,7 +87,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// Retrieves the details of a product reservation.
 		/// </summary>
 		/// <param name="productReservationId">Unique identifier of the product reservation.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductReservation"/>
@@ -120,11 +120,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Creates a new product reservation for a product. This action places a hold on the product inventory for the quantity specified during the ordering process.
 		/// </summary>
-		/// <param name="skipInventoryCheck"></param>
+		/// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="productReservations"></param>
+		/// <param name="productReservations">Details of the product reservations to add.</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductReservation"/>}
 		/// </returns>
@@ -156,10 +156,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Commits a product reservation to decrement the product's inventory by the quantity specified then release the reservation once the order process completed successfully.
 		/// </summary>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="productReservations"></param>
+		/// <param name="productReservations">List of unique identifiers of the reservations to commit.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -189,11 +189,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Updates an existing product reservation for a product.
 		/// </summary>
-		/// <param name="skipInventoryCheck"></param>
+		/// <param name="skipInventoryCheck">If true, skip the inventory validation process when updating this product reservation.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="productReservations"></param>
+		/// <param name="productReservations">Properties of the product reservations to update.</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductReservation"/>}
 		/// </returns>

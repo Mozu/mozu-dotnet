@@ -1,7 +1,7 @@
-Added Async() methods
-Added Locale and Currency to ApiContext
-Added Cloning support to ApiContext and resources
-Marked synchronous methods obsolete
+- Add Locale and Currency to Api Context
+- Add Clone with for Api Context and Resources
+- Add Async Methods
+- Change Authentication method to remove URL parameter
 
 Events
 0.    Added - Analytics.Analytics Product Search

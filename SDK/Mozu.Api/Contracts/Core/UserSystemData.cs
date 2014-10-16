@@ -49,12 +49,12 @@ namespace Mozu.Api.Contracts.Core
 			public DateTime? LastLockedOn { get; set; }
 
 			///
-			/// When the user last logged into the store. System-supplied and read-only.
+			///When the user last logged into the store. System-supplied and read-only.
 			///
 			public DateTime? LastLoginOn { get; set; }
 
 			///
-			/// When the password was last modified. System-supplied and read-only.
+			///When the password was last modified. System-supplied and read-only.
 			///
 			public DateTime? LastPasswordChangeOn { get; set; }
 

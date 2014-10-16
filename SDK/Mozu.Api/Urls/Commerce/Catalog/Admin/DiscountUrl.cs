@@ -21,7 +21,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// </summary>
         /// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
         /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="sortBy"></param>
         /// <param name="startIndex"></param>
         /// <returns>
@@ -43,7 +43,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// Get Resource Url for GetDiscountContent
         /// </summary>
         /// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -60,7 +60,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// Get Resource Url for GetDiscount
         /// </summary>
         /// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -76,7 +76,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GenerateRandomCoupon
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -91,7 +91,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for CreateDiscount
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -107,7 +107,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// Get Resource Url for UpdateDiscountContent
         /// </summary>
         /// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -123,8 +123,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for UpdateDiscount
         /// </summary>
-        /// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="discountId">Unique identifier of the discount to update.</param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

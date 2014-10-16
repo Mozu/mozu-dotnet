@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// Manage the results of order validation.
 	/// </summary>
 	public partial class OrderValidationResultFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// 
+		/// Retrieves a list of the validation results associated with the order.
 		/// <example> 
 		///  <code> 
 		/// var result = OrderValidationResultFactory.GetValidationResults(handler : handler,  orderId :  orderId,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Add a new order validation result to a submitted order.
 		/// <example> 
 		///  <code> 
 		/// var result = OrderValidationResultFactory.AddValidationResult(handler : handler,  validationResult :  validationResult,  orderId :  orderId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

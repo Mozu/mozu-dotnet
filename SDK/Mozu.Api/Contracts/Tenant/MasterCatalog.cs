@@ -48,8 +48,14 @@ namespace Mozu.Api.Contracts.Tenant
 			///
 			public string Name { get; set; }
 
+			///
+			///The current status of the master catalog.
+			///
 			public string Status { get; set; }
 
+			///
+			///Unique identifier of the Mozu tenant.
+			///
 			public int TenantId { get; set; }
 
 			public DateTime UpdateDate { get; set; }

@@ -30,7 +30,7 @@ namespace Mozu.Api.Test.Factories
 	{
 
 		/// <summary> 
-		/// 
+		/// Retrieves the details of a credit card stored with a customer account billing contact.
 		/// <example> 
 		///  <code> 
 		/// var result = CardFactory.GetAccountCard(handler : handler,  accountId :  accountId,  cardId :  cardId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

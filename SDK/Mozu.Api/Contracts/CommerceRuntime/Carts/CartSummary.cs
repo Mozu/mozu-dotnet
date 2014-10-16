@@ -38,6 +38,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///
 			public decimal? Total { get; set; }
 
+			///
+			///The combined total quantity across all items in the cart.
+			///
 			public int? TotalQuantity { get; set; }
 
 		}

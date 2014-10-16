@@ -17,14 +17,14 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Commerce.Settings
 {
 	/// <summary>
-	/// Use the applications subresource to update site settings for installed applications.
+	/// Use the Applications resource to update site-specific settings for installed applications.
 	/// </summary>
 	public partial class ApplicationClient 	{
 		
 		/// <summary>
 		/// Retrieve the settings of a third-party application.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Application.Application"/>}
 		/// </returns>
@@ -48,7 +48,7 @@ namespace Mozu.Api.Clients.Commerce.Settings
 		/// <summary>
 		/// Initializes an application with the necessary configured settings.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="application">Properties of the application to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Application.Application"/>}

@@ -38,7 +38,7 @@ namespace Mozu.Api.Urls.Content.Documentlists
         /// </summary>
         /// <param name="documentId">Identifier of the document being retrieved.</param>
         /// <param name="documentListName">The name of the document list associated with the document to retrieve.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -58,7 +58,7 @@ namespace Mozu.Api.Urls.Content.Documentlists
         /// <param name="documentListName">The name of the document list.</param>
         /// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter a document's search results by any of its properties, including its name or folder path. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+sw+Events"</param>
         /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
         /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
         /// <returns>
@@ -81,7 +81,7 @@ namespace Mozu.Api.Urls.Content.Documentlists
         /// Get Resource Url for CreateDocument
         /// </summary>
         /// <param name="documentListName">The descriptive alphanumeric document list name being created.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -116,7 +116,7 @@ namespace Mozu.Api.Urls.Content.Documentlists
         /// </summary>
         /// <param name="documentId">Unique identifier of the document to update.</param>
         /// <param name="documentListName">Name of the document list associated with the document.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

@@ -26,7 +26,7 @@ namespace Mozu.Api.Clients.Platform.Entitylists
 		/// </summary>
 		/// <param name="entityId"></param>
 		/// <param name="entityListFullName"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="viewName"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{JObject}
@@ -34,7 +34,7 @@ namespace Mozu.Api.Clients.Platform.Entitylists
 		/// <example>
 		/// <code>
 		///   var mozuClient=GetViewEntity( entityListFullName,  viewName,  entityId,  responseFields);
-		///   var jObjectClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var jsonClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
 		public static MozuClient<JObject> GetViewEntityClient(string entityListFullName, string viewName, string entityId, string responseFields =  null)
@@ -52,9 +52,9 @@ namespace Mozu.Api.Clients.Platform.Entitylists
 		/// 
 		/// </summary>
 		/// <param name="entityListFullName"></param>
-		/// <param name="filter"></param>
+		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="startIndex"></param>
 		/// <param name="viewName"></param>
 		/// <returns>
@@ -82,7 +82,7 @@ namespace Mozu.Api.Clients.Platform.Entitylists
 		/// </summary>
 		/// <param name="entityId"></param>
 		/// <param name="entityListFullName"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="viewName"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.MZDB.EntityContainer"/>}
@@ -108,9 +108,9 @@ namespace Mozu.Api.Clients.Platform.Entitylists
 		/// 
 		/// </summary>
 		/// <param name="entityListFullName"></param>
-		/// <param name="filter"></param>
+		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="startIndex"></param>
 		/// <param name="viewName"></param>
 		/// <returns>
@@ -137,7 +137,7 @@ namespace Mozu.Api.Clients.Platform.Entitylists
 		/// 
 		/// </summary>
 		/// <param name="entityListFullName"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="viewName"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.MZDB.ListView"/>}
@@ -163,7 +163,7 @@ namespace Mozu.Api.Clients.Platform.Entitylists
 		/// 
 		/// </summary>
 		/// <param name="entityListFullName"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.MZDB.ListViewCollection"/>}
 		/// </returns>
@@ -188,7 +188,7 @@ namespace Mozu.Api.Clients.Platform.Entitylists
 		/// 
 		/// </summary>
 		/// <param name="entityListFullName"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="listView"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.MZDB.ListView"/>}
@@ -214,7 +214,7 @@ namespace Mozu.Api.Clients.Platform.Entitylists
 		/// 
 		/// </summary>
 		/// <param name="entityListFullName"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="viewName"></param>
 		/// <param name="listView"></param>
 		/// <returns>
