@@ -70,6 +70,20 @@ MozuClient<Mozu.Api.Contracts.Tenant.Tenant> response;
 
 		}
 
+		/// <summary>
+		/// Retrieve details about a specific tenant by providing the tenant ID.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="tenantId">Unique identifier of the Mozu tenant.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Tenant.Tenant"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var tenant = new Tenant();
+		///   var tenant = await tenant.GetTenantAsync( tenantId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Tenant.Tenant> GetTenantAsync(int tenantId, string responseFields =  null)
 		{
 			var tenant = Cache.CacheManager.Instance.Get<Mozu.Api.Contracts.Tenant.Tenant>(tenantId.ToString());

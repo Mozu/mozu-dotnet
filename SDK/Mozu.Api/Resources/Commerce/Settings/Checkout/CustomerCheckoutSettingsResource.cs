@@ -61,6 +61,19 @@ namespace Mozu.Api.Resources.Commerce.Settings.Checkout
 
 		}
 
+		/// <summary>
+		/// Retrieves all checkout settings defined for the site: Payment settings, such as the payment gateway ID and credentials, supported credit cards, and more; Customer Checkout settings, such as whether login is required, and any custom attributes; and Order Processing settings, such as when payment is authorized and captured, and any custom attributes.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.SiteSettings.Order.CustomerCheckoutSettings"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customercheckoutsettings = new CustomerCheckoutSettings();
+		///   var customerCheckoutSettings = await customercheckoutsettings.GetCustomerCheckoutSettingsAsync( responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Order.CustomerCheckoutSettings> GetCustomerCheckoutSettingsAsync(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.SiteSettings.Order.CustomerCheckoutSettings> response;
@@ -96,6 +109,20 @@ namespace Mozu.Api.Resources.Commerce.Settings.Checkout
 
 		}
 
+		/// <summary>
+		/// Modifies existing site checkout settings. Modify Payment, Customer Checkout, and Order Processing settings in one PUT.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="customerCheckoutSettings">All the properties to update in the checkout settings.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.SiteSettings.Order.CustomerCheckoutSettings"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customercheckoutsettings = new CustomerCheckoutSettings();
+		///   var customerCheckoutSettings = await customercheckoutsettings.UpdateCustomerCheckoutSettingsAsync( customerCheckoutSettings,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Order.CustomerCheckoutSettings> UpdateCustomerCheckoutSettingsAsync(Mozu.Api.Contracts.SiteSettings.Order.CustomerCheckoutSettings customerCheckoutSettings, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.SiteSettings.Order.CustomerCheckoutSettings> response;

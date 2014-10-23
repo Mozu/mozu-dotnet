@@ -63,6 +63,21 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 
 		}
 
+		/// <summary>
+		/// Retrieves the contents of a particular note attached to a specified customer account.
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account that contains the note being retrieved.</param>
+		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.CustomerNote"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customernote = new CustomerNote();
+		///   var customerNote = await customernote.GetAccountNoteAsync( accountId,  noteId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerNote> GetAccountNoteAsync(int accountId, int noteId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerNote> response;
@@ -102,6 +117,24 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 
 		}
 
+		/// <summary>
+		/// Retrieves a list of notes added to a customer account according to any specified filter criteria and sort options.
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.CustomerNoteCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customernote = new CustomerNote();
+		///   var customerNoteCollection = await customernote.GetAccountNotesAsync( accountId,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerNoteCollection> GetAccountNotesAsync(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerNoteCollection> response;
@@ -138,6 +171,21 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 
 		}
 
+		/// <summary>
+		/// Adds a new note to the specified customer account.
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account for which to create the note.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="note">Properties of the customer account note to create.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.CustomerNote"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customernote = new CustomerNote();
+		///   var customerNote = await customernote.AddAccountNoteAsync( note,  accountId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerNote> AddAccountNoteAsync(Mozu.Api.Contracts.Customer.CustomerNote note, int accountId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerNote> response;
@@ -175,6 +223,22 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 
 		}
 
+		/// <summary>
+		/// Modifies an existing note for a customer account.
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account note to modify.</param>
+		/// <param name="noteId">Unique identifier of the note to update.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="note">The new content to replace the existing note.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.CustomerNote"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customernote = new CustomerNote();
+		///   var customerNote = await customernote.UpdateAccountNoteAsync( note,  accountId,  noteId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerNote> UpdateAccountNoteAsync(Mozu.Api.Contracts.Customer.CustomerNote note, int accountId, int noteId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerNote> response;
@@ -209,6 +273,20 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 
 		}
 
+		/// <summary>
+		/// Removes a note from the specified customer account.
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account that contains the note being deleted.</param>
+		/// <param name="noteId">Unique identifier of the customer account note being deleted.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customernote = new CustomerNote();
+		///   await customernote.DeleteAccountNoteAsync( accountId,  noteId);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteAccountNoteAsync(int accountId, int noteId)
 		{
 			MozuClient response;

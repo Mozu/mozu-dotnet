@@ -256,25 +256,25 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Removes the specified customer accounts from a defined customer segment. You must create the request body to perform this operation.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerSegmentFactory.DeleteSegmentAccounts(handler : handler,  accountIds :  accountIds,  id :  id,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CustomerSegmentFactory.RemoveSegmentAccount(handler : handler,  id :  id,  accountId :  accountId,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeleteSegmentAccounts(ServiceClientMessageHandler handler, 
- 		List<int> accountIds, int id, 
+		public static void RemoveSegmentAccount(ServiceClientMessageHandler handler, 
+ 		int id, int accountId, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Customer.CustomerSegmentClient.DeleteSegmentAccountsClient(
-				 accountIds :  accountIds,  id :  id		);
+			var apiClient = Mozu.Api.Clients.Commerce.Customer.CustomerSegmentClient.RemoveSegmentAccountClient(
+				 id :  id,  accountId :  accountId		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

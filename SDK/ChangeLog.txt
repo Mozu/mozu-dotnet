@@ -1,3 +1,5 @@
+- Product code change events
+- Removed CustomerSegement Account delete and added new methods that confirm to REST standard
 - Add Locale and Currency to Api Context
 - Add Clone with for Api Context and Resources
 - Add Async Methods

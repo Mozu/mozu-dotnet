@@ -63,6 +63,21 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 
 		}
 
+		/// <summary>
+		/// Retrieves the contents of an attribute associated with the specified customer account.
+		/// </summary>
+		/// <param name="accountId">Identifier of the customer account associated with the attribute to retrieve.</param>
+		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAttribute"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customerattribute = new CustomerAttribute();
+		///   var customerAttribute = await customerattribute.GetAccountAttributeAsync( accountId,  attributeFQN,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAttribute> GetAccountAttributeAsync(int accountId, string attributeFQN, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerAttribute> response;
@@ -102,6 +117,24 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 
 		}
 
+		/// <summary>
+		/// Retrieves the list of customer account attributes.
+		/// </summary>
+		/// <param name="accountId">Identifier of the customer account associated with the attributes to retrieve.</param>
+		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAttributeCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customerattribute = new CustomerAttribute();
+		///   var customerAttributeCollection = await customerattribute.GetAccountAttributesAsync( accountId,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAttributeCollection> GetAccountAttributesAsync(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerAttributeCollection> response;
@@ -138,6 +171,21 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 
 		}
 
+		/// <summary>
+		/// Applies a defined attribute to the customer account specified in the request and assigns a value to the customer attribute.
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="attribute">The attribute to add to the customer account.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAttribute"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customerattribute = new CustomerAttribute();
+		///   var customerAttribute = await customerattribute.AddAccountAttributeAsync( attribute,  accountId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAttribute> AddAccountAttributeAsync(Mozu.Api.Contracts.Customer.CustomerAttribute attribute, int accountId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerAttribute> response;
@@ -175,6 +223,22 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 
 		}
 
+		/// <summary>
+		/// Updates one or more details of a customer account attribute.
+		/// </summary>
+		/// <param name="accountId">Identifier of the customer account associated with the attribute.</param>
+		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="attribute">Properties of the customer account attribute to update.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAttribute"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customerattribute = new CustomerAttribute();
+		///   var customerAttribute = await customerattribute.UpdateAccountAttributeAsync( attribute,  accountId,  attributeFQN,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAttribute> UpdateAccountAttributeAsync(Mozu.Api.Contracts.Customer.CustomerAttribute attribute, int accountId, string attributeFQN, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerAttribute> response;
@@ -209,6 +273,20 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 
 		}
 
+		/// <summary>
+		/// Removes the attribute specified in the request from the customer account.
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customerattribute = new CustomerAttribute();
+		///   await customerattribute.DeleteAccountAttributeAsync( accountId,  attributeFQN);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteAccountAttributeAsync(int accountId, string attributeFQN)
 		{
 			MozuClient response;

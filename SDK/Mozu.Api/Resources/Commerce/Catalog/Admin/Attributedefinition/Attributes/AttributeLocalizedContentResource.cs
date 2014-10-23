@@ -62,6 +62,20 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var attributelocalizedcontent = new AttributeLocalizedContent();
+		///   var attributeLocalizedContent = await attributelocalizedcontent.GetAttributeLocalizedContentsAsync( attributeFQN);
+		/// </code>
+		/// </example>
 		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent>> GetAttributeLocalizedContentsAsync(string attributeFQN)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent>> response;
@@ -99,6 +113,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var attributelocalizedcontent = new AttributeLocalizedContent();
+		///   var attributeLocalizedContent = await attributelocalizedcontent.GetAttributeLocalizedContentAsync( attributeFQN,  localeCode,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> GetAttributeLocalizedContentAsync(string attributeFQN, string localeCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> response;
@@ -136,6 +166,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <param name="localizedContent"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var attributelocalizedcontent = new AttributeLocalizedContent();
+		///   var attributeLocalizedContent = await attributelocalizedcontent.AddLocalizedContentAsync( localizedContent,  attributeFQN,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> AddLocalizedContentAsync(Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent localizedContent, string attributeFQN, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> response;
@@ -172,6 +218,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <param name="localizedContent"></param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var attributelocalizedcontent = new AttributeLocalizedContent();
+		///   var attributeLocalizedContent = await attributelocalizedcontent.UpdateLocalizedContentsAsync( localizedContent,  attributeFQN);
+		/// </code>
+		/// </example>
 		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent>> UpdateLocalizedContentsAsync(List<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> localizedContent, string attributeFQN)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent>> response;
@@ -210,6 +271,23 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <param name="localizedContent"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var attributelocalizedcontent = new AttributeLocalizedContent();
+		///   var attributeLocalizedContent = await attributelocalizedcontent.UpdateLocalizedContentAsync( localizedContent,  attributeFQN,  localeCode,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> UpdateLocalizedContentAsync(Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent localizedContent, string attributeFQN, string localeCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> response;
@@ -245,6 +323,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var attributelocalizedcontent = new AttributeLocalizedContent();
+		///   await attributelocalizedcontent.DeleteLocalizedContentAsync( attributeFQN,  localeCode);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteLocalizedContentAsync(string attributeFQN, string localeCode)
 		{
 			MozuClient response;

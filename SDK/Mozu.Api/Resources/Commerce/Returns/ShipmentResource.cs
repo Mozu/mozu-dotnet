@@ -63,6 +63,21 @@ namespace Mozu.Api.Resources.Commerce.Returns
 
 		}
 
+		/// <summary>
+		/// Retrieves the details of the specified return replacement shipment.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="returnId">Unique identifier of the return associated with the replacement shipment to retrieve.</param>
+		/// <param name="shipmentId">Unique identifier of the return replacement shipment to retrieve.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var shipment = new Shipment();
+		///   var shipment = await shipment.GetShipmentAsync( returnId,  shipmentId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment> GetShipmentAsync(string returnId, string shipmentId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment> response;
@@ -98,6 +113,20 @@ namespace Mozu.Api.Resources.Commerce.Returns
 
 		}
 
+		/// <summary>
+		/// Creates a shipment from one or more packages associated with a return replacement.
+		/// </summary>
+		/// <param name="returnId">Unique identifier of the return for which to create replacement package shipments.</param>
+		/// <param name="packageIds">List of packages in the return replacement shipment.</param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var shipment = new Shipment();
+		///   var package = await shipment.CreatePackageShipmentsAsync( packageIds,  returnId);
+		/// </code>
+		/// </example>
 		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package>> CreatePackageShipmentsAsync(List<string> packageIds, string returnId)
 		{
 			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package>> response;
@@ -132,6 +161,20 @@ namespace Mozu.Api.Resources.Commerce.Returns
 
 		}
 
+		/// <summary>
+		/// Deletes a shipment for a return replacement.
+		/// </summary>
+		/// <param name="returnId">Unique identifier of the return associated with the replacement shipment to delete.</param>
+		/// <param name="shipmentId">Unique identifier of the return replacement shipment to delete.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var shipment = new Shipment();
+		///   await shipment.DeleteShipmentAsync( returnId,  shipmentId);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteShipmentAsync(string returnId, string shipmentId)
 		{
 			MozuClient response;

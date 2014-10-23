@@ -62,6 +62,20 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 
 		}
 
+		/// <summary>
+		/// Retrieves the shipping rates applicable for the site.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="rateRequest">Properties of the shipping rate request sent on behalf of the storefront website.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ShippingRuntime.RatesResponse"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var shipping = new Shipping();
+		///   var ratesResponse = await shipping.GetRatesAsync( rateRequest,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ShippingRuntime.RatesResponse> GetRatesAsync(Mozu.Api.Contracts.ShippingRuntime.RateRequest rateRequest, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ShippingRuntime.RatesResponse> response;

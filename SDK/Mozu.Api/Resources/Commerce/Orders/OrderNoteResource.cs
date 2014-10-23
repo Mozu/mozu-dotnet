@@ -61,6 +61,19 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 		}
 
+		/// <summary>
+		/// Retrieves a list of all notes for an order.
+		/// </summary>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var ordernote = new OrderNote();
+		///   var orderNote = await ordernote.GetOrderNotesAsync( orderId);
+		/// </code>
+		/// </example>
 		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote>> GetOrderNotesAsync(string orderId)
 		{
 			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote>> response;
@@ -97,6 +110,21 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 		}
 
+		/// <summary>
+		/// Retrieves the details of a specific order note.
+		/// </summary>
+		/// <param name="noteId">Unique identifier of the order note to retrieve.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the note.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var ordernote = new OrderNote();
+		///   var orderNote = await ordernote.GetOrderNoteAsync( orderId,  noteId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote> GetOrderNoteAsync(string orderId, string noteId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote> response;
@@ -133,6 +161,21 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 		}
 
+		/// <summary>
+		/// Creates a new merchant note for the specified order.
+		/// </summary>
+		/// <param name="orderId">Unique identifier of the order for which to add a note.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="orderNote">The alphanumeric text contained in the note. The maximum length is 256 characters.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var ordernote = new OrderNote();
+		///   var orderNote = await ordernote.CreateOrderNoteAsync( orderNote,  orderId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote> CreateOrderNoteAsync(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote orderNote, string orderId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote> response;
@@ -170,6 +213,22 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 		}
 
+		/// <summary>
+		/// Updates a specific note for an order.
+		/// </summary>
+		/// <param name="noteId">Unique identifier of the order note.</param>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="orderNote">The content of the order note. The maximum length is 256 characters.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var ordernote = new OrderNote();
+		///   var orderNote = await ordernote.UpdateOrderNoteAsync( orderNote,  orderId,  noteId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote> UpdateOrderNoteAsync(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote orderNote, string orderId, string noteId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote> response;
@@ -204,6 +263,20 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 		}
 
+		/// <summary>
+		/// Deletes the specified order note.
+		/// </summary>
+		/// <param name="noteId">Unique identifier of the order note to delete.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the note.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var ordernote = new OrderNote();
+		///   await ordernote.DeleteOrderNoteAsync( orderId,  noteId);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteOrderNoteAsync(string orderId, string noteId)
 		{
 			MozuClient response;
