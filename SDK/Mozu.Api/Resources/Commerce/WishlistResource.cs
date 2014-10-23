@@ -67,6 +67,25 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// Retrieves a list of shopper wish lists according to any filter and sort criteria.
+		/// </summary>
+		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="q">A list of search terms to use in the query when searching across wish list name. Separate multiple search terms with a space character.</param>
+		/// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Wishlists.WishlistCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var wishlist = new Wishlist();
+		///   var wishlistCollection = await wishlist.GetWishlistsAsync( startIndex,  pageSize,  sortBy,  filter,  q,  qLimit,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Wishlists.WishlistCollection> GetWishlistsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string q =  null, int? qLimit =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Wishlists.WishlistCollection> response;
@@ -102,6 +121,20 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// Retrieves the details of the shopper wish list specified in the request.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="wishlistId">Unique identifier of the shopper wish list to retrieve.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Wishlists.Wishlist"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var wishlist = new Wishlist();
+		///   var wishlist = await wishlist.GetWishlistAsync( wishlistId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Wishlists.Wishlist> GetWishlistAsync(string wishlistId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Wishlists.Wishlist> response;
@@ -138,6 +171,21 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// Retrieves the details of a wish list by supplying the wish list name.
+		/// </summary>
+		/// <param name="customerAccountId">The unique identifier of the customer account for which to retrieve wish lists.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="wishlistName">The name of the wish list to retrieve.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Wishlists.Wishlist"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var wishlist = new Wishlist();
+		///   var wishlist = await wishlist.GetWishlistByNameAsync( customerAccountId,  wishlistName,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Wishlists.Wishlist> GetWishlistByNameAsync(int customerAccountId, string wishlistName, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Wishlists.Wishlist> response;
@@ -173,6 +221,20 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// Creates a new shopper wish list for the associated customer account. Although customer accounts are maintained at the tenant level, the system stores wish lists at the site level. Newly created wish lists do not have any items.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="wishlist">Properties of the wish list to create.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Wishlists.Wishlist"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var wishlist = new Wishlist();
+		///   var wishlist = await wishlist.CreateWishlistAsync( wishlist,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Wishlists.Wishlist> CreateWishlistAsync(Mozu.Api.Contracts.CommerceRuntime.Wishlists.Wishlist wishlist, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Wishlists.Wishlist> response;
@@ -209,6 +271,21 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// Updates one or more properties of a shopper wish list defined for a customer account.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="wishlistId">Unique identifier of the shopper wish list to update.</param>
+		/// <param name="wishlist">Properties of the shopper wish list to update.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Wishlists.Wishlist"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var wishlist = new Wishlist();
+		///   var wishlist = await wishlist.UpdateWishlistAsync( wishlist,  wishlistId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Wishlists.Wishlist> UpdateWishlistAsync(Mozu.Api.Contracts.CommerceRuntime.Wishlists.Wishlist wishlist, string wishlistId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Wishlists.Wishlist> response;
@@ -242,6 +319,19 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// Deletes the shopper wish list specified in the request and all items associated with it.
+		/// </summary>
+		/// <param name="wishlistId">Unique identifier of the wish list to delete.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var wishlist = new Wishlist();
+		///   await wishlist.DeleteWishlistAsync( wishlistId);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteWishlistAsync(string wishlistId)
 		{
 			MozuClient response;

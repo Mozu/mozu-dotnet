@@ -70,6 +70,21 @@ namespace Mozu.Api.Resources.Content
 
 		}
 
+		/// <summary>
+		/// Retrieves a paged list of the system-defined document types.
+		/// </summary>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Content.DocumentTypeCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documenttype = new DocumentType();
+		///   var documentTypeCollection = await documenttype.GetDocumentTypesAsync(_dataViewMode,  pageSize,  startIndex,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Content.DocumentTypeCollection> GetDocumentTypesAsync(int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentTypeCollection> response;
@@ -105,6 +120,20 @@ namespace Mozu.Api.Resources.Content
 
 		}
 
+		/// <summary>
+		/// Retrieves a system-defined document type.
+		/// </summary>
+		/// <param name="documentTypeName">The name of the document type to retrieve.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Content.DocumentType"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documenttype = new DocumentType();
+		///   var documentType = await documenttype.GetDocumentTypeAsync(_dataViewMode,  documentTypeName,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Content.DocumentType> GetDocumentTypeAsync(string documentTypeName, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentType> response;
@@ -140,6 +169,20 @@ namespace Mozu.Api.Resources.Content
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="documentType"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Content.DocumentType"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documenttype = new DocumentType();
+		///   var documentType = await documenttype.CreateDocumentTypeAsync(_dataViewMode,  documentType,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Content.DocumentType> CreateDocumentTypeAsync(Mozu.Api.Contracts.Content.DocumentType documentType, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentType> response;
@@ -176,6 +219,21 @@ namespace Mozu.Api.Resources.Content
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="documentTypeName"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="documentType"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Content.DocumentType"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documenttype = new DocumentType();
+		///   var documentType = await documenttype.UpdateDocumentTypeAsync( documentType,  documentTypeName,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Content.DocumentType> UpdateDocumentTypeAsync(Mozu.Api.Contracts.Content.DocumentType documentType, string documentTypeName, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentType> response;

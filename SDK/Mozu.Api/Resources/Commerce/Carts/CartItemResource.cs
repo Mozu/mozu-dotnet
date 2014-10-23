@@ -62,6 +62,20 @@ namespace Mozu.Api.Resources.Commerce.Carts
 
 		}
 
+		/// <summary>
+		/// Retrieves a particular cart item by providing the cart item ID.
+		/// </summary>
+		/// <param name="cartItemId">Identifier of the cart item to retrieve.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var cartitem = new CartItem();
+		///   var cartItem = await cartitem.GetCartItemAsync( cartItemId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> GetCartItemAsync(string cartItemId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> response;
@@ -96,6 +110,19 @@ namespace Mozu.Api.Resources.Commerce.Carts
 
 		}
 
+		/// <summary>
+		/// Retrieves a list of cart items including the total number of items in the cart.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItemCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var cartitem = new CartItem();
+		///   var cartItemCollection = await cartitem.GetCartItemsAsync( responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItemCollection> GetCartItemsAsync(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItemCollection> response;
@@ -131,6 +158,20 @@ namespace Mozu.Api.Resources.Commerce.Carts
 
 		}
 
+		/// <summary>
+		/// Adds a product to the current shopper's cart.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="cartItem">All properties of the new cart item. The product code is required.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var cartitem = new CartItem();
+		///   var cartItem = await cartitem.AddItemToCartAsync( cartItem,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> AddItemToCartAsync(Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem cartItem, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> response;
@@ -167,6 +208,21 @@ namespace Mozu.Api.Resources.Commerce.Carts
 
 		}
 
+		/// <summary>
+		/// Update the quantity of an individual cart item in the cart of the current shopper.
+		/// </summary>
+		/// <param name="cartItemId">Identifier of the cart item to update quantity.</param>
+		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var cartitem = new CartItem();
+		///   var cartItem = await cartitem.UpdateCartItemQuantityAsync( cartItemId,  quantity,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> UpdateCartItemQuantityAsync(string cartItemId, int quantity, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> response;
@@ -203,6 +259,21 @@ namespace Mozu.Api.Resources.Commerce.Carts
 
 		}
 
+		/// <summary>
+		/// Update the product or product quantity of an item in the current shopper's cart.
+		/// </summary>
+		/// <param name="cartItemId">Identifier of the cart item to update.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="cartItem">The properties of the cart item to update.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var cartitem = new CartItem();
+		///   var cartItem = await cartitem.UpdateCartItemAsync( cartItem,  cartItemId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> UpdateCartItemAsync(Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem cartItem, string cartItemId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> response;
@@ -236,6 +307,18 @@ namespace Mozu.Api.Resources.Commerce.Carts
 
 		}
 
+		/// <summary>
+		/// Removes all items in the current shopper's active cart.
+		/// </summary>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var cartitem = new CartItem();
+		///   var cart = await cartitem.RemoveAllCartItemsAsync();
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> RemoveAllCartItemsAsync()
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> response;
@@ -269,6 +352,19 @@ namespace Mozu.Api.Resources.Commerce.Carts
 
 		}
 
+		/// <summary>
+		/// Deletes a specific cart item by providing the cart item ID.
+		/// </summary>
+		/// <param name="cartItemId">Identifier of the cart item to delete.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var cartitem = new CartItem();
+		///   await cartitem.DeleteCartItemAsync( cartItemId);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteCartItemAsync(string cartItemId)
 		{
 			MozuClient response;

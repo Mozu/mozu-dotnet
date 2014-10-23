@@ -68,6 +68,20 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 
 		}
 
+		/// <summary>
+		/// Deletes the draft version of product changes for each product code specified in the request.
+		/// </summary>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <param name="publishScope">Properties of the pending product changes to include in this operation.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var publishingscope = new PublishingScope();
+		///   await publishingscope.DiscardDraftsAsync(_dataViewMode,  publishScope);
+		/// </code>
+		/// </example>
 		public virtual async Task DiscardDraftsAsync(Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope)
 		{
 			MozuClient response;
@@ -101,6 +115,20 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 
 		}
 
+		/// <summary>
+		/// Publishes the draft version of product changes for each product code specified in the request, and changes the product publish state to "live".
+		/// </summary>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <param name="publishScope">Properties of the pending product changes to include in this operation.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var publishingscope = new PublishingScope();
+		///   await publishingscope.PublishDraftsAsync(_dataViewMode,  publishScope);
+		/// </code>
+		/// </example>
 		public virtual async Task PublishDraftsAsync(Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope)
 		{
 			MozuClient response;

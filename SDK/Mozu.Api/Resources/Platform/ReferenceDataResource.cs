@@ -66,6 +66,20 @@ namespace Mozu.Api.Resources.Platform
 
 		}
 
+		/// <summary>
+		/// Retrieves a specific address schema based on the country code provided. This operation allows the creation of custom shipping and billing address fields.
+		/// </summary>
+		/// <param name="countryCode">The 2-letter geographic code representing the country for the physical or mailing address. Currently limited to the US.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Reference.AddressSchema"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var referencedata = new ReferenceData();
+		///   var addressSchema = await referencedata.GetAddressSchemaAsync( countryCode,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Reference.AddressSchema> GetAddressSchemaAsync(string countryCode =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Reference.AddressSchema> response;
@@ -100,6 +114,19 @@ namespace Mozu.Api.Resources.Platform
 
 		}
 
+		/// <summary>
+		/// Retrieves the entire list of address schemas that the system supports.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Reference.AddressSchemaCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var referencedata = new ReferenceData();
+		///   var addressSchemaCollection = await referencedata.GetAddressSchemasAsync( responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Reference.AddressSchemaCollection> GetAddressSchemasAsync(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Reference.AddressSchemaCollection> response;
@@ -135,6 +162,20 @@ namespace Mozu.Api.Resources.Platform
 
 		}
 
+		/// <summary>
+		/// Retrieves the details of a behavior based on the behavior ID specified in the request.
+		/// </summary>
+		/// <param name="behaviorId">Unique identifier of the behavior.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Core.Behavior"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var referencedata = new ReferenceData();
+		///   var behavior = await referencedata.GetBehaviorAsync( behaviorId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Core.Behavior> GetBehaviorAsync(int behaviorId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Core.Behavior> response;
@@ -170,6 +211,20 @@ namespace Mozu.Api.Resources.Platform
 
 		}
 
+		/// <summary>
+		/// Retrieves the details of the behavior category specified in the request.
+		/// </summary>
+		/// <param name="categoryId">Unique identifier of the behavior category.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Core.BehaviorCategory"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var referencedata = new ReferenceData();
+		///   var behaviorCategory = await referencedata.GetBehaviorCategoryAsync( categoryId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Core.BehaviorCategory> GetBehaviorCategoryAsync(int categoryId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Core.BehaviorCategory> response;
@@ -204,6 +259,19 @@ namespace Mozu.Api.Resources.Platform
 
 		}
 
+		/// <summary>
+		/// Retrieves the list of behavior categories.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Core.BehaviorCategoryCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var referencedata = new ReferenceData();
+		///   var behaviorCategoryCollection = await referencedata.GetBehaviorCategoriesAsync( responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Core.BehaviorCategoryCollection> GetBehaviorCategoriesAsync(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Core.BehaviorCategoryCollection> response;
@@ -239,6 +307,20 @@ namespace Mozu.Api.Resources.Platform
 
 		}
 
+		/// <summary>
+		/// Retrieves a list of application behaviors.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="userType">The user type associated with the behaviors to retrieve.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Core.BehaviorCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var referencedata = new ReferenceData();
+		///   var behaviorCollection = await referencedata.GetBehaviorsAsync( userType,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Core.BehaviorCollection> GetBehaviorsAsync(string userType =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Core.BehaviorCollection> response;
@@ -273,6 +355,19 @@ namespace Mozu.Api.Resources.Platform
 
 		}
 
+		/// <summary>
+		/// Retrieves the list of content locales the system supports. Content locales indicate the language used and the country where the language is used.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Reference.ContentLocaleCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var referencedata = new ReferenceData();
+		///   var contentLocaleCollection = await referencedata.GetContentLocalesAsync( responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Reference.ContentLocaleCollection> GetContentLocalesAsync(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Reference.ContentLocaleCollection> response;
@@ -307,6 +402,19 @@ namespace Mozu.Api.Resources.Platform
 
 		}
 
+		/// <summary>
+		/// Retrieves the entire list of countries that the system supports.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Reference.CountryCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var referencedata = new ReferenceData();
+		///   var countryCollection = await referencedata.GetCountriesAsync( responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Reference.CountryCollection> GetCountriesAsync(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Reference.CountryCollection> response;
@@ -341,6 +449,19 @@ namespace Mozu.Api.Resources.Platform
 
 		}
 
+		/// <summary>
+		/// Retrieves the entire list of currencies that the system supports.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Reference.CurrencyCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var referencedata = new ReferenceData();
+		///   var currencyCollection = await referencedata.GetCurrenciesAsync( responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Reference.CurrencyCollection> GetCurrenciesAsync(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Reference.CurrencyCollection> response;
@@ -375,6 +496,19 @@ namespace Mozu.Api.Resources.Platform
 
 		}
 
+		/// <summary>
+		/// Retrieves the entire list of time zones that the system supports.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Reference.TimeZoneCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var referencedata = new ReferenceData();
+		///   var timeZoneCollection = await referencedata.GetTimeZonesAsync( responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Reference.TimeZoneCollection> GetTimeZonesAsync(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Reference.TimeZoneCollection> response;
@@ -409,6 +543,19 @@ namespace Mozu.Api.Resources.Platform
 
 		}
 
+		/// <summary>
+		/// Retrieves the entire list of top-level internet domains that the system supports.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Reference.TopLevelDomainCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var referencedata = new ReferenceData();
+		///   var topLevelDomainCollection = await referencedata.GetTopLevelDomainsAsync( responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Reference.TopLevelDomainCollection> GetTopLevelDomainsAsync(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Reference.TopLevelDomainCollection> response;
@@ -444,6 +591,20 @@ namespace Mozu.Api.Resources.Platform
 
 		}
 
+		/// <summary>
+		/// Retrieves an array list of all units of measure the system supports.
+		/// </summary>
+		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Reference.UnitOfMeasureCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var referencedata = new ReferenceData();
+		///   var unitOfMeasureCollection = await referencedata.GetUnitsOfMeasureAsync( filter,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Reference.UnitOfMeasureCollection> GetUnitsOfMeasureAsync(string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Reference.UnitOfMeasureCollection> response;

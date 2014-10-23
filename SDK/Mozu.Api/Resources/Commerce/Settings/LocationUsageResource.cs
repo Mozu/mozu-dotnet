@@ -61,6 +61,19 @@ namespace Mozu.Api.Resources.Commerce.Settings
 
 		}
 
+		/// <summary>
+		/// Retrieves the configured site location usages for the location usage code specified in the request.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Location.LocationUsageCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var locationusage = new LocationUsage();
+		///   var locationUsageCollection = await locationusage.GetLocationUsagesAsync( responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Location.LocationUsageCollection> GetLocationUsagesAsync(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Location.LocationUsageCollection> response;
@@ -96,6 +109,20 @@ namespace Mozu.Api.Resources.Commerce.Settings
 
 		}
 
+		/// <summary>
+		/// Retrieves the location usages for the site specified in the request header.
+		/// </summary>
+		/// <param name="code">Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Location.LocationUsage"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var locationusage = new LocationUsage();
+		///   var locationUsage = await locationusage.GetLocationUsageAsync( code,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Location.LocationUsage> GetLocationUsageAsync(string code, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Location.LocationUsage> response;
@@ -132,6 +159,21 @@ namespace Mozu.Api.Resources.Commerce.Settings
 
 		}
 
+		/// <summary>
+		/// Updates the location usage for the site based on the location usage code specified in the request.
+		/// </summary>
+		/// <param name="code">Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="usage">Properties of the location usage type to update.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Location.LocationUsage"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var locationusage = new LocationUsage();
+		///   var locationUsage = await locationusage.UpdateLocationUsageAsync( usage,  code,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Location.LocationUsage> UpdateLocationUsageAsync(Mozu.Api.Contracts.Location.LocationUsage usage, string code, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Location.LocationUsage> response;

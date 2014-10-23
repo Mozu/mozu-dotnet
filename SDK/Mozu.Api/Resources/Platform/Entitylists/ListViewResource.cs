@@ -64,6 +64,22 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="entityId"></param>
+		/// <param name="entityListFullName"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="viewName"></param>
+		/// <returns>
+		/// JObject
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var listview = new ListView();
+		///   var json = await listview.GetViewEntityAsync( entityListFullName,  viewName,  entityId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<JObject> GetViewEntityAsync(string entityListFullName, string viewName, string entityId, string responseFields =  null)
 		{
 			MozuClient<JObject> response;
@@ -103,6 +119,24 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="entityListFullName"></param>
+		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="startIndex"></param>
+		/// <param name="viewName"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.MZDB.EntityCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var listview = new ListView();
+		///   var entityCollection = await listview.GetViewEntitiesAsync( entityListFullName,  viewName,  pageSize,  startIndex,  filter,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.MZDB.EntityCollection> GetViewEntitiesAsync(string entityListFullName, string viewName, int? pageSize =  null, int? startIndex =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.MZDB.EntityCollection> response;
@@ -140,6 +174,22 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="entityId"></param>
+		/// <param name="entityListFullName"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="viewName"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.MZDB.EntityContainer"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var listview = new ListView();
+		///   var entityContainer = await listview.GetViewEntityContainerAsync( entityListFullName,  viewName,  entityId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.MZDB.EntityContainer> GetViewEntityContainerAsync(string entityListFullName, string viewName, string entityId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.MZDB.EntityContainer> response;
@@ -179,6 +229,24 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="entityListFullName"></param>
+		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="startIndex"></param>
+		/// <param name="viewName"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.MZDB.EntityContainerCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var listview = new ListView();
+		///   var entityContainerCollection = await listview.GetViewEntityContainersAsync( entityListFullName,  viewName,  pageSize,  startIndex,  filter,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.MZDB.EntityContainerCollection> GetViewEntityContainersAsync(string entityListFullName, string viewName, int? pageSize =  null, int? startIndex =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.MZDB.EntityContainerCollection> response;
@@ -215,6 +283,21 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="entityListFullName"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="viewName"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.MZDB.ListView"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var listview = new ListView();
+		///   var listView = await listview.GetEntityListViewAsync( entityListFullName,  viewName,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.MZDB.ListView> GetEntityListViewAsync(string entityListFullName, string viewName, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.MZDB.ListView> response;
@@ -250,6 +333,20 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="entityListFullName"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.MZDB.ListViewCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var listview = new ListView();
+		///   var listViewCollection = await listview.GetEntityListViewsAsync( entityListFullName,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.MZDB.ListViewCollection> GetEntityListViewsAsync(string entityListFullName, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.MZDB.ListViewCollection> response;
@@ -286,6 +383,21 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="entityListFullName"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="listView"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.MZDB.ListView"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var listview = new ListView();
+		///   var listView = await listview.CreateEntityListViewAsync( listView,  entityListFullName,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.MZDB.ListView> CreateEntityListViewAsync(Mozu.Api.Contracts.MZDB.ListView listView, string entityListFullName, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.MZDB.ListView> response;
@@ -323,6 +435,22 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="entityListFullName"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="viewName"></param>
+		/// <param name="listView"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.MZDB.ListView"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var listview = new ListView();
+		///   var listView = await listview.UpdateEntityListViewAsync( listView,  entityListFullName,  viewName,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.MZDB.ListView> UpdateEntityListViewAsync(Mozu.Api.Contracts.MZDB.ListView listView, string entityListFullName, string viewName, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.MZDB.ListView> response;
@@ -357,6 +485,20 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="entityListFullName"></param>
+		/// <param name="viewName"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var listview = new ListView();
+		///   await listview.DeleteEntityListViewAsync( entityListFullName,  viewName);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteEntityListViewAsync(string entityListFullName, string viewName)
 		{
 			MozuClient response;

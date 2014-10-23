@@ -20,6 +20,31 @@ namespace Mozu.Api.Contracts.Customer
 		public class Visit
 		{
 			///
+			///If the visit was made online, the identifier of the web session associated with the visit, which is system-supplied and read only.
+			///
+			public string WebSessionId { get; set; }
+
+			///
+			///Unique identifier of the site.
+			///
+			public int? WebSiteId { get; set; }
+
+			///
+			///The user agent string for the browser.
+			///
+			public string WebUserAgent { get; set; }
+
+			///
+			///Unique identifier of the customer account associated with the visit.
+			///
+			public int? AccountId { get; set; }
+
+			///
+			///If the customer visit is made online, the location code associated with the website visited.
+			///
+			public string BrowserLocationCode { get; set; }
+
+			///
 			///The date and time of the customer visit.
 			///
 			public DateTime Date { get; set; }
@@ -48,31 +73,6 @@ namespace Mozu.Api.Contracts.Customer
 			///The HTTP_Referrer that initiatied the visit started. If the shopper was not referred from another source, this value is null.
 			///
 			public string WebReferrer { get; set; }
-
-			///
-			///If the visit was made online, the identifier of the web session associated with the visit, which is system-supplied and read only.
-			///
-			public string WebSessionId { get; set; }
-
-			///
-			///Unique identifier of the site.
-			///
-			public int? WebSiteId { get; set; }
-
-			///
-			///The user agent string for the browser.
-			///
-			public string WebUserAgent { get; set; }
-
-			///
-			///Unique identifier of the customer account associated with the visit.
-			///
-			public int? AccountId { get; set; }
-
-			///
-			///If the customer visit is made online, the location code associated with the website visited.
-			///
-			public string BrowserLocationCode { get; set; }
 
 			///
 			///Array list of transactions the customer performed during the visit. A customer can perform multiple transactions in a single visit, or the visit can have no associated transactions.

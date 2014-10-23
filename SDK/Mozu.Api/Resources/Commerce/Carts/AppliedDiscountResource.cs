@@ -63,6 +63,21 @@ namespace Mozu.Api.Resources.Commerce.Carts
 
 		}
 
+		/// <summary>
+		/// Applies a defined coupon to the cart specified in the request.
+		/// </summary>
+		/// <param name="cartId">Unique identifier of the cart to which to apply the coupon.</param>
+		/// <param name="couponCode">Code associated with the coupon to apply to the cart.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var applieddiscount = new AppliedDiscount();
+		///   var cart = await applieddiscount.ApplyCouponAsync( cartId,  couponCode,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> ApplyCouponAsync(string cartId, string couponCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> response;
@@ -97,6 +112,19 @@ namespace Mozu.Api.Resources.Commerce.Carts
 
 		}
 
+		/// <summary>
+		/// Removes one or more applied coupons from the cart specified in the request.
+		/// </summary>
+		/// <param name="cartId">Unique identifier of the cart.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var applieddiscount = new AppliedDiscount();
+		///   var cart = await applieddiscount.RemoveCouponsAsync( cartId);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> RemoveCouponsAsync(string cartId)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> response;
@@ -132,6 +160,20 @@ namespace Mozu.Api.Resources.Commerce.Carts
 
 		}
 
+		/// <summary>
+		/// Removes an applied coupon from the cart specified in the request.
+		/// </summary>
+		/// <param name="cartId">Unique identifier of the cart.</param>
+		/// <param name="couponCode">Code associated with the coupon to remove from the cart.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var applieddiscount = new AppliedDiscount();
+		///   var cart = await applieddiscount.RemoveCouponAsync( cartId,  couponCode);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> RemoveCouponAsync(string cartId, string couponCode)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> response;

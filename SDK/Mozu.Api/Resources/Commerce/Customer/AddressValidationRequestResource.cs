@@ -62,6 +62,20 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Validates the customer address supplied in the request.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="addressValidationRequest">Properties of the address to validate.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.AddressValidationResponse"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var addressvalidationrequest = new AddressValidationRequest();
+		///   var addressValidationResponse = await addressvalidationrequest.ValidateAddressAsync( addressValidationRequest,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.AddressValidationResponse> ValidateAddressAsync(Mozu.Api.Contracts.Customer.AddressValidationRequest addressValidationRequest, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.AddressValidationResponse> response;

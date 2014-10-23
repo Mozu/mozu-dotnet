@@ -62,6 +62,20 @@ namespace Mozu.Api.Resources.Content.Documentlists
 
 		}
 
+		/// <summary>
+		/// Retrieves the properties of facets that aid in indexing and searching.
+		/// </summary>
+		/// <param name="documentListName">The document list associated with the facets to retrieve.</param>
+		/// <param name="propertyName">The property name associated with the facets to retrieve.</param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.Content.Facet"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var facet = new Facet();
+		///   var facet = await facet.GetFacetsAsync( documentListName,  propertyName);
+		/// </code>
+		/// </example>
 		public virtual async Task<List<Mozu.Api.Contracts.Content.Facet>> GetFacetsAsync(string documentListName, string propertyName)
 		{
 			MozuClient<List<Mozu.Api.Contracts.Content.Facet>> response;

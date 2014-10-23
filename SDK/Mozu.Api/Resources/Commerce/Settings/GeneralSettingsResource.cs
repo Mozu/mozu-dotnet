@@ -61,6 +61,19 @@ namespace Mozu.Api.Resources.Commerce.Settings
 
 		}
 
+		/// <summary>
+		/// Retrieve a site's general global settings.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.SiteSettings.General.GeneralSettings"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var generalsettings = new GeneralSettings();
+		///   var generalSettings = await generalsettings.GetGeneralSettingsAsync( responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.SiteSettings.General.GeneralSettings> GetGeneralSettingsAsync(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.SiteSettings.General.GeneralSettings> response;
@@ -96,6 +109,20 @@ namespace Mozu.Api.Resources.Commerce.Settings
 
 		}
 
+		/// <summary>
+		/// Updates a site's general global settings.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="generalSettings">The properties of the site's general settings to update.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.SiteSettings.General.GeneralSettings"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var generalsettings = new GeneralSettings();
+		///   var generalSettings = await generalsettings.UpdateGeneralSettingsAsync( generalSettings,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.SiteSettings.General.GeneralSettings> UpdateGeneralSettingsAsync(Mozu.Api.Contracts.SiteSettings.General.GeneralSettings generalSettings, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.SiteSettings.General.GeneralSettings> response;

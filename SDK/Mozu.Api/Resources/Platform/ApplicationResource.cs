@@ -62,6 +62,20 @@ namespace Mozu.Api.Resources.Platform
 
 		}
 
+		/// <summary>
+		/// Retrieves the details of the installed application specified in the request.
+		/// </summary>
+		/// <param name="appId">The application ID that represents the application to retrieve.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.InstalledApplications.Application"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var application = new Application();
+		///   var application = await application.GetApplicationAsync( appId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.InstalledApplications.Application> GetApplicationAsync(string appId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.InstalledApplications.Application> response;
@@ -98,6 +112,21 @@ namespace Mozu.Api.Resources.Platform
 
 		}
 
+		/// <summary>
+		/// Updates one or more properties of the application specified in the request.
+		/// </summary>
+		/// <param name="appId">The application ID that represents the application to update.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="application">Properties of the application to update.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.InstalledApplications.Application"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var application = new Application();
+		///   var application = await application.UpdateApplicationAsync( application,  appId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.InstalledApplications.Application> UpdateApplicationAsync(Mozu.Api.Contracts.InstalledApplications.Application application, string appId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.InstalledApplications.Application> response;

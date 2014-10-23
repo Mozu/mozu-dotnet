@@ -445,6 +445,7 @@
     <Compile Include="Contracts\ProductAdmin\MasterCatalogCollection.cs" />
     <Compile Include="Contracts\ProductAdmin\Product.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductCategory.cs" />
+    <Compile Include="Contracts\ProductAdmin\ProductCodeRename.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductCollection.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductCost.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductDiscountCondition.cs" />
