@@ -13,16 +13,28 @@ using System;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Discounts
 {
+		///
+		///	Properties of an invalid coupon code a shopper attempts to enter for a cart or order.
+		///
 		public class InvalidCoupon
 		{
 			public string CouponCode { get; set; }
 
+			///
+			///Date and time when the entity was created, represented in UTC Date/Time.
+			///
 			public DateTime CreateDate { get; set; }
 
 			public int DiscountId { get; set; }
 
+			///
+			///The reason the coupon was determined to be invalid.
+			///
 			public string Reason { get; set; }
 
+			///
+			///The code that identifies the reason the coupon code is invalid.
+			///
 			public int ReasonCode { get; set; }
 
 		}

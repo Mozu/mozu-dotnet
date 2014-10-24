@@ -110,7 +110,7 @@ namespace Mozu.Api.Test.MsTestCases
         [Description("Add payment info (pay by check) and shipping info (using customrates provider) to the order.")]
         public void OrderTests_CreateOrderDoNotSubmit()
         {
-            var orderId = CreateOrdersForTest(submitOrder: false);
+            var orderId = CreateOrdersForTest(submitOrder: false, pickupMethod:false);
         }
 
         [TestMethod]
@@ -546,7 +546,7 @@ namespace Mozu.Api.Test.MsTestCases
                 int itemQty = Generator.RandomInt(1, maxProductItemsPerLine);  
                 Debug.WriteLine("Qty per product " + itemQty);
 
-                if (PickupLocationCodes.TotalCount != 0 && pickupMethod)
+                if (pickupMethod && PickupLocationCodes.TotalCount != 0 )
                 {
                     PickupLocationCode = PickupLocationCodes.Items.First().Code;
                     if (!product.InventoryInfo.ManageStock.Value)
@@ -700,6 +700,7 @@ namespace Mozu.Api.Test.MsTestCases
 
             order.IpAddress = Generator.RandomIPAddress();
 
+            order.ParentOrderId = "053f79ad21f66318981ff87500001ea1";
             order = OrderFactory.UpdateOrder(handler: ShopperMsgHandler, order: order, orderId: order.Id);
 
                 

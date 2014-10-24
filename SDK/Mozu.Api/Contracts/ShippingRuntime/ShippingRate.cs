@@ -29,6 +29,9 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			///
 			public string Code { get; set; }
 
+			///
+			///The number of days the shipment will spend between the origin address and the destination address.
+			///
 			public int? DaysInTransit { get; set; }
 
 			///

@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce.Returns
 		/// <summary>
         /// Get Resource Url for GetShipment
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="returnId">Unique identifier of the return associated with the replacement shipment to retrieve.</param>
         /// <param name="shipmentId">Unique identifier of the return replacement shipment to retrieve.</param>
         /// <returns>

@@ -14,10 +14,16 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 {
+		///
+		///	Collection of all return items that appear on the order.
+		///
 		public class ReturnItemCollection
 		{
 			public int TotalCount { get; set; }
 
+			///
+			///Retrieves the details of all return items in an order.
+			///
 			public List<ReturnItem> Items { get; set; }
 
 		}

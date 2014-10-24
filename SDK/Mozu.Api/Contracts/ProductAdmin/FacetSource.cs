@@ -19,6 +19,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class FacetSource
 		{
 			///
+			///System-supplied and read-only name of the associated facet source.
+			///
+			public string Name { get; set; }
+
+			///
 			///If true, the facet allows for values that consist of one or more ranges, such as 0-100, 100-200, and 200-300.
 			///
 			public bool AllowsRangeQuery { get; set; }
@@ -32,11 +37,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///Identifier of the facet source, which is attribute, category, or price. For attribute facets, the AttributeFQN.
 			///
 			public string Id { get; set; }
-
-			///
-			///System-supplied and read-only name of the associated facet source.
-			///
-			public string Name { get; set; }
 
 			///
 			///The source type for the facet, either "Attribute" or "Element". Category and price facets are elements.

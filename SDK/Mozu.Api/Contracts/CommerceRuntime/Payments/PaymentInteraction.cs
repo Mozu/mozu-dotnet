@@ -59,6 +59,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///
 			public string GatewayResponseCode { get; set; }
 
+			///
+			///Textual message returned by the payment gateway.
+			///
 			public string GatewayResponseText { get; set; }
 
 			///

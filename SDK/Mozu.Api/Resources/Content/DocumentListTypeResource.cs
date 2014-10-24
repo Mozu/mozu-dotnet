@@ -47,7 +47,7 @@ namespace Mozu.Api.Resources.Content
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="list"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentListType"/>
@@ -69,6 +69,20 @@ namespace Mozu.Api.Resources.Content
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="list"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Content.DocumentListType"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documentlisttype = new DocumentListType();
+		///   var documentListType = await documentlisttype.CreateDocumentListTypeAsync(_dataViewMode,  list,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Content.DocumentListType> CreateDocumentListTypeAsync(Mozu.Api.Contracts.Content.DocumentListType list, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentListType> response;
@@ -83,7 +97,7 @@ namespace Mozu.Api.Resources.Content
 		/// 
 		/// </summary>
 		/// <param name="documentListTypeFQN"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="list"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentListType"/>
@@ -105,6 +119,21 @@ namespace Mozu.Api.Resources.Content
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="documentListTypeFQN"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="list"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Content.DocumentListType"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documentlisttype = new DocumentListType();
+		///   var documentListType = await documentlisttype.UpdateDocumentListTypeAsync( list,  documentListTypeFQN,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Content.DocumentListType> UpdateDocumentListTypeAsync(Mozu.Api.Contracts.Content.DocumentListType list, string documentListTypeFQN, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentListType> response;

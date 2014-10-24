@@ -69,6 +69,20 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Productt
 
 		}
 
+		/// <summary>
+		/// Retrieves a list of extra attributes defined for the specified product type.
+		/// </summary>
+		/// <param name="productTypeId">Identifier of the product type.</param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.AttributeInProductType"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var producttypeextra = new ProductTypeExtra();
+		///   var attributeInProductType = await producttypeextra.GetExtrasAsync(_dataViewMode,  productTypeId);
+		/// </code>
+		/// </example>
 		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType>> GetExtrasAsync(int productTypeId)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType>> response;
@@ -84,7 +98,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Productt
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="productTypeId">Identifier of the product type whose extra is being retrieved.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.AttributeInProductType"/>
@@ -106,6 +120,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Productt
 
 		}
 
+		/// <summary>
+		/// Retrieves the details of an extra attribute definition for the specified product type.
+		/// </summary>
+		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+		/// <param name="productTypeId">Identifier of the product type whose extra is being retrieved.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.AttributeInProductType"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var producttypeextra = new ProductTypeExtra();
+		///   var attributeInProductType = await producttypeextra.GetExtraAsync(_dataViewMode,  productTypeId,  attributeFQN,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> GetExtraAsync(int productTypeId, string attributeFQN, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> response;
@@ -120,7 +150,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Productt
 		/// Assigns a defined extra attribute to the product type based on the information supplied in the request.
 		/// </summary>
 		/// <param name="productTypeId">Identifier of the product type.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="attributeInProductType">The properties of the extra attribute definition for this product type assignment.</param>
 		/// <returns>
@@ -143,6 +173,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Productt
 
 		}
 
+		/// <summary>
+		/// Assigns a defined extra attribute to the product type based on the information supplied in the request.
+		/// </summary>
+		/// <param name="productTypeId">Identifier of the product type.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <param name="attributeInProductType">The properties of the extra attribute definition for this product type assignment.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.AttributeInProductType"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var producttypeextra = new ProductTypeExtra();
+		///   var attributeInProductType = await producttypeextra.AddExtraAsync(_dataViewMode,  attributeInProductType,  productTypeId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> AddExtraAsync(Mozu.Api.Contracts.ProductAdmin.AttributeInProductType attributeInProductType, int productTypeId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> response;
@@ -158,7 +204,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Productt
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="productTypeId">Identifier of the product type.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="attributeInProductType">The properties of the extra attribute definition to update for the product type.</param>
 		/// <returns>
@@ -181,6 +227,23 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Productt
 
 		}
 
+		/// <summary>
+		/// Update the definition of an extra attribute for the specified product type.
+		/// </summary>
+		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+		/// <param name="productTypeId">Identifier of the product type.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <param name="attributeInProductType">The properties of the extra attribute definition to update for the product type.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.AttributeInProductType"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var producttypeextra = new ProductTypeExtra();
+		///   var attributeInProductType = await producttypeextra.UpdateExtraAsync(_dataViewMode,  attributeInProductType,  productTypeId,  attributeFQN,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> UpdateExtraAsync(Mozu.Api.Contracts.ProductAdmin.AttributeInProductType attributeInProductType, int productTypeId, string attributeFQN, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeInProductType> response;
@@ -216,6 +279,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Productt
 
 		}
 
+		/// <summary>
+		/// Removes an extra attribute definition from the specified product type.
+		/// </summary>
+		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+		/// <param name="productTypeId">Identifier of the product type.</param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var producttypeextra = new ProductTypeExtra();
+		///   await producttypeextra.DeleteExtraAsync(_dataViewMode,  productTypeId,  attributeFQN);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteExtraAsync(int productTypeId, string attributeFQN)
 		{
 			MozuClient response;

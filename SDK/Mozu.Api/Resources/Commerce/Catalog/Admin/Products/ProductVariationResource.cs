@@ -69,6 +69,20 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="productCode"></param>
+		/// <param name="variationKey"></param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productvariation = new ProductVariation();
+		///   var productVariationDeltaPrice = await productvariation.GetProductVariationLocalizedDeltaPricesAsync(_dataViewMode,  productCode,  variationKey);
+		/// </code>
+		/// </example>
 		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice>> GetProductVariationLocalizedDeltaPricesAsync(string productCode, string variationKey)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice>> response;
@@ -84,7 +98,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// </summary>
 		/// <param name="currencyCode"></param>
 		/// <param name="productCode"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="variationKey"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice"/>
@@ -106,6 +120,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="variationKey"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productvariation = new ProductVariation();
+		///   var productVariationDeltaPrice = await productvariation.GetProductVariationLocalizedDeltaPriceAsync(_dataViewMode,  productCode,  variationKey,  currencyCode,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice> GetProductVariationLocalizedDeltaPriceAsync(string productCode, string variationKey, string currencyCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice> response;
@@ -120,7 +150,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// Retrieves the details of a product variation based on the supplied product code and variation key.
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariation"/>
@@ -142,6 +172,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 		}
 
+		/// <summary>
+		/// Retrieves the details of a product variation based on the supplied product code and variation key.
+		/// </summary>
+		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariation"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productvariation = new ProductVariation();
+		///   var productVariation = await productvariation.GetProductVariationAsync(_dataViewMode,  productCode,  variationKey,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductVariation> GetProductVariationAsync(string productCode, string variationKey, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariation> response;
@@ -158,7 +203,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
 		/// <returns>
@@ -181,6 +226,24 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 		}
 
+		/// <summary>
+		/// Retrieves a list of the product variations configured for the specified product code.
+		/// </summary>
+		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationPagedCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productvariation = new ProductVariation();
+		///   var productVariationPagedCollection = await productvariation.GetProductVariationsAsync(_dataViewMode,  productCode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductVariationPagedCollection> GetProductVariationsAsync(string productCode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationPagedCollection> response;
@@ -195,7 +258,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// 
 		/// </summary>
 		/// <param name="productCode"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="variationKey"></param>
 		/// <param name="localizedDeltaPrice"></param>
 		/// <returns>
@@ -218,6 +281,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="variationKey"></param>
+		/// <param name="localizedDeltaPrice"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productvariation = new ProductVariation();
+		///   var productVariationDeltaPrice = await productvariation.AddProductVariationLocalizedDeltaPriceAsync(_dataViewMode,  localizedDeltaPrice,  productCode,  variationKey,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice> AddProductVariationLocalizedDeltaPriceAsync(Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice localizedDeltaPrice, string productCode, string variationKey, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice> response;
@@ -254,6 +333,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="productCode"></param>
+		/// <param name="variationKey"></param>
+		/// <param name="localizedDeltaPrice"></param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productvariation = new ProductVariation();
+		///   var productVariationDeltaPrice = await productvariation.UpdateProductVariationLocalizedDeltaPricesAsync(_dataViewMode,  localizedDeltaPrice,  productCode,  variationKey);
+		/// </code>
+		/// </example>
 		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice>> UpdateProductVariationLocalizedDeltaPricesAsync(List<Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice> localizedDeltaPrice, string productCode, string variationKey)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice>> response;
@@ -269,7 +363,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// </summary>
 		/// <param name="currencyCode"></param>
 		/// <param name="productCode"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="variationKey"></param>
 		/// <param name="localizedDeltaPrice"></param>
 		/// <returns>
@@ -292,6 +386,23 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="variationKey"></param>
+		/// <param name="localizedDeltaPrice"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productvariation = new ProductVariation();
+		///   var productVariationDeltaPrice = await productvariation.UpdateProductVariationLocalizedDeltaPriceAsync(_dataViewMode,  localizedDeltaPrice,  productCode,  variationKey,  currencyCode,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice> UpdateProductVariationLocalizedDeltaPriceAsync(Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice localizedDeltaPrice, string productCode, string variationKey, string currencyCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice> response;
@@ -306,7 +417,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// Modifies the details of a variation, based on the supplied variation key, for the specified product code.
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
 		/// <param name="productVariation">Wrapper for the properties of the specified product variation.</param>
 		/// <returns>
@@ -329,6 +440,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 		}
 
+		/// <summary>
+		/// Modifies the details of a variation, based on the supplied variation key, for the specified product code.
+		/// </summary>
+		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
+		/// <param name="productVariation">Wrapper for the properties of the specified product variation.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariation"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productvariation = new ProductVariation();
+		///   var productVariation = await productvariation.UpdateProductVariationAsync(_dataViewMode,  productVariation,  productCode,  variationKey,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductVariation> UpdateProductVariationAsync(Mozu.Api.Contracts.ProductAdmin.ProductVariation productVariation, string productCode, string variationKey, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariation> response;
@@ -365,6 +492,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 		}
 
+		/// <summary>
+		/// Modifies the collection of variations for the specified product code. Because this PUT replaces the existing resource, supply all information necessary to maintain for the product variation.
+		/// </summary>
+		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="productVariations">Wrapper for the collection of variations configured for the specified product code.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productvariation = new ProductVariation();
+		///   var productVariationCollection = await productvariation.UpdateProductVariationsAsync(_dataViewMode,  productVariations,  productCode,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductVariationCollection> UpdateProductVariationsAsync(Mozu.Api.Contracts.ProductAdmin.ProductVariationCollection productVariations, string productCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationCollection> response;
@@ -399,6 +541,20 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 		}
 
+		/// <summary>
+		/// Deletes a variation, based on the supplied variation key, for the specified product code.
+		/// </summary>
+		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productvariation = new ProductVariation();
+		///   await productvariation.DeleteProductVariationAsync(_dataViewMode,  productCode,  variationKey);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteProductVariationAsync(string productCode, string variationKey)
 		{
 			MozuClient response;
@@ -433,6 +589,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="variationKey"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productvariation = new ProductVariation();
+		///   await productvariation.DeleteProductVariationLocalizedDeltaPriceAsync(_dataViewMode,  productCode,  variationKey,  currencyCode);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteProductVariationLocalizedDeltaPriceAsync(string productCode, string variationKey, string currencyCode)
 		{
 			MozuClient response;

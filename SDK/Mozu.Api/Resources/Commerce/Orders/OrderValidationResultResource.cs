@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Orders
 {
 	/// <summary>
-	/// 
+	/// Manage the results of order validation.
 	/// </summary>
 	public partial class OrderValidationResultResource  	{
 		///
@@ -38,9 +38,9 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 				
 		/// <summary>
-		/// 
+		/// Retrieves a list of the validation results associated with the order.
 		/// </summary>
-		/// <param name="orderId"></param>
+		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult"/>}
 		/// </returns>
@@ -61,6 +61,19 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 		}
 
+		/// <summary>
+		/// Retrieves a list of the validation results associated with the order.
+		/// </summary>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var ordervalidationresult = new OrderValidationResult();
+		///   var orderValidationResult = await ordervalidationresult.GetValidationResultsAsync( orderId);
+		/// </code>
+		/// </example>
 		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult>> GetValidationResultsAsync(string orderId)
 		{
 			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult>> response;
@@ -72,11 +85,11 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		}
 
 		/// <summary>
-		/// 
+		/// Add a new order validation result to a submitted order.
 		/// </summary>
-		/// <param name="orderId"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="validationResult"></param>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="validationResult">Properties of the validation result to add for the order.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult"/>
 		/// </returns>
@@ -97,6 +110,21 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 		}
 
+		/// <summary>
+		/// Add a new order validation result to a submitted order.
+		/// </summary>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="validationResult">Properties of the validation result to add for the order.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var ordervalidationresult = new OrderValidationResult();
+		///   var orderValidationResult = await ordervalidationresult.AddValidationResultAsync( validationResult,  orderId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult> AddValidationResultAsync(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult validationResult, string orderId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult> response;

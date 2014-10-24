@@ -24,7 +24,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the returns subresource to manage returned items that were previously fufilled. Returns can include any number of items associated with an original Mozu order. Each return must either be associated with an original order or a product definition to represent each returned item.
+	/// Use the Returns resource to manage returned items that were previously fufilled. Returns can include any number of items associated with an original Mozu order. Each return must either be associated with an original order or a product definition to represent each returned item.
 	/// </summary>
 	public partial class ReturnFactory : BaseDataFactory
 	{
@@ -486,7 +486,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates the return by performing the specified action.
+		/// Updates the return by performing the action specified in the request.
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.PerformReturnActions(handler : handler,  action :  action,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

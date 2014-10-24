@@ -42,7 +42,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
 		/// <returns>
@@ -65,6 +65,23 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Retrieves a list of store credits applied to customer accounts, according any filter and sort criteria specified in the request.
+		/// </summary>
+		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.Credit.CreditCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var credit = new Credit();
+		///   var creditCollection = await credit.GetCreditsAsync( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.Credit.CreditCollection> GetCreditsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.Credit.CreditCollection> response;
@@ -79,7 +96,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// Retrieves the details of a store credit applied to a customer account.
 		/// </summary>
 		/// <param name="code">User-defined code that identifies the store credit to retrieve.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Credit.Credit"/>
 		/// </returns>
@@ -100,6 +117,20 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Retrieves the details of a store credit applied to a customer account.
+		/// </summary>
+		/// <param name="code">User-defined code that identifies the store credit to retrieve.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.Credit.Credit"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var credit = new Credit();
+		///   var credit = await credit.GetCreditAsync( code,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.Credit.Credit> GetCreditAsync(string code, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.Credit.Credit> response;
@@ -113,7 +144,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Creates a new store credit for the customer account specified in the request.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="credit">Properties of the store credit to create.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Credit.Credit"/>
@@ -135,6 +166,20 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Creates a new store credit for the customer account specified in the request.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="credit">Properties of the store credit to create.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.Credit.Credit"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var credit = new Credit();
+		///   var credit = await credit.AddCreditAsync( credit,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.Credit.Credit> AddCreditAsync(Mozu.Api.Contracts.Customer.Credit.Credit credit, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.Credit.Credit> response;
@@ -146,10 +191,10 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Associates an unclaimed customer credit with the shopper user authenticated in the request header.
 		/// </summary>
-		/// <param name="code"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="code">The code that represents the credit to claim for the shopper.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Credit.Credit"/>
 		/// </returns>
@@ -170,6 +215,20 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Associates an unclaimed customer credit with the shopper user authenticated in the request header.
+		/// </summary>
+		/// <param name="code">The code that represents the credit to claim for the shopper.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.Credit.Credit"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var credit = new Credit();
+		///   var credit = await credit.AssociateCreditToShopperAsync( code,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.Credit.Credit> AssociateCreditToShopperAsync(string code, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.Credit.Credit> response;
@@ -184,7 +243,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// Updates one or more properties of a defined store credit applied to a customer account.
 		/// </summary>
 		/// <param name="code">User-defined code of the store credit to update.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="credit">Properties of the store credit to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Credit.Credit"/>
@@ -206,6 +265,21 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Updates one or more properties of a defined store credit applied to a customer account.
+		/// </summary>
+		/// <param name="code">User-defined code of the store credit to update.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="credit">Properties of the store credit to update.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.Credit.Credit"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var credit = new Credit();
+		///   var credit = await credit.UpdateCreditAsync( credit,  code,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.Credit.Credit> UpdateCreditAsync(Mozu.Api.Contracts.Customer.Credit.Credit credit, string code, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.Credit.Credit> response;
@@ -239,6 +313,19 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Deletes a store credit previously applied to a customer account.
+		/// </summary>
+		/// <param name="code">User-defined code of the store credit to delete.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var credit = new Credit();
+		///   await credit.DeleteCreditAsync( code);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteCreditAsync(string code)
 		{
 			MozuClient response;

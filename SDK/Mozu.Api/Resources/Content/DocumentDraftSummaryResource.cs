@@ -42,7 +42,7 @@ namespace Mozu.Api.Resources.Content
 		/// </summary>
 		/// <param name="documentLists">Lists that contain the document drafts.</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection"/>
@@ -64,6 +64,22 @@ namespace Mozu.Api.Resources.Content
 
 		}
 
+		/// <summary>
+		/// Retrieves a list of the documents currently in draft state, according to any defined filter and sort criteria.
+		/// </summary>
+		/// <param name="documentLists">Lists that contain the document drafts.</param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documentdraftsummary = new DocumentDraftSummary();
+		///   var documentDraftSummaryPagedCollection = await documentdraftsummary.ListDocumentDraftSummariesAsync( pageSize,  startIndex,  documentLists,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection> ListDocumentDraftSummariesAsync(int? pageSize =  null, int? startIndex =  null, string documentLists =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection> response;
@@ -98,6 +114,20 @@ namespace Mozu.Api.Resources.Content
 
 		}
 
+		/// <summary>
+		/// Deletes the drafts of the specified documents. Published documents cannot be deleted.
+		/// </summary>
+		/// <param name="documentLists">List of document lists that contain documents to delete.</param>
+		/// <param name="documentIds">Unique identifiers of the documents to delete.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documentdraftsummary = new DocumentDraftSummary();
+		///   await documentdraftsummary.DeleteDocumentDraftsAsync( documentIds,  documentLists);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteDocumentDraftsAsync(List<string> documentIds, string documentLists =  null)
 		{
 			MozuClient response;
@@ -131,6 +161,20 @@ namespace Mozu.Api.Resources.Content
 
 		}
 
+		/// <summary>
+		/// Publish one or more document drafts to live content on the site.
+		/// </summary>
+		/// <param name="documentLists">List of document lists that contain documents to publish.</param>
+		/// <param name="documentIds">List of unique identifiers of the document drafts to publish.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documentdraftsummary = new DocumentDraftSummary();
+		///   await documentdraftsummary.PublishDocumentsAsync( documentIds,  documentLists);
+		/// </code>
+		/// </example>
 		public virtual async Task PublishDocumentsAsync(List<string> documentIds, string documentLists =  null)
 		{
 			MozuClient response;

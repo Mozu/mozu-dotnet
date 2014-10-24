@@ -44,6 +44,9 @@ namespace Mozu.Api.Contracts.Event
 
 			public DateTime? UpdateDate { get; set; }
 
+			///
+			///This is a tenant that is associated with a subscription.
+			///
 			public List<SubscribingTenant> SubscribingTenants { get; set; }
 
 		}

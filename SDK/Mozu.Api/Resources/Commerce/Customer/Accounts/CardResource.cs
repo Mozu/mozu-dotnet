@@ -38,11 +38,11 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 
 				
 		/// <summary>
-		/// 
+		/// Retrieves the details of a credit card stored with a customer account billing contact.
 		/// </summary>
-		/// <param name="accountId"></param>
-		/// <param name="cardId"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Card"/>
 		/// </returns>
@@ -63,6 +63,21 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 
 		}
 
+		/// <summary>
+		/// Retrieves the details of a credit card stored with a customer account billing contact.
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.Card"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var card = new Card();
+		///   var card = await card.GetAccountCardAsync( accountId,  cardId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.Card> GetAccountCardAsync(int accountId, string cardId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.Card> response;
@@ -77,7 +92,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// Retrieves all stored credit cards for the customer account.
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CardCollection"/>
 		/// </returns>
@@ -98,6 +113,20 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 
 		}
 
+		/// <summary>
+		/// Retrieves all stored credit cards for the customer account.
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.CardCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var card = new Card();
+		///   var cardCollection = await card.GetAccountCardsAsync( accountId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.CardCollection> GetAccountCardsAsync(int accountId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CardCollection> response;
@@ -112,7 +141,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// Creates a new credit card record and stores it for the customer account.
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="card">Properties of the customer credit card to add to the account.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Card"/>
@@ -134,6 +163,21 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 
 		}
 
+		/// <summary>
+		/// Creates a new credit card record and stores it for the customer account.
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="card">Properties of the customer credit card to add to the account.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.Card"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var card = new Card();
+		///   var card = await card.AddAccountCardAsync( card,  accountId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.Card> AddAccountCardAsync(Mozu.Api.Contracts.Customer.Card card, int accountId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.Card> response;
@@ -148,8 +192,8 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// Update one or more properties of a credit card defined for a customer account.
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="cardId"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="cardId">Unique identifier of the credit card.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="card">Properties of the customer account credit card to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Card"/>
@@ -171,6 +215,22 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 
 		}
 
+		/// <summary>
+		/// Update one or more properties of a credit card defined for a customer account.
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="cardId">Unique identifier of the credit card.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="card">Properties of the customer account credit card to update.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.Card"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var card = new Card();
+		///   var card = await card.UpdateAccountCardAsync( card,  accountId,  cardId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.Card> UpdateAccountCardAsync(Mozu.Api.Contracts.Customer.Card card, int accountId, string cardId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.Card> response;
@@ -205,6 +265,20 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 
 		}
 
+		/// <summary>
+		/// Removes a stored credit card from a customer account.
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="cardId">Unique identifier of the credit card to delete.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var card = new Card();
+		///   await card.DeleteAccountCardAsync( accountId,  cardId);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteAccountCardAsync(int accountId, string cardId)
 		{
 			MozuClient response;

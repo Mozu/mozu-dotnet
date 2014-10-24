@@ -17,12 +17,12 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Commerce.Customer
 {
 	/// <summary>
-	/// 
+	/// Use the Customer Authentication Tickets resource to generate and refresh authentication tickets for customer accounts.
 	/// </summary>
 	public partial class CustomerAuthTicketClient 	{
 		
 		/// <summary>
-		/// 
+		/// Creates an authentication ticket for an anonymous shopper user.
 		/// </summary>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
@@ -45,10 +45,10 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Generates a new authentication ticket for a customer account.
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="userAuthInfo"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="userAuthInfo">The authentication information required to generate an authetication ticket for a user, which consists of a user name and password.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>}
 		/// </returns>
@@ -70,10 +70,10 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Refreshes an existing authentication ticket for a customer account by providing the refresh token string.
 		/// </summary>
-		/// <param name="refreshToken"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="refreshToken">The refresh token string required to refresh a user's authentication ticket.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>}
 		/// </returns>

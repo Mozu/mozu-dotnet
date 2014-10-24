@@ -44,7 +44,7 @@ namespace Mozu.Api.Resources.Platform.Adminuser
 		/// <summary>
 		/// Retrieves a list of the Mozu tenants or development stores for which the specified user has an assigned role.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Tenant.TenantCollection"/>
@@ -66,6 +66,20 @@ namespace Mozu.Api.Resources.Platform.Adminuser
 
 		}
 
+		/// <summary>
+		/// Retrieves a list of the Mozu tenants or development stores for which the specified user has an assigned role.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Tenant.TenantCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var adminuser = new AdminUser();
+		///   var tenantCollection = await adminuser.GetTenantScopesForUserAsync( userId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Tenant.TenantCollection> GetTenantScopesForUserAsync(string userId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Tenant.TenantCollection> response;
@@ -79,7 +93,7 @@ namespace Mozu.Api.Resources.Platform.Adminuser
 		/// <summary>
 		/// Retrieves the details of the specified administrator user account.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="userId">Unique identifier of the administrator account to retrieve.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Core.User"/>
@@ -101,6 +115,20 @@ namespace Mozu.Api.Resources.Platform.Adminuser
 
 		}
 
+		/// <summary>
+		/// Retrieves the details of the specified administrator user account.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="userId">Unique identifier of the administrator account to retrieve.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Core.User"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var adminuser = new AdminUser();
+		///   var user = await adminuser.GetUserAsync( userId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Core.User> GetUserAsync(string userId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Core.User> response;

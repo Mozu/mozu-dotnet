@@ -48,7 +48,7 @@ namespace Mozu.Api.Resources.Content
 		/// Retrieves a collection of document lists.
 		/// </summary>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="startIndex"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentListCollection"/>
@@ -70,6 +70,21 @@ namespace Mozu.Api.Resources.Content
 
 		}
 
+		/// <summary>
+		/// Retrieves a collection of document lists.
+		/// </summary>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="startIndex"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Content.DocumentListCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documentlist = new DocumentList();
+		///   var documentListCollection = await documentlist.GetDocumentListsAsync(_dataViewMode,  pageSize,  startIndex,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Content.DocumentListCollection> GetDocumentListsAsync(int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentListCollection> response;
@@ -84,7 +99,7 @@ namespace Mozu.Api.Resources.Content
 		/// Retrieve the details of a document list by providing the list name.
 		/// </summary>
 		/// <param name="documentListName">The name of the document list.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentList"/>
 		/// </returns>
@@ -105,6 +120,20 @@ namespace Mozu.Api.Resources.Content
 
 		}
 
+		/// <summary>
+		/// Retrieve the details of a document list by providing the list name.
+		/// </summary>
+		/// <param name="documentListName">The name of the document list.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Content.DocumentList"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documentlist = new DocumentList();
+		///   var documentList = await documentlist.GetDocumentListAsync(_dataViewMode,  documentListName,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Content.DocumentList> GetDocumentListAsync(string documentListName, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentList> response;
@@ -118,7 +147,7 @@ namespace Mozu.Api.Resources.Content
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="list"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentList"/>
@@ -140,6 +169,20 @@ namespace Mozu.Api.Resources.Content
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="list"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Content.DocumentList"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documentlist = new DocumentList();
+		///   var documentList = await documentlist.CreateDocumentListAsync(_dataViewMode,  list,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Content.DocumentList> CreateDocumentListAsync(Mozu.Api.Contracts.Content.DocumentList list, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentList> response;
@@ -154,7 +197,7 @@ namespace Mozu.Api.Resources.Content
 		/// 
 		/// </summary>
 		/// <param name="documentListName"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="list"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentList"/>
@@ -176,6 +219,21 @@ namespace Mozu.Api.Resources.Content
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="documentListName"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="list"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Content.DocumentList"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documentlist = new DocumentList();
+		///   var documentList = await documentlist.UpdateDocumentListAsync( list,  documentListName,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Content.DocumentList> UpdateDocumentListAsync(Mozu.Api.Contracts.Content.DocumentList list, string documentListName, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentList> response;
@@ -209,6 +267,19 @@ namespace Mozu.Api.Resources.Content
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="documentListName"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documentlist = new DocumentList();
+		///   await documentlist.DeleteDocumentListAsync( documentListName);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteDocumentListAsync(string documentListName)
 		{
 			MozuClient response;

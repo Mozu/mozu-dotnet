@@ -18,6 +18,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
 		///
 		public class ChangeMessage
 		{
+			///
+			///The order or item amount changed, if applicable.
+			///
 			public decimal? Amount { get; set; }
 
 			///
@@ -60,8 +63,14 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
 			///
 			public string SubjectType { get; set; }
 
+			///
+			///If true, the change associated with the message executed successfully.
+			///
 			public bool? Success { get; set; }
 
+			///
+			///The unique identifier of the user who initiated the change.
+			///
 			public string UserId { get; set; }
 
 			///

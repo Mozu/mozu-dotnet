@@ -361,6 +361,7 @@
     <Compile Include="Contracts\Event\EventDeliveryAttempt.cs" />
     <Compile Include="Contracts\Event\EventDeliverySummary.cs" />
     <Compile Include="Contracts\Event\EventDeliverySummaryCollection.cs" />
+    <Compile Include="Contracts\Event\EventExtendedProperty.cs" />
     <Compile Include="Contracts\Event\EventSummary.cs" />
     <Compile Include="Contracts\Event\HttpStatus.cs" />
     <Compile Include="Contracts\Event\SubscribingSite.cs" />
@@ -444,6 +445,7 @@
     <Compile Include="Contracts\ProductAdmin\MasterCatalogCollection.cs" />
     <Compile Include="Contracts\ProductAdmin\Product.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductCategory.cs" />
+    <Compile Include="Contracts\ProductAdmin\ProductCodeRename.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductCollection.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductCost.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductDiscountCondition.cs" />

@@ -31,6 +31,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///
 			public decimal AmountCredited { get; set; }
 
+			///
+			///The total amount originally requested for this payment.
+			///
 			public decimal AmountRequested { get; set; }
 
 			///
@@ -78,6 +81,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///
 			public BillingInfo BillingInfo { get; set; }
 
+			///
+			///List of change messages associated with the payment.
+			///
 			public List<ChangeMessage> ChangeMessages { get; set; }
 
 			///

@@ -41,7 +41,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// Retrieves the details of the order shipment specified in the request.
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order associated with the shipment to retrieve.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="shipmentId">Unique identifier of the shipment to retrieve.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment"/>
@@ -63,6 +63,21 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 		}
 
+		/// <summary>
+		/// Retrieves the details of the order shipment specified in the request.
+		/// </summary>
+		/// <param name="orderId">Unique identifier of the order associated with the shipment to retrieve.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="shipmentId">Unique identifier of the shipment to retrieve.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var shipment = new Shipment();
+		///   var shipment = await shipment.GetShipmentAsync( orderId,  shipmentId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment> GetShipmentAsync(string orderId, string shipmentId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment> response;
@@ -98,6 +113,20 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 		}
 
+		/// <summary>
+		/// Retrieves the available shipping methods applicable to the order. Typically used to display available shipping method options on the checkout page.
+		/// </summary>
+		/// <param name="draft"></param>
+		/// <param name="orderId">Unique identifier of the order for the available shipment methods being retrieved.</param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.ShippingRate"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var shipment = new Shipment();
+		///   var shippingRate = await shipment.GetAvailableShipmentMethodsAsync( orderId,  draft);
+		/// </code>
+		/// </example>
 		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.ShippingRate>> GetAvailableShipmentMethodsAsync(string orderId, bool? draft =  null)
 		{
 			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.ShippingRate>> response;
@@ -133,6 +162,20 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 		}
 
+		/// <summary>
+		/// Creates a shipment from one or more package associated with an order and assign a label and tracking number to an order shipment.
+		/// </summary>
+		/// <param name="orderId">Unique identifier of the order for this shipment.</param>
+		/// <param name="packageIds">List of unique identifiers for each package associated with this shipment. Not all packages must belong to the same shipment.</param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var shipment = new Shipment();
+		///   var package = await shipment.CreatePackageShipmentsAsync( packageIds,  orderId);
+		/// </code>
+		/// </example>
 		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package>> CreatePackageShipmentsAsync(List<string> packageIds, string orderId)
 		{
 			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package>> response;
@@ -167,6 +210,20 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 		}
 
+		/// <summary>
+		/// Deletes the shipment specified in the request.
+		/// </summary>
+		/// <param name="orderId">Unique identifier of the order to cancel shipment.</param>
+		/// <param name="shipmentId">Unique identifier of the shipment to cancel.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var shipment = new Shipment();
+		///   await shipment.DeleteShipmentAsync( orderId,  shipmentId);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteShipmentAsync(string orderId, string shipmentId)
 		{
 			MozuClient response;

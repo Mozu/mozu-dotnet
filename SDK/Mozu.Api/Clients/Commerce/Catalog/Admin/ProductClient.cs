@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 {
 	/// <summary>
-	/// Use this resource to create products, view the attributes associated with existing products, and determine which sites feature a specific product.
+	/// Use the Product Administration resource to create new product definitions in the master catalog and determine which catalogs will feature products. You can also assign attribute values for defined products, manage product-level location inventory, and configure the variations of a product.
 	/// </summary>
 	public partial class ProductClient 	{
 		
@@ -29,7 +29,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
 		/// <param name="q">A list of product search terms to use in the query when searching across product code and product name. Separate multiple search terms with a space character.</param>
 		/// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
 		/// <returns>
@@ -81,9 +81,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// Retrieves the details of a product associated with a specific catalog.
 		/// </summary>
-		/// <param name="catalogId"></param>
+		/// <param name="catalogId">The unique identifier of the catalog of products used by a site.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo"/>}
 		/// </returns>
@@ -106,10 +106,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Retrieves an existing product.
+		/// Retrieves the details of a product definition.
 		/// </summary>
-		/// <param name="productCode">Merchant-created code associated with the product such as a SKU. Max length: 30. Accepts a to z, A to Z, Ãƒâ€¹-ÃƒËœ, 0 to 9, #, semicolon, commas, apostrophes, and Spaces, but no punctuation or other characters.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Product"/>}
 		/// </returns>
@@ -134,7 +134,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// Creates a new product definition in the specified master catalog.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="product">Properties of the new product. You must supply values for the product code, product name, and price.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Product"/>}
@@ -161,7 +161,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// Associates a new product defined in the master catalog with a specific catalog.
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="productInCatalogInfoIn">Properties of the product to define for the specific catalog association.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo"/>}
@@ -180,6 +180,30 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo>(productInCatalogInfoIn)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="productCodeRenames"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=RenameProductCodes( productCodeRenames);
+		///mozuClient.WithBaseAddress(url).Execute();
+		/// </code>
+		/// </example>
+		public static MozuClient RenameProductCodesClient(List<Mozu.Api.Contracts.ProductAdmin.ProductCodeRename> productCodeRenames)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.RenameProductCodesUrl();
+			const string verb = "POST";
+			var mozuClient = new MozuClient()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.ProductCodeRename>>(productCodeRenames);
 			return mozuClient;
 
 		}
@@ -213,9 +237,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// Updates one or more properties of a product associated with a specific catalog.
 		/// </summary>
-		/// <param name="catalogId"></param>
+		/// <param name="catalogId">The unique identifier of the catalog of products used by a site.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="productInCatalogInfoIn">Properties of the product associated with the catalog specified in the request.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo"/>}
@@ -242,7 +266,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// Updates one or more properties of a product definition in a master catalog.
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="product">Properties of the product definition to update in the master catalog.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Product"/>}
@@ -293,7 +317,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// Removes the product association defined for a specific catalog.
 		/// </summary>
-		/// <param name="catalogId"></param>
+		/// <param name="catalogId">The unique identifier of the catalog of products used by a site.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />

@@ -149,6 +149,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///
 			public AuditInfo AuditInfo { get; set; }
 
+			///
+			///List of change messages associated with the return.
+			///
 			public List<ChangeMessage> ChangeMessages { get; set; }
 
 			///

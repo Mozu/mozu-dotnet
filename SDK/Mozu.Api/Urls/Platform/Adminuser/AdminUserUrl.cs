@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Platform.Adminuser
 		/// <summary>
         /// Get Resource Url for GetTenantScopesForUser
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
         /// <returns>
         /// String - Resource Url
@@ -36,7 +36,7 @@ namespace Mozu.Api.Urls.Platform.Adminuser
 		/// <summary>
         /// Get Resource Url for GetUser
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="userId">Unique identifier of the administrator account to retrieve.</param>
         /// <returns>
         /// String - Resource Url

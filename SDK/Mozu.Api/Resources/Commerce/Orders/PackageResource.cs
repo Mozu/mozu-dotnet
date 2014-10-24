@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Orders
 {
 	/// <summary>
-	/// Use the packages subresource to manage the physical packages to ship for an order.
+	/// Use the Packages subresource to manage the physical packages to ship for an order.
 	/// </summary>
 	public partial class PackageResource  	{
 		///
@@ -62,6 +62,20 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 		}
 
+		/// <summary>
+		/// Retrieves a list of the actions available to perform for a package associated with order fulfillment.
+		/// </summary>
+		/// <param name="orderId">Unique identifier of the order associated with the package fulfillment.</param>
+		/// <param name="packageId">Unique identifier of the package associated with the fulfillment actions to retrieve.</param>
+		/// <returns>
+		/// List{string}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var package = new Package();
+		///   var string = await package.GetAvailablePackageFulfillmentActionsAsync( orderId,  packageId);
+		/// </code>
+		/// </example>
 		public virtual async Task<List<string>> GetAvailablePackageFulfillmentActionsAsync(string orderId, string packageId)
 		{
 			MozuClient<List<string>> response;
@@ -97,6 +111,20 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 		}
 
+		/// <summary>
+		/// Retrieves the package label image supplied by the carrier.
+		/// </summary>
+		/// <param name="orderId">Unique identifier of the order associated with the package label to retrieve.</param>
+		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
+		/// <returns>
+		/// <see cref="System.IO.Stream"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var package = new Package();
+		///   var stream = await package.GetPackageLabelAsync( orderId,  packageId);
+		/// </code>
+		/// </example>
 		public virtual async Task<System.IO.Stream> GetPackageLabelAsync(string orderId, string packageId)
 		{
 			MozuClient<System.IO.Stream> response;
@@ -112,7 +140,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order associated with the package to retrieve.</param>
 		/// <param name="packageId">Unique identifier of the package to retrieve.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>
 		/// </returns>
@@ -133,6 +161,21 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 		}
 
+		/// <summary>
+		/// Retrieves the details of a package of order items.
+		/// </summary>
+		/// <param name="orderId">Unique identifier of the order associated with the package to retrieve.</param>
+		/// <param name="packageId">Unique identifier of the package to retrieve.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var package = new Package();
+		///   var package = await package.GetPackageAsync( orderId,  packageId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> GetPackageAsync(string orderId, string packageId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> response;
@@ -147,7 +190,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// Creates a new physical package of order items.
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order associated with this package.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="package">Properties of the physical package of order items.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>
@@ -169,6 +212,21 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 		}
 
+		/// <summary>
+		/// Creates a new physical package of order items.
+		/// </summary>
+		/// <param name="orderId">Unique identifier of the order associated with this package.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="package">Properties of the physical package of order items.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var package = new Package();
+		///   var package = await package.CreatePackageAsync( pkg,  orderId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> CreatePackageAsync(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package pkg, string orderId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> response;
@@ -184,7 +242,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order associated with the package to update.</param>
 		/// <param name="packageId">Unique identifier of the package of order items to update.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="package">Wrapper of properties for the package of order items to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>
@@ -206,6 +264,22 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 		}
 
+		/// <summary>
+		/// Updates one or more properties of a physical package of order items.
+		/// </summary>
+		/// <param name="orderId">Unique identifier of the order associated with the package to update.</param>
+		/// <param name="packageId">Unique identifier of the package of order items to update.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="package">Wrapper of properties for the package of order items to update.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var package = new Package();
+		///   var package = await package.UpdatePackageAsync( pkg,  orderId,  packageId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> UpdatePackageAsync(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package pkg, string orderId, string packageId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> response;
@@ -240,6 +314,20 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 		}
 
+		/// <summary>
+		/// Removes a physical package of items from the specified order.
+		/// </summary>
+		/// <param name="orderId">Unique identifier of the order associated with the package to delete.</param>
+		/// <param name="packageId">Unique identifier of the package to delete.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var package = new Package();
+		///   await package.DeletePackageAsync( orderId,  packageId);
+		/// </code>
+		/// </example>
 		public virtual async Task DeletePackageAsync(string orderId, string packageId)
 		{
 			MozuClient response;

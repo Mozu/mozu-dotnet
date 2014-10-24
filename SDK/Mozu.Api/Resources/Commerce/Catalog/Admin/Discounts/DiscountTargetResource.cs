@@ -48,7 +48,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Discounts
 		/// Retrieves the discount target, that is which products, categories, or shipping methods are eligible for the discount.
 		/// </summary>
 		/// <param name="discountId">Unique identifier of the discount. System-supplied and read only.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.DiscountTarget"/>
 		/// </returns>
@@ -69,6 +69,20 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Discounts
 
 		}
 
+		/// <summary>
+		/// Retrieves the discount target, that is which products, categories, or shipping methods are eligible for the discount.
+		/// </summary>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read only.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.DiscountTarget"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var discounttarget = new DiscountTarget();
+		///   var discountTarget = await discounttarget.GetDiscountTargetAsync(_dataViewMode,  discountId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.DiscountTarget> GetDiscountTargetAsync(int discountId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountTarget> response;
@@ -83,7 +97,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Discounts
 		/// Modifies properties of the discount target, for example, the dollar amount, or precentage off the price.
 		/// </summary>
 		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="discountTarget">Properties of the discount target to modify. Required properties: Target.Type. Any unspecified properties are set to null and boolean variables to false.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.DiscountTarget"/>
@@ -105,6 +119,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Discounts
 
 		}
 
+		/// <summary>
+		/// Modifies properties of the discount target, for example, the dollar amount, or precentage off the price.
+		/// </summary>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="discountTarget">Properties of the discount target to modify. Required properties: Target.Type. Any unspecified properties are set to null and boolean variables to false.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.DiscountTarget"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var discounttarget = new DiscountTarget();
+		///   var discountTarget = await discounttarget.UpdateDiscountTargetAsync( discountTarget,  discountId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.DiscountTarget> UpdateDiscountTargetAsync(Mozu.Api.Contracts.ProductAdmin.DiscountTarget discountTarget, int discountId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountTarget> response;

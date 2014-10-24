@@ -44,7 +44,7 @@ namespace Mozu.Api.Resources.Platform.Applications
 		/// <summary>
 		/// Generate an authentication ticket for an application.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="appAuthInfo">Authentication information required to generate an authentication ticket includes the application id and the shared secret.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AppDev.AuthTicket"/>
@@ -66,6 +66,20 @@ namespace Mozu.Api.Resources.Platform.Applications
 
 		}
 
+		/// <summary>
+		/// Generate an authentication ticket for an application.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="appAuthInfo">Authentication information required to generate an authentication ticket includes the application id and the shared secret.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.AppDev.AuthTicket"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var authticket = new AuthTicket();
+		///   var authTicket = await authticket.AuthenticateAppAsync( appAuthInfo,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.AppDev.AuthTicket> AuthenticateAppAsync(Mozu.Api.Contracts.AppDev.AppAuthInfo appAuthInfo, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.AppDev.AuthTicket> response;
@@ -79,7 +93,7 @@ namespace Mozu.Api.Resources.Platform.Applications
 		/// <summary>
 		/// Refreshes the application's authentication ticket and generates a new access token by providing the refresh token string.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="authTicketRequest">The refresh token string required to update the application authentication ticket.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AppDev.AuthTicket"/>
@@ -101,6 +115,20 @@ namespace Mozu.Api.Resources.Platform.Applications
 
 		}
 
+		/// <summary>
+		/// Refreshes the application's authentication ticket and generates a new access token by providing the refresh token string.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="authTicketRequest">The refresh token string required to update the application authentication ticket.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.AppDev.AuthTicket"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var authticket = new AuthTicket();
+		///   var authTicket = await authticket.RefreshAppAuthTicketAsync( authTicketRequest,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.AppDev.AuthTicket> RefreshAppAuthTicketAsync(Mozu.Api.Contracts.AppDev.AuthTicketRequest authTicketRequest, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.AppDev.AuthTicket> response;
@@ -134,6 +162,19 @@ namespace Mozu.Api.Resources.Platform.Applications
 
 		}
 
+		/// <summary>
+		/// Deletes an authentication for an application based on the specified refresh token.
+		/// </summary>
+		/// <param name="refreshToken">The refresh token string from the application's authentication ticket.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var authticket = new AuthTicket();
+		///   await authticket.DeleteAppAuthTicketAsync( refreshToken);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteAppAuthTicketAsync(string refreshToken)
 		{
 			MozuClient response;

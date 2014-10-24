@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Settings.Checkout
 {
 	/// <summary>
-	/// Specify settings when creating payments for order checkout on the site.
+	/// Use the Payment Settings resource to specify settings when creating payments for order checkout on the site.
 	/// </summary>
 	public partial class PaymentSettingsResource  	{
 		///
@@ -60,6 +60,18 @@ namespace Mozu.Api.Resources.Commerce.Settings.Checkout
 
 		}
 
+		/// <summary>
+		/// Retrieves the details of the third-party payment service workflows configured for the site.
+		/// </summary>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.SiteSettings.Order.ExternalPaymentWorkflowDefinition"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var paymentsettings = new PaymentSettings();
+		///   var externalPaymentWorkflowDefinition = await paymentsettings.GetThirdPartyPaymentWorkflowsAsync();
+		/// </code>
+		/// </example>
 		public virtual async Task<List<Mozu.Api.Contracts.SiteSettings.Order.ExternalPaymentWorkflowDefinition>> GetThirdPartyPaymentWorkflowsAsync()
 		{
 			MozuClient<List<Mozu.Api.Contracts.SiteSettings.Order.ExternalPaymentWorkflowDefinition>> response;

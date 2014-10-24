@@ -19,6 +19,9 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 		///
 		public class OrderProcessingSettings
 		{
+			///
+			///Abandoned order threshold in minutes indicates the number of minutes until a pending order is considered abandoned.
+			///
 			public int? AbandonedOrderThresholdInMinutes { get; set; }
 
 			///

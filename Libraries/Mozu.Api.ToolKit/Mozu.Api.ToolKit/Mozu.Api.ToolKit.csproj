@@ -79,6 +79,7 @@
     <Compile Include="Readers\BaseReader.cs" />
     <Compile Include="Readers\CategoryReader.cs" />
     <Compile Include="Readers\CustomerAccountReader.cs" />
+    <Compile Include="Readers\CustomerSegmentReader.cs" />
     <Compile Include="Readers\DiscountReader.cs" />
     <Compile Include="Readers\DocumentReader.cs" />
     <Compile Include="Readers\LocationInventoryReader.cs" />

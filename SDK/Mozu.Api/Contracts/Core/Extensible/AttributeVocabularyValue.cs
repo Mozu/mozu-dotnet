@@ -18,6 +18,9 @@ namespace Mozu.Api.Contracts.Core.Extensible
 		///
 		public class AttributeVocabularyValue
 		{
+			///
+			///If true, the attribute vocabulary value does not appear in the list when defining a value for the attribute.
+			///
 			public bool? IsHidden { get; set; }
 
 			///

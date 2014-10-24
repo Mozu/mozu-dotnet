@@ -23,6 +23,9 @@ namespace Mozu.Api.Contracts.Core.Extensible
 			///
 			public string LocaleCode { get; set; }
 
+			///
+			///The localized value defined for the attribute.
+			///
 			public string Value { get; set; }
 
 		}

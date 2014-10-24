@@ -13,8 +13,14 @@ using System;
 
 namespace Mozu.Api.Contracts.PaymentService
 {
+		///
+		///	The type of preauthorization gateway.
+		///
 		public class PreAuthorizeTransactionTypeDataContract
 		{
+			///
+			///Description of the preauthorization transaction type.
+			///
 			public string Description { get; set; }
 
 			///
@@ -22,6 +28,9 @@ namespace Mozu.Api.Contracts.PaymentService
 			///
 			public int Id { get; set; }
 
+			///
+			///The type of preauthorization transaction.
+			///
 			public string Type { get; set; }
 
 		}

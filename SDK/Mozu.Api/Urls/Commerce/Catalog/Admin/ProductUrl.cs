@@ -24,7 +24,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
         /// <param name="q">A list of product search terms to use in the query when searching across product code and product name. Separate multiple search terms with a space character.</param>
         /// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="sortBy"></param>
         /// <param name="startIndex"></param>
         /// <returns>
@@ -63,9 +63,9 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetProductInCatalog
         /// </summary>
-        /// <param name="catalogId"></param>
+        /// <param name="catalogId">The unique identifier of the catalog of products used by a site.</param>
         /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -82,8 +82,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetProduct
         /// </summary>
-        /// <param name="productCode">Merchant-created code associated with the product such as a SKU. Max length: 30. Accepts a to z, A to Z, Ãƒâ€¹-ÃƒËœ, 0 to 9, #, semicolon, commas, apostrophes, and Spaces, but no punctuation or other characters.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -99,7 +99,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for AddProduct
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -115,7 +115,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// Get Resource Url for AddProductInCatalog
         /// </summary>
         /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -125,6 +125,19 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "productCode", productCode);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for RenameProductCodes
+        /// </summary>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl RenameProductCodesUrl()
+		{
+			var url = "/api/commerce/catalog/admin/products/Actions/RenameProductCodes";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			return mozuUrl;
 		}
 
@@ -146,9 +159,9 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for UpdateProductInCatalog
         /// </summary>
-        /// <param name="catalogId"></param>
+        /// <param name="catalogId">The unique identifier of the catalog of products used by a site.</param>
         /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -166,7 +179,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// Get Resource Url for UpdateProduct
         /// </summary>
         /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -197,7 +210,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for DeleteProductInCatalog
         /// </summary>
-        /// <param name="catalogId"></param>
+        /// <param name="catalogId">The unique identifier of the catalog of products used by a site.</param>
         /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
         /// <returns>
         /// String - Resource Url

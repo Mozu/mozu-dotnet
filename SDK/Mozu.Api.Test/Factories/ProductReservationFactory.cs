@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Creates a new product reservation for a product. This action places a hold on the product inventory for the quantity specified during the ordering process.
 		/// <example> 
 		///  <code> 
 		/// var result = ProductReservationFactory.AddProductReservations(handler : handler,  productReservations :  productReservations,  skipInventoryCheck :  skipInventoryCheck,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Commits a product reservation to decrement the product's inventory by the quantity specified then release the reservation once the order process completed successfully.
 		/// <example> 
 		///  <code> 
 		/// var result = ProductReservationFactory.CommitReservations(handler : handler,  productReservations :  productReservations, dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -181,7 +181,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Updates an existing product reservation for a product.
 		/// <example> 
 		///  <code> 
 		/// var result = ProductReservationFactory.UpdateProductReservations(handler : handler,  productReservations :  productReservations,  skipInventoryCheck :  skipInventoryCheck,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 

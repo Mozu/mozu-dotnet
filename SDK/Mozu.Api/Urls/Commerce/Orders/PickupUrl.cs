@@ -38,7 +38,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// </summary>
         /// <param name="orderId">Unique identifier of the order associated with the pickup.</param>
         /// <param name="pickupId">Unique identifier of the pickup to retrieve.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -56,7 +56,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// Get Resource Url for CreatePickup
         /// </summary>
         /// <param name="orderId">Unique identifier of the order.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -74,7 +74,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// </summary>
         /// <param name="orderId">Unique identifier of the order associated with the in-store pickup.</param>
         /// <param name="pickupId">Unique identifier of the pickup to update.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

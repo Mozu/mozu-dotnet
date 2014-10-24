@@ -69,6 +69,20 @@ namespace Mozu.Api.Resources.Content.Documentlists
 
 		}
 
+		/// <summary>
+		/// Retrieve the content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
+		/// </summary>
+		/// <param name="documentId">Unique identifier of the document.</param>
+		/// <param name="documentListName">The name of the document list associated with the document.</param>
+		/// <returns>
+		/// <see cref="System.IO.Stream"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var document = new Document();
+		///   var stream = await document.GetDocumentContentAsync(_dataViewMode,  documentListName,  documentId);
+		/// </code>
+		/// </example>
 		public virtual async Task<System.IO.Stream> GetDocumentContentAsync(string documentListName, string documentId)
 		{
 			MozuClient<System.IO.Stream> response;
@@ -80,11 +94,11 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		}
 
 		/// <summary>
-		/// Retrieves a specific document within the specified document list by providing the document ID.
+		/// Retrieves a document within the specified document list.
 		/// </summary>
 		/// <param name="documentId">Identifier of the document being retrieved.</param>
 		/// <param name="documentListName">The name of the document list associated with the document to retrieve.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.Document"/>
 		/// </returns>
@@ -105,6 +119,21 @@ namespace Mozu.Api.Resources.Content.Documentlists
 
 		}
 
+		/// <summary>
+		/// Retrieves a document within the specified document list.
+		/// </summary>
+		/// <param name="documentId">Identifier of the document being retrieved.</param>
+		/// <param name="documentListName">The name of the document list associated with the document to retrieve.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Content.Document"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var document = new Document();
+		///   var document = await document.GetDocumentAsync(_dataViewMode,  documentListName,  documentId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Content.Document> GetDocumentAsync(string documentListName, string documentId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.Document> response;
@@ -121,7 +150,7 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <param name="documentListName">The name of the document list.</param>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter a document's search results by any of its properties, including its name or folder path. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+sw+Events"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
 		/// <returns>
@@ -144,6 +173,24 @@ namespace Mozu.Api.Resources.Content.Documentlists
 
 		}
 
+		/// <summary>
+		/// Retrieves a collection of documents according to any filter and sort criteria.
+		/// </summary>
+		/// <param name="documentListName">The name of the document list.</param>
+		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter a document's search results by any of its properties, including its name or folder path. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+sw+Events"</param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Content.DocumentCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var document = new Document();
+		///   var documentCollection = await document.GetDocumentsAsync(_dataViewMode,  documentListName,  filter,  sortBy,  pageSize,  startIndex,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Content.DocumentCollection> GetDocumentsAsync(string documentListName, string filter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentCollection> response;
@@ -155,10 +202,10 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		}
 
 		/// <summary>
-		/// Creates a new document in an existing list.
+		/// Creates a new document in an defined document list.
 		/// </summary>
 		/// <param name="documentListName">The descriptive alphanumeric document list name being created.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="document">The descriptive name of the newly created document.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.Document"/>
@@ -180,6 +227,21 @@ namespace Mozu.Api.Resources.Content.Documentlists
 
 		}
 
+		/// <summary>
+		/// Creates a new document in an defined document list.
+		/// </summary>
+		/// <param name="documentListName">The descriptive alphanumeric document list name being created.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="document">The descriptive name of the newly created document.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Content.Document"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var document = new Document();
+		///   var document = await document.CreateDocumentAsync(_dataViewMode,  document,  documentListName,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Content.Document> CreateDocumentAsync(Mozu.Api.Contracts.Content.Document document, string documentListName, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.Document> response;
@@ -195,7 +257,7 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// </summary>
 		/// <param name="documentId">Unique identifier of the document.</param>
 		/// <param name="documentListName">The name of the document list associated with the document.</param>
-		/// <param name="stream"></param>
+		/// <param name="stream">Input output stream that delivers information.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -215,6 +277,21 @@ namespace Mozu.Api.Resources.Content.Documentlists
 
 		}
 
+		/// <summary>
+		/// Updates the content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
+		/// </summary>
+		/// <param name="documentId">Unique identifier of the document.</param>
+		/// <param name="documentListName">The name of the document list associated with the document.</param>
+		/// <param name="stream">Input output stream that delivers information.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var document = new Document();
+		///   await document.UpdateDocumentContentAsync( stream,  documentListName,  documentId,  contentType);
+		/// </code>
+		/// </example>
 		public virtual async Task UpdateDocumentContentAsync(System.IO.Stream stream, string documentListName, string documentId, String  contentType= null)
 		{
 			MozuClient response;
@@ -229,7 +306,7 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// </summary>
 		/// <param name="documentId">Unique identifier of the document to update.</param>
 		/// <param name="documentListName">Name of the document list associated with the document.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="document">Properties of the document to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.Document"/>
@@ -251,6 +328,22 @@ namespace Mozu.Api.Resources.Content.Documentlists
 
 		}
 
+		/// <summary>
+		/// Updates a document in a document list.
+		/// </summary>
+		/// <param name="documentId">Unique identifier of the document to update.</param>
+		/// <param name="documentListName">Name of the document list associated with the document.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="document">Properties of the document to update.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Content.Document"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var document = new Document();
+		///   var document = await document.UpdateDocumentAsync( document,  documentListName,  documentId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Content.Document> UpdateDocumentAsync(Mozu.Api.Contracts.Content.Document document, string documentListName, string documentId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.Document> response;
@@ -285,6 +378,20 @@ namespace Mozu.Api.Resources.Content.Documentlists
 
 		}
 
+		/// <summary>
+		/// Deletes a specific document based on the specified document ID.
+		/// </summary>
+		/// <param name="documentId">Identifier of the document being deleted.</param>
+		/// <param name="documentListName">The name of the document list associated with the document list being deleted.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var document = new Document();
+		///   await document.DeleteDocumentAsync( documentListName,  documentId);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteDocumentAsync(string documentListName, string documentId)
 		{
 			MozuClient response;
@@ -318,6 +425,20 @@ namespace Mozu.Api.Resources.Content.Documentlists
 
 		}
 
+		/// <summary>
+		/// Deletes the content associated with a document, such as a product image or PDF specification, by supplying the document ID.
+		/// </summary>
+		/// <param name="documentId">Unique identifier of the document.</param>
+		/// <param name="documentListName">The name of the document list associated with the document.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var document = new Document();
+		///   await document.DeleteDocumentContentAsync( documentListName,  documentId);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteDocumentContentAsync(string documentListName, string documentId)
 		{
 			MozuClient response;

@@ -19,10 +19,13 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class CategoryLocalizedImage
 		{
 			///
-			///Descriptive text associated with the image or video that appears on the web  storefront.
+			///Descriptive text associated with the image or video that appears on the web storefront.
 			///
 			public string AltText { get; set; }
 
+			///
+			///The identifier of the category image in the Mozu CMS. Supply a value for either the CMS ID or Image URL parameter.
+			///
 			public string CmsId { get; set; }
 
 			///

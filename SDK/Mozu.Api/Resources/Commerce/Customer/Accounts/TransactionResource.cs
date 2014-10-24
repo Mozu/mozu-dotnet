@@ -61,6 +61,19 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 
 		}
 
+		/// <summary>
+		/// Retrieves a list of transactions associated with the customer account specified in the request.
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account for which to retrieve transactions.</param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.Customer.Transaction"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var transaction = new Transaction();
+		///   var transaction = await transaction.GetTransactionsAsync( accountId);
+		/// </code>
+		/// </example>
 		public virtual async Task<List<Mozu.Api.Contracts.Customer.Transaction>> GetTransactionsAsync(int accountId)
 		{
 			MozuClient<List<Mozu.Api.Contracts.Customer.Transaction>> response;
@@ -75,7 +88,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// Creates a new transaction for the customer account specified in the request.
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="transaction">Properties of the transaction to create for the customer account.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Transaction"/>
@@ -97,6 +110,21 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 
 		}
 
+		/// <summary>
+		/// Creates a new transaction for the customer account specified in the request.
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="transaction">Properties of the transaction to create for the customer account.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.Transaction"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var transaction = new Transaction();
+		///   var transaction = await transaction.AddTransactionAsync( transaction,  accountId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.Transaction> AddTransactionAsync(Mozu.Api.Contracts.Customer.Transaction transaction, int accountId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.Transaction> response;
@@ -131,6 +159,20 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 
 		}
 
+		/// <summary>
+		/// Deletes a transaction from the customer account specified in the request.
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account from which to delete the transaction.</param>
+		/// <param name="transactionId">Unique identifier of the transaction to delete.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var transaction = new Transaction();
+		///   await transaction.RemoveTransactionAsync( accountId,  transactionId);
+		/// </code>
+		/// </example>
 		public virtual async Task RemoveTransactionAsync(int accountId, string transactionId)
 		{
 			MozuClient response;

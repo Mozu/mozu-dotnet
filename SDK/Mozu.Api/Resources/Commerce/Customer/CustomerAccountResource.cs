@@ -42,11 +42,11 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// </summary>
 		/// <param name="fields">The fields to include in the response.</param>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-		/// <param name="isAnonymous"></param>
+		/// <param name="isAnonymous">If true, retrieve anonymous shopper accounts in the response.</param>
 		/// <param name="pageSize"></param>
 		/// <param name="q">A list of customer account search terms to use in the query when searching across customer name and email. Separate multiple search terms with a space character.</param>
 		/// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
 		/// <returns>
@@ -69,6 +69,27 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Retrieves a list of customer accounts.
+		/// </summary>
+		/// <param name="fields">The fields to include in the response.</param>
+		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
+		/// <param name="isAnonymous">If true, retrieve anonymous shopper accounts in the response.</param>
+		/// <param name="pageSize"></param>
+		/// <param name="q">A list of customer account search terms to use in the query when searching across customer name and email. Separate multiple search terms with a space character.</param>
+		/// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccountCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customeraccount = new CustomerAccount();
+		///   var customerAccountCollection = await customeraccount.GetAccountsAsync( startIndex,  pageSize,  sortBy,  filter,  fields,  q,  qLimit,  isAnonymous,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAccountCollection> GetAccountsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string fields =  null, string q =  null, int? qLimit =  null, bool? isAnonymous =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerAccountCollection> response;
@@ -80,10 +101,10 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves the current login state of the customer account specified in the request.
 		/// </summary>
-		/// <param name="accountId"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.LoginState"/>
 		/// </returns>
@@ -104,6 +125,20 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Retrieves the current login state of the customer account specified in the request.
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.LoginState"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customeraccount = new CustomerAccount();
+		///   var loginState = await customeraccount.GetLoginStateAsync( accountId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateAsync(int accountId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.LoginState> response;
@@ -118,7 +153,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// Retrieve details of a customer account.
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account to retrieve.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>
 		/// </returns>
@@ -139,6 +174,20 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Retrieve details of a customer account.
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account to retrieve.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customeraccount = new CustomerAccount();
+		///   var customerAccount = await customeraccount.GetAccountAsync( accountId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAccount> GetAccountAsync(int accountId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount> response;
@@ -152,7 +201,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Creates a new customer account based on the information specified in the request.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="account">Properties of the customer account to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>
@@ -174,6 +223,20 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Creates a new customer account based on the information specified in the request.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="account">Properties of the customer account to update.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customeraccount = new CustomerAccount();
+		///   var customerAccount = await customeraccount.AddAccountAsync( account,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAccount> AddAccountAsync(Mozu.Api.Contracts.Customer.CustomerAccount account, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount> response;
@@ -185,10 +248,10 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Modify the password associated with a customer account.
 		/// </summary>
-		/// <param name="accountId"></param>
-		/// <param name="passwordInfo"></param>
+		/// <param name="accountId">The customer account information required to change the userpassword.</param>
+		/// <param name="passwordInfo">The password information required to change the user password.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -208,6 +271,20 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Modify the password associated with a customer account.
+		/// </summary>
+		/// <param name="accountId">The customer account information required to change the userpassword.</param>
+		/// <param name="passwordInfo">The password information required to change the user password.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customeraccount = new CustomerAccount();
+		///   await customeraccount.ChangePasswordAsync( passwordInfo,  accountId);
+		/// </code>
+		/// </example>
 		public virtual async Task ChangePasswordAsync(Mozu.Api.Contracts.Customer.PasswordInfo passwordInfo, int accountId)
 		{
 			MozuClient response;
@@ -218,11 +295,11 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Adds a new user login to a defined customer account.
 		/// </summary>
-		/// <param name="accountId"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="customerAuthInfo"></param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="customerAuthInfo">The authentication information for the customer account.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>
 		/// </returns>
@@ -243,6 +320,21 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Adds a new user login to a defined customer account.
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="customerAuthInfo">The authentication information for the customer account.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customeraccount = new CustomerAccount();
+		///   var customerAuthTicket = await customeraccount.AddLoginToExistingCustomerAsync( customerAuthInfo,  accountId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAuthTicket> AddLoginToExistingCustomerAsync(Mozu.Api.Contracts.Customer.CustomerLoginInfo customerAuthInfo, int accountId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerAuthTicket> response;
@@ -254,9 +346,9 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Updates the customer lifetime value of the specified customer account in the event of an order import or a lifetime value calculation error.
 		/// </summary>
-		/// <param name="accountId"></param>
+		/// <param name="accountId">The unique identifier of the customer account for which to calculate customer lifetime value.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -276,6 +368,19 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Updates the customer lifetime value of the specified customer account in the event of an order import or a lifetime value calculation error.
+		/// </summary>
+		/// <param name="accountId">The unique identifier of the customer account for which to calculate customer lifetime value.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customeraccount = new CustomerAccount();
+		///   await customeraccount.RecomputeCustomerLifetimeValueAsync( accountId);
+		/// </code>
+		/// </example>
 		public virtual async Task RecomputeCustomerLifetimeValueAsync(int accountId)
 		{
 			MozuClient response;
@@ -286,10 +391,10 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Lock or unlock a customer account.
 		/// </summary>
-		/// <param name="accountId"></param>
-		/// <param name="isLocked"></param>
+		/// <param name="accountId">The unique identifier of the customer account.</param>
+		/// <param name="isLocked">If true, the customer account is locked from logging in.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -309,6 +414,20 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Lock or unlock a customer account.
+		/// </summary>
+		/// <param name="accountId">The unique identifier of the customer account.</param>
+		/// <param name="isLocked">If true, the customer account is locked from logging in.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customeraccount = new CustomerAccount();
+		///   await customeraccount.SetLoginLockedAsync( isLocked,  accountId);
+		/// </code>
+		/// </example>
 		public virtual async Task SetLoginLockedAsync(bool isLocked, int accountId)
 		{
 			MozuClient response;
@@ -319,10 +438,10 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Requires the password for the customer account to be changed.
 		/// </summary>
-		/// <param name="accountId"></param>
-		/// <param name="isPasswordChangeRequired"></param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="isPasswordChangeRequired">If true, the password for the customer account must be changed.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -342,6 +461,20 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Requires the password for the customer account to be changed.
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="isPasswordChangeRequired">If true, the password for the customer account must be changed.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customeraccount = new CustomerAccount();
+		///   await customeraccount.SetPasswordChangeRequiredAsync( isPasswordChangeRequired,  accountId);
+		/// </code>
+		/// </example>
 		public virtual async Task SetPasswordChangeRequiredAsync(bool isPasswordChangeRequired, int accountId)
 		{
 			MozuClient response;
@@ -352,10 +485,10 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Creates a new customer account and logs the user associated with the customer account into the site.
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="accountAndAuthInfo"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="accountAndAuthInfo">Properties of the customer account to create, including the user authentication information.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>
 		/// </returns>
@@ -376,6 +509,20 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Creates a new customer account and logs the user associated with the customer account into the site.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="accountAndAuthInfo">Properties of the customer account to create, including the user authentication information.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customeraccount = new CustomerAccount();
+		///   var customerAuthTicket = await customeraccount.AddAccountAndLoginAsync( accountAndAuthInfo,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAuthTicket> AddAccountAndLoginAsync(Mozu.Api.Contracts.Customer.CustomerAccountAndAuthInfo accountAndAuthInfo, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerAuthTicket> response;
@@ -387,10 +534,10 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Creates multiple customer accounts based on the information specified in the request.
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="customers"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="customers">Properties of the customer accounts to create.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccountCollection"/>
 		/// </returns>
@@ -411,6 +558,20 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Creates multiple customer accounts based on the information specified in the request.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="customers">Properties of the customer accounts to create.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccountCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customeraccount = new CustomerAccount();
+		///   var customerAccountCollection = await customeraccount.AddAccountsAsync( customers,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAccountCollection> AddAccountsAsync(List<Mozu.Api.Contracts.Customer.CustomerAccountAndAuthInfo> customers, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerAccountCollection> response;
@@ -422,10 +583,10 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves the current login state of a customer account by providing the customer's email address.
 		/// </summary>
-		/// <param name="emailAddress"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="emailAddress">The email address associated with the customer account.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.LoginState"/>
 		/// </returns>
@@ -446,6 +607,20 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Retrieves the current login state of a customer account by providing the customer's email address.
+		/// </summary>
+		/// <param name="emailAddress">The email address associated with the customer account.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.LoginState"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customeraccount = new CustomerAccount();
+		///   var loginState = await customeraccount.GetLoginStateByEmailAddressAsync( emailAddress,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateByEmailAddressAsync(string emailAddress, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.LoginState> response;
@@ -457,10 +632,10 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves the current login state of a customer account by providing the user name associated with the customer account.
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="userName"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="userName">The user name associated with the customer account.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.LoginState"/>
 		/// </returns>
@@ -481,6 +656,20 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Retrieves the current login state of a customer account by providing the user name associated with the customer account.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="userName">The user name associated with the customer account.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.LoginState"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customeraccount = new CustomerAccount();
+		///   var loginState = await customeraccount.GetLoginStateByUserNameAsync( userName,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateByUserNameAsync(string userName, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.LoginState> response;
@@ -492,9 +681,9 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Resets the password for a customer account.
 		/// </summary>
-		/// <param name="resetPasswordInfo"></param>
+		/// <param name="resetPasswordInfo">Information required to reset the password for a customer account.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -514,6 +703,19 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Resets the password for a customer account.
+		/// </summary>
+		/// <param name="resetPasswordInfo">Information required to reset the password for a customer account.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customeraccount = new CustomerAccount();
+		///   await customeraccount.ResetPasswordAsync( resetPasswordInfo);
+		/// </code>
+		/// </example>
 		public virtual async Task ResetPasswordAsync(Mozu.Api.Contracts.Customer.ResetPasswordInfo resetPasswordInfo)
 		{
 			MozuClient response;
@@ -527,7 +729,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// Updates a customer account.
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="account">Properties of the customer account to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>
@@ -549,6 +751,21 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Updates a customer account.
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="account">Properties of the customer account to update.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customeraccount = new CustomerAccount();
+		///   var customerAccount = await customeraccount.UpdateAccountAsync( account,  accountId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAccount> UpdateAccountAsync(Mozu.Api.Contracts.Customer.CustomerAccount account, int accountId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount> response;
@@ -582,6 +799,19 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Deletes a customer account. A customer account cannot be deleted if any orders exist, past or present.
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account to delete.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customeraccount = new CustomerAccount();
+		///   await customeraccount.DeleteAccountAsync( accountId);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteAccountAsync(int accountId)
 		{
 			MozuClient response;

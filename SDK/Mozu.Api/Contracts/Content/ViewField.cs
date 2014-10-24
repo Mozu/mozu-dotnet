@@ -15,15 +15,9 @@ namespace Mozu.Api.Contracts.Content
 {
 		public class ViewField
 		{
-			public bool IsQueryable { get; set; }
-
-			public bool IsSortable { get; set; }
-
 			public string Name { get; set; }
 
 			public string Target { get; set; }
-
-			public string Type { get; set; }
 
 		}
 

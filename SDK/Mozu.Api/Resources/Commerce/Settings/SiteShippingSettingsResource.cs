@@ -40,7 +40,7 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		/// <summary>
 		/// Retrieves a list of the shipping settings configured for a site.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingSettings"/>
 		/// </returns>
@@ -61,6 +61,19 @@ namespace Mozu.Api.Resources.Commerce.Settings
 
 		}
 
+		/// <summary>
+		/// Retrieves a list of the shipping settings configured for a site.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingSettings"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var siteshippingsettings = new SiteShippingSettings();
+		///   var siteShippingSettings = await siteshippingsettings.GetSiteShippingSettingsAsync( responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingSettings> GetSiteShippingSettingsAsync(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingSettings> response;

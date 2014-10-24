@@ -44,7 +44,7 @@ namespace Mozu.Api.Resources.Platform.Adminuser
 		/// <summary>
 		/// Creates an authentication ticket for the supplied user to specify in API requests associated with the supplied tenant.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="tenantId">Unique identifier of the development or production tenant for which to generate the user authentication ticket.</param>
 		/// <param name="userAuthInfo">The user authentication information required to generate the user authentication ticket, which consists of a user name and password.</param>
 		/// <returns>
@@ -67,6 +67,21 @@ namespace Mozu.Api.Resources.Platform.Adminuser
 
 		}
 
+		/// <summary>
+		/// Creates an authentication ticket for the supplied user to specify in API requests associated with the supplied tenant.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="tenantId">Unique identifier of the development or production tenant for which to generate the user authentication ticket.</param>
+		/// <param name="userAuthInfo">The user authentication information required to generate the user authentication ticket, which consists of a user name and password.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var tenantadminuserauthticket = new TenantAdminUserAuthTicket();
+		///   var tenantAdminUserAuthTicket = await tenantadminuserauthticket.CreateUserAuthTicketAsync( userAuthInfo,  tenantId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket> CreateUserAuthTicketAsync(Mozu.Api.Contracts.Core.UserAuthInfo userAuthInfo, int? tenantId =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket> response;
@@ -80,7 +95,7 @@ namespace Mozu.Api.Resources.Platform.Adminuser
 		/// <summary>
 		/// Generates a new user authentication ticket for the specified tenant by supplying the user's existing refresh token information.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="tenantId"></param>
 		/// <param name="existingAuthTicket">Properties of the authentication ticket to refresh. The refresh token is required to complete this request.</param>
 		/// <returns>
@@ -103,6 +118,21 @@ namespace Mozu.Api.Resources.Platform.Adminuser
 
 		}
 
+		/// <summary>
+		/// Generates a new user authentication ticket for the specified tenant by supplying the user's existing refresh token information.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="tenantId"></param>
+		/// <param name="existingAuthTicket">Properties of the authentication ticket to refresh. The refresh token is required to complete this request.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var tenantadminuserauthticket = new TenantAdminUserAuthTicket();
+		///   var tenantAdminUserAuthTicket = await tenantadminuserauthticket.RefreshAuthTicketAsync( existingAuthTicket,  tenantId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket> RefreshAuthTicketAsync(Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket existingAuthTicket, int? tenantId =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket> response;
@@ -136,6 +166,19 @@ namespace Mozu.Api.Resources.Platform.Adminuser
 
 		}
 
+		/// <summary>
+		/// Deletes the authentication ticket for the user by supplying the refresh token.
+		/// </summary>
+		/// <param name="refreshToken">Refresh token string associated with the user authentication ticket.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var tenantadminuserauthticket = new TenantAdminUserAuthTicket();
+		///   await tenantadminuserauthticket.DeleteUserAuthTicketAsync( refreshToken);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteUserAuthTicketAsync(string refreshToken)
 		{
 			MozuClient response;

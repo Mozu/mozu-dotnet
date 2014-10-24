@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// Use the Customer Segments resource to manage the segments that enable a client to manage groups of customers and target discounts for these segments. After a customer segment is defined, you can associate any number of customer accounts with it.
 	/// </summary>
 	public partial class CustomerSegmentFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// 
+		/// Retrieves a list of defined customer segments according to any filter and sort criteria.
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerSegmentFactory.GetSegments(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves the details of the customer segment specified in the request. This operation does not return a list of the customer accounts associated with the segment.
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerSegmentFactory.GetSegment(handler : handler,  id :  id,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Creates a new customer segments. New customer segments do not have any associated customer accounts.
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerSegmentFactory.AddSegment(handler : handler,  segment :  segment,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Adds one or more customer accounts to a defined customer segment.
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerSegmentFactory.AddSegmentAccounts(handler : handler,  accountIds :  accountIds,  id :  id,  expectedCode: expectedCode, successCode: successCode); 
@@ -181,7 +181,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Updates the details of the customer segment specified in the request.
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerSegmentFactory.UpdateSegment(handler : handler,  segment :  segment,  id :  id,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -219,7 +219,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Deletes a customer segment specified by its unique identifier. Deleting a segment removes any customer account associations, but does not delete the customer account itself.
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerSegmentFactory.DeleteSegment(handler : handler,  id :  id,  expectedCode: expectedCode, successCode: successCode); 
@@ -259,22 +259,22 @@ namespace Mozu.Api.Test.Factories
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerSegmentFactory.DeleteSegmentAccounts(handler : handler,  accountIds :  accountIds,  id :  id,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CustomerSegmentFactory.RemoveSegmentAccount(handler : handler,  id :  id,  accountId :  accountId,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeleteSegmentAccounts(ServiceClientMessageHandler handler, 
- 		List<int> accountIds, int id, 
+		public static void RemoveSegmentAccount(ServiceClientMessageHandler handler, 
+ 		int id, int accountId, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Customer.CustomerSegmentClient.DeleteSegmentAccountsClient(
-				 accountIds :  accountIds,  id :  id		);
+			var apiClient = Mozu.Api.Clients.Commerce.Customer.CustomerSegmentClient.RemoveSegmentAccountClient(
+				 id :  id,  accountId :  accountId		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

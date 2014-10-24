@@ -12,24 +12,21 @@ using System;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.Content
 {
 		public class View
 		{
-			public string DefaultSort { get; set; }
-
-			public string Filter { get; set; }
+			public bool? IsVisibleInStorefront { get; set; }
 
 			public string Name { get; set; }
 
-			public string Security { get; set; }
-
 			public List<string> Usages { get; set; }
 
-			public JObject Metadata { get; set; }
-
 			public List<ViewField> Fields { get; set; }
+
+			public JObject Metadata { get; set; }
 
 		}
 

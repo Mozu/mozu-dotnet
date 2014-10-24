@@ -60,6 +60,18 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 
 		}
 
+		/// <summary>
+		/// Retrieves a list of the taxable territories configured for the site.
+		/// </summary>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var taxableterritory = new TaxableTerritory();
+		///   var taxableTerritory = await taxableterritory.GetTaxableTerritoriesAsync();
+		/// </code>
+		/// </example>
 		public virtual async Task<List<Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory>> GetTaxableTerritoriesAsync()
 		{
 			MozuClient<List<Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory>> response;
@@ -73,7 +85,7 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 		/// <summary>
 		/// Creates a new territory for which to calculate sales tax.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="taxableTerritory">Properties of the taxable territory to create.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory"/>
@@ -95,6 +107,20 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 
 		}
 
+		/// <summary>
+		/// Creates a new territory for which to calculate sales tax.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="taxableTerritory">Properties of the taxable territory to create.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var taxableterritory = new TaxableTerritory();
+		///   var taxableTerritory = await taxableterritory.AddTaxableTerritoryAsync( taxableTerritory,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory> AddTaxableTerritoryAsync(Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory taxableTerritory, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory> response;
@@ -129,6 +155,19 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 
 		}
 
+		/// <summary>
+		/// Updates one or more taxable territories configured for a site.
+		/// </summary>
+		/// <param name="taxableterritories">Properties of the taxable territories to update.</param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var taxableterritory = new TaxableTerritory();
+		///   var taxableTerritory = await taxableterritory.UpdateTaxableTerritoriesAsync( taxableterritories);
+		/// </code>
+		/// </example>
 		public virtual async Task<List<Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory>> UpdateTaxableTerritoriesAsync(List<Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory> taxableterritories)
 		{
 			MozuClient<List<Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory>> response;

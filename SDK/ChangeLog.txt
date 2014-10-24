@@ -1,7 +1,9 @@
-Added Async() methods
-Added Locale and Currency to ApiContext
-Added Cloning support to ApiContext and resources
-Marked synchronous methods obsolete
+- Product code change events
+- Removed CustomerSegement Account delete and added new methods that confirm to REST standard
+- Add Locale and Currency to Api Context
+- Add Clone with for Api Context and Resources
+- Add Async Methods
+- Change Authentication method to remove URL parameter
 
 Events
 0.    Added - Analytics.Analytics Product Search

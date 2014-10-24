@@ -19,6 +19,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class DiscountLocalizedContent
 		{
+			///
+			///The localizable, shopper-facing description defined for the discount.
+			///
 			public string FriendlyDescription { get; set; }
 
 			///
@@ -27,7 +30,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string LocaleCode { get; set; }
 
 			///
-			///Name of the localized content.
+			///The localizable name of the discount.
 			///
 			public string Name { get; set; }
 

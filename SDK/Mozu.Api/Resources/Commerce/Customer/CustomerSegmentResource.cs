@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Customer
 {
 	/// <summary>
-	/// 
+	/// Use the Customer Segments resource to manage the segments that enable a client to manage groups of customers and target discounts for these segments. After a customer segment is defined, you can associate any number of customer accounts with it.
 	/// </summary>
 	public partial class CustomerSegmentResource  	{
 		///
@@ -38,13 +38,13 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 				
 		/// <summary>
-		/// 
+		/// Retrieves a list of defined customer segments according to any filter and sort criteria.
 		/// </summary>
-		/// <param name="filter"></param>
-		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="sortBy"></param>
-		/// <param name="startIndex"></param>
+		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerSegmentCollection"/>
 		/// </returns>
@@ -65,6 +65,23 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Retrieves a list of defined customer segments according to any filter and sort criteria.
+		/// </summary>
+		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.CustomerSegmentCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customersegment = new CustomerSegment();
+		///   var customerSegmentCollection = await customersegment.GetSegmentsAsync( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerSegmentCollection> GetSegmentsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerSegmentCollection> response;
@@ -76,10 +93,10 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves the details of the customer segment specified in the request. This operation does not return a list of the customer accounts associated with the segment.
 		/// </summary>
-		/// <param name="id"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerSegment"/>
 		/// </returns>
@@ -100,6 +117,20 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Retrieves the details of the customer segment specified in the request. This operation does not return a list of the customer accounts associated with the segment.
+		/// </summary>
+		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.CustomerSegment"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customersegment = new CustomerSegment();
+		///   var customerSegment = await customersegment.GetSegmentAsync( id,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerSegment> GetSegmentAsync(int id, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerSegment> response;
@@ -111,10 +142,10 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Creates a new customer segments. New customer segments do not have any associated customer accounts.
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="segment"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="segment">Properties of the customer segment to add.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerSegment"/>
 		/// </returns>
@@ -135,6 +166,20 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Creates a new customer segments. New customer segments do not have any associated customer accounts.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="segment">Properties of the customer segment to add.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.CustomerSegment"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customersegment = new CustomerSegment();
+		///   var customerSegment = await customersegment.AddSegmentAsync( segment,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerSegment> AddSegmentAsync(Mozu.Api.Contracts.Customer.CustomerSegment segment, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerSegment> response;
@@ -146,10 +191,10 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Adds one or more customer accounts to a defined customer segment.
 		/// </summary>
-		/// <param name="id"></param>
-		/// <param name="accountIds"></param>
+		/// <param name="id">Unique identifier of the customer segment for which to add the associated customer accounts.</param>
+		/// <param name="accountIds">List of customer account IDs to add to the customer segment specified in the request.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -169,6 +214,20 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Adds one or more customer accounts to a defined customer segment.
+		/// </summary>
+		/// <param name="id">Unique identifier of the customer segment for which to add the associated customer accounts.</param>
+		/// <param name="accountIds">List of customer account IDs to add to the customer segment specified in the request.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customersegment = new CustomerSegment();
+		///   await customersegment.AddSegmentAccountsAsync( accountIds,  id);
+		/// </code>
+		/// </example>
 		public virtual async Task AddSegmentAccountsAsync(List<int> accountIds, int id)
 		{
 			MozuClient response;
@@ -179,11 +238,11 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Updates the details of the customer segment specified in the request.
 		/// </summary>
-		/// <param name="id"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="segment"></param>
+		/// <param name="id">Unique identifier of the customer segment.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="segment">Properties of the customer segment to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerSegment"/>
 		/// </returns>
@@ -204,6 +263,21 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Updates the details of the customer segment specified in the request.
+		/// </summary>
+		/// <param name="id">Unique identifier of the customer segment.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="segment">Properties of the customer segment to update.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.CustomerSegment"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customersegment = new CustomerSegment();
+		///   var customerSegment = await customersegment.UpdateSegmentAsync( segment,  id,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerSegment> UpdateSegmentAsync(Mozu.Api.Contracts.Customer.CustomerSegment segment, int id, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerSegment> response;
@@ -215,9 +289,9 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// Deletes a customer segment specified by its unique identifier. Deleting a segment removes any customer account associations, but does not delete the customer account itself.
 		/// </summary>
-		/// <param name="id"></param>
+		/// <param name="id">Unique identifier of the customer segment to delete.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -237,6 +311,19 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 		}
 
+		/// <summary>
+		/// Deletes a customer segment specified by its unique identifier. Deleting a segment removes any customer account associations, but does not delete the customer account itself.
+		/// </summary>
+		/// <param name="id">Unique identifier of the customer segment to delete.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customersegment = new CustomerSegment();
+		///   await customersegment.DeleteSegmentAsync( id);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteSegmentAsync(int id)
 		{
 			MozuClient response;
@@ -249,31 +336,45 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="accountId"></param>
 		/// <param name="id"></param>
-		/// <param name="accountIds"></param>
 		/// <returns>
 		/// 
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customersegment = new CustomerSegment();
-		///   customersegment.DeleteSegmentAccounts( accountIds,  id);
+		///   customersegment.RemoveSegmentAccount( id,  accountId);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeleteSegmentAccounts(List<int> accountIds, int id)
+		public virtual void RemoveSegmentAccount(int id, int accountId)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Customer.CustomerSegmentClient.DeleteSegmentAccountsClient( accountIds,  id);
+			var client = Mozu.Api.Clients.Commerce.Customer.CustomerSegmentClient.RemoveSegmentAccountClient( id,  accountId);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 
 		}
 
-		public virtual async Task DeleteSegmentAccountsAsync(List<int> accountIds, int id)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="accountId"></param>
+		/// <param name="id"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customersegment = new CustomerSegment();
+		///   await customersegment.RemoveSegmentAccountAsync( id,  accountId);
+		/// </code>
+		/// </example>
+		public virtual async Task RemoveSegmentAccountAsync(int id, int accountId)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Customer.CustomerSegmentClient.DeleteSegmentAccountsClient( accountIds,  id);
+			var client = Mozu.Api.Clients.Commerce.Customer.CustomerSegmentClient.RemoveSegmentAccountClient( id,  accountId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 

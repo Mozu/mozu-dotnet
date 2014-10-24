@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.Content
 {
@@ -25,15 +26,11 @@ namespace Mozu.Api.Contracts.Content
 
 			public string InstallationPackage { get; set; }
 
-			public string LocalizationType { get; set; }
-
 			public string Name { get; set; }
 
 			public string Namespace { get; set; }
 
 			public string ScopeType { get; set; }
-
-			public string Security { get; set; }
 
 			public bool SupportsPublishing { get; set; }
 

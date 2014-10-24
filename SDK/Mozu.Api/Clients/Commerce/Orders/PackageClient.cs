@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Commerce.Orders
 {
 	/// <summary>
-	/// Use the packages subresource to manage the physical packages to ship for an order.
+	/// Use the Packages subresource to manage the physical packages to ship for an order.
 	/// </summary>
 	public partial class PackageClient 	{
 		
@@ -76,7 +76,7 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order associated with the package to retrieve.</param>
 		/// <param name="packageId">Unique identifier of the package to retrieve.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>}
 		/// </returns>
@@ -101,7 +101,7 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// Creates a new physical package of order items.
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order associated with this package.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="package">Properties of the physical package of order items.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>}
@@ -128,7 +128,7 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order associated with the package to update.</param>
 		/// <param name="packageId">Unique identifier of the package of order items to update.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="package">Wrapper of properties for the package of order items to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>}

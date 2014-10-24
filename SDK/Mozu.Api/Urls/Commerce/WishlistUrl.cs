@@ -23,7 +23,7 @@ namespace Mozu.Api.Urls.Commerce
         /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
         /// <param name="q">A list of search terms to use in the query when searching across wish list name. Separate multiple search terms with a space character.</param>
         /// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
         /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
         /// <returns>
@@ -46,7 +46,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetWishlist
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="wishlistId">Unique identifier of the shopper wish list to retrieve.</param>
         /// <returns>
         /// String - Resource Url
@@ -63,9 +63,9 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetWishlistByName
         /// </summary>
-        /// <param name="customerAccountId"></param>
-        /// <param name="responseFields"></param>
-        /// <param name="wishlistName"></param>
+        /// <param name="customerAccountId">The unique identifier of the customer account for which to retrieve wish lists.</param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="wishlistName">The name of the wish list to retrieve.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -82,7 +82,7 @@ namespace Mozu.Api.Urls.Commerce
 				/// <summary>
         /// Get Resource Url for CreateWishlist
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -97,7 +97,7 @@ namespace Mozu.Api.Urls.Commerce
 				/// <summary>
         /// Get Resource Url for UpdateWishlist
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="wishlistId">Unique identifier of the shopper wish list to update.</param>
         /// <returns>
         /// String - Resource Url

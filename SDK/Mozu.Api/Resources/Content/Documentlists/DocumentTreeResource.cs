@@ -69,6 +69,20 @@ namespace Mozu.Api.Resources.Content.Documentlists
 
 		}
 
+		/// <summary>
+		/// Retrieve the content associated with the document, such as a product image or PDF specifications file.
+		/// </summary>
+		/// <param name="documentListName">The name of the document list associated with the document.</param>
+		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
+		/// <returns>
+		/// <see cref="System.IO.Stream"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documenttree = new DocumentTree();
+		///   var stream = await documenttree.GetTreeDocumentContentAsync(_dataViewMode,  documentListName,  documentName);
+		/// </code>
+		/// </example>
 		public virtual async Task<System.IO.Stream> GetTreeDocumentContentAsync(string documentListName, string documentName)
 		{
 			MozuClient<System.IO.Stream> response;
@@ -84,7 +98,7 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// </summary>
 		/// <param name="documentListName">The name of the document list associated with the document.</param>
 		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.Document"/>
 		/// </returns>
@@ -105,6 +119,21 @@ namespace Mozu.Api.Resources.Content.Documentlists
 
 		}
 
+		/// <summary>
+		/// Retrieves a document based on its document list and folder path in the document hierarchy.
+		/// </summary>
+		/// <param name="documentListName">The name of the document list associated with the document.</param>
+		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Content.Document"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documenttree = new DocumentTree();
+		///   var document = await documenttree.GetTreeDocumentAsync(_dataViewMode,  documentListName,  documentName,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Content.Document> GetTreeDocumentAsync(string documentListName, string documentName, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.Document> response;
@@ -120,7 +149,7 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// </summary>
 		/// <param name="documentListName">The name of the document list associated with the document.</param>
 		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
-		/// <param name="stream"></param>
+		/// <param name="stream">Input output stream that delivers information.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -140,6 +169,21 @@ namespace Mozu.Api.Resources.Content.Documentlists
 
 		}
 
+		/// <summary>
+		/// Updates the content associated with a document, such as a product image or PDF specifications file, based on the document's position in the document hierarchy.
+		/// </summary>
+		/// <param name="documentListName">The name of the document list associated with the document.</param>
+		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
+		/// <param name="stream">Input output stream that delivers information.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documenttree = new DocumentTree();
+		///   await documenttree.UpdateTreeDocumentContentAsync( stream,  documentListName,  documentName,  contentType);
+		/// </code>
+		/// </example>
 		public virtual async Task UpdateTreeDocumentContentAsync(System.IO.Stream stream, string documentListName, string documentName, String  contentType= null)
 		{
 			MozuClient response;
@@ -154,7 +198,7 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// </summary>
 		/// <param name="documentListName">The name of the document list associated with the document.</param>
 		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
-		/// <param name="stream"></param>
+		/// <param name="stream">Input output stream that delivers information.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -174,6 +218,21 @@ namespace Mozu.Api.Resources.Content.Documentlists
 
 		}
 
+		/// <summary>
+		/// Deletes the content associated with a document, such as a product image or PDF specifications file.
+		/// </summary>
+		/// <param name="documentListName">The name of the document list associated with the document.</param>
+		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
+		/// <param name="stream">Input output stream that delivers information.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documenttree = new DocumentTree();
+		///   await documenttree.DeleteTreeDocumentContentAsync( stream,  documentListName,  documentName,  contentType);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteTreeDocumentContentAsync(System.IO.Stream stream, string documentListName, string documentName, String  contentType= null)
 		{
 			MozuClient response;
