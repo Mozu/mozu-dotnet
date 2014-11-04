@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Mozu.Api.Sample.Web</RootNamespace>
     <AssemblyName>Mozu.Api.Sample.Web</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -65,14 +65,13 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Mozu.Api">
-      <HintPath>packages\Mozu.Api.SDK.1.10.1-dev1408262202\lib\net45\Mozu.Api.dll</HintPath>
+      <HintPath>packages\Mozu.Api.SDK.1.12.1\lib\net45\Mozu.Api.dll</HintPath>
     </Reference>
     <Reference Include="Mozu.Api.ToolKit">
-      <HintPath>packages\Mozu.Api.ToolKit.1.1.1-dev1408261236\lib\Mozu.Api.ToolKit.dll</HintPath>
+      <HintPath>packages\Mozu.Api.ToolKit.1.1.1\lib\Mozu.Api.ToolKit.dll</HintPath>
     </Reference>
-    <Reference Include="Mozu.Api.WebToolKit, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\Mozu.Api.WebToolKit.1.1.1-dev1408261250\lib\Mozu.Api.WebToolKit.dll</HintPath>
+    <Reference Include="Mozu.Api.WebToolKit">
+      <HintPath>packages\Mozu.Api.WebToolKit.1.1.1\lib\Mozu.Api.WebToolKit.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -162,7 +161,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\fonts\mozicons.svg" />
+    <Content Include="Content\themes\base\images\ajax-loader.gif" />
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
+    <Content Include="Content\themes\base\images\icon-success.png" />
+    <Content Include="Content\themes\base\images\icon_error.png" />
+    <Content Include="Content\themes\base\images\icon_help.png" />
+    <Content Include="Content\themes\base\images\icon_remove.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -229,7 +234,11 @@
     <Content Include="log4net.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\fonts\mozicons.eot" />
+    <Content Include="Content\fonts\mozicons.ttf" />
+    <Content Include="Content\fonts\mozicons.woff" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\home.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\jquery-2.1.1.min.map" />
@@ -242,9 +251,12 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\knockout-3.1.0.debug.js" />
-    <Content Include="Scripts\knockout-3.1.0.js" />
+    <Content Include="Scripts\knockout-2.2.0.debug.js" />
+    <Content Include="Scripts\knockout-2.2.0.js" />
+    <Content Include="Scripts\knockout.mapping-latest.js" />
     <Content Include="Scripts\modernizr-2.7.2.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\querystring-0.9.0-min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -273,6 +285,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\_info.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
