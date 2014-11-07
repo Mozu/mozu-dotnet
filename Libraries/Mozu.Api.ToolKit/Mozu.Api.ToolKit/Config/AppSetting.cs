@@ -15,8 +15,9 @@ namespace Mozu.Api.ToolKit.Config
         public string SMTPServerUrl { get; private set; }
         public string BaseUrl { get; private set; }
         public string Log4NetConfig { get; private set; }
-
-        public string MozuNamespace { get; set; }
+        public string Namespace { get; private set; }
+        public string Version { get; private set; }
+        public string PackageName { get; private set; }
 
         public IDictionary<string, Object> Settings { get; private set; }
 
@@ -60,16 +61,15 @@ namespace Mozu.Api.ToolKit.Config
             if (Settings.ContainsKey("ApplicationId"))
             {
                 ApplicationId = Settings["ApplicationId"].ToString();
-
-                var props = ApplicationId.Split('.');
-                if (props.Length > 1)
-                    MozuNamespace = props[0];
+                ParseAppKey();
+               
             }
 
 
             if (Settings.ContainsKey("SharedSecret"))
                 SharedSecret = Settings["SharedSecret"].ToString();
 
+           
 
         }
 
@@ -106,10 +106,8 @@ namespace Mozu.Api.ToolKit.Config
 
             foreach (var key in configuration.AppSettings.Settings.AllKeys)
             {
-                if (key.EndsWith("_"+environment))
-                    Settings.Add(key.Replace("_"+environment, ""), configuration.AppSettings.Settings[key].Value);
-                else
-                    Settings.Add(key, configuration.AppSettings.Settings[key].Value);
+                Settings.Add(key.EndsWith("_" + environment) ? key.Replace("_" + environment, "") : key,
+                    configuration.AppSettings.Settings[key].Value);
             }
 
 
@@ -119,6 +117,33 @@ namespace Mozu.Api.ToolKit.Config
             }
 
             SetProperties();
+        }
+        
+        private void ParseAppKey()
+        {
+            var parts = ApplicationId.Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
+
+            if (parts.Length < 4) return;
+
+            Namespace = parts[0];
+
+            PackageName = "Release";
+            var packageNameOffset = 0;
+            var lastPart = parts[parts.Length - 1];
+            int testInt;
+            bool cc = int.TryParse(lastPart, out testInt);
+            if (!cc)
+            {
+                // check if the last part is an int, then it is the revision of the version
+                // otherwise, it is the package name
+                PackageName = parts[parts.Length - 1];
+                packageNameOffset = 1;
+            }
+     
+     
+            // parse version
+            var versionStartIndex = parts.Length - (3 + packageNameOffset);
+            Version = String.Join(".", parts, versionStartIndex, 3);
         }
 
     }
