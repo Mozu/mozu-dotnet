@@ -12,5 +12,8 @@ namespace Mozu.Api.ToolKit.Config
         string SMTPServerUrl { get; }
         IDictionary<string, Object> Settings { get; }
         string Log4NetConfig { get; }
+        string Namespace { get;  }
+        string Version { get;  }
+        string PackageName { get; }
     }
 }
