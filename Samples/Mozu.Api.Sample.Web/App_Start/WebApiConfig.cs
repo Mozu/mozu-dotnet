@@ -14,6 +14,8 @@ namespace Mozu.Api.Sample.Web
             var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
+            config.MapHttpAttributeRoutes();
+
             config.Routes.MapHttpRoute(
                name: "ApiConfig",
                routeTemplate: "api/config/{tenantId}",

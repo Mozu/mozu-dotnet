@@ -1,24 +1,51 @@
 ﻿
+var pathName = window.location.pathname;
+
+var applicationInfo = {
+    'nameSpace': ko.observable(),
+    'version': ko.observable(),
+    'package': ko.observable()
+}
+
+
 var viewModel = function () {
     var self = this;
     self.appVersion = ko.observable();
     self.apiVersion = ko.observable();
+    self.appInfo = ko.mapping.fromJS(applicationInfo);
 
     self.loadVersion = function () {
         $.ajax({
-            url:  "api/version",
+            url: pathName+ "api/version",
             type: "GET",
             dataType: "json",
             success: function (data) {
                 self.appVersion(data.appVersion);
                 self.apiVersion(data.sdkVersion);
 
-                ko.applyBindings(window.viewModel);
             }
         });
     };
 
-    self.loadVersion();
+
+    self.getAppInfo = function() {
+        $.ajax({
+            url: pathName + "api/application/info",
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                ko.mapping.fromJS(data, self.appInfo);
+                console.log(self.appInfo);
+            }
+        });
+    }
+
+    //self.getAppInfo();
+
+    self.init = function() {
+        self.loadVersion();
+        self.getAppInfo();
+    }
 };
 
 
@@ -90,8 +117,14 @@ $(function () {
 
 
     enableTabs();
-   
 
+    if (pathName == "/")
+        pathName = "";
 
-    window.viewModel = new viewModel();
+    if (pathName.indexOf("/", pathName.length - 1) == -1) pathName = pathName + "/";
+    
+
+    viewModel = new viewModel();
+    ko.applyBindings(viewModel);
+    viewModel.init();
 });
