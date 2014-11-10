@@ -54,7 +54,7 @@ namespace Mozu.Api.ToolKit
             _containerBuilder.RegisterType<Events.EventService>().As<IEventService>();
             _containerBuilder.RegisterType<Events.EventServiceFactory>().As<IEventServiceFactory>();
             _containerBuilder.RegisterType<ExtensionHandler>().As<IExtensionHandler>();
-           
+            _containerBuilder.RegisterType<EntityHandler>().As<IEntityHandler>();
 
             _containerBuilder.RegisterType<ReturnEventProcessor>().Keyed<IEventProcessor>(EventCategory.Return);
             _containerBuilder.RegisterType<ProductEventProcessor>().Keyed<IEventProcessor>(EventCategory.Product);
