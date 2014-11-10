@@ -19,7 +19,7 @@ namespace Mozu.Api.Sample.Web
             AreaRegistration.RegisterAllAreas();
             new Bootstrapper().Bootstrap(GlobalConfiguration.Configuration);
 
-            WebApiConfig.Register(GlobalConfiguration.Configuration);
+            GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
