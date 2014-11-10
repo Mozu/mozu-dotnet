@@ -67,11 +67,13 @@
     <Reference Include="Mozu.Api">
       <HintPath>packages\Mozu.Api.SDK.1.12.1\lib\net45\Mozu.Api.dll</HintPath>
     </Reference>
-    <Reference Include="Mozu.Api.ToolKit">
-      <HintPath>packages\Mozu.Api.ToolKit.1.1.1\lib\Mozu.Api.ToolKit.dll</HintPath>
+    <Reference Include="Mozu.Api.ToolKit, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Mozu.Api.ToolKit.1.1.3\lib\Mozu.Api.ToolKit.dll</HintPath>
     </Reference>
-    <Reference Include="Mozu.Api.WebToolKit">
-      <HintPath>packages\Mozu.Api.WebToolKit.1.1.1\lib\Mozu.Api.WebToolKit.dll</HintPath>
+    <Reference Include="Mozu.Api.WebToolKit, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Mozu.Api.WebToolKit.1.1.2\lib\Mozu.Api.WebToolKit.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -257,7 +259,9 @@
     <Content Include="Scripts\modernizr-2.7.2.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\querystring-0.9.0-min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -310,9 +314,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>1548</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:36795/</IISUrl>
+          <IISUrl>http://localhost:1548/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

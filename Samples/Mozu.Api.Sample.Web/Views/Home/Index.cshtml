@@ -35,15 +35,14 @@
 
             </div>
             <div class="branding-text">Developed by Volusion, Inc. All rights reserved.</div>
+            @Html.Hidden("cookieToken", (Object)ViewBag.cookieToken)
+            @Html.Hidden("formToken", (Object)ViewBag.formToken)
             </div>
         </div>
     </div>
 </div>
 
 @section scripts {
-    <script type="text/javascript">
-        var path = "@Url.Content("~")";
-    </script>
     <script type="text/javascript" src="~/Scripts/home.js"></script>
 }
 
