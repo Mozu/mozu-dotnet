@@ -13,22 +13,30 @@ using Newtonsoft.Json.Serialization;
 
 namespace Mozu.Api.ToolKit.Handlers
 {
+
+    public enum Parent
+    {
+        Orders,
+        Products,
+        Customers
+    }
+
     public interface IExtensionHandler
     {
 
-        Task AddUpdateExtensionLinkAsync(int tenantId, string parentId, string href, string windowTitle, String[] path);
+        Task AddUpdateExtensionLinkAsync(int tenantId, Parent parent, string href, string windowTitle, String[] path);
         Task AddUpdateExtensionLinkAsync(int tenantId, SubnavLink subnavLink);
     }
 
     public class ExtensionHandler : IExtensionHandler
     {
 
-        public async Task AddUpdateExtensionLinkAsync(int tenantId, string parentId, string href, string windowTitle, String[] path )
+        public async Task AddUpdateExtensionLinkAsync(int tenantId, Parent parent, string href, string windowTitle, String[] path )
         {
 
             var link = new SubnavLink
             {
-                ParentId = parentId,
+                ParentId = parent.ToString().ToLower(),
                 WindowTitle = windowTitle,
                 Href = href,
                 Path = path
