@@ -65,6 +65,7 @@
     <Compile Include="AbstractBootStrapper.cs" />
     <Compile Include="Config\AppSetting.cs" />
     <Compile Include="Config\IAppSetting.cs" />
+    <Compile Include="Converters\EnumLowerCaseConverter.cs" />
     <Compile Include="Events\EventCategory.cs" />
     <Compile Include="Events\EventProcessor.cs" />
     <Compile Include="Events\EventService.cs" />

@@ -17,7 +17,7 @@ namespace Mozu.Api.ToolKit.Handlers
     public enum Parent
     {
         Orders,
-        Products,
+        Catalog,
         Customers
     }
 
@@ -36,7 +36,7 @@ namespace Mozu.Api.ToolKit.Handlers
 
             var link = new SubnavLink
             {
-                ParentId = parent.ToString().ToLower(),
+                ParentId = parent,
                 WindowTitle = windowTitle,
                 Href = href,
                 Path = path
@@ -81,6 +81,7 @@ namespace Mozu.Api.ToolKit.Handlers
             return jObject.ToObject<SubnavLink>();
         }
         
+
         private JObject FromObject<T>(T value)
         {
             var serializer = new JsonSerializer();
