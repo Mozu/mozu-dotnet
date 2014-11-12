@@ -24,8 +24,8 @@ namespace Mozu.Api.ToolKit.Handlers
 
     public interface IEntitySchemaHandler
     {
-        Task InstallSchemaAsync(IApiContext apiContext, EntityList entityList, EntityScope scope, List<IndexedProperty> indexedProperties);
-        Task InstallSchemaAsync(IApiContext apiContext, EntityList entityList, EntityScope scope, IndexedProperty idProperty, List<IndexedProperty> indexedProperties);
+        Task<EntityList> InstallSchemaAsync(IApiContext apiContext, EntityList entityList, EntityScope scope, List<IndexedProperty> indexedProperties);
+        Task<EntityList> InstallSchemaAsync(IApiContext apiContext, EntityList entityList, EntityScope scope, IndexedProperty idProperty, List<IndexedProperty> indexedProperties);
 
         Task<EntityList> GetEntityListAsync(IApiContext apiContext, String name);
         Task<EntityList> GetEntityListAsync(IApiContext apiContext, String name, string nameSpace);
@@ -74,25 +74,25 @@ namespace Mozu.Api.ToolKit.Handlers
             return entityList;
         }
 
-        public async Task InstallSchemaAsync(IApiContext apiContext, EntityList entityList, EntityScope scope,
+        public async Task<EntityList> InstallSchemaAsync(IApiContext apiContext, EntityList entityList, EntityScope scope,
             List<IndexedProperty> indexedProperties)
         {
-            await InstallSchemaAsync(apiContext, entityList, scope, null, indexedProperties);
+            return await InstallSchemaAsync(apiContext, entityList, scope, null, indexedProperties);
         }
 
-        public async Task InstallSchemaAsync(IApiContext apiContext, EntityList entityList, EntityScope scope, 
+        public async Task<EntityList> InstallSchemaAsync(IApiContext apiContext, EntityList entityList, EntityScope scope, 
             IndexedProperty idProperty,List<IndexedProperty> indexedProperties)
         {
-         
-            if (indexedProperties.Count > 4) throw new Exception("Only 4 indexed properties are supported");
+
+            if (indexedProperties != null && indexedProperties.Count > 4) throw new Exception("Only 4 indexed properties are supported");
             if (string.IsNullOrEmpty(entityList.Name)) throw new Exception("Entity name is missing");
 
 
             entityList.ContextLevel = scope.ToString();
-            entityList.IndexA = indexedProperties.Count >= 1 ? indexedProperties[0] : null;
-            entityList.IndexB = indexedProperties.Count >= 2 ? indexedProperties[1] : null;
-            entityList.IndexC = indexedProperties.Count >= 3 ? indexedProperties[2] : null;
-            entityList.IndexD = indexedProperties.Count >= 4 ? indexedProperties[4] : null;
+            entityList.IndexA = indexedProperties != null && indexedProperties.Count >= 1 ? indexedProperties[0] : null;
+            entityList.IndexB = indexedProperties != null && indexedProperties.Count >= 2 ? indexedProperties[1] : null;
+            entityList.IndexC = indexedProperties != null && indexedProperties.Count >= 3 ? indexedProperties[2] : null;
+            entityList.IndexD = indexedProperties != null && indexedProperties.Count >= 4 ? indexedProperties[4] : null;
 
             entityList.TenantId = apiContext.TenantId;
             if (idProperty == null) entityList.UseSystemAssignedId = true;
@@ -120,6 +120,8 @@ namespace Mozu.Api.ToolKit.Handlers
                 _logger.Error(aex.Message, aex);
                 throw aex;
             }
+
+            return entityList;
         }
 
         public IndexedProperty GetIndexedProperty(string name, EntityDataType entityDataType)
