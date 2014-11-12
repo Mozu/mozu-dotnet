@@ -14,6 +14,7 @@ namespace Mozu.Api.ToolKit.Test
     public class EntityHandlerTest : BaseTest
     {
         private IEntityHandler _entityHandler;
+        private IEntitySchemaHandler _entitySchemaHandler;
         private IAppSetting _appSetting;
         private String listName = "contacts";
 
@@ -21,6 +22,7 @@ namespace Mozu.Api.ToolKit.Test
         public void Initialize()
         {
             _entityHandler = Container.Resolve<IEntityHandler>();
+            _entitySchemaHandler = Container.Resolve<IEntitySchemaHandler>();
             _appSetting = Container.Resolve<IAppSetting>();
             InstallSchema();
         }
@@ -28,27 +30,27 @@ namespace Mozu.Api.ToolKit.Test
         [TestCleanup]
         public void Cleanup()
         {
-            DeleteSchema();
+            
         }
 
         [TestMethod]
         public void GetEntitiesTest()
         {
-            var entities =_entityHandler.GetEntitiesAsync<Person>(new ApiContext(TenantId), listName).Result;
+            var entities =_entityHandler.GetEntitiesAsync<Contact>(new ApiContext(TenantId), listName).Result;
         }
 
 
         [TestMethod]
         public void AddContactTest()
         {
-            var contact = new Person {Id = 1, FirstName = "Foo", LastName = "Bar"};
+            var contact = new Contact {Id = 1, FirstName = "Foo", LastName = "Bar"};
             var result = _entityHandler.UpsertEntityAsync(new ApiContext(TenantId), contact.Id.ToString(), listName, contact).Result;
         }
 
         [TestMethod]
         public void GetContactTest()
         {
-            var contact = _entityHandler.GetEntityAsync<Person>(new ApiContext(TenantId), "1", listName).Result;
+            var contact = _entityHandler.GetEntityAsync<Contact>(new ApiContext(TenantId), "1", listName).Result;
             Assert.AreEqual(contact.Id, 1);
             Assert.AreEqual(contact.FirstName, "Foo");
             Assert.AreEqual(contact.LastName, "Bar");
@@ -56,75 +58,26 @@ namespace Mozu.Api.ToolKit.Test
 
         private void InstallSchema()
         {
-            var entityListResource = new EntityListResource(new ApiContext(TenantId));
-            var personEntityList = new EntityList
+            var contactEntityList = new EntityList
             {
-                ContextLevel = "tenant",
-                IdProperty = new IndexedProperty { PropertyName = "Id", DataType = "string" },
-                IndexA = new IndexedProperty { PropertyName = "FirstName", DataType = "string" },
-                IndexB = new IndexedProperty { PropertyName = "LastName", DataType = "string" },
                 IsSandboxDataCloningSupported = false,
                 IsShopperSpecific = false,
                 IsVisibleInStorefront = true,
-                Name = listName,
-                NameSpace = _appSetting.Namespace,
-                TenantId = TenantId
+                Name = listName
             };
 
-            EntityList existing = null;
-            try
+            var indexProperties = new List<IndexedProperty>()
             {
-                existing = entityListResource.GetEntityListAsync(ListFQN).Result;
-            }
-            catch (AggregateException ae)
-            {
-                if ( ae.InnerException.GetType() ==  typeof(ApiException))
-                {
-                    var aex = (ApiException) ae.InnerException;
-                    if (!string.Equals(aex.ErrorCode, "ITEM_NOT_FOUND", StringComparison.OrdinalIgnoreCase))
-                        Assert.Fail(aex.Message);
-                    
-                }
-                else
-                {
-                    Assert.Fail(ae.Message);
-                }
-            }
+                _entitySchemaHandler.GetIndexedProperty("firstName", EntityDataType.String),
+                _entitySchemaHandler.GetIndexedProperty("lastName", EntityDataType.String)
+            };
+            var idProperty = _entitySchemaHandler.GetIndexedProperty("id", EntityDataType.Integer);
 
-            try
-            {
-                existing = existing != null
-                    ? entityListResource.UpdateEntityListAsync(personEntityList, ListFQN).Result
-                    : entityListResource.CreateEntityListAsync(personEntityList).Result;
-            }
-            catch (AggregateException ae)
-            {
-                if (ae.InnerException.GetType() == typeof(ApiException))
-                {
-                    var aex = (ApiException)ae.InnerException;
-                    Assert.Fail(aex.Message);
-                }
-                else
-                {
-                    Assert.Fail(ae.Message);
-                }
-                
-            }
-
-        }
-
-        private string ListFQN
-        {
-            get { return String.Format("{0}@{1}", listName, _appSetting.Namespace); }
-        }
-
-        private void DeleteSchema()
-        {
-            
+            _entitySchemaHandler.InstallSchemaAsync(new ApiContext(TenantId), contactEntityList, EntityScope.Tenant,idProperty, indexProperties).Wait();
         }
     }
 
-    public class Person
+    public class Contact
     {
         public int Id { get; set; }
         public String FirstName { get; set; }
