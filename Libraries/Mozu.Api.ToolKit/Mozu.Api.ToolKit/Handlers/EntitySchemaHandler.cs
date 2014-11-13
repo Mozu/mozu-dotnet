@@ -87,17 +87,21 @@ namespace Mozu.Api.ToolKit.Handlers
             if (indexedProperties != null && indexedProperties.Count > 4) throw new Exception("Only 4 indexed properties are supported");
             if (string.IsNullOrEmpty(entityList.Name)) throw new Exception("Entity name is missing");
 
-
-            entityList.ContextLevel = scope.ToString();
-            entityList.IndexA = indexedProperties != null && indexedProperties.Count >= 1 ? indexedProperties[0] : null;
-            entityList.IndexB = indexedProperties != null && indexedProperties.Count >= 2 ? indexedProperties[1] : null;
-            entityList.IndexC = indexedProperties != null && indexedProperties.Count >= 3 ? indexedProperties[2] : null;
-            entityList.IndexD = indexedProperties != null && indexedProperties.Count >= 4 ? indexedProperties[4] : null;
-
             entityList.TenantId = apiContext.TenantId;
+            entityList.ContextLevel = scope.ToString();
+
+            if (indexedProperties != null) { 
+                entityList.IndexA = indexedProperties.Count >= 1 ? indexedProperties[0] : null;
+                entityList.IndexB = indexedProperties.Count >= 2 ? indexedProperties[1] : null;
+                entityList.IndexC = indexedProperties.Count >= 3 ? indexedProperties[2] : null;
+                entityList.IndexD = indexedProperties.Count >= 4 ? indexedProperties[4] : null;
+            }
+            
             if (idProperty == null) entityList.UseSystemAssignedId = true;
             else entityList.IdProperty = idProperty;
-            if (string.IsNullOrEmpty(entityList.NameSpace)) entityList.NameSpace = _appSetting.Namespace;
+
+            if (string.IsNullOrEmpty(entityList.NameSpace)) 
+                entityList.NameSpace = _appSetting.Namespace;
 
             var entityListResource = new EntityListResource(apiContext);
             var listFQN = GetListFQN(entityList.Name, entityList.NameSpace);
