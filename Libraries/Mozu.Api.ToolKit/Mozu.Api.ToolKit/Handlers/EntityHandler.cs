@@ -6,7 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Mozu.Api.Resources.Platform.Entitylists;
 using Mozu.Api.ToolKit.Config;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
 
 namespace Mozu.Api.ToolKit.Handlers
 {
@@ -23,6 +25,13 @@ namespace Mozu.Api.ToolKit.Handlers
     {
 
         private readonly IAppSetting _appSetting;
+
+        public JsonSerializer SerializerSettings = new JsonSerializer
+        {
+            ContractResolver = new CamelCasePropertyNamesContractResolver(),
+            NullValueHandling = NullValueHandling.Ignore
+        };
+
         public EntityHandler(IAppSetting appSetting)
         {
             _appSetting = appSetting;
@@ -35,7 +44,7 @@ namespace Mozu.Api.ToolKit.Handlers
             try
             {
                 var jobject = await entityResource.GetEntityAsync(listFQN, id);
-                return jobject.ToObject<T>();
+                return jobject.ToObject<T>(SerializerSettings);
             }
             catch (ApiException apiExc)
             {
@@ -49,7 +58,7 @@ namespace Mozu.Api.ToolKit.Handlers
         public async Task<T> UpsertEntityAsync<T>(IApiContext apiContext, String id, String listName, T obj)
         {
             var entityResource = new EntityResource(apiContext);
-            var jobject = JObject.FromObject(obj);
+            var jobject = JObject.FromObject(obj, SerializerSettings);
             var listFQN = ValidateListName(listName);
             var existing = await GetEntityAsync<T>(apiContext, id, listName);
 
@@ -94,9 +103,9 @@ namespace Mozu.Api.ToolKit.Handlers
             return entityCollection;
         }
 
-        private static T JObjectConverter<T>(JObject input)
+        private T JObjectConverter<T>(JObject input)
         {
-            var obj = input.ToObject<T>();
+            var obj = input.ToObject<T>(SerializerSettings);
             return obj;
         }
 

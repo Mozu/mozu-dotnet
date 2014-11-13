@@ -75,6 +75,7 @@
     <Compile Include="BaseTest.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="EntityHandlerTest.cs" />
+    <Compile Include="ExtensionHandlerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
