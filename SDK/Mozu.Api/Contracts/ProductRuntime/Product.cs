@@ -102,6 +102,11 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string VariationProductCode { get; set; }
 
 			///
+			///Complex type that contains content for a language specified by LocaleCode.
+			///
+			public ProductContent Content { get; set; }
+
+			///
 			///List of shipping discounts that can be applied to the product.
 			///
 			public List<Discount> AvailableShippingDiscounts { get; set; }
@@ -115,11 +120,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///List of categories associated with the product.
 			///
 			public List<Category> Categories { get; set; }
-
-			///
-			///Complex type that contains content for a language specified by LocaleCode.
-			///
-			public ProductContent Content { get; set; }
 
 			///
 			///Array of active inventory level information associated with the product.

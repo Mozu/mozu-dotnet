@@ -19,6 +19,16 @@ namespace Mozu.Api.Contracts.Core
 		public class UserSystemData
 		{
 			///
+			///The number of login attempts left for the user. The user must login successfully before this value reaches zero otherwise the account will be locked.
+			///
+			public int RemainingLoginAttempts { get; set; }
+
+			///
+			///Date and time when the entity was last updated, represented in UTC Date/Time.
+			///
+			public DateTime? UpdatedOn { get; set; }
+
+			///
 			///Date and time when the entity was created, represented in UTC Date/Time.
 			///
 			public DateTime? CreatedOn { get; set; }
@@ -57,16 +67,6 @@ namespace Mozu.Api.Contracts.Core
 			///When the password was last modified. System-supplied and read-only.
 			///
 			public DateTime? LastPasswordChangeOn { get; set; }
-
-			///
-			///The number of login attempts left for the user. The user must login successfully before this value reaches zero otherwise the account will be locked.
-			///
-			public int RemainingLoginAttempts { get; set; }
-
-			///
-			///Date and time when the entity was last updated, represented in UTC Date/Time.
-			///
-			public DateTime? UpdatedOn { get; set; }
 
 		}
 
