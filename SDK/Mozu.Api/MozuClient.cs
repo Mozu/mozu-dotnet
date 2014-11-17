@@ -12,6 +12,8 @@ using Mozu.Api.Resources.Platform;
 using Mozu.Api.Security;
 using Mozu.Api.Utilities;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
 
 namespace Mozu.Api
 {
@@ -251,6 +253,9 @@ namespace Mozu.Api
 
 		public virtual TResult Result()
 		{
+            if (HttpResponse.StatusCode == HttpStatusCode.NotFound && !MozuConfig.ThrowExceptionOn404)
+                return default(TResult);
+
 			if (typeof(TResult) == typeof(Stream))
 				return (TResult)(object)HttpResponse.Content.ReadAsStreamAsync().Result;
 
@@ -264,6 +269,9 @@ namespace Mozu.Api
 
 		public virtual async Task<TResult> ResultAsync()
 		{
+		    if (HttpResponse.StatusCode == HttpStatusCode.NotFound && !MozuConfig.ThrowExceptionOn404)
+		      return default(TResult);
+
 			if (typeof(TResult) == typeof(Stream))
 				return (TResult)(object)(await HttpResponse.Content.ReadAsStreamAsync());
 
@@ -318,10 +326,15 @@ namespace Mozu.Api
             _resourceUrl = resourceUrl;
         }
 
-        private readonly JsonSerializerSettings _jsonSerializerSettings = new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore};
         protected void SetBody(TBody body)
         {
-            var stringContent = JsonConvert.SerializeObject(body, _jsonSerializerSettings);
+            var jsonSerializerSettings = new JsonSerializerSettings
+            {
+                ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                NullValueHandling = NullValueHandling.Ignore
+            };
+
+            var stringContent = JsonConvert.SerializeObject(body, jsonSerializerSettings);
             SetBody(stringContent);
             
         }

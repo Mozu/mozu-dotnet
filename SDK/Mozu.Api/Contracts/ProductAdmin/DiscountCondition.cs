@@ -80,6 +80,16 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public DateTime? StartDate { get; set; }
 
 			///
+			///List of customer segments associated with the discount. Shoppers who are members of an associated customer segment can redeem this discount.
+			///
+			public List<CustomerSegment> CustomerSegments { get; set; }
+
+			///
+			///List of the product categories that are not eligible for the discount.
+			///
+			public List<CategoryDiscountCondition> ExcludedCategories { get; set; }
+
+			///
 			///List of the products that are not eligible for the discount.
 			///
 			public List<ProductDiscountCondition> ExcludedProducts { get; set; }
@@ -93,16 +103,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///List of products that are eligible for the discount.
 			///
 			public List<ProductDiscountCondition> IncludedProducts { get; set; }
-
-			///
-			///List of customer segments associated with the discount. Shoppers who are members of an associated customer segment can redeem this discount.
-			///
-			public List<CustomerSegment> CustomerSegments { get; set; }
-
-			///
-			///List of the product categories that are not eligible for the discount.
-			///
-			public List<CategoryDiscountCondition> ExcludedCategories { get; set; }
 
 		}
 

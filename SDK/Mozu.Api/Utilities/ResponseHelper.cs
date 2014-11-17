@@ -41,6 +41,9 @@ namespace Mozu.Api.Utilities
                 exception.HttpStatusCode = response.StatusCode;
                 exception.CorrelationId = HttpHelper.GetHeaderValue(Headers.X_VOL_CORRELATION, response.Headers);
                 exception.ApiContext = apiContext;
+                if (!MozuConfig.ThrowExceptionOn404 &&
+                    string.Equals(exception.ErrorCode, "ITEM_NOT_FOUND", StringComparison.OrdinalIgnoreCase))
+                    return;
                 throw exception;
             }
         }
@@ -64,6 +67,11 @@ namespace Mozu.Api.Utilities
 				exception.HttpStatusCode = response.StatusCode;
 				exception.CorrelationId = HttpHelper.GetHeaderValue(Headers.X_VOL_CORRELATION, response.Headers);
 				exception.ApiContext = apiContext;
+
+			    if (!MozuConfig.ThrowExceptionOn404 &&
+			        string.Equals(exception.ErrorCode, "ITEM_NOT_FOUND", StringComparison.OrdinalIgnoreCase))
+			        return;
+
 				throw exception;
 			}
 		}

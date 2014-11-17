@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Mozu.Api.Contracts.ProductAdmin;
+using Mozu.Api.Resources.Commerce.Catalog.Admin;
 using Mozu.Api.Test.Helpers;
 using Mozu.Api.Test.Factories;
 using System.Configuration;
@@ -92,6 +94,15 @@ namespace Mozu.Api.Test.MsTestCases
         #endregion
 
 
+        [TestMethod]
+        public void GetProductTest()
+        {
+            var messageHandler = ServiceClientMessageFactory.GetTestClientMessage(TestBaseTenant.Id,
+                                                       TestBaseTenant.MasterCatalogs.First().Id, TestBaseTenant.MasterCatalogs.First().Catalogs.First().Id);
+            var productResource = new ProductResource(messageHandler.ApiContext, DataViewMode.Live);
+            var product = productResource.GetProductAsync("test").Result;
+            Assert.IsNull(product);
+        }
         
         /// <summary>
         /// GetProducts
