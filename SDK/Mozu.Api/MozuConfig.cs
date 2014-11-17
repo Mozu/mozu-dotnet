@@ -12,6 +12,7 @@ namespace Mozu.Api
         private static int _capabilityTimeoutInSeconds = 180;
         private static int _eventTimeoutInSeconds = 180;
 		private static string _baseAppAuthUrl = "https://home.mozu.com";
+        private static bool _throwExceptionOn404 = false;
 
         public static string SharedSecret { get; internal set; }
         public static string ApplicationId { get; internal set; }
@@ -39,5 +40,10 @@ namespace Mozu.Api
 			get { return _baseAppAuthUrl; }
 			set { _baseAppAuthUrl = value; }
 		}
+
+        public static bool ThrowExceptionOn404 {
+            get { return _throwExceptionOn404; }
+            set { _throwExceptionOn404 = value; }
+        }
     }
 }

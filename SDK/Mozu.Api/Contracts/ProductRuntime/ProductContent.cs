@@ -20,6 +20,11 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		public class ProductContent
 		{
 			///
+			///Description defined for the metadata used to internally manage information about the product.
+			///
+			public string MetaTagDescription { get; set; }
+
+			///
 			///Keywords defined for the metadata used to internally manage information about the product.
 			///
 			public string MetaTagKeywords { get; set; }
@@ -48,11 +53,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///Product URL defined for search engine optimization.
 			///
 			public string SeoFriendlyUrl { get; set; }
-
-			///
-			///Description defined for the metadata used to internally manage information about the product.
-			///
-			public string MetaTagDescription { get; set; }
 
 			///
 			///List of image files associated with the product.

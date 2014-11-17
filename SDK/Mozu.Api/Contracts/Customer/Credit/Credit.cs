@@ -42,7 +42,7 @@ namespace Mozu.Api.Contracts.Customer.Credit
 			///
 			///The current remaining balance of the credit applied to the customer account.
 			///
-			public decimal CurrentBalance { get; set; }
+			public decimal? CurrentBalance { get; set; }
 
 			///
 			///Unique identifier of the shopper associated with the applied credit. For gift cards, this property is not required.
@@ -57,7 +57,7 @@ namespace Mozu.Api.Contracts.Customer.Credit
 			///
 			///The initial balance of the credit applied to the customer account. This value cannot be changed after it is set.
 			///
-			public decimal InitialBalance { get; set; }
+			public decimal? InitialBalance { get; set; }
 
 			///
 			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
