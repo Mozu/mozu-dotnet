@@ -58,18 +58,10 @@ namespace Mozu.Api.ToolKit.Handlers
             }
             catch (AggregateException ae)
             {
-                if (ae.InnerException.GetType() != typeof(ApiException))
-                {
-                    _logger.Error(ae.Message, ae);
-                    throw ae;
-                }
+                if (ae.InnerException.GetType() == typeof (ApiException)) throw;
                 var aex = (ApiException)ae.InnerException;
-                if (!string.Equals(aex.ErrorCode, "ITEM_NOT_FOUND", StringComparison.OrdinalIgnoreCase))
-                {
-                    _logger.Error(aex.Message, aex);
-                    throw aex;
-                }
-
+                _logger.Error(aex.Message, aex);
+                throw aex;
             }
             return entityList;
         }
@@ -115,12 +107,8 @@ namespace Mozu.Api.ToolKit.Handlers
             }
             catch (AggregateException ae)
             {
-                if (ae.InnerException.GetType() != typeof (ApiException))
-                {
-                    _logger.Error(ae.Message, ae);
-                    throw ae;
-                }
-                var aex = (ApiException) ae.InnerException;
+                if (ae.InnerException.GetType() == typeof(ApiException)) throw;
+                var aex = (ApiException)ae.InnerException;
                 _logger.Error(aex.Message, aex);
                 throw aex;
             }

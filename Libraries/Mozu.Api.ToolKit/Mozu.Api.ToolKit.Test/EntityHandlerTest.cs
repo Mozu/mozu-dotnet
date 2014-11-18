@@ -51,6 +51,7 @@ namespace Mozu.Api.ToolKit.Test
         public void GetContactTest()
         {
             var contact = _entityHandler.GetEntityAsync<Contact>(new ApiContext(TenantId), "1", listName).Result;
+            Assert.IsNotNull(contact);
             Assert.AreEqual(contact.Id, 1);
             Assert.AreEqual(contact.FirstName, "Foo");
             Assert.AreEqual(contact.LastName, "Bar");
