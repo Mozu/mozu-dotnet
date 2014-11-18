@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Mozu.Api.Logging;
 using Mozu.Api.Resources.Platform.Entitylists;
 using Mozu.Api.ToolKit.Config;
 using Newtonsoft.Json;
@@ -25,6 +26,7 @@ namespace Mozu.Api.ToolKit.Handlers
     {
 
         private readonly IAppSetting _appSetting;
+        private readonly ILogger _logger = LogManager.GetLogger(typeof(EntityHandler));
 
         public JsonSerializer SerializerSettings = new JsonSerializer
         {
@@ -44,12 +46,16 @@ namespace Mozu.Api.ToolKit.Handlers
             try
             {
                 var jobject = await entityResource.GetEntityAsync(listFQN, id);
+                if (jobject == null)
+                    return default(T);
                 return jobject.ToObject<T>(SerializerSettings);
             }
-            catch (ApiException apiExc)
+            catch (AggregateException ae)
             {
-                if (apiExc.HttpStatusCode != HttpStatusCode.NotFound)
-                    throw apiExc;
+                if (ae.InnerException.GetType() == typeof(ApiException)) throw;
+                var aex = (ApiException)ae.InnerException;
+                _logger.Error(aex.Message, aex);
+                throw aex;
             }
 
             return default(T);
