@@ -86,7 +86,7 @@ namespace Mozu.Api.ToolKit.Handlers
                 entityList.IndexA = indexedProperties.Count >= 1 ? indexedProperties[0] : null;
                 entityList.IndexB = indexedProperties.Count >= 2 ? indexedProperties[1] : null;
                 entityList.IndexC = indexedProperties.Count >= 3 ? indexedProperties[2] : null;
-                entityList.IndexD = indexedProperties.Count >= 4 ? indexedProperties[4] : null;
+                entityList.IndexD = indexedProperties.Count >= 4 ? indexedProperties[3] : null;
             }
             
             if (idProperty == null) entityList.UseSystemAssignedId = true;
