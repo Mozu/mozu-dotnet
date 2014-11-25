@@ -21,6 +21,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class Facet
 		{
 			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
 			///Unique identifier for the storefront container used to organize products.
 			///
 			public int CategoryId { get; set; }
@@ -49,11 +54,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///Overrides a facet inherited from a parent category for a specified subcategory. System-supplied and read only.
 			///
 			public int? OverrideFacetId { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
 
 			///
 			///For range type facets, an array of ranges to use for the facet values. For example, a price facet might have range queries for $0-$25, $25-$50, and $50-$100.

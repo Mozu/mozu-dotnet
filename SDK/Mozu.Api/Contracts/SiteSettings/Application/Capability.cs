@@ -26,6 +26,11 @@ namespace Mozu.Api.Contracts.SiteSettings.Application
 			public List<string> ActiveCreditTypes { get; set; }
 
 			///
+			///Array list of the countries to which this capability can actively ship.
+			///
+			public List<ActiveShippingCountry> ActiveShippingCountries { get; set; }
+
+			///
 			///Array list of the countries for which this capability can actively shop.
 			///
 			public List<string> ActiveShoppingCountries { get; set; }
@@ -56,6 +61,11 @@ namespace Mozu.Api.Contracts.SiteSettings.Application
 			public bool? Initialized { get; set; }
 
 			///
+			///Array list of URL endpoints for the operations associated with this capability.
+			///
+			public List<OperationUrl> OperationUrls { get; set; }
+
+			///
 			///Unique identifier of the developer account or tenant associated for which the capability is entitled.
 			///
 			public int? ScopeId { get; set; }
@@ -64,16 +74,6 @@ namespace Mozu.Api.Contracts.SiteSettings.Application
 			///The type of scope for which the tenant is entitled, which is developer or tenant.
 			///
 			public string ScopeType { get; set; }
-
-			///
-			///Array list of the countries to which this capability can actively ship.
-			///
-			public List<ActiveShippingCountry> ActiveShippingCountries { get; set; }
-
-			///
-			///Array list of URL endpoints for the operations associated with this capability.
-			///
-			public List<OperationUrl> OperationUrls { get; set; }
 
 			///
 			///Array list of credit types this capability supports.

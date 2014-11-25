@@ -41,9 +41,24 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string AttributeFQN { get; set; }
 
 			///
+			///List of key-value pairs that store metadata associated with the product attribute.
+			///
+			public List<AttributeMetadataItem> AttributeMetadata { get; set; }
+
+			///
 			///Generated sequence that increments for each product attribute created. This value is system-supplied and read-only.
 			///
 			public int? AttributeSequence { get; set; }
+
+			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
+			///Complex type that contains content for a language specified by LocaleCode.
+			///
+			public AttributeLocalizedContent Content { get; set; }
 
 			///
 			///The data type of the product attribute, which is a Bool, DateTime, Number, or String. The attribute's data type cannot be changed.
@@ -70,6 +85,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool? IsProperty { get; set; }
 
+			public List<AttributeLocalizedContent> LocalizedContent { get; set; }
+
 			///
 			///The unique identifier of the master catalog associated with the entity.
 			///
@@ -81,28 +98,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string Namespace { get; set; }
 
 			///
-			///The type of value associated with the product attribute, which is ShopperEntered (the shopper selects or enters an attribute value during checkout), Predefined (the merchant sets the attribute value from a list during product attribute definition), or AdminEntered (the merchant selects or enters a value during product definition). The attribute value type cannot be changed.
-			///
-			public string ValueType { get; set; }
-
-			///
-			///List of key-value pairs that store metadata associated with the product attribute.
-			///
-			public List<AttributeMetadataItem> AttributeMetadata { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
-
-			///
-			///Complex type that contains content for a language specified by LocaleCode.
-			///
-			public AttributeLocalizedContent Content { get; set; }
-
-			public List<AttributeLocalizedContent> LocalizedContent { get; set; }
-
-			///
 			///This API type provides the search and indexing settings for the attribute.
 			///
 			public AttributeSearchSettings SearchSettings { get; set; }
@@ -111,6 +106,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///Properties of the validation of a product attribute, which contains rules that dictate what values are valid entries for product attributes.
 			///
 			public AttributeValidation Validation { get; set; }
+
+			///
+			///The type of value associated with the product attribute, which is ShopperEntered (the shopper selects or enters an attribute value during checkout), Predefined (the merchant sets the attribute value from a list during product attribute definition), or AdminEntered (the merchant selects or enters a value during product definition). The attribute value type cannot be changed.
+			///
+			public string ValueType { get; set; }
 
 			///
 			///Array list of the defined vocabulary values for the specified product attribute. For example, for a Color attribute, vocabulary values might include black, white, and purple.

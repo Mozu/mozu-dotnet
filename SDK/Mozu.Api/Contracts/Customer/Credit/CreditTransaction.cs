@@ -20,6 +20,11 @@ namespace Mozu.Api.Contracts.Customer.Credit
 		public class CreditTransaction
 		{
 			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
 			///Comments entered for a transaction. Depending on the interface, these comments might be visible to authorized shoppers and users.
 			///
 			public string Comments { get; set; }
@@ -38,11 +43,6 @@ namespace Mozu.Api.Contracts.Customer.Credit
 			///The type of transaction to perform for the customer credit. To decrease the balance, set this parameter to "Debit". To increase the balance, set this parameter to "Credit".
 			///
 			public string TransactionType { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
 
 		}
 

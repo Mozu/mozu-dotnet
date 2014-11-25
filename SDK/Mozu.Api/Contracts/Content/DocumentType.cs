@@ -27,6 +27,8 @@ namespace Mozu.Api.Contracts.Content
 
 			public string InstallationPackage { get; set; }
 
+			public JObject Metadata { get; set; }
+
 			///
 			///The name of the document type.
 			///
@@ -34,11 +36,9 @@ namespace Mozu.Api.Contracts.Content
 
 			public string Namespace { get; set; }
 
-			public string Version { get; set; }
-
-			public JObject Metadata { get; set; }
-
 			public List<Property> Properties { get; set; }
+
+			public string Version { get; set; }
 
 		}
 

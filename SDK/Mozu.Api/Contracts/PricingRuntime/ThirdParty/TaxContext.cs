@@ -25,6 +25,16 @@ namespace Mozu.Api.Contracts.PricingRuntime.ThirdParty
 			public string CustomerId { get; set; }
 
 			///
+			///The address to which item in the order will ship.
+			///
+			public Address DestinationAddress { get; set; }
+
+			///
+			///The address from which the item in the order will ship.
+			///
+			public Address OriginAddress { get; set; }
+
+			///
 			///Unique identifier of the tax context.
 			///
 			public string TaxContextId { get; set; }
@@ -38,16 +48,6 @@ namespace Mozu.Api.Contracts.PricingRuntime.ThirdParty
 			///The taxable amount that can be levied against shipping charges.
 			///
 			public bool? TaxShipping { get; set; }
-
-			///
-			///The address to which item in the order will ship.
-			///
-			public Address DestinationAddress { get; set; }
-
-			///
-			///The address from which the item in the order will ship.
-			///
-			public Address OriginAddress { get; set; }
 
 		}
 

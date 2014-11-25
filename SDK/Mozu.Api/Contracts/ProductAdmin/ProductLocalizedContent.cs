@@ -30,6 +30,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string ProductFullDescription { get; set; }
 
 			///
+			///List of product images associated with a product.
+			///
+			public List<ProductLocalizedImage> ProductImages { get; set; }
+
+			///
 			///The descriptive brief product name.
 			///
 			public string ProductName { get; set; }
@@ -38,11 +43,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///Brief description of the product typically used when the product is displayed in a list or in search results.
 			///
 			public string ProductShortDescription { get; set; }
-
-			///
-			///List of product images associated with a product.
-			///
-			public List<ProductLocalizedImage> ProductImages { get; set; }
 
 		}
 

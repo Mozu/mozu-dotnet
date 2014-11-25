@@ -29,9 +29,19 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string GoodsType { get; set; }
 
 			///
+			///This contains the inventory information about bundled products. If it manages stock, it specifies what the out of stock behavior is.
+			///
+			public ProductInventoryInfo InventoryInfo { get; set; }
+
+			///
 			///If true, the component product of the bundle should not ship in a package with the rest of the product bundle, and should ship in a package by itself. System-supplied and read only.
 			///
 			public bool? IsPackagedStandAlone { get; set; }
+
+			///
+			///Dimensions of the packaged product.
+			///
+			public PackageMeasurements Measurements { get; set; }
 
 			///
 			///BundledProducts result from a static bundle or are dynamically added as a result of the shopper selecting products as extras. When the bundled item is dynamic, it includes the attribute's fully qualified name of the extra that it came from. When optionAttributeFQN is null, the bundled item was statically defined, when not null, the item came from an extra selection.
@@ -64,16 +74,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///The quantity of a component product in its product bundle.
 			///
 			public int Quantity { get; set; }
-
-			///
-			///This contains the inventory information about bundled products. If it manages stock, it specifies what the out of stock behavior is.
-			///
-			public ProductInventoryInfo InventoryInfo { get; set; }
-
-			///
-			///Dimensions of the packaged product.
-			///
-			public PackageMeasurements Measurements { get; set; }
 
 		}
 

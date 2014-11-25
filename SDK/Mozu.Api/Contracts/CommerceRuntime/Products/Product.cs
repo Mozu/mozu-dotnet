@@ -21,6 +21,16 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 		public class Product
 		{
 			///
+			///Collection of component products that make up a single product bundle with its own product code, added to a cart or order.
+			///
+			public List<BundledProduct> BundledProducts { get; set; }
+
+			///
+			///The list of all categories associated with the product.
+			///
+			public List<Category> Categories { get; set; }
+
+			///
 			///Short description of the product in the language specified in the locale code for the storefront.
 			///
 			public string Description { get; set; }
@@ -76,6 +86,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			public bool? IsTaxable { get; set; }
 
 			///
+			///Dimensions of the packaged product.
+			///
+			public PackageMeasurements Measurements { get; set; }
+
+			///
 			///The manufacturer's part number for the product.
 			///
 			public string MfgPartNumber { get; set; }
@@ -84,6 +99,16 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			///The name of the product that appears on the storefront.
 			///
 			public string Name { get; set; }
+
+			///
+			///The list of option attributes configured for the product.
+			///
+			public List<ProductOption> Options { get; set; }
+
+			///
+			///The price of the product that appears on the storefront including any applied discounts.
+			///
+			public ProductPrice Price { get; set; }
 
 			///
 			///Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
@@ -106,6 +131,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			public string ProductUsage { get; set; }
 
 			///
+			///Collection of property attributes defined for the item in the cart or order.
+			///
+			public List<ProductProperty> Properties { get; set; }
+
+			///
 			///The universal product code defined for the product.
 			///
 			public string Upc { get; set; }
@@ -114,36 +144,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			///Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
 			///
 			public string VariationProductCode { get; set; }
-
-			///
-			///Collection of component products that make up a single product bundle with its own product code, added to a cart or order.
-			///
-			public List<BundledProduct> BundledProducts { get; set; }
-
-			///
-			///The list of all categories associated with the product.
-			///
-			public List<Category> Categories { get; set; }
-
-			///
-			///Dimensions of the packaged product.
-			///
-			public PackageMeasurements Measurements { get; set; }
-
-			///
-			///The list of option attributes configured for the product.
-			///
-			public List<ProductOption> Options { get; set; }
-
-			///
-			///The price of the product that appears on the storefront including any applied discounts.
-			///
-			public ProductPrice Price { get; set; }
-
-			///
-			///Collection of property attributes defined for the item in the cart or order.
-			///
-			public List<ProductProperty> Properties { get; set; }
 
 		}
 

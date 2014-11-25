@@ -20,6 +20,11 @@ namespace Mozu.Api.Contracts.Reference
 		public class Field
 		{
 			///
+			///Data for the field property.
+			///
+			public List<FieldData> Data { get; set; }
+
+			///
 			///Identifier of the field.
 			///
 			public int Id { get; set; }
@@ -38,11 +43,6 @@ namespace Mozu.Api.Contracts.Reference
 			///Type of field.
 			///
 			public string Type { get; set; }
-
-			///
-			///Data for the field property.
-			///
-			public List<FieldData> Data { get; set; }
 
 		}
 

@@ -11,10 +11,10 @@
 using System;
 using System.Collections.Generic;
 
-using Mozu.Api.Contracts.Core;
-using Mozu.Api.Contracts.CommerceRuntime.Products;
-using Mozu.Api.Contracts.CommerceRuntime.Discounts;
 using Mozu.Api.Contracts.CommerceRuntime.Commerce;
+using Mozu.Api.Contracts.CommerceRuntime.Discounts;
+using Mozu.Api.Contracts.CommerceRuntime.Products;
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 {
@@ -23,6 +23,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 		///
 		public class CartItem
 		{
+			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
 			///
 			///The subtotal of the cart item including any applied discount calculations.
 			///
@@ -81,9 +86,29 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			public string LocaleCode { get; set; }
 
 			///
+			///The properties of the associated product.
+			///
+			public Product Product { get; set; }
+
+			///
+			///Product discounts displays a list of all applicable discount.
+			///
+			public AppliedLineItemProductDiscount ProductDiscount { get; set; }
+
+			///
+			///List of product-level discounts projected to apply to the cart item at checkout.
+			///
+			public List<AppliedLineItemProductDiscount> ProductDiscounts { get; set; }
+
+			///
 			///The specified quantity of the cart item.
 			///
 			public int Quantity { get; set; }
+
+			///
+			///List of shipping discounts projected to apply to the cart item at checkout.
+			///
+			public List<AppliedLineItemShippingDiscount> ShippingDiscounts { get; set; }
 
 			///
 			///The total amount of tax incurred on the shipping charges in the cart.
@@ -109,31 +134,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///Estimated total amount of the item, including the product price, sales tax, shipping costs, and other fees.
 			///
 			public decimal? Total { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
-
-			///
-			///The properties of the associated product.
-			///
-			public Product Product { get; set; }
-
-			///
-			///Product discounts displays a list of all applicable discount.
-			///
-			public AppliedLineItemProductDiscount ProductDiscount { get; set; }
-
-			///
-			///List of product-level discounts projected to apply to the cart item at checkout.
-			///
-			public List<AppliedLineItemProductDiscount> ProductDiscounts { get; set; }
-
-			///
-			///List of shipping discounts projected to apply to the cart item at checkout.
-			///
-			public List<AppliedLineItemShippingDiscount> ShippingDiscounts { get; set; }
 
 			///
 			///Properties of the unit price associated with the cart item.

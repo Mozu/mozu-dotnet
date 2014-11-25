@@ -19,6 +19,16 @@ namespace Mozu.Api.Contracts.Core
 		public class UserRole
 		{
 			///
+			///Properties of the developer account or Mozu tenant associated with the user role.
+			///
+			public UserScope AssignedInScope { get; set; }
+
+			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
 			///Unique identifier of the user role.
 			///
 			public int RoleId { get; set; }
@@ -32,16 +42,6 @@ namespace Mozu.Api.Contracts.Core
 			///Unique identifier of the user the role is assigned to.
 			///
 			public string UserId { get; set; }
-
-			///
-			///Properties of the developer account or Mozu tenant associated with the user role.
-			///
-			public UserScope AssignedInScope { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
 
 		}
 

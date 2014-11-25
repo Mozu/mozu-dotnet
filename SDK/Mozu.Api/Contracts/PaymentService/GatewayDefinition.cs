@@ -25,6 +25,11 @@ namespace Mozu.Api.Contracts.PaymentService
 			public string CountryCode { get; set; }
 
 			///
+			///Credential fields for the payment gateway. For security purposes, Mozu does not return these credential fields.
+			///
+			public List<GatewayCredentialFieldDefinition> CredentialDefinitions { get; set; }
+
+			///
 			///Unique identifier of the payment gateway definition.
 			///
 			public string Id { get; set; }
@@ -40,29 +45,24 @@ namespace Mozu.Api.Contracts.PaymentService
 			public string Name { get; set; }
 
 			///
-			///URL of the production payment service.
-			///
-			public string ProdServiceURL { get; set; }
-
-			///
-			///URL of the test payment service environment.
-			///
-			public string TestServiceURL { get; set; }
-
-			///
-			///Credential fields for the payment gateway. For security purposes, Mozu does not return these credential fields.
-			///
-			public List<GatewayCredentialFieldDefinition> CredentialDefinitions { get; set; }
-
-			///
 			///Definition of the preauthorization gateway.
 			///
 			public PreAuthorizeDefinition PreAuthorizeDefinition { get; set; }
 
 			///
+			///URL of the production payment service.
+			///
+			public string ProdServiceURL { get; set; }
+
+			///
 			///The types of credit cards supported by this payment gateway.
 			///
 			public List<SupportedCard> SupportedCards { get; set; }
+
+			///
+			///URL of the test payment service environment.
+			///
+			public string TestServiceURL { get; set; }
 
 		}
 

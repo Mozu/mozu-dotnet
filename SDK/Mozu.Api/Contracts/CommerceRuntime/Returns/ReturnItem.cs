@@ -22,14 +22,29 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 		public class ReturnItem
 		{
 			///
+			///Properties of a collection of component products that make up a single returned product bundle with its own product code.
+			///
+			public List<ReturnBundle> BundledProducts { get; set; }
+
+			///
 			///Unique identifier of the return whose items you want to get.
 			///
 			public string Id { get; set; }
 
 			///
+			///List of merchant-supplied notes associated with the return item.
+			///
+			public List<OrderNote> Notes { get; set; }
+
+			///
 			///Unique identifier of the item in the original completed order. All return items should be associated with a corresponding order item.
 			///
 			public string OrderItemId { get; set; }
+
+			///
+			///Properties of the product definition associated with the item in the return.
+			///
+			public Product Product { get; set; }
 
 			///
 			///The total value of the product returned to the merchant for accounting purposes, calculated by multiplying the cost of the item by its quantity returned.
@@ -57,6 +72,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			public int QuantityShipped { get; set; }
 
 			///
+			///The list of return reasons for the item and the quantity associated with each return reason.
+			///
+			public List<ReturnReason> Reasons { get; set; }
+
+			///
 			///The total value of shipping the returned product to the merchant for accounting purposes, calculated by multiplying the shipping cost of the item by its quantity returned.
 			///
 			public decimal? ShippingLossAmount { get; set; }
@@ -65,26 +85,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///The total tax amount levied on the shipping loss amount.
 			///
 			public decimal? ShippingLossTaxAmount { get; set; }
-
-			///
-			///Properties of a collection of component products that make up a single returned product bundle with its own product code.
-			///
-			public List<ReturnBundle> BundledProducts { get; set; }
-
-			///
-			///List of merchant-supplied notes associated with the return item.
-			///
-			public List<OrderNote> Notes { get; set; }
-
-			///
-			///Properties of the product definition associated with the item in the return.
-			///
-			public Product Product { get; set; }
-
-			///
-			///The list of return reasons for the item and the quantity associated with each return reason.
-			///
-			public List<ReturnReason> Reasons { get; set; }
 
 		}
 

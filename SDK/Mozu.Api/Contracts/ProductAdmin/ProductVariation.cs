@@ -20,6 +20,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class ProductVariation
 		{
 			///
+			///The difference between the base price for the product and this variation of the product, which can be a positive or negative decimal value. For example, if the base price for a t-shirt product is $10, but the XL variation should cost $12, the DeltaPrice value should be "2". However, if the XS variation should only cost $8, the DeltaPrice value should be "-2".
+			///
+			public ProductVariationDeltaPrice DeltaPrice { get; set; }
+
+			///
 			///The difference between the base weight for a product and this variation of the product, which can be a positive or negative decimal value.
 			///
 			public decimal? DeltaWeight { get; set; }
@@ -38,6 +43,18 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///If true, the production variation is no longer available for sale. For example, if a client stops selling all "small" shirts, all product variations with the "small" option are set to IsOrphan. System-supplied and read only.
 			///
 			public bool? IsOrphan { get; set; }
+
+			public List<ProductVariationDeltaPrice> LocalizedDeltaPrice { get; set; }
+
+			///
+			///Wrapper for the list of option attributes configured for the product variation.
+			///
+			public List<ProductVariationOption> Options { get; set; }
+
+			///
+			///Supplier-defined properties assigned for the product variation.
+			///
+			public ProductSupplierInfo SupplierInfo { get; set; }
 
 			///
 			///The universal product code associated with the product variation. The UPC of a product is unique across all sales channels.
@@ -58,23 +75,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
 			///
 			public string VariationProductCode { get; set; }
-
-			///
-			///The difference between the base price for the product and this variation of the product, which can be a positive or negative decimal value. For example, if the base price for a t-shirt product is $10, but the XL variation should cost $12, the DeltaPrice value should be "2". However, if the XS variation should only cost $8, the DeltaPrice value should be "-2".
-			///
-			public ProductVariationDeltaPrice DeltaPrice { get; set; }
-
-			public List<ProductVariationDeltaPrice> LocalizedDeltaPrice { get; set; }
-
-			///
-			///Wrapper for the list of option attributes configured for the product variation.
-			///
-			public List<ProductVariationOption> Options { get; set; }
-
-			///
-			///Supplier-defined properties assigned for the product variation.
-			///
-			public ProductSupplierInfo SupplierInfo { get; set; }
 
 		}
 

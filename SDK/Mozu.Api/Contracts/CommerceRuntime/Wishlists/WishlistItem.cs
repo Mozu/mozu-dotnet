@@ -11,10 +11,10 @@
 using System;
 using System.Collections.Generic;
 
-using Mozu.Api.Contracts.Core;
-using Mozu.Api.Contracts.CommerceRuntime.Products;
-using Mozu.Api.Contracts.CommerceRuntime.Discounts;
 using Mozu.Api.Contracts.CommerceRuntime.Commerce;
+using Mozu.Api.Contracts.CommerceRuntime.Discounts;
+using Mozu.Api.Contracts.CommerceRuntime.Products;
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 {
@@ -23,6 +23,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 		///
 		public class WishlistItem
 		{
+			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
 			///
 			///Shopper-entered comments for an item in a wish list.
 			///
@@ -81,6 +86,21 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			public string PriorityType { get; set; }
 
 			///
+			///The properties of the product associated with an item in a wish list.
+			///
+			public Product Product { get; set; }
+
+			///
+			///List of product discounts that apply to the item in the wishlist.
+			///
+			public AppliedLineItemProductDiscount ProductDiscount { get; set; }
+
+			///
+			///Array of product discounts applicable to an item in a wish list. This property is not used at this time and is reserved for future functionality.
+			///
+			public List<AppliedLineItemProductDiscount> ProductDiscounts { get; set; }
+
+			///
 			///The status of the item that indicates whether an item in a wish list can be purchased. Possible values are "Purchasable" which indicates the item can be purchased, "NotPurchasable" which indicates the item is out of stock or otherwise unavailable, or "Missing" which indicates the item has been deleted from the catalog since it was added to the wish list.
 			///
 			public string PurchasableStatusType { get; set; }
@@ -89,6 +109,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			///The quantity of an item in a shopper wish list.
 			///
 			public int Quantity { get; set; }
+
+			///
+			///Array of shipping discounts applicable for an item in a wish list. This property is not used at this time and is reserved for future functionality.
+			///
+			public List<AppliedLineItemShippingDiscount> ShippingDiscounts { get; set; }
 
 			///
 			///The total amount of tax levied against shipping charges for an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
@@ -114,31 +139,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			///The total of an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? Total { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
-
-			///
-			///The properties of the product associated with an item in a wish list.
-			///
-			public Product Product { get; set; }
-
-			///
-			///List of product discounts that apply to the item in the wishlist.
-			///
-			public AppliedLineItemProductDiscount ProductDiscount { get; set; }
-
-			///
-			///Array of product discounts applicable to an item in a wish list. This property is not used at this time and is reserved for future functionality.
-			///
-			public List<AppliedLineItemProductDiscount> ProductDiscounts { get; set; }
-
-			///
-			///Array of shipping discounts applicable for an item in a wish list. This property is not used at this time and is reserved for future functionality.
-			///
-			public List<AppliedLineItemShippingDiscount> ShippingDiscounts { get; set; }
 
 			///
 			///The unit price of an item in a wish list. This property is not calculated at this time and is reserved for future functionality.

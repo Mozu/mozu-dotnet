@@ -1,3 +1,6 @@
-
 1) Add new mozu config property(ThrowExceptionOn404) - If an item(product/Order/Customer) does not exist in Mozu, null value is returned. if this is set to true an ApiException will be throw.
 2) Add build files - Ability to build and generate a nuget package from command line
+
+
+Operations
+0.    Added - commerce.catalog.admin.categories.FixCategoryTreeSequences - POST

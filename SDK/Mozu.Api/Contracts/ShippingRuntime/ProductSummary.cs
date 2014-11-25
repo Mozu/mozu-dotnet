@@ -16,13 +16,13 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 {
 		public class ProductSummary
 		{
-			public string ProductCode { get; set; }
-
-			public string ProductType { get; set; }
-
 			public List<Category> Categories { get; set; }
 
 			public List<ProductOption> Options { get; set; }
+
+			public string ProductCode { get; set; }
+
+			public string ProductType { get; set; }
 
 			public List<ProductProperty> Properties { get; set; }
 

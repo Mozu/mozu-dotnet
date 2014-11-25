@@ -20,6 +20,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class DiscountLocalizedContent
 		{
 			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
 			///The localizable, shopper-facing description defined for the discount.
 			///
 			public string FriendlyDescription { get; set; }
@@ -33,11 +38,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///The localizable name of the discount.
 			///
 			public string Name { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
 
 		}
 

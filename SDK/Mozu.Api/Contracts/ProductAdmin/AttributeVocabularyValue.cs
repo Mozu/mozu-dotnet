@@ -20,6 +20,13 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class AttributeVocabularyValue
 		{
 			///
+			///Complex type that contains content for a language specified by LocaleCode.
+			///
+			public AttributeVocabularyValueLocalizedContent Content { get; set; }
+
+			public List<AttributeVocabularyValueLocalizedContent> LocalizedContent { get; set; }
+
+			///
 			///The actual vocabulary value.
 			///
 			public object Value { get; set; }
@@ -28,13 +35,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///The number that denotes the order of the entity value within a list of entity values.
 			///
 			public int? ValueSequence { get; set; }
-
-			///
-			///Complex type that contains content for a language specified by LocaleCode.
-			///
-			public AttributeVocabularyValueLocalizedContent Content { get; set; }
-
-			public List<AttributeVocabularyValueLocalizedContent> LocalizedContent { get; set; }
 
 		}
 

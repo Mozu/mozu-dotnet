@@ -23,6 +23,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public int AttributeValueId { get; set; }
 
+			public BundledProduct BundledProduct { get; set; }
+
 			///
 			///The difference between the highest price and the lowest price.
 			///
@@ -32,6 +34,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///The difference between the highest weight and the lowest weight.
 			///
 			public decimal? DeltaWeight { get; set; }
+
+			public AttributeVocabularyValueDisplayInfo DisplayInfo { get; set; }
 
 			///
 			///If true, the product option value is the default value that the merchant supplied.
@@ -62,10 +66,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///The value of a product option attribute.
 			///
 			public object Value { get; set; }
-
-			public BundledProduct BundledProduct { get; set; }
-
-			public AttributeVocabularyValueDisplayInfo DisplayInfo { get; set; }
 
 		}
 

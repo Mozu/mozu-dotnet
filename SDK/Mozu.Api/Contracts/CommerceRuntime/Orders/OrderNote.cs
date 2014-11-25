@@ -20,6 +20,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 		public class OrderNote
 		{
 			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
 			///Unique identifier of the order note.
 			///
 			public string Id { get; set; }
@@ -28,11 +33,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///The text content of the order note.
 			///
 			public string Text { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
 
 		}
 

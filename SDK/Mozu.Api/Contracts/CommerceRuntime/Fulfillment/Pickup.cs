@@ -11,8 +11,8 @@
 using System;
 using System.Collections.Generic;
 
-using Mozu.Api.Contracts.Core;
 using Mozu.Api.Contracts.CommerceRuntime.Commerce;
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 {
@@ -22,9 +22,19 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 		public class Pickup
 		{
 			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
 			///Array list of actions that can be performed for the in-store pickup.
 			///
 			public List<string> AvailableActions { get; set; }
+
+			///
+			///List of change messages associated with the pickup.
+			///
+			public List<ChangeMessage> ChangeMessages { get; set; }
 
 			///
 			///The specific code that represents pickup.
@@ -47,24 +57,14 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			public string Id { get; set; }
 
 			///
-			///The fulfillment status of the in-store pickup, which is "Fulfilled," "NotFulfilled," or "PartiallyFulfilled."
-			///
-			public string Status { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
-
-			///
-			///List of change messages associated with the pickup.
-			///
-			public List<ChangeMessage> ChangeMessages { get; set; }
-
-			///
 			///An array list of objects in the returned collection.
 			///
 			public List<PickupItem> Items { get; set; }
+
+			///
+			///The fulfillment status of the in-store pickup, which is "Fulfilled," "NotFulfilled," or "PartiallyFulfilled."
+			///
+			public string Status { get; set; }
 
 		}
 

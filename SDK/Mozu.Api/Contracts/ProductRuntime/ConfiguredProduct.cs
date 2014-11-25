@@ -20,34 +20,14 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		public class ConfiguredProduct
 		{
 			///
-			///The list of fulfillment types the product supports.
-			///
-			public List<string> FulfillmentTypesSupported { get; set; }
-
-			///
-			///The manufacturer part number supplied for the product.
-			///
-			public string MfgPartNumber { get; set; }
-
-			///
-			///Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-			///
-			public string ProductCode { get; set; }
-
-			///
-			///The universal product code defined for the product.
-			///
-			public string Upc { get; set; }
-
-			///
-			///Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
-			///
-			public string VariationProductCode { get; set; }
-
-			///
 			///List of shipping discounts that can be applied to the configured product.
 			///
 			public List<Discount> AvailableShippingDiscounts { get; set; }
+
+			///
+			///The list of fulfillment types the product supports.
+			///
+			public List<string> FulfillmentTypesSupported { get; set; }
 
 			///
 			///Properties of the inventory of the configured product, including the number of items in stock, whether the item appears on the storefront, and whether the item is out of stock or can be back ordered.
@@ -58,6 +38,11 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///Dimensions of the packaged product.
 			///
 			public PackageMeasurements Measurements { get; set; }
+
+			///
+			///The manufacturer part number supplied for the product.
+			///
+			public string MfgPartNumber { get; set; }
 
 			///
 			///The list of options set up in product admin.
@@ -75,9 +60,24 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public ProductPriceRange PriceRange { get; set; }
 
 			///
+			///Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+			///
+			public string ProductCode { get; set; }
+
+			///
 			///The current state of the configured product determines whether or not the product is eligible for purchase. Products with options are only purchasable if the shopper has selected all required options. If the product is not ready for purchase, a message lists missing options that are required.
 			///
 			public ProductPurchasableState PurchasableState { get; set; }
+
+			///
+			///The universal product code defined for the product.
+			///
+			public string Upc { get; set; }
+
+			///
+			///Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
+			///
+			public string VariationProductCode { get; set; }
 
 		}
 

@@ -61,14 +61,14 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string UsageType { get; set; }
 
 			///
-			///The type of value for the attribute, which is either ShopperEntered, AdminEntered, or Predefined.
-			///
-			public string ValueType { get; set; }
-
-			///
 			///Validation rules of an attribute that determine which values are valid for ShopperEntered and AdminEntered ValueTypes.
 			///
 			public AttributeValidation Validation { get; set; }
+
+			///
+			///The type of value for the attribute, which is either ShopperEntered, AdminEntered, or Predefined.
+			///
+			public string ValueType { get; set; }
 
 		}
 

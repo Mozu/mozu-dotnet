@@ -20,6 +20,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Channels
 		public class ChannelGroup
 		{
 			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
 			///User-defined code that identifies the channel group.
 			///
 			public string Code { get; set; }
@@ -33,11 +38,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Channels
 			///Unique identifier of the Mozu tenant.
 			///
 			public int TenantId { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
 
 		}
 

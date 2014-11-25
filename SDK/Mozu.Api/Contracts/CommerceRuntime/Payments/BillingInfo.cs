@@ -20,21 +20,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 		public class BillingInfo
 		{
 			///
-			///If true, the system overrides the customer's billing address information with the supplied fulfillment information.
-			///
-			public bool IsSameBillingShippingAddress { get; set; }
-
-			///
-			///The type of payment, such as credit card, check, or PayPal Express. Additional payment types will be supported in future releases.
-			///
-			public string PaymentType { get; set; }
-
-			///
-			///The code that identifies the store credit to apply to the order.
-			///
-			public string StoreCreditCode { get; set; }
-
-			///
 			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 			///
 			public AuditInfo AuditInfo { get; set; }
@@ -48,6 +33,21 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///If the customer is paying by card, the credit card information.
 			///
 			public PaymentCard Card { get; set; }
+
+			///
+			///If true, the system overrides the customer's billing address information with the supplied fulfillment information.
+			///
+			public bool IsSameBillingShippingAddress { get; set; }
+
+			///
+			///The type of payment, such as credit card, check, or PayPal Express. Additional payment types will be supported in future releases.
+			///
+			public string PaymentType { get; set; }
+
+			///
+			///The code that identifies the store credit to apply to the order.
+			///
+			public string StoreCreditCode { get; set; }
 
 		}
 

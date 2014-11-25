@@ -20,6 +20,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class ProductCollection
 		{
 			///
+			///An array list of objects in the returned collection.
+			///
+			public List<Product> Items { get; set; }
+
+			///
 			///The number of pages returned based on the startIndex and pageSize values specified. This value is system-supplied and read-only.
 			///
 			public int PageCount { get; set; }
@@ -35,11 +40,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///The number of results listed in the query collection, represented by a signed 64-bit (8-byte) integer. This value is system-supplied and read-only.
 			///
 			public int TotalCount { get; set; }
-
-			///
-			///An array list of objects in the returned collection.
-			///
-			public List<Product> Items { get; set; }
 
 		}
 

@@ -19,6 +19,8 @@ namespace Mozu.Api.Contracts.Customer
 		///
 		public class CustomerSegmentCollection
 		{
+			public List<CustomerSegment> Items { get; set; }
+
 			public int PageCount { get; set; }
 
 			///
@@ -35,8 +37,6 @@ namespace Mozu.Api.Contracts.Customer
 			///The number of results listed in the query collection, represented by a signed 64-bit (8-byte) integer. This value is system-supplied and read-only.
 			///
 			public int TotalCount { get; set; }
-
-			public List<CustomerSegment> Items { get; set; }
 
 		}
 
