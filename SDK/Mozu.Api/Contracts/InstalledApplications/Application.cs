@@ -25,6 +25,11 @@ namespace Mozu.Api.Contracts.InstalledApplications
 			public string AppId { get; set; }
 
 			///
+			///List of capabilities installed in a tenant.
+			///
+			public List<Capability> Capabilities { get; set; }
+
+			///
 			///If true, the application is enabled for the tenant. System-supplied and read-only.
 			///
 			public bool? Enabled { get; set; }
@@ -43,11 +48,6 @@ namespace Mozu.Api.Contracts.InstalledApplications
 			///The URL defined for the application that represents the configuration website for the capability.
 			///
 			public string UiConfigurationUrl { get; set; }
-
-			///
-			///List of capabilities installed in a tenant.
-			///
-			public List<Capability> Capabilities { get; set; }
 
 		}
 

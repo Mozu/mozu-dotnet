@@ -24,6 +24,8 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			///
 			public string ItemId { get; set; }
 
+			public List<ProductSummary> ProductSummaries { get; set; }
+
 			///
 			///Quantity of the item for which to calculate the shipping rate.
 			///
@@ -33,8 +35,6 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			///If true, this item must ship separately from other items in a shipment.
 			///
 			public bool? ShipsByItself { get; set; }
-
-			public List<ProductSummary> ProductSummaries { get; set; }
 
 			///
 			///The measured weight and dimensions of the item to ship.

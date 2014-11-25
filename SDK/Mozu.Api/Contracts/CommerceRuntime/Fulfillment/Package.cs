@@ -11,8 +11,8 @@
 using System;
 using System.Collections.Generic;
 
-using Mozu.Api.Contracts.Core;
 using Mozu.Api.Contracts.CommerceRuntime.Commerce;
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 {
@@ -22,9 +22,19 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 		public class Package
 		{
 			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
 			///The actions that a user can perform for a package at this time.
 			///
 			public List<string> AvailableActions { get; set; }
+
+			///
+			///List of change messages associated with the package.
+			///
+			public List<ChangeMessage> ChangeMessages { get; set; }
 
 			///
 			///The code of the product to be fulfilled.
@@ -47,6 +57,16 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			///Unique identifier of a package.
 			///
 			public string Id { get; set; }
+
+			///
+			///An array list of objects in the returned collection.
+			///
+			public List<PackageItem> Items { get; set; }
+
+			///
+			///Dimensional properties of the package.
+			///
+			public PackageMeasurements Measurements { get; set; }
 
 			///
 			///The package type associated with this physical package. Possible values include Tube, Letter, Pak, Small Box (carrier_box_small), Medium Box (carrier_box_medium), Large Box (carrier_box_large), or Custom.
@@ -77,26 +97,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			///Tracking number for the package supplied by the carrier.
 			///
 			public string TrackingNumber { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
-
-			///
-			///List of change messages associated with the package.
-			///
-			public List<ChangeMessage> ChangeMessages { get; set; }
-
-			///
-			///An array list of objects in the returned collection.
-			///
-			public List<PackageItem> Items { get; set; }
-
-			///
-			///Dimensional properties of the package.
-			///
-			public PackageMeasurements Measurements { get; set; }
 
 		}
 

@@ -11,10 +11,10 @@
 using System;
 using System.Collections.Generic;
 
-using Mozu.Api.Contracts.Core;
-using Mozu.Api.Contracts.CommerceRuntime.Products;
-using Mozu.Api.Contracts.CommerceRuntime.Discounts;
 using Mozu.Api.Contracts.CommerceRuntime.Commerce;
+using Mozu.Api.Contracts.CommerceRuntime.Discounts;
+using Mozu.Api.Contracts.CommerceRuntime.Products;
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 {
@@ -23,6 +23,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 		///
 		public class OrderItem
 		{
+			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
 			///
 			///The subtotal of the order item including any applied discount calculations.
 			///
@@ -86,9 +91,29 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public string OriginalCartItemId { get; set; }
 
 			///
+			///The product properties of an item in an order.
+			///
+			public Product Product { get; set; }
+
+			///
+			///The discount that applies to the product.
+			///
+			public AppliedLineItemProductDiscount ProductDiscount { get; set; }
+
+			///
+			///List of product discounts that apply to the item in the order.
+			///
+			public List<AppliedLineItemProductDiscount> ProductDiscounts { get; set; }
+
+			///
 			///The quantity of a specific item in an order.
 			///
 			public int Quantity { get; set; }
+
+			///
+			///List of shipping discounts that apply to the item in the order.
+			///
+			public List<AppliedLineItemShippingDiscount> ShippingDiscounts { get; set; }
 
 			///
 			///The total amount of sales tax incurred for shipping charges associated with this item in a cart.
@@ -114,31 +139,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///The total monetary sum of a specific item in an order.
 			///
 			public decimal? Total { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
-
-			///
-			///The product properties of an item in an order.
-			///
-			public Product Product { get; set; }
-
-			///
-			///The discount that applies to the product.
-			///
-			public AppliedLineItemProductDiscount ProductDiscount { get; set; }
-
-			///
-			///List of product discounts that apply to the item in the order.
-			///
-			public List<AppliedLineItemProductDiscount> ProductDiscounts { get; set; }
-
-			///
-			///List of shipping discounts that apply to the item in the order.
-			///
-			public List<AppliedLineItemShippingDiscount> ShippingDiscounts { get; set; }
 
 			///
 			///Properties of the unit price associated with the order item.

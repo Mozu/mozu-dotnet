@@ -26,21 +26,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public List<string> FulfillmentTypesSupported { get; set; }
 
 			///
-			///Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-			///
-			public string ProductCode { get; set; }
-
-			///
-			///The read-only name of the component in a bundled product.
-			///
-			public string ProductName { get; set; }
-
-			///
-			///The quantity of an individual component product in a bundle. For example, if a product bundle represents a 10-pack of socks, the quantity value for the bundled product would be 10.
-			///
-			public int Quantity { get; set; }
-
-			///
 			///Height of the bundle package in imperial units of feet and inches.
 			///
 			public Measurement PackageHeight { get; set; }
@@ -64,6 +49,21 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///The price of the bundled product set for the tenant.
 			///
 			public ProductPrice Price { get; set; }
+
+			///
+			///Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+			///
+			public string ProductCode { get; set; }
+
+			///
+			///The read-only name of the component in a bundled product.
+			///
+			public string ProductName { get; set; }
+
+			///
+			///The quantity of an individual component product in a bundle. For example, if a product bundle represents a 10-pack of socks, the quantity value for the bundled product would be 10.
+			///
+			public int Quantity { get; set; }
 
 		}
 

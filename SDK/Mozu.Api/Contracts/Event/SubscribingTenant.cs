@@ -21,6 +21,11 @@ namespace Mozu.Api.Contracts.Event
 		public class SubscribingTenant
 		{
 			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
 			///This specifies if the subscription is active at the tenant level. If the subscription context is at the tenant level, this property is used over the site level.
 			///
 			public bool? IsActive { get; set; }
@@ -31,19 +36,14 @@ namespace Mozu.Api.Contracts.Event
 			public string SubscribingContextLevelType { get; set; }
 
 			///
-			///This specifies the tenant identifier.
-			///
-			public int? TenantId { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
-
-			///
 			///This specifies the subscribing sites.
 			///
 			public List<SubscribingSite> SubscribingSites { get; set; }
+
+			///
+			///This specifies the tenant identifier.
+			///
+			public int? TenantId { get; set; }
 
 		}
 

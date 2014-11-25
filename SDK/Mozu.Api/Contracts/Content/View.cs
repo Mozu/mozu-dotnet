@@ -18,15 +18,15 @@ namespace Mozu.Api.Contracts.Content
 {
 		public class View
 		{
+			public List<ViewField> Fields { get; set; }
+
 			public bool? IsVisibleInStorefront { get; set; }
+
+			public JObject Metadata { get; set; }
 
 			public string Name { get; set; }
 
 			public List<string> Usages { get; set; }
-
-			public List<ViewField> Fields { get; set; }
-
-			public JObject Metadata { get; set; }
 
 		}
 

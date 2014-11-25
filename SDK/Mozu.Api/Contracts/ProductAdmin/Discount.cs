@@ -30,6 +30,21 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string AmountType { get; set; }
 
 			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
+			///List of conditions that must be met for the discount to apply.
+			///
+			public DiscountCondition Conditions { get; set; }
+
+			///
+			///Complex type that contains content for a language specified by LocaleCode.
+			///
+			public DiscountLocalizedContent Content { get; set; }
+
+			///
 			///The number of times this discount has been redeemed.
 			///
 			public int? CurrentRedemptionCount { get; set; }
@@ -58,21 +73,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///Current status of the product discount. Possible values are "Active", "Scheduled", or "Expired".
 			///
 			public string Status { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
-
-			///
-			///List of conditions that must be met for the discount to apply.
-			///
-			public DiscountCondition Conditions { get; set; }
-
-			///
-			///Complex type that contains content for a language specified by LocaleCode.
-			///
-			public DiscountLocalizedContent Content { get; set; }
 
 			///
 			///Properties of the target object to which the discount applies, such as a product or an order.

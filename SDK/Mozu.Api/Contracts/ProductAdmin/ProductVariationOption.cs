@@ -24,14 +24,14 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string AttributeFQN { get; set; }
 
 			///
-			///The value of an attribute option specified for this product variation.
-			///
-			public object Value { get; set; }
-
-			///
 			///Complex type that contains content for a language specified by LocaleCode.
 			///
 			public AttributeVocabularyValueLocalizedContent Content { get; set; }
+
+			///
+			///The value of an attribute option specified for this product variation.
+			///
+			public object Value { get; set; }
 
 		}
 

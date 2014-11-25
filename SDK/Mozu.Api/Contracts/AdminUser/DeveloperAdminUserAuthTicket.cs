@@ -31,6 +31,16 @@ namespace Mozu.Api.Contracts.AdminUser
 			public DateTime AccessTokenExpiration { get; set; }
 
 			///
+			///Properties of the developer account for which the user authentication ticket grants access.
+			///
+			public DeveloperAccount Account { get; set; }
+
+			///
+			///Collection of developer accounts for which the user authentication ticket grants access.
+			///
+			public List<DeveloperAccount> AvailableAccounts { get; set; }
+
+			///
 			///Date and time when the entity was created, represented in UTC Date/Time.
 			///
 			public DateTime CreatedOn { get; set; }
@@ -49,16 +59,6 @@ namespace Mozu.Api.Contracts.AdminUser
 			///The date and time the developer account refresh token expires.
 			///
 			public DateTime RefreshTokenExpiration { get; set; }
-
-			///
-			///Properties of the developer account for which the user authentication ticket grants access.
-			///
-			public DeveloperAccount Account { get; set; }
-
-			///
-			///Collection of developer accounts for which the user authentication ticket grants access.
-			///
-			public List<DeveloperAccount> AvailableAccounts { get; set; }
 
 			///
 			///User information associated with the authentication ticket.

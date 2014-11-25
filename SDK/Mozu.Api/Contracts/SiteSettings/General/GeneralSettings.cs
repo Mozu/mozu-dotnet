@@ -26,6 +26,11 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			public bool? AllowInvalidAddresses { get; set; }
 
 			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
 			///The physical directory path or URL where the mobile favicon image file is stored. The favicon icon is generally 57x57 pixels. The icon appears on a mobile website or on the mobile device's OS Home.
 			///
 			public string FavIconMobilePath { get; set; }
@@ -106,6 +111,11 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			public string TabletTheme { get; set; }
 
 			///
+			///The territories configured for the site that are subject to sales tax.
+			///
+			public List<TaxableTerritory> TaxableTerritories { get; set; }
+
+			///
 			///Unique identifier of the tenant site that site uses to render content for the shopper. For example, if this site represents a third-party sales channel such as Amazon but the company wants to send shopper emails, this value represents the Mozu-hosted web storefront site that maintains this content.
 			///
 			public int? TemplateSiteId { get; set; }
@@ -119,16 +129,6 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			///The name of the website to display on the storefront with no spaces.
 			///
 			public string WebsiteName { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
-
-			///
-			///The territories configured for the site that are subject to sales tax.
-			///
-			public List<TaxableTerritory> TaxableTerritories { get; set; }
 
 		}
 

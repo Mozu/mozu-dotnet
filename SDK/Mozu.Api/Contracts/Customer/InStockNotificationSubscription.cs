@@ -20,6 +20,11 @@ namespace Mozu.Api.Contracts.Customer
 		public class InStockNotificationSubscription
 		{
 			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
 			///Unique identifier of the customer associated with the in-stock notification subscription.
 			///
 			public int? CustomerId { get; set; }
@@ -43,11 +48,6 @@ namespace Mozu.Api.Contracts.Customer
 			///Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 			///
 			public string ProductCode { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
 
 		}
 

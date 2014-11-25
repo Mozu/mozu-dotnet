@@ -24,6 +24,13 @@ namespace Mozu.Api.Contracts.SiteSettings.Application
 			///
 			public string AppId { get; set; }
 
+			public string AppKey { get; set; }
+
+			///
+			///List of capabilities installed in a tenant.
+			///
+			public List<Capability> Capabilities { get; set; }
+
 			///
 			///If true, the application is enabled for the tenant. System-supplied and read-only.
 			///
@@ -43,11 +50,6 @@ namespace Mozu.Api.Contracts.SiteSettings.Application
 			///URL of the application's setting configuration user interface, supplied by the capability developer in Dev Center.
 			///
 			public string UiConfigurationUrl { get; set; }
-
-			///
-			///List of capabilities installed in a tenant.
-			///
-			public List<Capability> Capabilities { get; set; }
 
 		}
 

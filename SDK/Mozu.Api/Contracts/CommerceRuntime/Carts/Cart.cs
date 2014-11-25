@@ -11,10 +11,10 @@
 using System;
 using System.Collections.Generic;
 
-using Mozu.Api.Contracts.Core;
 using Mozu.Api.Contracts.CommerceRuntime.Commerce;
-using Mozu.Api.Contracts.CommerceRuntime.Fulfillment;
 using Mozu.Api.Contracts.CommerceRuntime.Discounts;
+using Mozu.Api.Contracts.CommerceRuntime.Fulfillment;
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 {
@@ -23,6 +23,16 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 		///
 		public class Cart
 		{
+			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
+			///Messages logged or created each time the cart was modified.
+			///
+			public List<ChangeMessage> ChangeMessages { get; set; }
+
 			///
 			///Code that identifies the channel associated with the site where the shopping cart was created.
 			///
@@ -69,6 +79,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			public decimal? FeeTotal { get; set; }
 
 			///
+			///Properties of the information required to fulfill this cart.
+			///
+			public FulfillmentInfo FulfillmentInfo { get; set; }
+
+			///
 			///If the handling fee for the cart is subject to sales tax, the total tax amount.
 			///
 			public decimal? HandlingTaxTotal { get; set; }
@@ -79,6 +94,16 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			public string Id { get; set; }
 
 			///
+			///The list of invalid coupons the shopper attempted to enter for the cart.
+			///
+			public List<InvalidCoupon> InvalidCoupons { get; set; }
+
+			///
+			///An array list of objects in the returned collection.
+			///
+			public List<CartItem> Items { get; set; }
+
+			///
 			///The total amount of tax for items in the cart.
 			///
 			public decimal? ItemTaxTotal { get; set; }
@@ -87,6 +112,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///The date in UTC Date/Time when the items in the cart were last validated against the site's product catalog. System-supplied and read-only.
 			///
 			public DateTime? LastValidationDate { get; set; }
+
+			///
+			///List of order-level discounts projected to apply to the cart at checkout.
+			///
+			public List<AppliedDiscount> OrderDiscounts { get; set; }
 
 			///
 			///The shipping subtotal amount calculated without any applied discounts.
@@ -142,36 +172,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///Unique identifier of the web session in which the cart was created or last modified.
 			///
 			public string WebSessionId { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
-
-			///
-			///Messages logged or created each time the cart was modified.
-			///
-			public List<ChangeMessage> ChangeMessages { get; set; }
-
-			///
-			///Properties of the information required to fulfill this cart.
-			///
-			public FulfillmentInfo FulfillmentInfo { get; set; }
-
-			///
-			///The list of invalid coupons the shopper attempted to enter for the cart.
-			///
-			public List<InvalidCoupon> InvalidCoupons { get; set; }
-
-			///
-			///An array list of objects in the returned collection.
-			///
-			public List<CartItem> Items { get; set; }
-
-			///
-			///List of order-level discounts projected to apply to the cart at checkout.
-			///
-			public List<AppliedDiscount> OrderDiscounts { get; set; }
 
 		}
 

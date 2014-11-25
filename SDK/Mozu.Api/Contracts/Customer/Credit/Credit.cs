@@ -25,6 +25,11 @@ namespace Mozu.Api.Contracts.Customer.Credit
 			public DateTime? ActivationDate { get; set; }
 
 			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
 			///User-defined identifier of the credit, which is unique within the tenant.
 			///
 			public string Code { get; set; }
@@ -58,11 +63,6 @@ namespace Mozu.Api.Contracts.Customer.Credit
 			///The initial balance of the credit applied to the customer account. This value cannot be changed after it is set.
 			///
 			public decimal? InitialBalance { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
 
 		}
 

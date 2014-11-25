@@ -29,6 +29,11 @@ namespace Mozu.Api.Contracts.Customer
 			public DateTime AccessTokenExpiration { get; set; }
 
 			///
+			///Properties of the customer account associated with the authentication ticket.
+			///
+			public CustomerAccount CustomerAccount { get; set; }
+
+			///
 			///Refresh token string used to generate a new access token after expiration for a customer account authentication ticket.
 			///
 			public string RefreshToken { get; set; }
@@ -42,11 +47,6 @@ namespace Mozu.Api.Contracts.Customer
 			///User ID associated with the customer account authentication ticket.
 			///
 			public string UserId { get; set; }
-
-			///
-			///Properties of the customer account associated with the authentication ticket.
-			///
-			public CustomerAccount CustomerAccount { get; set; }
 
 		}
 

@@ -20,9 +20,16 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class AttributeInProductType
 		{
 			///
+			///The wrapper for the properties of the product attribute to set up or generate from the system in the product admin. Properties include namespace, attribute code, attribute sequence, site group ID, input type, value type, data type, boolean flags, and metadata key value pairs.
+			///
+			public Attribute AttributeDetail { get; set; }
+
+			///
 			///The fully qualified name of the attribute, which is a user defined attribute identifier.
 			///
 			public string AttributeFQN { get; set; }
+
+			public AttributeInProductTypeDisplayInfo DisplayInfo { get; set; }
 
 			///
 			///If true, this property is hidden on the storefront. If false, this property is not hidden from the storefront.
@@ -48,13 +55,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///The sequence of this attribute within its product type.
 			///
 			public int? Order { get; set; }
-
-			///
-			///The wrapper for the properties of the product attribute to set up or generate from the system in the product admin. Properties include namespace, attribute code, attribute sequence, site group ID, input type, value type, data type, boolean flags, and metadata key value pairs.
-			///
-			public Attribute AttributeDetail { get; set; }
-
-			public AttributeInProductTypeDisplayInfo DisplayInfo { get; set; }
 
 			///
 			///The list of vocabulary values available for the attribute associated with the product type.

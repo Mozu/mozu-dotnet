@@ -40,6 +40,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			public bool IsPackagedStandAlone { get; set; }
 
 			///
+			///Dimensions of the packaged product.
+			///
+			public PackageMeasurements Measurements { get; set; }
+
+			///
 			///The name of a component product in a product bundle. System-supplied and read only.
 			///
 			public string Name { get; set; }
@@ -68,11 +73,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			///The quantity of a component product in its product bundle. System-supplied and read only.
 			///
 			public int Quantity { get; set; }
-
-			///
-			///Dimensions of the packaged product.
-			///
-			public PackageMeasurements Measurements { get; set; }
 
 		}
 

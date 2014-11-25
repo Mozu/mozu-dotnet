@@ -21,6 +21,11 @@ namespace Mozu.Api.Contracts.Event
 		public class Event
 		{
 			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
 			///The unique identifier of the catalog of products used by a site.
 			///
 			public int? CatalogId { get; set; }
@@ -34,6 +39,8 @@ namespace Mozu.Api.Contracts.Event
 			///The unique identifier of the entity that caused the event. For example, if the event is "product.created", the entity ID value represents the product code of the product that was created.
 			///
 			public string EntityId { get; set; }
+
+			public List<EventExtendedProperty> ExtendedProperties { get; set; }
 
 			///
 			///The unique identifier of the event.
@@ -61,13 +68,6 @@ namespace Mozu.Api.Contracts.Event
 			///The type of event that was performed, such as "product.created" or "category.deleted".
 			///
 			public string Topic { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
-
-			public List<EventExtendedProperty> ExtendedProperties { get; set; }
 
 		}
 

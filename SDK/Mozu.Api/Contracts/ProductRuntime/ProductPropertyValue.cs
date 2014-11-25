@@ -18,6 +18,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		///
 		public class ProductPropertyValue
 		{
+			public AttributeVocabularyValueDisplayInfo DisplayInfo { get; set; }
+
 			///
 			///Property string value in the language specified in the locale code for the product storefront.
 			///
@@ -27,8 +29,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///Value of the product property.
 			///
 			public object Value { get; set; }
-
-			public AttributeVocabularyValueDisplayInfo DisplayInfo { get; set; }
 
 		}
 

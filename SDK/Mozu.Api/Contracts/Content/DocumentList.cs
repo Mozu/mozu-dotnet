@@ -35,6 +35,8 @@ namespace Mozu.Api.Contracts.Content
 
 			public string ListFQN { get; set; }
 
+			public JObject Metadata { get; set; }
+
 			///
 			///The name of the document list.
 			///
@@ -54,8 +56,6 @@ namespace Mozu.Api.Contracts.Content
 			public bool? SupportsPublishing { get; set; }
 
 			public List<string> Usages { get; set; }
-
-			public JObject Metadata { get; set; }
 
 			public List<View> Views { get; set; }
 

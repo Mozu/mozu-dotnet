@@ -60,6 +60,11 @@ namespace Mozu.Api.Contracts.Content
 			public string Name { get; set; }
 
 			///
+			///List of properties for the given property value.
+			///
+			public JObject Properties { get; set; }
+
+			///
 			///The current state of the document, which is Active, Draft, or Latest. Active documents are published and cannot be deleted. Querying Latest returns the most recent version of the document, regardless of whether it is published or a draft.
 			///
 			public string PublishState { get; set; }
@@ -68,11 +73,6 @@ namespace Mozu.Api.Contracts.Content
 			///Date and time when the entity was last updated, represented in UTC Date/Time.
 			///
 			public DateTime? UpdateDate { get; set; }
-
-			///
-			///List of properties for the given property value.
-			///
-			public JObject Properties { get; set; }
 
 		}
 

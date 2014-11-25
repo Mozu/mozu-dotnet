@@ -25,16 +25,6 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			public string CustomerId { get; set; }
 
 			///
-			///Unique identifier of the tax context.
-			///
-			public string TaxContextId { get; set; }
-
-			///
-			///If the order is exempt from sales tax, the unique identifier of the tax exempt entity.
-			///
-			public string TaxExemptId { get; set; }
-
-			///
 			///The address to which the order ships.
 			///
 			public Address DestinationAddress { get; set; }
@@ -43,6 +33,16 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///The address from which the order ships.
 			///
 			public Address OriginAddress { get; set; }
+
+			///
+			///Unique identifier of the tax context.
+			///
+			public string TaxContextId { get; set; }
+
+			///
+			///If the order is exempt from sales tax, the unique identifier of the tax exempt entity.
+			///
+			public string TaxExemptId { get; set; }
 
 		}
 

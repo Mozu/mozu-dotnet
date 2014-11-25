@@ -20,6 +20,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class LocationInventory
 		{
 			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
 			///User-defined code that uniquely identifies the location.
 			///
 			public string LocationCode { get; set; }
@@ -48,11 +53,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///The current physical stock level for the associated product, which does not account for pending product reservations.
 			///
 			public int? StockOnHand { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
 
 		}
 

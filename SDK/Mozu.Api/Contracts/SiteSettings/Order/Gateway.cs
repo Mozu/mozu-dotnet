@@ -26,11 +26,6 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 			public bool AreGatewayCredentialFieldsSet { get; set; }
 
 			///
-			///The types of credit cards the merchant supports using this payment gateway.
-			///
-			public List<string> SupportedCards { get; set; }
-
-			///
 			///Account information associated with the specified payment gateway.
 			///
 			public GatewayAccount GatewayAccount { get; set; }
@@ -39,6 +34,11 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 			///Properties of the payment gateway definition.
 			///
 			public GatewayDefinition GatewayDefinition { get; set; }
+
+			///
+			///The types of credit cards the merchant supports using this payment gateway.
+			///
+			public List<string> SupportedCards { get; set; }
 
 		}
 

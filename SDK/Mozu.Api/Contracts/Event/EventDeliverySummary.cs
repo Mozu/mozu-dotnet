@@ -18,7 +18,11 @@ namespace Mozu.Api.Contracts.Event
 		{
 			public DateTime? CreateDate { get; set; }
 
+			public List<EventDeliveryAttempt> DeliveryAttempts { get; set; }
+
 			public string DeliveryStatus { get; set; }
+
+			public EventSummary EventSummary { get; set; }
 
 			public int? Id { get; set; }
 
@@ -31,10 +35,6 @@ namespace Mozu.Api.Contracts.Event
 			public int? RetriesRemaining { get; set; }
 
 			public DateTime? UpdateDate { get; set; }
-
-			public List<EventDeliveryAttempt> DeliveryAttempts { get; set; }
-
-			public EventSummary EventSummary { get; set; }
 
 		}
 

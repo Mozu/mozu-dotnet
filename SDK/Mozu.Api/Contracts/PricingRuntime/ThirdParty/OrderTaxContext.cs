@@ -25,6 +25,11 @@ namespace Mozu.Api.Contracts.PricingRuntime.ThirdParty
 			public decimal HandlingFeeTax { get; set; }
 
 			///
+			///Properties of the tax context applicable for line items in an order.
+			///
+			public List<ItemTaxContext> ItemTaxContexts { get; set; }
+
+			///
 			///Tax amount applied to the order.
 			///
 			public decimal OrderTax { get; set; }
@@ -33,11 +38,6 @@ namespace Mozu.Api.Contracts.PricingRuntime.ThirdParty
 			///Tax amount applied to the shipping costs on the order.
 			///
 			public decimal ShippingTax { get; set; }
-
-			///
-			///Properties of the tax context applicable for line items in an order.
-			///
-			public List<ItemTaxContext> ItemTaxContexts { get; set; }
 
 		}
 

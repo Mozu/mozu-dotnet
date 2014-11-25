@@ -21,9 +21,14 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class ProductType
 		{
 			///
-			///List of product usages that describe how products of this type are used. Products of this type can be Standard (a single product without configurable options), Configurable (a product that includes configurable option attributes), Bundle (a collection of products sold as a single entity), or Component (an invididual product that represents a component in a bundle). Product type usages cannot be both Bundle and Configurable.
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 			///
-			public List<string> ProductUsages { get; set; }
+			public AuditInfo AuditInfo { get; set; }
+
+			///
+			///The list of product type attributes which exist as extras. Example: monogram
+			///
+			public List<AttributeInProductType> Extras { get; set; }
 
 			///
 			///The type of goods for this product.
@@ -51,24 +56,19 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string Name { get; set; }
 
 			///
+			///The list of product type attributes which exist as options.
+			///
+			public List<AttributeInProductType> Options { get; set; }
+
+			///
 			///The number of products associated with this product type.
 			///
 			public int? ProductCount { get; set; }
 
 			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///List of product usages that describe how products of this type are used. Products of this type can be Standard (a single product without configurable options), Configurable (a product that includes configurable option attributes), Bundle (a collection of products sold as a single entity), or Component (an invididual product that represents a component in a bundle). Product type usages cannot be both Bundle and Configurable.
 			///
-			public AuditInfo AuditInfo { get; set; }
-
-			///
-			///The list of product type attributes which exist as extras. Example: monogram
-			///
-			public List<AttributeInProductType> Extras { get; set; }
-
-			///
-			///The list of product type attributes which exist as options.
-			///
-			public List<AttributeInProductType> Options { get; set; }
+			public List<string> ProductUsages { get; set; }
 
 			///
 			///The list of product type attributes which exist as properties, such as color.

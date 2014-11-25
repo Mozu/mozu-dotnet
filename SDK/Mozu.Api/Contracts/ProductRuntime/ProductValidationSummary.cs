@@ -20,11 +20,31 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		public class ProductValidationSummary
 		{
 			///
+			///Properties of a collection of component products that make up a single product bundle with its own product code.
+			///
+			public List<BundledProductSummary> BundledProducts { get; set; }
+
+			///
+			///The list of product categories for the storefront.
+			///
+			public List<Category> Categories { get; set; }
+
+			///
 			///List of fulfillment types that the product supports.
 			///
 			public List<string> FulfillmentTypesSupported { get; set; }
 
 			public string GoodsType { get; set; }
+
+			///
+			///The image configured for the product on the storefront.
+			///
+			public ProductImage Image { get; set; }
+
+			///
+			///Properties of the active inventory level of the associated product.
+			///
+			public ProductInventoryInfo InventoryInfo { get; set; }
 
 			///
 			///If true, this product should not be packaged with other items and should ship by itself.
@@ -37,9 +57,24 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public bool IsTaxable { get; set; }
 
 			///
+			///Dimensions of the packaged product.
+			///
+			public PackageMeasurements Measurements { get; set; }
+
+			///
 			///The manufacturer's part number for the product.
 			///
 			public string MfgPartNumber { get; set; }
+
+			///
+			///Price that the merchant intends to sell the product which is not necessarily the list price. This is the price the merchant intends to sell the product if no sale price is present.
+			///
+			public ProductPrice Price { get; set; }
+
+			///
+			///Properties that describe the behavior the system uses when determining the price of the product.
+			///
+			public ProductPricingBehaviorInfo PricingBehavior { get; set; }
 
 			///
 			///Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
@@ -64,51 +99,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string ProductUsage { get; set; }
 
 			///
-			///The universal product code defined for the product.
-			///
-			public string Upc { get; set; }
-
-			///
-			///Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
-			///
-			public string VariationProductCode { get; set; }
-
-			///
-			///Properties of a collection of component products that make up a single product bundle with its own product code.
-			///
-			public List<BundledProductSummary> BundledProducts { get; set; }
-
-			///
-			///The list of product categories for the storefront.
-			///
-			public List<Category> Categories { get; set; }
-
-			///
-			///The image configured for the product on the storefront.
-			///
-			public ProductImage Image { get; set; }
-
-			///
-			///Properties of the active inventory level of the associated product.
-			///
-			public ProductInventoryInfo InventoryInfo { get; set; }
-
-			///
-			///Dimensions of the packaged product.
-			///
-			public PackageMeasurements Measurements { get; set; }
-
-			///
-			///Price that the merchant intends to sell the product which is not necessarily the list price. This is the price the merchant intends to sell the product if no sale price is present.
-			///
-			public ProductPrice Price { get; set; }
-
-			///
-			///Properties that describe the behavior the system uses when determining the price of the product.
-			///
-			public ProductPricingBehaviorInfo PricingBehavior { get; set; }
-
-			///
 			///The list of product properties configured in product admin.
 			///
 			public List<ProductProperty> Properties { get; set; }
@@ -117,6 +107,16 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///The current state of the product and whether or not it is available for purchasing. If the product is not eligible for purchase, the validation message is included.
 			///
 			public ProductPurchasableState PurchasableState { get; set; }
+
+			///
+			///The universal product code defined for the product.
+			///
+			public string Upc { get; set; }
+
+			///
+			///Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
+			///
+			public string VariationProductCode { get; set; }
 
 		}
 

@@ -20,6 +20,11 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 		public class CustomAttribute
 		{
 			///
+			///Collection of child attributes associated with a shipping provider integration.
+			///
+			public List<CustomAttribute> ChildAttributes { get; set; }
+
+			///
 			///Key required for a custom attribute associated with a shipping provider integration, as part of a key-value pair.
 			///
 			public string Key { get; set; }
@@ -28,11 +33,6 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			///Value for a custom attribute associated with a shipping provider integration, as part of a key-value pair.
 			///
 			public string Value { get; set; }
-
-			///
-			///Collection of child attributes associated with a shipping provider integration.
-			///
-			public List<CustomAttribute> ChildAttributes { get; set; }
 
 		}
 

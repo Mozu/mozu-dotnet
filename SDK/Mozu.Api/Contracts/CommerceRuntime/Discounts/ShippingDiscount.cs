@@ -19,14 +19,14 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Discounts
 		public class ShippingDiscount
 		{
 			///
-			///Carrier-supplied code that represents the shipping method service type associated with the shipping discount.
-			///
-			public string MethodCode { get; set; }
-
-			///
 			///Properties of the shipping discount.
 			///
 			public AppliedDiscount Discount { get; set; }
+
+			///
+			///Carrier-supplied code that represents the shipping method service type associated with the shipping discount.
+			///
+			public string MethodCode { get; set; }
 
 		}
 

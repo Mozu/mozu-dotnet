@@ -40,6 +40,11 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string ProductFullDescription { get; set; }
 
 			///
+			///List of image files associated with the product.
+			///
+			public List<ProductImage> ProductImages { get; set; }
+
+			///
 			///The descriptive brief product name.
 			///
 			public string ProductName { get; set; }
@@ -53,11 +58,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///Product URL defined for search engine optimization.
 			///
 			public string SeoFriendlyUrl { get; set; }
-
-			///
-			///List of image files associated with the product.
-			///
-			public List<ProductImage> ProductImages { get; set; }
 
 		}
 

@@ -20,6 +20,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class CategoryLocalizedContent
 		{
 			///
+			///Array of localized product category images in the language specified by the LocaleCode.
+			///
+			public List<CategoryLocalizedImage> CategoryImages { get; set; }
+
+			///
 			///Description of the product category in the language specified by the locale code.
 			///
 			public string Description { get; set; }
@@ -58,11 +63,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///Human-readable identifier to assign to the category to generate user-friendly URLs.
 			///
 			public string Slug { get; set; }
-
-			///
-			///Array of localized product category images in the language specified by the LocaleCode.
-			///
-			public List<CategoryLocalizedImage> CategoryImages { get; set; }
 
 		}
 

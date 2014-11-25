@@ -20,14 +20,14 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		public class ProductOptionSelections
 		{
 			///
-			///Product code that represents the product variation selected based on the option values the shopper entered.
-			///
-			public string VariationProductCode { get; set; }
-
-			///
 			///List of option attributes associated with the product and the associated values currently defined for this product configuration.
 			///
 			public List<ProductOptionSelection> Options { get; set; }
+
+			///
+			///Product code that represents the product variation selected based on the option values the shopper entered.
+			///
+			public string VariationProductCode { get; set; }
 
 		}
 

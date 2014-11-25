@@ -19,11 +19,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 		public class ProductOption
 		{
 			///
-			///If the value if an object, the value selected.
-			///
-			public object Value { get; set; }
-
-			///
 			///The fully qualified name of the attribute, which is a user defined attribute identifier.
 			///
 			public string AttributeFQN { get; set; }
@@ -47,6 +42,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			///If the value is a string, the string entered for the value.
 			///
 			public string StringValue { get; set; }
+
+			///
+			///If the value if an object, the value selected.
+			///
+			public object Value { get; set; }
 
 		}
 

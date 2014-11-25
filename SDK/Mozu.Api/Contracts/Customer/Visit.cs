@@ -45,6 +45,11 @@ namespace Mozu.Api.Contracts.Customer
 			public string LocationCode { get; set; }
 
 			///
+			///Array list of transactions the customer performed during the visit. A customer can perform multiple transactions in a single visit, or the visit can have no associated transactions.
+			///
+			public List<Transaction> Transactions { get; set; }
+
+			///
 			///The type of customer visit, which is "Website," "Store," "Call," or "Unknown."
 			///
 			public string Type { get; set; }
@@ -73,11 +78,6 @@ namespace Mozu.Api.Contracts.Customer
 			///The user agent string for the browser.
 			///
 			public string WebUserAgent { get; set; }
-
-			///
-			///Array list of transactions the customer performed during the visit. A customer can perform multiple transactions in a single visit, or the visit can have no associated transactions.
-			///
-			public List<Transaction> Transactions { get; set; }
 
 		}
 

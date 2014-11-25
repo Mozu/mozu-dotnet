@@ -24,6 +24,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Discounts
 			public string CouponCode { get; set; }
 
 			///
+			///Discount currently applied to the cart or order.
+			///
+			public Discount Discount { get; set; }
+
+			///
 			///If true, the system ignores this discount when pricing the order.
 			///
 			public bool? Excluded { get; set; }
@@ -32,11 +37,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Discounts
 			///The value of the discount applied to the cart or order, represented as a negative currency amount to apply to the original price.
 			///
 			public decimal? Impact { get; set; }
-
-			///
-			///Discount currently applied to the cart or order.
-			///
-			public Discount Discount { get; set; }
 
 		}
 

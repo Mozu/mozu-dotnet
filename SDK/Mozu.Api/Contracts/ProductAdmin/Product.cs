@@ -21,9 +21,31 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class Product
 		{
 			///
+			///List of discounts available for a product.
+			///
+			public List<Discount> ApplicableDiscounts { get; set; }
+
+			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
 			///Product code defined by the tenant administrator to use as a base prefix when generating product codes for any variations of this product.
 			///
 			public string BaseProductCode { get; set; }
+
+			///
+			///Properties of a collection of component products that make up a single product bundle with its own product code. Tenants can define product bundles for any product type that supports the Bundle product usage.
+			///
+			public List<BundledProduct> BundledProducts { get; set; }
+
+			public ProductLocalizedContent Content { get; set; }
+
+			///
+			///List of extra product attributes defined for this product.
+			///
+			public List<ProductExtra> Extras { get; set; }
 
 			///
 			///Describes the types of fulfillment that are supported for this product. A product can support direct ship, in-store pickup, or both. Supported fulfillment types are defined at the master catalog level. Client administrators cannot override the supported fulfillment types at the catalog level.
@@ -39,6 +61,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///If true, this product has standalone options that a shopper can select without configuring a defined product variations. System-supplied and read only.
 			///
 			public bool HasStandAloneOptions { get; set; }
+
+			///
+			///Properties of the inventory levels manages for the product.
+			///
+			public ProductInventoryInfo InventoryInfo { get; set; }
 
 			///
 			///If true, the product must be packaged on its own and should not be jointly packaged with other products.
@@ -69,73 +96,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///The unique identifier of the master catalog associated with the entity.
 			///
 			public int? MasterCatalogId { get; set; }
-
-			///
-			///Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-			///
-			public string ProductCode { get; set; }
-
-			///
-			///Integer that represents the sequential order of the product.
-			///
-			public int? ProductSequence { get; set; }
-
-			///
-			///Unique identifier of the product type assigned for this product. Tenant administrators can only define one product type per product.
-			///
-			public int? ProductTypeId { get; set; }
-
-			///
-			///The usage type that applies to this product, which is Standard (a single product without configurable options), Configurable (a product that includes configurable option attributes), Bundle (a collection of products sold as a single entity), or Component (an invididual product that represents a component in a bundle).
-			///
-			public string ProductUsage { get; set; }
-
-			///
-			///Identifier of the shipping class.
-			///
-			public int? ShippingClassId { get; set; }
-
-			///
-			///If the product must be packaged separately, the type of standalone package to use.
-			///
-			public string StandAlonePackageType { get; set; }
-
-			///
-			///The universal product code associated with the product. The UPC of a product is unique across all sales channels.
-			///
-			public string Upc { get; set; }
-
-			///
-			///System-generated key that represents the attribute values that uniquely identify a specific product variation.
-			///
-			public string VariationKey { get; set; }
-
-			///
-			///List of discounts available for a product.
-			///
-			public List<Discount> ApplicableDiscounts { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
-
-			///
-			///Properties of a collection of component products that make up a single product bundle with its own product code. Tenants can define product bundles for any product type that supports the Bundle product usage.
-			///
-			public List<BundledProduct> BundledProducts { get; set; }
-
-			public ProductLocalizedContent Content { get; set; }
-
-			///
-			///List of extra product attributes defined for this product.
-			///
-			public List<ProductExtra> Extras { get; set; }
-
-			///
-			///Properties of the inventory levels manages for the product.
-			///
-			public ProductInventoryInfo InventoryInfo { get; set; }
 
 			///
 			///List of option product attributes defined for this product.
@@ -173,9 +133,29 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public ProductPricingBehaviorInfo PricingBehavior { get; set; }
 
 			///
+			///Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+			///
+			public string ProductCode { get; set; }
+
+			///
 			///Properties defined for a product as they appear in its associated catalogs.
 			///
 			public List<ProductInCatalogInfo> ProductInCatalogs { get; set; }
+
+			///
+			///Integer that represents the sequential order of the product.
+			///
+			public int? ProductSequence { get; set; }
+
+			///
+			///Unique identifier of the product type assigned for this product. Tenant administrators can only define one product type per product.
+			///
+			public int? ProductTypeId { get; set; }
+
+			///
+			///The usage type that applies to this product, which is Standard (a single product without configurable options), Configurable (a product that includes configurable option attributes), Bundle (a collection of products sold as a single entity), or Component (an invididual product that represents a component in a bundle).
+			///
+			public string ProductUsage { get; set; }
 
 			///
 			///List of property product attributes defined for this product.
@@ -193,9 +173,29 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public ProductLocalizedSEOContent SeoContent { get; set; }
 
 			///
+			///Identifier of the shipping class.
+			///
+			public int? ShippingClassId { get; set; }
+
+			///
+			///If the product must be packaged separately, the type of standalone package to use.
+			///
+			public string StandAlonePackageType { get; set; }
+
+			///
 			///Supplier-defined properties assigned for the product.
 			///
 			public ProductSupplierInfo SupplierInfo { get; set; }
+
+			///
+			///The universal product code associated with the product. The UPC of a product is unique across all sales channels.
+			///
+			public string Upc { get; set; }
+
+			///
+			///System-generated key that represents the attribute values that uniquely identify a specific product variation.
+			///
+			public string VariationKey { get; set; }
 
 			///
 			///The list of product variation configurations defined for this product based on its available product option attributes.

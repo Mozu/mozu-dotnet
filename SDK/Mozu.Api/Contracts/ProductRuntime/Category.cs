@@ -25,14 +25,9 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public int CategoryId { get; set; }
 
 			///
-			///If true, the category is displayed on the website storefront.
+			///List of the subcategories in the hierarchy for the specified categories.
 			///
-			public bool IsDisplayed { get; set; }
-
-			///
-			///The numeric value that denotes the place this entity occupies in the order of the entity list.
-			///
-			public int? Sequence { get; set; }
+			public List<Category> ChildrenCategories { get; set; }
 
 			///
 			///Complex type that contains content for a language specified by LocaleCode.
@@ -40,14 +35,19 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public CategoryContent Content { get; set; }
 
 			///
-			///List of the subcategories in the hierarchy for the specified categories.
+			///If true, the category is displayed on the website storefront.
 			///
-			public List<Category> ChildrenCategories { get; set; }
+			public bool IsDisplayed { get; set; }
 
 			///
 			///If applicable, the parent category in the hierarchy for the specified category.
 			///
 			public Category ParentCategory { get; set; }
+
+			///
+			///The numeric value that denotes the place this entity occupies in the order of the entity list.
+			///
+			public int? Sequence { get; set; }
 
 		}
 
