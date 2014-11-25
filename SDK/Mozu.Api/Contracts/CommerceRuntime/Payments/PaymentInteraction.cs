@@ -25,6 +25,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			public decimal? Amount { get; set; }
 
 			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
 			///If applicable, the check number associated with this payment interaction.
 			///
 			public string CheckNumber { get; set; }
@@ -123,11 +128,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///The status of this payment interaction. Possible values are New, Authorized, Captured, Declined, Failed, Voided, Credited, CheckRequested, or RolledBack.
 			///
 			public string Status { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
 
 		}
 

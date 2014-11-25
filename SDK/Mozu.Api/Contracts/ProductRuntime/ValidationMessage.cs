@@ -19,11 +19,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		public class ValidationMessage
 		{
 			///
-			///Unique identifier of the entity that triggered the validation.
-			///
-			public string SourceId { get; set; }
-
-			///
 			///The contents of the message displayed to the user when the product validation failure occurs.
 			///
 			public string Message { get; set; }
@@ -37,6 +32,11 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///The entity that triggered the product validation.
 			///
 			public string Source { get; set; }
+
+			///
+			///Unique identifier of the entity that triggered the validation.
+			///
+			public string SourceId { get; set; }
 
 			public string ValidationType { get; set; }
 

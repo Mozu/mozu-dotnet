@@ -29,6 +29,11 @@ namespace Mozu.Api.Contracts.Customer
 			public int OrderCount { get; set; }
 
 			///
+			///The aggregate total amount of all orders the shopper submitted, across all sites associated with the tenant.
+			///
+			public CurrencyAmount TotalOrderAmount { get; set; }
+
+			///
 			///The number of visits to a site associated with a customer account.
 			///
 			public int VisitsCount { get; set; }
@@ -37,11 +42,6 @@ namespace Mozu.Api.Contracts.Customer
 			///The number of wish lists associated with a customer account. This number represents the total number of a shopper's wish lists across all sites associated with a tenant.
 			///
 			public int WishlistCount { get; set; }
-
-			///
-			///The aggregate total amount of all orders the shopper submitted, across all sites associated with the tenant.
-			///
-			public CurrencyAmount TotalOrderAmount { get; set; }
 
 		}
 

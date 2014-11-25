@@ -19,12 +19,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 		///
 		public class ReturnItemCollection
 		{
-			public int TotalCount { get; set; }
-
 			///
 			///Retrieves the details of all return items in an order.
 			///
 			public List<ReturnItem> Items { get; set; }
+
+			public int TotalCount { get; set; }
 
 		}
 

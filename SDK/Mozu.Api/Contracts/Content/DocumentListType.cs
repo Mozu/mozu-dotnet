@@ -18,6 +18,8 @@ namespace Mozu.Api.Contracts.Content
 {
 		public class DocumentListType
 		{
+			public List<DocumentInstallation> DefaultDocuments { get; set; }
+
 			public string DocumentListTypeFQN { get; set; }
 
 			public List<string> DocumentTypeFQNs { get; set; }
@@ -25,6 +27,8 @@ namespace Mozu.Api.Contracts.Content
 			public bool? EnablePublishing { get; set; }
 
 			public string InstallationPackage { get; set; }
+
+			public JObject Metadata { get; set; }
 
 			public string Name { get; set; }
 
@@ -37,10 +41,6 @@ namespace Mozu.Api.Contracts.Content
 			public List<string> Usages { get; set; }
 
 			public string Version { get; set; }
-
-			public List<DocumentInstallation> DefaultDocuments { get; set; }
-
-			public JObject Metadata { get; set; }
 
 			public List<View> Views { get; set; }
 

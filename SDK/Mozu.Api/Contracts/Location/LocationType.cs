@@ -19,6 +19,8 @@ namespace Mozu.Api.Contracts.Location
 		///
 		public class LocationType
 		{
+			public AuditInfo AuditInfo { get; set; }
+
 			///
 			///User-defined identifying code for the location type.
 			///
@@ -28,8 +30,6 @@ namespace Mozu.Api.Contracts.Location
 			///The name of the location type.
 			///
 			public string Name { get; set; }
-
-			public AuditInfo AuditInfo { get; set; }
 
 		}
 

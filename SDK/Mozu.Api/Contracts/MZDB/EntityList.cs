@@ -22,6 +22,16 @@ namespace Mozu.Api.Contracts.MZDB
 
 			public DateTime CreateDate { get; set; }
 
+			public IndexedProperty IdProperty { get; set; }
+
+			public IndexedProperty IndexA { get; set; }
+
+			public IndexedProperty IndexB { get; set; }
+
+			public IndexedProperty IndexC { get; set; }
+
+			public IndexedProperty IndexD { get; set; }
+
 			public bool IsLocaleSpecific { get; set; }
 
 			public bool IsSandboxDataCloningSupported { get; set; }
@@ -29,6 +39,8 @@ namespace Mozu.Api.Contracts.MZDB
 			public bool IsShopperSpecific { get; set; }
 
 			public bool IsVisibleInStorefront { get; set; }
+
+			public JObject Metadata { get; set; }
 
 			public string Name { get; set; }
 
@@ -44,18 +56,6 @@ namespace Mozu.Api.Contracts.MZDB
 			public List<string> Usages { get; set; }
 
 			public bool UseSystemAssignedId { get; set; }
-
-			public IndexedProperty IdProperty { get; set; }
-
-			public IndexedProperty IndexA { get; set; }
-
-			public IndexedProperty IndexB { get; set; }
-
-			public IndexedProperty IndexC { get; set; }
-
-			public IndexedProperty IndexD { get; set; }
-
-			public JObject Metadata { get; set; }
 
 			public List<ListView> Views { get; set; }
 

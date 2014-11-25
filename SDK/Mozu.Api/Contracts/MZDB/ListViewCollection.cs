@@ -16,6 +16,8 @@ namespace Mozu.Api.Contracts.MZDB
 {
 		public class ListViewCollection
 		{
+			public List<ListView> Items { get; set; }
+
 			public int PageCount { get; set; }
 
 			public int PageSize { get; set; }
@@ -23,8 +25,6 @@ namespace Mozu.Api.Contracts.MZDB
 			public int StartIndex { get; set; }
 
 			public int TotalCount { get; set; }
-
-			public List<ListView> Items { get; set; }
 
 		}
 

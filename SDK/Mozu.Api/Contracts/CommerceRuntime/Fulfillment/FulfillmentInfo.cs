@@ -20,6 +20,16 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 		public class FulfillmentInfo
 		{
 			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
+			///The contact information of the person receiving the shipment or performing the pickup.
+			///
+			public Contact FulfillmentContact { get; set; }
+
+			///
 			///If true, the shipping destination for a shipment is a commercial address.
 			///
 			public bool? IsDestinationCommercial { get; set; }
@@ -33,16 +43,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			///The carrier-supplied name for the shipping service type, such as "UPS Ground" or "2nd Day Air".
 			///
 			public string ShippingMethodName { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
-
-			///
-			///The contact information of the person receiving the shipment or performing the pickup.
-			///
-			public Contact FulfillmentContact { get; set; }
 
 		}
 

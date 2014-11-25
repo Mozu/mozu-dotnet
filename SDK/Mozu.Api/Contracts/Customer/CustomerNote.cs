@@ -20,6 +20,11 @@ namespace Mozu.Api.Contracts.Customer
 		public class CustomerNote
 		{
 			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
 			///The contents of a customer account note.
 			///
 			public string Content { get; set; }
@@ -28,11 +33,6 @@ namespace Mozu.Api.Contracts.Customer
 			///Identifier of the customer account note.
 			///
 			public int Id { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
 
 		}
 

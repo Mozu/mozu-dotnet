@@ -20,6 +20,8 @@ namespace Mozu.Api.Contracts.Location
 		///
 		public class LocationUsage
 		{
+			public AuditInfo AuditInfo { get; set; }
+
 			///
 			///List of location codes to associate with the location usage. At this time, you can only specify one location code in the request for the direct ship location usage type.
 			///
@@ -34,8 +36,6 @@ namespace Mozu.Api.Contracts.Location
 			///The system-defined code used to identify the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder".
 			///
 			public string LocationUsageTypeCode { get; set; }
-
-			public AuditInfo AuditInfo { get; set; }
 
 		}
 

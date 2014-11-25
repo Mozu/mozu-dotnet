@@ -31,6 +31,11 @@ namespace Mozu.Api.Contracts.PricingRuntime.ThirdParty
 			public decimal HandlingFee { get; set; }
 
 			///
+			///List of line items in a taxable order object.
+			///
+			public List<TaxableLineItem> LineItems { get; set; }
+
+			///
 			///The date and time the order was submitted.
 			///
 			public DateTime OrderDate { get; set; }
@@ -51,19 +56,14 @@ namespace Mozu.Api.Contracts.PricingRuntime.ThirdParty
 			public decimal ShippingAmount { get; set; }
 
 			///
-			///The type of request for which to tax this entity, which is "Order" or "Return."
-			///
-			public string TaxRequestType { get; set; }
-
-			///
-			///List of line items in a taxable order object.
-			///
-			public List<TaxableLineItem> LineItems { get; set; }
-
-			///
 			///The tax properties associated with the order.
 			///
 			public TaxContext TaxContext { get; set; }
+
+			///
+			///The type of request for which to tax this entity, which is "Order" or "Return."
+			///
+			public string TaxRequestType { get; set; }
 
 		}
 

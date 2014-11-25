@@ -25,6 +25,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public DateTime? CreatedDate { get; set; }
 
 			///
+			///Collection of messages returned by the order validation capability.
+			///
+			public List<OrderValidationMessage> Messages { get; set; }
+
+			///
 			///The status returned from the order validation capability for the order specified in the request, which is Pass, Fail, Error, or Review.
 			///
 			public string Status { get; set; }
@@ -43,11 +48,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///The type of order validator supplied by the capability. At this time, the only supported validator type is Fraud.
 			///
 			public string ValidatorType { get; set; }
-
-			///
-			///Collection of messages returned by the order validation capability.
-			///
-			public List<OrderValidationMessage> Messages { get; set; }
 
 		}
 

@@ -21,9 +21,19 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class ProductInCatalogInfo
 		{
 			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
 			///The unique identifier of the catalog of products used by a site.
 			///
 			public int CatalogId { get; set; }
+
+			///
+			///Localizable content for a product associated with a specific catalog. If no catalog-level content is specified, the master catalog content is used. To override content at the catalog level, the IsContentOverridden flag must be set to "true".
+			///
+			public ProductLocalizedContent Content { get; set; }
 
 			///
 			///If true, the product is actively available (for sale) in the associated catalog.
@@ -44,16 +54,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///If true, the SEO content defined for this product in the master catalog in overridden in the catalog with the SEO content specified in the request body. If false, this catalog uses the SEO content defined in the master catalog for the product.
 			///
 			public bool? IsseoContentOverridden { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
-
-			///
-			///Localizable content for a product associated with a specific catalog. If no catalog-level content is specified, the master catalog content is used. To override content at the catalog level, the IsContentOverridden flag must be set to "true".
-			///
-			public ProductLocalizedContent Content { get; set; }
 
 			///
 			///The price of the product associated with the specified catalog. If no price is specified in the request, this catalog uses the price defined in the master catalog. To override the product price for this catalog, the IsPriceOverridden flag must be set to "true".

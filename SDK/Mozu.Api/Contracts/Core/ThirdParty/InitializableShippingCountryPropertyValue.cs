@@ -20,6 +20,11 @@ namespace Mozu.Api.Contracts.Core.ThirdParty
 		public class InitializableShippingCountryPropertyValue
 		{
 			///
+			///Child value in a hierarchy of shipping country properties.
+			///
+			public List<InitializablePropertyValue> Child { get; set; }
+
+			///
 			///If true, the property value is initialized.
 			///
 			public bool Initialized { get; set; }
@@ -28,11 +33,6 @@ namespace Mozu.Api.Contracts.Core.ThirdParty
 			///Value of the initializable third-party capability property.
 			///
 			public string Value { get; set; }
-
-			///
-			///Child value in a hierarchy of shipping country properties.
-			///
-			public List<InitializablePropertyValue> Child { get; set; }
 
 		}
 

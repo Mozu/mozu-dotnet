@@ -26,6 +26,16 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			public List<string> CarrierIds { get; set; }
 
 			///
+			///List of key-value pairs that represent custom attributes associated with the request.
+			///
+			public List<CustomAttribute> CustomAttributes { get; set; }
+
+			///
+			///The physical address to which the shipment will ship.
+			///
+			public Address DestinationAddress { get; set; }
+
+			///
 			///The date and time the shipment will be shipped to the shopper.
 			///
 			public DateTime? EstimatedShipmentDate { get; set; }
@@ -41,34 +51,24 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			public string IsoCurrencyCode { get; set; }
 
 			///
-			///The total amount of the order used to calculate the shipping rate estimate.
-			///
-			public decimal? OrderTotal { get; set; }
-
-			///
-			///The shipping methods associated with this request.
-			///
-			public List<string> ShippingServiceTypes { get; set; }
-
-			///
-			///List of key-value pairs that represent custom attributes associated with the request.
-			///
-			public List<CustomAttribute> CustomAttributes { get; set; }
-
-			///
-			///The physical address to which the shipment will ship.
-			///
-			public Address DestinationAddress { get; set; }
-
-			///
 			///List of items to include in the shipping rate request.
 			///
 			public List<RateRequestItem> Items { get; set; }
 
 			///
+			///The total amount of the order used to calculate the shipping rate estimate.
+			///
+			public decimal? OrderTotal { get; set; }
+
+			///
 			///The physical address from which the shipment will ship.
 			///
 			public Address OriginAddress { get; set; }
+
+			///
+			///The shipping methods associated with this request.
+			///
+			public List<string> ShippingServiceTypes { get; set; }
 
 		}
 

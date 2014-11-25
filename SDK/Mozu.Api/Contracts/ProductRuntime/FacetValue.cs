@@ -20,6 +20,11 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		public class FacetValue
 		{
 			///
+			///If applicable, the values of any subcategory facets in a hierarchy. Hierarchical facets only apply for product categories.
+			///
+			public List<FacetValue> ChildrenFacetValues { get; set; }
+
+			///
 			///The number of facet value selections in a product search result set.
 			///
 			public int Count { get; set; }
@@ -58,11 +63,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///String representation of the facet value selected for the product search.
 			///
 			public string Value { get; set; }
-
-			///
-			///If applicable, the values of any subcategory facets in a hierarchy. Hierarchical facets only apply for product categories.
-			///
-			public List<FacetValue> ChildrenFacetValues { get; set; }
 
 		}
 

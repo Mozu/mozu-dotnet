@@ -18,6 +18,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class AttributeVocabularyValueInProductType
 		{
+			public AttributeVocabularyValueDisplayInfo DisplayInfo { get; set; }
+
 			///
 			///Sequence of the attribute value within the product type.
 			///
@@ -27,8 +29,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///The vocabulary value of an attribute defined for a product type.
 			///
 			public object Value { get; set; }
-
-			public AttributeVocabularyValueDisplayInfo DisplayInfo { get; set; }
 
 			///
 			///Navigates vocabulary value details for an attribute defined for a product type.

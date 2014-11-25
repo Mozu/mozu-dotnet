@@ -19,14 +19,14 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class ProductOptionValue
 		{
 			///
-			///Value of the product option attribute.
-			///
-			public object Value { get; set; }
-
-			///
 			///Detailed properties of the product option attribute's vocabulary value.
 			///
 			public AttributeVocabularyValue AttributeVocabularyValueDetail { get; set; }
+
+			///
+			///Value of the product option attribute.
+			///
+			public object Value { get; set; }
 
 		}
 

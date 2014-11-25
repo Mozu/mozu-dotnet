@@ -20,6 +20,11 @@ namespace Mozu.Api.Contracts.PricingRuntime
 		public class ProductProperty
 		{
 			///
+			///Details of a product attribute.
+			///
+			public ProductAttribute AttributeDetail { get; set; }
+
+			///
 			///The fully qualified name of the attribute, which is a user defined attribute identifier.
 			///
 			public string AttributeFQN { get; set; }
@@ -33,11 +38,6 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///If true, the product property has multiple values.
 			///
 			public bool? IsMultiValue { get; set; }
-
-			///
-			///Details of a product attribute.
-			///
-			public ProductAttribute AttributeDetail { get; set; }
 
 			///
 			///List of values predefined for the product property attribute.

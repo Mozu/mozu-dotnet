@@ -19,12 +19,22 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class Category
 		{
+			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
 			public int? CatalogId { get; set; }
 
 			///
 			///The number of children (subcategories, for example) that stem from a parent (top-level category).
 			///
 			public int? ChildCount { get; set; }
+
+			///
+			///Complex type that contains content for a language specified by LocaleCode.
+			///
+			public CategoryLocalizedContent Content { get; set; }
 
 			///
 			///Identifier of the entity.
@@ -50,16 +60,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///The numeric value that denotes the place this entity occupies in the order of the entity list.
 			///
 			public int? Sequence { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
-
-			///
-			///Complex type that contains content for a language specified by LocaleCode.
-			///
-			public CategoryLocalizedContent Content { get; set; }
 
 		}
 

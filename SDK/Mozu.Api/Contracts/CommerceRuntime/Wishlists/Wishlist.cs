@@ -11,10 +11,10 @@
 using System;
 using System.Collections.Generic;
 
-using Mozu.Api.Contracts.Core;
 using Mozu.Api.Contracts.CommerceRuntime.Commerce;
-using Mozu.Api.Contracts.CommerceRuntime.Fulfillment;
 using Mozu.Api.Contracts.CommerceRuntime.Discounts;
+using Mozu.Api.Contracts.CommerceRuntime.Fulfillment;
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 {
@@ -23,6 +23,16 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 		///
 		public class Wishlist
 		{
+			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
+			///Collection of change messages logged for each modification to a shopper wish list. System-supplied and read only.
+			///
+			public List<ChangeMessage> ChangeMessages { get; set; }
+
 			///
 			///Unique identifier of the channel associated with the wish list.
 			///
@@ -74,6 +84,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			public decimal? FeeTotal { get; set; }
 
 			///
+			///Properties that determine how items in the wish list are fulfilled.
+			///
+			public FulfillmentInfo FulfillmentInfo { get; set; }
+
+			///
 			///The tax amount levied against the handling fee for items in the wish list. This property value is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? HandlingTaxTotal { get; set; }
@@ -94,6 +109,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			public bool? IsImport { get; set; }
 
 			///
+			///An array list of objects in the returned collection.
+			///
+			public List<WishlistItem> Items { get; set; }
+
+			///
 			///The total amount of tax for items in the wish list. This property value is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? ItemTaxTotal { get; set; }
@@ -107,6 +127,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			///The user-defined name of the shopper wish list. The name defined for a wish list does not have to be unique.
 			///
 			public string Name { get; set; }
+
+			///
+			///Any order discounts that apply to items in the wish list. This property is not used at this time and is reserved for future functionality.
+			///
+			public List<AppliedDiscount> OrderDiscounts { get; set; }
 
 			///
 			///The type of privacy to apply to this wish list. Possible values are "Private" which makes the wish list viewable only to the shopper, "DirectShare" which makes the wish list viewable only to people with whom the shopper shares the wish list link, or "Public" which makes the wish list available to everyone. At this time, the system treats all shopper wish lists as "Public" regardless of the defined privacy type.
@@ -177,31 +202,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			///Unique identifier of the web session in which the wish list was created or last modified. System-supplied and read only.
 			///
 			public string WebSessionId { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
-
-			///
-			///Collection of change messages logged for each modification to a shopper wish list. System-supplied and read only.
-			///
-			public List<ChangeMessage> ChangeMessages { get; set; }
-
-			///
-			///Properties that determine how items in the wish list are fulfilled.
-			///
-			public FulfillmentInfo FulfillmentInfo { get; set; }
-
-			///
-			///An array list of objects in the returned collection.
-			///
-			public List<WishlistItem> Items { get; set; }
-
-			///
-			///Any order discounts that apply to items in the wish list. This property is not used at this time and is reserved for future functionality.
-			///
-			public List<AppliedDiscount> OrderDiscounts { get; set; }
 
 		}
 

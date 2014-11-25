@@ -20,11 +20,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class ProductPropertyValue
 		{
 			///
-			///Value details for a product property attribute.
-			///
-			public object Value { get; set; }
-
-			///
 			///Details of the vocabulary value for predefined product property attributes.
 			///
 			public AttributeVocabularyValue AttributeVocabularyValueDetail { get; set; }
@@ -35,6 +30,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public ProductPropertyValueLocalizedContent Content { get; set; }
 
 			public List<ProductPropertyValueLocalizedContent> LocalizedContent { get; set; }
+
+			///
+			///Value details for a product property attribute.
+			///
+			public object Value { get; set; }
 
 		}
 

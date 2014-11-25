@@ -31,6 +31,11 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public decimal? CreditValue { get; set; }
 
 			///
+			///The discount applied to the product price.
+			///
+			public AppliedDiscount Discount { get; set; }
+
+			///
 			///The manufacturer's suggested retail price for the product.
 			///
 			public decimal? Msrp { get; set; }
@@ -54,11 +59,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///The price type that displays on the storefront website for the Sale Price field, which is CatalogSalePrice, DiscountedList, or DiscountedCatalogSalePrice
 			///
 			public string SalePriceType { get; set; }
-
-			///
-			///The discount applied to the product price.
-			///
-			public AppliedDiscount Discount { get; set; }
 
 		}
 

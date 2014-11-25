@@ -11,8 +11,8 @@
 using System;
 using System.Collections.Generic;
 
-using Mozu.Api.Contracts.Core;
 using Mozu.Api.Contracts.CommerceRuntime.Commerce;
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 {
@@ -37,14 +37,34 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			public decimal AmountRequested { get; set; }
 
 			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
 			///The actions a user can perform for a payment at this time.
 			///
 			public List<string> AvailableActions { get; set; }
 
 			///
+			///Properties of the customer billing information associated with this payment.
+			///
+			public BillingInfo BillingInfo { get; set; }
+
+			///
+			///List of change messages associated with the payment.
+			///
+			public List<ChangeMessage> ChangeMessages { get; set; }
+
+			///
 			///Unique identifier of the payment transaction.
 			///
 			public string Id { get; set; }
+
+			///
+			///Container for the interactions associated with the payment, which includes details for each action performed for the payment.
+			///
+			public List<PaymentInteraction> Interactions { get; set; }
 
 			///
 			///If true, the payment transaction occurs at regular intervals such as a monthly billing cycle or a digital or physical subscription.
@@ -70,26 +90,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///Current status of the payment transaction for the order.
 			///
 			public string Status { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
-
-			///
-			///Properties of the customer billing information associated with this payment.
-			///
-			public BillingInfo BillingInfo { get; set; }
-
-			///
-			///List of change messages associated with the payment.
-			///
-			public List<ChangeMessage> ChangeMessages { get; set; }
-
-			///
-			///Container for the interactions associated with the payment, which includes details for each action performed for the payment.
-			///
-			public List<PaymentInteraction> Interactions { get; set; }
 
 		}
 

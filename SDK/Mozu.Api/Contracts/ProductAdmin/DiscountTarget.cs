@@ -20,21 +20,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class DiscountTarget
 		{
 			///
-			///If true, the target discount applies to all products sold on the site, regardless of product category.
-			///
-			public bool? IncludeAllProducts { get; set; }
-
-			///
-			///When a condition is specified, this property limits the number of items that are targeted for each discount redemption with an order. If multiple redemptions are allowed for each order then multiples of this value are allowed in multiples of the associated condition. If no condition is specified, then this value is not used. If null and condition exists, then defaults to 1.
-			///
-			public int? MaximumQuantityPerRedemption { get; set; }
-
-			///
-			///Properties of the object to which this discount is targeted, which can be Product or Shipping. If the discount type is Product, the target properties describe the product or product categories to which the discount applies. If the discount type is Shipping, the target properties describe the shipping methods eligible for the discount.
-			///
-			public string Type { get; set; }
-
-			///
 			///The product categories to which the discount can apply. When a discount applies to a category, all products in the category are eligible for the discount.
 			///
 			public List<TargetedCategory> Categories { get; set; }
@@ -50,6 +35,16 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public List<TargetedProduct> ExcludedProducts { get; set; }
 
 			///
+			///If true, the target discount applies to all products sold on the site, regardless of product category.
+			///
+			public bool? IncludeAllProducts { get; set; }
+
+			///
+			///When a condition is specified, this property limits the number of items that are targeted for each discount redemption with an order. If multiple redemptions are allowed for each order then multiples of this value are allowed in multiples of the associated condition. If no condition is specified, then this value is not used. If null and condition exists, then defaults to 1.
+			///
+			public int? MaximumQuantityPerRedemption { get; set; }
+
+			///
 			///List of  product codes that represent the products to which the discount can apply.
 			///
 			public List<TargetedProduct> Products { get; set; }
@@ -60,6 +55,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public List<TargetedShippingMethod> ShippingMethods { get; set; }
 
 			public List<TargetedShippingZone> ShippingZones { get; set; }
+
+			///
+			///Properties of the object to which this discount is targeted, which can be Product or Shipping. If the discount type is Product, the target properties describe the product or product categories to which the discount applies. If the discount type is Shipping, the target properties describe the shipping methods eligible for the discount.
+			///
+			public string Type { get; set; }
 
 		}
 

@@ -25,6 +25,11 @@ namespace Mozu.Api.Contracts.PaymentService
 			public string CountryCode { get; set; }
 
 			///
+			///List of credential fields for the payment gateway account.
+			///
+			public List<GatewayCredentialFieldValue> CredentialFields { get; set; }
+
+			///
 			///Identifier of the payment gateway.
 			///
 			public string GatewayDefinitionId { get; set; }
@@ -38,11 +43,6 @@ namespace Mozu.Api.Contracts.PaymentService
 			///If true, the product is marked as available for sale. Setting a product to IsActive = false will prevent it from being shown on the customer facing storefront.
 			///
 			public bool IsActive { get; set; }
-
-			///
-			///List of credential fields for the payment gateway account.
-			///
-			public List<GatewayCredentialFieldValue> CredentialFields { get; set; }
 
 		}
 

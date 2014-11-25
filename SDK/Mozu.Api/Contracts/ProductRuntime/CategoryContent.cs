@@ -20,6 +20,11 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		public class CategoryContent
 		{
 			///
+			///Array list of image media associated with the product category.
+			///
+			public List<CategoryImage> CategoryImages { get; set; }
+
+			///
 			///The localized description of the category to display on a storefront.
 			///
 			public string Description { get; set; }
@@ -53,11 +58,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///Human-readable identifier to associated with a product category to create friendly URLs.
 			///
 			public string Slug { get; set; }
-
-			///
-			///Array list of image media associated with the product category.
-			///
-			public List<CategoryImage> CategoryImages { get; set; }
 
 		}
 
