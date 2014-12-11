@@ -40,8 +40,8 @@ namespace Mozu.Api.ToolKit.Config
                 Settings.Add(key, ConfigurationManager.AppSettings[key]);
             }
 
-            if (Settings.ContainsKey("SmptServer"))
-                SMTPServerUrl = Settings["SmptServer"].ToString();
+            if (Settings.ContainsKey("SmtpServer"))
+                SMTPServerUrl = Settings["SmtpServer"].ToString();
 
 
             if (Settings.ContainsKey("MozuAuthUrl"))
