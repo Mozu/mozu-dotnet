@@ -89,6 +89,7 @@
     <Compile Include="Readers\LocationInventoryReader.cs" />
     <Compile Include="Readers\LocationReader.cs" />
     <Compile Include="Readers\OrderReader.cs" />
+    <Compile Include="Readers\OrderReturnReader.cs" />
     <Compile Include="Readers\ProductAdminReader.cs" />
     <Compile Include="Readers\ProductRuntimeReader.cs" />
     <Compile Include="Readers\ProductTypeReader.cs" />
