@@ -23,6 +23,16 @@ namespace Mozu.Api.Events
 		Task CreatedAsync(IApiContext apiContext, Event eventPayLoad);
 
 		[Obsolete("This method is obsolete; use the async method instead")]
+		void CustomerAdded(IApiContext apiContext, Event eventPayLoad);
+
+		Task CustomerAddedAsync(IApiContext apiContext, Event eventPayLoad);
+
+		[Obsolete("This method is obsolete; use the async method instead")]
+		void CustomerRemoved(IApiContext apiContext, Event eventPayLoad);
+
+		Task CustomerRemovedAsync(IApiContext apiContext, Event eventPayLoad);
+
+		[Obsolete("This method is obsolete; use the async method instead")]
 		void Deleted(IApiContext apiContext, Event eventPayLoad);
 
 		Task DeletedAsync(IApiContext apiContext, Event eventPayLoad);

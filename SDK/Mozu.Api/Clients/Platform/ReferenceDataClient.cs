@@ -218,6 +218,30 @@ namespace Mozu.Api.Clients.Platform
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Reference.CountryWithStatesCollection"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetCountriesWithStates( responseFields);
+		///   var countryWithStatesCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.Reference.CountryWithStatesCollection> GetCountriesWithStatesClient(string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Platform.ReferenceDataUrl.GetCountriesWithStatesUrl(responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Reference.CountryWithStatesCollection>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Retrieves the entire list of currencies that the system supports.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>

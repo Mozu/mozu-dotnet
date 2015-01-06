@@ -534,10 +534,13 @@
     <Compile Include="Contracts\Reference\ContentLocaleCollection.cs" />
     <Compile Include="Contracts\Reference\Country.cs" />
     <Compile Include="Contracts\Reference\CountryCollection.cs" />
+    <Compile Include="Contracts\Reference\CountryWithStates.cs" />
+    <Compile Include="Contracts\Reference\CountryWithStatesCollection.cs" />
     <Compile Include="Contracts\Reference\Currency.cs" />
     <Compile Include="Contracts\Reference\CurrencyCollection.cs" />
     <Compile Include="Contracts\Reference\Field.cs" />
     <Compile Include="Contracts\Reference\FieldData.cs" />
+    <Compile Include="Contracts\Reference\State.cs" />
     <Compile Include="Contracts\Reference\TimeZone.cs" />
     <Compile Include="Contracts\Reference\TimeZoneCollection.cs" />
     <Compile Include="Contracts\Reference\TopLevelDomainCollection.cs" />
