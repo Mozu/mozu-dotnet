@@ -26,9 +26,29 @@ namespace Mozu.Api.Contracts.Customer
 			public bool AcceptsMarketing { get; set; }
 
 			///
+			///Collection of customer account attributes.
+			///
+			public List<CustomerAttribute> Attributes { get; set; }
+
+			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
+			///Properties of the commerce summary associated with a customer account, which includes details about the shopper's most recent order, wish lists, and total order value over time.
+			///
+			public CommerceSummary CommerceSummary { get; set; }
+
+			///
 			///The legal or doing business as (DBA) or tradestyle name of the business or organization. The maximum character length is 200.
 			///
 			public string CompanyOrOrganization { get; set; }
+
+			///
+			///Contact information, including the contact's name, address, phone numbers, email addresses, and company (if supplied). Also indicates whether this is a billing, shipping, or billing and shipping contact.
+			///
+			public List<CustomerContact> Contacts { get; set; }
 
 			///
 			///The email address associated with the customer account.
@@ -66,6 +86,16 @@ namespace Mozu.Api.Contracts.Customer
 			public string LocaleCode { get; set; }
 
 			///
+			///List of customer account notes.
+			///
+			public List<CustomerNote> Notes { get; set; }
+
+			///
+			///List of customer segments associated with the customer account. Customer accounts can be members of any number of segments.
+			///
+			public List<CustomerSegment> Segments { get; set; }
+
+			///
 			///If true, this customer account has tax exempt status.
 			///
 			public bool TaxExempt { get; set; }
@@ -84,36 +114,6 @@ namespace Mozu.Api.Contracts.Customer
 			///The user name of the user associated with the customer account.
 			///
 			public string UserName { get; set; }
-
-			///
-			///Collection of customer account attributes.
-			///
-			public List<CustomerAttribute> Attributes { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
-
-			///
-			///Properties of the commerce summary associated with a customer account, which includes details about the shopper's most recent order, wish lists, and total order value over time.
-			///
-			public CommerceSummary CommerceSummary { get; set; }
-
-			///
-			///Contact information, including the contact's name, address, phone numbers, email addresses, and company (if supplied). Also indicates whether this is a billing, shipping, or billing and shipping contact.
-			///
-			public List<CustomerContact> Contacts { get; set; }
-
-			///
-			///List of customer account notes.
-			///
-			public List<CustomerNote> Notes { get; set; }
-
-			///
-			///List of customer segments associated with the customer account. Customer accounts can be members of any number of segments.
-			///
-			public List<CustomerSegment> Segments { get; set; }
 
 		}
 

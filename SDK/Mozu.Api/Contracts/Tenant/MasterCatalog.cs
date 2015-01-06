@@ -19,6 +19,11 @@ namespace Mozu.Api.Contracts.Tenant
 		///
 		public class MasterCatalog
 		{
+			///
+			///Collection of product catalogs that use product definitions from the master catalog.
+			///
+			public List<Catalog> Catalogs { get; set; }
+
 			public DateTime CreateDate { get; set; }
 
 			///
@@ -59,11 +64,6 @@ namespace Mozu.Api.Contracts.Tenant
 			public int TenantId { get; set; }
 
 			public DateTime UpdateDate { get; set; }
-
-			///
-			///Collection of product catalogs that use product definitions from the master catalog.
-			///
-			public List<Catalog> Catalogs { get; set; }
 
 		}
 

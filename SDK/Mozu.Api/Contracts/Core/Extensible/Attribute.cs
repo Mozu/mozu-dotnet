@@ -33,6 +33,18 @@ namespace Mozu.Api.Contracts.Core.Extensible
 			public string AttributeFQN { get; set; }
 
 			///
+			///List of metadata key-value pairs defined for an extensible attribute.
+			///
+			public List<AttributeMetadataItem> AttributeMetadata { get; set; }
+
+			public AuditInfo AuditInfo { get; set; }
+
+			///
+			///The localized name and description of the attribute, displayed in the locale code specified for the master catalog.
+			///
+			public AttributeLocalizedContent Content { get; set; }
+
+			///
 			///The data type of the customer or order attribute, which is Bool, DateTime, Number, or String.
 			///
 			public string DataType { get; set; }
@@ -80,26 +92,14 @@ namespace Mozu.Api.Contracts.Core.Extensible
 			public int? Order { get; set; }
 
 			///
-			///An attribute value type is either predefined vocabulary by the admin during attribute set up or it can be "AdminEntered" or "ShopperEntered". The difference between predefined values versus manually entered values is such that the first choice is a set of options to choose from. AdminEntered and ShopperEntered are values that are entered rather than system-supplied and are not stored in the database, but captured during a live commerce operations such as during an order.
-			///
-			public string ValueType { get; set; }
-
-			///
-			///List of metadata key-value pairs defined for an extensible attribute.
-			///
-			public List<AttributeMetadataItem> AttributeMetadata { get; set; }
-
-			public AuditInfo AuditInfo { get; set; }
-
-			///
-			///The localized name and description of the attribute, displayed in the locale code specified for the master catalog.
-			///
-			public AttributeLocalizedContent Content { get; set; }
-
-			///
 			///Properties used when validating a value entered for an extensible attribute.
 			///
 			public AttributeValidation Validation { get; set; }
+
+			///
+			///An attribute value type is either predefined vocabulary by the admin during attribute set up or it can be "AdminEntered" or "ShopperEntered". The difference between predefined values versus manually entered values is such that the first choice is a set of options to choose from. AdminEntered and ShopperEntered are values that are entered rather than system-supplied and are not stored in the database, but captured during a live commerce operations such as during an order.
+			///
+			public string ValueType { get; set; }
 
 			///
 			///List of valid vocabulary values defined for an attribute.

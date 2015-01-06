@@ -30,14 +30,14 @@ namespace Mozu.Api.Contracts.Reference
 			public string CountryLabel { get; set; }
 
 			///
-			///The unique identifier of this postal address schema.
-			///
-			public int Id { get; set; }
-
-			///
 			///The fields to display for postal addresses associated with this country.
 			///
 			public List<Field> Fields { get; set; }
+
+			///
+			///The unique identifier of this postal address schema.
+			///
+			public int Id { get; set; }
 
 		}
 

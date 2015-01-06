@@ -65,6 +65,23 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// Retrieves a list of all returns according to any filter and sort criteria.
+		/// </summary>
+		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var return = new Return();
+		///   var returnCollection = await return.GetReturnsAsync( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection> GetReturnsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection> response;
@@ -99,6 +116,19 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// Retrieves a list of the actions available to perform for the specified return based on its current state.
+		/// </summary>
+		/// <param name="returnId">Unique identifier of the return for which to retrieve available actions.</param>
+		/// <returns>
+		/// List{string}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var return = new Return();
+		///   var string = await return.GetAvailableReturnActionsAsync( returnId);
+		/// </code>
+		/// </example>
 		public virtual async Task<List<string>> GetAvailableReturnActionsAsync(string returnId)
 		{
 			MozuClient<List<string>> response;
@@ -135,6 +165,21 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="returnId"></param>
+		/// <param name="returnItemId"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnItem"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var return = new Return();
+		///   var returnItem = await return.GetReturnItemAsync( returnId,  returnItemId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnItem> GetReturnItemAsync(string returnId, string returnItemId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnItem> response;
@@ -170,6 +215,20 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="returnId"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnItemCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var return = new Return();
+		///   var returnItemCollection = await return.GetReturnItemsAsync( returnId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnItemCollection> GetReturnItemsAsync(string returnId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnItemCollection> response;
@@ -205,6 +264,20 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// Retrieves a list of the payment actions available to perform for the specified return when a return results in a refund to the customer.
+		/// </summary>
+		/// <param name="paymentId">Unique identifier of the payment for which to perform the action.</param>
+		/// <param name="returnId">Unique identifier of the return associated with the payment.</param>
+		/// <returns>
+		/// List{string}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var return = new Return();
+		///   var string = await return.GetAvailablePaymentActionsForReturnAsync( returnId,  paymentId);
+		/// </code>
+		/// </example>
 		public virtual async Task<List<string>> GetAvailablePaymentActionsForReturnAsync(string returnId, string paymentId)
 		{
 			MozuClient<List<string>> response;
@@ -241,6 +314,21 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// Retrieves the details of a payment submitted as part of a refund associated with a customer return.
+		/// </summary>
+		/// <param name="paymentId">Unique identifier of the return payment to retrieve.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="returnId">Unique identifier of the return associated with the payment.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Payments.Payment"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var return = new Return();
+		///   var payment = await return.GetPaymentAsync( returnId,  paymentId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Payments.Payment> GetPaymentAsync(string returnId, string paymentId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Payments.Payment> response;
@@ -276,6 +364,20 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// Retrieves a list of all payments submitted as part of a refund associated with a customer return.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="returnId">Returns the details of the refund payment associated with the return specified in the request.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var return = new Return();
+		///   var paymentCollection = await return.GetPaymentsAsync( returnId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentCollection> GetPaymentsAsync(string returnId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentCollection> response;
@@ -311,6 +413,20 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// Retrieves a list of properties for the specified return.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="returnId">Returns the properties of the return specified in the request as well as system-supplied information.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var return = new Return();
+		///   var return = await return.GetReturnAsync( returnId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> GetReturnAsync(string returnId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> response;
@@ -346,6 +462,20 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// Creates a return for previously fulfilled items. Each return must either be associated with an original order or a product definition to represent each returned item.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="ret">Wrapper for the properties of the return to create.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var return = new Return();
+		///   var return = await return.CreateReturnAsync( ret,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> CreateReturnAsync(Mozu.Api.Contracts.CommerceRuntime.Returns.Return ret, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> response;
@@ -382,6 +512,21 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="returnId"></param>
+		/// <param name="returnItem"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var return = new Return();
+		///   var return = await return.CreateReturnItemAsync( returnItem,  returnId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> CreateReturnItemAsync(Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnItem returnItem, string returnId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> response;
@@ -419,6 +564,22 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// Updates a refund payment associated with a customer return by performing the specified action.
+		/// </summary>
+		/// <param name="paymentId">Unique identifier of the return payment to update.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="returnId">Unique identifier of the return associated with the refund payment.</param>
+		/// <param name="action">The payment action to perform for the refund payment.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var return = new Return();
+		///   var return = await return.PerformPaymentActionForReturnAsync( action,  returnId,  paymentId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> PerformPaymentActionForReturnAsync(Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentAction action, string returnId, string paymentId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> response;
@@ -455,6 +616,21 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// Creates a new payment for a return that results in a refund to the customer.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="returnId">Unique identifier of the return associated with the payment action.</param>
+		/// <param name="action">The payment action to perform for the customer return.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var return = new Return();
+		///   var return = await return.CreatePaymentActionForReturnAsync( action,  returnId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> CreatePaymentActionForReturnAsync(Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentAction action, string returnId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> response;
@@ -490,6 +666,20 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// Updates the return by performing the action specified in the request.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="action">The name of the return action to perform, such as "Reject" or "Authorize".</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var return = new Return();
+		///   var returnCollection = await return.PerformReturnActionsAsync( action,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection> PerformReturnActionsAsync(Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnAction action, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection> response;
@@ -526,6 +716,21 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// Updates one or more properties of a return for items previously shipped in a completed order.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="returnId">Unique identifier of the return.</param>
+		/// <param name="ret">Wrapper for the array of properties to update for the return.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var return = new Return();
+		///   var return = await return.UpdateReturnAsync( ret,  returnId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> UpdateReturnAsync(Mozu.Api.Contracts.CommerceRuntime.Returns.Return ret, string returnId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> response;
@@ -561,6 +766,20 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="returnId"></param>
+		/// <param name="returnItemId"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var return = new Return();
+		///   var return = await return.DeleteOrderItemAsync( returnId,  returnItemId);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> DeleteOrderItemAsync(string returnId, string returnItemId)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> response;
@@ -594,6 +813,19 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// Deletes the return specified in the request.
+		/// </summary>
+		/// <param name="returnId">Unique identifier of the return to delete.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var return = new Return();
+		///   await return.DeleteReturnAsync( returnId);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteReturnAsync(string returnId)
 		{
 			MozuClient response;

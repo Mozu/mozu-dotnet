@@ -61,6 +61,19 @@ namespace Mozu.Api.Resources.Commerce.Settings
 
 		}
 
+		/// <summary>
+		/// Retrieve the settings of a third-party application.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.SiteSettings.Application.Application"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var application = new Application();
+		///   var application = await application.ThirdPartyGetApplicationAsync( responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Application.Application> ThirdPartyGetApplicationAsync(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.SiteSettings.Application.Application> response;
@@ -96,6 +109,20 @@ namespace Mozu.Api.Resources.Commerce.Settings
 
 		}
 
+		/// <summary>
+		/// Initializes an application with the necessary configured settings.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="application">Properties of the application to update.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.SiteSettings.Application.Application"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var application = new Application();
+		///   var application = await application.ThirdPartyUpdateApplicationAsync( application,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Application.Application> ThirdPartyUpdateApplicationAsync(Mozu.Api.Contracts.SiteSettings.Application.Application application, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.SiteSettings.Application.Application> response;

@@ -20,6 +20,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class ProductReservation
 		{
 			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
 			///Identifier of the entity.
 			///
 			public int? Id { get; set; }
@@ -48,11 +53,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///The quantity of items associated with the product reservation.
 			///
 			public int Quantity { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
 
 		}
 

@@ -11,11 +11,11 @@
 using System;
 using System.Collections.Generic;
 
-using Mozu.Api.Contracts.Core;
 using Mozu.Api.Contracts.CommerceRuntime.Commerce;
-using Mozu.Api.Contracts.CommerceRuntime.Orders;
 using Mozu.Api.Contracts.CommerceRuntime.Fulfillment;
+using Mozu.Api.Contracts.CommerceRuntime.Orders;
 using Mozu.Api.Contracts.CommerceRuntime.Payments;
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 {
@@ -25,9 +25,19 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 		public class Return
 		{
 			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
 			///The actions a user can perform for the return at this time.
 			///
 			public List<string> AvailableActions { get; set; }
+
+			///
+			///List of change messages associated with the return.
+			///
+			public List<ChangeMessage> ChangeMessages { get; set; }
 
 			///
 			///The code that identifies the channel associated with the return, which is typically the same channel associated with the order.
@@ -55,6 +65,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			public string Id { get; set; }
 
 			///
+			///An array list of objects in the returned collection.
+			///
+			public List<ReturnItem> Items { get; set; }
+
+			///
 			///The code that uniquely identifies the location where items were returned.
 			///
 			public string LocationCode { get; set; }
@@ -65,9 +80,24 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			public decimal? LossTotal { get; set; }
 
 			///
+			///Collection of merchant-supplied notes entered for the return.
+			///
+			public List<OrderNote> Notes { get; set; }
+
+			///
 			///If this return is associated with a previously completed order, the unique identifier of the original order.
 			///
 			public string OriginalOrderId { get; set; }
+
+			///
+			///List of packages associated with a replacement order for a return.
+			///
+			public List<Package> Packages { get; set; }
+
+			///
+			///Array list of payments associated with this return, if applicable.
+			///
+			public List<Payment> Payments { get; set; }
 
 			///
 			///The total tax amount levied on the product loss amount.
@@ -143,36 +173,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///Unique identifier of the web session in which the return was created or last modified, which is system-supplied and read only.
 			///
 			public string WebSessionId { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
-
-			///
-			///List of change messages associated with the return.
-			///
-			public List<ChangeMessage> ChangeMessages { get; set; }
-
-			///
-			///An array list of objects in the returned collection.
-			///
-			public List<ReturnItem> Items { get; set; }
-
-			///
-			///Collection of merchant-supplied notes entered for the return.
-			///
-			public List<OrderNote> Notes { get; set; }
-
-			///
-			///List of packages associated with a replacement order for a return.
-			///
-			public List<Package> Packages { get; set; }
-
-			///
-			///Array list of payments associated with this return, if applicable.
-			///
-			public List<Payment> Payments { get; set; }
 
 		}
 

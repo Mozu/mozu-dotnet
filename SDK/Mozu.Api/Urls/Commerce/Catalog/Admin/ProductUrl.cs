@@ -128,6 +128,19 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for RenameProductCodes
+        /// </summary>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl RenameProductCodesUrl()
+		{
+			var url = "/api/commerce/catalog/admin/products/Actions/RenameProductCodes";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for UpdateProductInCatalogs
         /// </summary>

@@ -30,11 +30,6 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			public string Code { get; set; }
 
 			///
-			///The number of days the shipment will spend between the origin address and the destination address.
-			///
-			public int? DaysInTransit { get; set; }
-
-			///
 			///Localized content for a shipping rate based on the defined locale code.
 			///
 			public ShippingRateLocalizedContent Content { get; set; }
@@ -43,6 +38,11 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			///Collection of carrier-specific key-value attribute pairs required to retrieve a shipping rate request.
 			///
 			public List<CustomAttribute> CustomAttributes { get; set; }
+
+			///
+			///The number of days the shipment will spend between the origin address and the destination address.
+			///
+			public int? DaysInTransit { get; set; }
 
 			///
 			///Array list of success/failure messages associated with the shipping rate validation.

@@ -18,6 +18,8 @@ namespace Mozu.Api.Contracts.MZDB
 {
 		public class EntityCollection
 		{
+			public List<JObject> Items { get; set; }
+
 			public int PageCount { get; set; }
 
 			public int PageSize { get; set; }
@@ -25,8 +27,6 @@ namespace Mozu.Api.Contracts.MZDB
 			public int StartIndex { get; set; }
 
 			public int TotalCount { get; set; }
-
-			public List<JObject> Items { get; set; }
 
 		}
 

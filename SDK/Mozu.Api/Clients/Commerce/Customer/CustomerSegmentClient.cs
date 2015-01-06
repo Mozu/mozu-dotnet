@@ -175,26 +175,26 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// Removes the specified customer accounts from a defined customer segment. You must create the request body to perform this operation.
+		/// 
 		/// </summary>
-		/// <param name="id">Unique identifier of the segment from which to remove the customer accounts.</param>
-		/// <param name="accountIds">List of customer account identifiers to remove from the specified customer segments.</param>
+		/// <param name="accountId"></param>
+		/// <param name="id"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=DeleteSegmentAccounts( accountIds,  id);
+		///   var mozuClient=RemoveSegmentAccount( id,  accountId);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteSegmentAccountsClient(List<int> accountIds, int id)
+		public static MozuClient RemoveSegmentAccountClient(int id, int accountId)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerSegmentUrl.DeleteSegmentAccountsUrl(id);
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerSegmentUrl.RemoveSegmentAccountUrl(id, accountId);
 			const string verb = "DELETE";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody(accountIds);
+;
 			return mozuClient;
 
 		}

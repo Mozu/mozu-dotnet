@@ -18,11 +18,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		{
 			public List<string> CustomBoosts { get; set; }
 
+			public List<SiteSearchRelevancyCustomField> CustomFields { get; set; }
+
 			public bool IsDefault { get; set; }
 
 			public string SettingsName { get; set; }
-
-			public List<SiteSearchRelevancyCustomField> CustomFields { get; set; }
 
 			public SiteSearchKeywordRelevancySettings SiteKeywordRelevancy { get; set; }
 

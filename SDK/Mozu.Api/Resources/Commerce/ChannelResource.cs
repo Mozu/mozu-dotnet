@@ -65,6 +65,23 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// Retrieves a list of channels defined for a tenant according to any filter or sort criteria specified in the request.
+		/// </summary>
+		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var channel = new Channel();
+		///   var channelCollection = await channel.GetChannelsAsync( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelCollection> GetChannelsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelCollection> response;
@@ -100,6 +117,20 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// Retrieves the details of the channel specified in the request.
+		/// </summary>
+		/// <param name="code">User-defined code that identifies the channel to retrieve.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Channels.Channel"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var channel = new Channel();
+		///   var channel = await channel.GetChannelAsync( code,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Channels.Channel> GetChannelAsync(string code, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.Channel> response;
@@ -135,6 +166,20 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// Creates a new channel that defines a new logical business division to use for financial reporting.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="channel">Properties of the channel to create.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Channels.Channel"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var channel = new Channel();
+		///   var channel = await channel.CreateChannelAsync( channel,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Channels.Channel> CreateChannelAsync(Mozu.Api.Contracts.CommerceRuntime.Channels.Channel channel, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.Channel> response;
@@ -171,6 +216,21 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// Updates one or more details of a defined channel, including the associated sites.
+		/// </summary>
+		/// <param name="code">User-defined code that identifies the channel to update.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="channel">Properties of a the channel to update.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Channels.Channel"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var channel = new Channel();
+		///   var channel = await channel.UpdateChannelAsync( channel,  code,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Channels.Channel> UpdateChannelAsync(Mozu.Api.Contracts.CommerceRuntime.Channels.Channel channel, string code, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Channels.Channel> response;
@@ -204,6 +264,19 @@ namespace Mozu.Api.Resources.Commerce
 
 		}
 
+		/// <summary>
+		/// Deletes a defined channel for the tenant and removes the defined site associations. After deleting this channel, assign its associated sites to another channel.
+		/// </summary>
+		/// <param name="code">User-defined code that identifies the channel to delete.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var channel = new Channel();
+		///   await channel.DeleteChannelAsync( code);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteChannelAsync(string code)
 		{
 			MozuClient response;

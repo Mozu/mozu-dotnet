@@ -36,9 +36,9 @@
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="Mozu.Api, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Mozu.Api, Version=1.13.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Mozu.Api.SDK.1.9.0-dev1408212009\lib\net45\Mozu.Api.dll</HintPath>
+      <HintPath>..\packages\Mozu.Api.SDK.1.13.0-dev1411171621\lib\net45\Mozu.Api.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -66,33 +66,44 @@
     <Compile Include="AbstractBootStrapper.cs" />
     <Compile Include="Config\AppSetting.cs" />
     <Compile Include="Config\IAppSetting.cs" />
+    <Compile Include="Converters\EnumLowerCaseConverter.cs" />
     <Compile Include="Events\EventCategory.cs" />
     <Compile Include="Events\EventProcessor.cs" />
     <Compile Include="Events\EventService.cs" />
     <Compile Include="Events\EventServiceFactory.cs" />
+    <Compile Include="Handlers\EntityHandler.cs" />
+    <Compile Include="Handlers\EntitySchemaHandler.cs" />
+    <Compile Include="Handlers\ExtensionHandler.cs" />
     <Compile Include="Logging\IloggingServiceFactory.cs" />
     <Compile Include="Logging\Log4NetLogger.cs" />
     <Compile Include="Logging\Log4NetService.cs" />
     <Compile Include="Logging\Log4NetServiceFactory.cs" />
+    <Compile Include="Models\SubnavLink.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Readers\AttributeReader.cs" />
     <Compile Include="Readers\BaseReader.cs" />
     <Compile Include="Readers\CategoryReader.cs" />
     <Compile Include="Readers\CustomerAccountReader.cs" />
+    <Compile Include="Readers\CustomerAccountSegmentReader.cs" />
     <Compile Include="Readers\DiscountReader.cs" />
     <Compile Include="Readers\DocumentReader.cs" />
+    <Compile Include="Readers\EntityReader.cs" />
     <Compile Include="Readers\LocationInventoryReader.cs" />
     <Compile Include="Readers\LocationReader.cs" />
     <Compile Include="Readers\OrderReader.cs" />
+    <Compile Include="Readers\OrderReturnReader.cs" />
     <Compile Include="Readers\ProductAdminReader.cs" />
     <Compile Include="Readers\ProductRuntimeReader.cs" />
     <Compile Include="Readers\ProductTypeReader.cs" />
     <Compile Include="Readers\ProductVariationReader.cs" />
+    <Compile Include="Readers\CustomerSegmentReader.cs" />
     <Compile Include="Readers\WishlistReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Mozu.Api.ToolKit.nuspec" />
+    <None Include="Mozu.Api.ToolKit.nuspec">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

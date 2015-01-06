@@ -29,6 +29,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Discounts
 			public string CouponCode { get; set; }
 
 			///
+			///This describes discounts that apply to the order, if any. For example, when the subtotal of the order exceeds a certain amount, or a discount for free shipping.
+			///
+			public Discount Discount { get; set; }
+
+			///
 			///The number of the line items that are used for this particular discount.
 			///
 			public int DiscountQuantity { get; set; }
@@ -46,11 +51,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Discounts
 			public decimal? ImpactPerUnit { get; set; }
 
 			public int? ProductQuantity { get; set; }
-
-			///
-			///This describes discounts that apply to the order, if any. For example, when the subtotal of the order exceeds a certain amount, or a discount for free shipping.
-			///
-			public Discount Discount { get; set; }
 
 		}
 

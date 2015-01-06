@@ -68,6 +68,19 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 		}
 
+		/// <summary>
+		/// Retrieves a list of extras configured for the product according to any defined filter and sort criteria.
+		/// </summary>
+		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtra"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productextra = new ProductExtra();
+		///   var productExtra = await productextra.GetExtrasAsync(_dataViewMode,  productCode);
+		/// </code>
+		/// </example>
 		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductExtra>> GetExtrasAsync(string productCode)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductExtra>> response;
@@ -104,6 +117,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
+		/// <param name="value"></param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productextra = new ProductExtra();
+		///   var productExtraValueDeltaPrice = await productextra.GetExtraValueLocalizedDeltaPricesAsync(_dataViewMode,  productCode,  attributeFQN,  value);
+		/// </code>
+		/// </example>
 		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice>> GetExtraValueLocalizedDeltaPricesAsync(string productCode, string attributeFQN, string value)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice>> response;
@@ -142,6 +170,23 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="value"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productextra = new ProductExtra();
+		///   var productExtraValueDeltaPrice = await productextra.GetExtraValueLocalizedDeltaPriceAsync(_dataViewMode,  productCode,  attributeFQN,  value,  currencyCode,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> GetExtraValueLocalizedDeltaPriceAsync(string productCode, string attributeFQN, string value, string currencyCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> response;
@@ -178,6 +223,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 		}
 
+		/// <summary>
+		/// Retrieves the details of an extra attribute configuration for the product specified in the request.
+		/// </summary>
+		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtra"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productextra = new ProductExtra();
+		///   var productExtra = await productextra.GetExtraAsync(_dataViewMode,  productCode,  attributeFQN,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductExtra> GetExtraAsync(string productCode, string attributeFQN, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtra> response;
@@ -216,6 +276,23 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="value"></param>
+		/// <param name="localizedDeltaPrice"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productextra = new ProductExtra();
+		///   var productExtraValueDeltaPrice = await productextra.AddExtraValueLocalizedDeltaPriceAsync(_dataViewMode,  localizedDeltaPrice,  productCode,  attributeFQN,  value,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> AddExtraValueLocalizedDeltaPriceAsync(Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice localizedDeltaPrice, string productCode, string attributeFQN, string value, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> response;
@@ -252,6 +329,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 		}
 
+		/// <summary>
+		/// Configure an extra attribute for the product specified in the request.
+		/// </summary>
+		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="productExtra">Properties of the product extra to configure for the specified product.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtra"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productextra = new ProductExtra();
+		///   var productExtra = await productextra.AddExtraAsync(_dataViewMode,  productExtra,  productCode,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductExtra> AddExtraAsync(Mozu.Api.Contracts.ProductAdmin.ProductExtra productExtra, string productCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtra> response;
@@ -289,6 +381,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
+		/// <param name="value"></param>
+		/// <param name="localizedDeltaPrice"></param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productextra = new ProductExtra();
+		///   var productExtraValueDeltaPrice = await productextra.UpdateExtraValueLocalizedDeltaPricesAsync(_dataViewMode,  localizedDeltaPrice,  productCode,  attributeFQN,  value);
+		/// </code>
+		/// </example>
 		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice>> UpdateExtraValueLocalizedDeltaPricesAsync(List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> localizedDeltaPrice, string productCode, string attributeFQN, string value)
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice>> response;
@@ -328,6 +436,24 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="value"></param>
+		/// <param name="localizedDeltaPrice"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productextra = new ProductExtra();
+		///   var productExtraValueDeltaPrice = await productextra.UpdateExtraValueLocalizedDeltaPriceAsync(_dataViewMode,  localizedDeltaPrice,  productCode,  attributeFQN,  value,  currencyCode,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> UpdateExtraValueLocalizedDeltaPriceAsync(Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice localizedDeltaPrice, string productCode, string attributeFQN, string value, string currencyCode, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> response;
@@ -365,6 +491,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 		}
 
+		/// <summary>
+		/// Updates the configuration of an extra attribute for the product specified in the request.
+		/// </summary>
+		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="productExtra">Properties of the extra attribute to update for the specified product.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtra"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productextra = new ProductExtra();
+		///   var productExtra = await productextra.UpdateExtraAsync(_dataViewMode,  productExtra,  productCode,  attributeFQN,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductExtra> UpdateExtraAsync(Mozu.Api.Contracts.ProductAdmin.ProductExtra productExtra, string productCode, string attributeFQN, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtra> response;
@@ -399,6 +541,20 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 		}
 
+		/// <summary>
+		/// Delete a product extra configuration for the product specified in the request.
+		/// </summary>
+		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productextra = new ProductExtra();
+		///   await productextra.DeleteExtraAsync(_dataViewMode,  productCode,  attributeFQN);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteExtraAsync(string productCode, string attributeFQN)
 		{
 			MozuClient response;
@@ -434,6 +590,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="value">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productextra = new ProductExtra();
+		///   await productextra.DeleteExtraValueLocalizedDeltaPriceAsync(_dataViewMode,  productCode,  attributeFQN,  value,  currencyCode);
+		/// </code>
+		/// </example>
 		public virtual async Task DeleteExtraValueLocalizedDeltaPriceAsync(string productCode, string attributeFQN, string value, string currencyCode)
 		{
 			MozuClient response;

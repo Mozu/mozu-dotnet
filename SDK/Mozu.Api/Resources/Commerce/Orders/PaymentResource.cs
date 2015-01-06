@@ -62,6 +62,20 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 		}
 
+		/// <summary>
+		/// Retrieves information about all payment transactions submitted for the specified order.
+		/// </summary>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var payment = new Payment();
+		///   var paymentCollection = await payment.GetPaymentsAsync( orderId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentCollection> GetPaymentsAsync(string orderId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentCollection> response;
@@ -97,6 +111,20 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 		}
 
+		/// <summary>
+		/// Retrieves the list of all available payment actions dependent on the order payment status by specifying the order ID.
+		/// </summary>
+		/// <param name="orderId">Unique identifier of the order associated with the payment.</param>
+		/// <param name="paymentId">Unique identifer of the payment for which to retrieve available actions.</param>
+		/// <returns>
+		/// List{string}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var payment = new Payment();
+		///   var string = await payment.GetAvailablePaymentActionsAsync( orderId,  paymentId);
+		/// </code>
+		/// </example>
 		public virtual async Task<List<string>> GetAvailablePaymentActionsAsync(string orderId, string paymentId)
 		{
 			MozuClient<List<string>> response;
@@ -133,6 +161,21 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 		}
 
+		/// <summary>
+		/// Retrieves information about a specific payment transaction submitted for the specified order.
+		/// </summary>
+		/// <param name="orderId">Unique identifier of the order associated with the payment transaction.</param>
+		/// <param name="paymentId">Unique identifier of the payment transaction submitted for the order.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Payments.Payment"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var payment = new Payment();
+		///   var payment = await payment.GetPaymentAsync( orderId,  paymentId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Payments.Payment> GetPaymentAsync(string orderId, string paymentId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Payments.Payment> response;
@@ -170,6 +213,22 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 		}
 
+		/// <summary>
+		/// Performs the specified action for an individual order payment transaction.
+		/// </summary>
+		/// <param name="orderId">Unique identifier of the order associated with the payment.</param>
+		/// <param name="paymentId">Unique identifer of the payment for which to perform the action.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="action">The action to perform for the payment. Possible values are AuthAndCapture, AuthorizePayment, CapturePayment, VoidPayment, CreditPayment, RequestCheck, ApplyCheck, DeclineCheck.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var payment = new Payment();
+		///   var order = await payment.PerformPaymentActionAsync( action,  orderId,  paymentId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> PerformPaymentActionAsync(Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentAction action, string orderId, string paymentId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
@@ -206,6 +265,21 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 		}
 
+		/// <summary>
+		/// Creates a new payment transaction for the specified order and performs the specified action.
+		/// </summary>
+		/// <param name="orderId">Unique identifier of the order for which to apply the payment.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="action">To action to perform for the newly created payment. Possible values are AuthAndCapture, AuthorizePayment, CapturePayment, VoidPayment, CreditPayment, RequestCheck, ApplyCheck, DeclineCheck.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var payment = new Payment();
+		///   var order = await payment.CreatePaymentActionAsync( action,  orderId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> CreatePaymentActionAsync(Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentAction action, string orderId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;

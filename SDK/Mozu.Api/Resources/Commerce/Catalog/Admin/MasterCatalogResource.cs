@@ -61,6 +61,19 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 
 		}
 
+		/// <summary>
+		/// Retrieve the details of all master catalog associated with a tenant.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.MasterCatalogCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mastercatalog = new MasterCatalog();
+		///   var masterCatalogCollection = await mastercatalog.GetMasterCatalogsAsync( responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.MasterCatalogCollection> GetMasterCatalogsAsync(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.MasterCatalogCollection> response;
@@ -96,6 +109,20 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 
 		}
 
+		/// <summary>
+		/// Retrieve the details of the master catalog specified in the request.
+		/// </summary>
+		/// <param name="masterCatalogId">The unique identifier of the master catalog associated with the entity.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.MasterCatalog"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mastercatalog = new MasterCatalog();
+		///   var masterCatalog = await mastercatalog.GetMasterCatalogAsync( masterCatalogId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.MasterCatalog> GetMasterCatalogAsync(int masterCatalogId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.MasterCatalog> response;
@@ -132,6 +159,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 
 		}
 
+		/// <summary>
+		/// Updates the product publishing mode for the master catalog specified in the request.
+		/// </summary>
+		/// <param name="masterCatalogId"></param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="masterCatalog">Properties of the master catalog to update, which consists of the product publishing mode. Possible values are "Pending" which saves product updates in draft mode until they are published, and "Live" which publishes all product changes immediately.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.MasterCatalog"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mastercatalog = new MasterCatalog();
+		///   var masterCatalog = await mastercatalog.UpdateMasterCatalogAsync( masterCatalog,  masterCatalogId,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.MasterCatalog> UpdateMasterCatalogAsync(Mozu.Api.Contracts.ProductAdmin.MasterCatalog masterCatalog, int masterCatalogId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.MasterCatalog> response;

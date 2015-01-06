@@ -26,6 +26,16 @@ namespace Mozu.Api.Contracts.Customer
 			public int AccountId { get; set; }
 
 			///
+			///Address associated with the customer account contact.
+			///
+			public Address Address { get; set; }
+
+			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
 			///The legal or doing business as (DBA) or tradestyle name of the business or organization. The maximum character length is 200.
 			///
 			public string CompanyOrOrganization { get; set; }
@@ -63,24 +73,14 @@ namespace Mozu.Api.Contracts.Customer
 			public string MiddleNameOrInitial { get; set; }
 
 			///
-			///List of the types associated with a customer contact, such as Billing or Fulfillment.
-			///
-			public List<ContactType> Types { get; set; }
-
-			///
-			///Address associated with the customer account contact.
-			///
-			public Address Address { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
-
-			///
 			///List of phone numbers associated with the customer account contact.
 			///
 			public Phone PhoneNumbers { get; set; }
+
+			///
+			///List of the types associated with a customer contact, such as Billing or Fulfillment.
+			///
+			public List<ContactType> Types { get; set; }
 
 		}
 

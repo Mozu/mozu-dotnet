@@ -8,6 +8,7 @@ using Mozu.Api.Logging;
 using Mozu.Api.Security;
 using Mozu.Api.ToolKit.Config;
 using Mozu.Api.ToolKit.Events;
+using Mozu.Api.ToolKit.Handlers;
 using Mozu.Api.ToolKit.Logging;
 
 namespace Mozu.Api.ToolKit
@@ -52,15 +53,17 @@ namespace Mozu.Api.ToolKit
             _containerBuilder.RegisterType<Log4NetServiceFactory>().As<ILoggingServiceFactory>().SingleInstance();
             _containerBuilder.RegisterType<Events.EventService>().As<IEventService>();
             _containerBuilder.RegisterType<Events.EventServiceFactory>().As<IEventServiceFactory>();
-
-           
-
+            _containerBuilder.RegisterType<ExtensionHandler>().As<IExtensionHandler>();
+            _containerBuilder.RegisterType<EntityHandler>().As<IEntityHandler>();
+            _containerBuilder.RegisterType<EntitySchemaHandler>().As<IEntitySchemaHandler>();
             _containerBuilder.RegisterType<ReturnEventProcessor>().Keyed<IEventProcessor>(EventCategory.Return);
             _containerBuilder.RegisterType<ProductEventProcessor>().Keyed<IEventProcessor>(EventCategory.Product);
             _containerBuilder.RegisterType<OrderEventProcessor>().Keyed<IEventProcessor>(EventCategory.Order);
             _containerBuilder.RegisterType<ApplicationEventProcessor>().Keyed<IEventProcessor>(EventCategory.Application);
             _containerBuilder.RegisterType<CustomerAccountEventProcessor>().Keyed<IEventProcessor>(EventCategory.CustomerAccount);
             _containerBuilder.RegisterType<DiscountEventProcessor>().Keyed<IEventProcessor>(EventCategory.Discount);
+            _containerBuilder.RegisterType<CustomerSegmentEventProcessor>().Keyed<IEventProcessor>(EventCategory.CustomerSegment);
+            _containerBuilder.RegisterType<TenantEventProcessor>().Keyed<IEventProcessor>(EventCategory.Tenant);
 
 
             InitializeContainer(_containerBuilder);

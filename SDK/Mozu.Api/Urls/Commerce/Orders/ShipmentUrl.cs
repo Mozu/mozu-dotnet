@@ -45,7 +45,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// </returns>
         public static MozuUrl GetAvailableShipmentMethodsUrl(string orderId, bool? draft =  null)
 		{
-			var url = "/api/commerce/orders/{orderId}/shipments/methods";
+			var url = "/api/commerce/orders/{orderId}/shipments/methods?draft={draft}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "draft", draft);
 			mozuUrl.FormatUrl( "orderId", orderId);

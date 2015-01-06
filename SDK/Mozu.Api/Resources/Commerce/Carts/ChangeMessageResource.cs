@@ -61,6 +61,19 @@ namespace Mozu.Api.Resources.Commerce.Carts
 
 		}
 
+		/// <summary>
+		/// Retrieves the messages associated with the current shopper's cart.
+		/// </summary>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartChangeMessageCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var changemessage = new ChangeMessage();
+		///   var cartChangeMessageCollection = await changemessage.GetMessagesAsync( responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Carts.CartChangeMessageCollection> GetMessagesAsync(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartChangeMessageCollection> response;
@@ -93,6 +106,18 @@ namespace Mozu.Api.Resources.Commerce.Carts
 
 		}
 
+		/// <summary>
+		/// Deletes all messages associated with the cart of the current shopper.
+		/// </summary>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var changemessage = new ChangeMessage();
+		///   await changemessage.RemoveAllMessagesAsync();
+		/// </code>
+		/// </example>
 		public virtual async Task RemoveAllMessagesAsync()
 		{
 			MozuClient response;
@@ -125,6 +150,19 @@ namespace Mozu.Api.Resources.Commerce.Carts
 
 		}
 
+		/// <summary>
+		/// Removes a single message associated with the cart of the current shopper.
+		/// </summary>
+		/// <param name="messageId">Identifier of the message to remove from the cart.</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var changemessage = new ChangeMessage();
+		///   await changemessage.RemoveMessageAsync( messageId);
+		/// </code>
+		/// </example>
 		public virtual async Task RemoveMessageAsync(string messageId)
 		{
 			MozuClient response;

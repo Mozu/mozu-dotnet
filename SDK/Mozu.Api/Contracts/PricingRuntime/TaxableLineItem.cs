@@ -45,6 +45,11 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			public string ProductName { get; set; }
 
 			///
+			///Properties of the product that represents the line item in the order.
+			///
+			public List<ProductProperty> ProductProperties { get; set; }
+
+			///
 			///The quantity of the line item in the order.
 			///
 			public int Quantity { get; set; }
@@ -58,11 +63,6 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///The amount of shipping calculated for a line item in an order.
 			///
 			public decimal ShippingAmount { get; set; }
-
-			///
-			///Properties of the product that represents the line item in the order.
-			///
-			public List<ProductProperty> ProductProperties { get; set; }
 
 		}
 

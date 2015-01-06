@@ -25,6 +25,11 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 			public int? AbandonedOrderThresholdInMinutes { get; set; }
 
 			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
 			///Determines whether payment authorization occurs when the order is placed or when the order is shipped.
 			///
 			public string PaymentProcessingFlowType { get; set; }
@@ -33,11 +38,6 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 			///If true, use the override price defined for products in the order to calculate discounts for the order.
 			///
 			public bool UseOverridePriceToCalculateDiscounts { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
 
 		}
 

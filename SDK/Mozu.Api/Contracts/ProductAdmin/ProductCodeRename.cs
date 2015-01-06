@@ -9,19 +9,16 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Threading.Tasks;
-using Mozu.Api.Contracts.Event;
 
 
-namespace Mozu.Api.Events
+namespace Mozu.Api.Contracts.ProductAdmin
 {
-	public interface IPingEvents
-	{
-		[Obsolete("This method is obsolete; use the async method instead")]
-		void Created(IApiContext apiContext, Event eventPayLoad);
+		public class ProductCodeRename
+		{
+			public string ExistingProductCode { get; set; }
 
-		Task CreatedAsync(IApiContext apiContext, Event eventPayLoad);
+			public string NewProductCode { get; set; }
 
-	}
+		}
 
 }

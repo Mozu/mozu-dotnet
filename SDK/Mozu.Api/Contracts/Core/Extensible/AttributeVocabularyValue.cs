@@ -19,6 +19,11 @@ namespace Mozu.Api.Contracts.Core.Extensible
 		public class AttributeVocabularyValue
 		{
 			///
+			///List of content associated with a vocabulary value defined for an extensible attribute.
+			///
+			public AttributeValueLocalizedContent Content { get; set; }
+
+			///
 			///If true, the attribute vocabulary value does not appear in the list when defining a value for the attribute.
 			///
 			public bool? IsHidden { get; set; }
@@ -32,11 +37,6 @@ namespace Mozu.Api.Contracts.Core.Extensible
 			///Possible value associated with a vocabulary value defined for an extensible attribute.
 			///
 			public string Value { get; set; }
-
-			///
-			///List of content associated with a vocabulary value defined for an extensible attribute.
-			///
-			public AttributeValueLocalizedContent Content { get; set; }
 
 		}
 

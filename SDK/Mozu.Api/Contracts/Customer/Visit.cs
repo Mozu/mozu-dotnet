@@ -20,6 +20,16 @@ namespace Mozu.Api.Contracts.Customer
 		public class Visit
 		{
 			///
+			///Unique identifier of the customer account associated with the visit.
+			///
+			public int? AccountId { get; set; }
+
+			///
+			///If the customer visit is made online, the location code associated with the website visited.
+			///
+			public string BrowserLocationCode { get; set; }
+
+			///
 			///The date and time of the customer visit.
 			///
 			public DateTime Date { get; set; }
@@ -33,6 +43,11 @@ namespace Mozu.Api.Contracts.Customer
 			///If the customer visit is made in person and associated with a defined location, the code that identifies the location.
 			///
 			public string LocationCode { get; set; }
+
+			///
+			///Array list of transactions the customer performed during the visit. A customer can perform multiple transactions in a single visit, or the visit can have no associated transactions.
+			///
+			public List<Transaction> Transactions { get; set; }
 
 			///
 			///The type of customer visit, which is "Website," "Store," "Call," or "Unknown."
@@ -63,21 +78,6 @@ namespace Mozu.Api.Contracts.Customer
 			///The user agent string for the browser.
 			///
 			public string WebUserAgent { get; set; }
-
-			///
-			///Unique identifier of the customer account associated with the visit.
-			///
-			public int? AccountId { get; set; }
-
-			///
-			///If the customer visit is made online, the location code associated with the website visited.
-			///
-			public string BrowserLocationCode { get; set; }
-
-			///
-			///Array list of transactions the customer performed during the visit. A customer can perform multiple transactions in a single visit, or the visit can have no associated transactions.
-			///
-			public List<Transaction> Transactions { get; set; }
 
 		}
 

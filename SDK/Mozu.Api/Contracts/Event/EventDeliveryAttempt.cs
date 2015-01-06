@@ -21,9 +21,9 @@ namespace Mozu.Api.Contracts.Event
 
 			public DateTime? ExecutionDate { get; set; }
 
-			public string Message { get; set; }
-
 			public HttpStatus HttpStatus { get; set; }
+
+			public string Message { get; set; }
 
 		}
 

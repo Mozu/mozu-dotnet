@@ -119,16 +119,18 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		}
 
 		/// <summary>
-        /// Get Resource Url for DeleteSegmentAccounts
+        /// Get Resource Url for RemoveSegmentAccount
         /// </summary>
-        /// <param name="id">Unique identifier of the segment from which to remove the customer accounts.</param>
+        /// <param name="accountId"></param>
+        /// <param name="id"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl DeleteSegmentAccountsUrl(int id)
+        public static MozuUrl RemoveSegmentAccountUrl(int id, int accountId)
 		{
-			var url = "/api/commerce/customer/segments/{id}/accounts";
+			var url = "/api/commerce/customer/segments/{id}/accounts/{accountId}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "accountId", accountId);
 			mozuUrl.FormatUrl( "id", id);
 			return mozuUrl;
 		}

@@ -60,6 +60,18 @@ namespace Mozu.Api.Resources.Commerce.Settings.Checkout
 
 		}
 
+		/// <summary>
+		/// Retrieves the details of the third-party payment service workflows configured for the site.
+		/// </summary>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.SiteSettings.Order.ExternalPaymentWorkflowDefinition"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var paymentsettings = new PaymentSettings();
+		///   var externalPaymentWorkflowDefinition = await paymentsettings.GetThirdPartyPaymentWorkflowsAsync();
+		/// </code>
+		/// </example>
 		public virtual async Task<List<Mozu.Api.Contracts.SiteSettings.Order.ExternalPaymentWorkflowDefinition>> GetThirdPartyPaymentWorkflowsAsync()
 		{
 			MozuClient<List<Mozu.Api.Contracts.SiteSettings.Order.ExternalPaymentWorkflowDefinition>> response;

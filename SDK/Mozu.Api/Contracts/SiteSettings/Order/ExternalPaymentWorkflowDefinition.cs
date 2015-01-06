@@ -20,6 +20,11 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 		public class ExternalPaymentWorkflowDefinition
 		{
 			///
+			///The credential fields required to communicate with the external payment processor.
+			///
+			public List<ThirdPartyCredentialField> Credentials { get; set; }
+
+			///
 			///If true, the associated external payment workflow definition is enabled for the site.
 			///
 			public bool IsEnabled { get; set; }
@@ -28,11 +33,6 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 			///The name of the external payment workflow definition.
 			///
 			public string Name { get; set; }
-
-			///
-			///The credential fields required to communicate with the external payment processor.
-			///
-			public List<ThirdPartyCredentialField> Credentials { get; set; }
 
 		}
 

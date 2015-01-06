@@ -20,6 +20,11 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		public class ProductOption
 		{
 			///
+			///Details of the product option attribute.
+			///
+			public AttributeDetail AttributeDetail { get; set; }
+
+			///
 			///The fully qualified name of the attribute, which is a user defined attribute identifier.
 			///
 			public string AttributeFQN { get; set; }
@@ -33,11 +38,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///If true, the entity is required for the request to return a valid response.
 			///
 			public bool? IsRequired { get; set; }
-
-			///
-			///Details of the product option attribute.
-			///
-			public AttributeDetail AttributeDetail { get; set; }
 
 			///
 			///List of possible values for a product option attribute.

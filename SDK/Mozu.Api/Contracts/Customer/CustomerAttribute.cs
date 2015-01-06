@@ -26,6 +26,11 @@ namespace Mozu.Api.Contracts.Customer
 			public int? AttributeDefinitionId { get; set; }
 
 			///
+			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
+			public AuditInfo AuditInfo { get; set; }
+
+			///
 			///The fully qualified name of the attribute, which is a user defined attribute identifier.
 			///
 			public string FullyQualifiedName { get; set; }
@@ -34,11 +39,6 @@ namespace Mozu.Api.Contracts.Customer
 			///List of values for the attribute.
 			///
 			public List<object> Values { get; set; }
-
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
-			public AuditInfo AuditInfo { get; set; }
 
 		}
 

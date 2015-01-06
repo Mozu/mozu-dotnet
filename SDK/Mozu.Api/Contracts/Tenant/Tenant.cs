@@ -35,14 +35,14 @@ namespace Mozu.Api.Contracts.Tenant
 			public bool IsDevTenant { get; set; }
 
 			///
-			///The name of the tenant.
-			///
-			public string Name { get; set; }
-
-			///
 			///Collection of master catalogs associated with the tenant.
 			///
 			public List<MasterCatalog> MasterCatalogs { get; set; }
+
+			///
+			///The name of the tenant.
+			///
+			public string Name { get; set; }
 
 			///
 			///Collection of sites associated with the tenant.

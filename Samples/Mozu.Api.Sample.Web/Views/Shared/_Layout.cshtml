@@ -4,29 +4,24 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+
+
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/themes/base/jquery.ui.all.css")
 </head>
 <body>
-    <header>
-        <div class="content-wrapper">
-            <div class="float-left">
-                <p class="site-title">
-                    <a href="~/">ASP.NET Web API</a></p>
-            </div>
-            <div class="float-right">
-                <nav>
-                    <ul id="menu">
-                        <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
-                        <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
     @RenderBody()
-
+    @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/knockout")
+    <script>
+        WebFont.load({
+            google: {
+                families: ["Source Sans Pro:200,300,regular,700"]
+            }
+        });
+    </script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

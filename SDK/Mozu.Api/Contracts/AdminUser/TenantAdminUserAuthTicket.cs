@@ -11,8 +11,8 @@
 using System;
 using System.Collections.Generic;
 
-using Mozu.Api.Contracts.Tenant;
 using Mozu.Api.Contracts.Core;
+using Mozu.Api.Contracts.Tenant;
 
 namespace Mozu.Api.Contracts.AdminUser
 {
@@ -30,6 +30,11 @@ namespace Mozu.Api.Contracts.AdminUser
 			///The date and time the user access token expires.
 			///
 			public DateTime AccessTokenExpiration { get; set; }
+
+			///
+			///Collection of tenants for which the user authentication ticket grants access.
+			///
+			public List<Tenant.Tenant> AvailableTenants { get; set; }
 
 			///
 			///Date and time when the entity was created, represented in UTC Date/Time.
@@ -50,11 +55,6 @@ namespace Mozu.Api.Contracts.AdminUser
 			///The date and time the user refresh token expires.
 			///
 			public DateTime RefreshTokenExpiration { get; set; }
-
-			///
-			///Collection of tenants for which the user authentication ticket grants access.
-			///
-			public List<Tenant.Tenant> AvailableTenants { get; set; }
 
 			///
 			///Tenant information associated with the user authentication ticket.

@@ -185,6 +185,30 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="productCodeRenames"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=RenameProductCodes( productCodeRenames);
+		///mozuClient.WithBaseAddress(url).Execute();
+		/// </code>
+		/// </example>
+		public static MozuClient RenameProductCodesClient(List<Mozu.Api.Contracts.ProductAdmin.ProductCodeRename> productCodeRenames)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.RenameProductCodesUrl();
+			const string verb = "POST";
+			var mozuClient = new MozuClient()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.ProductCodeRename>>(productCodeRenames);
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Updates the properties of a product specific to each catalog associated with the product.
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>

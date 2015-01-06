@@ -26,6 +26,8 @@ namespace Mozu.Api.Contracts.Event
 
 			public string EventId { get; set; }
 
+			public List<EventExtendedProperty> ExtendedProperties { get; set; }
+
 			public int? MasterCatalogId { get; set; }
 
 			public int? SiteId { get; set; }
@@ -36,8 +38,6 @@ namespace Mozu.Api.Contracts.Event
 			public int? TenantId { get; set; }
 
 			public string Topic { get; set; }
-
-			public List<EventExtendedProperty> ExtendedProperties { get; set; }
 
 		}
 

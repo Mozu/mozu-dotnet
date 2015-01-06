@@ -61,6 +61,19 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.SearchSettings"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var search = new Search();
+		///   var searchSettings = await search.GetSettingsAsync( responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.SearchSettings> GetSettingsAsync(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.SearchSettings> response;
@@ -96,6 +109,20 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="settings"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.SearchSettings"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var search = new Search();
+		///   var searchSettings = await search.UpdateSettingsAsync( settings,  responseFields);
+		/// </code>
+		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.SearchSettings> UpdateSettingsAsync(Mozu.Api.Contracts.ProductAdmin.SearchSettings settings, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.SearchSettings> response;

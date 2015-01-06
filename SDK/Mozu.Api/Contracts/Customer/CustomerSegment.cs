@@ -19,6 +19,8 @@ namespace Mozu.Api.Contracts.Customer
 		///
 		public class CustomerSegment
 		{
+			public AuditInfo AuditInfo { get; set; }
+
 			///
 			///The user-defined code assigned for the customer segment.
 			///
@@ -38,8 +40,6 @@ namespace Mozu.Api.Contracts.Customer
 			///Name of the customer segment.
 			///
 			public string Name { get; set; }
-
-			public AuditInfo AuditInfo { get; set; }
 
 		}
 

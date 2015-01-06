@@ -19,6 +19,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class ProductSupplierInfo
 		{
 			///
+			///The amount the client pays the supplier to stock this product in its catalogs.
+			///
+			public ProductCost Cost { get; set; }
+
+			///
 			///The distributor part number associated with this product, defined by the product distributor.
 			///
 			public string DistPartNumber { get; set; }
@@ -27,11 +32,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///The manufacturer part number associated with this product, defined by the product manufacturer.
 			///
 			public string MfgPartNumber { get; set; }
-
-			///
-			///The amount the client pays the supplier to stock this product in its catalogs.
-			///
-			public ProductCost Cost { get; set; }
 
 		}
 

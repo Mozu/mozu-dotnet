@@ -445,6 +445,7 @@
     <Compile Include="Contracts\ProductAdmin\MasterCatalogCollection.cs" />
     <Compile Include="Contracts\ProductAdmin\Product.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductCategory.cs" />
+    <Compile Include="Contracts\ProductAdmin\ProductCodeRename.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductCollection.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductCost.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductDiscountCondition.cs" />
@@ -586,7 +587,6 @@
     <Compile Include="Events\IFacetEvents.cs" />
     <Compile Include="Events\ILocationTypeEvents.cs" />
     <Compile Include="Events\IOrderEvents.cs" />
-    <Compile Include="Events\IPingEvents.cs" />
     <Compile Include="Events\IProductDraftEvents.cs" />
     <Compile Include="Events\IProductEvents.cs" />
     <Compile Include="Events\IProductInventoryEvents.cs" />

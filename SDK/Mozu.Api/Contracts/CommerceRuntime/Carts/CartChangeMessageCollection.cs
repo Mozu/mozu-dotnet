@@ -20,9 +20,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 		///
 		public class CartChangeMessageCollection
 		{
-			public int TotalCount { get; set; }
-
 			public List<ChangeMessage> Items { get; set; }
+
+			public int TotalCount { get; set; }
 
 		}
 

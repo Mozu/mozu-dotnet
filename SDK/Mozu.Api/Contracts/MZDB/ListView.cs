@@ -20,20 +20,20 @@ namespace Mozu.Api.Contracts.MZDB
 		{
 			public string DefaultSort { get; set; }
 
+			public List<ListViewField> Fields { get; set; }
+
 			///
 			///A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 			///
 			public string Filter { get; set; }
+
+			public JObject MetaData { get; set; }
 
 			public string Name { get; set; }
 
 			public string Security { get; set; }
 
 			public List<string> Usages { get; set; }
-
-			public List<ListViewField> Fields { get; set; }
-
-			public JObject MetaData { get; set; }
 
 		}
 
