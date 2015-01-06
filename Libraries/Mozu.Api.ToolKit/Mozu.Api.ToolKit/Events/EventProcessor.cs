@@ -138,4 +138,34 @@ namespace Mozu.Api.ToolKit.Events
         }
     }
 
+    public class CustomerSegmentEventProcessor : EventProcessorBase, IEventProcessor
+    {
+        private readonly ILogger _logger = LogManager.GetLogger(typeof(CustomerSegmentEventProcessor));
+        public async Task ProcessAsync(IComponentContext container, IApiContext apiContext, Event eventPayLoad)
+        {
+            EventPayLoad = eventPayLoad;
+            ApiContext = apiContext;
+            Container = container;
+            _logger.Info("Processing Customer Segment event");
+            var events = Container.Resolve<ICustomerSegmentEvents>();
+            if (events == null) throw new ArgumentNullException("ICustomerSegmentEvents is not registered");
+            await ExecuteAsync(events);
+        }
+    }
+
+
+    public class TenantEventProcessor : EventProcessorBase, IEventProcessor
+    {
+        private readonly ILogger _logger = LogManager.GetLogger(typeof(TenantEventProcessor));
+        public async Task ProcessAsync(IComponentContext container, IApiContext apiContext, Event eventPayLoad)
+        {
+            EventPayLoad = eventPayLoad;
+            ApiContext = apiContext;
+            Container = container;
+            _logger.Info("Processing Tenant event");
+            var events = Container.Resolve<ITenantEvents>();
+            if (events == null) throw new ArgumentNullException("ITenantEvents is not registered");
+            await ExecuteAsync(events);
+        }
+    }
 }
