@@ -19,6 +19,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		///
 		public class Category
 		{
+			public string CategoryCode { get; set; }
+
 			///
 			///Unique identifier for the storefront container used to organize products.
 			///

@@ -71,6 +71,8 @@ namespace Mozu.Api.Contracts.Core.Extensible
 			///
 			public bool? IsMultiValued { get; set; }
 
+			public bool IsReadOnly { get; set; }
+
 			///
 			///If true, the attribute must have a defined value.
 			///

@@ -70,10 +70,14 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public int Id { get; set; }
 
+			public bool IsActive { get; set; }
+
 			///
 			///If true, this customer account represents an anonymous shopper.
 			///
 			public bool IsAnonymous { get; set; }
+
+			public bool IsLocked { get; set; }
 
 			///
 			///The last name associated with the customer account.
