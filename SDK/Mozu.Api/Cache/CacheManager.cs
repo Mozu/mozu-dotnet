@@ -56,5 +56,11 @@ namespace Mozu.Api.Cache
             _cache.Remove(id);
             Add(obj, id);
         }
+
+        public void Remove(string id)
+        {
+            if (!MozuConfig.EnableCache) return;
+            _cache.Remove(id);
+        }
     }
 }
