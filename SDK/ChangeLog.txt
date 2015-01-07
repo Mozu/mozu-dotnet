@@ -1,6 +1,13 @@
-1) Add new mozu config property(ThrowExceptionOn404) - If an item(product/Order/Customer) does not exist in Mozu, null value is returned. if this is set to true an ApiException will be throw.
-2) Add build files - Ability to build and generate a nuget package from command line
+Events
+0.    Added - Customer Segment.Customer Segment Customer Added
+1.    Added - Customer Segment.Customer Segment Customer Removed
 
+Operation Params
+0.    Added - commerce.customer.accounts.PerformCustomerAccountAction- Param : action
+1.    Added - commerce.customer.attributedefinition.attributes.UpdateAttribute- Param : updateReadOnly
+2.    Added - commerce.orders.attributedefinition.attributes.UpdateAttribute- Param : updateReadOnly
 
 Operations
-0.    Added - commerce.catalog.admin.categories.FixCategoryTreeSequences - POST
+0.    Added - commerce.catalog.storefront.shipping.GetShippableStates - GET
+1.    Added - commerce.customer.accounts.PerformCustomerAccountAction - POST
+2.    Added - platform.reference.GetCountriesWithStates - GET

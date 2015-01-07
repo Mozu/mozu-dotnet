@@ -26,6 +26,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public int? CatalogId { get; set; }
 
+			public string CategoryCode { get; set; }
+
 			///
 			///The number of children (subcategories, for example) that stem from a parent (top-level category).
 			///

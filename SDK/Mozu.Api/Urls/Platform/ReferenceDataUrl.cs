@@ -145,6 +145,21 @@ namespace Mozu.Api.Urls.Platform
 		}
 
 		/// <summary>
+        /// Get Resource Url for GetCountriesWithStates
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetCountriesWithStatesUrl(string responseFields =  null)
+		{
+			var url = "/api/platform/reference/countrieswithstates?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+		/// <summary>
         /// Get Resource Url for GetCurrencies
         /// </summary>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>

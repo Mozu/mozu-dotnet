@@ -59,6 +59,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public int? Id { get; set; }
 
+			public decimal? MaximumDiscountValuePerOrder { get; set; }
+
 			///
 			///The maximum number of times an individual shopper can redeem the discount.
 			///

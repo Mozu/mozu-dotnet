@@ -95,6 +95,8 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			///
 			public string SenderEmailAddress { get; set; }
 
+			public string SenderEmailAlias { get; set; }
+
 			///
 			///Choose a format to use on the site: 12-hour (hh:mm:ss tt) or 24-hour format (HH:mm:ss).
 			///

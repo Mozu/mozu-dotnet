@@ -334,6 +334,44 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = ReferenceDataFactory.GetCountriesWithStates(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<CountryWithStatesCollection/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.Reference.CountryWithStatesCollection GetCountriesWithStates(ServiceClientMessageHandler handler, 
+ 		 string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Platform.ReferenceDataClient.GetCountriesWithStatesClient(
+				 responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
 		/// Retrieves the entire list of currencies that the system supports.
 		/// <example> 
 		///  <code> 

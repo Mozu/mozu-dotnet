@@ -426,6 +426,53 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Reference.CountryWithStatesCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var referencedata = new ReferenceData();
+		///   var countryWithStatesCollection = referencedata.GetCountriesWithStates( responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Reference.CountryWithStatesCollection GetCountriesWithStates(string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Reference.CountryWithStatesCollection> response;
+			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetCountriesWithStatesClient( responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Reference.CountryWithStatesCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var referencedata = new ReferenceData();
+		///   var countryWithStatesCollection = await referencedata.GetCountriesWithStatesAsync( responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.Reference.CountryWithStatesCollection> GetCountriesWithStatesAsync(string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Reference.CountryWithStatesCollection> response;
+			var client = Mozu.Api.Clients.Platform.ReferenceDataClient.GetCountriesWithStatesClient( responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
 		/// Retrieves the entire list of currencies that the system supports.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
