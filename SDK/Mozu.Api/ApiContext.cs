@@ -98,17 +98,15 @@ namespace Mozu.Api
 			TenantUrl = headers.Get(Headers.X_VOL_TENANT_DOMAIN);
 			SiteUrl = headers.Get(Headers.X_VOL_SITE_DOMAIN);
 			TenantId = int.Parse(headers.Get(Headers.X_VOL_TENANT));
-			SiteId = int.Parse(headers.Get(Headers.X_VOL_SITE));
 			CorrelationId = headers.Get(Headers.X_VOL_CORRELATION);
 			HMACSha256 = headers.Get(Headers.X_VOL_HMAC_SHA256);
 		    Date = headers.Get(Headers.DATE);
-
 
 		    var siteIdStr = headers.Get(Headers.X_VOL_SITE);
             if (!String.IsNullOrEmpty(siteIdStr))
                 SiteId = int.Parse(siteIdStr);
 
-            var masterCatalogStr = headers.Get(Headers.X_VOL_MASTER_CATALOG);
+   			var masterCatalogStr = headers.Get(Headers.X_VOL_MASTER_CATALOG);
 			if (String.IsNullOrEmpty(masterCatalogStr))
 				MasterCatalogId = int.Parse(masterCatalogStr);
 
@@ -137,7 +135,6 @@ namespace Mozu.Api
 			CatalogId = HttpHelper.ParseFirstValue(Headers.X_VOL_CATALOG, headers);
 			Locale = HttpHelper.GetHeaderValue(Headers.X_VOL_LOCALE, headers);
 			Currency = HttpHelper.GetHeaderValue(Headers.X_VOL_CURRENCY, headers);
-			
 
 			if (!String.IsNullOrEmpty(TenantUrl))
 			{
