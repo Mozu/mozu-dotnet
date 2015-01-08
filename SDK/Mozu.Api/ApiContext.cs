@@ -102,29 +102,25 @@ namespace Mozu.Api
 			CorrelationId = headers.Get(Headers.X_VOL_CORRELATION);
 			HMACSha256 = headers.Get(Headers.X_VOL_HMAC_SHA256);
 		    Date = headers.Get(Headers.DATE);
-			var masterCatalogStr = headers.Get(Headers.X_VOL_MASTER_CATALOG);
 
-			if (masterCatalogStr != null)
-			{
+
+		    var siteIdStr = headers.Get(Headers.X_VOL_SITE);
+            if (!String.IsNullOrEmpty(siteIdStr))
+                SiteId = int.Parse(siteIdStr);
+
+            var masterCatalogStr = headers.Get(Headers.X_VOL_MASTER_CATALOG);
+			if (String.IsNullOrEmpty(masterCatalogStr))
 				MasterCatalogId = int.Parse(masterCatalogStr);
-			}
 
 			var catalogStr = headers.Get(Headers.X_VOL_CATALOG);
-			if (catalogStr != null)
-			{
+			if (!String.IsNullOrEmpty(catalogStr))
 				CatalogId = int.Parse(catalogStr);
-			}
-
 
 			if (!String.IsNullOrEmpty(TenantUrl))
-			{
 				TenantUrl = TenantUrl;
-			}
 
 			if (!String.IsNullOrEmpty(SiteUrl))
-			{
 				SiteUrl = SiteUrl;
-			}
 
 		}
 
