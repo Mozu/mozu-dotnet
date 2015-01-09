@@ -8,6 +8,7 @@ using Mozu.Api.Resources.Commerce.Settings;
 using Mozu.Api.Resources.Platform.Entitylists;
 using Mozu.Api.ToolKit.Models;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 
@@ -74,7 +75,16 @@ namespace Mozu.Api.ToolKit.Handlers
         {
             var entityContainerResource = new EntityContainerResource(apiContext);
             var collection = await entityContainerResource.GetEntityContainersAsync(SubnavLinkEntityName, 200);
-            var existing = collection.Items.SingleOrDefault(x => subnavLink.Path.SequenceEqual(x.Item.ToObject<SubnavLink>().Path));
+
+            /*foreach (var item in collection.Items)
+            {
+                var obj = item.Item.ToObject<SubnavLink>();
+                var sameParent = obj.ParentId == subnavLink.ParentId;
+                var samePath = subnavLink.Path.SequenceEqual(obj.Path);
+            }*/
+
+            var existing = collection.Items.SingleOrDefault(x => subnavLink.Path.SequenceEqual(x.Item.ToObject<SubnavLink>().Path)
+                && subnavLink.ParentId == x.Item.ToObject<SubnavLink>().ParentId);
             return existing;
         } 
 
@@ -106,9 +116,12 @@ namespace Mozu.Api.ToolKit.Handlers
 
         private JObject FromObject<T>(T value)
         {
-            var serializer = new JsonSerializer();
-            serializer.ContractResolver = new CamelCasePropertyNamesContractResolver();
-            serializer.NullValueHandling = NullValueHandling.Ignore;
+            var serializer = new JsonSerializer
+            {
+                ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                NullValueHandling = NullValueHandling.Ignore,
+                
+            };
             return JObject.FromObject(value, serializer);
         }
         
