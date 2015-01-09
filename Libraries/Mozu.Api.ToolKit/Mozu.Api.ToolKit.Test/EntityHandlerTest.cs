@@ -43,6 +43,21 @@ namespace Mozu.Api.ToolKit.Test
         [TestMethod]
         public void AddContactTest()
         {
+            var contact = new Contact { Id = 10, FirstName = "Foo", LastName = "Bar" };
+            var result = _entityHandler.AddEntityAsync(new ApiContext(TenantId), listName, contact).Result;
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(AggregateException))]
+        public void UpdateContactTest()
+        {
+            var contact = new Contact { Id = 10000, FirstName = "Foo", LastName = "Bar" };
+            var result = _entityHandler.UpdateEntityAsync(new ApiContext(TenantId),contact.Id, listName, contact).Result;
+        }
+
+        [TestMethod]
+        public void UpsertContactTest()
+        {
             var contact = new Contact {Id = 1, FirstName = "Foo", LastName = "Bar"};
             var result = _entityHandler.UpsertEntityAsync(new ApiContext(TenantId), contact.Id.ToString(), listName, contact).Result;
         }
