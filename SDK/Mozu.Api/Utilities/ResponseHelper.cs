@@ -42,7 +42,8 @@ namespace Mozu.Api.Utilities
                 exception.CorrelationId = HttpHelper.GetHeaderValue(Headers.X_VOL_CORRELATION, response.Headers);
                 exception.ApiContext = apiContext;
                 if (!MozuConfig.ThrowExceptionOn404 &&
-                    string.Equals(exception.ErrorCode, "ITEM_NOT_FOUND", StringComparison.OrdinalIgnoreCase))
+                    string.Equals(exception.ErrorCode, "ITEM_NOT_FOUND", StringComparison.OrdinalIgnoreCase)
+                    && response.RequestMessage.Method.Method == "GET")
                     return;
                 throw exception;
             }
@@ -55,6 +56,7 @@ namespace Mozu.Api.Utilities
 				var content = await response.Content.ReadAsStringAsync();
 				ApiException exception;
 				var htmlMediaType = new MediaTypeHeaderValue("text/html");
+                
 				if (response.Content.Headers.ContentType != null &&
 					response.Content.Headers.ContentType.MediaType == htmlMediaType.MediaType)
 				{
@@ -69,7 +71,8 @@ namespace Mozu.Api.Utilities
 				exception.ApiContext = apiContext;
 
 			    if (!MozuConfig.ThrowExceptionOn404 &&
-			        string.Equals(exception.ErrorCode, "ITEM_NOT_FOUND", StringComparison.OrdinalIgnoreCase))
+			        string.Equals(exception.ErrorCode, "ITEM_NOT_FOUND", StringComparison.OrdinalIgnoreCase)
+                    && response.RequestMessage.Method.Method == "GET")
 			        return;
 
 				throw exception;
