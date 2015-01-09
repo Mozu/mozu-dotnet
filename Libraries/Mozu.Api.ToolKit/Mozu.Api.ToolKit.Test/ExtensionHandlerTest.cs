@@ -63,5 +63,11 @@ namespace Mozu.Api.ToolKit.Test
             _extensionHandler.AddUpdateExtensionLinkAsync(TenantId, subNavlink).Wait();
         }
 
+        [TestMethod]
+        public void DeleteLinksTest()
+        {
+            _extensionHandler.Delete(TenantId).Wait();
+        }
+
     }
 }

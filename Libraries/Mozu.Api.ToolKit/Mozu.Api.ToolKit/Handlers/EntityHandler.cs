@@ -15,9 +15,11 @@ namespace Mozu.Api.ToolKit.Handlers
 {
     public interface IEntityHandler
     {
-        Task<T> UpsertEntityAsync<T>(IApiContext apiContext, String id, String listName, T obj);
-        Task<T> GetEntityAsync<T>(IApiContext apiContext, String id, string listName);
-        Task DeleteEntityAsync(IApiContext apiContext, String id, string listName);
+        Task<T> AddEntityAsync<T>(IApiContext apiContext, String listName, T obj);
+        Task<T> UpdateEntityAsync<T>(IApiContext apiContext, object id, String listName, T obj);
+        Task<T> UpsertEntityAsync<T>(IApiContext apiContext, object id, String listName, T obj);
+        Task<T> GetEntityAsync<T>(IApiContext apiContext, object id, string listName);
+        Task DeleteEntityAsync(IApiContext apiContext, object id, string listName);
         Task<EntityCollection<T>> GetEntitiesAsync<T>(IApiContext apiContext, string listName);
         Task<EntityCollection<T>> GetEntitiesAsync<T>(IApiContext apiContext, string listName, int? pageSize, int? startIndex, string filter, string sortBy, string responseFileds);
     }
@@ -39,13 +41,13 @@ namespace Mozu.Api.ToolKit.Handlers
             _appSetting = appSetting;
         }
 
-        public async Task<T> GetEntityAsync<T>(IApiContext apiContext, String id, string listName)
+        public async Task<T> GetEntityAsync<T>(IApiContext apiContext, object id, string listName)
         {
             var entityResource = new EntityResource(apiContext);
             var listFQN = ValidateListName(listName);
             try
             {
-                var jobject = await entityResource.GetEntityAsync(listFQN, id);
+                var jobject = await entityResource.GetEntityAsync(listFQN, id.ToString());
                 if (jobject == null)
                     return default(T);
                 return jobject.ToObject<T>(SerializerSettings);
@@ -61,26 +63,40 @@ namespace Mozu.Api.ToolKit.Handlers
             return default(T);
         }
 
-        public async Task<T> UpsertEntityAsync<T>(IApiContext apiContext, String id, String listName, T obj)
+        public async Task<T> AddEntityAsync<T>(IApiContext apiContext, String listName, T obj)
         {
             var entityResource = new EntityResource(apiContext);
             var jobject = JObject.FromObject(obj, SerializerSettings);
             var listFQN = ValidateListName(listName);
-            var existing = await GetEntityAsync<T>(apiContext, id, listName);
+            jobject = await entityResource.InsertEntityAsync(jobject, listFQN);
+            return jobject.ToObject<T>();
+        }
 
-            if (existing == null)
-                jobject = await entityResource.InsertEntityAsync(jobject, listFQN);
-            else
-                jobject = await entityResource.UpdateEntityAsync(jobject, listFQN, id);
+        public async Task<T> UpdateEntityAsync<T>(IApiContext apiContext, object id, String listName, T obj)
+        {
+            var entityResource = new EntityResource(apiContext);
+            var jobject = JObject.FromObject(obj, SerializerSettings);
+            var listFQN = ValidateListName(listName);
+
+            jobject = await entityResource.UpdateEntityAsync(jobject, listFQN, id.ToString());
 
             return jobject.ToObject<T>();
         }
 
-        public async Task DeleteEntityAsync(IApiContext apiContext, String id, string listName)
+        public async Task<T> UpsertEntityAsync<T>(IApiContext apiContext, object id, String listName, T obj)
+        {
+            var existing = await GetEntityAsync<T>(apiContext, id.ToString(), listName);
+
+            return existing == null
+                ? await AddEntityAsync(apiContext, listName, obj)
+                : await UpdateEntityAsync(apiContext, id, listName, obj);
+        }
+
+        public async Task DeleteEntityAsync(IApiContext apiContext, object id, string listName)
         {
             var entityResource = new EntityResource(apiContext);
             var listFQN = ValidateListName(listName);
-            await entityResource.DeleteEntityAsync(listFQN, id);
+            await entityResource.DeleteEntityAsync(listFQN, id.ToString());
         }
 
 

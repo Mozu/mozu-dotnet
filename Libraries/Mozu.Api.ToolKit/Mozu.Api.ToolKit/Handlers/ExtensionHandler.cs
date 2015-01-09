@@ -26,10 +26,14 @@ namespace Mozu.Api.ToolKit.Handlers
 
         Task AddUpdateExtensionLinkAsync(int tenantId, Parent parent, string href, string windowTitle, String[] path);
         Task AddUpdateExtensionLinkAsync(int tenantId, SubnavLink subnavLink);
+        Task Delete(int tenantId);
+
     }
 
     public class ExtensionHandler : IExtensionHandler
     {
+        private const string SubnavLinkEntityName = "subnavlinks@mozu";
+
 
         public async Task AddUpdateExtensionLinkAsync(int tenantId, Parent parent, string href, string windowTitle, String[] path )
         {
@@ -47,18 +51,29 @@ namespace Mozu.Api.ToolKit.Handlers
         public async Task AddUpdateExtensionLinkAsync(int tenantId, SubnavLink subnavLink)
         {
             var apiContext = new ApiContext(tenantId);
-
-            var applicationResource = new ApplicationResource(apiContext);
-
-            var app = await applicationResource.ThirdPartyGetApplicationAsync();
-            subnavLink.AppId = app.AppId;
+            subnavLink.AppId = await GetAppId(apiContext);
             await AddUpdateSubNavLink(apiContext, subnavLink);
+        }
+
+        public async Task Delete(int tenantId)
+        {
+            var apiContext = new ApiContext(tenantId);
+            var entityContainerResource = new EntityContainerResource(apiContext);
+            var collection = await entityContainerResource.GetEntityContainersAsync(SubnavLinkEntityName, 200);
+            var entityResource = new EntityResource(apiContext);
+
+            var appId = await GetAppId(apiContext);
+            foreach (var item in collection.Items.Where(subnavLink => subnavLink.Item.ToObject<SubnavLink>().AppId.Equals(appId)))
+            {
+                await entityResource.DeleteEntityAsync(SubnavLinkEntityName, item.Id);
+            }
+
         }
 
         private async Task<EntityContainer> GetExistingLink(IApiContext apiContext, SubnavLink subnavLink)
         {
             var entityContainerResource = new EntityContainerResource(apiContext);
-            var collection = await entityContainerResource.GetEntityContainersAsync(GetSubnavLinkEntityName(), 200);
+            var collection = await entityContainerResource.GetEntityContainersAsync(SubnavLinkEntityName, 200);
             var existing = collection.Items.SingleOrDefault(x => subnavLink.Path.SequenceEqual(x.Item.ToObject<SubnavLink>().Path));
             return existing;
         } 
@@ -74,13 +89,20 @@ namespace Mozu.Api.ToolKit.Handlers
             jObject = FromObject(subnavLink);
 
             if (existing == null)
-                jObject = await entityResource.InsertEntityAsync(jObject, GetSubnavLinkEntityName());
+                jObject = await entityResource.InsertEntityAsync(jObject, SubnavLinkEntityName);
             else
-                jObject = await entityResource.UpdateEntityAsync(jObject, GetSubnavLinkEntityName(), existing.Id);
+                jObject = await entityResource.UpdateEntityAsync(jObject, SubnavLinkEntityName, existing.Id);
 
             return jObject.ToObject<SubnavLink>();
         }
-        
+
+        private async Task<string> GetAppId(IApiContext apiContext)
+        {
+
+            var applicationResource = new ApplicationResource(apiContext);
+            var app = await applicationResource.ThirdPartyGetApplicationAsync();
+            return app.AppId;
+        }
 
         private JObject FromObject<T>(T value)
         {
@@ -90,10 +112,6 @@ namespace Mozu.Api.ToolKit.Handlers
             return JObject.FromObject(value, serializer);
         }
         
-        private string GetSubnavLinkEntityName()
-        {
-            return "subnavlinks@mozu";
-        }
       
     }
 }
