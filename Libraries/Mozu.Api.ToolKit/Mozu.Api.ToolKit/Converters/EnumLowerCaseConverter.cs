@@ -12,19 +12,15 @@ namespace Mozu.Api.ToolKit.Converters
     {
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            serializer.Serialize(writer, value.ToString().ToLower());
+            value = value.ToString().First().ToString().ToLower() + String.Join("", value.ToString().Skip(1));
+            serializer.Serialize(writer, value);
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            if (objectType.GetType()== typeof(Enum))
-            {
-                return Enum.Parse(objectType, existingValue.ToString());
-            }
-            else
-            {
-                return existingValue;
-            }
+            var value = reader.Value.ToString();
+            value = value.First().ToString().ToUpper() + String.Join("", value.Skip(1));
+            return Enum.Parse(objectType, value);
         }
 
         public override bool CanConvert(Type objectType)
