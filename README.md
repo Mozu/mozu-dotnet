@@ -9,10 +9,7 @@ The .NET application is a simple Windows Form example that demonstrates how to a
 In Mozu Development Center:<br>
 <ul>
 <li>Login to the development center.</li>
-<li>Create a development store.</li>
-<li>Documentation on creating a store: http://developer.mozu.com/article/getting-started-development-stores.</li>
-<li>Populate the store with some initial products and orders.</li>
-<li>Create an application of type Extension: Documentation on creating an app: http://developer.mozu.com/article/getting-started-applications.</li>
+<li>Create an application of type Extension: Documentation on creating an app: https://developer.mozu.com/learn/application-development/quickstart.</li>
 <li>The sample app requires the Behaviors of "Order Read" and "Product Read".</li>
 <li>Install the application into your Mozu development store.</li>
 </ul>
