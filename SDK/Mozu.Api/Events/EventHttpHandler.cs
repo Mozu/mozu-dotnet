@@ -49,7 +49,8 @@ namespace Mozu.Api.Events
 
         public IAsyncResult BeginProcessRequest(HttpContext context, AsyncCallback cb, object extraData)
         {
-
+            if (_eventServiceFactory == null)
+                throw new Exception("Event service factory cannot be null");
             var asynch = new AsyncEventOperation(cb, context, extraData, _eventServiceFactory);
             asynch.StartAsyncWork();
             return asynch;

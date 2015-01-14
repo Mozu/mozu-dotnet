@@ -107,8 +107,8 @@ namespace Mozu.Api
                 SiteId = int.Parse(siteIdStr);
 
    			var masterCatalogStr = headers.Get(Headers.X_VOL_MASTER_CATALOG);
-			if (String.IsNullOrEmpty(masterCatalogStr))
-				MasterCatalogId = int.Parse(masterCatalogStr);
+			if (!String.IsNullOrEmpty(masterCatalogStr))
+                MasterCatalogId = int.Parse(masterCatalogStr);
 
 			var catalogStr = headers.Get(Headers.X_VOL_CATALOG);
 			if (!String.IsNullOrEmpty(catalogStr))
