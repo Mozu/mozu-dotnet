@@ -70,6 +70,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public FacetValidity Validity { get; set; }
 
+			public string ValueSortType { get; set; }
+
 		}
 
 }

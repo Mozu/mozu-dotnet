@@ -65,18 +65,20 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
         /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
         /// <param name="responseFields"></param>
         /// <param name="skipInventoryCheck">If true, skip the inventory validation process for the specified product.</param>
+        /// <param name="supressOutOfStock404"></param>
         /// <param name="variationProductCode">Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetProductUrl(string productCode, string variationProductCode =  null, bool? allowInactive =  null, bool? skipInventoryCheck =  null, string responseFields =  null)
+        public static MozuUrl GetProductUrl(string productCode, string variationProductCode =  null, bool? allowInactive =  null, bool? skipInventoryCheck =  null, bool? supressOutOfStock404 =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/storefront/products/{productCode}?variationProductCode={variationProductCode}&allowInactive={allowInactive}&skipInventoryCheck={skipInventoryCheck}&responseFields={responseFields}";
+			var url = "/api/commerce/catalog/storefront/products/{productCode}?variationProductCode={variationProductCode}&allowInactive={allowInactive}&skipInventoryCheck={skipInventoryCheck}&supressOutOfStock404={supressOutOfStock404}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "allowInactive", allowInactive);
 			mozuUrl.FormatUrl( "productCode", productCode);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "skipInventoryCheck", skipInventoryCheck);
+			mozuUrl.FormatUrl( "supressOutOfStock404", supressOutOfStock404);
 			mozuUrl.FormatUrl( "variationProductCode", variationProductCode);
 			return mozuUrl;
 		}
