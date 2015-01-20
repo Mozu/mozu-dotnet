@@ -41,7 +41,7 @@ namespace Mozu.Api.Urls.Content
         /// </returns>
         public static MozuUrl UpdateDocumentListTypeUrl(string documentListTypeFQN, string responseFields =  null)
 		{
-			var url = "/api/content/documentlistTypes/{documentListTypeName}?responseFields={responseFields}";
+			var url = "/api/content/documentlistTypes/{documentListTypeFQN}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "documentListTypeFQN", documentListTypeFQN);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
