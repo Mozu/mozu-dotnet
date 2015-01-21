@@ -152,19 +152,19 @@ namespace Mozu.Api
 		{
 			var cloned = new ApiContext()
 			{
-				AppAuthClaim = (string)this.AppAuthClaim.Clone(),
+				AppAuthClaim = (!String.IsNullOrEmpty(this.AppAuthClaim) ? (string)this.AppAuthClaim.Clone() : null),
 				CatalogId = this.CatalogId,
 				CorrelationId = this.CorrelationId,
-				Currency = (string)this.Currency.Clone(),
-				Date = (string)this.Date.Clone(),
-				HMACSha256 = (string)this.HMACSha256.Clone(),
-				Locale = (string)this.Locale.Clone(),
+				Currency =  ( !String.IsNullOrEmpty(this.Currency) ? (string)this.Currency.Clone() : null),
+				Date = ( !String.IsNullOrEmpty(this.Date) ?  (string)this.Date.Clone() : null),
+				HMACSha256 =( !String.IsNullOrEmpty(this.HMACSha256)  ? (string)this.HMACSha256.Clone() : null),
+				Locale =  (!String.IsNullOrEmpty(this.Locale) ?  (string)this.Locale.Clone() : null),
 				MasterCatalogId = this.MasterCatalogId,
 				SiteId = this.SiteId,
-				SiteUrl = (string)this.SiteUrl.Clone(),
+				SiteUrl = (!String.IsNullOrEmpty(this.SiteUrl) ?  (string)this.SiteUrl.Clone() : null),
 				Tenant = this.Tenant,
 				TenantId = this.TenantId,
-				TenantUrl = (string)this.TenantUrl.Clone(),
+				TenantUrl = (!String.IsNullOrEmpty(this.TenantUrl) ? (string)this.TenantUrl.Clone() : null),
 				UserAuthTicket = this.UserAuthTicket
 			};
 
