@@ -420,7 +420,7 @@ namespace Mozu.Api
 		    _httpResponseMessage = client.SendAsync(request, HttpCompletionOption.ResponseContentRead).Result;
             ResponseHelper.EnsureSuccess(_httpResponseMessage, _apiContext);
 
-            SetCache(_httpResponseMessage, requestUri);
+            SetCache(requestUri);
 
 		}
 		protected async Task ExecuteRequestAsync()
@@ -433,10 +433,10 @@ namespace Mozu.Api
 			_httpResponseMessage = await client.SendAsync(request, HttpCompletionOption.ResponseContentRead);
 
             ResponseHelper.EnsureSuccess(_httpResponseMessage, _apiContext);
-            SetCache(_httpResponseMessage, requestUri);
+            SetCache(requestUri);
 		}
 
-        private void SetCache(HttpResponseMessage responseMessage, string requestUri)
+        private void SetCache(string requestUri)
         {
             var eTag = HttpHelper.GetHeaderValue(Headers.ETAG, _httpResponseMessage.Headers);
             var cacheItem = CacheManager.Instance.Get<CacheItem>(requestUri);
@@ -449,7 +449,6 @@ namespace Mozu.Api
                 cacheItem = new CacheItem { ETag = eTag, Item = _httpResponseMessage, Uri = requestUri };
                 CacheManager.Instance.Add(cacheItem, requestUri);
             }
-            
         }
 
         private HttpRequestMessage GetRequestMessage()
