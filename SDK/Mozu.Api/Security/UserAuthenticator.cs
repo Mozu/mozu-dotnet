@@ -130,7 +130,7 @@ namespace Mozu.Api.Security
 			AppAuthenticator.AddHeader(client);
 
 			var response = await client.PostAsync(resourceUrl, new StringContent(stringContent, Encoding.UTF8, "application/json"));
-			await ResponseHelper.EnsureSuccessAsync(response);
+			ResponseHelper.EnsureSuccess(response);
 
 
 			return SetUserAuth(response.Content.ReadAsStringAsync().Result, scope, null);
@@ -155,7 +155,7 @@ namespace Mozu.Api.Security
 			AppAuthenticator.AddHeader(client);
 
 			var response = await client.DeleteAsync(url);
-			await ResponseHelper.EnsureSuccessAsync(response);
+			ResponseHelper.EnsureSuccess(response);
 		}
 
 		private static AuthenticationProfile SetUserAuth(string response, AuthenticationScope scope, int? siteId = null)

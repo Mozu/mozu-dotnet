@@ -432,7 +432,7 @@ namespace Mozu.Api
            
 			_httpResponseMessage = await client.SendAsync(request, HttpCompletionOption.ResponseContentRead);
 
-            await ResponseHelper.EnsureSuccessAsync(_httpResponseMessage, _apiContext);
+            ResponseHelper.EnsureSuccess(_httpResponseMessage, _apiContext);
             SetCache(_httpResponseMessage, requestUri);
 		}
 
