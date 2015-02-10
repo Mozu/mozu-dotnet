@@ -58,14 +58,10 @@ namespace Mozu.Api.Resources.Platform
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.Tenant.Tenant GetTenant(int tenantId, string responseFields =  null)
 		{
-			var tenant = Cache.CacheManager.Instance.Get<Mozu.Api.Contracts.Tenant.Tenant>(tenantId.ToString());
-			if (tenant != null )
-				return tenant;
-MozuClient<Mozu.Api.Contracts.Tenant.Tenant> response;
+            MozuClient<Mozu.Api.Contracts.Tenant.Tenant> response;
 			var client = Mozu.Api.Clients.Platform.TenantClient.GetTenantClient( tenantId,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
-			Cache.CacheManager.Instance.Add(response.Result(), tenantId.ToString());
 			return response.Result();
 
 		}
@@ -86,14 +82,10 @@ MozuClient<Mozu.Api.Contracts.Tenant.Tenant> response;
 		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Tenant.Tenant> GetTenantAsync(int tenantId, string responseFields =  null)
 		{
-			var tenant = Cache.CacheManager.Instance.Get<Mozu.Api.Contracts.Tenant.Tenant>(tenantId.ToString());
-			if (tenant != null )
-				return tenant;
-MozuClient<Mozu.Api.Contracts.Tenant.Tenant> response;
+            MozuClient<Mozu.Api.Contracts.Tenant.Tenant> response;
 			var client = Mozu.Api.Clients.Platform.TenantClient.GetTenantClient( tenantId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
-			Cache.CacheManager.Instance.Add(response.Result(), tenantId.ToString());
 			return await response.ResultAsync();
 
 		}

@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Mozu.Api.Cache;
 using Mozu.Api.Logging;
 using Mozu.Api.Resources.Platform;
 using Mozu.Api.Security;
@@ -412,17 +415,43 @@ namespace Mozu.Api
 		{
 			ValidateContext();
 			var client = GetHttpClient();
-			_httpResponseMessage = client.SendAsync(GetRequestMessage(), HttpCompletionOption.ResponseContentRead).Result;
-			ResponseHelper.EnsureSuccess(_httpResponseMessage, _apiContext);
+		    var request = GetRequestMessage();
+            var requestUri = request.RequestUri.AbsoluteUri;
+		    _httpResponseMessage = client.SendAsync(request, HttpCompletionOption.ResponseContentRead).Result;
+            ResponseHelper.EnsureSuccess(_httpResponseMessage, _apiContext);
+
+            SetCache(_httpResponseMessage, requestUri);
+
 		}
 		protected async Task ExecuteRequestAsync()
 		{
 			ValidateContext();
 			var client = GetHttpClient();
-			_httpResponseMessage = await client.SendAsync(GetRequestMessage(), HttpCompletionOption.ResponseContentRead);
-			await ResponseHelper.EnsureSuccessAsync(_httpResponseMessage, _apiContext);
+            var request = GetRequestMessage();
+            var requestUri = request.RequestUri.AbsoluteUri;
+           
+			_httpResponseMessage = await client.SendAsync(request, HttpCompletionOption.ResponseContentRead);
+
+            await ResponseHelper.EnsureSuccessAsync(_httpResponseMessage, _apiContext);
+            SetCache(_httpResponseMessage, requestUri);
 		}
-        
+
+        private void SetCache(HttpResponseMessage responseMessage, string requestUri)
+        {
+            var eTag = HttpHelper.GetHeaderValue(Headers.ETAG, _httpResponseMessage.Headers);
+            var cacheItem = CacheManager.Instance.Get<CacheItem>(requestUri);
+            if (cacheItem != null && _httpResponseMessage.StatusCode == HttpStatusCode.NotModified)
+            {
+                _httpResponseMessage = cacheItem.Item;
+            }
+            else if (!String.IsNullOrEmpty(eTag))
+            {
+                cacheItem = new CacheItem { ETag = eTag, Item = _httpResponseMessage, Uri = requestUri };
+                CacheManager.Instance.Add(cacheItem, requestUri);
+            }
+            
+        }
+
         private HttpRequestMessage GetRequestMessage()
         {
             var requestMessage = new HttpRequestMessage { RequestUri = new Uri(_baseAddress+_resourceUrl.Url) };
@@ -465,6 +494,9 @@ namespace Mozu.Api
                 requestMessage.Headers.Add(key, _headers[key]);
             }
 
+            var cacheItem = CacheManager.Instance.Get<CacheItem>(requestMessage.RequestUri.AbsoluteUri);
+            if (cacheItem != null)
+                requestMessage.Headers.Add("If-None-Match", cacheItem.ETag);
 
             return requestMessage;
         }

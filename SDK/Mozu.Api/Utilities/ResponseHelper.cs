@@ -26,6 +26,7 @@ namespace Mozu.Api.Utilities
         {
             if (!response.IsSuccessStatusCode)
             {
+                if (response.StatusCode == HttpStatusCode.NotModified) return;
                 var content = response.Content.ReadAsStringAsync().Result;
                 ApiException exception ;
                 var htmlMediaType = new MediaTypeHeaderValue("text/html");
@@ -53,6 +54,7 @@ namespace Mozu.Api.Utilities
 		{
 			if (!response.IsSuccessStatusCode)
 			{
+			    if (response.StatusCode == HttpStatusCode.NotModified) return;
 				var content = await response.Content.ReadAsStringAsync();
 				ApiException exception;
 				var htmlMediaType = new MediaTypeHeaderValue("text/html");
