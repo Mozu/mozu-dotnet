@@ -437,7 +437,8 @@ namespace Mozu.Api
         {
             var key =  requestMessage.RequestUri.AbsoluteUri;
             var dataViewMode = HttpHelper.GetHeaderValue(Headers.X_VOL_DATAVIEW_MODE, requestMessage.Headers);
-            key = String.Concat(key,_apiContext.SiteId, _apiContext.Currency, _apiContext.Locale, _apiContext.MasterCatalogId,_apiContext.CatalogId, dataViewMode);
+            if (_apiContext != null)
+                key = String.Concat(key,_apiContext.SiteId, _apiContext.Currency, _apiContext.Locale, _apiContext.MasterCatalogId,_apiContext.CatalogId, dataViewMode);
             return key;
         }
 
