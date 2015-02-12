@@ -158,7 +158,7 @@ namespace Mozu.Api.Security
 				var resourceUrl = AuthTicketUrl.DeleteAppAuthTicketUrl(_auth.AppAuthTicket.RefreshToken);
 				var client = new HttpClient { BaseAddress = new Uri(_auth.BaseUrl) };
 				var response = await client.DeleteAsync(resourceUrl.Url);
-				await ResponseHelper.EnsureSuccessAsync(response);
+				ResponseHelper.EnsureSuccess(response);
 			}
 		}
 
@@ -187,7 +187,7 @@ namespace Mozu.Api.Security
 			var client = new HttpClient { BaseAddress = new Uri(BaseUrl) };
 			var stringContent = JsonConvert.SerializeObject(_appAuthInfo);
 			var response = await client.PostAsync(resourceUrl.Url, new StringContent(stringContent, Encoding.UTF8, "application/json"));
-			await ResponseHelper.EnsureSuccessAsync(response);
+			ResponseHelper.EnsureSuccess(response);
 
 			AppAuthTicket = await response.Content.ReadAsAsync<AuthTicket>();
 
@@ -227,7 +227,7 @@ namespace Mozu.Api.Security
 
 			var response = await client.PutAsync(resourceUrl.Url, new StringContent(stringContent, Encoding.UTF8, "application/json"));
 
-			await ResponseHelper.EnsureSuccessAsync(response);
+			ResponseHelper.EnsureSuccess(response);
 
 			AppAuthTicket = await response.Content.ReadAsAsync<AuthTicket>();
 

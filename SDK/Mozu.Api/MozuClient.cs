@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
+using Mozu.Api.Cache;
 using Mozu.Api.Logging;
 using Mozu.Api.Resources.Platform;
 using Mozu.Api.Security;
@@ -185,6 +189,7 @@ namespace Mozu.Api
         private static ConcurrentDictionary<string, HttpClient> _clientsByHostName;
         private ILogger _log = LogManager.GetLogger(typeof(MozuClient));
         private string _contentType = null;
+        private CacheItem _cacheItem;
 
         static MozuClient()
         {
@@ -412,17 +417,44 @@ namespace Mozu.Api
 		{
 			ValidateContext();
 			var client = GetHttpClient();
-			_httpResponseMessage = client.SendAsync(GetRequestMessage(), HttpCompletionOption.ResponseContentRead).Result;
-			ResponseHelper.EnsureSuccess(_httpResponseMessage, _apiContext);
+		    var request = GetRequestMessage();
+		    _httpResponseMessage = client.SendAsync(request, HttpCompletionOption.ResponseContentRead).Result;
+            ResponseHelper.EnsureSuccess(_httpResponseMessage, _apiContext);
+            SetCache(request);
+
 		}
 		protected async Task ExecuteRequestAsync()
 		{
 			ValidateContext();
 			var client = GetHttpClient();
-			_httpResponseMessage = await client.SendAsync(GetRequestMessage(), HttpCompletionOption.ResponseContentRead);
-			await ResponseHelper.EnsureSuccessAsync(_httpResponseMessage, _apiContext);
+            var request = GetRequestMessage();
+			_httpResponseMessage = await client.SendAsync(request, HttpCompletionOption.ResponseContentRead);
+            ResponseHelper.EnsureSuccess(_httpResponseMessage, _apiContext);
+            SetCache(request);
 		}
-        
+
+        private String GetCacheKey(HttpRequestMessage requestMessage)
+        {
+            var key =  requestMessage.RequestUri.AbsoluteUri;
+            var dataViewMode = HttpHelper.GetHeaderValue(Headers.X_VOL_DATAVIEW_MODE, requestMessage.Headers);
+            key = String.Concat(key,_apiContext.SiteId, _apiContext.Currency, _apiContext.Locale, _apiContext.MasterCatalogId,_apiContext.CatalogId, dataViewMode);
+            return key;
+        }
+
+        private void SetCache(HttpRequestMessage requestMessage)
+        {
+            var eTag = HttpHelper.GetHeaderValue(Headers.ETAG, _httpResponseMessage.Headers);
+            if (_cacheItem != null && _httpResponseMessage.StatusCode == HttpStatusCode.NotModified)
+            {
+                _httpResponseMessage = _cacheItem.Item;
+            }
+            else if (!String.IsNullOrEmpty(eTag))
+            {
+                _cacheItem = new CacheItem { ETag = eTag, Item = _httpResponseMessage, Key = GetCacheKey(requestMessage) };
+                CacheManager.Instance.Add(_cacheItem, _cacheItem.Key);
+            }
+        }
+
         private HttpRequestMessage GetRequestMessage()
         {
             var requestMessage = new HttpRequestMessage { RequestUri = new Uri(_baseAddress+_resourceUrl.Url) };
@@ -465,6 +497,10 @@ namespace Mozu.Api
                 requestMessage.Headers.Add(key, _headers[key]);
             }
 
+            var cacheKey = GetCacheKey(requestMessage);
+            _cacheItem = CacheManager.Instance.Get<CacheItem>(cacheKey);
+            if (_cacheItem != null)
+                requestMessage.Headers.Add("If-None-Match", _cacheItem.ETag);
 
             return requestMessage;
         }
