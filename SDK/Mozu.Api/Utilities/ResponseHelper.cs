@@ -12,22 +12,16 @@ namespace Mozu.Api.Utilities
 {
     public class ResponseHelper
     {
-		public static void EnsureSuccess(HttpResponseMessage response)
-		{
-			EnsureSuccess(response, null);
-		}
-
-		
-		/// <summary>
-		/// Validate HttpResponse message, throws an Api Exception with context
-		/// </summary>
-		/// <param name="response"></param>
-		/// <param name="apiContext"></param>
-		/// <exception cref="ApiException"></exception>
-		public static void EnsureSuccess(HttpResponseMessage response, IApiContext apiContext)
+        /// <summary>
+        /// Validate HttpResponse message, throws an Api Exception with context
+        /// </summary>
+        /// <param name="response"></param>
+        /// <param name="request"></param>
+        /// <param name="apiContext"></param>
+        /// <exception cref="ApiException"></exception>
+        public static void EnsureSuccess(HttpResponseMessage response, HttpRequestMessage request=null, IApiContext apiContext=null)
         {
 		    if (response.IsSuccessStatusCode) return;
-
 		    if (response.StatusCode == HttpStatusCode.NotModified) return;
 		    var content = response.Content.ReadAsStringAsync().Result;
 		    ApiException exception ;
@@ -41,7 +35,9 @@ namespace Mozu.Api.Utilities
 		    }
 		    else if (!String.IsNullOrEmpty(content))
 		        exception = JsonConvert.DeserializeObject<ApiException>(content);
-		    else
+		    else if (HttpStatusCode.NotFound == response.StatusCode && string.IsNullOrEmpty(content) && request != null)
+                exception = new ApiException("Uri "+request.RequestUri.AbsoluteUri + " does not exist");
+            else
 		        exception = new ApiException("Unknow Exception");
 		    exception.HttpStatusCode = response.StatusCode;
 		    exception.CorrelationId = HttpHelper.GetHeaderValue(Headers.X_VOL_CORRELATION, response.Headers);

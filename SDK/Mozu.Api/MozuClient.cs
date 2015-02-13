@@ -419,7 +419,7 @@ namespace Mozu.Api
 			var client = GetHttpClient();
 		    var request = GetRequestMessage();
 		    _httpResponseMessage = client.SendAsync(request, HttpCompletionOption.ResponseContentRead).Result;
-            ResponseHelper.EnsureSuccess(_httpResponseMessage, _apiContext);
+            ResponseHelper.EnsureSuccess(_httpResponseMessage, request, _apiContext);
             SetCache(request);
 
 		}
@@ -429,7 +429,7 @@ namespace Mozu.Api
 			var client = GetHttpClient();
             var request = GetRequestMessage();
 			_httpResponseMessage = await client.SendAsync(request, HttpCompletionOption.ResponseContentRead);
-            ResponseHelper.EnsureSuccess(_httpResponseMessage, _apiContext);
+            ResponseHelper.EnsureSuccess(_httpResponseMessage,request, _apiContext);
             SetCache(request);
 		}
 

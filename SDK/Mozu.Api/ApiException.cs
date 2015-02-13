@@ -101,7 +101,7 @@ namespace Mozu.Api
         public List<Item> Items;
         public List<AdditionalErrorData> AdditionalErrorData { get; private set; } 
         public HttpStatusCode HttpStatusCode;
-
+        public string Uri { get; set; }
     }
 
     [Serializable]
