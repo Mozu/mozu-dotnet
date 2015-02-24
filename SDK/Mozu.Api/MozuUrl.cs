@@ -18,17 +18,7 @@ namespace Mozu.Api
 			TENANT_POD
 		}
 
-        Dictionary<string, string> _escapeMap = new Dictionary<string, string> {
-                { "^", "^^"},
-                { "'", "^'"},                
-                { "\"", "^\""},
-                { "[", "^[" },
-                { "]", "^]" },
-                { "{", "^{" },
-                { "}", "^}" },
-                { "(", "^(" },
-                { ")", "^)" }
-            };
+       
         
 		public string Url { get; set; }
 		public UrlLocation Location { get; set; }
@@ -44,8 +34,7 @@ namespace Mozu.Api
 		public void FormatUrl(string paramName, object value)
 		{
 		    paramName = paramName.ToLower();
-            if (value != null && paramName == "filter")
-    		    value = EscapeFilter(value.ToString());
+           
             Url = Url.Replace("{" + paramName + "}", value == null ? "" : value.ToString());
             Url = Url.Replace("{*" + paramName + "}", value == null ? "" : value.ToString());
 			var removeString = "&" + paramName + "=";
@@ -105,20 +94,6 @@ namespace Mozu.Api
             if (site == null) throw new Exception(string.Format("{0} not found for tenant {1}", siteId, tenantId));
 	        return site;
 	    }
-
-        private string EscapeFilter(string stringValue)
-        {
-            if (stringValue != null)
-            {
-                foreach (KeyValuePair<string, string> pair in _escapeMap)
-                {
-                    stringValue = stringValue.Replace(pair.Key.ToString(), pair.Value.ToString());
-                }
-            }
-
-            return stringValue;
-        }
-
 
 	}
 }
