@@ -147,7 +147,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="productOption">Properties of the option attribute to define for the product.</param>
+		/// <param name="productOption">Properties of the product option to create such as attribute detail, fully qualified name, and list of product option values.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductOption"/>
 		/// </returns>
@@ -173,7 +173,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="productOption">Properties of the option attribute to define for the product.</param>
+		/// <param name="productOption">Properties of the product option to create such as attribute detail, fully qualified name, and list of product option values.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductOption"/>
 		/// </returns>
@@ -199,7 +199,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="productOption">Properties of the product option attribute configuration to update.</param>
+		/// <param name="productOption">Properties of the product option to create such as attribute detail, fully qualified name, and list of product option values.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductOption"/>
 		/// </returns>
@@ -226,7 +226,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="productOption">Properties of the product option attribute configuration to update.</param>
+		/// <param name="productOption">Properties of the product option to create such as attribute detail, fully qualified name, and list of product option values.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductOption"/>
 		/// </returns>

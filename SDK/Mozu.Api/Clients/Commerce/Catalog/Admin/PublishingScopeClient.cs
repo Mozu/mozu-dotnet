@@ -25,7 +25,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// Deletes the draft version of product changes for each product code specified in the request.
 		/// </summary>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="publishScope">Properties of the pending product changes to include in this operation.</param>
+		/// <param name="publishScope">Describes the scope of the product publishing update, which can include individual product codes or all pending changes.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
@@ -51,7 +51,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// Publishes the draft version of product changes for each product code specified in the request, and changes the product publish state to "live".
 		/// </summary>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="publishScope">Properties of the pending product changes to include in this operation.</param>
+		/// <param name="publishScope">Describes the scope of the product publishing update, which can include individual product codes or all pending changes.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

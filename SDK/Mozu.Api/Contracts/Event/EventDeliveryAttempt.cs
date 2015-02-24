@@ -13,16 +13,34 @@ using System;
 
 namespace Mozu.Api.Contracts.Event
 {
+		///
+		///	Properties and information captured for an attempted delivery that failed.
+		///
 		public class EventDeliveryAttempt
 		{
+			///
+			///Status of the delivery process `EventDeliveryStatusType`. System-supplied and read-only.
+			///
 			public string DeliveryStatus { get; set; }
 
+			///
+			///Type of error that occurred, if the delivery was unsuccessful
+			///
 			public string ErrorType { get; set; }
 
+			///
+			///The date that the delivery was attempted
+			///
 			public DateTime? ExecutionDate { get; set; }
 
+			///
+			///The HTTP Status (code and name) returned by the remote endpoint
+			///
 			public HttpStatus HttpStatus { get; set; }
 
+			///
+			///The text of the change message, such as "This product is no longer available." System-supplied and read-only.
+			///
 			public string Message { get; set; }
 
 		}

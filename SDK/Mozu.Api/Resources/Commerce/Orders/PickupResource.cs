@@ -40,8 +40,8 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// Retrieves a list of the actions available to perform for the pickup specified in the request.
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order associated with the pickup.</param>
-		/// <param name="pickupId">Unique identifier of the pickup for which to retrieve available actions.</param>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="pickupId">Unique identifier of the pickup to remove.</param>
 		/// <returns>
 		/// List{string}
 		/// </returns>
@@ -65,8 +65,8 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// Retrieves a list of the actions available to perform for the pickup specified in the request.
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order associated with the pickup.</param>
-		/// <param name="pickupId">Unique identifier of the pickup for which to retrieve available actions.</param>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="pickupId">Unique identifier of the pickup to remove.</param>
 		/// <returns>
 		/// List{string}
 		/// </returns>
@@ -89,8 +89,8 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// Retrieves the details of the in-store pickup specified in the request.
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order associated with the pickup.</param>
-		/// <param name="pickupId">Unique identifier of the pickup to retrieve.</param>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="pickupId">Unique identifier of the pickup to remove.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup"/>
@@ -115,8 +115,8 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// Retrieves the details of the in-store pickup specified in the request.
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order associated with the pickup.</param>
-		/// <param name="pickupId">Unique identifier of the pickup to retrieve.</param>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="pickupId">Unique identifier of the pickup to remove.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup"/>
@@ -142,7 +142,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="pickup">Properties of the in-store pickup to create.</param>
+		/// <param name="pickup">Properties of an in-store pickup defined to fulfill items in an order.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup"/>
 		/// </returns>
@@ -168,7 +168,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="pickup">Properties of the in-store pickup to create.</param>
+		/// <param name="pickup">Properties of an in-store pickup defined to fulfill items in an order.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup"/>
 		/// </returns>
@@ -191,10 +191,10 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// Updates one or more details of a defined in-store pickup.
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order associated with the in-store pickup.</param>
-		/// <param name="pickupId">Unique identifier of the pickup to update.</param>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="pickupId">Unique identifier of the pickup to remove.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="pickup">Properties of the in-store pickup to update.</param>
+		/// <param name="pickup">Properties of an in-store pickup defined to fulfill items in an order.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup"/>
 		/// </returns>
@@ -218,10 +218,10 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// Updates one or more details of a defined in-store pickup.
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order associated with the in-store pickup.</param>
-		/// <param name="pickupId">Unique identifier of the pickup to update.</param>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="pickupId">Unique identifier of the pickup to remove.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="pickup">Properties of the in-store pickup to update.</param>
+		/// <param name="pickup">Properties of an in-store pickup defined to fulfill items in an order.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup"/>
 		/// </returns>
@@ -244,7 +244,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// Removes a pickup previously defined for order item in-store pickup fulfillment.
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order associated with the pickup.</param>
+		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="pickupId">Unique identifier of the pickup to remove.</param>
 		/// <returns>
 		/// 
@@ -268,7 +268,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// Removes a pickup previously defined for order item in-store pickup fulfillment.
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order associated with the pickup.</param>
+		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="pickupId">Unique identifier of the pickup to remove.</param>
 		/// <returns>
 		/// 

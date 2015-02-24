@@ -20,14 +20,17 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 		public class RateRequestItem
 		{
 			///
-			///Unique identifier of the item to ship, for which to calculate a shipping rate.
+			///Unique identifier of an item used to calculate or request a shipping rate.
 			///
 			public string ItemId { get; set; }
 
+			///
+			///If Product Summaries are populated, this information will be utilized in Product Rules (e.g. ProductCode eq "ABC" or (Weight.Unit eq "lbs" and Weight.Value ge 50)
+			///
 			public List<ProductSummary> ProductSummaries { get; set; }
 
 			///
-			///Quantity of the item for which to calculate the shipping rate.
+			///The specified quantity of objects and items. This property is used for numerous object types including products, options, components within a product bundle, cart and order items, returned items, shipping line items, items in a digital product. and items associated with types and reservations.
 			///
 			public int? Quantity { get; set; }
 
@@ -37,7 +40,7 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			public bool? ShipsByItself { get; set; }
 
 			///
-			///The measured weight and dimensions of the item to ship.
+			///Product specific dimensions used for shipping, used by product summary and rate request items.  The dimensions can differ between the two uses as a `RateRequestItem `package may contain one or more products.
 			///
 			public ItemMeasurements UnitMeasurements { get; set; }
 

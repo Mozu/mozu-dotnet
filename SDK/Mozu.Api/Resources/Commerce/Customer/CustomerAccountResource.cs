@@ -44,7 +44,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="isAnonymous">If true, retrieve anonymous shopper accounts in the response.</param>
 		/// <param name="pageSize"></param>
-		/// <param name="q">A list of customer account search terms to use in the query when searching across customer name and email. Separate multiple search terms with a space character.</param>
+		/// <param name="q">A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.</param>
 		/// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy"></param>
@@ -76,7 +76,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="isAnonymous">If true, retrieve anonymous shopper accounts in the response.</param>
 		/// <param name="pageSize"></param>
-		/// <param name="q">A list of customer account search terms to use in the query when searching across customer name and email. Separate multiple search terms with a space character.</param>
+		/// <param name="q">A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.</param>
 		/// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy"></param>
@@ -152,7 +152,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Retrieve details of a customer account.
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account to retrieve.</param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>
@@ -177,7 +177,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Retrieve details of a customer account.
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account to retrieve.</param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>
@@ -202,7 +202,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// Creates a new customer account based on the information specified in the request.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="account">Properties of the customer account to update.</param>
+		/// <param name="account">Properties of the customer account.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>
 		/// </returns>
@@ -227,7 +227,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// Creates a new customer account based on the information specified in the request.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="account">Properties of the customer account to update.</param>
+		/// <param name="account">Properties of the customer account.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>
 		/// </returns>
@@ -250,8 +250,8 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Modify the password associated with a customer account.
 		/// </summary>
-		/// <param name="accountId">The customer account information required to change the userpassword.</param>
-		/// <param name="passwordInfo">The password information required to change the user password.</param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="passwordInfo">The information required to modify a shopper account password.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -274,8 +274,8 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Modify the password associated with a customer account.
 		/// </summary>
-		/// <param name="accountId">The customer account information required to change the userpassword.</param>
-		/// <param name="passwordInfo">The password information required to change the user password.</param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="passwordInfo">The information required to modify a shopper account password.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -299,7 +299,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="customerAuthInfo">The authentication information for the customer account.</param>
+		/// <param name="customerAuthInfo">The login information for a customer account.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>
 		/// </returns>
@@ -325,7 +325,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="customerAuthInfo">The authentication information for the customer account.</param>
+		/// <param name="customerAuthInfo">The login information for a customer account.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>
 		/// </returns>
@@ -348,7 +348,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Updates the customer lifetime value of the specified customer account in the event of an order import or a lifetime value calculation error.
 		/// </summary>
-		/// <param name="accountId">The unique identifier of the customer account for which to calculate customer lifetime value.</param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -371,7 +371,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Updates the customer lifetime value of the specified customer account in the event of an order import or a lifetime value calculation error.
 		/// </summary>
-		/// <param name="accountId">The unique identifier of the customer account for which to calculate customer lifetime value.</param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -393,7 +393,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Lock or unlock a customer account.
 		/// </summary>
-		/// <param name="accountId">The unique identifier of the customer account.</param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="isLocked">If true, the customer account is locked from logging in.</param>
 		/// <returns>
 		/// 
@@ -417,7 +417,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Lock or unlock a customer account.
 		/// </summary>
-		/// <param name="accountId">The unique identifier of the customer account.</param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="isLocked">If true, the customer account is locked from logging in.</param>
 		/// <returns>
 		/// 
@@ -488,7 +488,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// Creates a new customer account and logs the user associated with the customer account into the site.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="accountAndAuthInfo">Properties of the customer account to create, including the user authentication information.</param>
+		/// <param name="accountAndAuthInfo">The authentication information associated with a customer account. The data includes the account properties such as the name, username, authorization access, and email address, the required password to match, and indicates if the account was imported from a third party resource. </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>
 		/// </returns>
@@ -513,7 +513,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// Creates a new customer account and logs the user associated with the customer account into the site.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="accountAndAuthInfo">Properties of the customer account to create, including the user authentication information.</param>
+		/// <param name="accountAndAuthInfo">The authentication information associated with a customer account. The data includes the account properties such as the name, username, authorization access, and email address, the required password to match, and indicates if the account was imported from a third party resource. </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>
 		/// </returns>
@@ -537,7 +537,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// Creates multiple customer accounts based on the information specified in the request.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="customers">Properties of the customer accounts to create.</param>
+		/// <param name="customers">The authentication information associated with a customer account. The data includes the account properties such as the name, username, authorization access, and email address, the required password to match, and indicates if the account was imported from a third party resource. </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccountCollection"/>
 		/// </returns>
@@ -562,7 +562,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// Creates multiple customer accounts based on the information specified in the request.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="customers">Properties of the customer accounts to create.</param>
+		/// <param name="customers">The authentication information associated with a customer account. The data includes the account properties such as the name, username, authorization access, and email address, the required password to match, and indicates if the account was imported from a third party resource. </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccountCollection"/>
 		/// </returns>
@@ -730,7 +730,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="account">Properties of the customer account to update.</param>
+		/// <param name="account">Properties of the customer account.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>
 		/// </returns>
@@ -756,7 +756,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="account">Properties of the customer account to update.</param>
+		/// <param name="account">Properties of the customer account.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>
 		/// </returns>
@@ -779,7 +779,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Deletes a customer account. A customer account cannot be deleted if any orders exist, past or present.
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account to delete.</param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -802,7 +802,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Deletes a customer account. A customer account cannot be deleted if any orders exist, past or present.
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account to delete.</param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <returns>
 		/// 
 		/// </returns>

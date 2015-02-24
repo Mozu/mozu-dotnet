@@ -24,8 +24,8 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <summary>
 		/// Retrieves a list of the actions available to perform for a package associated with order fulfillment.
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order associated with the package fulfillment.</param>
-		/// <param name="packageId">Unique identifier of the package associated with the fulfillment actions to retrieve.</param>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{string}}
 		/// </returns>
@@ -49,7 +49,7 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <summary>
 		/// Retrieves the package label image supplied by the carrier.
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order associated with the package label to retrieve.</param>
+		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
@@ -74,8 +74,8 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <summary>
 		/// Retrieves the details of a package of order items.
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order associated with the package to retrieve.</param>
-		/// <param name="packageId">Unique identifier of the package to retrieve.</param>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>}
@@ -100,9 +100,9 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <summary>
 		/// Creates a new physical package of order items.
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order associated with this package.</param>
+		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="package">Properties of the physical package of order items.</param>
+		/// <param name="package">Properties of a physical package shipped for an order.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>}
 		/// </returns>
@@ -126,10 +126,10 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <summary>
 		/// Updates one or more properties of a physical package of order items.
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order associated with the package to update.</param>
-		/// <param name="packageId">Unique identifier of the package of order items to update.</param>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="package">Wrapper of properties for the package of order items to update.</param>
+		/// <param name="package">Properties of a physical package shipped for an order.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>}
 		/// </returns>
@@ -153,8 +153,8 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <summary>
 		/// Removes a physical package of items from the specified order.
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order associated with the package to delete.</param>
-		/// <param name="packageId">Unique identifier of the package to delete.</param>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

@@ -31,12 +31,12 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public int CatalogId { get; set; }
 
 			///
-			///Localizable content for a product associated with a specific catalog. If no catalog-level content is specified, the master catalog content is used. To override content at the catalog level, the IsContentOverridden flag must be set to "true".
+			///Localizable content (such as a name and/or description) for an attribute. The content may be localized when displayed according to the locale code specified by the master catalog. Content can include descriptive text for product extensible attributes, catalog-level descriptions (displayed if isContentOverriden is true), product bundles, and customer account notes.
 			///
 			public ProductLocalizedContent Content { get; set; }
 
 			///
-			///If true, the product is actively available (for sale) in the associated catalog.
+			///Indicates if the object or feature is active. This indicator is used for subscriptions (at the site or tenant level), customer accounts, products and variations.
 			///
 			public bool? IsActive { get; set; }
 
@@ -66,7 +66,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public List<ProductCategory> ProductCategories { get; set; }
 
 			///
-			///The SEO content of the product associated with the specific catalog. If no SEO content is specified in the request, this catalog uses the SEO content defined in the master catalog. To override the SEO content for this catalog, the IsSEOContentOverridden flag must be set to "true".
+			///The search engine optimized content defined for products or products associated with a catalog. If no SEO content is specified in the request for products associated with a catalog, this catalog uses the SEO content defined in the master catalog. To override the SEO content for this catalog, the `IsSEOContentOverridden `flag must be set to "true".
 			///
 			public ProductLocalizedSEOContent SeoContent { get; set; }
 

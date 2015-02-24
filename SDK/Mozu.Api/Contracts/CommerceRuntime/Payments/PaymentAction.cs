@@ -19,7 +19,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 		public class PaymentAction
 		{
 			///
-			///The name of the payment action, such as "AuthorizeAndCapture".
+			///The name of the fulfillment action to perform for the purchased product. Options include "Ship" or "PickUp" (in-store pick-up).
 			///
 			public string ActionName { get; set; }
 
@@ -34,7 +34,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			public string CancelUrl { get; set; }
 
 			///
-			///If applicable, the check number associated with the payment action.
+			///If applicable, the check number associated with the payment action or interaction.
 			///
 			public string CheckNumber { get; set; }
 
@@ -44,7 +44,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			public string CurrencyCode { get; set; }
 
 			///
-			///Date and time the payment gateway interaction was performed.
+			///Date and time of a payment interaction, including handling and processing a payment and validating and completing a payment with a payment gateway.
 			///
 			public DateTime? InteractionDate { get; set; }
 

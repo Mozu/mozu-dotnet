@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetLocation
         /// </summary>
-        /// <param name="code">User-defined code that identifies the location.</param>
+        /// <param name="code">User-defined code that uniqely identifies the channel group.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
@@ -36,7 +36,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetLocationInUsageType
         /// </summary>
-        /// <param name="code">Retrieves the details of a location associated with a defined location usage type for the site specified in the request.</param>
+        /// <param name="code">User-defined code that uniqely identifies the channel group.</param>
         /// <param name="locationUsageType">System-defined location usage type code, which is DS for direct ship, SP for in-store pickup, or storeFinder.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
@@ -95,7 +95,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetInStorePickupLocation
         /// </summary>
-        /// <param name="code">The user-defined code that identifies the location to retrieve.</param>
+        /// <param name="code">User-defined code that uniqely identifies the channel group.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url

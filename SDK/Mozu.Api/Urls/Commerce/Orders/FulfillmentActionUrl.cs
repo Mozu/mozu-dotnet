@@ -19,14 +19,31 @@ namespace Mozu.Api.Urls.Commerce.Orders
 				/// <summary>
         /// Get Resource Url for PerformFulfillmentAction
         /// </summary>
-        /// <param name="orderId">Unique identifier of the order for which to perform the fulfillment action.</param>
-        /// <param name="responseFields">Updated order with a new fulfillment status resulting from the action supplied in the request.</param>
+        /// <param name="orderId">Unique identifier of the order.</param>
+        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
         public static MozuUrl PerformFulfillmentActionUrl(string orderId, string responseFields =  null)
 		{
 			var url = "/api/commerce/orders/{orderId}/fulfillment/actions/?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "orderId", orderId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for ResendPackageFulfillmentEmail
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl ResendPackageFulfillmentEmailUrl(string orderId, string responseFields =  null)
+		{
+			var url = "/api/commerce/orders/{orderId}/fulfillment/email/resend?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "orderId", orderId);
 			mozuUrl.FormatUrl( "responseFields", responseFields);

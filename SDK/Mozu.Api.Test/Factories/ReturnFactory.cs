@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves the details of a single return item.
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.GetReturnItem(handler : handler,  returnId :  returnId,  returnItemId :  returnItemId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves the details of all return items in an order.
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.GetReturnItems(handler : handler,  returnId :  returnId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -372,7 +372,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Adds a return item to the return.
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.CreateReturnItem(handler : handler,  returnItem :  returnItem,  returnId :  returnId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -563,6 +563,43 @@ namespace Mozu.Api.Test.Factories
   
 		/// <summary> 
 		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = ReturnFactory.ResendReturnEmail(handler : handler,  action :  action,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static void ResendReturnEmail(ServiceClientMessageHandler handler, 
+ 		Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnAction action, 
+		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.ReturnClient.ResendReturnEmailClient(
+				 action :  action		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+			}
+			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// Removes a particular order item from the order of the current shopper.
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.DeleteOrderItem(handler : handler,  returnId :  returnId,  returnItemId :  returnItemId,  expectedCode: expectedCode, successCode: successCode); 

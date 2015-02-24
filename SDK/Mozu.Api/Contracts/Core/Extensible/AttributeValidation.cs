@@ -29,7 +29,7 @@ namespace Mozu.Api.Contracts.Core.Extensible
 			public decimal? MaxNumericValue { get; set; }
 
 			///
-			///The maximum length possible for a string value entered for an extensible attribute.
+			///The maximum character length possible for a string value entered for an extensible attribute.
 			///
 			public int? MaxStringLength { get; set; }
 
@@ -44,12 +44,12 @@ namespace Mozu.Api.Contracts.Core.Extensible
 			public decimal? MinNumericValue { get; set; }
 
 			///
-			///The maximum length possible for a string value entered for an extensible attribute.
+			///The minimum character length possible for a string value entered for an extensible attribute.
 			///
 			public int? MinStringLength { get; set; }
 
 			///
-			///Regular expression used to validate the extensible attribute value.
+			///Regular expression used to process and validate an extensible attribute value that require special formatting, such as phone numbers.
 			///
 			public string RegularExpression { get; set; }
 

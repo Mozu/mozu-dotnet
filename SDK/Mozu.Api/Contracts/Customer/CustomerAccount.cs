@@ -21,12 +21,12 @@ namespace Mozu.Api.Contracts.Customer
 		public class CustomerAccount
 		{
 			///
-			///If true, the customer prefers to receive marketing material such as newsletters or email offers.
+			///Indicates if the customer account is opted to receive marketing materials. If true, the customer account is opted in for receiving the content. 
 			///
 			public bool AcceptsMarketing { get; set; }
 
 			///
-			///Collection of customer account attributes.
+			///Collection of attributes that may be paged list or a list, depending on the usage per object and API type. 
 			///
 			public List<CustomerAttribute> Attributes { get; set; }
 
@@ -51,25 +51,28 @@ namespace Mozu.Api.Contracts.Customer
 			public List<CustomerContact> Contacts { get; set; }
 
 			///
-			///The email address associated with the customer account.
+			///The email address for the customer account and contact. This email may be used for login to the storefront and for subscription mailing lists.
 			///
 			public string EmailAddress { get; set; }
 
 			///
-			///Unique identifier an external system uses to identify this customer account.
+			///Unique identifier used by an external program to identify a Mozu order, customer account, or wish list.
 			///
 			public string ExternalId { get; set; }
 
 			///
-			///The first name associated with the customer account.
+			///The full first name of a customer or contact name.
 			///
 			public string FirstName { get; set; }
 
 			///
-			///Identifier of the entity.
+			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 			///
 			public int Id { get; set; }
 
+			///
+			///Indicates if the object or feature is active. This indicator is used for subscriptions (at the site or tenant level), customer accounts, products and variations.
+			///
 			public bool IsActive { get; set; }
 
 			///
@@ -77,10 +80,13 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public bool IsAnonymous { get; set; }
 
+			///
+			///Indicates if a customer account and associated data is locked. If true, the user account is locked due to multiple failed authentication attempts. The user cannot login until the account is unlocked.
+			///
 			public bool IsLocked { get; set; }
 
 			///
-			///The last name associated with the customer account.
+			///The full last name of a customer or contact name.
 			///
 			public string LastName { get; set; }
 
@@ -90,7 +96,7 @@ namespace Mozu.Api.Contracts.Customer
 			public string LocaleCode { get; set; }
 
 			///
-			///List of customer account notes.
+			///Paged list collection of note content for objects including customers, orders, and returns. 
 			///
 			public List<CustomerNote> Notes { get; set; }
 
@@ -110,12 +116,12 @@ namespace Mozu.Api.Contracts.Customer
 			public string TaxId { get; set; }
 
 			///
-			///Unique identifier of the user associated with the customer account. All customer accounts must have a defined user ID. If the shopper user is anonymous, the user ID represents a system-generated user ID string.
+			///Unique identifier of the customer account (shopper or system user). System-supplied and read-only. If the shopper user is anonymous, the user ID represents a system-generated user ID string.
 			///
 			public string UserId { get; set; }
 
 			///
-			///The user name of the user associated with the customer account.
+			///The user name associated with the user profile. The customer uses the user name to access the account.
 			///
 			public string UserName { get; set; }
 

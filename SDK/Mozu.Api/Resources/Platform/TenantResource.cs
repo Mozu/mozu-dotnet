@@ -58,7 +58,7 @@ namespace Mozu.Api.Resources.Platform
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.Tenant.Tenant GetTenant(int tenantId, string responseFields =  null)
 		{
-            MozuClient<Mozu.Api.Contracts.Tenant.Tenant> response;
+			MozuClient<Mozu.Api.Contracts.Tenant.Tenant> response;
 			var client = Mozu.Api.Clients.Platform.TenantClient.GetTenantClient( tenantId,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
@@ -82,7 +82,7 @@ namespace Mozu.Api.Resources.Platform
 		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.Tenant.Tenant> GetTenantAsync(int tenantId, string responseFields =  null)
 		{
-            MozuClient<Mozu.Api.Contracts.Tenant.Tenant> response;
+			MozuClient<Mozu.Api.Contracts.Tenant.Tenant> response;
 			var client = Mozu.Api.Clients.Platform.TenantClient.GetTenantClient( tenantId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();

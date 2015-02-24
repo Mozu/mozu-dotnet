@@ -24,7 +24,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// Provides details for each attempted delivery of the event to the endpoint.
 	/// </summary>
 	public partial class EventDeliverySummaryFactory : BaseDataFactory
 	{
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves a collection of data for delivery attempts of events and notifications. These are notifications sent to subscribing sites and tenants. A paged list is returned sorted and filtered per the entered parameters.
 		/// <example> 
 		///  <code> 
 		/// var result = EventDeliverySummaryFactory.GetDeliveryAttemptSummaries(handler : handler,  subscriptionId :  subscriptionId,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

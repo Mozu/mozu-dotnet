@@ -24,12 +24,12 @@ namespace Mozu.Api.Contracts.PaymentService
 			public int AdminDisplayOrder { get; set; }
 
 			///
-			///The name that displays for the payment gateway.
+			///The name that displays for the payment gateway or third-party credentials field. 
 			///
 			public string DisplayName { get; set; }
 
 			///
-			///The localizable name of the payment gateway.
+			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
 			///
 			public string Name { get; set; }
 

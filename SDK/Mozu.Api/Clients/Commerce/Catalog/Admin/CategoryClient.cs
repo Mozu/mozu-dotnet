@@ -24,7 +24,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// Retrieves a list of categories according to any specified filter criteria and sort options.
 		/// </summary>
-		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product category search results by any of its properties, including its position in the category hierarchy. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
+		/// <param name="filter">A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy"></param>
@@ -52,7 +52,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// Retrieves the list of subcategories within a category.
 		/// </summary>
-		/// <param name="categoryId">Unique identifier of the category for which to retrieve subcategories.</param>
+		/// <param name="categoryId">Unique identifier of the category to modify.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.CategoryCollection"/>}
@@ -77,7 +77,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// Retrieves the details of a single category.
 		/// </summary>
-		/// <param name="categoryId">Unique identifier of the category to retrieve.</param>
+		/// <param name="categoryId">Unique identifier of the category to modify.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Category"/>}
@@ -104,7 +104,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="incrementSequence">If true, when adding a new product category, set the sequence number of the new category to an increment of one integer greater than the maximum available sequence number across all product categories. If false, set the sequence number to zero.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="category">Properties of the new category to create. You must specify a name and parent category if you want to create it as a subcategory.</param>
+		/// <param name="category">A descriptive container that groups products. A category is merchant defined with associated products and discounts as configured. GThe storefront displays products in a hierarchy of categories. As such, categories can include a nesting of sub-categories to organize products and product options per set guidelines such as color, brand, material, and size.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Category"/>}
 		/// </returns>
@@ -131,7 +131,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <param name="cascadeVisibility">If true, when changing the display option for the category, change it for all subcategories also. Default: False.</param>
 		/// <param name="categoryId">Unique identifier of the category to modify.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="category">Properties of the category to modify.</param>
+		/// <param name="category">A descriptive container that groups products. A category is merchant defined with associated products and discounts as configured. GThe storefront displays products in a hierarchy of categories. As such, categories can include a nesting of sub-categories to organize products and product options per set guidelines such as color, brand, material, and size.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Category"/>}
 		/// </returns>
@@ -156,7 +156,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// Deletes the category specified by its category ID.
 		/// </summary>
 		/// <param name="cascadeDelete">If true, also delete all subcategories associated with the specified category.</param>
-		/// <param name="categoryId">Unique identifier of the category to delete.</param>
+		/// <param name="categoryId">Unique identifier of the category to modify.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

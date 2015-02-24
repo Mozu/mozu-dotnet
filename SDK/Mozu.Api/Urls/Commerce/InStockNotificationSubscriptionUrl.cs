@@ -42,7 +42,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetInStockNotificationSubscription
         /// </summary>
-        /// <param name="id">Unique identifier of the in-stock notification subscription to retrieve.</param>
+        /// <param name="id">Unique identifier of the customer segment to retrieve.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
@@ -74,7 +74,7 @@ namespace Mozu.Api.Urls.Commerce
 						/// <summary>
         /// Get Resource Url for DeleteInStockNotificationSubscription
         /// </summary>
-        /// <param name="id">Unique identifier of the customer in-stock notification subscription to delete.</param>
+        /// <param name="id">Unique identifier of the customer segment to retrieve.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

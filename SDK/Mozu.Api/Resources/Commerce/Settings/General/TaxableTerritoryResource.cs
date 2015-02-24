@@ -86,7 +86,7 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 		/// Creates a new territory for which to calculate sales tax.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="taxableTerritory">Properties of the taxable territory to create.</param>
+		/// <param name="taxableTerritory">Properties of the territory which is subject to sales tax.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory"/>
 		/// </returns>
@@ -111,7 +111,7 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 		/// Creates a new territory for which to calculate sales tax.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="taxableTerritory">Properties of the taxable territory to create.</param>
+		/// <param name="taxableTerritory">Properties of the territory which is subject to sales tax.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory"/>
 		/// </returns>
@@ -134,7 +134,7 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 		/// <summary>
 		/// Updates one or more taxable territories configured for a site.
 		/// </summary>
-		/// <param name="taxableterritories">Properties of the taxable territories to update.</param>
+		/// <param name="taxableterritories">Properties of the territory which is subject to sales tax.</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory"/>}
 		/// </returns>
@@ -158,7 +158,7 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 		/// <summary>
 		/// Updates one or more taxable territories configured for a site.
 		/// </summary>
-		/// <param name="taxableterritories">Properties of the taxable territories to update.</param>
+		/// <param name="taxableterritories">Properties of the territory which is subject to sales tax.</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory"/>}
 		/// </returns>

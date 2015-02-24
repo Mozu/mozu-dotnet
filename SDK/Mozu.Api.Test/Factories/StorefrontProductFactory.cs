@@ -258,7 +258,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves product inventories for the storefront displayed products.
 		/// <example> 
 		///  <code> 
 		/// var result = ProductFactory.GetProductInventories(handler : handler,  query :  query,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 

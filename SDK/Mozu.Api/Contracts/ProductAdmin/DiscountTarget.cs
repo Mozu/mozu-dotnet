@@ -20,19 +20,23 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class DiscountTarget
 		{
 			///
-			///The product categories to which the discount can apply. When a discount applies to a category, all products in the category are eligible for the discount.
+			///The list of all categories associated with the product. These categories contain products, can have discounts associated, and define the grouping of products to display on the storefront.
 			///
 			public List<TargetedCategory> Categories { get; set; }
 
 			///
-			///Array list of categories to exclude for this discount.
+			///List of the product categories that are not eligible for the discount.
 			///
 			public List<TargetedCategory> ExcludedCategories { get; set; }
 
 			///
-			///Array list of products to exclude for this discount.
+			///List of products that are not eligible for the discount.
 			///
 			public List<TargetedProduct> ExcludedProducts { get; set; }
+
+			public bool? ExcludeItemsWithExistingProductDiscounts { get; set; }
+
+			public bool? ExcludeItemsWithExistingShippingDiscounts { get; set; }
 
 			///
 			///If true, the target discount applies to all products sold on the site, regardless of product category.
@@ -54,6 +58,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public List<TargetedShippingMethod> ShippingMethods { get; set; }
 
+			///
+			///Shipping Zones that are applicable for this discount
+			///
 			public List<TargetedShippingZone> ShippingZones { get; set; }
 
 			///

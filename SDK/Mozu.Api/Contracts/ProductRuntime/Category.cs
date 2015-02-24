@@ -15,10 +15,13 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
-		///	Properties of the product category that appears on the storefront.
+		///	A descriptive container that groups products. A category is merchant defined with associated products and discounts as configured. GThe storefront displays products in a hierarchy of categories. As such, categories can include a nesting of sub-categories to organize products and product options per set guidelines such as color, brand, material, and size.
 		///
 		public class Category
 		{
+			///
+			///External unique identifier of the category.
+			///
 			public string CategoryCode { get; set; }
 
 			///
@@ -37,7 +40,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public CategoryContent Content { get; set; }
 
 			///
-			///If true, the category is displayed on the website storefront.
+			///Indicates if the object is displayed on the storefront. If true, the admin product category is displayed in the store. If true, the category is not displayed.
 			///
 			public bool IsDisplayed { get; set; }
 
@@ -47,7 +50,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public Category ParentCategory { get; set; }
 
 			///
-			///The numeric value that denotes the place this entity occupies in the order of the entity list.
+			///The numeric order of objects, used by a vocabulary value defined for an extensible attribute, images, and categories.
 			///
 			public int? Sequence { get; set; }
 

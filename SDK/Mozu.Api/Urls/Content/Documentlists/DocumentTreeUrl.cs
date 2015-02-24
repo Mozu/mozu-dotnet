@@ -19,8 +19,8 @@ namespace Mozu.Api.Urls.Content.Documentlists
 		/// <summary>
         /// Get Resource Url for GetTreeDocumentContent
         /// </summary>
-        /// <param name="documentListName">The name of the document list associated with the document.</param>
-        /// <param name="documentName">The name of the document, which is unique within its folder.</param>
+        /// <param name="documentListName">Name of content documentListName to delete</param>
+        /// <param name="documentName">The name of the document in the site.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -36,8 +36,8 @@ namespace Mozu.Api.Urls.Content.Documentlists
 		/// <summary>
         /// Get Resource Url for GetTreeDocument
         /// </summary>
-        /// <param name="documentListName">The name of the document list associated with the document.</param>
-        /// <param name="documentName">The name of the document, which is unique within its folder.</param>
+        /// <param name="documentListName">Name of content documentListName to delete</param>
+        /// <param name="documentName">The name of the document in the site.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
@@ -55,8 +55,8 @@ namespace Mozu.Api.Urls.Content.Documentlists
 						/// <summary>
         /// Get Resource Url for UpdateTreeDocumentContent
         /// </summary>
-        /// <param name="documentListName">The name of the document list associated with the document.</param>
-        /// <param name="documentName">The name of the document, which is unique within its folder.</param>
+        /// <param name="documentListName">Name of content documentListName to delete</param>
+        /// <param name="documentName">The name of the document in the site.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -72,8 +72,8 @@ namespace Mozu.Api.Urls.Content.Documentlists
 				/// <summary>
         /// Get Resource Url for DeleteTreeDocumentContent
         /// </summary>
-        /// <param name="documentListName">The name of the document list associated with the document.</param>
-        /// <param name="documentName">The name of the document, which is unique within its folder.</param>
+        /// <param name="documentListName">Name of content documentListName to delete</param>
+        /// <param name="documentName">The name of the document in the site.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

@@ -15,17 +15,17 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.Core
 {
 		///
-		///	Properties of an application behavior.
+		///	Properties of an application's behavior.
 		///
 		public class Behavior
 		{
 			///
-			///Unique identifier of the behavior category.
+			///Unique identifier of a category. 
 			///
 			public int CategoryId { get; set; }
 
 			///
-			///Unique identifier of the behavior.
+			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 			///
 			public int Id { get; set; }
 
@@ -35,7 +35,7 @@ namespace Mozu.Api.Contracts.Core
 			public bool IsPrivate { get; set; }
 
 			///
-			///The name of the behavior.
+			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
 			///
 			public string Name { get; set; }
 

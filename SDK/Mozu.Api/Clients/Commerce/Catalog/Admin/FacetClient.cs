@@ -50,7 +50,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// Retrieves a list of the facets defined for the specified category.
 		/// </summary>
-		/// <param name="categoryId">Unique identifier of the category associated with the facets to retrieve.</param>
+		/// <param name="categoryId">Unique identifier of the category to modify.</param>
 		/// <param name="includeAvailable">If true, returns a list of the attributes and categories associated with a product type that have not been defined as a facet for the category.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="validate">Validates that the product category associated with a facet is active. System-supplied and read only.</param>
@@ -78,7 +78,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// Creates a new category, price, or attribute facet. Define the category or attribute source to use for the facet values.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="facet">Properties of the new facet to create. You must specify the source, type, and category.</param>
+		/// <param name="facet">Properties of the facet used to retrieve documents.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Facet"/>}
 		/// </returns>
@@ -102,9 +102,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// Modifies one or more properties of a defined facet.
 		/// </summary>
-		/// <param name="facetId">Unique identifier of the facet to modify.</param>
+		/// <param name="facetId">Unique identifier of the facet to retrieve.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="facet">Properties of the defined facet to modify.</param>
+		/// <param name="facet">Properties of the facet used to retrieve documents.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Facet"/>}
 		/// </returns>
@@ -128,7 +128,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// Deletes the facet specified by its unique identifier.
 		/// </summary>
-		/// <param name="facetId">Unique identifier of the facet to delete.</param>
+		/// <param name="facetId">Unique identifier of the facet to retrieve.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

@@ -106,5 +106,24 @@ namespace Mozu.Api.Test.MsTestCases
             var data = SiteDataFactory.GetDBValue(handler: ApiMsgHandler, dbEntryQuery: "test", expectedCode: HttpStatusCode.NotFound, successCode: HttpStatusCode.NotFound);
 
         }
+
+        [TestMethod]
+        public void GetEntityList()
+        {
+            ApiMsgHandler.ApiContext.Locale = "en-US";
+            var entityList = EntityFactory.GetEntity(handler: ApiMsgHandler, entityListFullName: "bvavgproductreview@a0842dd", id: "ED-Herald-AmberTortoise", expectedCode: HttpStatusCode.OK,
+                successCode: HttpStatusCode.OK);
+
+            entityList = EntityFactory.GetEntity(handler: ApiMsgHandler, entityListFullName: "bvavgproductreview@a0842dd", id: "ED-Herald-AmberTortoise", expectedCode: HttpStatusCode.OK,
+               successCode: HttpStatusCode.OK);
+
+            entityList = EntityFactory.GetEntity(handler: ApiMsgHandler, entityListFullName: "bvavgproductreview@a0842dd", id: "GPG-Bul'+b-All", expectedCode: HttpStatusCode.OK,
+               successCode: HttpStatusCode.OK);
+
+            ApiMsgHandler.ApiContext.TenantId = 0;
+            var countries = ReferenceDataFactory.GetCountries(handler: ApiMsgHandler);
+            
+            countries = ReferenceDataFactory.GetCountries(handler: ApiMsgHandler);
+        }
     }
 }
