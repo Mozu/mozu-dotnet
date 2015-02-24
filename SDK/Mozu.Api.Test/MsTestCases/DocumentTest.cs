@@ -103,7 +103,7 @@ namespace Mozu.Api.Test.MsTestCases
         [TestCategory("Mozu SDK Sample")]
         public void GetDocumentsTest2()
         {
-            var documentfactory = DocumentFactory.GetDocuments(ApiMsgHandler, "files@mozu", filter:"test (blah)");
+            var documentfactory = DocumentFactory.GetDocuments(ApiMsgHandler, "files@mozu", filter: "name eq 'Diamine-Syrah 1.jpg'");
             Assert.IsTrue(documentfactory.Items.Count == 0);
         }
     }
