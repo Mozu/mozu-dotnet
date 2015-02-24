@@ -19,7 +19,7 @@ namespace Mozu.Api.Contracts.Customer
 		public class PasswordInfo
 		{
 			///
-			///The new account password value.
+			///The new password entered and saved by the user of the account. 
 			///
 			public string NewPassword { get; set; }
 

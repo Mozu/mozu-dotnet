@@ -17,14 +17,14 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 {
 	/// <summary>
-	/// 
+	/// The Search resource manages all settings and options for providing product search on your site.
 	/// </summary>
 	public partial class SearchClient 	{
 		
 		/// <summary>
-		/// 
+		/// Get site search settings
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.SearchSettings"/>}
 		/// </returns>
@@ -46,10 +46,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Adds or Updates (Upsert) the Search Settings for a specific site
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="settings"></param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="settings">The settings to control product search and indexing behavior.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.SearchSettings"/>}
 		/// </returns>

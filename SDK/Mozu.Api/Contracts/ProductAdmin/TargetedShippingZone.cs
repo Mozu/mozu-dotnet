@@ -13,8 +13,14 @@ using System;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
+		///
+		///	The targeted shipping zone for the product.
+		///
 		public class TargetedShippingZone
 		{
+			///
+			///The zone string for the tenant domain.
+			///
 			public string Zone { get; set; }
 
 		}

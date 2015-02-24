@@ -16,10 +16,19 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.MZDB
 {
+		///
+		///	Properties for the list view that specifies what fields and content display per page load. All associated fields in the list view correspond with object data.
+		///
 		public class ListView
 		{
+			///
+			///Sets the default sorting for content. Sort does not use AND in determining the order.
+			///
 			public string DefaultSort { get; set; }
 
+			///
+			///The list of fields to display for a view or an associated schema. For example, the address schema would display fields for postal addresses.
+			///
 			public List<ListViewField> Fields { get; set; }
 
 			///
@@ -27,12 +36,24 @@ namespace Mozu.Api.Contracts.MZDB
 			///
 			public string Filter { get; set; }
 
+			///
+			///Metadata content for entities, used by document lists, document type lists, document type, views, entity lists, and list views.
+			///
 			public JObject MetaData { get; set; }
 
+			///
+			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
+			///
 			public string Name { get; set; }
 
+			///
+			///Indicates the security level for the document content as public, administrator, or owner.
+			///
 			public string Security { get; set; }
 
+			///
+			///List description of usages for content within a view and scope.
+			///
 			public List<string> Usages { get; set; }
 
 		}

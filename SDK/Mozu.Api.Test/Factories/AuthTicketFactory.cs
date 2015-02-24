@@ -24,7 +24,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use this resource to manage authentication tickets for your applications.
+	/// Use the Authetickets for applications resource to manage authentication tickets for your apps.
 	/// </summary>
 	public partial class AuthTicketFactory : BaseDataFactory
 	{

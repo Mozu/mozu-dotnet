@@ -42,7 +42,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetDiscountContent
         /// </summary>
-        /// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
+        /// <param name="discountId">Unique identifier of the discount. System-supplied and read only.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
@@ -59,7 +59,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetDiscount
         /// </summary>
-        /// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
+        /// <param name="discountId">Unique identifier of the discount. System-supplied and read only.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
@@ -106,7 +106,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for UpdateDiscountContent
         /// </summary>
-        /// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
+        /// <param name="discountId">Unique identifier of the discount. System-supplied and read only.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
@@ -123,7 +123,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for UpdateDiscount
         /// </summary>
-        /// <param name="discountId">Unique identifier of the discount to update.</param>
+        /// <param name="discountId">Unique identifier of the discount. System-supplied and read only.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
@@ -140,7 +140,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for DeleteDiscount
         /// </summary>
-        /// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
+        /// <param name="discountId">Unique identifier of the discount. System-supplied and read only.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

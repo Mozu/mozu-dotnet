@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves a collection of localized content for vocabulary value attributes based on a `localeCode`. 
 		/// <example> 
 		///  <code> 
 		/// var result = AttributeVocabularyValueFactory.GetAttributeVocabularyValueLocalizedContents(handler : handler,  attributeFQN :  attributeFQN,  value :  value,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves the localized content for a vocabulary value attribute based on a `localeCode`. 
 		/// <example> 
 		///  <code> 
 		/// var result = AttributeVocabularyValueFactory.GetAttributeVocabularyValueLocalizedContent(handler : handler,  attributeFQN :  attributeFQN,  value :  value,  localeCode :  localeCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Creates and saves localized vocabulary value content for an attribute, based on the `localeCode`.
 		/// <example> 
 		///  <code> 
 		/// var result = AttributeVocabularyValueFactory.AddAttributeVocabularyValueLocalizedContent(handler : handler,  localizedContent :  localizedContent,  attributeFQN :  attributeFQN,  value :  value,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -296,7 +296,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Updates a collection of localized vocabulary value content for existing attributes, based on the `localeCode`.
 		/// <example> 
 		///  <code> 
 		/// var result = AttributeVocabularyValueFactory.UpdateAttributeVocabularyValueLocalizedContents(handler : handler,  localizedContent :  localizedContent,  attributeFQN :  attributeFQN,  value :  value,  expectedCode: expectedCode, successCode: successCode); 
@@ -334,7 +334,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Updates localized vocabulary value content for an existing attribute, based on the `localeCode`.
 		/// <example> 
 		///  <code> 
 		/// var result = AttributeVocabularyValueFactory.UpdateAttributeVocabularyValueLocalizedContent(handler : handler,  localizedContent :  localizedContent,  attributeFQN :  attributeFQN,  value :  value,  localeCode :  localeCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -447,7 +447,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Removes localized content for a vocabulary value attribute. 
 		/// <example> 
 		///  <code> 
 		/// var result = AttributeVocabularyValueFactory.DeleteAttributeVocabularyValueLocalizedContent(handler : handler,  attributeFQN :  attributeFQN,  value :  value,  localeCode :  localeCode,  expectedCode: expectedCode, successCode: successCode); 

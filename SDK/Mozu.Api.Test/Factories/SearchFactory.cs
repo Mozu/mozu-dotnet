@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// The Search resource manages all settings and options for providing product search on your site.
 	/// </summary>
 	public partial class SearchFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// 
+		/// Get site search settings
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.GetSettings(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Adds or Updates (Upsert) the Search Settings for a specific site
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.UpdateSettings(handler : handler,  settings :  settings,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

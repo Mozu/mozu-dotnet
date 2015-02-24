@@ -256,7 +256,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Removes single account from a segment.
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerSegmentFactory.RemoveSegmentAccount(handler : handler,  id :  id,  accountId :  accountId,  expectedCode: expectedCode, successCode: successCode); 

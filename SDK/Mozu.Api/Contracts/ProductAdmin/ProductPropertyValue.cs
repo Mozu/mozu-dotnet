@@ -15,24 +15,27 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	Value details for a product property attribute.
+		///	Properties of a value for a product property.
 		///
 		public class ProductPropertyValue
 		{
 			///
-			///Details of the vocabulary value for predefined product property attributes.
+			///Properties of an individual vocabulary value for an attribute. For example, a "color" attribute might have the following vocabulary values: Red, Blue, Green.
 			///
 			public AttributeVocabularyValue AttributeVocabularyValueDetail { get; set; }
 
 			///
-			///Content of the product property value.
+			///Localizable content (such as a name and/or description) for an attribute. The content may be localized when displayed according to the locale code specified by the master catalog. Content can include descriptive text for product extensible attributes, catalog-level descriptions (displayed if isContentOverriden is true), product bundles, and customer account notes.
 			///
 			public ProductPropertyValueLocalizedContent Content { get; set; }
 
+			///
+			///The localized content of an attribute determined by the `localeCode`. This content is always in the default language of the MasterCatalog.
+			///
 			public List<ProductPropertyValueLocalizedContent> LocalizedContent { get; set; }
 
 			///
-			///Value details for a product property attribute.
+			///The value of a property, used by numerous objects within Mozu including facets, attributes, products, localized content, metadata, capabilities (Mozu and third-party), location inventory adjustment, and more. The value may be a string, integer, or double. Validation may be run against the entered and saved values depending on the object type.
 			///
 			public object Value { get; set; }
 

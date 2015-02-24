@@ -15,7 +15,7 @@ using Mozu.Api.Contracts.Core;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	A descriptive container in a storefront hierarchy to organize collections of products.
+		///	A descriptive container that groups products. A category is merchant defined with associated products and discounts as configured. GThe storefront displays products in a hierarchy of categories. As such, categories can include a nesting of sub-categories to organize products and product options per set guidelines such as color, brand, material, and size.
 		///
 		public class Category
 		{
@@ -26,6 +26,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public int? CatalogId { get; set; }
 
+			///
+			///External unique identifier of the category.
+			///
 			public string CategoryCode { get; set; }
 
 			///
@@ -39,12 +42,12 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public CategoryLocalizedContent Content { get; set; }
 
 			///
-			///Identifier of the entity.
+			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 			///
 			public int? Id { get; set; }
 
 			///
-			///If true, the admin product category is displayed in the store. If true, the category is not displayed.
+			///Indicates if the object is displayed on the storefront. If true, the admin product category is displayed in the store. If true, the category is not displayed.
 			///
 			public bool? IsDisplayed { get; set; }
 
@@ -54,12 +57,12 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public int? ParentCategoryId { get; set; }
 
 			///
-			///The number of products in a list.
+			///The total number of products. This total may indicate the total products associate with a product type or number of products in a list.
 			///
 			public int? ProductCount { get; set; }
 
 			///
-			///The numeric value that denotes the place this entity occupies in the order of the entity list.
+			///The numeric order of objects, used by a vocabulary value defined for an extensible attribute, images, and categories.
 			///
 			public int? Sequence { get; set; }
 

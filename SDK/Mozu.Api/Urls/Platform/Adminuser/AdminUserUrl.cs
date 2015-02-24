@@ -37,7 +37,7 @@ namespace Mozu.Api.Urls.Platform.Adminuser
         /// Get Resource Url for GetUser
         /// </summary>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="userId">Unique identifier of the administrator account to retrieve.</param>
+        /// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

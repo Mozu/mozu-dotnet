@@ -20,7 +20,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class AttributeInProductType
 		{
 			///
-			///The wrapper for the properties of the product attribute to set up or generate from the system in the product admin. Properties include namespace, attribute code, attribute sequence, site group ID, input type, value type, data type, boolean flags, and metadata key value pairs.
+			///Detail data for a product or product options attribute. This acts as a wrapper for the properties to configure or generate from the system in the product Admin. Properties may include namespace, attribute code, attribute sequence, site group ID, input type, and value.
 			///
 			public Attribute AttributeDetail { get; set; }
 
@@ -29,6 +29,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public string AttributeFQN { get; set; }
 
+			///
+			///Defines the intended display of this attribute in the storefront. Options include Drop Down, Image Picker, and Radio Buttons.
+			///
 			public AttributeInProductTypeDisplayInfo DisplayInfo { get; set; }
 
 			///
@@ -52,12 +55,12 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public bool? IsRequiredByAdmin { get; set; }
 
 			///
-			///The sequence of this attribute within its product type.
+			///Integer that represents the sequence order of the attribute.
 			///
 			public int? Order { get; set; }
 
 			///
-			///The list of vocabulary values available for the attribute associated with the product type.
+			///List of valid vocabulary values defined for an attribute.
 			///
 			public List<AttributeVocabularyValueInProductType> VocabularyValues { get; set; }
 

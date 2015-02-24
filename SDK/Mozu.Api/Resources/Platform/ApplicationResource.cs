@@ -40,7 +40,7 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// Retrieves the details of the installed application specified in the request.
 		/// </summary>
-		/// <param name="appId">The application ID that represents the application to retrieve.</param>
+		/// <param name="appId"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.InstalledApplications.Application"/>
@@ -65,7 +65,7 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// Retrieves the details of the installed application specified in the request.
 		/// </summary>
-		/// <param name="appId">The application ID that represents the application to retrieve.</param>
+		/// <param name="appId"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.InstalledApplications.Application"/>
@@ -89,9 +89,9 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// Updates one or more properties of the application specified in the request.
 		/// </summary>
-		/// <param name="appId">The application ID that represents the application to update.</param>
+		/// <param name="appId"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="application">Properties of the application to update.</param>
+		/// <param name="application">Properties of an app installed in a tenant.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.InstalledApplications.Application"/>
 		/// </returns>
@@ -115,9 +115,9 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// Updates one or more properties of the application specified in the request.
 		/// </summary>
-		/// <param name="appId">The application ID that represents the application to update.</param>
+		/// <param name="appId"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="application">Properties of the application to update.</param>
+		/// <param name="application">Properties of an app installed in a tenant.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.InstalledApplications.Application"/>
 		/// </returns>

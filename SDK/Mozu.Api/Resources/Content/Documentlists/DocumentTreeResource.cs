@@ -47,8 +47,8 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// Retrieve the content associated with the document, such as a product image or PDF specifications file.
 		/// </summary>
-		/// <param name="documentListName">The name of the document list associated with the document.</param>
-		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
+		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="documentName">The name of the document in the site.</param>
 		/// <returns>
 		/// <see cref="System.IO.Stream"/>
 		/// </returns>
@@ -72,8 +72,8 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// Retrieve the content associated with the document, such as a product image or PDF specifications file.
 		/// </summary>
-		/// <param name="documentListName">The name of the document list associated with the document.</param>
-		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
+		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="documentName">The name of the document in the site.</param>
 		/// <returns>
 		/// <see cref="System.IO.Stream"/>
 		/// </returns>
@@ -96,8 +96,8 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// Retrieves a document based on its document list and folder path in the document hierarchy.
 		/// </summary>
-		/// <param name="documentListName">The name of the document list associated with the document.</param>
-		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
+		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="documentName">The name of the document in the site.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.Document"/>
@@ -122,8 +122,8 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// Retrieves a document based on its document list and folder path in the document hierarchy.
 		/// </summary>
-		/// <param name="documentListName">The name of the document list associated with the document.</param>
-		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
+		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="documentName">The name of the document in the site.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.Document"/>
@@ -147,9 +147,9 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// Updates the content associated with a document, such as a product image or PDF specifications file, based on the document's position in the document hierarchy.
 		/// </summary>
-		/// <param name="documentListName">The name of the document list associated with the document.</param>
-		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
-		/// <param name="stream">Input output stream that delivers information.</param>
+		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="documentName">The name of the document in the site.</param>
+		/// <param name="stream">Data stream that delivers information. Used to input and output data.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -172,9 +172,9 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// Updates the content associated with a document, such as a product image or PDF specifications file, based on the document's position in the document hierarchy.
 		/// </summary>
-		/// <param name="documentListName">The name of the document list associated with the document.</param>
-		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
-		/// <param name="stream">Input output stream that delivers information.</param>
+		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="documentName">The name of the document in the site.</param>
+		/// <param name="stream">Data stream that delivers information. Used to input and output data.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -196,9 +196,9 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// Deletes the content associated with a document, such as a product image or PDF specifications file.
 		/// </summary>
-		/// <param name="documentListName">The name of the document list associated with the document.</param>
-		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
-		/// <param name="stream">Input output stream that delivers information.</param>
+		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="documentName">The name of the document in the site.</param>
+		/// <param name="stream">Data stream that delivers information. Used to input and output data.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -221,9 +221,9 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// Deletes the content associated with a document, such as a product image or PDF specifications file.
 		/// </summary>
-		/// <param name="documentListName">The name of the document list associated with the document.</param>
-		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
-		/// <param name="stream">Input output stream that delivers information.</param>
+		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="documentName">The name of the document in the site.</param>
+		/// <param name="stream">Data stream that delivers information. Used to input and output data.</param>
 		/// <returns>
 		/// 
 		/// </returns>

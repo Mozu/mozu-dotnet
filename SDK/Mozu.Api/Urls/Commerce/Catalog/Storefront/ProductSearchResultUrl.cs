@@ -30,9 +30,9 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
         /// <param name="facetTemplate">The facet template to use on the storefront. A template displays all facets associated with the template on the web storefront product search. Currently, only category-level facet templates are available.</param>
         /// <param name="facetTemplateSubset">Display a subset of the facets defined in the template specified in facetTemplate parameter.</param>
         /// <param name="facetValueFilter">The facet values to apply to the filter.</param>
-        /// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product search results by any of its properties, including product code, type, category, and name. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=categoryId+eq+12"</param>
+        /// <param name="filter">A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.</param>
         /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-        /// <param name="query">The terms to search on.</param>
+        /// <param name="query">A query entered for searches and facet range.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="sortBy"></param>
         /// <param name="startIndex"></param>
@@ -68,7 +68,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
         /// </summary>
         /// <param name="groups"></param>
         /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-        /// <param name="query"></param>
+        /// <param name="query">A query entered for searches and facet range.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url

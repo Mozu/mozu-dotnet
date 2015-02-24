@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Platform
 		/// <summary>
         /// Get Resource Url for GetApplication
         /// </summary>
-        /// <param name="appId">The application ID that represents the application to retrieve.</param>
+        /// <param name="appId"></param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
@@ -36,7 +36,7 @@ namespace Mozu.Api.Urls.Platform
 						/// <summary>
         /// Get Resource Url for UpdateApplication
         /// </summary>
-        /// <param name="appId">The application ID that represents the application to update.</param>
+        /// <param name="appId"></param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url

@@ -95,6 +95,9 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			///
 			public string SenderEmailAddress { get; set; }
 
+			///
+			///Email alias used in emails sent to your shoppers.
+			///
 			public string SenderEmailAlias { get; set; }
 
 			///

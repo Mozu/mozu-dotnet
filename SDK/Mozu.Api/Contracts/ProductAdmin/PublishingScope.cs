@@ -25,7 +25,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public bool? AllPending { get; set; }
 
 			///
-			///List of product codes for each pending product change you want to publish or delete.
+			///List of product codes of associated products, used for pending product changes to publish or delete and returned in a product inventory location query.
 			///
 			public List<string> ProductCodes { get; set; }
 

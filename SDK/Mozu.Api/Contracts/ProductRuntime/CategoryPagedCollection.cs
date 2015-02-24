@@ -15,7 +15,7 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
-		///	Paged collection of categories and related properties.
+		///	The container for paged lists of related site-specific product category properties.
 		///
 		public class CategoryPagedCollection
 		{

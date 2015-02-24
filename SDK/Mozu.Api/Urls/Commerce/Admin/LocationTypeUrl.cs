@@ -81,7 +81,7 @@ namespace Mozu.Api.Urls.Commerce.Admin
 				/// <summary>
         /// Get Resource Url for DeleteLocationType
         /// </summary>
-        /// <param name="locationTypeCode">User-defined code used to identify the location type.</param>
+        /// <param name="locationTypeCode">The user-defined code that identifies the location type.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

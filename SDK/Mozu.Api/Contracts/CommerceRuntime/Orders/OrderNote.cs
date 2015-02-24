@@ -25,7 +25,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public AuditInfo AuditInfo { get; set; }
 
 			///
-			///Unique identifier of the order note.
+			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 			///
 			public string Id { get; set; }
 

@@ -21,7 +21,7 @@ namespace Mozu.Api.Contracts.Location
 		public class Location
 		{
 			///
-			///The physical address properties of the location.
+			///All address information for the contact. This data is used to validate the address for the customer account and includes the full address.
 			///
 			public Address Address { get; set; }
 
@@ -33,7 +33,7 @@ namespace Mozu.Api.Contracts.Location
 			public string Code { get; set; }
 
 			///
-			///User-defined description of this location.
+			///The localized description in text for the object, displayed per the locale code. For example, descriptions are used for product descriptions, attributes, and pre-authorization transaction types.
 			///
 			public string Description { get; set; }
 
@@ -58,12 +58,12 @@ namespace Mozu.Api.Contracts.Location
 			public List<LocationType> LocationTypes { get; set; }
 
 			///
-			///The user-defined name of the location.
+			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
 			///
 			public string Name { get; set; }
 
 			///
-			///Any tenant-defined notes associated with this location.
+			///User-entered notation content for an object, used to save information such as payment, return, account, and order notes.
 			///
 			public string Note { get; set; }
 
