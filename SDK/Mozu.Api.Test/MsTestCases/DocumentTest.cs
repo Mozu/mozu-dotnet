@@ -80,12 +80,12 @@ namespace Mozu.Api.Test.MsTestCases
         [TestCategory("Mozu SDK Sample")]
         public void GetDocumentsTest1()
         {
-            var documentfactory = DocumentFactory.GetDocuments(ApiMsgHandler, "files");
+            var documentfactory = DocumentFactory.GetDocuments(ApiMsgHandler, "files@mozu");
             Assert.IsNotNull(documentfactory.Items);
             Assert.IsTrue(documentfactory.Items.Count > 0);
             foreach (var item in documentfactory.Items)
             {
-               var s = DocumentFactory.GetDocumentContent(ApiMsgHandler, "files", item.Id);
+               var s = DocumentFactory.GetDocumentContent(ApiMsgHandler, "files@mozu", item.Id);
                Assert.IsNotNull(s);
                Assert.IsTrue(s.GetType() == typeof(System.IO.MemoryStream));
 
@@ -97,6 +97,14 @@ namespace Mozu.Api.Test.MsTestCases
                    s.Close();
                }
             }
+        }
+
+        [TestMethod]
+        [TestCategory("Mozu SDK Sample")]
+        public void GetDocumentsTest2()
+        {
+            var documentfactory = DocumentFactory.GetDocuments(ApiMsgHandler, "files@mozu", filter:"test (blah)");
+            Assert.IsTrue(documentfactory.Items.Count == 0);
         }
     }
 }
