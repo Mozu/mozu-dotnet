@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mozu.Api", "Mozu.Api\Mozu.Api.csproj", "{0463AABF-9E78-409E-8AB4-AEDA56E53508}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mozu.Api.Test", "Mozu.Api.Test\Mozu.Api.Test.csproj", "{45529E5D-AC08-480A-818C-211EF3F41F4D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{64855AF6-99D9-4AAE-A3DC-979799DF010C}"
+	ProjectSection(SolutionItems) = preProject
+		sdkTest.config = sdkTest.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1E4CF1DC-2DE1-4873-B716-D725F7AB0A5A}"
+	ProjectSection(SolutionItems) = preProject
+		build.cmd = build.cmd
+		build.fsx = build.fsx
+		ChangeLog.txt = ChangeLog.txt
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0463AABF-9E78-409E-8AB4-AEDA56E53508}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0463AABF-9E78-409E-8AB4-AEDA56E53508}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0463AABF-9E78-409E-8AB4-AEDA56E53508}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0463AABF-9E78-409E-8AB4-AEDA56E53508}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45529E5D-AC08-480A-818C-211EF3F41F4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45529E5D-AC08-480A-818C-211EF3F41F4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45529E5D-AC08-480A-818C-211EF3F41F4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45529E5D-AC08-480A-818C-211EF3F41F4D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
