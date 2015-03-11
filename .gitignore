@@ -6,4 +6,3 @@ packages/*
 *.vspscc
 *.suo
 *.vssscc
-Libraries/Mozu.Api.ToolKit/TestResult.xml
