@@ -97,7 +97,9 @@ namespace Mozu.Api
 		{
 			TenantUrl = headers.Get(Headers.X_VOL_TENANT_DOMAIN);
 			SiteUrl = headers.Get(Headers.X_VOL_SITE_DOMAIN);
-			TenantId = int.Parse(headers.Get(Headers.X_VOL_TENANT));
+		    var tenantIdStr = headers.Get(Headers.X_VOL_TENANT);
+            if (!String.IsNullOrEmpty(tenantIdStr))
+	    		TenantId = int.Parse(tenantIdStr);
 			CorrelationId = headers.Get(Headers.X_VOL_CORRELATION);
 			HMACSha256 = headers.Get(Headers.X_VOL_HMAC_SHA256);
 		    Date = headers.Get(Headers.DATE);
@@ -126,7 +128,7 @@ namespace Mozu.Api
 		{
 			TenantUrl = HttpHelper.GetHeaderValue(Headers.X_VOL_TENANT_DOMAIN, headers);
             SiteUrl = HttpHelper.GetHeaderValue(Headers.X_VOL_SITE_DOMAIN, headers);
-            TenantId = HttpHelper.ParseFirstValue(Headers.X_VOL_TENANT, headers).Value;
+            TenantId = HttpHelper.ParseFirstValue(Headers.X_VOL_TENANT, headers).GetValueOrDefault(0);
             SiteId = HttpHelper.ParseFirstValue(Headers.X_VOL_SITE, headers);
             CorrelationId = HttpHelper.GetHeaderValue(Headers.X_VOL_CORRELATION, headers);
             HMACSha256 = HttpHelper.GetHeaderValue(Headers.X_VOL_HMAC_SHA256, headers);
