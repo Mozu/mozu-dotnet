@@ -6,6 +6,12 @@ namespace Mozu.Api.Security
 {
     public class SHA256Generator
     {
+
+        public static string GetHash(string date, string body)
+        {
+            return GetHash(AppAuthenticator.Instance.AppAuthInfo.SharedSecret, date, body);
+        }
+
         public static string GetHash(string secretKey,string date, string body)
         {
             byte[] hashArray;

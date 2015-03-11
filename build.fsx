@@ -12,7 +12,7 @@ open SourceLink
 
 let projectName = "Mozu.Api"
 //NOTE! you need to increment this if you want the version published to change.
-let version = "1.12.2"
+let version = "1.15.1.2"
 let bin = "bin"
 
 Target "Clean" (fun _ -> !! "**/bin/" ++ "**/obj/" |> CleanDirs)
@@ -21,7 +21,7 @@ Target "BuildSln" (fun _ ->
     let getBuildParams p =
             {Fake.MSBuildHelper.MSBuildDefaults with
                 Targets = ["Rebuild"]
-                Properties = [("Configuration", "Debug");] }
+                Properties = [("Configuration", "Release");] }
 
     build getBuildParams "Mozu.Api.sln"
 )
