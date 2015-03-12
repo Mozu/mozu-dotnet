@@ -256,10 +256,10 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// 
+		/// commerce-orders Put ResendOrderConfirmationEmail description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="orderId"></param>
-		/// <param name="action"></param>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="action">The action to perform for the order.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

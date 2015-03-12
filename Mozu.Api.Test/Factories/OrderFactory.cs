@@ -371,7 +371,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// commerce-orders Put ResendOrderConfirmationEmail description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = OrderFactory.ResendOrderConfirmationEmail(handler : handler,  action :  action,  orderId :  orderId,  expectedCode: expectedCode, successCode: successCode); 

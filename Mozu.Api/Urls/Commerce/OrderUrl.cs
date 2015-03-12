@@ -184,7 +184,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for ResendOrderConfirmationEmail
         /// </summary>
-        /// <param name="orderId"></param>
+        /// <param name="orderId">Unique identifier of the order.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

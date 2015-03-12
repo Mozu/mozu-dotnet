@@ -45,6 +45,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public decimal AmountAvailableForRefund { get; set; }
 
+			///
+			///A counter for how much money has been issued in refunds. This calculated field does NOT include refunds issued in returns.
+			///
 			public decimal AmountRefunded { get; set; }
 
 			///
@@ -307,6 +310,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public List<Pickup> Pickups { get; set; }
 
+			///
+			///Refunds associated with this order. A refund is a single exchange of money from merchant to customer that either encapsulates a refund to a credit card or an issuance of a store credit. Refunds does not reduce the 'amount collected' on an order and it is possible for refunds to exceed the total order amount.
+			///
 			public List<Refund> Refunds { get; set; }
 
 			///

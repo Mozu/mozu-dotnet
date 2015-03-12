@@ -33,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves all locations for which a product has inventory defined and displays the inventory definition properties of each location.
 		/// <example> 
 		///  <code> 
-		/// var result = LocationInventoryFactory.GetLocationInventories(handler : handler,  productCode :  productCode,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = LocationInventoryFactory.GetLocationInventories(handler : handler,  productCode :  productCode,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<LocationInventoryCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.LocationInventoryCollection GetLocationInventories(ServiceClientMessageHandler handler, 
- 		 string productCode, int? startIndex = null, int? pageSize = null, string sortBy = null, string filter = null, string responseFields = null, 
+ 		 string productCode, int? startIndex = null, int? pageSize = null, string sortBy = null, string filter = null, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -48,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.LocationInventoryClient.GetLocationInventoriesClient(
-				 productCode :  productCode,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields		);
+				 productCode :  productCode,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -71,14 +71,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves the details of the inventory of the product in the location specified in the request.
 		/// <example> 
 		///  <code> 
-		/// var result = LocationInventoryFactory.GetLocationInventory(handler : handler,  productCode :  productCode,  locationCode :  locationCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = LocationInventoryFactory.GetLocationInventory(handler : handler,  productCode :  productCode,  locationCode :  locationCode,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<LocationInventory/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.LocationInventory GetLocationInventory(ServiceClientMessageHandler handler, 
- 		 string productCode, string locationCode, string responseFields = null, 
+ 		 string productCode, string locationCode, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -86,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.LocationInventoryClient.GetLocationInventoryClient(
-				 productCode :  productCode,  locationCode :  locationCode,  responseFields :  responseFields		);
+				 productCode :  productCode,  locationCode :  locationCode,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
