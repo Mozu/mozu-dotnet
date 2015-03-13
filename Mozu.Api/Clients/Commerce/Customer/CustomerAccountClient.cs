@@ -132,19 +132,20 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// Modify the password associated with a customer account.
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="unlockAccount"></param>
 		/// <param name="passwordInfo">The information required to modify a shopper account password.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=ChangePassword( passwordInfo,  accountId);
+		///   var mozuClient=ChangePassword( passwordInfo,  accountId,  unlockAccount);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient ChangePasswordClient(Mozu.Api.Contracts.Customer.PasswordInfo passwordInfo, int accountId)
+		public static MozuClient ChangePasswordClient(Mozu.Api.Contracts.Customer.PasswordInfo passwordInfo, int accountId, bool? unlockAccount =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.ChangePasswordUrl(accountId);
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.ChangePasswordUrl(accountId, unlockAccount);
 			const string verb = "POST";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -299,6 +300,31 @@ namespace Mozu.Api.Clients.Commerce.Customer
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerAccountCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<List<Mozu.Api.Contracts.Customer.CustomerAccountAndAuthInfo>>(customers);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="accountPasswordInfos"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.ChangePasswordResultCollection"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=ChangePasswords( accountPasswordInfos,  responseFields);
+		///   var changePasswordResultCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.Customer.ChangePasswordResultCollection> ChangePasswordsClient(Mozu.Api.Contracts.Customer.AccountPasswordInfoCollection accountPasswordInfos, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.ChangePasswordsUrl(responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.ChangePasswordResultCollection>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.Customer.AccountPasswordInfoCollection>(accountPasswordInfos);
 			return mozuClient;
 
 		}

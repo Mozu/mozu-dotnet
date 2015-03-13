@@ -371,17 +371,17 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// commerce-orders Put ResendOrderConfirmationEmail description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = OrderFactory.ResendOrderConfirmationEmail(handler : handler,  action :  action,  orderId :  orderId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = OrderFactory.ResendOrderConfirmationEmail(handler : handler,  orderId :  orderId,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static void ResendOrderConfirmationEmail(ServiceClientMessageHandler handler, 
- 		Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAction action, string orderId, 
+ 		string orderId, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
@@ -389,7 +389,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.OrderClient.ResendOrderConfirmationEmailClient(
-				 action :  action,  orderId :  orderId		);
+				 orderId :  orderId		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

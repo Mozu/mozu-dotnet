@@ -146,6 +146,7 @@
     <Compile Include="Factories\EntityListFactory.cs" />
     <Compile Include="Factories\EventDeliverySummaryFactory.cs" />
     <Compile Include="Factories\EventNotificationFactory.cs" />
+    <Compile Include="Factories\ExtendedPropertyFactory.cs" />
     <Compile Include="Factories\FacetAdminFactory.cs" />
     <Compile Include="Factories\FacetFactory.cs" />
     <Compile Include="Factories\FulfillmentActionFactory.cs" />
@@ -182,7 +183,6 @@
     <Compile Include="Factories\PropertyTypeFactory.cs" />
     <Compile Include="Factories\PublishingScopeFactory.cs" />
     <Compile Include="Factories\ReferenceDataFactory.cs" />
-    <Compile Include="Factories\RefundFactory.cs" />
     <Compile Include="Factories\ReturnFactory.cs" />
     <Compile Include="Factories\ReturnsPackageFactory.cs" />
     <Compile Include="Factories\ReturnsShipmentFactory.cs" />
@@ -190,6 +190,7 @@
     <Compile Include="Factories\SiteDataFactory.cs" />
     <Compile Include="Factories\SiteShippingHandlingFeeFactory.cs" />
     <Compile Include="Factories\SiteShippingSettingsFactory.cs" />
+    <Compile Include="Factories\SoftAllocationFactory.cs" />
     <Compile Include="Factories\StorefrontCategoryFactory.cs" />
     <Compile Include="Factories\StorefrontPackageFactory.cs" />
     <Compile Include="Factories\StorefrontProductFactory.cs" />
@@ -200,6 +201,7 @@
     <Compile Include="Factories\TaxableTerritoryFactory.cs" />
     <Compile Include="Factories\TenantAdminUserAuthTicketFactory.cs" />
     <Compile Include="Factories\TenantDataFactory.cs" />
+    <Compile Include="Factories\TenantExtensionsFactory.cs" />
     <Compile Include="Factories\TenantFactory.cs" />
     <Compile Include="Factories\TransactionFactory.cs" />
     <Compile Include="Factories\UserDataFactory.cs" />

@@ -100,14 +100,16 @@ namespace Mozu.Api.Urls.Commerce.Customer
         /// Get Resource Url for ChangePassword
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
+        /// <param name="unlockAccount"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl ChangePasswordUrl(int accountId)
+        public static MozuUrl ChangePasswordUrl(int accountId, bool? unlockAccount =  null)
 		{
-			var url = "/api/commerce/customer/accounts/{accountId}/Change-Password";
+			var url = "/api/commerce/customer/accounts/{accountId}/Change-Password?unlockAccount={unlockAccount}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "accountId", accountId);
+			mozuUrl.FormatUrl( "unlockAccount", unlockAccount);
 			return mozuUrl;
 		}
 
@@ -198,6 +200,21 @@ namespace Mozu.Api.Urls.Commerce.Customer
         public static MozuUrl AddAccountsUrl(string responseFields =  null)
 		{
 			var url = "/api/commerce/customer/accounts/Bulk?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for ChangePasswords
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl ChangePasswordsUrl(string responseFields =  null)
+		{
+			var url = "/api/commerce/customer/accounts/Change-Passwords?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;

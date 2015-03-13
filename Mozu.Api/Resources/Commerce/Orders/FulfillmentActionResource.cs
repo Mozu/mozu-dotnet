@@ -89,25 +89,25 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		}
 
 		/// <summary>
-		/// orders-fulfillment Post ResendPackageFulfillmentEmail description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
-		/// <param name="action">Properties of an action to perform when fulfilling an item in an order, whether through in-store pickup or direct shipping.</param>
+		/// <param name="orderId"></param>
+		/// <param name="packageId"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var fulfillmentaction = new FulfillmentAction();
-		///   var order = fulfillmentaction.ResendPackageFulfillmentEmail( action,  orderId,  responseFields);
+		///   var order = fulfillmentaction.ResendPackageFulfillmentEmail( orderId,  packageId,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.Order ResendPackageFulfillmentEmail(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.FulfillmentAction action, string orderId, string responseFields =  null)
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.Order ResendPackageFulfillmentEmail(string orderId, string packageId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.FulfillmentActionClient.ResendPackageFulfillmentEmailClient( action,  orderId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Orders.FulfillmentActionClient.ResendPackageFulfillmentEmailClient( orderId,  packageId,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -115,24 +115,24 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		}
 
 		/// <summary>
-		/// orders-fulfillment Post ResendPackageFulfillmentEmail description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
-		/// <param name="action">Properties of an action to perform when fulfilling an item in an order, whether through in-store pickup or direct shipping.</param>
+		/// <param name="orderId"></param>
+		/// <param name="packageId"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var fulfillmentaction = new FulfillmentAction();
-		///   var order = await fulfillmentaction.ResendPackageFulfillmentEmailAsync( action,  orderId,  responseFields);
+		///   var order = await fulfillmentaction.ResendPackageFulfillmentEmailAsync( orderId,  packageId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> ResendPackageFulfillmentEmailAsync(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.FulfillmentAction action, string orderId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> ResendPackageFulfillmentEmailAsync(string orderId, string packageId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.FulfillmentActionClient.ResendPackageFulfillmentEmailClient( action,  orderId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Orders.FulfillmentActionClient.ResendPackageFulfillmentEmailClient( orderId,  packageId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

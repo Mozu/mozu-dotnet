@@ -28,6 +28,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public string ProductCode { get; set; }
 
+			public int? SoftStockAvailable { get; set; }
+
 			///
 			///The stock level for the associated product currently available, at specified locations, and based on the number of pending product reservations as applicable. System-supplied and read only.
 			///

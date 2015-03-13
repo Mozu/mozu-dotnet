@@ -256,26 +256,25 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// commerce-orders Put ResendOrderConfirmationEmail description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="action">The action to perform for the order.</param>
+		/// <param name="orderId"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=ResendOrderConfirmationEmail( action,  orderId);
+		///   var mozuClient=ResendOrderConfirmationEmail( orderId);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient ResendOrderConfirmationEmailClient(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAction action, string orderId)
+		public static MozuClient ResendOrderConfirmationEmailClient(string orderId)
 		{
 			var url = Mozu.Api.Urls.Commerce.OrderUrl.ResendOrderConfirmationEmailUrl(orderId);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAction>(action);
+;
 			return mozuClient;
 
 		}

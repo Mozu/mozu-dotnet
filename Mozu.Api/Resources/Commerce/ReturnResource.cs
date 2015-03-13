@@ -742,9 +742,9 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// commerce-returns Put ResendReturnEmail description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="action">Properties of an action a user can perform for a return.</param>
+		/// <param name="action"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -765,9 +765,9 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// commerce-returns Put ResendReturnEmail description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="action">Properties of an action a user can perform for a return.</param>
+		/// <param name="action"></param>
 		/// <returns>
 		/// 
 		/// </returns>

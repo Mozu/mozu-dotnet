@@ -184,13 +184,13 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for ResendOrderConfirmationEmail
         /// </summary>
-        /// <param name="orderId">Unique identifier of the order.</param>
+        /// <param name="orderId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
         public static MozuUrl ResendOrderConfirmationEmailUrl(string orderId)
 		{
-			var url = "/api/commerce/orders/{orderId}/email/resend";
+			var url = "/api/commerce/orders/{orderId}/Resend-Email";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "orderId", orderId);
 			return mozuUrl;

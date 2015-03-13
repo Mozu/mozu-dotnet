@@ -48,27 +48,27 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		}
 
 		/// <summary>
-		/// orders-fulfillment Post ResendPackageFulfillmentEmail description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
-		/// <param name="action">Properties of an action to perform when fulfilling an item in an order, whether through in-store pickup or direct shipping.</param>
+		/// <param name="orderId"></param>
+		/// <param name="packageId"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=ResendPackageFulfillmentEmail( action,  orderId,  responseFields);
+		///   var mozuClient=ResendPackageFulfillmentEmail( orderId,  packageId,  responseFields);
 		///   var orderClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> ResendPackageFulfillmentEmailClient(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.FulfillmentAction action, string orderId, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> ResendPackageFulfillmentEmailClient(string orderId, string packageId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Orders.FulfillmentActionUrl.ResendPackageFulfillmentEmailUrl(orderId, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Orders.FulfillmentActionUrl.ResendPackageFulfillmentEmailUrl(orderId, packageId, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.FulfillmentAction>(action);
+;
 			return mozuClient;
 
 		}

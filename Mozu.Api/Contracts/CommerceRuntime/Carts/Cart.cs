@@ -53,6 +53,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///
 			public string CustomerInteractionType { get; set; }
 
+			public List<KeyValue> Data { get; set; }
+
 			///
 			///The aggregate total for all items in the cart, including costs associated with shopper-defined options or extras and any applied discounts.
 			///
@@ -72,6 +74,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///Date and time in UTC format when a discount, credit, wish list, or cart expires. An expired discount no longer can be redeemed. An expired wish list is no longer available. An expired credit can no longer be redeemed for a purchase. Acart becomes inactive and expired based on a system-calculated interval. For example, if an anonymous shopper has 14 days of inactivity, the cart is considered abandoned after that period of inactivity. System-supplied and read-only.
 			///
 			public DateTime? ExpirationDate { get; set; }
+
+			public List<ExtendedProperty> ExtendedProperties { get; set; }
 
 			///
 			///The monetary sum of all fees incurred in the cart, order, line item in a cart, or line item in an order. This value is not calculated for wish lists at this time.

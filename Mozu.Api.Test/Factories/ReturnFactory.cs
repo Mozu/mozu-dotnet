@@ -562,7 +562,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// commerce-returns Put ResendReturnEmail description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.ResendReturnEmail(handler : handler,  action :  action,  expectedCode: expectedCode, successCode: successCode); 

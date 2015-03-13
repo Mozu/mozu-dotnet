@@ -34,14 +34,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public List<TargetedProduct> ExcludedProducts { get; set; }
 
-			///
-			///Prevents order scoped discounts from layering over items that already have a product discount with the same type.
-			///
 			public bool? ExcludeItemsWithExistingProductDiscounts { get; set; }
 
-			///
-			///Prevents order scoped discounts from layering over items that already have a shipping discount with the same type.
-			///
 			public bool? ExcludeItemsWithExistingShippingDiscounts { get; set; }
 
 			///

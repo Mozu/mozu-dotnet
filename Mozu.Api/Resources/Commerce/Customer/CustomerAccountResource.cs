@@ -251,6 +251,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// Modify the password associated with a customer account.
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="unlockAccount"></param>
 		/// <param name="passwordInfo">The information required to modify a shopper account password.</param>
 		/// <returns>
 		/// 
@@ -258,14 +259,14 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <example>
 		/// <code>
 		///   var customeraccount = new CustomerAccount();
-		///   customeraccount.ChangePassword( passwordInfo,  accountId);
+		///   customeraccount.ChangePassword( passwordInfo,  accountId,  unlockAccount);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void ChangePassword(Mozu.Api.Contracts.Customer.PasswordInfo passwordInfo, int accountId)
+		public virtual void ChangePassword(Mozu.Api.Contracts.Customer.PasswordInfo passwordInfo, int accountId, bool? unlockAccount =  null)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.ChangePasswordClient( passwordInfo,  accountId);
+			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.ChangePasswordClient( passwordInfo,  accountId,  unlockAccount);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 
@@ -275,6 +276,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// Modify the password associated with a customer account.
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="unlockAccount"></param>
 		/// <param name="passwordInfo">The information required to modify a shopper account password.</param>
 		/// <returns>
 		/// 
@@ -282,13 +284,13 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <example>
 		/// <code>
 		///   var customeraccount = new CustomerAccount();
-		///   await customeraccount.ChangePasswordAsync( passwordInfo,  accountId);
+		///   await customeraccount.ChangePasswordAsync( passwordInfo,  accountId,  unlockAccount);
 		/// </code>
 		/// </example>
-		public virtual async Task ChangePasswordAsync(Mozu.Api.Contracts.Customer.PasswordInfo passwordInfo, int accountId)
+		public virtual async Task ChangePasswordAsync(Mozu.Api.Contracts.Customer.PasswordInfo passwordInfo, int accountId, bool? unlockAccount =  null)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.ChangePasswordClient( passwordInfo,  accountId);
+			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.ChangePasswordClient( passwordInfo,  accountId,  unlockAccount);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 
@@ -576,6 +578,55 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerAccountCollection> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.AddAccountsClient( customers,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="accountPasswordInfos"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.ChangePasswordResultCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customeraccount = new CustomerAccount();
+		///   var changePasswordResultCollection = customeraccount.ChangePasswords( accountPasswordInfos,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Customer.ChangePasswordResultCollection ChangePasswords(Mozu.Api.Contracts.Customer.AccountPasswordInfoCollection accountPasswordInfos, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Customer.ChangePasswordResultCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.ChangePasswordsClient( accountPasswordInfos,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="accountPasswordInfos"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.ChangePasswordResultCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customeraccount = new CustomerAccount();
+		///   var changePasswordResultCollection = await customeraccount.ChangePasswordsAsync( accountPasswordInfos,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.Customer.ChangePasswordResultCollection> ChangePasswordsAsync(Mozu.Api.Contracts.Customer.AccountPasswordInfoCollection accountPasswordInfos, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Customer.ChangePasswordResultCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.ChangePasswordsClient( accountPasswordInfos,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

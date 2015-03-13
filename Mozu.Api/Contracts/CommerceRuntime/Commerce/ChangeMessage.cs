@@ -23,6 +23,14 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
 			///
 			public decimal? Amount { get; set; }
 
+			public string AppId { get; set; }
+
+			public string AppKey { get; set; }
+
+			public string AppName { get; set; }
+
+			public string CorrelationId { get; set; }
+
 			///
 			///Date and time when the entity was created, represented in UTC Date/Time.
 			///
@@ -42,6 +50,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
 			///The text of the change message, such as "This product is no longer available." System-supplied and read-only.
 			///
 			public string Message { get; set; }
+
+			public object Metadata { get; set; }
 
 			///
 			///The new value of the object affected by the change, such as the new price of the product. System-supplied and read-only.
@@ -68,10 +78,16 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
 			///
 			public bool? Success { get; set; }
 
+			public string UserFirstName { get; set; }
+
 			///
 			///Unique identifier of the customer account (shopper or system user). System-supplied and read-only. If the shopper user is anonymous, the user ID represents a system-generated user ID string.
 			///
 			public string UserId { get; set; }
+
+			public string UserLastName { get; set; }
+
+			public string UserScopeType { get; set; }
 
 			///
 			///The action associated with this message. For example, if the price of a product changes, the verb could be "Increased" or "Decreased". If the product is no longer available, the verb could be "Invalidated". System-supplied and read-only.

@@ -17,40 +17,131 @@ namespace Mozu.Api.Urls.Platform
 	{
 
 		/// <summary>
-        /// Get Resource Url for GetApplication
+        /// Get Resource Url for GetAppPackageNames
         /// </summary>
-        /// <param name="appId"></param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="applicationKey"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetApplicationUrl(string appId, string responseFields =  null)
+        public static MozuUrl GetAppPackageNamesUrl(string applicationKey, string responseFields =  null)
 		{
-			var url = "/api/platform/applications/{appId}?responseFields={responseFields}";
+			var url = "/api/platform/developer/applications/{applicationKey}/packagenames?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "appId", appId);
+			mozuUrl.FormatUrl( "applicationKey", applicationKey);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for GetAppVersions
+        /// </summary>
+        /// <param name="nsAndAppId"></param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetAppVersionsUrl(string nsAndAppId, string responseFields =  null)
+		{
+			var url = "/api/platform/developer/applications/versions/{nsAndAppId}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "nsAndAppId", nsAndAppId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for GetPackageFileMetadata
+        /// </summary>
+        /// <param name="applicationKey"></param>
+        /// <param name="filepath"></param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetPackageFileMetadataUrl(string applicationKey, string filepath, string responseFields =  null)
+		{
+			var url = "/api/platform/developer/packages/{applicationKey}/filemetadata/{filepath}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "applicationKey", applicationKey);
+			mozuUrl.FormatUrl( "filepath", filepath);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for GetPackageMetadata
+        /// </summary>
+        /// <param name="applicationKey"></param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetPackageMetadataUrl(string applicationKey, string responseFields =  null)
+		{
+			var url = "/api/platform/developer/packages/{applicationKey}/metadata?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "applicationKey", applicationKey);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+				/// <summary>
+        /// Get Resource Url for UpsertPackageFile
+        /// </summary>
+        /// <param name="applicationKey"></param>
+        /// <param name="filepath"></param>
+        /// <param name="lastModifiedTime"></param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl UpsertPackageFileUrl(string applicationKey, string filepath, string lastModifiedTime =  null, string responseFields =  null)
+		{
+			var url = "/api/platform/developer/packages/{applicationKey}/files/{filepath}?lastModifiedTime={lastModifiedTime}&responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "applicationKey", applicationKey);
+			mozuUrl.FormatUrl( "filepath", filepath);
+			mozuUrl.FormatUrl( "lastModifiedTime", lastModifiedTime);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for RenamePackageFile
+        /// </summary>
+        /// <param name="applicationKey"></param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl RenamePackageFileUrl(string applicationKey, string responseFields =  null)
+		{
+			var url = "/api/platform/developer/packages/{applicationKey}/files_rename?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "applicationKey", applicationKey);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 						/// <summary>
-        /// Get Resource Url for UpdateApplication
+        /// Get Resource Url for DeletePackageFile
         /// </summary>
-        /// <param name="appId"></param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="applicationKey"></param>
+        /// <param name="filepath"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateApplicationUrl(string appId, string responseFields =  null)
+        public static MozuUrl DeletePackageFileUrl(string applicationKey, string filepath)
 		{
-			var url = "/api/platform/applications/{appId}?responseFields={responseFields}";
+			var url = "/api/platform/developer/packages/{applicationKey}/files/{filepath}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "appId", appId);
-			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "applicationKey", applicationKey);
+			mozuUrl.FormatUrl( "filepath", filepath);
 			return mozuUrl;
 		}
 
-				
+		
 	}
 }
 
