@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 
 using Mozu.Api.Contracts.Core;
+using Mozu.Api.Contracts.SiteSettings.General.General;
 
 namespace Mozu.Api.Contracts.SiteSettings.General
 {
@@ -110,6 +111,8 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			///
 			public string SiteTimeZone { get; set; }
 
+			public EmailTransactionSettings SupressedEmailTransactions { get; set; }
+
 			///
 			///The name of the theme to use when viewing the website on a mobile device.
 			///
@@ -129,6 +132,8 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			///The name of the theme used on the storefront.
 			///
 			public string Theme { get; set; }
+
+			public ViewAuthorizations ViewAuthorizations { get; set; }
 
 			///
 			///The name of the website to display on the storefront with no spaces.

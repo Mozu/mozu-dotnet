@@ -24,31 +24,31 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Applications resource to update and retrieve details about the applications installed for your tenant.
+	/// 
 	/// </summary>
 	public partial class ApplicationFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves the details of the installed application specified in the request.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = ApplicationFactory.GetApplication(handler : handler,  appId :  appId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Application/>(result); 
+		/// var result = ApplicationFactory.GetAppPackageNames(handler : handler,  applicationKey :  applicationKey,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<PackageNamesCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.InstalledApplications.Application GetApplication(ServiceClientMessageHandler handler, 
- 		 string appId, string responseFields = null, 
+		public static Mozu.Api.Contracts.AppDev.PackageNamesCollection GetAppPackageNames(ServiceClientMessageHandler handler, 
+ 		 string applicationKey, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Platform.ApplicationClient.GetApplicationClient(
-				 appId :  appId,  responseFields :  responseFields		);
+			var apiClient = Mozu.Api.Clients.Platform.ApplicationClient.GetAppPackageNamesClient(
+				 applicationKey :  applicationKey,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -68,25 +68,25 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates one or more properties of the application specified in the request.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = ApplicationFactory.UpdateApplication(handler : handler,  application :  application,  appId :  appId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Application/>(result); 
+		/// var result = ApplicationFactory.GetAppVersions(handler : handler,  nsAndAppId :  nsAndAppId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<ApplicationVersionsCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.InstalledApplications.Application UpdateApplication(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.InstalledApplications.Application application, string appId, string responseFields = null, 
+		public static Mozu.Api.Contracts.AppDev.ApplicationVersionsCollection GetAppVersions(ServiceClientMessageHandler handler, 
+ 		 string nsAndAppId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Platform.ApplicationClient.UpdateApplicationClient(
-				 application :  application,  appId :  appId,  responseFields :  responseFields		);
+			var apiClient = Mozu.Api.Clients.Platform.ApplicationClient.GetAppVersionsClient(
+				 nsAndAppId :  nsAndAppId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -100,6 +100,195 @@ namespace Mozu.Api.Test.Factories
 				return null;
 			}
 			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = ApplicationFactory.GetPackageFileMetadata(handler : handler,  applicationKey :  applicationKey,  filepath :  filepath,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<FileMetadata/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.AppDev.FileMetadata GetPackageFileMetadata(ServiceClientMessageHandler handler, 
+ 		 string applicationKey, string filepath, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Platform.ApplicationClient.GetPackageFileMetadataClient(
+				 applicationKey :  applicationKey,  filepath :  filepath,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = ApplicationFactory.GetPackageMetadata(handler : handler,  applicationKey :  applicationKey,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<FolderMetadata/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.AppDev.FolderMetadata GetPackageMetadata(ServiceClientMessageHandler handler, 
+ 		 string applicationKey, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Platform.ApplicationClient.GetPackageMetadataClient(
+				 applicationKey :  applicationKey,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = ApplicationFactory.UpsertPackageFile(handler : handler,  stream :  stream,  applicationKey :  applicationKey,  filepath :  filepath,  lastModifiedTime :  lastModifiedTime,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<FileMetadata/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.AppDev.FileMetadata UpsertPackageFile(ServiceClientMessageHandler handler, 
+ 		 System.IO.Stream stream, string applicationKey, string filepath, string lastModifiedTime = null, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Platform.ApplicationClient.UpsertPackageFileClient(
+				 stream :  stream,  applicationKey :  applicationKey,  filepath :  filepath,  lastModifiedTime :  lastModifiedTime,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = ApplicationFactory.RenamePackageFile(handler : handler,  renameInfo :  renameInfo,  applicationKey :  applicationKey,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<FileMetadata/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.AppDev.FileMetadata RenamePackageFile(ServiceClientMessageHandler handler, 
+ 		 Mozu.Api.Contracts.AppDev.RenameInfo renameInfo, string applicationKey, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Platform.ApplicationClient.RenamePackageFileClient(
+				 renameInfo :  renameInfo,  applicationKey :  applicationKey,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = ApplicationFactory.DeletePackageFile(handler : handler,  applicationKey :  applicationKey,  filepath :  filepath,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static void DeletePackageFile(ServiceClientMessageHandler handler, 
+ 		string applicationKey, string filepath, 
+		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Platform.ApplicationClient.DeletePackageFileClient(
+				 applicationKey :  applicationKey,  filepath :  filepath		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+			}
+			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

@@ -20,6 +20,10 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 		///
 		public class Product
 		{
+			public DateTime? AllocationExpiration { get; set; }
+
+			public int? AllocationId { get; set; }
+
 			///
 			///Properties of a collection of component products that make up a single product bundle with its own product code. Tenants can define product bundles for any product type that supports the Bundle product usage.
 			///
@@ -73,7 +77,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			///
 			///Indicates if the product must be shipped alone in a container. This is used for products and products within a bundle. If true, this product cannot be shipped in a package with other items and must ship in a package by itself.
 			///
-			public bool? IsPackagedStandAlone { get; set; }
+			public bool IsPackagedStandAlone { get; set; }
 
 			///
 			///Indicates if the product in a cart, order, or wish list is purchased on a recurring schedule. If true, the item can be purchased or fulfilled at regular intervals, such as a monthly billing cycle. For example, digital or physical product subscriptions are recurring cart items. This property is not used at this time and is reserved for future functionality.

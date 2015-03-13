@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Platform
 {
 	/// <summary>
-	/// Use the Applications resource to update and retrieve details about the applications installed for your tenant.
+	/// 
 	/// </summary>
 	public partial class ApplicationResource  	{
 		///
@@ -38,24 +38,24 @@ namespace Mozu.Api.Resources.Platform
 
 				
 		/// <summary>
-		/// Retrieves the details of the installed application specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="appId"></param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="applicationKey"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.InstalledApplications.Application"/>
+		/// <see cref="Mozu.Api.Contracts.AppDev.PackageNamesCollection"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var application = new Application();
-		///   var application = application.GetApplication( appId,  responseFields);
+		///   var packageNamesCollection = application.GetAppPackageNames( applicationKey,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.InstalledApplications.Application GetApplication(string appId, string responseFields =  null)
+		public virtual Mozu.Api.Contracts.AppDev.PackageNamesCollection GetAppPackageNames(string applicationKey, string responseFields =  null)
 		{
-			MozuClient<Mozu.Api.Contracts.InstalledApplications.Application> response;
-			var client = Mozu.Api.Clients.Platform.ApplicationClient.GetApplicationClient( appId,  responseFields);
+			MozuClient<Mozu.Api.Contracts.AppDev.PackageNamesCollection> response;
+			var client = Mozu.Api.Clients.Platform.ApplicationClient.GetAppPackageNamesClient( applicationKey,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -63,23 +63,23 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
-		/// Retrieves the details of the installed application specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="appId"></param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="applicationKey"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.InstalledApplications.Application"/>
+		/// <see cref="Mozu.Api.Contracts.AppDev.PackageNamesCollection"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var application = new Application();
-		///   var application = await application.GetApplicationAsync( appId,  responseFields);
+		///   var packageNamesCollection = await application.GetAppPackageNamesAsync( applicationKey,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.InstalledApplications.Application> GetApplicationAsync(string appId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.AppDev.PackageNamesCollection> GetAppPackageNamesAsync(string applicationKey, string responseFields =  null)
 		{
-			MozuClient<Mozu.Api.Contracts.InstalledApplications.Application> response;
-			var client = Mozu.Api.Clients.Platform.ApplicationClient.GetApplicationClient( appId,  responseFields);
+			MozuClient<Mozu.Api.Contracts.AppDev.PackageNamesCollection> response;
+			var client = Mozu.Api.Clients.Platform.ApplicationClient.GetAppPackageNamesClient( applicationKey,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -87,25 +87,24 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
-		/// Updates one or more properties of the application specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="appId"></param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="application">Properties of an app installed in a tenant.</param>
+		/// <param name="nsAndAppId"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.InstalledApplications.Application"/>
+		/// <see cref="Mozu.Api.Contracts.AppDev.ApplicationVersionsCollection"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var application = new Application();
-		///   var application = application.UpdateApplication( application,  appId,  responseFields);
+		///   var applicationVersionsCollection = application.GetAppVersions( nsAndAppId,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.InstalledApplications.Application UpdateApplication(Mozu.Api.Contracts.InstalledApplications.Application application, string appId, string responseFields =  null)
+		public virtual Mozu.Api.Contracts.AppDev.ApplicationVersionsCollection GetAppVersions(string nsAndAppId, string responseFields =  null)
 		{
-			MozuClient<Mozu.Api.Contracts.InstalledApplications.Application> response;
-			var client = Mozu.Api.Clients.Platform.ApplicationClient.UpdateApplicationClient( application,  appId,  responseFields);
+			MozuClient<Mozu.Api.Contracts.AppDev.ApplicationVersionsCollection> response;
+			var client = Mozu.Api.Clients.Platform.ApplicationClient.GetAppVersionsClient( nsAndAppId,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -113,27 +112,279 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
-		/// Updates one or more properties of the application specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="appId"></param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="application">Properties of an app installed in a tenant.</param>
+		/// <param name="nsAndAppId"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.InstalledApplications.Application"/>
+		/// <see cref="Mozu.Api.Contracts.AppDev.ApplicationVersionsCollection"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var application = new Application();
-		///   var application = await application.UpdateApplicationAsync( application,  appId,  responseFields);
+		///   var applicationVersionsCollection = await application.GetAppVersionsAsync( nsAndAppId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.InstalledApplications.Application> UpdateApplicationAsync(Mozu.Api.Contracts.InstalledApplications.Application application, string appId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.AppDev.ApplicationVersionsCollection> GetAppVersionsAsync(string nsAndAppId, string responseFields =  null)
 		{
-			MozuClient<Mozu.Api.Contracts.InstalledApplications.Application> response;
-			var client = Mozu.Api.Clients.Platform.ApplicationClient.UpdateApplicationClient( application,  appId,  responseFields);
+			MozuClient<Mozu.Api.Contracts.AppDev.ApplicationVersionsCollection> response;
+			var client = Mozu.Api.Clients.Platform.ApplicationClient.GetAppVersionsClient( nsAndAppId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="applicationKey"></param>
+		/// <param name="filepath"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.AppDev.FileMetadata"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var application = new Application();
+		///   var fileMetadata = application.GetPackageFileMetadata( applicationKey,  filepath,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.AppDev.FileMetadata GetPackageFileMetadata(string applicationKey, string filepath, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.AppDev.FileMetadata> response;
+			var client = Mozu.Api.Clients.Platform.ApplicationClient.GetPackageFileMetadataClient( applicationKey,  filepath,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="applicationKey"></param>
+		/// <param name="filepath"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.AppDev.FileMetadata"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var application = new Application();
+		///   var fileMetadata = await application.GetPackageFileMetadataAsync( applicationKey,  filepath,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.AppDev.FileMetadata> GetPackageFileMetadataAsync(string applicationKey, string filepath, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.AppDev.FileMetadata> response;
+			var client = Mozu.Api.Clients.Platform.ApplicationClient.GetPackageFileMetadataClient( applicationKey,  filepath,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="applicationKey"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.AppDev.FolderMetadata"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var application = new Application();
+		///   var folderMetadata = application.GetPackageMetadata( applicationKey,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.AppDev.FolderMetadata GetPackageMetadata(string applicationKey, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.AppDev.FolderMetadata> response;
+			var client = Mozu.Api.Clients.Platform.ApplicationClient.GetPackageMetadataClient( applicationKey,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="applicationKey"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.AppDev.FolderMetadata"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var application = new Application();
+		///   var folderMetadata = await application.GetPackageMetadataAsync( applicationKey,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.AppDev.FolderMetadata> GetPackageMetadataAsync(string applicationKey, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.AppDev.FolderMetadata> response;
+			var client = Mozu.Api.Clients.Platform.ApplicationClient.GetPackageMetadataClient( applicationKey,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="applicationKey"></param>
+		/// <param name="filepath"></param>
+		/// <param name="lastModifiedTime"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="stream"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.AppDev.FileMetadata"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var application = new Application();
+		///   var fileMetadata = application.UpsertPackageFile( stream,  applicationKey,  filepath,  lastModifiedTime,  responseFields,  contentType);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.AppDev.FileMetadata UpsertPackageFile(System.IO.Stream stream, string applicationKey, string filepath, string lastModifiedTime =  null, string responseFields =  null, String  contentType= null)
+		{
+			MozuClient<Mozu.Api.Contracts.AppDev.FileMetadata> response;
+			var client = Mozu.Api.Clients.Platform.ApplicationClient.UpsertPackageFileClient( stream,  applicationKey,  filepath,  lastModifiedTime,  responseFields,  contentType);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="applicationKey"></param>
+		/// <param name="filepath"></param>
+		/// <param name="lastModifiedTime"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="stream"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.AppDev.FileMetadata"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var application = new Application();
+		///   var fileMetadata = await application.UpsertPackageFileAsync( stream,  applicationKey,  filepath,  lastModifiedTime,  responseFields,  contentType);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.AppDev.FileMetadata> UpsertPackageFileAsync(System.IO.Stream stream, string applicationKey, string filepath, string lastModifiedTime =  null, string responseFields =  null, String  contentType= null)
+		{
+			MozuClient<Mozu.Api.Contracts.AppDev.FileMetadata> response;
+			var client = Mozu.Api.Clients.Platform.ApplicationClient.UpsertPackageFileClient( stream,  applicationKey,  filepath,  lastModifiedTime,  responseFields,  contentType);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="applicationKey"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="renameInfo"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.AppDev.FileMetadata"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var application = new Application();
+		///   var fileMetadata = application.RenamePackageFile( renameInfo,  applicationKey,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.AppDev.FileMetadata RenamePackageFile(Mozu.Api.Contracts.AppDev.RenameInfo renameInfo, string applicationKey, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.AppDev.FileMetadata> response;
+			var client = Mozu.Api.Clients.Platform.ApplicationClient.RenamePackageFileClient( renameInfo,  applicationKey,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="applicationKey"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="renameInfo"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.AppDev.FileMetadata"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var application = new Application();
+		///   var fileMetadata = await application.RenamePackageFileAsync( renameInfo,  applicationKey,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.AppDev.FileMetadata> RenamePackageFileAsync(Mozu.Api.Contracts.AppDev.RenameInfo renameInfo, string applicationKey, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.AppDev.FileMetadata> response;
+			var client = Mozu.Api.Clients.Platform.ApplicationClient.RenamePackageFileClient( renameInfo,  applicationKey,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="applicationKey"></param>
+		/// <param name="filepath"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var application = new Application();
+		///   application.DeletePackageFile( applicationKey,  filepath);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void DeletePackageFile(string applicationKey, string filepath)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Platform.ApplicationClient.DeletePackageFileClient( applicationKey,  filepath);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="applicationKey"></param>
+		/// <param name="filepath"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var application = new Application();
+		///   await application.DeletePackageFileAsync( applicationKey,  filepath);
+		/// </code>
+		/// </example>
+		public virtual async Task DeletePackageFileAsync(string applicationKey, string filepath)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Platform.ApplicationClient.DeletePackageFileClient( applicationKey,  filepath);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
 
 		}
 

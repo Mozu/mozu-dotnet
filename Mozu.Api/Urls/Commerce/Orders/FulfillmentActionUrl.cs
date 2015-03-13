@@ -36,16 +36,18 @@ namespace Mozu.Api.Urls.Commerce.Orders
 		/// <summary>
         /// Get Resource Url for ResendPackageFulfillmentEmail
         /// </summary>
-        /// <param name="orderId">Unique identifier of the order.</param>
-        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+        /// <param name="orderId"></param>
+        /// <param name="packageId"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl ResendPackageFulfillmentEmailUrl(string orderId, string responseFields =  null)
+        public static MozuUrl ResendPackageFulfillmentEmailUrl(string orderId, string packageId, string responseFields =  null)
 		{
-			var url = "/api/commerce/orders/{orderId}/fulfillment/email/resend?responseFields={responseFields}";
+			var url = "/api/commerce/orders/{orderId}/fulfillment/package/{packageId}/Resend-Email?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "orderId", orderId);
+			mozuUrl.FormatUrl( "packageId", packageId);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}

@@ -28,6 +28,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public string OnlineLocationCode { get; set; }
 
+			public int? OnlineSoftStockAvailable { get; set; }
+
 			///
 			///The current number of products that are available for purchase.
 			///

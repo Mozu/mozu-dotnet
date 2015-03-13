@@ -28,6 +28,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///
 			public AuditInfo AuditInfo { get; set; }
 
+			public List<KeyValue> Data { get; set; }
+
 			///
 			///The subtotal of the cart, order, and wishlist items, including any applied discount calculations. Wishlist subtotals may change depending on the length of time, available discounts, and stock amounts of products at the time of review by shoppers.
 			///

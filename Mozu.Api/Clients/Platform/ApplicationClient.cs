@@ -17,29 +17,29 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Platform
 {
 	/// <summary>
-	/// Use the Applications resource to update and retrieve details about the applications installed for your tenant.
+	/// 
 	/// </summary>
 	public partial class ApplicationClient 	{
 		
 		/// <summary>
-		/// Retrieves the details of the installed application specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="appId"></param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="applicationKey"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.InstalledApplications.Application"/>}
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.AppDev.PackageNamesCollection"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetApplication( appId,  responseFields);
-		///   var applicationClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var mozuClient=GetAppPackageNames( applicationKey,  responseFields);
+		///   var packageNamesCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.InstalledApplications.Application> GetApplicationClient(string appId, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.AppDev.PackageNamesCollection> GetAppPackageNamesClient(string applicationKey, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Platform.ApplicationUrl.GetApplicationUrl(appId, responseFields);
+			var url = Mozu.Api.Urls.Platform.ApplicationUrl.GetAppPackageNamesUrl(applicationKey, responseFields);
 			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.InstalledApplications.Application>()
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.AppDev.PackageNamesCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -47,27 +47,157 @@ namespace Mozu.Api.Clients.Platform
 		}
 
 		/// <summary>
-		/// Updates one or more properties of the application specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="appId"></param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="application">Properties of an app installed in a tenant.</param>
+		/// <param name="nsAndAppId"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.InstalledApplications.Application"/>}
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.AppDev.ApplicationVersionsCollection"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateApplication( application,  appId,  responseFields);
-		///   var applicationClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var mozuClient=GetAppVersions( nsAndAppId,  responseFields);
+		///   var applicationVersionsCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.InstalledApplications.Application> UpdateApplicationClient(Mozu.Api.Contracts.InstalledApplications.Application application, string appId, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.AppDev.ApplicationVersionsCollection> GetAppVersionsClient(string nsAndAppId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Platform.ApplicationUrl.UpdateApplicationUrl(appId, responseFields);
-			const string verb = "PUT";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.InstalledApplications.Application>()
+			var url = Mozu.Api.Urls.Platform.ApplicationUrl.GetAppVersionsUrl(nsAndAppId, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.AppDev.ApplicationVersionsCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.InstalledApplications.Application>(application);
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="applicationKey"></param>
+		/// <param name="filepath"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.AppDev.FileMetadata"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetPackageFileMetadata( applicationKey,  filepath,  responseFields);
+		///   var fileMetadataClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.AppDev.FileMetadata> GetPackageFileMetadataClient(string applicationKey, string filepath, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Platform.ApplicationUrl.GetPackageFileMetadataUrl(applicationKey, filepath, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.AppDev.FileMetadata>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="applicationKey"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.AppDev.FolderMetadata"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetPackageMetadata( applicationKey,  responseFields);
+		///   var folderMetadataClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.AppDev.FolderMetadata> GetPackageMetadataClient(string applicationKey, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Platform.ApplicationUrl.GetPackageMetadataUrl(applicationKey, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.AppDev.FolderMetadata>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="applicationKey"></param>
+		/// <param name="filepath"></param>
+		/// <param name="lastModifiedTime"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="stream"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.AppDev.FileMetadata"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=UpsertPackageFile( stream,  applicationKey,  filepath,  lastModifiedTime,  responseFields,  contentType);
+		///   var fileMetadataClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.AppDev.FileMetadata> UpsertPackageFileClient(System.IO.Stream stream, string applicationKey, string filepath, string lastModifiedTime =  null, string responseFields =  null, String  contentType= null)
+		{
+			var url = Mozu.Api.Urls.Platform.ApplicationUrl.UpsertPackageFileUrl(applicationKey, filepath, lastModifiedTime, responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.AppDev.FileMetadata>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody(stream)									.WithHeader(Headers.CONTENT_TYPE ,contentType)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="applicationKey"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="renameInfo"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.AppDev.FileMetadata"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=RenamePackageFile( renameInfo,  applicationKey,  responseFields);
+		///   var fileMetadataClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.AppDev.FileMetadata> RenamePackageFileClient(Mozu.Api.Contracts.AppDev.RenameInfo renameInfo, string applicationKey, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Platform.ApplicationUrl.RenamePackageFileUrl(applicationKey, responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.AppDev.FileMetadata>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.AppDev.RenameInfo>(renameInfo);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="applicationKey"></param>
+		/// <param name="filepath"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=DeletePackageFile( applicationKey,  filepath);
+		///mozuClient.WithBaseAddress(url).Execute();
+		/// </code>
+		/// </example>
+		public static MozuClient DeletePackageFileClient(string applicationKey, string filepath)
+		{
+			var url = Mozu.Api.Urls.Platform.ApplicationUrl.DeletePackageFileUrl(applicationKey, filepath);
+			const string verb = "DELETE";
+			var mozuClient = new MozuClient()
+									.WithVerb(verb).WithResourceUrl(url)
+;
 			return mozuClient;
 
 		}

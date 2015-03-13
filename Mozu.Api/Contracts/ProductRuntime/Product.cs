@@ -164,6 +164,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public string VariationProductCode { get; set; }
 
+			public List<VariationSummary> Variations { get; set; }
+
 		}
 
 }

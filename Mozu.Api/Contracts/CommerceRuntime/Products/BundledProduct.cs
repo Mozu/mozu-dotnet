@@ -19,6 +19,10 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 		///
 		public class BundledProduct
 		{
+			public DateTime? AllocationExpiration { get; set; }
+
+			public int? AllocationId { get; set; }
+
 			///
 			///The credit value of the product or bundled product. When the `goodsType `is `DigitalCredit`, this value is populated to indicate the value of the credit. This is used to create store credit in the fulfillment of gift cards.
 			///
