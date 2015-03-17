@@ -26,7 +26,11 @@ namespace Mozu.Api.Resources.Platform
 		private readonly IApiContext _apiContext;
 
 		
-		public ApplicationResource(IApiContext apiContext) 
+		public ApplicationResource() 
+		{
+			_apiContext = null;
+		}
+		 public ApplicationResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
 		}
