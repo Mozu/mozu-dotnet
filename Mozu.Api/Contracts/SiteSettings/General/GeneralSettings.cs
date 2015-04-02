@@ -111,6 +111,11 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			public string SiteTimeZone { get; set; }
 
 			///
+			///Supressed emails. Setting any of these to 'true' will block Mozu from sending that email and an event will be published instead.
+			///
+			public EmailTransactionSettings SupressedEmailTransactions { get; set; }
+
+			///
 			///The name of the theme to use when viewing the website on a mobile device.
 			///
 			public string TabletTheme { get; set; }

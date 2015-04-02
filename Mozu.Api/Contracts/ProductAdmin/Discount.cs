@@ -65,6 +65,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public decimal? MaximumDiscountImpactPerOrder { get; set; }
 
 			///
+			///Maximum impact this discount can apply on a single line item. Must be either null or greater than zero.
+			///
+			public decimal? MaximumDiscountImpactPerRedemption { get; set; }
+
+			///
 			///Maximum number of redemptions allowed per order. If null, defaults to unlimited.
 			///
 			public int? MaximumRedemptionsPerOrder { get; set; }
