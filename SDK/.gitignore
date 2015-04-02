@@ -1,8 +1,0 @@
-obj
-bin
-packages/*
-!packages/repositories.config
-*.user
-*.vspscc
-*.suo
-*.vssscc

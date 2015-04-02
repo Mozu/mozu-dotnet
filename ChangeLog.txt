@@ -1,0 +1,21 @@
+Events
+0.    Added - SearchIndex.Search Index Updated
+
+Operation Params
+0.    Added - commerce.catalog.storefront.products.GetProduct- Param : supressOutOfStock404
+1.    Added - commerce.orders.orderrefunds.ResendRefundEmail- Param : orderId
+2.    Added - commerce.orders.orderrefunds.CreateRefund- Param : orderId
+3.    Added - commerce.orders.orderrefunds.CreateRefund- Param : refund
+4.    Added - commerce.orders.orderrefunds.ResendRefundEmail- Param : refundId
+5.    Added - commerce.orders.orderrefunds.CreateRefund- Param : responseFields
+
+Operations
+0.    Added - commerce.customer.credits.ResendCreditCreatedEmail - PUT
+1.    Added - commerce.orders.fulfillment.ResendPackageFulfillmentEmail - POST
+2.    Added - commerce.orders.orderrefunds.CreateRefund - POST
+3.    Added - commerce.orders.orderrefunds.ResendRefundEmail - PUT
+4.    Added - commerce.orders.ResendOrderConfirmationEmail - PUT
+5.    Added - commerce.returns.ResendReturnEmail - PUT
+
+Resources
+0.    Added - commerce.orders.orderrefunds | commerce/orders/orderrefunds
