@@ -564,6 +564,7 @@
     <Compile Include="Contracts\ShippingRuntime\ShippingRateValidationMessage.cs" />
     <Compile Include="Contracts\SiteSettings\Application\Application.cs" />
     <Compile Include="Contracts\SiteSettings\Application\Capability.cs" />
+    <Compile Include="Contracts\SiteSettings\General\EmailTransactionSettings.cs" />
     <Compile Include="Contracts\SiteSettings\General\GeneralSettings.cs" />
     <Compile Include="Contracts\SiteSettings\General\TaxableTerritory.cs" />
     <Compile Include="Contracts\SiteSettings\Order\CheckoutSettings.cs" />
@@ -589,6 +590,7 @@
     <Compile Include="Events\ICustomerAccountEvents.cs" />
     <Compile Include="Events\ICustomerSegmentEvents.cs" />
     <Compile Include="Events\IDiscountEvents.cs" />
+    <Compile Include="Events\IEmailEvents.cs" />
     <Compile Include="Events\IFacetEvents.cs" />
     <Compile Include="Events\ILocationTypeEvents.cs" />
     <Compile Include="Events\IOrderEvents.cs" />
