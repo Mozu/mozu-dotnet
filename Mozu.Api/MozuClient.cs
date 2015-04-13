@@ -398,7 +398,7 @@ namespace Mozu.Api
 
                 
 			}
-			else
+			else if (_resourceUrl.Location == MozuUrl.UrlLocation.HOME_POD)
 			{
                 if (String.IsNullOrEmpty(_baseAddress) && AppAuthenticator.Instance != null && string.IsNullOrEmpty(AppAuthenticator.Instance.BaseUrl))
 				{
@@ -410,6 +410,17 @@ namespace Mozu.Api
                 if (string.IsNullOrEmpty(_baseAddress))
     			    _baseAddress =   AppAuthenticator.Instance.BaseUrl;
 			}
+			else if (_resourceUrl.Location == MozuUrl.UrlLocation.PCI_POD)
+			{
+				if (_apiContext.TenantId < 0)
+				{
+					_log.Info("TenantId is missing", new ApiException("TenantId is missing") { ApiContext = _apiContext });
+					throw new ApiException("TenantId is missing");
+				}
+
+				_baseAddress = MozuConfig.BasePciUrl;
+			}
+
 
 		}
 
