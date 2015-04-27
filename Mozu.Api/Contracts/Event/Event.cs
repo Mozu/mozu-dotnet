@@ -40,6 +40,8 @@ namespace Mozu.Api.Contracts.Event
 			///
 			public string EntityId { get; set; }
 
+			public string EventId { get; set; }
+
 			///
 			///Extended properties. Note: This is purposefully not a CollectionBase type wrapper so consumers start to get used to not having counts returned.
 			///
