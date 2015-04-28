@@ -10,7 +10,9 @@
 
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.ShippingRuntime
 {
@@ -38,6 +40,8 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			///Collection of carrier-specific key-value attribute pairs associated with a shipping carrier. These are required to retrieve a shipping rate request and are returned for the generated shipping label.
 			///
 			public List<CustomAttribute> CustomAttributes { get; set; }
+
+			public JObject Data { get; set; }
 
 			///
 			///The number of days the shipment will spend between the origin address and the destination address.

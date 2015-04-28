@@ -39,6 +39,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public CategoryContent Content { get; set; }
 
+			public int? Count { get; set; }
+
 			///
 			///Indicates if the object is displayed on the storefront. If true, the admin product category is displayed in the store. If true, the category is not displayed.
 			///

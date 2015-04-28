@@ -13,44 +13,44 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Urls.Commerce.Orders
 {
-	public partial class FulfillmentActionUrl 
+	public partial class RefundUrl 
 	{
 
 				/// <summary>
-        /// Get Resource Url for PerformFulfillmentAction
+        /// Get Resource Url for CreateRefund
         /// </summary>
         /// <param name="orderId">Unique identifier of the order.</param>
         /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl PerformFulfillmentActionUrl(string orderId, string responseFields =  null)
+        public static MozuUrl CreateRefundUrl(string orderId, string responseFields =  null)
 		{
-			var url = "/api/commerce/orders/{orderId}/fulfillment/actions/?responseFields={responseFields}";
+			var url = "/api/commerce/orders/{orderId}/refunds?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "orderId", orderId);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
-		/// <summary>
-        /// Get Resource Url for ResendPackageFulfillmentEmail
+				/// <summary>
+        /// Get Resource Url for ResendRefundEmail
         /// </summary>
         /// <param name="orderId">Unique identifier of the order.</param>
-        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+        /// <param name="refundId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl ResendPackageFulfillmentEmailUrl(string orderId, string responseFields =  null)
+        public static MozuUrl ResendRefundEmailUrl(string orderId, string refundId)
 		{
-			var url = "/api/commerce/orders/{orderId}/fulfillment/email/resend?responseFields={responseFields}";
+			var url = "/api/commerce/orders/{orderId}/refunds/{refundId}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "orderId", orderId);
-			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "refundId", refundId);
 			return mozuUrl;
 		}
 
-						
+				
 	}
 }
 

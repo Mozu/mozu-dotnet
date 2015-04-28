@@ -54,6 +54,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			///
 			public DateTime? DiscountsRestrictedStartDate { get; set; }
 
+			public string FulfillmentStatus { get; set; }
+
 			///
 			///List of supported types of fulfillment  for the product or variation. The types include direct ship, in-store pickup, or both. 
 			///

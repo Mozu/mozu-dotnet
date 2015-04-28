@@ -20,6 +20,8 @@ namespace Mozu.Api.Contracts.InstalledApplications
 
 			public List<ExtensionConfiguration> Configurations { get; set; }
 
+			public string DefaultLogLevel { get; set; }
+
 		}
 
 }

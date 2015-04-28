@@ -87,57 +87,6 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// Retrieves the details of a location associated with a defined location usage type for the site specified in the request.
-		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
-		/// <param name="locationUsageType">System-defined location usage type code, which is DS for direct ship, SP for in-store pickup, or storeFinder.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Location.Location"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var location = new Location();
-		///   var location = location.GetLocationInUsageType( locationUsageType,  code,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Location.Location GetLocationInUsageType(string locationUsageType, string code, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Location.Location> response;
-			var client = Mozu.Api.Clients.Commerce.LocationClient.GetLocationInUsageTypeClient( locationUsageType,  code,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
-
-		/// <summary>
-		/// Retrieves the details of a location associated with a defined location usage type for the site specified in the request.
-		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
-		/// <param name="locationUsageType">System-defined location usage type code, which is DS for direct ship, SP for in-store pickup, or storeFinder.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Location.Location"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var location = new Location();
-		///   var location = await location.GetLocationInUsageTypeAsync( locationUsageType,  code,  responseFields);
-		/// </code>
-		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Location.Location> GetLocationInUsageTypeAsync(string locationUsageType, string code, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Location.Location> response;
-			var client = Mozu.Api.Clients.Commerce.LocationClient.GetLocationInUsageTypeClient( locationUsageType,  code,  responseFields);
-			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
-			return await response.ResultAsync();
-
-		}
-
-		/// <summary>
 		/// Retrieves a list of the locations configured for a specified location usage type for the specified site, according to any defined filter or sort criteria.
 		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>

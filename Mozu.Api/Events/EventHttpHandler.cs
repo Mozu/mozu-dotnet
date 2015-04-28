@@ -146,7 +146,8 @@ namespace Mozu.Api.Events
                 try
                 {
                     var eventPayload = JsonConvert.DeserializeObject<Event>(jsonRequest);
-                    //var eventServiceFactory = new EventServiceFactory();
+                    if (string.IsNullOrEmpty(eventPayload.Id) && !String.IsNullOrEmpty(eventPayload.EventId))
+                        eventPayload.Id = Guid.Parse(eventPayload.EventId).ToString("N");
                     var eventService = _eventServiceFactory.GetEventService();
                     if (string.IsNullOrEmpty(apiContext.CorrelationId))
                         apiContext.CorrelationId = eventPayload.CorrelationId;

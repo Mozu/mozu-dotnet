@@ -21,9 +21,15 @@ namespace Mozu.Api.Contracts.InstalledApplications
 
 			public JObject Configuration { get; set; }
 
-			public string CustomFunctionName { get; set; }
-
 			public bool? Enabled { get; set; }
+
+			public string ExceptionBehavior { get; set; }
+
+			public string FunctionId { get; set; }
+
+			public string LogLevel { get; set; }
+
+			public int? TimeoutMilliseconds { get; set; }
 
 		}
 

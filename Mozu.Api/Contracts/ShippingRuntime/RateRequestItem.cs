@@ -10,7 +10,9 @@
 
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.ShippingRuntime
 {
@@ -19,6 +21,8 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 		///
 		public class RateRequestItem
 		{
+			public JObject Data { get; set; }
+
 			///
 			///Unique identifier of an item used to calculate or request a shipping rate.
 			///

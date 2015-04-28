@@ -41,6 +41,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///
 			public string OrderItemId { get; set; }
 
+			public int? OrderLineId { get; set; }
+
 			///
 			///The properties of a product, referenced and used by carts, orders, wish lists, and returns.
 			///

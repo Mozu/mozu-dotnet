@@ -16,7 +16,7 @@ namespace Mozu.Api.Contracts.InstalledApplications
 {
 		public class CustomFunctionsForAction
 		{
-			public string Action { get; set; }
+			public string ActionId { get; set; }
 
 			public List<CustomFunctionsForContext> Contexts { get; set; }
 

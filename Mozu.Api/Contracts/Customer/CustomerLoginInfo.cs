@@ -23,6 +23,8 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public string EmailAddress { get; set; }
 
+			public string ExternalPassword { get; set; }
+
 			///
 			///Indicates if this object/data was imported from an outside source such as a data import or synchronization via an app or service. If true, this data was originally imported into Mozu and accessible through your store database. Examples of imported objects/data include orders and customer accounts.
 			///

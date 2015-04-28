@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
 using Mozu.Api.Contracts.CommerceRuntime.Commerce;
 using Mozu.Api.Contracts.CommerceRuntime.Discounts;
@@ -28,7 +29,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public AuditInfo AuditInfo { get; set; }
 
-			public List<KeyValue> Data { get; set; }
+			public JObject Data { get; set; }
 
 			///
 			///The subtotal of the cart, order, and wishlist items, including any applied discount calculations. Wishlist subtotals may change depending on the length of time, available discounts, and stock amounts of products at the time of review by shoppers.
@@ -39,6 +40,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///Estimated amount of discounts applied to all items in the carts and orders. System-supplied and read-only. This value will be available at the wish list, cart item, order item, and wish list item level at a later time.
 			///
 			public decimal? DiscountTotal { get; set; }
+
+			public decimal? DutyAmount { get; set; }
 
 			///
 			///Represents the total price of the cart item extended to the shopper. This begins with the Unit Price, then uses any of the following prices if they are defined, in the following order: Override Amount, Sale Amount, List Amount. This value is not calculated for wish lists at this time.
@@ -84,6 +87,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///The total amount of calculated tax for items, used by carts, orders, and wish lists.
 			///
 			public decimal? ItemTaxTotal { get; set; }
+
+			public int? LineId { get; set; }
 
 			///
 			///Language used for the entity. Currently, only "en-US" is supported.

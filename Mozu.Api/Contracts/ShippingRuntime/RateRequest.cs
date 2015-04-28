@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
 using Mozu.Api.Contracts.Core;
 
@@ -29,6 +30,8 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			///Collection of carrier-specific key-value attribute pairs associated with a shipping carrier. These are required to retrieve a shipping rate request and are returned for the generated shipping label.
 			///
 			public List<CustomAttribute> CustomAttributes { get; set; }
+
+			public JObject Data { get; set; }
 
 			///
 			///The physical address orders are sent to as a shipping destination. This address may contain multiple lines, city, state/province, country, and zip/postal code. The destination is used to calculate shipping costs.

@@ -22,6 +22,33 @@ namespace Mozu.Api.Clients.Commerce.Orders
 	public partial class OrderItemClient 	{
 		
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="draft"></param>
+		/// <param name="lineId"></param>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetOrderItemViaLineId( orderId,  lineId,  draft,  responseFields);
+		///   var orderItemClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem> GetOrderItemViaLineIdClient(string orderId, int lineId, bool? draft =  null, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Orders.OrderItemUrl.GetOrderItemViaLineIdUrl(orderId, lineId, draft, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Retrieves the details of a single order item.
 		/// </summary>
 		/// <param name="draft">If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.</param>
@@ -129,6 +156,35 @@ namespace Mozu.Api.Clients.Commerce.Orders
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.CommerceRuntime.Discounts.AppliedDiscount>(discount);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="dutyAmount"></param>
+		/// <param name="orderId"></param>
+		/// <param name="orderItemId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="updateMode"></param>
+		/// <param name="version"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=UpdateItemDuty( orderId,  orderItemId,  dutyAmount,  updateMode,  version,  responseFields);
+		///   var orderClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> UpdateItemDutyClient(string orderId, string orderItemId, decimal dutyAmount, string updateMode =  null, string version =  null, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Orders.OrderItemUrl.UpdateItemDutyUrl(orderId, orderItemId, dutyAmount, updateMode, version, responseFields);
+			const string verb = "PUT";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
 			return mozuClient;
 
 		}

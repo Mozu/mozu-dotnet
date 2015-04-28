@@ -34,6 +34,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public AttributeInProductTypeDisplayInfo DisplayInfo { get; set; }
 
+			public bool? IsAdminOnlyProperty { get; set; }
+
 			///
 			///If true, this property is hidden on the storefront. If false, this property is not hidden from the storefront.
 			///

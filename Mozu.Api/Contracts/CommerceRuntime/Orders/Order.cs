@@ -10,11 +10,13 @@
 
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
 using Mozu.Api.Contracts.CommerceRuntime.Commerce;
 using Mozu.Api.Contracts.CommerceRuntime.Discounts;
 using Mozu.Api.Contracts.CommerceRuntime.Fulfillment;
 using Mozu.Api.Contracts.CommerceRuntime.Payments;
+using Mozu.Api.Contracts.CommerceRuntime.Refunds;
 using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Orders
@@ -43,6 +45,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///The amount of the order the shopper can receive in the event of a return. This amount represents the amount captured at the time the order was submitted, not when the order was returned.
 			///
 			public decimal AmountAvailableForRefund { get; set; }
+
+			///
+			///A counter for how much money has been issued in refunds. This calculated field does NOT include refunds issued in returns.
+			///
+			public decimal AmountRefunded { get; set; }
 
 			///
 			///The total amount of the order not currently associated with a payment. The shopper must create one or more payments to satisfy this amount before the order can be fully paid.
@@ -114,7 +121,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public string CustomerTaxId { get; set; }
 
-			public List<KeyValue> Data { get; set; }
+			public JObject Data { get; set; }
 
 			///
 			///Specifies the fulfillment of digital packages associated with this order.
@@ -135,6 +142,10 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///Estimated amount of discounts applied to all items in the carts and orders. System-supplied and read-only. This value will be available at the wish list, cart item, order item, and wish list item level at a later time.
 			///
 			public decimal? DiscountTotal { get; set; }
+
+			public decimal? DutyAmount { get; set; }
+
+			public decimal? DutyTotal { get; set; }
 
 			///
 			///The email address of the specified user or the email address associated with the specified entity.
@@ -307,6 +318,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///Array list of the in-store pickups defined for the order.
 			///
 			public List<Pickup> Pickups { get; set; }
+
+			///
+			///Refunds associated with this order. A refund is a single exchange of money from merchant to customer that either encapsulates a refund to a credit card or an issuance of a store credit. Refunds does not reduce the 'amount collected' on an order and it is possible for refunds to exceed the total order amount.
+			///
+			public List<Refund> Refunds { get; set; }
 
 			///
 			///Status of any returns associated with this order after it was completed.

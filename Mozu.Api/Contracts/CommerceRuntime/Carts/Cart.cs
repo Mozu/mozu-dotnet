@@ -10,6 +10,7 @@
 
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
 using Mozu.Api.Contracts.CommerceRuntime.Commerce;
 using Mozu.Api.Contracts.CommerceRuntime.Discounts;
@@ -53,7 +54,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///
 			public string CustomerInteractionType { get; set; }
 
-			public List<KeyValue> Data { get; set; }
+			public JObject Data { get; set; }
 
 			///
 			///The aggregate total for all items in the cart, including costs associated with shopper-defined options or extras and any applied discounts.
