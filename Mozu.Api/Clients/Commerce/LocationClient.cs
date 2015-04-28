@@ -47,32 +47,6 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// Retrieves the details of a location associated with a defined location usage type for the site specified in the request.
-		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
-		/// <param name="locationUsageType">System-defined location usage type code, which is DS for direct ship, SP for in-store pickup, or storeFinder.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Location.Location"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetLocationInUsageType( locationUsageType,  code,  responseFields);
-		///   var locationClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Location.Location> GetLocationInUsageTypeClient(string locationUsageType, string code, string responseFields =  null)
-		{
-			var url = Mozu.Api.Urls.Commerce.LocationUrl.GetLocationInUsageTypeUrl(locationUsageType, code, responseFields);
-			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.Location.Location>()
-									.WithVerb(verb).WithResourceUrl(url)
-;
-			return mozuClient;
-
-		}
-
-		/// <summary>
 		/// Retrieves a list of the locations configured for a specified location usage type for the specified site, according to any defined filter or sort criteria.
 		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>

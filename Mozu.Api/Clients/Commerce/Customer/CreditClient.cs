@@ -125,9 +125,9 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// 
+		/// customer-credits Put ResendCreditCreatedEmail description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="code"></param>
+		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

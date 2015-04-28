@@ -65,6 +65,8 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public string FirstName { get; set; }
 
+			public bool HasExternalPassword { get; set; }
+
 			///
 			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 			///

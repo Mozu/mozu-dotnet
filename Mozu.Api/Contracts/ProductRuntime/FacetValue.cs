@@ -39,6 +39,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public bool? IsApplied { get; set; }
 
+			public bool IsDisplayed { get; set; }
+
 			///
 			///Descriptive text used as a label for objects, such as field names, facets, date ranges, contact information, and package information.
 			///

@@ -268,7 +268,7 @@ namespace Mozu.Api.Urls.Commerce
         /// </returns>
         public static MozuUrl ResendReturnEmailUrl()
 		{
-			var url = "/api/commerce/returns/Resend-Email";
+			var url = "/api/commerce/returns/email/resend";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			return mozuUrl;
 		}

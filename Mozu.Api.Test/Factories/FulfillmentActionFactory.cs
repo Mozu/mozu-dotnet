@@ -68,17 +68,17 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// orders-fulfillment Post ResendPackageFulfillmentEmail description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
-		/// var result = FulfillmentActionFactory.ResendPackageFulfillmentEmail(handler : handler,  orderId :  orderId,  packageId :  packageId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = FulfillmentActionFactory.ResendPackageFulfillmentEmail(handler : handler,  action :  action,  orderId :  orderId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Order/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order ResendPackageFulfillmentEmail(ServiceClientMessageHandler handler, 
- 		 string orderId, string packageId, string responseFields = null, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Fulfillment.FulfillmentAction action, string orderId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -86,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Orders.FulfillmentActionClient.ResendPackageFulfillmentEmailClient(
-				 orderId :  orderId,  packageId :  packageId,  responseFields :  responseFields		);
+				 action :  action,  orderId :  orderId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

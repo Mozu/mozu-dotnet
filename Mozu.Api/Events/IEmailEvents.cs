@@ -9,16 +9,19 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Threading.Tasks;
+using Mozu.Api.Contracts.Event;
 
 
-namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
+namespace Mozu.Api.Events
 {
-		public class KeyValue
-		{
-			public string Key { get; set; }
+	public interface IEmailEvents
+	{
+		[Obsolete("This method is obsolete; use the async method instead")]
+		void Requested(IApiContext apiContext, Event eventPayLoad);
 
-			public object Value { get; set; }
+		Task RequestedAsync(IApiContext apiContext, Event eventPayLoad);
 
-		}
+	}
 
 }

@@ -34,25 +34,6 @@ namespace Mozu.Api.Urls.Commerce
 		}
 
 		/// <summary>
-        /// Get Resource Url for GetLocationInUsageType
-        /// </summary>
-        /// <param name="code">User-defined code that uniqely identifies the channel group.</param>
-        /// <param name="locationUsageType">System-defined location usage type code, which is DS for direct ship, SP for in-store pickup, or storeFinder.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <returns>
-        /// String - Resource Url
-        /// </returns>
-        public static MozuUrl GetLocationInUsageTypeUrl(string locationUsageType, string code, string responseFields =  null)
-		{
-			var url = "/api/commerce/storefront/locationUsageTypes/{locationUsageType}/locations/{code}?responseFields={responseFields}";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "code", code);
-			mozuUrl.FormatUrl( "locationUsageType", locationUsageType);
-			mozuUrl.FormatUrl( "responseFields", responseFields);
-			return mozuUrl;
-		}
-
-		/// <summary>
         /// Get Resource Url for GetLocationsInUsageType
         /// </summary>
         /// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>

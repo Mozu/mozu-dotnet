@@ -68,44 +68,6 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves the details of a location associated with a defined location usage type for the site specified in the request.
-		/// <example> 
-		///  <code> 
-		/// var result = LocationFactory.GetLocationInUsageType(handler : handler,  locationUsageType :  locationUsageType,  code :  code,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Location/>(result); 
-		/// return optionalCasting;
-		///  </code> 
-		/// </example> 
-		/// </summary>
-		public static Mozu.Api.Contracts.Location.Location GetLocationInUsageType(ServiceClientMessageHandler handler, 
- 		 string locationUsageType, string code, string responseFields = null, 
-		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
-		{
-			SetSdKparameters();
-			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
-			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
-			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.LocationClient.GetLocationInUsageTypeClient(
-				 locationUsageType :  locationUsageType,  code :  code,  responseFields :  responseFields		);
-			try
-			{
-				apiClient.WithContext(handler.ApiContext).Execute();
-			}
-			catch (ApiException ex)
-			{
-				// Custom error handling for test cases can be placed here
-				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
-				if (customException != null)
-					throw customException;
-				return null;
-			}
-			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
-					 ? (apiClient.Result()) 
-					 : null;
-
-		}
-  
-		/// <summary> 
 		/// Retrieves a list of the locations configured for a specified location usage type for the specified site, according to any defined filter or sort criteria.
 		/// <example> 
 		///  <code> 

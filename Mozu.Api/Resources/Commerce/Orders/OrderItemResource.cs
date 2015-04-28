@@ -38,6 +38,59 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 				
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="draft"></param>
+		/// <param name="lineId"></param>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var orderitem = new OrderItem();
+		///   var orderItem = orderitem.GetOrderItemViaLineId( orderId,  lineId,  draft,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem GetOrderItemViaLineId(string orderId, int lineId, bool? draft =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.OrderItemClient.GetOrderItemViaLineIdClient( orderId,  lineId,  draft,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="draft"></param>
+		/// <param name="lineId"></param>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var orderitem = new OrderItem();
+		///   var orderItem = await orderitem.GetOrderItemViaLineIdAsync( orderId,  lineId,  draft,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem> GetOrderItemViaLineIdAsync(string orderId, int lineId, bool? draft =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.OrderItemClient.GetOrderItemViaLineIdClient( orderId,  lineId,  draft,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
 		/// Retrieves the details of a single order item.
 		/// </summary>
 		/// <param name="draft">If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.</param>
@@ -251,6 +304,63 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.OrderItemClient.UpdateOrderItemDiscountClient( discount,  orderId,  orderItemId,  discountId,  updateMode,  version,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="dutyAmount"></param>
+		/// <param name="orderId"></param>
+		/// <param name="orderItemId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="updateMode"></param>
+		/// <param name="version"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var orderitem = new OrderItem();
+		///   var order = orderitem.UpdateItemDuty( orderId,  orderItemId,  dutyAmount,  updateMode,  version,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.Order UpdateItemDuty(string orderId, string orderItemId, decimal dutyAmount, string updateMode =  null, string version =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.OrderItemClient.UpdateItemDutyClient( orderId,  orderItemId,  dutyAmount,  updateMode,  version,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="dutyAmount"></param>
+		/// <param name="orderId"></param>
+		/// <param name="orderItemId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="updateMode"></param>
+		/// <param name="version"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var orderitem = new OrderItem();
+		///   var order = await orderitem.UpdateItemDutyAsync( orderId,  orderItemId,  dutyAmount,  updateMode,  version,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> UpdateItemDutyAsync(string orderId, string orderItemId, decimal dutyAmount, string updateMode =  null, string version =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.OrderItemClient.UpdateItemDutyClient( orderId,  orderItemId,  dutyAmount,  updateMode,  version,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

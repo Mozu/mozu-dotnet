@@ -10,7 +10,9 @@
 
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 {
@@ -23,6 +25,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			///3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
 			///
 			public string CurrencyCode { get; set; }
+
+			public JObject Data { get; set; }
 
 			///
 			///Indicates if the facet is currently valid.

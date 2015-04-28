@@ -25,6 +25,8 @@ namespace Mozu.Api.Contracts.Location
 			///
 			public Address Address { get; set; }
 
+			public bool AllowFulfillmentWithNoStock { get; set; }
+
 			public AuditInfo AuditInfo { get; set; }
 
 			///
@@ -51,6 +53,8 @@ namespace Mozu.Api.Contracts.Location
 			///The geographical coordinates associated with this location.
 			///
 			public Coordinates Geo { get; set; }
+
+			public bool IsDisabled { get; set; }
 
 			///
 			///List of location types associated with this location. You can associate individual locations with any number of location types.

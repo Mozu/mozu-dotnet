@@ -17,6 +17,27 @@ namespace Mozu.Api.Urls.Commerce.Orders
 	{
 
 		/// <summary>
+        /// Get Resource Url for GetOrderItemViaLineId
+        /// </summary>
+        /// <param name="draft"></param>
+        /// <param name="lineId"></param>
+        /// <param name="orderId"></param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetOrderItemViaLineIdUrl(string orderId, int lineId, bool? draft =  null, string responseFields =  null)
+		{
+			var url = "/api/commerce/orders/{orderId}/items/{lineId}?draft={draft}&responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "draft", draft);
+			mozuUrl.FormatUrl( "lineId", lineId);
+			mozuUrl.FormatUrl( "orderId", orderId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+		/// <summary>
         /// Get Resource Url for GetOrderItem
         /// </summary>
         /// <param name="draft">If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.</param>
@@ -96,6 +117,31 @@ namespace Mozu.Api.Urls.Commerce.Orders
 			var url = "/api/commerce/orders/{orderId}/items/{orderItemId}/discounts/{discountId}?updatemode={updateMode}&version={version}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "discountId", discountId);
+			mozuUrl.FormatUrl( "orderId", orderId);
+			mozuUrl.FormatUrl( "orderItemId", orderItemId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "updateMode", updateMode);
+			mozuUrl.FormatUrl( "version", version);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for UpdateItemDuty
+        /// </summary>
+        /// <param name="dutyAmount"></param>
+        /// <param name="orderId"></param>
+        /// <param name="orderItemId"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="updateMode"></param>
+        /// <param name="version"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl UpdateItemDutyUrl(string orderId, string orderItemId, decimal dutyAmount, string updateMode =  null, string version =  null, string responseFields =  null)
+		{
+			var url = "/api/commerce/orders/{orderId}/items/{orderItemId}/dutyAmount/{dutyAmount}?updatemode={updateMode}&version={version}&responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "dutyAmount", dutyAmount);
 			mozuUrl.FormatUrl( "orderId", orderId);
 			mozuUrl.FormatUrl( "orderItemId", orderItemId);
 			mozuUrl.FormatUrl( "responseFields", responseFields);

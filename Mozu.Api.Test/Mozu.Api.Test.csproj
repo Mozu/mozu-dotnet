@@ -183,6 +183,7 @@
     <Compile Include="Factories\PropertyTypeFactory.cs" />
     <Compile Include="Factories\PublishingScopeFactory.cs" />
     <Compile Include="Factories\ReferenceDataFactory.cs" />
+    <Compile Include="Factories\RefundFactory.cs" />
     <Compile Include="Factories\ReturnFactory.cs" />
     <Compile Include="Factories\ReturnsPackageFactory.cs" />
     <Compile Include="Factories\ReturnsShipmentFactory.cs" />

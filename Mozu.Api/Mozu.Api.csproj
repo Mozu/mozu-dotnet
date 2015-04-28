@@ -171,6 +171,7 @@
     <Compile Include="Clients\Commerce\Orders\PackageClient.cs" />
     <Compile Include="Clients\Commerce\Orders\PaymentClient.cs" />
     <Compile Include="Clients\Commerce\Orders\PickupClient.cs" />
+    <Compile Include="Clients\Commerce\Orders\RefundClient.cs" />
     <Compile Include="Clients\Commerce\Orders\ShipmentClient.cs" />
     <Compile Include="Clients\Commerce\ReturnClient.cs" />
     <Compile Include="Clients\Commerce\Returns\PackageClient.cs" />
@@ -237,7 +238,6 @@
     <Compile Include="Contracts\CommerceRuntime\Commerce\ChangeMessage.cs" />
     <Compile Include="Contracts\CommerceRuntime\Commerce\CommerceUnitPrice.cs" />
     <Compile Include="Contracts\CommerceRuntime\Commerce\ExtendedProperty.cs" />
-    <Compile Include="Contracts\CommerceRuntime\Commerce\KeyValue.cs" />
     <Compile Include="Contracts\CommerceRuntime\Commerce\PackageMeasurements.cs" />
     <Compile Include="Contracts\CommerceRuntime\Discounts\AppliedDiscount.cs" />
     <Compile Include="Contracts\CommerceRuntime\Discounts\AppliedLineItemProductDiscount.cs" />
@@ -279,6 +279,7 @@
     <Compile Include="Contracts\CommerceRuntime\Products\ProductPrice.cs" />
     <Compile Include="Contracts\CommerceRuntime\Products\ProductProperty.cs" />
     <Compile Include="Contracts\CommerceRuntime\Products\ProductPropertyValue.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Refunds\Refund.cs" />
     <Compile Include="Contracts\CommerceRuntime\Returns\Return.cs" />
     <Compile Include="Contracts\CommerceRuntime\Returns\ReturnAction.cs" />
     <Compile Include="Contracts\CommerceRuntime\Returns\ReturnBundle.cs" />
@@ -613,6 +614,7 @@
     <Compile Include="Events\ICustomerAccountEvents.cs" />
     <Compile Include="Events\ICustomerSegmentEvents.cs" />
     <Compile Include="Events\IDiscountEvents.cs" />
+    <Compile Include="Events\IEmailEvents.cs" />
     <Compile Include="Events\IFacetEvents.cs" />
     <Compile Include="Events\ILocationTypeEvents.cs" />
     <Compile Include="Events\IOrderEvents.cs" />
@@ -697,6 +699,7 @@
     <Compile Include="Resources\Commerce\Orders\PackageResource.cs" />
     <Compile Include="Resources\Commerce\Orders\PaymentResource.cs" />
     <Compile Include="Resources\Commerce\Orders\PickupResource.cs" />
+    <Compile Include="Resources\Commerce\Orders\RefundResource.cs" />
     <Compile Include="Resources\Commerce\Orders\ShipmentResource.cs" />
     <Compile Include="Resources\Commerce\ReturnResource.cs" />
     <Compile Include="Resources\Commerce\Returns\PackageResource.cs" />
@@ -809,6 +812,7 @@
     <Compile Include="Urls\Commerce\Orders\PackageUrl.cs" />
     <Compile Include="Urls\Commerce\Orders\PaymentUrl.cs" />
     <Compile Include="Urls\Commerce\Orders\PickupUrl.cs" />
+    <Compile Include="Urls\Commerce\Orders\RefundUrl.cs" />
     <Compile Include="Urls\Commerce\Orders\ShipmentUrl.cs" />
     <Compile Include="Urls\Commerce\OrderUrl.cs" />
     <Compile Include="Urls\Commerce\Returns\PackageUrl.cs" />

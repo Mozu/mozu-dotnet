@@ -34,6 +34,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool IsDefault { get; set; }
 
+			public int? MinimumMatchPercent { get; set; }
+
 			///
 			///The name for the search settings.
 			///

@@ -495,45 +495,47 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// 
+		/// commerce-orders Put ResendOrderConfirmationEmail description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="orderId"></param>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="action">The action to perform for the order.</param>
 		/// <returns>
 		/// 
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var order = new Order();
-		///   order.ResendOrderConfirmationEmail( orderId);
+		///   order.ResendOrderConfirmationEmail( action,  orderId);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void ResendOrderConfirmationEmail(string orderId)
+		public virtual void ResendOrderConfirmationEmail(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAction action, string orderId)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.OrderClient.ResendOrderConfirmationEmailClient( orderId);
+			var client = Mozu.Api.Clients.Commerce.OrderClient.ResendOrderConfirmationEmailClient( action,  orderId);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 
 		}
 
 		/// <summary>
-		/// 
+		/// commerce-orders Put ResendOrderConfirmationEmail description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="orderId"></param>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="action">The action to perform for the order.</param>
 		/// <returns>
 		/// 
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var order = new Order();
-		///   await order.ResendOrderConfirmationEmailAsync( orderId);
+		///   await order.ResendOrderConfirmationEmailAsync( action,  orderId);
 		/// </code>
 		/// </example>
-		public virtual async Task ResendOrderConfirmationEmailAsync(string orderId)
+		public virtual async Task ResendOrderConfirmationEmailAsync(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAction action, string orderId)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.OrderClient.ResendOrderConfirmationEmailClient( orderId);
+			var client = Mozu.Api.Clients.Commerce.OrderClient.ResendOrderConfirmationEmailClient( action,  orderId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 

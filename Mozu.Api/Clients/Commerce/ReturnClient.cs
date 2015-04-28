@@ -381,9 +381,9 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// 
+		/// commerce-returns Put ResendReturnEmail description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="action"></param>
+		/// <param name="action">Properties of an action a user can perform for a return.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

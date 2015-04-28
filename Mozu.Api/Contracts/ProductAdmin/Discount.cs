@@ -51,6 +51,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public int? CurrentRedemptionCount { get; set; }
 
+			public bool? DoesNotApplyToProductsWithSalePrice { get; set; }
+
 			///
 			///If true, this discount does not apply to a line item product with a defined sale price. The default is false, which applies the discount to products with and without defined sale prices.
 			///
@@ -61,10 +63,19 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public int? Id { get; set; }
 
+			///
+			///Maximum impact this discount can apply on a single order. Must be either null or greater than zero.
+			///
 			public decimal? MaximumDiscountImpactPerOrder { get; set; }
 
+			///
+			///Maximum impact this discount can apply on a single line item. Must be either null or greater than zero.
+			///
 			public decimal? MaximumDiscountImpactPerRedemption { get; set; }
 
+			///
+			///Maximum number of redemptions allowed per order. If null, defaults to unlimited.
+			///
 			public int? MaximumRedemptionsPerOrder { get; set; }
 
 			///
