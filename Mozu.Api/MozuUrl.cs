@@ -15,7 +15,8 @@ namespace Mozu.Api
 		public enum UrlLocation
 		{
 			HOME_POD,
-			TENANT_POD
+			TENANT_POD,
+			PCI_POD
 		}
 
        
