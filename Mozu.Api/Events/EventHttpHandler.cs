@@ -105,7 +105,7 @@ namespace Mozu.Api.Events
         }
 
 
-        private async void Process(Object workItemState)
+        private  void Process(Object workItemState)
         {
             //create http objects used to read request 
             var request = _context.Request;
@@ -152,7 +152,7 @@ namespace Mozu.Api.Events
                     if (string.IsNullOrEmpty(apiContext.CorrelationId))
                         apiContext.CorrelationId = eventPayload.CorrelationId;
 
-                    await eventService.ProcessEventAsync(apiContext, eventPayload);
+                    eventService.ProcessEventAsync(apiContext, eventPayload).Wait();
 
                     _log.Info(string.Format("CorrelationId:{0},Event processing done , EventId : {1}", apiContext.CorrelationId, eventPayload.Id));
                     response.StatusCode = 200;
@@ -160,10 +160,10 @@ namespace Mozu.Api.Events
                 }
                 catch (Exception exc)
                 {
+                    _log.Error(exc.Message, exc);
                     response.StatusCode = 500;
                     response.StatusDescription = exc.Message;
                     response.ContentType = _context.Request.ContentType;
-                    _log.Error(exc.Message, exc);
                     if (exc.InnerException != null)
                         response.Write(JsonConvert.SerializeObject(exc.InnerException));
                     else
