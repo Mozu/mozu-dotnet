@@ -247,6 +247,55 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// 
 		/// </summary>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <param name="softAllocationRenew"></param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.SoftAllocation"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var softallocation = new SoftAllocation();
+		///   var softAllocation = softallocation.RenewSoftAllocations( softAllocationRenew);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual List<Mozu.Api.Contracts.ProductAdmin.SoftAllocation> RenewSoftAllocations(Mozu.Api.Contracts.ProductAdmin.SoftAllocationRenew softAllocationRenew)
+		{
+			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.SoftAllocation>> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SoftAllocationClient.RenewSoftAllocationsClient( softAllocationRenew);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <param name="softAllocationRenew"></param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.SoftAllocation"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var softallocation = new SoftAllocation();
+		///   var softAllocation = await softallocation.RenewSoftAllocationsAsync( softAllocationRenew);
+		/// </code>
+		/// </example>
+		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.SoftAllocation>> RenewSoftAllocationsAsync(Mozu.Api.Contracts.ProductAdmin.SoftAllocationRenew softAllocationRenew)
+		{
+			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.SoftAllocation>> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SoftAllocationClient.RenewSoftAllocationsClient( softAllocationRenew);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="softAllocations"></param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.SoftAllocation"/>}

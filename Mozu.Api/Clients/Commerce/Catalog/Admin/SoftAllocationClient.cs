@@ -130,6 +130,31 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// 
 		/// </summary>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <param name="softAllocationRenew"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ProductAdmin.SoftAllocation"/>}}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=RenewSoftAllocations( softAllocationRenew);
+		///   var softAllocationClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<List<Mozu.Api.Contracts.ProductAdmin.SoftAllocation>> RenewSoftAllocationsClient(Mozu.Api.Contracts.ProductAdmin.SoftAllocationRenew softAllocationRenew)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.SoftAllocationUrl.RenewSoftAllocationsUrl();
+			const string verb = "POST";
+			var mozuClient = new MozuClient<List<Mozu.Api.Contracts.ProductAdmin.SoftAllocation>>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.SoftAllocationRenew>(softAllocationRenew);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="softAllocations"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ProductAdmin.SoftAllocation"/>}}

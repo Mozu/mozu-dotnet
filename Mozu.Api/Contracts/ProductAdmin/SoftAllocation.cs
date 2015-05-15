@@ -28,9 +28,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public int? Quantity { get; set; }
 
-			public string RefrenceId { get; set; }
+			public string ReferenceId { get; set; }
 
-			public string RefrenceItemId { get; set; }
+			public string ReferenceItemId { get; set; }
 
 		}
 

@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using Newtonsoft.Json.Linq;
 
 using Mozu.Api.Contracts.Core;
 
@@ -23,6 +24,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 			///
 			public AuditInfo AuditInfo { get; set; }
+
+			public JObject Data { get; set; }
 
 			///
 			///The contact information of the person receiving the shipment or performing the pickup.

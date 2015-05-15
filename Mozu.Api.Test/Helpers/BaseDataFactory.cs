@@ -51,6 +51,10 @@ namespace Mozu.Api.Test.Helpers
                 {
                     AuthenticateSdk(appId: AppId, sharedSecret: SharedSecret, baseAuthAppUrl: BaseAuthAppUrl);
                 }
+
+                var pciPodUrl = Helpers.Environment.GetConfigValueByEnvironment(Environment,"BasePciUrl");
+                if (!String.IsNullOrEmpty(pciPodUrl))
+                    MozuConfig.BasePciUrl = pciPodUrl;
             }
         }
         /// <summary>

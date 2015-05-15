@@ -185,6 +185,44 @@ namespace Mozu.Api.Test.Factories
 		/// 
 		/// <example> 
 		///  <code> 
+		/// var result = SoftAllocationFactory.RenewSoftAllocations(handler : handler,  softAllocationRenew :  softAllocationRenew,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<List<SoftAllocation>/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static List<Mozu.Api.Contracts.ProductAdmin.SoftAllocation> RenewSoftAllocations(ServiceClientMessageHandler handler, 
+ 		 Mozu.Api.Contracts.ProductAdmin.SoftAllocationRenew softAllocationRenew, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.SoftAllocationClient.RenewSoftAllocationsClient(
+				 softAllocationRenew :  softAllocationRenew		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
 		/// var result = SoftAllocationFactory.UpdateSoftAllocations(handler : handler,  softAllocations :  softAllocations,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<List<SoftAllocation>/>(result); 
 		/// return optionalCasting;

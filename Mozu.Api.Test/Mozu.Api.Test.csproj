@@ -181,6 +181,7 @@
     <Compile Include="Factories\ProductTypeVariationFactory.cs" />
     <Compile Include="Factories\ProductVariationFactory.cs" />
     <Compile Include="Factories\PropertyTypeFactory.cs" />
+    <Compile Include="Factories\PublicCardFactory.cs" />
     <Compile Include="Factories\PublishingScopeFactory.cs" />
     <Compile Include="Factories\ReferenceDataFactory.cs" />
     <Compile Include="Factories\RefundFactory.cs" />

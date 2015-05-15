@@ -173,6 +173,7 @@
     <Compile Include="Clients\Commerce\Orders\PickupClient.cs" />
     <Compile Include="Clients\Commerce\Orders\RefundClient.cs" />
     <Compile Include="Clients\Commerce\Orders\ShipmentClient.cs" />
+    <Compile Include="Clients\Commerce\Payments\PublicCardClient.cs" />
     <Compile Include="Clients\Commerce\ReturnClient.cs" />
     <Compile Include="Clients\Commerce\Returns\PackageClient.cs" />
     <Compile Include="Clients\Commerce\Returns\ShipmentClient.cs" />
@@ -416,6 +417,8 @@
     <Compile Include="Contracts\PaymentService\GatewayDefinition.cs" />
     <Compile Include="Contracts\PaymentService\PreAuthorizeDefinition.cs" />
     <Compile Include="Contracts\PaymentService\PreAuthorizeTransactionTypeDataContract.cs" />
+    <Compile Include="Contracts\PaymentService\PublicCard.cs" />
+    <Compile Include="Contracts\PaymentService\Response\SyncResponse.cs" />
     <Compile Include="Contracts\PaymentService\SupportedCard.cs" />
     <Compile Include="Contracts\PricingRuntime\ProductAttribute.cs" />
     <Compile Include="Contracts\PricingRuntime\ProductProperty.cs" />
@@ -505,6 +508,7 @@
     <Compile Include="Contracts\ProductAdmin\SiteSearchSettings.cs" />
     <Compile Include="Contracts\ProductAdmin\SoftAllocation.cs" />
     <Compile Include="Contracts\ProductAdmin\SoftAllocationCollection.cs" />
+    <Compile Include="Contracts\ProductAdmin\SoftAllocationRenew.cs" />
     <Compile Include="Contracts\ProductAdmin\TargetedCategory.cs" />
     <Compile Include="Contracts\ProductAdmin\TargetedProduct.cs" />
     <Compile Include="Contracts\ProductAdmin\TargetedShippingMethod.cs" />
@@ -701,6 +705,7 @@
     <Compile Include="Resources\Commerce\Orders\PickupResource.cs" />
     <Compile Include="Resources\Commerce\Orders\RefundResource.cs" />
     <Compile Include="Resources\Commerce\Orders\ShipmentResource.cs" />
+    <Compile Include="Resources\Commerce\Payments\PublicCardResource.cs" />
     <Compile Include="Resources\Commerce\ReturnResource.cs" />
     <Compile Include="Resources\Commerce\Returns\PackageResource.cs" />
     <Compile Include="Resources\Commerce\Returns\ShipmentResource.cs" />
@@ -815,6 +820,7 @@
     <Compile Include="Urls\Commerce\Orders\RefundUrl.cs" />
     <Compile Include="Urls\Commerce\Orders\ShipmentUrl.cs" />
     <Compile Include="Urls\Commerce\OrderUrl.cs" />
+    <Compile Include="Urls\Commerce\Payments\PublicCardUrl.cs" />
     <Compile Include="Urls\Commerce\Returns\PackageUrl.cs" />
     <Compile Include="Urls\Commerce\Returns\ShipmentUrl.cs" />
     <Compile Include="Urls\Commerce\ReturnUrl.cs" />
