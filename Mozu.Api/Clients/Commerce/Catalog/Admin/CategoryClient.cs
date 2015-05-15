@@ -157,18 +157,20 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="cascadeDelete">If true, also delete all subcategories associated with the specified category.</param>
 		/// <param name="categoryId">Unique identifier of the category to modify.</param>
+		/// <param name="forceDelete"></param>
+		/// <param name="reassignToParent"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=DeleteCategoryById( categoryId,  cascadeDelete);
+		///   var mozuClient=DeleteCategoryById( categoryId,  cascadeDelete,  forceDelete,  reassignToParent);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteCategoryByIdClient(int categoryId, bool? cascadeDelete =  null)
+		public static MozuClient DeleteCategoryByIdClient(int categoryId, bool? cascadeDelete =  null, bool? forceDelete =  null, bool? reassignToParent =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.CategoryUrl.DeleteCategoryByIdUrl(categoryId, cascadeDelete);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.CategoryUrl.DeleteCategoryByIdUrl(categoryId, cascadeDelete, forceDelete, reassignToParent);
 			const string verb = "DELETE";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)

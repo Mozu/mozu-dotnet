@@ -82,6 +82,19 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for RenewSoftAllocations
+        /// </summary>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl RenewSoftAllocationsUrl()
+		{
+			var url = "/api/commerce/catalog/admin/softallocations/renew";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for UpdateSoftAllocations
         /// </summary>

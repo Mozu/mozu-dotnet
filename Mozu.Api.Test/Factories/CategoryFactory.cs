@@ -223,14 +223,14 @@ namespace Mozu.Api.Test.Factories
 		/// Deletes the category specified by its category ID.
 		/// <example> 
 		///  <code> 
-		/// var result = CategoryFactory.DeleteCategoryById(handler : handler,  categoryId :  categoryId,  cascadeDelete :  cascadeDelete,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CategoryFactory.DeleteCategoryById(handler : handler,  categoryId :  categoryId,  cascadeDelete :  cascadeDelete,  forceDelete :  forceDelete,  reassignToParent :  reassignToParent,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static void DeleteCategoryById(ServiceClientMessageHandler handler, 
- 		int categoryId, bool? cascadeDelete = null, 
+ 		int categoryId, bool? cascadeDelete = null, bool? forceDelete = null, bool? reassignToParent = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
@@ -238,7 +238,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.DeleteCategoryByIdClient(
-				 categoryId :  categoryId,  cascadeDelete :  cascadeDelete		);
+				 categoryId :  categoryId,  cascadeDelete :  cascadeDelete,  forceDelete :  forceDelete,  reassignToParent :  reassignToParent		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

@@ -299,20 +299,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="cascadeDelete">If true, also delete all subcategories associated with the specified category.</param>
 		/// <param name="categoryId">Unique identifier of the category to modify.</param>
+		/// <param name="forceDelete"></param>
+		/// <param name="reassignToParent"></param>
 		/// <returns>
 		/// 
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var category = new Category();
-		///   category.DeleteCategoryById( categoryId,  cascadeDelete);
+		///   category.DeleteCategoryById( categoryId,  cascadeDelete,  forceDelete,  reassignToParent);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeleteCategoryById(int categoryId, bool? cascadeDelete =  null)
+		public virtual void DeleteCategoryById(int categoryId, bool? cascadeDelete =  null, bool? forceDelete =  null, bool? reassignToParent =  null)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.DeleteCategoryByIdClient( categoryId,  cascadeDelete);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.DeleteCategoryByIdClient( categoryId,  cascadeDelete,  forceDelete,  reassignToParent);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 
@@ -323,19 +325,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="cascadeDelete">If true, also delete all subcategories associated with the specified category.</param>
 		/// <param name="categoryId">Unique identifier of the category to modify.</param>
+		/// <param name="forceDelete"></param>
+		/// <param name="reassignToParent"></param>
 		/// <returns>
 		/// 
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var category = new Category();
-		///   await category.DeleteCategoryByIdAsync( categoryId,  cascadeDelete);
+		///   await category.DeleteCategoryByIdAsync( categoryId,  cascadeDelete,  forceDelete,  reassignToParent);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteCategoryByIdAsync(int categoryId, bool? cascadeDelete =  null)
+		public virtual async Task DeleteCategoryByIdAsync(int categoryId, bool? cascadeDelete =  null, bool? forceDelete =  null, bool? reassignToParent =  null)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.DeleteCategoryByIdClient( categoryId,  cascadeDelete);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.DeleteCategoryByIdClient( categoryId,  cascadeDelete,  forceDelete,  reassignToParent);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 

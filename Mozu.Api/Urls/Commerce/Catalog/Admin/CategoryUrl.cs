@@ -114,15 +114,19 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// </summary>
         /// <param name="cascadeDelete">If true, also delete all subcategories associated with the specified category.</param>
         /// <param name="categoryId">Unique identifier of the category to modify.</param>
+        /// <param name="forceDelete"></param>
+        /// <param name="reassignToParent"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl DeleteCategoryByIdUrl(int categoryId, bool? cascadeDelete =  null)
+        public static MozuUrl DeleteCategoryByIdUrl(int categoryId, bool? cascadeDelete =  null, bool? forceDelete =  null, bool? reassignToParent =  null)
 		{
-			var url = "/api/commerce/catalog/admin/categories/{categoryId}/?cascadeDelete={cascadeDelete}";
+			var url = "/api/commerce/catalog/admin/categories/{categoryId}/?cascadeDelete={cascadeDelete}&forceDelete={forceDelete}&reassignToParent={reassignToParent}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "cascadeDelete", cascadeDelete);
 			mozuUrl.FormatUrl( "categoryId", categoryId);
+			mozuUrl.FormatUrl( "forceDelete", forceDelete);
+			mozuUrl.FormatUrl( "reassignToParent", reassignToParent);
 			return mozuUrl;
 		}
 
