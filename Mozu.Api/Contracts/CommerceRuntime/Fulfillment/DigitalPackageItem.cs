@@ -25,7 +25,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			///
 			public string GiftCardCode { get; set; }
 
-			public int LineId { get; set; }
+			public int? LineId { get; set; }
 
 			///
 			///The unique, user-defined  product code of a product, used throughout Mozu to reference and associate to a product.
