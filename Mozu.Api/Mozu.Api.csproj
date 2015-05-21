@@ -632,6 +632,7 @@
     <Compile Include="Events\ISiteEvents.cs" />
     <Compile Include="Events\ITenantEvents.cs" />
     <Compile Include="Events\IWishListEvents.cs" />
+    <Compile Include="Events\Topics.cs" />
     <Compile Include="Resources\Commerce\Admin\LocationResource.cs" />
     <Compile Include="Resources\Commerce\Admin\LocationTypeResource.cs" />
     <Compile Include="Resources\Commerce\CartResource.cs" />
