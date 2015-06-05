@@ -23,6 +23,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			///
 			public string FulfillmentItemType { get; set; }
 
+			///
+			///The line id associated with the fulfillment.
+			///
 			public int? LineId { get; set; }
 
 			///

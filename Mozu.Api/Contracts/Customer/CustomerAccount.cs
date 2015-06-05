@@ -65,6 +65,9 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public string FirstName { get; set; }
 
+			///
+			///Indicates if an external password is set on this account
+			///
 			public bool HasExternalPassword { get; set; }
 
 			///

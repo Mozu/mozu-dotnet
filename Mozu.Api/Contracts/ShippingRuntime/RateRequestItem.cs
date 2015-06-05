@@ -21,6 +21,9 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 		///
 		public class RateRequestItem
 		{
+			///
+			///Mozu.ShippingRuntime.Contracts.RateRequestItem data ApiTypeMember DOCUMENT_HERE 
+			///
 			public JObject Data { get; set; }
 
 			///

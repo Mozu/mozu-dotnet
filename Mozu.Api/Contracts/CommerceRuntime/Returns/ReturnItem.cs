@@ -41,6 +41,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///
 			public string OrderItemId { get; set; }
 
+			///
+			///The OrderLineId that this ReturnItem is associated with. If order item is present, the orderLineId should be present also.
+			///
 			public int? OrderLineId { get; set; }
 
 			///

@@ -34,6 +34,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool IsDefault { get; set; }
 
+			///
+			///Mozu.ProductAdmin.Contracts.SiteSearchSettings minimumMatchPercent ApiTypeMember DOCUMENT_HERE 
+			///
 			public int? MinimumMatchPercent { get; set; }
 
 			///

@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Payments
 {
 	/// <summary>
-	/// 
+	/// commerce/payments/cards related resources. DOCUMENT_HERE 
 	/// </summary>
 	public partial class PublicCardResource  	{
 		///
@@ -42,9 +42,9 @@ namespace Mozu.Api.Resources.Commerce.Payments
 
 				
 		/// <summary>
-		/// 
+		/// payments-cards Post Create description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="request"></param>
+		/// <param name="request">Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.PaymentService.Response.SyncResponse"/>
 		/// </returns>
@@ -66,9 +66,9 @@ namespace Mozu.Api.Resources.Commerce.Payments
 		}
 
 		/// <summary>
-		/// 
+		/// payments-cards Post Create description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="request"></param>
+		/// <param name="request">Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.PaymentService.Response.SyncResponse"/>
 		/// </returns>
@@ -89,10 +89,10 @@ namespace Mozu.Api.Resources.Commerce.Payments
 		}
 
 		/// <summary>
-		/// 
+		/// payments-cards Put Update description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="cardId"></param>
-		/// <param name="request"></param>
+		/// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
+		/// <param name="request">Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.PaymentService.Response.SyncResponse"/>
 		/// </returns>
@@ -114,10 +114,10 @@ namespace Mozu.Api.Resources.Commerce.Payments
 		}
 
 		/// <summary>
-		/// 
+		/// payments-cards Put Update description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="cardId"></param>
-		/// <param name="request"></param>
+		/// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
+		/// <param name="request">Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.PaymentService.Response.SyncResponse"/>
 		/// </returns>
@@ -138,9 +138,9 @@ namespace Mozu.Api.Resources.Commerce.Payments
 		}
 
 		/// <summary>
-		/// 
+		/// payments-cards Delete Delete description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="cardId"></param>
+		/// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -161,9 +161,9 @@ namespace Mozu.Api.Resources.Commerce.Payments
 		}
 
 		/// <summary>
-		/// 
+		/// payments-cards Delete Delete description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="cardId"></param>
+		/// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
 		/// <returns>
 		/// 
 		/// </returns>

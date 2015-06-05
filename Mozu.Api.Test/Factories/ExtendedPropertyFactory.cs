@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// commerce/carts/cartextendedproperties related resources. DOCUMENT_HERE 
 	/// </summary>
 	public partial class ExtendedPropertyFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// 
+		/// carts-cartextendedproperties Get GetExtendedProperties description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = ExtendedPropertyFactory.GetExtendedProperties(handler : handler,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// carts-cartextendedproperties Post AddExtendedProperties description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = ExtendedPropertyFactory.AddExtendedProperties(handler : handler,  extendedProperties :  extendedProperties,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// carts-cartextendedproperties Put UpdateExtendedProperty description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = ExtendedPropertyFactory.UpdateExtendedProperty(handler : handler,  extendedProperty :  extendedProperty,  key :  key,  upsert :  upsert,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// carts-cartextendedproperties Put UpdateExtendedProperties description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = ExtendedPropertyFactory.UpdateExtendedProperties(handler : handler,  extendedProperties :  extendedProperties,  upsert :  upsert,  expectedCode: expectedCode, successCode: successCode); 
@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// carts-cartextendedproperties Delete DeleteExtendedProperties description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = ExtendedPropertyFactory.DeleteExtendedProperties(handler : handler,  keys :  keys,  expectedCode: expectedCode, successCode: successCode); 
@@ -219,7 +219,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// carts-cartextendedproperties Delete DeleteExtendedProperty description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = ExtendedPropertyFactory.DeleteExtendedProperty(handler : handler,  key :  key,  expectedCode: expectedCode, successCode: successCode); 

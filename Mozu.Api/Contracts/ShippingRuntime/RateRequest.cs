@@ -31,6 +31,9 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			///
 			public List<CustomAttribute> CustomAttributes { get; set; }
 
+			///
+			///Mozu.ShippingRuntime.Contracts.RateRequest data ApiTypeMember DOCUMENT_HERE 
+			///
 			public JObject Data { get; set; }
 
 			///

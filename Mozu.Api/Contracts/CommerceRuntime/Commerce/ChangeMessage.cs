@@ -23,12 +23,24 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
 			///
 			public decimal? Amount { get; set; }
 
+			///
+			///Unique identifier of an app available in your Mozu tenant or within Mozu Dev Center. This ID is unique across all apps installed, initialized, and enabled in the Mozu Admin and those in development through the Dev Center Console.
+			///
 			public string AppId { get; set; }
 
+			///
+			///App Key
+			///
 			public string AppKey { get; set; }
 
+			///
+			///App Name
+			///
 			public string AppName { get; set; }
 
+			///
+			///The unique identifier of the API request associated with the event action, which might contain multiple actions.
+			///
 			public string CorrelationId { get; set; }
 
 			///
@@ -51,6 +63,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
 			///
 			public string Message { get; set; }
 
+			///
+			///Metadata content for entities, used by document lists, document type lists, document type, views, entity lists, and list views.
+			///
 			public object Metadata { get; set; }
 
 			///
@@ -78,6 +93,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
 			///
 			public bool? Success { get; set; }
 
+			///
+			///User First Name
+			///
 			public string UserFirstName { get; set; }
 
 			///
@@ -85,8 +103,14 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
 			///
 			public string UserId { get; set; }
 
+			///
+			///User Last Name
+			///
 			public string UserLastName { get; set; }
 
+			///
+			///User Type (e.g. Shopper, Admin, etc.)
+			///
 			public string UserScopeType { get; set; }
 
 			///
