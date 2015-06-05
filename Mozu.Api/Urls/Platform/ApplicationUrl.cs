@@ -20,7 +20,7 @@ namespace Mozu.Api.Urls.Platform
         /// Get Resource Url for GetAppPackageNames
         /// </summary>
         /// <param name="applicationKey"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -37,7 +37,7 @@ namespace Mozu.Api.Urls.Platform
         /// Get Resource Url for GetAppVersions
         /// </summary>
         /// <param name="nsAndAppId"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -55,7 +55,7 @@ namespace Mozu.Api.Urls.Platform
         /// </summary>
         /// <param name="applicationKey"></param>
         /// <param name="filepath"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -73,7 +73,7 @@ namespace Mozu.Api.Urls.Platform
         /// Get Resource Url for GetPackageMetadata
         /// </summary>
         /// <param name="applicationKey"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -92,7 +92,7 @@ namespace Mozu.Api.Urls.Platform
         /// <param name="applicationKey"></param>
         /// <param name="filepath"></param>
         /// <param name="lastModifiedTime"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -111,7 +111,7 @@ namespace Mozu.Api.Urls.Platform
         /// Get Resource Url for RenamePackageFile
         /// </summary>
         /// <param name="applicationKey"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

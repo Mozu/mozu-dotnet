@@ -25,6 +25,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			///
 			public AuditInfo AuditInfo { get; set; }
 
+			///
+			///Custom data originated by the shipping service.
+			///
 			public JObject Data { get; set; }
 
 			///

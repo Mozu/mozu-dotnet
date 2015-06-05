@@ -136,6 +136,9 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			///
 			public string Theme { get; set; }
 
+			///
+			///Mozu.SiteSettings.General.Contracts.GeneralSettings viewAuthorizations ApiTypeMember DOCUMENT_HERE 
+			///
 			public ViewAuthorizations ViewAuthorizations { get; set; }
 
 			///

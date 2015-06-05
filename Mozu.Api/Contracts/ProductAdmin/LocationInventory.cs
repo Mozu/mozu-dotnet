@@ -24,6 +24,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public AuditInfo AuditInfo { get; set; }
 
+			///
+			///Mozu.ProductAdmin.Contracts.LocationInventory baseProductCode ApiTypeMember DOCUMENT_HERE 
+			///
 			public string BaseProductCode { get; set; }
 
 			///

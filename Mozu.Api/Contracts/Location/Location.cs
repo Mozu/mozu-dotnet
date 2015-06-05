@@ -25,6 +25,9 @@ namespace Mozu.Api.Contracts.Location
 			///
 			public Address Address { get; set; }
 
+			///
+			///Allow fullfillment with no (or less) stock
+			///
 			public bool AllowFulfillmentWithNoStock { get; set; }
 
 			public AuditInfo AuditInfo { get; set; }
@@ -54,6 +57,9 @@ namespace Mozu.Api.Contracts.Location
 			///
 			public Coordinates Geo { get; set; }
 
+			///
+			///Locations is disabled (soft delete)
+			///
 			public bool IsDisabled { get; set; }
 
 			///

@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Carts
 {
 	/// <summary>
-	/// 
+	/// commerce/carts/cartextendedproperties related resources. DOCUMENT_HERE 
 	/// </summary>
 	public partial class ExtendedPropertyResource  	{
 		///
@@ -38,7 +38,7 @@ namespace Mozu.Api.Resources.Commerce.Carts
 
 				
 		/// <summary>
-		/// 
+		/// carts-cartextendedproperties Get GetExtendedProperties description DOCUMENT_HERE 
 		/// </summary>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty"/>}
@@ -61,7 +61,7 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		}
 
 		/// <summary>
-		/// 
+		/// carts-cartextendedproperties Get GetExtendedProperties description DOCUMENT_HERE 
 		/// </summary>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty"/>}
@@ -83,9 +83,9 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		}
 
 		/// <summary>
-		/// 
+		/// carts-cartextendedproperties Post AddExtendedProperties description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="extendedProperties"></param>
+		/// <param name="extendedProperties">Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty"/>}
 		/// </returns>
@@ -107,9 +107,9 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		}
 
 		/// <summary>
-		/// 
+		/// carts-cartextendedproperties Post AddExtendedProperties description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="extendedProperties"></param>
+		/// <param name="extendedProperties">Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty"/>}
 		/// </returns>
@@ -130,12 +130,12 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		}
 
 		/// <summary>
-		/// 
+		/// carts-cartextendedproperties Put UpdateExtendedProperty description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="key"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="upsert"></param>
-		/// <param name="extendedProperty"></param>
+		/// <param name="extendedProperty">Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty"/>
 		/// </returns>
@@ -157,12 +157,12 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		}
 
 		/// <summary>
-		/// 
+		/// carts-cartextendedproperties Put UpdateExtendedProperty description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="key"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="upsert"></param>
-		/// <param name="extendedProperty"></param>
+		/// <param name="extendedProperty">Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty"/>
 		/// </returns>
@@ -183,10 +183,10 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		}
 
 		/// <summary>
-		/// 
+		/// carts-cartextendedproperties Put UpdateExtendedProperties description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="upsert"></param>
-		/// <param name="extendedProperties"></param>
+		/// <param name="extendedProperties">Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty"/>}
 		/// </returns>
@@ -208,10 +208,10 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		}
 
 		/// <summary>
-		/// 
+		/// carts-cartextendedproperties Put UpdateExtendedProperties description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="upsert"></param>
-		/// <param name="extendedProperties"></param>
+		/// <param name="extendedProperties">Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty"/>}
 		/// </returns>
@@ -232,7 +232,7 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		}
 
 		/// <summary>
-		/// 
+		/// carts-cartextendedproperties Delete DeleteExtendedProperties description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="keys"></param>
 		/// <returns>
@@ -255,7 +255,7 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		}
 
 		/// <summary>
-		/// 
+		/// carts-cartextendedproperties Delete DeleteExtendedProperties description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="keys"></param>
 		/// <returns>
@@ -277,7 +277,7 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		}
 
 		/// <summary>
-		/// 
+		/// carts-cartextendedproperties Delete DeleteExtendedProperty description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns>
@@ -300,7 +300,7 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		}
 
 		/// <summary>
-		/// 
+		/// carts-cartextendedproperties Delete DeleteExtendedProperty description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns>

@@ -29,6 +29,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public AuditInfo AuditInfo { get; set; }
 
+			///
+			///Custom data for a given vendor set within the commerce process.
+			///
 			public JObject Data { get; set; }
 
 			///
@@ -41,6 +44,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public decimal? DiscountTotal { get; set; }
 
+			///
+			///Duty or Tariff for this item
+			///
 			public decimal? DutyAmount { get; set; }
 
 			///
@@ -88,6 +94,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public decimal? ItemTaxTotal { get; set; }
 
+			///
+			///The line id assigned to the order item. Visible only in the Admin, this is set from the Admin or in CommerceRuntime when a cart is converted to an order.
+			///
 			public int? LineId { get; set; }
 
 			///

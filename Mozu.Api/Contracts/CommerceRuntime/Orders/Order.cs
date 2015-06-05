@@ -121,6 +121,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public string CustomerTaxId { get; set; }
 
+			///
+			///Custom data for a given vendor set within the commerce process.
+			///
 			public JObject Data { get; set; }
 
 			///
@@ -143,8 +146,14 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public decimal? DiscountTotal { get; set; }
 
+			///
+			///Order level duty or tariff amount. Does not take into account duties or tariffs specifically on items on the order
+			///
 			public decimal? DutyAmount { get; set; }
 
+			///
+			///Duties or tariffs for the Order as well as OrderItems (e.g. if the Order has a $5 duty or tariff for any reason and an OrderItem has a $2 duty or tariff then the value in this property would be $7)
+			///
 			public decimal? DutyTotal { get; set; }
 
 			///
@@ -157,6 +166,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public DateTime? ExpirationDate { get; set; }
 
+			///
+			///Extra properties (key-value pairs) that extend the primary object. Think of this as a property bag of string keys and string values.
+			///
 			public List<ExtendedProperty> ExtendedProperties { get; set; }
 
 			///
