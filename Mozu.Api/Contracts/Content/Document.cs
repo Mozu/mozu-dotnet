@@ -40,6 +40,8 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public string DocumentTypeFQN { get; set; }
 
+			public DateTime? EndDate { get; set; }
+
 			///
 			///If applicable, the file extension associated with the document content. For example, the extension may be .html for an HTML web page.
 			///
@@ -70,10 +72,14 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public JObject Properties { get; set; }
 
+			public string PublishSetCode { get; set; }
+
 			///
 			///The current state of the document or product definition. States for documents include Active, Draft, or Latest. Active documents are published and cannot be deleted. Querying Latest returns the most recent version of the document, regardless of whether it is published or a draft. States for product include New, Draft, or Live.
 			///
 			public string PublishState { get; set; }
+
+			public DateTime? StartDate { get; set; }
 
 			///
 			///Date and time when the entity was last updated, represented in UTC Date/Time.

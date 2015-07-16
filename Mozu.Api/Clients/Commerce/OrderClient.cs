@@ -202,6 +202,33 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="digitalWalletType"></param>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="digitalWallet"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=ProcessDigitalWallet( digitalWallet,  orderId,  digitalWalletType,  responseFields);
+		///   var orderClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> ProcessDigitalWalletClient(Mozu.Api.Contracts.CommerceRuntime.Orders.DigitalWallet digitalWallet, string orderId, string digitalWalletType, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.OrderUrl.ProcessDigitalWalletUrl(orderId, digitalWalletType, responseFields);
+			const string verb = "PUT";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.CommerceRuntime.Orders.DigitalWallet>(digitalWallet);
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Update the properties of a discount applied to an order.
 		/// </summary>
 		/// <param name="discountId">Unique identifier of the discount. System-supplied and read only.</param>

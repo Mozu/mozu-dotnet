@@ -22,6 +22,57 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 	public partial class PublishingScopeClient 	{
 		
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="publishSetCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.PublishSet"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetPublishSet( publishSetCode,  responseFields);
+		///   var publishSetClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.PublishSet> GetPublishSetClient(string publishSetCode, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.PublishingScopeUrl.GetPublishSetUrl(publishSetCode, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.PublishSet>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.PublishSetCollection"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetPublishSets( responseFields);
+		///   var publishSetCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.PublishSetCollection> GetPublishSetsClient(string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.PublishingScopeUrl.GetPublishSetsUrl(responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.PublishSetCollection>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Deletes the draft version of product changes for each product code specified in the request.
 		/// </summary>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
@@ -68,6 +119,58 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.ProductAdmin.PublishingScope>(publishScope)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <param name="publishSet"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.PublishSet"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=AssignProductsToPublishSet( publishSet,  responseFields);
+		///   var publishSetClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.PublishSet> AssignProductsToPublishSetClient(Mozu.Api.Contracts.ProductAdmin.PublishSet publishSet, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.PublishingScopeUrl.AssignProductsToPublishSetUrl(responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.PublishSet>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.PublishSet>(publishSet);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="discardDrafts"></param>
+		/// <param name="publishSetCode"></param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=DeletePublishSet( publishSetCode,  discardDrafts);
+		///mozuClient.WithBaseAddress(url).Execute();
+		/// </code>
+		/// </example>
+		public static MozuClient DeletePublishSetClient(string publishSetCode, bool? discardDrafts =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.PublishingScopeUrl.DeletePublishSetUrl(publishSetCode, discardDrafts);
+			const string verb = "DELETE";
+			var mozuClient = new MozuClient()
+									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
 

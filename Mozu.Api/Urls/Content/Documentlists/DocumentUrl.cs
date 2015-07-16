@@ -34,20 +34,53 @@ namespace Mozu.Api.Urls.Content.Documentlists
 		}
 
 		/// <summary>
+        /// Get Resource Url for TransformDocumentContent
+        /// </summary>
+        /// <param name="crop"></param>
+        /// <param name="documentId"></param>
+        /// <param name="documentListName"></param>
+        /// <param name="height"></param>
+        /// <param name="max"></param>
+        /// <param name="maxHeight"></param>
+        /// <param name="maxWidth"></param>
+        /// <param name="quality"></param>
+        /// <param name="width"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl TransformDocumentContentUrl(string documentListName, string documentId, int? width =  null, int? height =  null, int? max =  null, int? maxWidth =  null, int? maxHeight =  null, string crop =  null, int? quality =  null)
+		{
+			var url = "/api/content/documentlists/{documentListName}/documents/{documentId}/transform?width={width}&height={height}&maxWidth={maxWidth}&maxHeight={maxHeight}&crop={crop}&quality={quality}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "crop", crop);
+			mozuUrl.FormatUrl( "documentId", documentId);
+			mozuUrl.FormatUrl( "documentListName", documentListName);
+			mozuUrl.FormatUrl( "height", height);
+			mozuUrl.FormatUrl( "max", max);
+			mozuUrl.FormatUrl( "maxHeight", maxHeight);
+			mozuUrl.FormatUrl( "maxWidth", maxWidth);
+			mozuUrl.FormatUrl( "quality", quality);
+			mozuUrl.FormatUrl( "width", width);
+			return mozuUrl;
+		}
+
+		/// <summary>
         /// Get Resource Url for GetDocument
         /// </summary>
         /// <param name="documentId">Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.</param>
         /// <param name="documentListName">Name of content documentListName to delete</param>
+        /// <param name="includeInactive"></param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetDocumentUrl(string documentListName, string documentId, string responseFields =  null)
+        public static MozuUrl GetDocumentUrl(string documentListName, string documentId, bool? includeInactive =  null, string responseFields =  null)
 		{
-			var url = "/api/content/documentlists/{documentListName}/documents/{documentId}?responseFields={responseFields}";
+			var url = "/api/content/documentlists/{documentListName}/documents/{documentId}?includeInactive={includeInactive}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "documentId", documentId);
 			mozuUrl.FormatUrl( "documentListName", documentListName);
+			mozuUrl.FormatUrl( "includeInactive", includeInactive);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
@@ -57,6 +90,7 @@ namespace Mozu.Api.Urls.Content.Documentlists
         /// </summary>
         /// <param name="documentListName">Name of content documentListName to delete</param>
         /// <param name="filter">A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.</param>
+        /// <param name="includeInactive"></param>
         /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
@@ -64,12 +98,13 @@ namespace Mozu.Api.Urls.Content.Documentlists
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetDocumentsUrl(string documentListName, string filter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
+        public static MozuUrl GetDocumentsUrl(string documentListName, string filter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, bool? includeInactive =  null, string responseFields =  null)
 		{
-			var url = "/api/content/documentlists/{documentListName}/documents?filter={filter}&sortBy={sortBy}&pageSize={pageSize}&startIndex={startIndex}&responseFields={responseFields}";
+			var url = "/api/content/documentlists/{documentListName}/documents?filter={filter}&sortBy={sortBy}&pageSize={pageSize}&startIndex={startIndex}&includeInactive={includeInactive}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "documentListName", documentListName);
 			mozuUrl.FormatUrl( "filter", filter);
+			mozuUrl.FormatUrl( "includeInactive", includeInactive);
 			mozuUrl.FormatUrl( "pageSize", pageSize);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "sortBy", sortBy);

@@ -242,6 +242,104 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="dynamicExpressionIn"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.DynamicExpression"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var category = new Category();
+		///   var dynamicExpression = category.ValidateDynamicExpression( dynamicExpressionIn,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.DynamicExpression ValidateDynamicExpression(Mozu.Api.Contracts.ProductAdmin.DynamicExpression dynamicExpressionIn, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.DynamicExpression> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.ValidateDynamicExpressionClient( dynamicExpressionIn,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="dynamicExpressionIn"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.DynamicExpression"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var category = new Category();
+		///   var dynamicExpression = await category.ValidateDynamicExpressionAsync( dynamicExpressionIn,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.DynamicExpression> ValidateDynamicExpressionAsync(Mozu.Api.Contracts.ProductAdmin.DynamicExpression dynamicExpressionIn, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.DynamicExpression> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.ValidateDynamicExpressionClient( dynamicExpressionIn,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="dynamicExpressionIn"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.DynamicExpression"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var category = new Category();
+		///   var dynamicExpression = category.ValidateRealTimeDynamicExpression( dynamicExpressionIn,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.DynamicExpression ValidateRealTimeDynamicExpression(Mozu.Api.Contracts.ProductAdmin.DynamicExpression dynamicExpressionIn, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.DynamicExpression> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.ValidateRealTimeDynamicExpressionClient( dynamicExpressionIn,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="dynamicExpressionIn"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.DynamicExpression"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var category = new Category();
+		///   var dynamicExpression = await category.ValidateRealTimeDynamicExpressionAsync( dynamicExpressionIn,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.DynamicExpression> ValidateRealTimeDynamicExpressionAsync(Mozu.Api.Contracts.ProductAdmin.DynamicExpression dynamicExpressionIn, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.DynamicExpression> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.ValidateRealTimeDynamicExpressionClient( dynamicExpressionIn,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
 		/// Update the properties of a defined category or move it to another location in the category hierarchy. Because this operation replaces the defined resource,include all the information to maintain for the category in the request.
 		/// </summary>
 		/// <param name="cascadeVisibility">If true, when changing the display option for the category, change it for all subcategories also. Default: False.</param>

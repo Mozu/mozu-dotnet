@@ -94,10 +94,74 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="crop"></param>
+		/// <param name="documentListName"></param>
+		/// <param name="documentName"></param>
+		/// <param name="height"></param>
+		/// <param name="max"></param>
+		/// <param name="maxHeight"></param>
+		/// <param name="maxWidth"></param>
+		/// <param name="quality"></param>
+		/// <param name="width"></param>
+		/// <returns>
+		/// <see cref="System.IO.Stream"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documenttree = new DocumentTree();
+		///   var stream = documenttree.TransformTreeDocumentContent( documentListName,  documentName,  width,  height,  max,  maxWidth,  maxHeight,  crop,  quality);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual System.IO.Stream TransformTreeDocumentContent(string documentListName, string documentName, int? width =  null, int? height =  null, int? max =  null, int? maxWidth =  null, int? maxHeight =  null, string crop =  null, int? quality =  null)
+		{
+			MozuClient<System.IO.Stream> response;
+			var client = Mozu.Api.Clients.Content.Documentlists.DocumentTreeClient.TransformTreeDocumentContentClient( documentListName,  documentName,  width,  height,  max,  maxWidth,  maxHeight,  crop,  quality);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="crop"></param>
+		/// <param name="documentListName"></param>
+		/// <param name="documentName"></param>
+		/// <param name="height"></param>
+		/// <param name="max"></param>
+		/// <param name="maxHeight"></param>
+		/// <param name="maxWidth"></param>
+		/// <param name="quality"></param>
+		/// <param name="width"></param>
+		/// <returns>
+		/// <see cref="System.IO.Stream"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documenttree = new DocumentTree();
+		///   var stream = await documenttree.TransformTreeDocumentContentAsync( documentListName,  documentName,  width,  height,  max,  maxWidth,  maxHeight,  crop,  quality);
+		/// </code>
+		/// </example>
+		public virtual async Task<System.IO.Stream> TransformTreeDocumentContentAsync(string documentListName, string documentName, int? width =  null, int? height =  null, int? max =  null, int? maxWidth =  null, int? maxHeight =  null, string crop =  null, int? quality =  null)
+		{
+			MozuClient<System.IO.Stream> response;
+			var client = Mozu.Api.Clients.Content.Documentlists.DocumentTreeClient.TransformTreeDocumentContentClient( documentListName,  documentName,  width,  height,  max,  maxWidth,  maxHeight,  crop,  quality);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
 		/// Retrieves a document based on its document list and folder path in the document hierarchy.
 		/// </summary>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
 		/// <param name="documentName">The name of the document in the site.</param>
+		/// <param name="includeInactive"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.Document"/>
@@ -105,14 +169,14 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <example>
 		/// <code>
 		///   var documenttree = new DocumentTree();
-		///   var document = documenttree.GetTreeDocument(_dataViewMode,  documentListName,  documentName,  responseFields);
+		///   var document = documenttree.GetTreeDocument(_dataViewMode,  documentListName,  documentName,  includeInactive,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Content.Document GetTreeDocument(string documentListName, string documentName, string responseFields =  null)
+		public virtual Mozu.Api.Contracts.Content.Document GetTreeDocument(string documentListName, string documentName, bool? includeInactive =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.Document> response;
-			var client = Mozu.Api.Clients.Content.Documentlists.DocumentTreeClient.GetTreeDocumentClient(_dataViewMode,  documentListName,  documentName,  responseFields);
+			var client = Mozu.Api.Clients.Content.Documentlists.DocumentTreeClient.GetTreeDocumentClient(_dataViewMode,  documentListName,  documentName,  includeInactive,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -124,6 +188,7 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// </summary>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
 		/// <param name="documentName">The name of the document in the site.</param>
+		/// <param name="includeInactive"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.Document"/>
@@ -131,13 +196,13 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <example>
 		/// <code>
 		///   var documenttree = new DocumentTree();
-		///   var document = await documenttree.GetTreeDocumentAsync(_dataViewMode,  documentListName,  documentName,  responseFields);
+		///   var document = await documenttree.GetTreeDocumentAsync(_dataViewMode,  documentListName,  documentName,  includeInactive,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Content.Document> GetTreeDocumentAsync(string documentListName, string documentName, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Content.Document> GetTreeDocumentAsync(string documentListName, string documentName, bool? includeInactive =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.Document> response;
-			var client = Mozu.Api.Clients.Content.Documentlists.DocumentTreeClient.GetTreeDocumentClient(_dataViewMode,  documentListName,  documentName,  responseFields);
+			var client = Mozu.Api.Clients.Content.Documentlists.DocumentTreeClient.GetTreeDocumentClient(_dataViewMode,  documentListName,  documentName,  includeInactive,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

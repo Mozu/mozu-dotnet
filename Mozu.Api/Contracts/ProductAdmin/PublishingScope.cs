@@ -29,6 +29,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public List<string> ProductCodes { get; set; }
 
+			public string PublishSetCode { get; set; }
+
 		}
 
 }

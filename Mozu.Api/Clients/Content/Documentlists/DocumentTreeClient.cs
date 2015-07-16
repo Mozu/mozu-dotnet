@@ -48,23 +48,56 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="crop"></param>
+		/// <param name="documentListName"></param>
+		/// <param name="documentName"></param>
+		/// <param name="height"></param>
+		/// <param name="max"></param>
+		/// <param name="maxHeight"></param>
+		/// <param name="maxWidth"></param>
+		/// <param name="quality"></param>
+		/// <param name="width"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=TransformTreeDocumentContent( documentListName,  documentName,  width,  height,  max,  maxWidth,  maxHeight,  crop,  quality);
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<System.IO.Stream> TransformTreeDocumentContentClient(string documentListName, string documentName, int? width =  null, int? height =  null, int? max =  null, int? maxWidth =  null, int? maxHeight =  null, string crop =  null, int? quality =  null)
+		{
+			var url = Mozu.Api.Urls.Content.Documentlists.DocumentTreeUrl.TransformTreeDocumentContentUrl(documentListName, documentName, width, height, max, maxWidth, maxHeight, crop, quality);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<System.IO.Stream>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Retrieves a document based on its document list and folder path in the document hierarchy.
 		/// </summary>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
 		/// <param name="documentName">The name of the document in the site.</param>
+		/// <param name="includeInactive"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.Document"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetTreeDocument(dataViewMode,  documentListName,  documentName,  responseFields);
+		///   var mozuClient=GetTreeDocument(dataViewMode,  documentListName,  documentName,  includeInactive,  responseFields);
 		///   var documentClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Content.Document> GetTreeDocumentClient(DataViewMode dataViewMode, string documentListName, string documentName, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Content.Document> GetTreeDocumentClient(DataViewMode dataViewMode, string documentListName, string documentName, bool? includeInactive =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Content.Documentlists.DocumentTreeUrl.GetTreeDocumentUrl(documentListName, documentName, responseFields);
+			var url = Mozu.Api.Urls.Content.Documentlists.DocumentTreeUrl.GetTreeDocumentUrl(documentListName, documentName, includeInactive, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Content.Document>()
 									.WithVerb(verb).WithResourceUrl(url)

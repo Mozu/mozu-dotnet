@@ -33,6 +33,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public string PublishedState { get; set; }
 
+			public string PublishSetCode { get; set; }
+
 		}
 
 }

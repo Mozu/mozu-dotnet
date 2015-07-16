@@ -24,31 +24,31 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the document publishing subresource to manage and publish document drafts in the Content service.
+	/// 
 	/// </summary>
 	public partial class DocumentDraftSummaryFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves a list of the documents currently in draft state, according to any defined filter and sort criteria.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = DocumentDraftSummaryFactory.ListDocumentDraftSummaries(handler : handler,  pageSize :  pageSize,  startIndex :  startIndex,  documentLists :  documentLists,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<DocumentDraftSummaryPagedCollection/>(result); 
+		/// var result = DocumentDraftSummaryFactory.GetPublishSets(handler : handler,  pageSize :  pageSize,  startIndex :  startIndex,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<PublishSetSummaryPagedCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection ListDocumentDraftSummaries(ServiceClientMessageHandler handler, 
- 		 int? pageSize = null, int? startIndex = null, string documentLists = null, string responseFields = null, 
+		public static Mozu.Api.Contracts.Content.PublishSetSummaryPagedCollection GetPublishSets(ServiceClientMessageHandler handler, 
+ 		 int? pageSize = null, int? startIndex = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.ListDocumentDraftSummariesClient(
-				 pageSize :  pageSize,  startIndex :  startIndex,  documentLists :  documentLists,  responseFields :  responseFields		);
+			var apiClient = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.GetPublishSetsClient(
+				 pageSize :  pageSize,  startIndex :  startIndex,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -68,25 +68,25 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Deletes the drafts of the specified documents. Published documents cannot be deleted.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = DocumentDraftSummaryFactory.DeleteDocumentDrafts(handler : handler,  documentIds :  documentIds,  documentLists :  documentLists,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var result = DocumentDraftSummaryFactory.GetPublishSetItems(handler : handler,  code :  code,  pageSize :  pageSize,  startIndex :  startIndex,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<DocumentDraftSummaryPagedCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeleteDocumentDrafts(ServiceClientMessageHandler handler, 
- 		List<string> documentIds, string documentLists = null, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection GetPublishSetItems(ServiceClientMessageHandler handler, 
+ 		 string code, int? pageSize = null, int? startIndex = null, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.DeleteDocumentDraftsClient(
-				 documentIds :  documentIds,  documentLists :  documentLists		);
+			var apiClient = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.GetPublishSetItemsClient(
+				 code :  code,  pageSize :  pageSize,  startIndex :  startIndex,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -97,33 +97,34 @@ namespace Mozu.Api.Test.Factories
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 
 		}
   
 		/// <summary> 
-		/// Publish one or more document drafts to live content on the site.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = DocumentDraftSummaryFactory.PublishDocuments(handler : handler,  documentIds :  documentIds,  documentLists :  documentLists,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var result = DocumentDraftSummaryFactory.DeletePublishSet(handler : handler,  code :  code,  shouldDiscard :  shouldDiscard,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<object/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void PublishDocuments(ServiceClientMessageHandler handler, 
- 		List<string> documentIds, string documentLists = null, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static object DeletePublishSet(ServiceClientMessageHandler handler, 
+ 		 string code, bool? shouldDiscard = null, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.PublishDocumentsClient(
-				 documentIds :  documentIds,  documentLists :  documentLists		);
+			var apiClient = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.DeletePublishSetClient(
+				 code :  code,  shouldDiscard :  shouldDiscard,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -134,8 +135,47 @@ namespace Mozu.Api.Test.Factories
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = DocumentDraftSummaryFactory.AddPublishSetItems(handler : handler,  documentIds :  documentIds,  code :  code,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<object/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static object AddPublishSetItems(ServiceClientMessageHandler handler, 
+ 		 List<string> documentIds, string code, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.AddPublishSetItemsClient(
+				 documentIds :  documentIds,  code :  code,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

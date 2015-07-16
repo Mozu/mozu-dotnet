@@ -17,6 +17,46 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 	{
 
 		/// <summary>
+        /// Get Resource Url for GetSearchTuningRule
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <param name="searchTuningRuleCode"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetSearchTuningRuleUrl(string searchTuningRuleCode, string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/search/searchtuningrule/{searchTuningRuleCode}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "searchTuningRuleCode", searchTuningRuleCode);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for GetSearchTuningRules
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="sortBy"></param>
+        /// <param name="startIndex"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetSearchTuningRulesUrl(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/search/searchtuningrule?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "filter", filter);
+			mozuUrl.FormatUrl( "pageSize", pageSize);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "sortBy", sortBy);
+			mozuUrl.FormatUrl( "startIndex", startIndex);
+			return mozuUrl;
+		}
+
+		/// <summary>
         /// Get Resource Url for GetSettings
         /// </summary>
         /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
@@ -31,7 +71,39 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 			return mozuUrl;
 		}
 
-						/// <summary>
+				/// <summary>
+        /// Get Resource Url for AddSearchTuningRule
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl AddSearchTuningRuleUrl(string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/search/searchtuningrule?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+				/// <summary>
+        /// Get Resource Url for UpdateSearchTuningRule
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <param name="searchTuningRuleCode"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl UpdateSearchTuningRuleUrl(string searchTuningRuleCode, string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/search/searchtuningrule/{searchTuningRuleCode}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "searchTuningRuleCode", searchTuningRuleCode);
+			return mozuUrl;
+		}
+
+		/// <summary>
         /// Get Resource Url for UpdateSettings
         /// </summary>
         /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
@@ -46,7 +118,22 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 			return mozuUrl;
 		}
 
-				
+				/// <summary>
+        /// Get Resource Url for DeleteSearchTuningRule
+        /// </summary>
+        /// <param name="searchTuningRuleCode"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl DeleteSearchTuningRuleUrl(string searchTuningRuleCode)
+		{
+			var url = "/api/commerce/catalog/admin/search/searchtuningrule/{searchTuningRuleCode}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "searchTuningRuleCode", searchTuningRuleCode);
+			return mozuUrl;
+		}
+
+		
 	}
 }
 

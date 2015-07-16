@@ -48,23 +48,56 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="crop"></param>
+		/// <param name="documentId"></param>
+		/// <param name="documentListName"></param>
+		/// <param name="height"></param>
+		/// <param name="max"></param>
+		/// <param name="maxHeight"></param>
+		/// <param name="maxWidth"></param>
+		/// <param name="quality"></param>
+		/// <param name="width"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=TransformDocumentContent( documentListName,  documentId,  width,  height,  max,  maxWidth,  maxHeight,  crop,  quality);
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<System.IO.Stream> TransformDocumentContentClient(string documentListName, string documentId, int? width =  null, int? height =  null, int? max =  null, int? maxWidth =  null, int? maxHeight =  null, string crop =  null, int? quality =  null)
+		{
+			var url = Mozu.Api.Urls.Content.Documentlists.DocumentUrl.TransformDocumentContentUrl(documentListName, documentId, width, height, max, maxWidth, maxHeight, crop, quality);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<System.IO.Stream>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Retrieves a document within the specified document list.
 		/// </summary>
 		/// <param name="documentId">Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.</param>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="includeInactive"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.Document"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetDocument(dataViewMode,  documentListName,  documentId,  responseFields);
+		///   var mozuClient=GetDocument(dataViewMode,  documentListName,  documentId,  includeInactive,  responseFields);
 		///   var documentClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Content.Document> GetDocumentClient(DataViewMode dataViewMode, string documentListName, string documentId, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Content.Document> GetDocumentClient(DataViewMode dataViewMode, string documentListName, string documentId, bool? includeInactive =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Content.Documentlists.DocumentUrl.GetDocumentUrl(documentListName, documentId, responseFields);
+			var url = Mozu.Api.Urls.Content.Documentlists.DocumentUrl.GetDocumentUrl(documentListName, documentId, includeInactive, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Content.Document>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -79,6 +112,7 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		/// </summary>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
 		/// <param name="filter">A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.</param>
+		/// <param name="includeInactive"></param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
@@ -88,13 +122,13 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetDocuments(dataViewMode,  documentListName,  filter,  sortBy,  pageSize,  startIndex,  responseFields);
+		///   var mozuClient=GetDocuments(dataViewMode,  documentListName,  filter,  sortBy,  pageSize,  startIndex,  includeInactive,  responseFields);
 		///   var documentCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Content.DocumentCollection> GetDocumentsClient(DataViewMode dataViewMode, string documentListName, string filter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Content.DocumentCollection> GetDocumentsClient(DataViewMode dataViewMode, string documentListName, string filter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, bool? includeInactive =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Content.Documentlists.DocumentUrl.GetDocumentsUrl(documentListName, filter, sortBy, pageSize, startIndex, responseFields);
+			var url = Mozu.Api.Urls.Content.Documentlists.DocumentUrl.GetDocumentsUrl(documentListName, filter, sortBy, pageSize, startIndex, includeInactive, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Content.DocumentCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
