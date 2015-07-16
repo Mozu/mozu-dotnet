@@ -29,6 +29,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public List<TargetedCategory> ExcludedCategories { get; set; }
 
+			public string ExcludedCategoriesOperator { get; set; }
+
 			///
 			///List of products that are not eligible for the discount.
 			///
@@ -48,6 +50,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///If true, the target discount applies to all products sold on the site, regardless of product category.
 			///
 			public bool? IncludeAllProducts { get; set; }
+
+			public string IncludedCategoriesOperator { get; set; }
 
 			///
 			///When a condition is specified, this property limits the number of items that are targeted for each discount redemption with an order. If multiple redemptions are allowed for each order then multiples of this value are allowed in multiples of the associated condition. If no condition is specified, then this value is not used. If null and condition exists, then defaults to 1.

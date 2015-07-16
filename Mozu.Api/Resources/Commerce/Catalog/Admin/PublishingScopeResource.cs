@@ -45,6 +45,106 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 				
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="publishSetCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PublishSet"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var publishingscope = new PublishingScope();
+		///   var publishSet = publishingscope.GetPublishSet( publishSetCode,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.PublishSet GetPublishSet(string publishSetCode, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.PublishSet> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.GetPublishSetClient( publishSetCode,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="publishSetCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PublishSet"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var publishingscope = new PublishingScope();
+		///   var publishSet = await publishingscope.GetPublishSetAsync( publishSetCode,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.PublishSet> GetPublishSetAsync(string publishSetCode, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.PublishSet> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.GetPublishSetClient( publishSetCode,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PublishSetCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var publishingscope = new PublishingScope();
+		///   var publishSetCollection = publishingscope.GetPublishSets( responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.PublishSetCollection GetPublishSets(string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.PublishSetCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.GetPublishSetsClient( responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PublishSetCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var publishingscope = new PublishingScope();
+		///   var publishSetCollection = await publishingscope.GetPublishSetsAsync( responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.PublishSetCollection> GetPublishSetsAsync(string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.PublishSetCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.GetPublishSetsClient( responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
 		/// Deletes the draft version of product changes for each product code specified in the request.
 		/// </summary>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
@@ -133,6 +233,106 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.PublishDraftsClient(_dataViewMode,  publishScope);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <param name="publishSet"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PublishSet"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var publishingscope = new PublishingScope();
+		///   var publishSet = publishingscope.AssignProductsToPublishSet( publishSet,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.PublishSet AssignProductsToPublishSet(Mozu.Api.Contracts.ProductAdmin.PublishSet publishSet, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.PublishSet> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.AssignProductsToPublishSetClient( publishSet,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <param name="publishSet"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PublishSet"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var publishingscope = new PublishingScope();
+		///   var publishSet = await publishingscope.AssignProductsToPublishSetAsync( publishSet,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.PublishSet> AssignProductsToPublishSetAsync(Mozu.Api.Contracts.ProductAdmin.PublishSet publishSet, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.PublishSet> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.AssignProductsToPublishSetClient( publishSet,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="discardDrafts"></param>
+		/// <param name="publishSetCode"></param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var publishingscope = new PublishingScope();
+		///   publishingscope.DeletePublishSet( publishSetCode,  discardDrafts);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void DeletePublishSet(string publishSetCode, bool? discardDrafts =  null)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.DeletePublishSetClient( publishSetCode,  discardDrafts);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="discardDrafts"></param>
+		/// <param name="publishSetCode"></param>
+		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var publishingscope = new PublishingScope();
+		///   await publishingscope.DeletePublishSetAsync( publishSetCode,  discardDrafts);
+		/// </code>
+		/// </example>
+		public virtual async Task DeletePublishSetAsync(string publishSetCode, bool? discardDrafts =  null)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.DeletePublishSetClient( publishSetCode,  discardDrafts);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 

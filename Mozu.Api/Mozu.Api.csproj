@@ -256,6 +256,7 @@
     <Compile Include="Contracts\CommerceRuntime\Fulfillment\PickupItem.cs" />
     <Compile Include="Contracts\CommerceRuntime\Fulfillment\Shipment.cs" />
     <Compile Include="Contracts\CommerceRuntime\Fulfillment\ShippingRate.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Orders\DigitalWallet.cs" />
     <Compile Include="Contracts\CommerceRuntime\Orders\Order.cs" />
     <Compile Include="Contracts\CommerceRuntime\Orders\OrderAction.cs" />
     <Compile Include="Contracts\CommerceRuntime\Orders\OrderAttribute.cs" />
@@ -306,6 +307,8 @@
     <Compile Include="Contracts\Content\Property.cs" />
     <Compile Include="Contracts\Content\PropertyType.cs" />
     <Compile Include="Contracts\Content\PropertyTypeCollection.cs" />
+    <Compile Include="Contracts\Content\PublishSetSummary.cs" />
+    <Compile Include="Contracts\Content\PublishSetSummaryPagedCollection.cs" />
     <Compile Include="Contracts\Content\View.cs" />
     <Compile Include="Contracts\Content\ViewField.cs" />
     <Compile Include="Contracts\Core\Address.cs" />
@@ -457,6 +460,8 @@
     <Compile Include="Contracts\ProductAdmin\DiscountCondition.cs" />
     <Compile Include="Contracts\ProductAdmin\DiscountLocalizedContent.cs" />
     <Compile Include="Contracts\ProductAdmin\DiscountTarget.cs" />
+    <Compile Include="Contracts\ProductAdmin\DynamicExpression.cs" />
+    <Compile Include="Contracts\ProductAdmin\Expression.cs" />
     <Compile Include="Contracts\ProductAdmin\Facet.cs" />
     <Compile Include="Contracts\ProductAdmin\FacetRangeQuery.cs" />
     <Compile Include="Contracts\ProductAdmin\FacetSet.cs" />
@@ -500,7 +505,12 @@
     <Compile Include="Contracts\ProductAdmin\ProductVariationOption.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductVariationPagedCollection.cs" />
     <Compile Include="Contracts\ProductAdmin\PublishingScope.cs" />
+    <Compile Include="Contracts\ProductAdmin\PublishSet.cs" />
+    <Compile Include="Contracts\ProductAdmin\PublishSetCollection.cs" />
     <Compile Include="Contracts\ProductAdmin\Search\SearchSynonymSettings.cs" />
+    <Compile Include="Contracts\ProductAdmin\Search\SearchTuningRule.cs" />
+    <Compile Include="Contracts\ProductAdmin\Search\SearchTuningRuleCollection.cs" />
+    <Compile Include="Contracts\ProductAdmin\Search\SearchTuningRuleFilter.cs" />
     <Compile Include="Contracts\ProductAdmin\SearchSettings.cs" />
     <Compile Include="Contracts\ProductAdmin\SiteSearchKeywordRelevancySettings.cs" />
     <Compile Include="Contracts\ProductAdmin\SiteSearchPhraseRelevancySettings.cs" />
@@ -592,6 +602,8 @@
     <Compile Include="Contracts\SiteSettings\Application\Application.cs" />
     <Compile Include="Contracts\SiteSettings\Application\Capability.cs" />
     <Compile Include="Contracts\SiteSettings\General\EmailTransactionSettings.cs" />
+    <Compile Include="Contracts\SiteSettings\General\General\Routing\CustomRouteSettings.cs" />
+    <Compile Include="Contracts\SiteSettings\General\General\Routing\Route.cs" />
     <Compile Include="Contracts\SiteSettings\General\General\ViewAuthorizations.cs" />
     <Compile Include="Contracts\SiteSettings\General\GeneralSettings.cs" />
     <Compile Include="Contracts\SiteSettings\General\TaxableTerritory.cs" />

@@ -39,6 +39,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public int PageSize { get; set; }
 
+			public string SearchTuningRuleCode { get; set; }
+
 			public int StartIndex { get; set; }
 
 			///

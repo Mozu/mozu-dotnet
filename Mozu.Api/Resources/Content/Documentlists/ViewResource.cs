@@ -42,6 +42,7 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// </summary>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
+		/// <param name="includeInactive"></param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.</param>
@@ -53,14 +54,14 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <example>
 		/// <code>
 		///   var view = new View();
-		///   var documentCollection = view.GetViewDocuments( documentListName,  viewName,  filter,  sortBy,  pageSize,  startIndex,  responseFields);
+		///   var documentCollection = view.GetViewDocuments( documentListName,  viewName,  filter,  sortBy,  pageSize,  startIndex,  includeInactive,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Content.DocumentCollection GetViewDocuments(string documentListName, string viewName, string filter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
+		public virtual Mozu.Api.Contracts.Content.DocumentCollection GetViewDocuments(string documentListName, string viewName, string filter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, bool? includeInactive =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentCollection> response;
-			var client = Mozu.Api.Clients.Content.Documentlists.ViewClient.GetViewDocumentsClient( documentListName,  viewName,  filter,  sortBy,  pageSize,  startIndex,  responseFields);
+			var client = Mozu.Api.Clients.Content.Documentlists.ViewClient.GetViewDocumentsClient( documentListName,  viewName,  filter,  sortBy,  pageSize,  startIndex,  includeInactive,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -72,6 +73,7 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// </summary>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
+		/// <param name="includeInactive"></param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.</param>
@@ -83,13 +85,13 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <example>
 		/// <code>
 		///   var view = new View();
-		///   var documentCollection = await view.GetViewDocumentsAsync( documentListName,  viewName,  filter,  sortBy,  pageSize,  startIndex,  responseFields);
+		///   var documentCollection = await view.GetViewDocumentsAsync( documentListName,  viewName,  filter,  sortBy,  pageSize,  startIndex,  includeInactive,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Content.DocumentCollection> GetViewDocumentsAsync(string documentListName, string viewName, string filter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Content.DocumentCollection> GetViewDocumentsAsync(string documentListName, string viewName, string filter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, bool? includeInactive =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentCollection> response;
-			var client = Mozu.Api.Clients.Content.Documentlists.ViewClient.GetViewDocumentsClient( documentListName,  viewName,  filter,  sortBy,  pageSize,  startIndex,  responseFields);
+			var client = Mozu.Api.Clients.Content.Documentlists.ViewClient.GetViewDocumentsClient( documentListName,  viewName,  filter,  sortBy,  pageSize,  startIndex,  includeInactive,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

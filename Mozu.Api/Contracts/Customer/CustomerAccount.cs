@@ -50,6 +50,8 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public List<CustomerContact> Contacts { get; set; }
 
+			public DateTime? CustomerSinceDate { get; set; }
+
 			///
 			///The email address for the customer account and contact. This email may be used for login to the storefront and for subscription mailing lists.
 			///
@@ -94,6 +96,10 @@ namespace Mozu.Api.Contracts.Customer
 			///The full last name of a customer or contact name.
 			///
 			public string LastName { get; set; }
+
+			public CurrencyAmount LifetimeValue { get; set; }
+
+			public DateTime? LifeTimeValueSetDate { get; set; }
 
 			///
 			///Language used for the entity. Currently, only "en-US" is supported.

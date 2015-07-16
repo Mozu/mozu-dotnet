@@ -142,6 +142,25 @@ namespace Mozu.Api.Urls.Commerce
 		}
 
 				/// <summary>
+        /// Get Resource Url for ProcessDigitalWallet
+        /// </summary>
+        /// <param name="digitalWalletType"></param>
+        /// <param name="orderId"></param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl ProcessDigitalWalletUrl(string orderId, string digitalWalletType, string responseFields =  null)
+		{
+			var url = "/api/commerce/orders/{orderId}/digitalWallet/{digitalWalletType}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "digitalWalletType", digitalWalletType);
+			mozuUrl.FormatUrl( "orderId", orderId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+		/// <summary>
         /// Get Resource Url for UpdateOrderDiscount
         /// </summary>
         /// <param name="discountId">Unique identifier of the discount. System-supplied and read only.</param>

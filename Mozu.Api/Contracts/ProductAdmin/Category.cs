@@ -31,6 +31,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public string CategoryCode { get; set; }
 
+			public string CategoryType { get; set; }
+
 			///
 			///The number of children (subcategories, for example) that stem from a parent (top-level category).
 			///
@@ -40,6 +42,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///Complex type that contains content for a language specified by LocaleCode.
 			///
 			public CategoryLocalizedContent Content { get; set; }
+
+			public DynamicExpression DynamicExpression { get; set; }
 
 			///
 			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 

@@ -44,6 +44,10 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public DateTime CreateDate { get; set; }
 
+			public DateTime? DateFirstAvailableInCatalog { get; set; }
+
+			public int? DaysAvailableInCatalog { get; set; }
+
 			///
 			///List of supported types of fulfillment  for the product or variation. The types include direct ship, in-store pickup, or both. 
 			///
@@ -128,6 +132,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///The product type template associated with the product on the storefront.
 			///
 			public string ProductType { get; set; }
+
+			public int? ProductTypeId { get; set; }
 
 			///
 			///The usage type that applies to this product, which is Standard (a single product without configurable options), Configurable (a product that includes configurable option attributes), Bundle (a collection of products sold as a single entity), or Component (an invididual product that represents a component in a bundle).

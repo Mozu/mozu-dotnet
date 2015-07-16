@@ -16,6 +16,38 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 	public partial class PublishingScopeUrl 
 	{
 
+		/// <summary>
+        /// Get Resource Url for GetPublishSet
+        /// </summary>
+        /// <param name="publishSetCode"></param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetPublishSetUrl(string publishSetCode, string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/publishing/publishsets/{publishSetCode}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "publishSetCode", publishSetCode);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for GetPublishSets
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetPublishSetsUrl(string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/publishing/publishsets?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for DiscardDrafts
         /// </summary>
@@ -42,7 +74,39 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 			return mozuUrl;
 		}
 
-						
+		/// <summary>
+        /// Get Resource Url for AssignProductsToPublishSet
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl AssignProductsToPublishSetUrl(string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/publishing/publishsets?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+						/// <summary>
+        /// Get Resource Url for DeletePublishSet
+        /// </summary>
+        /// <param name="discardDrafts"></param>
+        /// <param name="publishSetCode"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl DeletePublishSetUrl(string publishSetCode, bool? discardDrafts =  null)
+		{
+			var url = "/api/commerce/catalog/admin/publishing/publishsets/{publishSetCode}?discardDrafts={discardDrafts}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "discardDrafts", discardDrafts);
+			mozuUrl.FormatUrl( "publishSetCode", publishSetCode);
+			return mozuUrl;
+		}
+
+		
 	}
 }
 

@@ -94,10 +94,74 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="crop"></param>
+		/// <param name="documentId"></param>
+		/// <param name="documentListName"></param>
+		/// <param name="height"></param>
+		/// <param name="max"></param>
+		/// <param name="maxHeight"></param>
+		/// <param name="maxWidth"></param>
+		/// <param name="quality"></param>
+		/// <param name="width"></param>
+		/// <returns>
+		/// <see cref="System.IO.Stream"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var document = new Document();
+		///   var stream = document.TransformDocumentContent( documentListName,  documentId,  width,  height,  max,  maxWidth,  maxHeight,  crop,  quality);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual System.IO.Stream TransformDocumentContent(string documentListName, string documentId, int? width =  null, int? height =  null, int? max =  null, int? maxWidth =  null, int? maxHeight =  null, string crop =  null, int? quality =  null)
+		{
+			MozuClient<System.IO.Stream> response;
+			var client = Mozu.Api.Clients.Content.Documentlists.DocumentClient.TransformDocumentContentClient( documentListName,  documentId,  width,  height,  max,  maxWidth,  maxHeight,  crop,  quality);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="crop"></param>
+		/// <param name="documentId"></param>
+		/// <param name="documentListName"></param>
+		/// <param name="height"></param>
+		/// <param name="max"></param>
+		/// <param name="maxHeight"></param>
+		/// <param name="maxWidth"></param>
+		/// <param name="quality"></param>
+		/// <param name="width"></param>
+		/// <returns>
+		/// <see cref="System.IO.Stream"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var document = new Document();
+		///   var stream = await document.TransformDocumentContentAsync( documentListName,  documentId,  width,  height,  max,  maxWidth,  maxHeight,  crop,  quality);
+		/// </code>
+		/// </example>
+		public virtual async Task<System.IO.Stream> TransformDocumentContentAsync(string documentListName, string documentId, int? width =  null, int? height =  null, int? max =  null, int? maxWidth =  null, int? maxHeight =  null, string crop =  null, int? quality =  null)
+		{
+			MozuClient<System.IO.Stream> response;
+			var client = Mozu.Api.Clients.Content.Documentlists.DocumentClient.TransformDocumentContentClient( documentListName,  documentId,  width,  height,  max,  maxWidth,  maxHeight,  crop,  quality);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
 		/// Retrieves a document within the specified document list.
 		/// </summary>
 		/// <param name="documentId">Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.</param>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="includeInactive"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.Document"/>
@@ -105,14 +169,14 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <example>
 		/// <code>
 		///   var document = new Document();
-		///   var document = document.GetDocument(_dataViewMode,  documentListName,  documentId,  responseFields);
+		///   var document = document.GetDocument(_dataViewMode,  documentListName,  documentId,  includeInactive,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Content.Document GetDocument(string documentListName, string documentId, string responseFields =  null)
+		public virtual Mozu.Api.Contracts.Content.Document GetDocument(string documentListName, string documentId, bool? includeInactive =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.Document> response;
-			var client = Mozu.Api.Clients.Content.Documentlists.DocumentClient.GetDocumentClient(_dataViewMode,  documentListName,  documentId,  responseFields);
+			var client = Mozu.Api.Clients.Content.Documentlists.DocumentClient.GetDocumentClient(_dataViewMode,  documentListName,  documentId,  includeInactive,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -124,6 +188,7 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// </summary>
 		/// <param name="documentId">Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.</param>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="includeInactive"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.Document"/>
@@ -131,13 +196,13 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <example>
 		/// <code>
 		///   var document = new Document();
-		///   var document = await document.GetDocumentAsync(_dataViewMode,  documentListName,  documentId,  responseFields);
+		///   var document = await document.GetDocumentAsync(_dataViewMode,  documentListName,  documentId,  includeInactive,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Content.Document> GetDocumentAsync(string documentListName, string documentId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Content.Document> GetDocumentAsync(string documentListName, string documentId, bool? includeInactive =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.Document> response;
-			var client = Mozu.Api.Clients.Content.Documentlists.DocumentClient.GetDocumentClient(_dataViewMode,  documentListName,  documentId,  responseFields);
+			var client = Mozu.Api.Clients.Content.Documentlists.DocumentClient.GetDocumentClient(_dataViewMode,  documentListName,  documentId,  includeInactive,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -149,6 +214,7 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// </summary>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
 		/// <param name="filter">A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.</param>
+		/// <param name="includeInactive"></param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
@@ -159,14 +225,14 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <example>
 		/// <code>
 		///   var document = new Document();
-		///   var documentCollection = document.GetDocuments(_dataViewMode,  documentListName,  filter,  sortBy,  pageSize,  startIndex,  responseFields);
+		///   var documentCollection = document.GetDocuments(_dataViewMode,  documentListName,  filter,  sortBy,  pageSize,  startIndex,  includeInactive,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Content.DocumentCollection GetDocuments(string documentListName, string filter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
+		public virtual Mozu.Api.Contracts.Content.DocumentCollection GetDocuments(string documentListName, string filter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, bool? includeInactive =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentCollection> response;
-			var client = Mozu.Api.Clients.Content.Documentlists.DocumentClient.GetDocumentsClient(_dataViewMode,  documentListName,  filter,  sortBy,  pageSize,  startIndex,  responseFields);
+			var client = Mozu.Api.Clients.Content.Documentlists.DocumentClient.GetDocumentsClient(_dataViewMode,  documentListName,  filter,  sortBy,  pageSize,  startIndex,  includeInactive,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -178,6 +244,7 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// </summary>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
 		/// <param name="filter">A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.</param>
+		/// <param name="includeInactive"></param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
@@ -188,13 +255,13 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <example>
 		/// <code>
 		///   var document = new Document();
-		///   var documentCollection = await document.GetDocumentsAsync(_dataViewMode,  documentListName,  filter,  sortBy,  pageSize,  startIndex,  responseFields);
+		///   var documentCollection = await document.GetDocumentsAsync(_dataViewMode,  documentListName,  filter,  sortBy,  pageSize,  startIndex,  includeInactive,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Content.DocumentCollection> GetDocumentsAsync(string documentListName, string filter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Content.DocumentCollection> GetDocumentsAsync(string documentListName, string filter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, bool? includeInactive =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentCollection> response;
-			var client = Mozu.Api.Clients.Content.Documentlists.DocumentClient.GetDocumentsClient(_dataViewMode,  documentListName,  filter,  sortBy,  pageSize,  startIndex,  responseFields);
+			var client = Mozu.Api.Clients.Content.Documentlists.DocumentClient.GetDocumentsClient(_dataViewMode,  documentListName,  filter,  sortBy,  pageSize,  startIndex,  includeInactive,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

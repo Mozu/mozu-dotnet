@@ -23,6 +23,8 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public DateTime? ActiveUpdateDate { get; set; }
 
+			public int? CatalogId { get; set; }
+
 			///
 			///Fully qualified name of the document type. 
 			///
@@ -43,15 +45,21 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public string ListFQN { get; set; }
 
+			public int? MasterCatalogId { get; set; }
+
 			///
 			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
 			///
 			public string Name { get; set; }
 
+			public string PublishSetCode { get; set; }
+
 			///
 			///Whether the draft has been published.
 			///
 			public string PublishType { get; set; }
+
+			public int? SiteId { get; set; }
 
 			///
 			///Unique identifier of the user who last modified the item. This value is system-supplied and read-only.

@@ -13,6 +13,7 @@ using System.Collections.Generic;
 
 using Mozu.Api.Contracts.Core;
 using Mozu.Api.Contracts.SiteSettings.General.General;
+using Mozu.Api.Contracts.SiteSettings.General.General.Routing;
 
 namespace Mozu.Api.Contracts.SiteSettings.General
 {
@@ -30,6 +31,8 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 			///
 			public AuditInfo AuditInfo { get; set; }
+
+			public CustomRouteSettings CustomRoutes { get; set; }
 
 			///
 			///The physical directory path or URL where the mobile favicon image file is stored. The favicon icon is generally 57x57 pixels. The icon appears on a mobile website or on the mobile device's OS Home.

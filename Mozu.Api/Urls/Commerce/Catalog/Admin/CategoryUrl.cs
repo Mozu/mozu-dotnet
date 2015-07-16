@@ -90,6 +90,36 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for ValidateDynamicExpression
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl ValidateDynamicExpressionUrl(string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/categories/ValidateDynamicExpression?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for ValidateRealTimeDynamicExpression
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl ValidateRealTimeDynamicExpressionUrl(string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/categories/ValidateRealTimeDynamicExpression?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for UpdateCategory
         /// </summary>

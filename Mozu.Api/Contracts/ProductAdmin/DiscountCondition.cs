@@ -49,6 +49,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public List<CategoryDiscountCondition> IncludedCategories { get; set; }
 
+			public List<string> IncludedPaymentWorkflows { get; set; }
+
 			///
 			///List of products that are eligible for the discount.
 			///

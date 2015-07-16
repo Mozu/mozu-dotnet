@@ -38,6 +38,110 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 
 				
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="searchTuningRuleCode"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var search = new Search();
+		///   var searchTuningRule = search.GetSearchTuningRule( searchTuningRuleCode,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule GetSearchTuningRule(string searchTuningRuleCode, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.GetSearchTuningRuleClient( searchTuningRuleCode,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="searchTuningRuleCode"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var search = new Search();
+		///   var searchTuningRule = await search.GetSearchTuningRuleAsync( searchTuningRuleCode,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule> GetSearchTuningRuleAsync(string searchTuningRuleCode, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.GetSearchTuningRuleClient( searchTuningRuleCode,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var search = new Search();
+		///   var searchTuningRuleCollection = search.GetSearchTuningRules( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleCollection GetSearchTuningRules(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.GetSearchTuningRulesClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var search = new Search();
+		///   var searchTuningRuleCollection = await search.GetSearchTuningRulesAsync( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleCollection> GetSearchTuningRulesAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.GetSearchTuningRulesClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
 		/// Get site search settings
 		/// </summary>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
@@ -78,6 +182,106 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.SearchSettings> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.GetSettingsClient( responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="searchTuningRuleIn"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var search = new Search();
+		///   var searchTuningRule = search.AddSearchTuningRule( searchTuningRuleIn,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule AddSearchTuningRule(Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule searchTuningRuleIn, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.AddSearchTuningRuleClient( searchTuningRuleIn,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="searchTuningRuleIn"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var search = new Search();
+		///   var searchTuningRule = await search.AddSearchTuningRuleAsync( searchTuningRuleIn,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule> AddSearchTuningRuleAsync(Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule searchTuningRuleIn, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.AddSearchTuningRuleClient( searchTuningRuleIn,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="searchTuningRuleCode"></param>
+		/// <param name="searchTuningRuleIn"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var search = new Search();
+		///   var searchTuningRule = search.UpdateSearchTuningRule( searchTuningRuleIn,  searchTuningRuleCode,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule UpdateSearchTuningRule(Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule searchTuningRuleIn, string searchTuningRuleCode, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.UpdateSearchTuningRuleClient( searchTuningRuleIn,  searchTuningRuleCode,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="searchTuningRuleCode"></param>
+		/// <param name="searchTuningRuleIn"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var search = new Search();
+		///   var searchTuningRule = await search.UpdateSearchTuningRuleAsync( searchTuningRuleIn,  searchTuningRuleCode,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule> UpdateSearchTuningRuleAsync(Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule searchTuningRuleIn, string searchTuningRuleCode, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.UpdateSearchTuningRuleClient( searchTuningRuleIn,  searchTuningRuleCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -130,6 +334,51 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="searchTuningRuleCode"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var search = new Search();
+		///   search.DeleteSearchTuningRule( searchTuningRuleCode);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void DeleteSearchTuningRule(string searchTuningRuleCode)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.DeleteSearchTuningRuleClient( searchTuningRuleCode);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="searchTuningRuleCode"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var search = new Search();
+		///   await search.DeleteSearchTuningRuleAsync( searchTuningRuleCode);
+		/// </code>
+		/// </example>
+		public virtual async Task DeleteSearchTuningRuleAsync(string searchTuningRuleCode)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.DeleteSearchTuningRuleClient( searchTuningRuleCode);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
 
 		}
 
