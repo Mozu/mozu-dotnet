@@ -117,6 +117,8 @@
     <Compile Include="Clients\Commerce\Catalog\Admin\Attributedefinition\Producttypes\ProductTypePropertyClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\Attributedefinition\Producttypes\ProductTypeVariationClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\CategoryClient.cs" />
+    <Compile Include="Clients\Commerce\Catalog\Admin\CouponSetClient.cs" />
+    <Compile Include="Clients\Commerce\Catalog\Admin\Couponsets\CouponClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\DiscountClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\Discounts\DiscountTargetClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\FacetClient.cs" />
@@ -181,6 +183,7 @@
     <Compile Include="Clients\Commerce\Settings\Checkout\CustomerCheckoutSettingsClient.cs" />
     <Compile Include="Clients\Commerce\Settings\Checkout\PaymentSettingsClient.cs" />
     <Compile Include="Clients\Commerce\Settings\CheckoutSettingsClient.cs" />
+    <Compile Include="Clients\Commerce\Settings\General\CustomRouteSettingsClient.cs" />
     <Compile Include="Clients\Commerce\Settings\General\TaxableTerritoryClient.cs" />
     <Compile Include="Clients\Commerce\Settings\GeneralSettingsClient.cs" />
     <Compile Include="Clients\Commerce\Settings\LocationUsageClient.cs" />
@@ -197,6 +200,7 @@
     <Compile Include="Clients\Content\DocumentListTypeClient.cs" />
     <Compile Include="Clients\Content\DocumentTypeClient.cs" />
     <Compile Include="Clients\Content\PropertyTypeClient.cs" />
+    <Compile Include="Clients\Content\PublishSetSummaryClient.cs" />
     <Compile Include="Clients\Event\EventNotificationClient.cs" />
     <Compile Include="Clients\Event\Push\SubscriptionClient.cs" />
     <Compile Include="Clients\Event\Push\Subscriptions\EventDeliverySummaryClient.cs" />
@@ -293,6 +297,7 @@
     <Compile Include="Contracts\CommerceRuntime\Wishlists\WishlistCollection.cs" />
     <Compile Include="Contracts\CommerceRuntime\Wishlists\WishlistItem.cs" />
     <Compile Include="Contracts\CommerceRuntime\Wishlists\WishlistItemCollection.cs" />
+    <Compile Include="Contracts\Content\ActiveDateRange.cs" />
     <Compile Include="Contracts\Content\Document.cs" />
     <Compile Include="Contracts\Content\DocumentCollection.cs" />
     <Compile Include="Contracts\Content\DocumentDraftSummary.cs" />
@@ -433,6 +438,8 @@
     <Compile Include="Contracts\PricingRuntime\ThirdParty\OrderTaxContext.cs" />
     <Compile Include="Contracts\PricingRuntime\ThirdParty\TaxableOrder.cs" />
     <Compile Include="Contracts\PricingRuntime\ThirdParty\TaxContext.cs" />
+    <Compile Include="Contracts\ProductAdmin\ActiveDateRange.cs" />
+    <Compile Include="Contracts\ProductAdmin\AssignedDiscount.cs" />
     <Compile Include="Contracts\ProductAdmin\Attribute.cs" />
     <Compile Include="Contracts\ProductAdmin\AttributeCollection.cs" />
     <Compile Include="Contracts\ProductAdmin\AttributeInProductType.cs" />
@@ -454,6 +461,10 @@
     <Compile Include="Contracts\ProductAdmin\CategoryLocalizedContent.cs" />
     <Compile Include="Contracts\ProductAdmin\CategoryLocalizedImage.cs" />
     <Compile Include="Contracts\ProductAdmin\CategoryPagedCollection.cs" />
+    <Compile Include="Contracts\ProductAdmin\Coupon.cs" />
+    <Compile Include="Contracts\ProductAdmin\CouponCollection.cs" />
+    <Compile Include="Contracts\ProductAdmin\CouponSet.cs" />
+    <Compile Include="Contracts\ProductAdmin\CouponSetCollection.cs" />
     <Compile Include="Contracts\ProductAdmin\CustomerSegment.cs" />
     <Compile Include="Contracts\ProductAdmin\Discount.cs" />
     <Compile Include="Contracts\ProductAdmin\DiscountCollection.cs" />
@@ -510,6 +521,7 @@
     <Compile Include="Contracts\ProductAdmin\Search\SearchSynonymSettings.cs" />
     <Compile Include="Contracts\ProductAdmin\Search\SearchTuningRule.cs" />
     <Compile Include="Contracts\ProductAdmin\Search\SearchTuningRuleCollection.cs" />
+    <Compile Include="Contracts\ProductAdmin\Search\SearchTuningRuleExpression.cs" />
     <Compile Include="Contracts\ProductAdmin\Search\SearchTuningRuleFilter.cs" />
     <Compile Include="Contracts\ProductAdmin\SearchSettings.cs" />
     <Compile Include="Contracts\ProductAdmin\SiteSearchKeywordRelevancySettings.cs" />
@@ -601,6 +613,7 @@
     <Compile Include="Contracts\ShippingRuntime\ShippingRateValidationMessage.cs" />
     <Compile Include="Contracts\SiteSettings\Application\Application.cs" />
     <Compile Include="Contracts\SiteSettings\Application\Capability.cs" />
+    <Compile Include="Contracts\SiteSettings\General\CacheSettings.cs" />
     <Compile Include="Contracts\SiteSettings\General\EmailTransactionSettings.cs" />
     <Compile Include="Contracts\SiteSettings\General\General\Routing\CustomRouteSettings.cs" />
     <Compile Include="Contracts\SiteSettings\General\General\Routing\Route.cs" />
@@ -611,9 +624,11 @@
     <Compile Include="Contracts\SiteSettings\Order\CustomerCheckoutSettings.cs" />
     <Compile Include="Contracts\SiteSettings\Order\ExternalPaymentWorkflowDefinition.cs" />
     <Compile Include="Contracts\SiteSettings\Order\Gateway.cs" />
+    <Compile Include="Contracts\SiteSettings\Order\LocalizedContent.cs" />
     <Compile Include="Contracts\SiteSettings\Order\OrderProcessingSettings.cs" />
     <Compile Include="Contracts\SiteSettings\Order\PaymentSettings.cs" />
     <Compile Include="Contracts\SiteSettings\Order\ThirdPartyCredentialField.cs" />
+    <Compile Include="Contracts\SiteSettings\Order\VocabularyValue.cs" />
     <Compile Include="Contracts\SiteSettings\Shipping\SiteShippingHandlingFee.cs" />
     <Compile Include="Contracts\SiteSettings\Shipping\SiteShippingSettings.cs" />
     <Compile Include="Contracts\SiteSettings\Shipping\SiteShippingSignatureRequirement.cs" />
@@ -662,6 +677,8 @@
     <Compile Include="Resources\Commerce\Catalog\Admin\Attributedefinition\Producttypes\ProductTypePropertyResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\Attributedefinition\Producttypes\ProductTypeVariationResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\CategoryResource.cs" />
+    <Compile Include="Resources\Commerce\Catalog\Admin\CouponSetResource.cs" />
+    <Compile Include="Resources\Commerce\Catalog\Admin\Couponsets\CouponResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\DiscountResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\Discounts\DiscountTargetResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\FacetResource.cs" />
@@ -726,6 +743,7 @@
     <Compile Include="Resources\Commerce\Settings\Checkout\CustomerCheckoutSettingsResource.cs" />
     <Compile Include="Resources\Commerce\Settings\Checkout\PaymentSettingsResource.cs" />
     <Compile Include="Resources\Commerce\Settings\CheckoutSettingsResource.cs" />
+    <Compile Include="Resources\Commerce\Settings\General\CustomRouteSettingsResource.cs" />
     <Compile Include="Resources\Commerce\Settings\General\TaxableTerritoryResource.cs" />
     <Compile Include="Resources\Commerce\Settings\GeneralSettingsResource.cs" />
     <Compile Include="Resources\Commerce\Settings\LocationUsageResource.cs" />
@@ -742,6 +760,7 @@
     <Compile Include="Resources\Content\DocumentListTypeResource.cs" />
     <Compile Include="Resources\Content\DocumentTypeResource.cs" />
     <Compile Include="Resources\Content\PropertyTypeResource.cs" />
+    <Compile Include="Resources\Content\PublishSetSummaryResource.cs" />
     <Compile Include="Resources\Event\EventNotificationResource.cs" />
     <Compile Include="Resources\Event\Push\SubscriptionResource.cs" />
     <Compile Include="Resources\Event\Push\Subscriptions\EventDeliverySummaryResource.cs" />
@@ -777,6 +796,8 @@
     <Compile Include="Urls\Commerce\Catalog\Admin\Attributedefinition\Producttypes\ProductTypeVariationUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\Attributedefinition\ProductTypeUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\CategoryUrl.cs" />
+    <Compile Include="Urls\Commerce\Catalog\Admin\Couponsets\CouponUrl.cs" />
+    <Compile Include="Urls\Commerce\Catalog\Admin\CouponSetUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\Discounts\DiscountTargetUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\DiscountUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\FacetUrl.cs" />
@@ -841,6 +862,7 @@
     <Compile Include="Urls\Commerce\Settings\Checkout\CustomerCheckoutSettingsUrl.cs" />
     <Compile Include="Urls\Commerce\Settings\Checkout\PaymentSettingsUrl.cs" />
     <Compile Include="Urls\Commerce\Settings\CheckoutSettingsUrl.cs" />
+    <Compile Include="Urls\Commerce\Settings\General\CustomRouteSettingsUrl.cs" />
     <Compile Include="Urls\Commerce\Settings\General\TaxableTerritoryUrl.cs" />
     <Compile Include="Urls\Commerce\Settings\GeneralSettingsUrl.cs" />
     <Compile Include="Urls\Commerce\Settings\LocationUsageUrl.cs" />
@@ -857,6 +879,7 @@
     <Compile Include="Urls\Content\DocumentListUrl.cs" />
     <Compile Include="Urls\Content\DocumentTypeUrl.cs" />
     <Compile Include="Urls\Content\PropertyTypeUrl.cs" />
+    <Compile Include="Urls\Content\PublishSetSummaryUrl.cs" />
     <Compile Include="Urls\Event\EventNotificationUrl.cs" />
     <Compile Include="Urls\Event\Push\Subscriptions\EventDeliverySummaryUrl.cs" />
     <Compile Include="Urls\Event\Push\SubscriptionUrl.cs" />

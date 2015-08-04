@@ -1,81 +1,78 @@
 Operation Params
-0.    Added - commerce.catalog.admin.categories.ValidateDynamicExpression- Param : dynamicExpressionIn
-1.    Added - commerce.catalog.admin.categories.ValidateRealTimeDynamicExpression- Param : dynamicExpressionIn
-2.    Added - commerce.catalog.admin.publishing.DeletePublishSet- Param : discardDrafts
-3.    Added - commerce.catalog.admin.publishing.AssignProductsToPublishSet- Param : publishSet
-4.    Added - commerce.catalog.admin.publishing.GetPublishSet- Param : publishSetCode
-5.    Added - commerce.catalog.admin.publishing.DeletePublishSet- Param : publishSetCode
-6.    Added - commerce.catalog.admin.publishing.GetPublishSets- Param : responseFields
-7.    Added - commerce.catalog.admin.publishing.AssignProductsToPublishSet- Param : responseFields
-8.    Added - commerce.catalog.admin.publishing.GetPublishSet- Param : responseFields
-9.    Added - commerce.catalog.admin.search.GetSearchTuningRules- Param : filter
-10.    Added - commerce.catalog.admin.search.GetSearchTuningRules- Param : pageSize
-11.    Added - commerce.catalog.admin.search.DeleteSearchTuningRule- Param : searchTuningRuleCode
-12.    Added - commerce.catalog.admin.search.GetSearchTuningRule- Param : searchTuningRuleCode
-13.    Added - commerce.catalog.admin.search.UpdateSearchTuningRule- Param : searchTuningRuleCode
-14.    Added - commerce.catalog.admin.search.AddSearchTuningRule- Param : searchTuningRuleIn
-15.    Added - commerce.catalog.admin.search.UpdateSearchTuningRule- Param : searchTuningRuleIn
-16.    Added - commerce.catalog.admin.search.GetSearchTuningRules- Param : sortBy
-17.    Added - commerce.catalog.admin.search.GetSearchTuningRules- Param : startIndex
-18.    Added - commerce.catalog.storefront.productsearch.Search- Param : enableSearchTuningRules
-19.    Added - commerce.catalog.storefront.productsearch.Search- Param : searchTuningRuleCode
-20.    Added - commerce.catalog.storefront.productsearch.Search- Param : searchTuningRuleContext
-21.    Added - commerce.catalog.storefront.productsearch.GetSearchTuningRules- Param : siteId
-22.    Added - commerce.orders.ProcessDigitalWallet- Param : digitalWallet
-23.    Added - commerce.orders.ProcessDigitalWallet- Param : digitalWalletType
-24.    Added - content.documentlists.documents.TransformDocumentContent- Param : crop
-25.    Added - content.documentlists.documents.TransformDocumentContent- Param : height
-26.    Added - content.documentlists.documents.GetDocumentContentHead- Param : includeInactive
-27.    Added - content.documentlists.documents.GetDocument- Param : includeInactive
-28.    Added - content.documentlists.documents.GetDocuments- Param : includeInactive
-29.    Added - content.documentlists.documents.TransformDocumentContent- Param : max
-30.    Added - content.documentlists.documents.TransformDocumentContent- Param : maxHeight
-31.    Added - content.documentlists.documents.TransformDocumentContent- Param : maxWidth
-32.    Added - content.documentlists.documents.TransformDocumentContent- Param : quality
-33.    Added - content.documentlists.documents.TransformDocumentContent- Param : width
-34.    Added - content.documentlists.documentTree.TransformTreeDocumentContent- Param : crop
-35.    Added - content.documentlists.documentTree.TransformTreeDocumentContent- Param : height
-36.    Added - content.documentlists.documentTree.GetTreeDocument- Param : includeInactive
-37.    Added - content.documentlists.documentTree.TransformTreeDocumentContent- Param : max
-38.    Added - content.documentlists.documentTree.TransformTreeDocumentContent- Param : maxHeight
-39.    Added - content.documentlists.documentTree.TransformTreeDocumentContent- Param : maxWidth
-40.    Added - content.documentlists.documentTree.TransformTreeDocumentContent- Param : quality
-41.    Added - content.documentlists.documentTree.TransformTreeDocumentContent- Param : width
-42.    Added - content.documentlists.views.GetViewDocuments- Param : includeInactive
-43.    Added - content.publishsets.DeletePublishSet- Param : code
-44.    Added - content.publishsets.GetPublishSetItems- Param : code
-45.    Added - content.publishsets.AddPublishSetItems- Param : code
-46.    Added - content.publishsets.AddPublishSetItems- Param : documentIds
-47.    Added - content.publishsets.GetPublishSets- Param : pageSize
-48.    Added - content.publishsets.GetPublishSetItems- Param : pageSize
-49.    Added - content.publishsets.AddPublishSetItems- Param : responseFields
-50.    Added - content.publishsets.DeletePublishSet- Param : responseFields
-51.    Added - content.publishsets.GetPublishSets- Param : responseFields
-52.    Added - content.publishsets.GetPublishSetItems- Param : responseFields
-53.    Added - content.publishsets.DeletePublishSet- Param : shouldDiscard
-54.    Added - content.publishsets.GetPublishSets- Param : startIndex
-55.    Added - content.publishsets.GetPublishSetItems- Param : startIndex
+0.    Added - commerce.catalog.admin.couponsets.ValidateUniqueCouponSetCode- Param : code
+1.    Added - commerce.catalog.admin.couponsets.coupons.AssignDiscount- Param : assignedDiscount
+2.    Added - commerce.catalog.admin.couponsets.coupons.UnAssignDiscount- Param : assignedDiscount
+3.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupon- Param : couponCode
+4.    Added - commerce.catalog.admin.couponsets.coupons.AddCoupons- Param : coupons
+5.    Added - commerce.catalog.admin.couponsets.coupons.DeleteCoupons- Param : coupons
+6.    Added - commerce.catalog.admin.couponsets.coupons.UpdateCouponSet- Param : couponSet
+7.    Added - commerce.catalog.admin.couponsets.coupons.AddCoupons- Param : couponSetCode
+8.    Added - commerce.catalog.admin.couponsets.coupons.AssignDiscount- Param : couponSetCode
+9.    Added - commerce.catalog.admin.couponsets.coupons.DeleteCoupons- Param : couponSetCode
+10.    Added - commerce.catalog.admin.couponsets.coupons.DeleteCouponSet- Param : couponSetCode
+11.    Added - commerce.catalog.admin.couponsets.coupons.GetAssignedDiscounts- Param : couponSetCode
+12.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupon- Param : couponSetCode
+13.    Added - commerce.catalog.admin.couponsets.coupons.UnAssignDiscount- Param : couponSetCode
+14.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : couponSetCode
+15.    Added - commerce.catalog.admin.couponsets.coupons.UpdateCouponSet- Param : couponSetCode
+16.    Added - commerce.catalog.admin.couponsets.coupons.GetCouponSet- Param : couponSetCode
+17.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : filter
+18.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : pageSize
+19.    Added - commerce.catalog.admin.couponsets.coupons.GetCouponSet- Param : responseFields
+20.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupon- Param : responseFields
+21.    Added - commerce.catalog.admin.couponsets.coupons.UpdateCouponSet- Param : responseFields
+22.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : responseFields
+23.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : sortBy
+24.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : startIndex
+25.    Added - commerce.catalog.admin.couponsets.AddCouponSet- Param : couponSet
+26.    Added - commerce.catalog.admin.couponsets.GetCouponSets- Param : filter
+27.    Added - commerce.catalog.admin.couponsets.GetCouponSets- Param : pageSize
+28.    Added - commerce.catalog.admin.couponsets.GetUniqueCouponSetCode- Param : responseFields
+29.    Added - commerce.catalog.admin.couponsets.AddCouponSet- Param : responseFields
+30.    Added - commerce.catalog.admin.couponsets.GetCouponSets- Param : responseFields
+31.    Added - commerce.catalog.admin.couponsets.GetCouponSets- Param : sortBy
+32.    Added - commerce.catalog.admin.couponsets.GetCouponSets- Param : startIndex
+33.    Added - commerce.catalog.admin.discounts.AssociateCouponSet- Param : couponSetIds
+34.    Added - commerce.catalog.admin.discounts.DisassociateCouponSet- Param : couponSetIds
+35.    Added - commerce.catalog.storefront.categories.GetProductsOutOfSyncWithDynamicCategory- Param : excludeProductsAlreadyAssignedCategory
+36.    Added - commerce.settings.checkout.paymentsettings.AddThirdPartyPaymentWorkflow- Param : definition
+37.    Added - commerce.settings.checkout.paymentsettings.DeleteThirdPartyPaymentWorkflow- Param : fullyQualifiedName
+38.    Added - commerce.settings.checkout.paymentsettings.GetThirdPartyPaymentWorkflowWithValues- Param : fullyQualifiedName
+39.    Added - commerce.settings.general.customroutes.GetCustomRouteSettings- Param : responseFields
+40.    Added - commerce.settings.general.customroutes.CreateCustomRouteSettings- Param : responseFields
+41.    Added - commerce.settings.general.customroutes.UpdateCustomRouteSettings- Param : responseFields
+42.    Added - commerce.settings.general.customroutes.CreateCustomRouteSettings- Param : settings
+43.    Added - commerce.settings.general.customroutes.UpdateCustomRouteSettings- Param : settings
 
 Operations
-0.    Added - commerce.catalog.admin.categories.ValidateDynamicExpression - POST
-1.    Added - commerce.catalog.admin.categories.ValidateRealTimeDynamicExpression - POST
-2.    Added - commerce.catalog.admin.publishing.AssignProductsToPublishSet - POST
-3.    Added - commerce.catalog.admin.publishing.DeletePublishSet - DELETE
-4.    Added - commerce.catalog.admin.publishing.GetPublishSet - GET
-5.    Added - commerce.catalog.admin.publishing.GetPublishSets - GET
-6.    Added - commerce.catalog.admin.search.AddSearchTuningRule - POST
-7.    Added - commerce.catalog.admin.search.DeleteSearchTuningRule - DELETE
-8.    Added - commerce.catalog.admin.search.GetSearchTuningRule - GET
-9.    Added - commerce.catalog.admin.search.GetSearchTuningRules - GET
-10.    Added - commerce.catalog.admin.search.UpdateSearchTuningRule - PUT
-11.    Added - commerce.catalog.storefront.productsearch.GetSearchTuningRules - GET
-12.    Added - commerce.orders.ProcessDigitalWallet - PUT
-13.    Added - content.documentlists.documents.TransformDocumentContent - GET
-14.    Added - content.documentlists.documentTree.TransformTreeDocumentContent - GET
-15.    Added - content.publishsets.AddPublishSetItems - PUT
-16.    Added - content.publishsets.DeletePublishSet - POST
-17.    Added - content.publishsets.GetPublishSetItems - GET
-18.    Added - content.publishsets.GetPublishSets - GET
+0.    Added - commerce.catalog.admin.couponsets.AddCouponSet - POST
+1.    Added - commerce.catalog.admin.couponsets.coupons.AddCoupons - POST
+2.    Added - commerce.catalog.admin.couponsets.coupons.AssignDiscount - POST
+3.    Added - commerce.catalog.admin.couponsets.coupons.DeleteCoupons - DELETE
+4.    Added - commerce.catalog.admin.couponsets.coupons.DeleteCouponSet - DELETE
+5.    Added - commerce.catalog.admin.couponsets.coupons.GetAssignedDiscounts - GET
+6.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupon - GET
+7.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons - GET
+8.    Added - commerce.catalog.admin.couponsets.coupons.GetCouponSet - GET
+9.    Added - commerce.catalog.admin.couponsets.coupons.UnAssignDiscount - DELETE
+10.    Added - commerce.catalog.admin.couponsets.coupons.UpdateCouponSet - PUT
+11.    Added - commerce.catalog.admin.couponsets.GetCouponSets - GET
+12.    Added - commerce.catalog.admin.couponsets.GetUniqueCouponSetCode - GET
+13.    Added - commerce.catalog.admin.couponsets.ValidateUniqueCouponSetCode - POST
+14.    Added - commerce.catalog.admin.discounts.AssociateCouponSet - POST
+15.    Added - commerce.catalog.admin.discounts.DisassociateCouponSet - DELETE
+16.    Added - commerce.catalog.admin.search.GetSiteIdsWithSearchTuning - GET
+17.    Added - commerce.catalog.storefront.categories.GetProductsOutOfSyncWithDynamicCategory - GET
+18.    Added - commerce.catalog.storefront.products.GetProductForIndexing - GET
+19.    Added - commerce.settings.checkout.paymentsettings.AddThirdPartyPaymentWorkflow - PUT
+20.    Added - commerce.settings.checkout.paymentsettings.DeleteThirdPartyPaymentWorkflow - DELETE
+21.    Added - commerce.settings.checkout.paymentsettings.GetThirdPartyPaymentWorkflowWithValues - GET
+22.    Added - commerce.settings.general.customroutes.CreateCustomRouteSettings - POST
+23.    Added - commerce.settings.general.customroutes.DeleteCustomRouteSettings - DELETE
+24.    Added - commerce.settings.general.customroutes.GetCustomRouteSettings - GET
+25.    Added - commerce.settings.general.customroutes.UpdateCustomRouteSettings - PUT
 
 Resources
-0.    Added - content.publishsets | content/publishsets
+0.    Added - commerce.catalog.admin.couponsets | commerce/catalog/admin/couponsets
+1.    Added - commerce.catalog.admin.couponsets.coupons | commerce/catalog/admin/couponsets/coupons
+2.    Added - commerce.settings.general.customroutes | commerce/settings/general/customroutes

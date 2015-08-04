@@ -25,6 +25,8 @@ namespace Mozu.Api.Contracts.ProductAdmin.Search
 
 			public List<string> BoostedProductCodes { get; set; }
 
+			public List<SearchTuningRuleExpression> BoostExpressions { get; set; }
+
 			public DateTime? EffectivityEndDate { get; set; }
 
 			public DateTime? EffectivityStartDate { get; set; }

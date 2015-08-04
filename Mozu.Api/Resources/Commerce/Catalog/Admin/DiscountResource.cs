@@ -294,6 +294,53 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="discountId"></param>
+		/// <param name="couponSetIds"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var discount = new Discount();
+		///   discount.AssociateCouponSet( couponSetIds,  discountId);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void AssociateCouponSet(List<int> couponSetIds, int discountId)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.AssociateCouponSetClient( couponSetIds,  discountId);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="discountId"></param>
+		/// <param name="couponSetIds"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var discount = new Discount();
+		///   await discount.AssociateCouponSetAsync( couponSetIds,  discountId);
+		/// </code>
+		/// </example>
+		public virtual async Task AssociateCouponSetAsync(List<int> couponSetIds, int discountId)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.AssociateCouponSetClient( couponSetIds,  discountId);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+
+		}
+
+		/// <summary>
 		/// Updates the localizable content for the specified discount or rename the discount without modifying its other properties.
 		/// </summary>
 		/// <param name="discountId">Unique identifier of the discount. System-supplied and read only.</param>
@@ -435,6 +482,53 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.DeleteDiscountClient( discountId);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="discountId"></param>
+		/// <param name="couponSetIds"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var discount = new Discount();
+		///   discount.DisassociateCouponSet( couponSetIds,  discountId);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void DisassociateCouponSet(List<int> couponSetIds, int discountId)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.DisassociateCouponSetClient( couponSetIds,  discountId);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="discountId"></param>
+		/// <param name="couponSetIds"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var discount = new Discount();
+		///   await discount.DisassociateCouponSetAsync( couponSetIds,  discountId);
+		/// </code>
+		/// </example>
+		public virtual async Task DisassociateCouponSetAsync(List<int> couponSetIds, int discountId)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.DisassociateCouponSetClient( couponSetIds,  discountId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 

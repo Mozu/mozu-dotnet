@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Content
 {
 	/// <summary>
-	/// 
+	/// Use the document publishing subresource to manage and publish document drafts in the Content service.
 	/// </summary>
 	public partial class DocumentDraftSummaryResource  	{
 		///
@@ -38,77 +38,26 @@ namespace Mozu.Api.Resources.Content
 
 				
 		/// <summary>
-		/// 
+		/// Retrieves a list of the documents currently in draft state, according to any defined filter and sort criteria.
 		/// </summary>
-		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="startIndex"></param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Content.PublishSetSummaryPagedCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var documentdraftsummary = new DocumentDraftSummary();
-		///   var publishSetSummaryPagedCollection = documentdraftsummary.GetPublishSets( pageSize,  startIndex,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Content.PublishSetSummaryPagedCollection GetPublishSets(int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Content.PublishSetSummaryPagedCollection> response;
-			var client = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.GetPublishSetsClient( pageSize,  startIndex,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="startIndex"></param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Content.PublishSetSummaryPagedCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var documentdraftsummary = new DocumentDraftSummary();
-		///   var publishSetSummaryPagedCollection = await documentdraftsummary.GetPublishSetsAsync( pageSize,  startIndex,  responseFields);
-		/// </code>
-		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Content.PublishSetSummaryPagedCollection> GetPublishSetsAsync(int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Content.PublishSetSummaryPagedCollection> response;
-			var client = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.GetPublishSetsClient( pageSize,  startIndex,  responseFields);
-			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
-			return await response.ResultAsync();
-
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="code"></param>
-		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="startIndex"></param>
+		/// <param name="documentLists">List of document lists that contain documents to delete.</param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var documentdraftsummary = new DocumentDraftSummary();
-		///   var documentDraftSummaryPagedCollection = documentdraftsummary.GetPublishSetItems( code,  pageSize,  startIndex,  responseFields);
+		///   var documentDraftSummaryPagedCollection = documentdraftsummary.ListDocumentDraftSummaries( pageSize,  startIndex,  documentLists,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection GetPublishSetItems(string code, int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
+		public virtual Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection ListDocumentDraftSummaries(int? pageSize =  null, int? startIndex =  null, string documentLists =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection> response;
-			var client = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.GetPublishSetItemsClient( code,  pageSize,  startIndex,  responseFields);
+			var client = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.ListDocumentDraftSummariesClient( pageSize,  startIndex,  documentLists,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -116,25 +65,25 @@ namespace Mozu.Api.Resources.Content
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves a list of the documents currently in draft state, according to any defined filter and sort criteria.
 		/// </summary>
-		/// <param name="code"></param>
-		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="startIndex"></param>
+		/// <param name="documentLists">List of document lists that contain documents to delete.</param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var documentdraftsummary = new DocumentDraftSummary();
-		///   var documentDraftSummaryPagedCollection = await documentdraftsummary.GetPublishSetItemsAsync( code,  pageSize,  startIndex,  responseFields);
+		///   var documentDraftSummaryPagedCollection = await documentdraftsummary.ListDocumentDraftSummariesAsync( pageSize,  startIndex,  documentLists,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection> GetPublishSetItemsAsync(string code, int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection> ListDocumentDraftSummariesAsync(int? pageSize =  null, int? startIndex =  null, string documentLists =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection> response;
-			var client = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.GetPublishSetItemsClient( code,  pageSize,  startIndex,  responseFields);
+			var client = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.ListDocumentDraftSummariesClient( pageSize,  startIndex,  documentLists,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -142,104 +91,96 @@ namespace Mozu.Api.Resources.Content
 		}
 
 		/// <summary>
-		/// 
+		/// Deletes the drafts of the specified documents. Published documents cannot be deleted.
 		/// </summary>
-		/// <param name="code"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="shouldDiscard"></param>
+		/// <param name="documentLists">List of document lists that contain documents to delete.</param>
+		/// <param name="documentIds">Unique identifiers of the documents to delete.</param>
 		/// <returns>
-		/// object
+		/// 
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var documentdraftsummary = new DocumentDraftSummary();
-		///   var object = documentdraftsummary.DeletePublishSet( code,  shouldDiscard,  responseFields);
+		///   documentdraftsummary.DeleteDocumentDrafts( documentIds,  documentLists);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual object DeletePublishSet(string code, bool? shouldDiscard =  null, string responseFields =  null)
+		public virtual void DeleteDocumentDrafts(List<string> documentIds, string documentLists =  null)
 		{
-			MozuClient<object> response;
-			var client = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.DeletePublishSetClient( code,  shouldDiscard,  responseFields);
+			MozuClient response;
+			var client = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.DeleteDocumentDraftsClient( documentIds,  documentLists);
 			client.WithContext(_apiContext);
 			response = client.Execute();
-			return response.Result();
 
 		}
 
 		/// <summary>
-		/// 
+		/// Deletes the drafts of the specified documents. Published documents cannot be deleted.
 		/// </summary>
-		/// <param name="code"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="shouldDiscard"></param>
+		/// <param name="documentLists">List of document lists that contain documents to delete.</param>
+		/// <param name="documentIds">Unique identifiers of the documents to delete.</param>
 		/// <returns>
-		/// object
+		/// 
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var documentdraftsummary = new DocumentDraftSummary();
-		///   var object = await documentdraftsummary.DeletePublishSetAsync( code,  shouldDiscard,  responseFields);
+		///   await documentdraftsummary.DeleteDocumentDraftsAsync( documentIds,  documentLists);
 		/// </code>
 		/// </example>
-		public virtual async Task<object> DeletePublishSetAsync(string code, bool? shouldDiscard =  null, string responseFields =  null)
+		public virtual async Task DeleteDocumentDraftsAsync(List<string> documentIds, string documentLists =  null)
 		{
-			MozuClient<object> response;
-			var client = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.DeletePublishSetClient( code,  shouldDiscard,  responseFields);
+			MozuClient response;
+			var client = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.DeleteDocumentDraftsClient( documentIds,  documentLists);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
-			return await response.ResultAsync();
 
 		}
 
 		/// <summary>
-		/// 
+		/// Publish one or more document drafts to live content on the site.
 		/// </summary>
-		/// <param name="code"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="documentIds"></param>
+		/// <param name="documentLists">List of document lists that contain documents to delete.</param>
+		/// <param name="documentIds">Unique identifiers of the documents to delete.</param>
 		/// <returns>
-		/// object
+		/// 
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var documentdraftsummary = new DocumentDraftSummary();
-		///   var object = documentdraftsummary.AddPublishSetItems( documentIds,  code,  responseFields);
+		///   documentdraftsummary.PublishDocuments( documentIds,  documentLists);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual object AddPublishSetItems(List<string> documentIds, string code, string responseFields =  null)
+		public virtual void PublishDocuments(List<string> documentIds, string documentLists =  null)
 		{
-			MozuClient<object> response;
-			var client = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.AddPublishSetItemsClient( documentIds,  code,  responseFields);
+			MozuClient response;
+			var client = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.PublishDocumentsClient( documentIds,  documentLists);
 			client.WithContext(_apiContext);
 			response = client.Execute();
-			return response.Result();
 
 		}
 
 		/// <summary>
-		/// 
+		/// Publish one or more document drafts to live content on the site.
 		/// </summary>
-		/// <param name="code"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="documentIds"></param>
+		/// <param name="documentLists">List of document lists that contain documents to delete.</param>
+		/// <param name="documentIds">Unique identifiers of the documents to delete.</param>
 		/// <returns>
-		/// object
+		/// 
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var documentdraftsummary = new DocumentDraftSummary();
-		///   var object = await documentdraftsummary.AddPublishSetItemsAsync( documentIds,  code,  responseFields);
+		///   await documentdraftsummary.PublishDocumentsAsync( documentIds,  documentLists);
 		/// </code>
 		/// </example>
-		public virtual async Task<object> AddPublishSetItemsAsync(List<string> documentIds, string code, string responseFields =  null)
+		public virtual async Task PublishDocumentsAsync(List<string> documentIds, string documentLists =  null)
 		{
-			MozuClient<object> response;
-			var client = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.AddPublishSetItemsClient( documentIds,  code,  responseFields);
+			MozuClient response;
+			var client = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.PublishDocumentsClient( documentIds,  documentLists);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
-			return await response.ResultAsync();
 
 		}
 

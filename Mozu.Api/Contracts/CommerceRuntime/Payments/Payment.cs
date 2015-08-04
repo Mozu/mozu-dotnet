@@ -56,8 +56,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///
 			public List<ChangeMessage> ChangeMessages { get; set; }
 
-			public string DataSource { get; set; }
-
 			public string ExternalTransactionId { get; set; }
 
 			///
@@ -89,6 +87,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///The type of payment, such as credit card, check, or PayPal Express. Additional payment types will be supported in future releases.
 			///
 			public string PaymentType { get; set; }
+
+			public string PaymentWorkflow { get; set; }
 
 			///
 			///The current status of an object. This status is specific to the object including payment (New, Authorized, Captured, Declined, Failed, Voided, Credited, CheckRequested, or RolledBack), discount (Active, Scheduled, or Expired), returns (ReturnAuthorized), tenant, package (Fulfilled or NotFulfilled), application, master and product catalogs, orders (Pending, Submitted, Processing, Pending Review, Closed, or Canceled), and order validation results (Pass, Fail, Error, or Review).
