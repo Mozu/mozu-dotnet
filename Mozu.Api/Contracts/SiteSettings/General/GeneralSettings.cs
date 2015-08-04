@@ -32,6 +32,10 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			///
 			public AuditInfo AuditInfo { get; set; }
 
+			public CacheSettings CacheSettings { get; set; }
+
+			public string CustomCdnHostName { get; set; }
+
 			public CustomRouteSettings CustomRoutes { get; set; }
 
 			///

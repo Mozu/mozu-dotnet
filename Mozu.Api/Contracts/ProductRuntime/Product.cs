@@ -29,6 +29,10 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public List<BundledProduct> BundledProducts { get; set; }
 
+			public DateTime? CatalogEndDate { get; set; }
+
+			public DateTime? CatalogStartDate { get; set; }
+
 			///
 			///The list of all categories associated with the product. These categories contain products, can have discounts associated, and define the grouping of products to display on the storefront.
 			///

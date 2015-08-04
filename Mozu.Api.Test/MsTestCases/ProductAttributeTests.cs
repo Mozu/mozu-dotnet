@@ -93,6 +93,21 @@ namespace Mozu.Api.Test.MsTestCases
 
         #endregion
 
+        [TestMethod]
+        public void AddProductTypeTest()
+        {
+            var productType = new ProductType
+            {
+                GoodsType = "Physical",
+                Name = "test34",
+                MasterCatalogId = 1,
+                ProductUsages = new List<String> {"Standard", "Configurable", "Component"},
+            };
+
+            var result = ProductTypeFactory.AddProductType(ApiMsgHandler, productType);
+        }
+
+
         /// <summary>
         /// GetAttributes
         /// </summary>

@@ -17,6 +17,23 @@ namespace Mozu.Api.Urls.Commerce.Settings.Checkout
 	{
 
 		/// <summary>
+        /// Get Resource Url for GetThirdPartyPaymentWorkflowWithValues
+        /// </summary>
+        /// <param name="fullyQualifiedName"></param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetThirdPartyPaymentWorkflowWithValuesUrl(string fullyQualifiedName, string responseFields =  null)
+		{
+			var url = "/api/commerce/settings/checkout/paymentsettings/thirdpartyworkflow/{fullyQualifiedName}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "fullyQualifiedName", fullyQualifiedName);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+		/// <summary>
         /// Get Resource Url for GetThirdPartyPaymentWorkflows
         /// </summary>
         /// <returns>
@@ -29,7 +46,35 @@ namespace Mozu.Api.Urls.Commerce.Settings.Checkout
 			return mozuUrl;
 		}
 
-								
+						/// <summary>
+        /// Get Resource Url for AddThirdPartyPaymentWorkflow
+        /// </summary>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl AddThirdPartyPaymentWorkflowUrl()
+		{
+			var url = "/api/commerce/settings/checkout/paymentsettings/thirdpartyworkflows";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			return mozuUrl;
+		}
+
+				/// <summary>
+        /// Get Resource Url for DeleteThirdPartyPaymentWorkflow
+        /// </summary>
+        /// <param name="fullyQualifiedName"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl DeleteThirdPartyPaymentWorkflowUrl(string fullyQualifiedName)
+		{
+			var url = "/api/commerce/settings/checkout/paymentsettings/thirdpartyworkflows/{fullyQualifiedName}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "fullyQualifiedName", fullyQualifiedName);
+			return mozuUrl;
+		}
+
+		
 	}
 }
 

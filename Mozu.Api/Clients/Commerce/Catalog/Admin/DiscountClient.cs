@@ -152,6 +152,31 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="discountId"></param>
+		/// <param name="couponSetIds"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=AssociateCouponSet( couponSetIds,  discountId);
+		///mozuClient.WithBaseAddress(url).Execute();
+		/// </code>
+		/// </example>
+		public static MozuClient AssociateCouponSetClient(List<int> couponSetIds, int discountId)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.DiscountUrl.AssociateCouponSetUrl(discountId);
+			const string verb = "POST";
+			var mozuClient = new MozuClient()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody(couponSetIds);
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Updates the localizable content for the specified discount or rename the discount without modifying its other properties.
 		/// </summary>
 		/// <param name="discountId">Unique identifier of the discount. System-supplied and read only.</param>
@@ -223,6 +248,31 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="discountId"></param>
+		/// <param name="couponSetIds"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=DisassociateCouponSet( couponSetIds,  discountId);
+		///mozuClient.WithBaseAddress(url).Execute();
+		/// </code>
+		/// </example>
+		public static MozuClient DisassociateCouponSetClient(List<int> couponSetIds, int discountId)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.DiscountUrl.DisassociateCouponSetUrl(discountId);
+			const string verb = "DELETE";
+			var mozuClient = new MozuClient()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody(couponSetIds);
 			return mozuClient;
 
 		}

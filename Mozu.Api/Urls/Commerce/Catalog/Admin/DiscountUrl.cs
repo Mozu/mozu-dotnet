@@ -103,6 +103,21 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for AssociateCouponSet
+        /// </summary>
+        /// <param name="discountId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl AssociateCouponSetUrl(int discountId)
+		{
+			var url = "/api/commerce/catalog/admin/discounts/{discountId}/couponsets/";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "discountId", discountId);
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for UpdateDiscountContent
         /// </summary>
@@ -147,6 +162,21 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         public static MozuUrl DeleteDiscountUrl(int discountId)
 		{
 			var url = "/api/commerce/catalog/admin/discounts/{discountId}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "discountId", discountId);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for DisassociateCouponSet
+        /// </summary>
+        /// <param name="discountId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl DisassociateCouponSetUrl(int discountId)
+		{
+			var url = "/api/commerce/catalog/admin/discounts/{discountId}/couponsets/";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "discountId", discountId);
 			return mozuUrl;

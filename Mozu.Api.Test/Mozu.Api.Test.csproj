@@ -120,6 +120,8 @@
     <Compile Include="Factories\ChannelFactory.cs" />
     <Compile Include="Factories\ChannelGroupFactory.cs" />
     <Compile Include="Factories\CheckoutSettingsFactory.cs" />
+    <Compile Include="Factories\CouponFactory.cs" />
+    <Compile Include="Factories\CouponSetFactory.cs" />
     <Compile Include="Factories\CreditAuditEntryFactory.cs" />
     <Compile Include="Factories\CreditFactory.cs" />
     <Compile Include="Factories\CreditTransactionFactory.cs" />
@@ -131,6 +133,7 @@
     <Compile Include="Factories\CustomerNoteFactory.cs" />
     <Compile Include="Factories\CustomerSegmentAccountsFactory.cs" />
     <Compile Include="Factories\CustomerSegmentFactory.cs" />
+    <Compile Include="Factories\CustomRouteSettingsFactory.cs" />
     <Compile Include="Factories\DeveloperAdminUserAuthTicketFactory.cs" />
     <Compile Include="Factories\DigitalPackageFactory.cs" />
     <Compile Include="Factories\DiscountFactory.cs" />
@@ -183,6 +186,7 @@
     <Compile Include="Factories\PropertyTypeFactory.cs" />
     <Compile Include="Factories\PublicCardFactory.cs" />
     <Compile Include="Factories\PublishingScopeFactory.cs" />
+    <Compile Include="Factories\PublishSetSummaryFactory.cs" />
     <Compile Include="Factories\ReferenceDataFactory.cs" />
     <Compile Include="Factories\RefundFactory.cs" />
     <Compile Include="Factories\ReturnFactory.cs" />
