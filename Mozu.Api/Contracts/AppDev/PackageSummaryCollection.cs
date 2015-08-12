@@ -9,24 +9,22 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 
-using Mozu.Api.Contracts.Core;
 
-namespace Mozu.Api.Contracts.ProductAdmin
+namespace Mozu.Api.Contracts.AppDev
 {
-		public class Coupon
+		public class PackageSummaryCollection
 		{
-			public AuditInfo AuditInfo { get; set; }
+			public List<PackageSummary> Items { get; set; }
 
-			public bool CanBeDeleted { get; set; }
+			public int PageCount { get; set; }
 
-			public string CouponCode { get; set; }
+			public int PageSize { get; set; }
 
-			public string CouponSetCode { get; set; }
+			public int StartIndex { get; set; }
 
-			public int CouponSetId { get; set; }
-
-			public int? RedemptionCount { get; set; }
+			public int TotalCount { get; set; }
 
 		}
 

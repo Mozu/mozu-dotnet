@@ -48,6 +48,8 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public string Id { get; set; }
 
+			public bool IsDefaultPayMethod { get; set; }
+
 			///
 			///The full name printed on a credit card. The name should match what is printed on the card exactly, used in validation during a payment.
 			///

@@ -147,14 +147,14 @@ namespace Mozu.Api.Test.Factories
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = PublishSetSummaryFactory.AddPublishSetItems(handler : handler,  documentIds :  documentIds,  code :  code,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = PublishSetSummaryFactory.AddPublishSetItems(handler : handler,  itemsToPublish :  itemsToPublish,  code :  code,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<object/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static object AddPublishSetItems(ServiceClientMessageHandler handler, 
- 		 List<string> documentIds, string code, string responseFields = null, 
+ 		 List<Mozu.Api.Contracts.Content.AddOrDeletePublishItem> itemsToPublish, string code, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -162,7 +162,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Content.PublishSetSummaryClient.AddPublishSetItemsClient(
-				 documentIds :  documentIds,  code :  code,  responseFields :  responseFields		);
+				 itemsToPublish :  itemsToPublish,  code :  code,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

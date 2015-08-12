@@ -169,6 +169,7 @@
     <Compile Include="Factories\OrderItemFactory.cs" />
     <Compile Include="Factories\OrderNoteFactory.cs" />
     <Compile Include="Factories\OrderValidationResultFactory.cs" />
+    <Compile Include="Factories\PackageFactory.cs" />
     <Compile Include="Factories\PaymentFactory.cs" />
     <Compile Include="Factories\PaymentSettingsFactory.cs" />
     <Compile Include="Factories\PickupFactory.cs" />

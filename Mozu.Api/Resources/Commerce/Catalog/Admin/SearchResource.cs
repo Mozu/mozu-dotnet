@@ -142,6 +142,51 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns>
+		/// <see cref="System.IO.Stream"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var search = new Search();
+		///   var stream = search.GetSearchTuningSortRelevance();
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual System.IO.Stream GetSearchTuningSortRelevance()
+		{
+			MozuClient<System.IO.Stream> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.GetSearchTuningSortRelevanceClient();
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns>
+		/// <see cref="System.IO.Stream"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var search = new Search();
+		///   var stream = await search.GetSearchTuningSortRelevanceAsync();
+		/// </code>
+		/// </example>
+		public virtual async Task<System.IO.Stream> GetSearchTuningSortRelevanceAsync()
+		{
+			MozuClient<System.IO.Stream> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.GetSearchTuningSortRelevanceClient();
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
 		/// Get site search settings
 		/// </summary>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
@@ -234,6 +279,51 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="searchTuningSortRelevanceIn"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var search = new Search();
+		///   search.UpdateSearchTuningSortRelevance( searchTuningSortRelevanceIn);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void UpdateSearchTuningSortRelevance(Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningSortRelevance searchTuningSortRelevanceIn)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.UpdateSearchTuningSortRelevanceClient( searchTuningSortRelevanceIn);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="searchTuningSortRelevanceIn"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var search = new Search();
+		///   await search.UpdateSearchTuningSortRelevanceAsync( searchTuningSortRelevanceIn);
+		/// </code>
+		/// </example>
+		public virtual async Task UpdateSearchTuningSortRelevanceAsync(Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningSortRelevance searchTuningSortRelevanceIn)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.UpdateSearchTuningSortRelevanceClient( searchTuningSortRelevanceIn);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
 
 		}
 

@@ -197,21 +197,21 @@ namespace Mozu.Api.Resources.Content
 		/// </summary>
 		/// <param name="code"></param>
 		/// <param name="responseFields"></param>
-		/// <param name="documentIds"></param>
+		/// <param name="itemsToPublish"></param>
 		/// <returns>
 		/// object
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var publishsetsummary = new PublishSetSummary();
-		///   var object = publishsetsummary.AddPublishSetItems( documentIds,  code,  responseFields);
+		///   var object = publishsetsummary.AddPublishSetItems( itemsToPublish,  code,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual object AddPublishSetItems(List<string> documentIds, string code, string responseFields =  null)
+		public virtual object AddPublishSetItems(List<Mozu.Api.Contracts.Content.AddOrDeletePublishItem> itemsToPublish, string code, string responseFields =  null)
 		{
 			MozuClient<object> response;
-			var client = Mozu.Api.Clients.Content.PublishSetSummaryClient.AddPublishSetItemsClient( documentIds,  code,  responseFields);
+			var client = Mozu.Api.Clients.Content.PublishSetSummaryClient.AddPublishSetItemsClient( itemsToPublish,  code,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -223,20 +223,20 @@ namespace Mozu.Api.Resources.Content
 		/// </summary>
 		/// <param name="code"></param>
 		/// <param name="responseFields"></param>
-		/// <param name="documentIds"></param>
+		/// <param name="itemsToPublish"></param>
 		/// <returns>
 		/// object
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var publishsetsummary = new PublishSetSummary();
-		///   var object = await publishsetsummary.AddPublishSetItemsAsync( documentIds,  code,  responseFields);
+		///   var object = await publishsetsummary.AddPublishSetItemsAsync( itemsToPublish,  code,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<object> AddPublishSetItemsAsync(List<string> documentIds, string code, string responseFields =  null)
+		public virtual async Task<object> AddPublishSetItemsAsync(List<Mozu.Api.Contracts.Content.AddOrDeletePublishItem> itemsToPublish, string code, string responseFields =  null)
 		{
 			MozuClient<object> response;
-			var client = Mozu.Api.Clients.Content.PublishSetSummaryClient.AddPublishSetItemsClient( documentIds,  code,  responseFields);
+			var client = Mozu.Api.Clients.Content.PublishSetSummaryClient.AddPublishSetItemsClient( itemsToPublish,  code,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

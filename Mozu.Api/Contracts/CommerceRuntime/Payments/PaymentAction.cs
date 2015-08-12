@@ -43,6 +43,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///
 			public string CurrencyCode { get; set; }
 
+			public string ExternalTransactionId { get; set; }
+
 			///
 			///Date and time of a payment interaction, including handling and processing a payment and validating and completing a payment with a payment gateway.
 			///

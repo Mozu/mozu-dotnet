@@ -160,6 +160,21 @@ namespace Mozu.Api.Urls.Commerce
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for GetReasons
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetReasonsUrl(string responseFields =  null)
+		{
+			var url = "/api/commerce/returns/reasons?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for CreateReturn
         /// </summary>
