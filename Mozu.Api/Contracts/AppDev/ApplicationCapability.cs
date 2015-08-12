@@ -10,23 +10,20 @@
 
 using System;
 
-using Mozu.Api.Contracts.Core;
 
-namespace Mozu.Api.Contracts.ProductAdmin
+namespace Mozu.Api.Contracts.AppDev
 {
-		public class Coupon
+		public class ApplicationCapability
 		{
-			public AuditInfo AuditInfo { get; set; }
+			public int ApplicationCapabilityId { get; set; }
 
-			public bool CanBeDeleted { get; set; }
+			public int? ApplicationCapabilityTypeId { get; set; }
 
-			public string CouponCode { get; set; }
+			public string ApplicationEndPoint { get; set; }
 
-			public string CouponSetCode { get; set; }
+			public int CapabilityTypeContractId { get; set; }
 
-			public int CouponSetId { get; set; }
-
-			public int? RedemptionCount { get; set; }
+			public int PackageId { get; set; }
 
 		}
 

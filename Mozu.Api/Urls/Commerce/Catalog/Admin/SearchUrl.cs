@@ -57,6 +57,19 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
+        /// Get Resource Url for GetSearchTuningSortRelevance
+        /// </summary>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetSearchTuningSortRelevanceUrl()
+		{
+			var url = "/api/commerce/catalog/admin/search/searchtuningsortrelevance";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			return mozuUrl;
+		}
+
+		/// <summary>
         /// Get Resource Url for GetSettings
         /// </summary>
         /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
@@ -83,6 +96,19 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 			var url = "/api/commerce/catalog/admin/search/searchtuningrule?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for UpdateSearchTuningSortRelevance
+        /// </summary>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl UpdateSearchTuningSortRelevanceUrl()
+		{
+			var url = "/api/commerce/catalog/admin/search/searchtuningsortrelevance";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			return mozuUrl;
 		}
 

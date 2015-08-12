@@ -75,6 +75,29 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetSearchTuningSortRelevance();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<System.IO.Stream> GetSearchTuningSortRelevanceClient()
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.SearchUrl.GetSearchTuningSortRelevanceUrl();
+			const string verb = "GET";
+			var mozuClient = new MozuClient<System.IO.Stream>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Get site search settings
 		/// </summary>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
@@ -119,6 +142,30 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule>(searchTuningRuleIn);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="searchTuningSortRelevanceIn"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=UpdateSearchTuningSortRelevance( searchTuningSortRelevanceIn);
+		///mozuClient.WithBaseAddress(url).Execute();
+		/// </code>
+		/// </example>
+		public static MozuClient UpdateSearchTuningSortRelevanceClient(Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningSortRelevance searchTuningSortRelevanceIn)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.SearchUrl.UpdateSearchTuningSortRelevanceUrl();
+			const string verb = "POST";
+			var mozuClient = new MozuClient()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningSortRelevance>(searchTuningSortRelevanceIn);
 			return mozuClient;
 
 		}

@@ -19,6 +19,10 @@ namespace Mozu.Api.Contracts.ProductAdmin.Search
 		{
 			public bool Active { get; set; }
 
+			public DateTime? ActiveEndDate { get; set; }
+
+			public DateTime? ActiveStartDate { get; set; }
+
 			public AuditInfo AuditInfo { get; set; }
 
 			public List<string> BlockedProductCodes { get; set; }
@@ -27,9 +31,7 @@ namespace Mozu.Api.Contracts.ProductAdmin.Search
 
 			public List<SearchTuningRuleExpression> BoostExpressions { get; set; }
 
-			public DateTime? EffectivityEndDate { get; set; }
-
-			public DateTime? EffectivityStartDate { get; set; }
+			public List<SearchTuningRuleFunction> BoostFunctions { get; set; }
 
 			public List<SearchTuningRuleFilter> Filters { get; set; }
 

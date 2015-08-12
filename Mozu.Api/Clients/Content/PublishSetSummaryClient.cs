@@ -105,23 +105,23 @@ namespace Mozu.Api.Clients.Content
 		/// </summary>
 		/// <param name="code"></param>
 		/// <param name="responseFields"></param>
-		/// <param name="documentIds"></param>
+		/// <param name="itemsToPublish"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{object}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddPublishSetItems( documentIds,  code,  responseFields);
+		///   var mozuClient=AddPublishSetItems( itemsToPublish,  code,  responseFields);
 		///   var objectClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<object> AddPublishSetItemsClient(List<string> documentIds, string code, string responseFields =  null)
+		public static MozuClient<object> AddPublishSetItemsClient(List<Mozu.Api.Contracts.Content.AddOrDeletePublishItem> itemsToPublish, string code, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Content.PublishSetSummaryUrl.AddPublishSetItemsUrl(code, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<object>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody(documentIds);
+									.WithBody<List<Mozu.Api.Contracts.Content.AddOrDeletePublishItem>>(itemsToPublish);
 			return mozuClient;
 
 		}

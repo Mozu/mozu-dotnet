@@ -10,23 +10,24 @@
 
 using System;
 
-using Mozu.Api.Contracts.Core;
 
-namespace Mozu.Api.Contracts.ProductAdmin
+namespace Mozu.Api.Contracts.AppDev
 {
-		public class Coupon
+		public class PackageSummary
 		{
-			public AuditInfo AuditInfo { get; set; }
+			public string ApplicationName { get; set; }
 
-			public bool CanBeDeleted { get; set; }
+			public int ApplicationTypeId { get; set; }
 
-			public string CouponCode { get; set; }
+			public int Id { get; set; }
 
-			public string CouponSetCode { get; set; }
+			public int MajorVersion { get; set; }
 
-			public int CouponSetId { get; set; }
+			public int MinorVersion { get; set; }
 
-			public int? RedemptionCount { get; set; }
+			public string Name { get; set; }
+
+			public int Revision { get; set; }
 
 		}
 

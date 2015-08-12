@@ -31,7 +31,7 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public List<string> DocumentTypes { get; set; }
 
-			public bool? EnableEffectivityDating { get; set; }
+			public bool? EnableActiveDateRanges { get; set; }
 
 			///
 			///Indicates if the document list and document list type are enabled to publish. If true, publishing of draft documents in this document list/document list type is enabled for the site. If false, all document changes are immediately published in live mode.

@@ -9,24 +9,22 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 
-using Mozu.Api.Contracts.Core;
 
-namespace Mozu.Api.Contracts.ProductAdmin
+namespace Mozu.Api.Contracts.AppDev
 {
-		public class Coupon
+		public class ApplicationSubscription
 		{
-			public AuditInfo AuditInfo { get; set; }
+			public string ApplicationEndPoint { get; set; }
 
-			public bool CanBeDeleted { get; set; }
+			public int ApplicationSubscriptionId { get; set; }
 
-			public string CouponCode { get; set; }
+			public List<Event> Events { get; set; }
 
-			public string CouponSetCode { get; set; }
+			public bool NoCallback { get; set; }
 
-			public int CouponSetId { get; set; }
-
-			public int? RedemptionCount { get; set; }
+			public int PackageId { get; set; }
 
 		}
 
