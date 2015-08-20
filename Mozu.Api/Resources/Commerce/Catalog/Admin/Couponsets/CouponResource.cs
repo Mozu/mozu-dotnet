@@ -339,6 +339,53 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Couponsets
 		/// 
 		/// </summary>
 		/// <param name="couponSetCode"></param>
+		/// <param name="couponCodes"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var coupon = new Coupon();
+		///   coupon.DeleteCoupons( couponCodes,  couponSetCode);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void DeleteCoupons(List<string> couponCodes, string couponSetCode)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.CouponClient.DeleteCouponsClient( couponCodes,  couponSetCode);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="couponSetCode"></param>
+		/// <param name="couponCodes"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var coupon = new Coupon();
+		///   await coupon.DeleteCouponsAsync( couponCodes,  couponSetCode);
+		/// </code>
+		/// </example>
+		public virtual async Task DeleteCouponsAsync(List<string> couponCodes, string couponSetCode)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.CouponClient.DeleteCouponsClient( couponCodes,  couponSetCode);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="couponSetCode"></param>
 		/// <param name="responseFields"></param>
 		/// <param name="couponSet"></param>
 		/// <returns>
@@ -481,22 +528,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Couponsets
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="couponCode"></param>
 		/// <param name="couponSetCode"></param>
-		/// <param name="coupons"></param>
 		/// <returns>
 		/// 
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var coupon = new Coupon();
-		///   coupon.DeleteCoupons( coupons,  couponSetCode);
+		///   coupon.DeleteCoupon( couponSetCode,  couponCode);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeleteCoupons(List<Mozu.Api.Contracts.ProductAdmin.Coupon> coupons, string couponSetCode)
+		public virtual void DeleteCoupon(string couponSetCode, string couponCode)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.CouponClient.DeleteCouponsClient( coupons,  couponSetCode);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.CouponClient.DeleteCouponClient( couponSetCode,  couponCode);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 
@@ -505,21 +552,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Couponsets
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="couponCode"></param>
 		/// <param name="couponSetCode"></param>
-		/// <param name="coupons"></param>
 		/// <returns>
 		/// 
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var coupon = new Coupon();
-		///   await coupon.DeleteCouponsAsync( coupons,  couponSetCode);
+		///   await coupon.DeleteCouponAsync( couponSetCode,  couponCode);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteCouponsAsync(List<Mozu.Api.Contracts.ProductAdmin.Coupon> coupons, string couponSetCode)
+		public virtual async Task DeleteCouponAsync(string couponSetCode, string couponCode)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.CouponClient.DeleteCouponsClient( coupons,  couponSetCode);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.CouponClient.DeleteCouponClient( couponSetCode,  couponCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 

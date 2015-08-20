@@ -122,6 +122,21 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for DeleteCoupons
+        /// </summary>
+        /// <param name="couponSetCode"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl DeleteCouponsUrl(string couponSetCode)
+		{
+			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}/coupons/remove";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "couponSetCode", couponSetCode);
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for UpdateCouponSet
         /// </summary>
@@ -170,16 +185,18 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets
 		}
 
 		/// <summary>
-        /// Get Resource Url for DeleteCoupons
+        /// Get Resource Url for DeleteCoupon
         /// </summary>
+        /// <param name="couponCode"></param>
         /// <param name="couponSetCode"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl DeleteCouponsUrl(string couponSetCode)
+        public static MozuUrl DeleteCouponUrl(string couponSetCode, string couponCode)
 		{
-			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}/coupons";
+			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}/coupons/{couponCode}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "couponCode", couponCode);
 			mozuUrl.FormatUrl( "couponSetCode", couponSetCode);
 			return mozuUrl;
 		}

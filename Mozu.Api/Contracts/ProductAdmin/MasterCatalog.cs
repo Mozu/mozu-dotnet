@@ -18,6 +18,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class MasterCatalog
 		{
+			public bool? EnableLiveEdit { get; set; }
+
 			///
 			///The unique identifier of the master catalog associated with the entity.
 			///

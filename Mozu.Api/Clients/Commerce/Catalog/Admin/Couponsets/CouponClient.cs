@@ -179,6 +179,31 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets
 		/// 
 		/// </summary>
 		/// <param name="couponSetCode"></param>
+		/// <param name="couponCodes"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=DeleteCoupons( couponCodes,  couponSetCode);
+		///mozuClient.WithBaseAddress(url).Execute();
+		/// </code>
+		/// </example>
+		public static MozuClient DeleteCouponsClient(List<string> couponCodes, string couponSetCode)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets.CouponUrl.DeleteCouponsUrl(couponSetCode);
+			const string verb = "POST";
+			var mozuClient = new MozuClient()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody(couponCodes);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="couponSetCode"></param>
 		/// <param name="responseFields"></param>
 		/// <param name="couponSet"></param>
 		/// <returns>
@@ -253,24 +278,24 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="couponCode"></param>
 		/// <param name="couponSetCode"></param>
-		/// <param name="coupons"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=DeleteCoupons( coupons,  couponSetCode);
+		///   var mozuClient=DeleteCoupon( couponSetCode,  couponCode);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteCouponsClient(List<Mozu.Api.Contracts.ProductAdmin.Coupon> coupons, string couponSetCode)
+		public static MozuClient DeleteCouponClient(string couponSetCode, string couponCode)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets.CouponUrl.DeleteCouponsUrl(couponSetCode);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets.CouponUrl.DeleteCouponUrl(couponSetCode, couponCode);
 			const string verb = "DELETE";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.Coupon>>(coupons);
+;
 			return mozuClient;
 
 		}

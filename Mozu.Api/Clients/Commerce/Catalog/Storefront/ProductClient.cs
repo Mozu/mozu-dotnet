@@ -108,6 +108,32 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductRuntime.Product"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetProductForIndexing(dataViewMode,  productCode,  responseFields);
+		///   var productClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.Product> GetProductForIndexingClient(DataViewMode dataViewMode, string productCode, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductUrl.GetProductForIndexingUrl(productCode, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductRuntime.Product>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Creates a new product configuration each time a shopper selects a product option value. After the shopper defines values for all required product options, the shopper can add the product configuration to a cart.
 		/// </summary>
 		/// <param name="includeOptionDetails">If true, the response returns details about the product. If false, returns a product summary such as the product name, price, and sale price.</param>

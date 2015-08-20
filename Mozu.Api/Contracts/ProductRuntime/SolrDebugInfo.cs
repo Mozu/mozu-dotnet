@@ -12,13 +12,19 @@ using System;
 using System.Collections.Generic;
 
 
-namespace Mozu.Api.Contracts.ProductAdmin.Search
+namespace Mozu.Api.Contracts.ProductRuntime
 {
-		public class SearchTuningSortRelevance
+		public class SolrDebugInfo
 		{
-			public List<string> SortList { get; set; }
+			public List<string> BlockedProductCodes { get; set; }
 
-			public string SortType { get; set; }
+			public List<string> BoostedProductCodes { get; set; }
+
+			public List<string> BoostFunctions { get; set; }
+
+			public List<string> BoostQueries { get; set; }
+
+			public string SearchTuningRuleCode { get; set; }
 
 		}
 

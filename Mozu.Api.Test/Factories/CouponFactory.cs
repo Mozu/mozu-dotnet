@@ -259,6 +259,43 @@ namespace Mozu.Api.Test.Factories
 		/// 
 		/// <example> 
 		///  <code> 
+		/// var result = CouponFactory.DeleteCoupons(handler : handler,  couponCodes :  couponCodes,  couponSetCode :  couponSetCode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static void DeleteCoupons(ServiceClientMessageHandler handler, 
+ 		List<string> couponCodes, string couponSetCode, 
+		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.CouponClient.DeleteCouponsClient(
+				 couponCodes :  couponCodes,  couponSetCode :  couponSetCode		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+			}
+			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
 		/// var result = CouponFactory.UpdateCouponSet(handler : handler,  couponSet :  couponSet,  couponSetCode :  couponSetCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CouponSet/>(result); 
 		/// return optionalCasting;
@@ -371,22 +408,22 @@ namespace Mozu.Api.Test.Factories
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = CouponFactory.DeleteCoupons(handler : handler,  coupons :  coupons,  couponSetCode :  couponSetCode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CouponFactory.DeleteCoupon(handler : handler,  couponSetCode :  couponSetCode,  couponCode :  couponCode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeleteCoupons(ServiceClientMessageHandler handler, 
- 		List<Mozu.Api.Contracts.ProductAdmin.Coupon> coupons, string couponSetCode, 
+		public static void DeleteCoupon(ServiceClientMessageHandler handler, 
+ 		string couponSetCode, string couponCode, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.CouponClient.DeleteCouponsClient(
-				 coupons :  coupons,  couponSetCode :  couponSetCode		);
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.CouponClient.DeleteCouponClient(
+				 couponSetCode :  couponSetCode,  couponCode :  couponCode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

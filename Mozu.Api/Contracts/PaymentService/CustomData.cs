@@ -9,16 +9,15 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
 
 
-namespace Mozu.Api.Contracts.ProductAdmin.Search
+namespace Mozu.Api.Contracts.PaymentService
 {
-		public class SearchTuningSortRelevance
+		public class CustomData
 		{
-			public List<string> SortList { get; set; }
+			public string Key { get; set; }
 
-			public string SortType { get; set; }
+			public string Value { get; set; }
 
 		}
 
