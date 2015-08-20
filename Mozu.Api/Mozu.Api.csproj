@@ -175,6 +175,7 @@
     <Compile Include="Clients\Commerce\Orders\PickupClient.cs" />
     <Compile Include="Clients\Commerce\Orders\RefundClient.cs" />
     <Compile Include="Clients\Commerce\Orders\ShipmentClient.cs" />
+    <Compile Include="Clients\Commerce\Payments\FraudScreenResponseClient.cs" />
     <Compile Include="Clients\Commerce\Payments\PublicCardClient.cs" />
     <Compile Include="Clients\Commerce\ReturnClient.cs" />
     <Compile Include="Clients\Commerce\Returns\PackageClient.cs" />
@@ -441,13 +442,21 @@
     <Compile Include="Contracts\MZDB\ListView.cs" />
     <Compile Include="Contracts\MZDB\ListViewCollection.cs" />
     <Compile Include="Contracts\MZDB\ListViewField.cs" />
+    <Compile Include="Contracts\PaymentService\Address.cs" />
+    <Compile Include="Contracts\PaymentService\Contact.cs" />
+    <Compile Include="Contracts\PaymentService\CustomData.cs" />
+    <Compile Include="Contracts\PaymentService\FraudScreenResponseData.cs" />
     <Compile Include="Contracts\PaymentService\GatewayAccount.cs" />
     <Compile Include="Contracts\PaymentService\GatewayCredentialFieldDefinition.cs" />
     <Compile Include="Contracts\PaymentService\GatewayCredentialFieldValue.cs" />
     <Compile Include="Contracts\PaymentService\GatewayDefinition.cs" />
+    <Compile Include="Contracts\PaymentService\OrderItem.cs" />
     <Compile Include="Contracts\PaymentService\PreAuthorizeDefinition.cs" />
     <Compile Include="Contracts\PaymentService\PreAuthorizeTransactionTypeDataContract.cs" />
+    <Compile Include="Contracts\PaymentService\Product.cs" />
     <Compile Include="Contracts\PaymentService\PublicCard.cs" />
+    <Compile Include="Contracts\PaymentService\Request\FraudScreenRequest.cs" />
+    <Compile Include="Contracts\PaymentService\Response\FraudScreenResponse.cs" />
     <Compile Include="Contracts\PaymentService\Response\SyncResponse.cs" />
     <Compile Include="Contracts\PaymentService\SupportedCard.cs" />
     <Compile Include="Contracts\PricingRuntime\ProductAttribute.cs" />
@@ -600,6 +609,7 @@
     <Compile Include="Contracts\ProductRuntime\SearchSuggestion.cs" />
     <Compile Include="Contracts\ProductRuntime\SearchSuggestionGroup.cs" />
     <Compile Include="Contracts\ProductRuntime\SearchSuggestionResult.cs" />
+    <Compile Include="Contracts\ProductRuntime\SolrDebugInfo.cs" />
     <Compile Include="Contracts\ProductRuntime\ValidationMessage.cs" />
     <Compile Include="Contracts\ProductRuntime\VariationOption.cs" />
     <Compile Include="Contracts\ProductRuntime\VariationSummary.cs" />
@@ -759,6 +769,7 @@
     <Compile Include="Resources\Commerce\Orders\PickupResource.cs" />
     <Compile Include="Resources\Commerce\Orders\RefundResource.cs" />
     <Compile Include="Resources\Commerce\Orders\ShipmentResource.cs" />
+    <Compile Include="Resources\Commerce\Payments\FraudScreenResponseResource.cs" />
     <Compile Include="Resources\Commerce\Payments\PublicCardResource.cs" />
     <Compile Include="Resources\Commerce\ReturnResource.cs" />
     <Compile Include="Resources\Commerce\Returns\PackageResource.cs" />
@@ -879,6 +890,7 @@
     <Compile Include="Urls\Commerce\Orders\RefundUrl.cs" />
     <Compile Include="Urls\Commerce\Orders\ShipmentUrl.cs" />
     <Compile Include="Urls\Commerce\OrderUrl.cs" />
+    <Compile Include="Urls\Commerce\Payments\FraudScreenResponseUrl.cs" />
     <Compile Include="Urls\Commerce\Payments\PublicCardUrl.cs" />
     <Compile Include="Urls\Commerce\Returns\PackageUrl.cs" />
     <Compile Include="Urls\Commerce\Returns\ShipmentUrl.cs" />

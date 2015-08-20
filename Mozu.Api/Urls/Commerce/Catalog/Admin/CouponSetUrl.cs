@@ -48,7 +48,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// </returns>
         public static MozuUrl GetUniqueCouponSetCodeUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/couponsets/uniquecode?responseFields={responseFields}";
+			var url = "/api/commerce/catalog/admin/couponsets/unique-code?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
@@ -78,7 +78,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// </returns>
         public static MozuUrl ValidateUniqueCouponSetCodeUrl(string code)
 		{
-			var url = "/api/commerce/catalog/admin/couponsets/validateuniquecode";
+			var url = "/api/commerce/catalog/admin/couponsets/validate-unique-code";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "code", code);
 			return mozuUrl;

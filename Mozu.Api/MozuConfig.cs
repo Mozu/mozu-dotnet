@@ -12,7 +12,14 @@ namespace Mozu.Api
         private static int _capabilityTimeoutInSeconds = 180;
         private static int _eventTimeoutInSeconds = 180;
 		private static string _baseAppAuthUrl = "https://home.mozu.com";
-		private static string _basePciUrl = "https://crds.mozu.com";
+
+        /// <summary>
+        /// Payment service url
+        /// use https://payments-sb.mozu.com for sandbox tenants
+        /// use the default https://pmts.mozu.com for production tenants.
+        /// </summary>
+		private static string _basePciUrl = "https://pmts.mozu.com";
+
 		private static bool _throwExceptionOn404 = false;
 
         public static string SharedSecret { get; internal set; }

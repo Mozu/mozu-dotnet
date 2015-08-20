@@ -11,14 +11,19 @@
 using System;
 using System.Collections.Generic;
 
+using Mozu.Api.Contracts.PaymentService;
 
-namespace Mozu.Api.Contracts.ProductAdmin.Search
+namespace Mozu.Api.Contracts.PaymentService.Response
 {
-		public class SearchTuningSortRelevance
+		public class FraudScreenResponse
 		{
-			public List<string> SortList { get; set; }
+			public List<FraudScreenResponseData> FraudScreenResponseData { get; set; }
 
-			public string SortType { get; set; }
+			public int? GatewayInteractionId { get; set; }
+
+			public string Status { get; set; }
+
+			public string TransactionId { get; set; }
 
 		}
 
