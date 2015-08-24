@@ -19,26 +19,26 @@ namespace Mozu.Api.Clients.Commerce.Payments
 	/// <summary>
 	/// 
 	/// </summary>
-	public partial class FraudScreenResponseClient 	{
+	public partial class FraudScreenClient 	{
 		
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="request"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.PaymentService.Response.FraudScreenResponse"/>}
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.PaymentService.Response.FraudScreen"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=Screen( request);
-		///   var fraudScreenResponseClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var fraudScreenClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.PaymentService.Response.FraudScreenResponse> ScreenClient(Mozu.Api.Contracts.PaymentService.Request.FraudScreenRequest request)
+		public static MozuClient<Mozu.Api.Contracts.PaymentService.Response.FraudScreen> ScreenClient(Mozu.Api.Contracts.PaymentService.Request.FraudScreenRequest request)
 		{
-			var url = Mozu.Api.Urls.Commerce.Payments.FraudScreenResponseUrl.ScreenUrl();
+			var url = Mozu.Api.Urls.Commerce.Payments.FraudScreenUrl.ScreenUrl();
 			const string verb = "POST";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.PaymentService.Response.FraudScreenResponse>()
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.PaymentService.Response.FraudScreen>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.PaymentService.Request.FraudScreenRequest>(request);
 			return mozuClient;

@@ -27,7 +27,7 @@ namespace Mozu.Api.Urls.Platform.Appdev
         public static MozuUrl GetFileUrl(string applicationKey, string fileName)
 		{
 			var url = "/api/platform/appdev/filebasedpackage/packages/{applicationKey}?fileName={fileName}";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
 			mozuUrl.FormatUrl( "applicationKey", applicationKey);
 			mozuUrl.FormatUrl( "fileName", fileName);
 			return mozuUrl;

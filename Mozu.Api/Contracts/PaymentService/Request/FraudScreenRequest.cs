@@ -31,6 +31,10 @@ namespace Mozu.Api.Contracts.PaymentService.Request
 
 			public List<CustomData> CustomData { get; set; }
 
+			public int ExpireMonth { get; set; }
+
+			public int ExpireYear { get; set; }
+
 			public string GatewayAccountId { get; set; }
 
 			public string MerchantTransactionId { get; set; }

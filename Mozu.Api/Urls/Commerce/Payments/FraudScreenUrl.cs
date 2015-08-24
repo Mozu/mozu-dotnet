@@ -13,7 +13,7 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Urls.Commerce.Payments
 {
-	public partial class FraudScreenResponseUrl 
+	public partial class FraudScreenUrl 
 	{
 
 				/// <summary>

@@ -152,7 +152,7 @@
     <Compile Include="Factories\ExtendedPropertyFactory.cs" />
     <Compile Include="Factories\FacetAdminFactory.cs" />
     <Compile Include="Factories\FacetFactory.cs" />
-    <Compile Include="Factories\FraudScreenResponseFactory.cs" />
+    <Compile Include="Factories\FraudScreenFactory.cs" />
     <Compile Include="Factories\FulfillmentActionFactory.cs" />
     <Compile Include="Factories\FulfillmentInfoFactory.cs" />
     <Compile Include="Factories\GeneralSettingsFactory.cs" />

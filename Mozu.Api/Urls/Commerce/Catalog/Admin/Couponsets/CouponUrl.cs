@@ -173,14 +173,16 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets
         /// Get Resource Url for UnAssignDiscount
         /// </summary>
         /// <param name="couponSetCode"></param>
+        /// <param name="discountId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UnAssignDiscountUrl(string couponSetCode)
+        public static MozuUrl UnAssignDiscountUrl(string couponSetCode, int discountId)
 		{
-			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}/assigneddiscounts";
+			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}/assigneddiscounts/{discountId}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "couponSetCode", couponSetCode);
+			mozuUrl.FormatUrl( "discountId", discountId);
 			return mozuUrl;
 		}
 
