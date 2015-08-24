@@ -175,7 +175,7 @@
     <Compile Include="Clients\Commerce\Orders\PickupClient.cs" />
     <Compile Include="Clients\Commerce\Orders\RefundClient.cs" />
     <Compile Include="Clients\Commerce\Orders\ShipmentClient.cs" />
-    <Compile Include="Clients\Commerce\Payments\FraudScreenResponseClient.cs" />
+    <Compile Include="Clients\Commerce\Payments\FraudScreenClient.cs" />
     <Compile Include="Clients\Commerce\Payments\PublicCardClient.cs" />
     <Compile Include="Clients\Commerce\ReturnClient.cs" />
     <Compile Include="Clients\Commerce\Returns\PackageClient.cs" />
@@ -456,7 +456,7 @@
     <Compile Include="Contracts\PaymentService\Product.cs" />
     <Compile Include="Contracts\PaymentService\PublicCard.cs" />
     <Compile Include="Contracts\PaymentService\Request\FraudScreenRequest.cs" />
-    <Compile Include="Contracts\PaymentService\Response\FraudScreenResponse.cs" />
+    <Compile Include="Contracts\PaymentService\Response\FraudScreen.cs" />
     <Compile Include="Contracts\PaymentService\Response\SyncResponse.cs" />
     <Compile Include="Contracts\PaymentService\SupportedCard.cs" />
     <Compile Include="Contracts\PricingRuntime\ProductAttribute.cs" />
@@ -769,7 +769,7 @@
     <Compile Include="Resources\Commerce\Orders\PickupResource.cs" />
     <Compile Include="Resources\Commerce\Orders\RefundResource.cs" />
     <Compile Include="Resources\Commerce\Orders\ShipmentResource.cs" />
-    <Compile Include="Resources\Commerce\Payments\FraudScreenResponseResource.cs" />
+    <Compile Include="Resources\Commerce\Payments\FraudScreenResource.cs" />
     <Compile Include="Resources\Commerce\Payments\PublicCardResource.cs" />
     <Compile Include="Resources\Commerce\ReturnResource.cs" />
     <Compile Include="Resources\Commerce\Returns\PackageResource.cs" />
@@ -890,7 +890,7 @@
     <Compile Include="Urls\Commerce\Orders\RefundUrl.cs" />
     <Compile Include="Urls\Commerce\Orders\ShipmentUrl.cs" />
     <Compile Include="Urls\Commerce\OrderUrl.cs" />
-    <Compile Include="Urls\Commerce\Payments\FraudScreenResponseUrl.cs" />
+    <Compile Include="Urls\Commerce\Payments\FraudScreenUrl.cs" />
     <Compile Include="Urls\Commerce\Payments\PublicCardUrl.cs" />
     <Compile Include="Urls\Commerce\Returns\PackageUrl.cs" />
     <Compile Include="Urls\Commerce\Returns\ShipmentUrl.cs" />

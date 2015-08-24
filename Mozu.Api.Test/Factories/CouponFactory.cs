@@ -371,14 +371,14 @@ namespace Mozu.Api.Test.Factories
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = CouponFactory.UnAssignDiscount(handler : handler,  assignedDiscount :  assignedDiscount,  couponSetCode :  couponSetCode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CouponFactory.UnAssignDiscount(handler : handler,  couponSetCode :  couponSetCode,  discountId :  discountId,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static void UnAssignDiscount(ServiceClientMessageHandler handler, 
- 		Mozu.Api.Contracts.ProductAdmin.AssignedDiscount assignedDiscount, string couponSetCode, 
+ 		string couponSetCode, int discountId, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
@@ -386,7 +386,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.CouponClient.UnAssignDiscountClient(
-				 assignedDiscount :  assignedDiscount,  couponSetCode :  couponSetCode		);
+				 couponSetCode :  couponSetCode,  discountId :  discountId		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

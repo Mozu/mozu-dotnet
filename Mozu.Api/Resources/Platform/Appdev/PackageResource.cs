@@ -26,7 +26,11 @@ namespace Mozu.Api.Resources.Platform.Appdev
 		private readonly IApiContext _apiContext;
 
 		
-		public PackageResource(IApiContext apiContext) 
+		public PackageResource() 
+		{
+			_apiContext = null;
+		}
+		 public PackageResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
 		}

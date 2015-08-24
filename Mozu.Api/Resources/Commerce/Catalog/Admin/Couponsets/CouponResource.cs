@@ -482,21 +482,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Couponsets
 		/// 
 		/// </summary>
 		/// <param name="couponSetCode"></param>
-		/// <param name="assignedDiscount"></param>
+		/// <param name="discountId"></param>
 		/// <returns>
 		/// 
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var coupon = new Coupon();
-		///   coupon.UnAssignDiscount( assignedDiscount,  couponSetCode);
+		///   coupon.UnAssignDiscount( couponSetCode,  discountId);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void UnAssignDiscount(Mozu.Api.Contracts.ProductAdmin.AssignedDiscount assignedDiscount, string couponSetCode)
+		public virtual void UnAssignDiscount(string couponSetCode, int discountId)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.CouponClient.UnAssignDiscountClient( assignedDiscount,  couponSetCode);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.CouponClient.UnAssignDiscountClient( couponSetCode,  discountId);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 
@@ -506,20 +506,20 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Couponsets
 		/// 
 		/// </summary>
 		/// <param name="couponSetCode"></param>
-		/// <param name="assignedDiscount"></param>
+		/// <param name="discountId"></param>
 		/// <returns>
 		/// 
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var coupon = new Coupon();
-		///   await coupon.UnAssignDiscountAsync( assignedDiscount,  couponSetCode);
+		///   await coupon.UnAssignDiscountAsync( couponSetCode,  discountId);
 		/// </code>
 		/// </example>
-		public virtual async Task UnAssignDiscountAsync(Mozu.Api.Contracts.ProductAdmin.AssignedDiscount assignedDiscount, string couponSetCode)
+		public virtual async Task UnAssignDiscountAsync(string couponSetCode, int discountId)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.CouponClient.UnAssignDiscountClient( assignedDiscount,  couponSetCode);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.CouponClient.UnAssignDiscountClient( couponSetCode,  discountId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 

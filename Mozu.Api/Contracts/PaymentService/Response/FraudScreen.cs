@@ -15,7 +15,7 @@ using Mozu.Api.Contracts.PaymentService;
 
 namespace Mozu.Api.Contracts.PaymentService.Response
 {
-		public class FraudScreenResponse
+		public class FraudScreen
 		{
 			public List<FraudScreenResponseData> FraudScreenResponseData { get; set; }
 

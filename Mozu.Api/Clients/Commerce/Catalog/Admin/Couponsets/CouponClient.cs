@@ -254,23 +254,23 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets
 		/// 
 		/// </summary>
 		/// <param name="couponSetCode"></param>
-		/// <param name="assignedDiscount"></param>
+		/// <param name="discountId"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UnAssignDiscount( assignedDiscount,  couponSetCode);
+		///   var mozuClient=UnAssignDiscount( couponSetCode,  discountId);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient UnAssignDiscountClient(Mozu.Api.Contracts.ProductAdmin.AssignedDiscount assignedDiscount, string couponSetCode)
+		public static MozuClient UnAssignDiscountClient(string couponSetCode, int discountId)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets.CouponUrl.UnAssignDiscountUrl(couponSetCode);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets.CouponUrl.UnAssignDiscountUrl(couponSetCode, discountId);
 			const string verb = "DELETE";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.AssignedDiscount>(assignedDiscount);
+;
 			return mozuClient;
 
 		}
