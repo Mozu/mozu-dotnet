@@ -20,6 +20,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// Get Resource Url for GetCouponSets
         /// </summary>
         /// <param name="filter"></param>
+        /// <param name="includeCounts"></param>
         /// <param name="pageSize"></param>
         /// <param name="responseFields"></param>
         /// <param name="sortBy"></param>
@@ -27,11 +28,12 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetCouponSetsUrl(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+        public static MozuUrl GetCouponSetsUrl(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, bool? includeCounts =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/couponsets/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
+			var url = "/api/commerce/catalog/admin/couponsets/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&includeCounts={includeCounts}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "filter", filter);
+			mozuUrl.FormatUrl( "includeCounts", includeCounts);
 			mozuUrl.FormatUrl( "pageSize", pageSize);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "sortBy", sortBy);

@@ -17,6 +17,8 @@ namespace Mozu.Api.Contracts.PaymentService.Request
 {
 		public class FraudScreenRequest
 		{
+			public string AvsCodes { get; set; }
+
 			public Address BillingAddress { get; set; }
 
 			public Contact BillingContact { get; set; }
@@ -30,6 +32,8 @@ namespace Mozu.Api.Contracts.PaymentService.Request
 			public string CurrencyCode { get; set; }
 
 			public List<CustomData> CustomData { get; set; }
+
+			public string CvV2Codes { get; set; }
 
 			public int ExpireMonth { get; set; }
 

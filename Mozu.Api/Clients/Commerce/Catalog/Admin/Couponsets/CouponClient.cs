@@ -50,19 +50,20 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets
 		/// </summary>
 		/// <param name="couponCode"></param>
 		/// <param name="couponSetCode"></param>
+		/// <param name="includeCounts"></param>
 		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Coupon"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetCoupon( couponSetCode,  couponCode,  responseFields);
+		///   var mozuClient=GetCoupon( couponSetCode,  couponCode,  includeCounts,  responseFields);
 		///   var couponClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Coupon> GetCouponClient(string couponSetCode, string couponCode, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Coupon> GetCouponClient(string couponSetCode, string couponCode, bool? includeCounts =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets.CouponUrl.GetCouponUrl(couponSetCode, couponCode, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets.CouponUrl.GetCouponUrl(couponSetCode, couponCode, includeCounts, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Coupon>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -76,6 +77,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets
 		/// </summary>
 		/// <param name="couponSetCode"></param>
 		/// <param name="filter"></param>
+		/// <param name="includeCounts"></param>
 		/// <param name="pageSize"></param>
 		/// <param name="responseFields"></param>
 		/// <param name="sortBy"></param>
@@ -85,13 +87,13 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetCoupons( couponSetCode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		///   var mozuClient=GetCoupons( couponSetCode,  startIndex,  pageSize,  sortBy,  filter,  includeCounts,  responseFields);
 		///   var couponCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.CouponCollection> GetCouponsClient(string couponSetCode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.CouponCollection> GetCouponsClient(string couponSetCode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, bool? includeCounts =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets.CouponUrl.GetCouponsUrl(couponSetCode, startIndex, pageSize, sortBy, filter, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets.CouponUrl.GetCouponsUrl(couponSetCode, startIndex, pageSize, sortBy, filter, includeCounts, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.CouponCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -104,19 +106,20 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets
 		/// 
 		/// </summary>
 		/// <param name="couponSetCode"></param>
+		/// <param name="includeCounts"></param>
 		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.CouponSet"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetCouponSet( couponSetCode,  responseFields);
+		///   var mozuClient=GetCouponSet( couponSetCode,  includeCounts,  responseFields);
 		///   var couponSetClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.CouponSet> GetCouponSetClient(string couponSetCode, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.CouponSet> GetCouponSetClient(string couponSetCode, bool? includeCounts =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets.CouponUrl.GetCouponSetUrl(couponSetCode, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets.CouponUrl.GetCouponSetUrl(couponSetCode, includeCounts, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.CouponSet>()
 									.WithVerb(verb).WithResourceUrl(url)

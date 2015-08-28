@@ -41,6 +41,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// 
 		/// </summary>
 		/// <param name="filter"></param>
+		/// <param name="includeCounts"></param>
 		/// <param name="pageSize"></param>
 		/// <param name="responseFields"></param>
 		/// <param name="sortBy"></param>
@@ -51,14 +52,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var couponset = new CouponSet();
-		///   var couponSetCollection = couponset.GetCouponSets( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		///   var couponSetCollection = couponset.GetCouponSets( startIndex,  pageSize,  sortBy,  filter,  includeCounts,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.CouponSetCollection GetCouponSets(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		public virtual Mozu.Api.Contracts.ProductAdmin.CouponSetCollection GetCouponSets(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, bool? includeCounts =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.CouponSetCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CouponSetClient.GetCouponSetsClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CouponSetClient.GetCouponSetsClient( startIndex,  pageSize,  sortBy,  filter,  includeCounts,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -69,6 +70,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// 
 		/// </summary>
 		/// <param name="filter"></param>
+		/// <param name="includeCounts"></param>
 		/// <param name="pageSize"></param>
 		/// <param name="responseFields"></param>
 		/// <param name="sortBy"></param>
@@ -79,13 +81,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var couponset = new CouponSet();
-		///   var couponSetCollection = await couponset.GetCouponSetsAsync( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		///   var couponSetCollection = await couponset.GetCouponSetsAsync( startIndex,  pageSize,  sortBy,  filter,  includeCounts,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.CouponSetCollection> GetCouponSetsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.CouponSetCollection> GetCouponSetsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, bool? includeCounts =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.CouponSetCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CouponSetClient.GetCouponSetsClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CouponSetClient.GetCouponSetsClient( startIndex,  pageSize,  sortBy,  filter,  includeCounts,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
