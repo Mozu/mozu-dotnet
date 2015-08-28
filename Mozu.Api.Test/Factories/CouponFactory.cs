@@ -71,14 +71,14 @@ namespace Mozu.Api.Test.Factories
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = CouponFactory.GetCoupon(handler : handler,  couponSetCode :  couponSetCode,  couponCode :  couponCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CouponFactory.GetCoupon(handler : handler,  couponSetCode :  couponSetCode,  couponCode :  couponCode,  includeCounts :  includeCounts,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Coupon/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.Coupon GetCoupon(ServiceClientMessageHandler handler, 
- 		 string couponSetCode, string couponCode, string responseFields = null, 
+ 		 string couponSetCode, string couponCode, bool? includeCounts = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -86,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.CouponClient.GetCouponClient(
-				 couponSetCode :  couponSetCode,  couponCode :  couponCode,  responseFields :  responseFields		);
+				 couponSetCode :  couponSetCode,  couponCode :  couponCode,  includeCounts :  includeCounts,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -109,14 +109,14 @@ namespace Mozu.Api.Test.Factories
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = CouponFactory.GetCoupons(handler : handler,  couponSetCode :  couponSetCode,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CouponFactory.GetCoupons(handler : handler,  couponSetCode :  couponSetCode,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  includeCounts :  includeCounts,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CouponCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.CouponCollection GetCoupons(ServiceClientMessageHandler handler, 
- 		 string couponSetCode, int? startIndex = null, int? pageSize = null, string sortBy = null, string filter = null, string responseFields = null, 
+ 		 string couponSetCode, int? startIndex = null, int? pageSize = null, string sortBy = null, string filter = null, bool? includeCounts = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -124,7 +124,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.CouponClient.GetCouponsClient(
-				 couponSetCode :  couponSetCode,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields		);
+				 couponSetCode :  couponSetCode,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  includeCounts :  includeCounts,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -147,14 +147,14 @@ namespace Mozu.Api.Test.Factories
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = CouponFactory.GetCouponSet(handler : handler,  couponSetCode :  couponSetCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CouponFactory.GetCouponSet(handler : handler,  couponSetCode :  couponSetCode,  includeCounts :  includeCounts,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CouponSet/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.CouponSet GetCouponSet(ServiceClientMessageHandler handler, 
- 		 string couponSetCode, string responseFields = null, 
+ 		 string couponSetCode, bool? includeCounts = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -162,7 +162,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.CouponClient.GetCouponSetClient(
-				 couponSetCode :  couponSetCode,  responseFields :  responseFields		);
+				 couponSetCode :  couponSetCode,  includeCounts :  includeCounts,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

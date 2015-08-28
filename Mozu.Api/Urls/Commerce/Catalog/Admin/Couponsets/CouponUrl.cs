@@ -36,16 +36,18 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets
         /// </summary>
         /// <param name="couponCode"></param>
         /// <param name="couponSetCode"></param>
+        /// <param name="includeCounts"></param>
         /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetCouponUrl(string couponSetCode, string couponCode, string responseFields =  null)
+        public static MozuUrl GetCouponUrl(string couponSetCode, string couponCode, bool? includeCounts =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}/coupons/{couponCode}?responseFields={responseFields}";
+			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}/coupons/{couponCode}?includeCounts={includeCounts}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "couponCode", couponCode);
 			mozuUrl.FormatUrl( "couponSetCode", couponSetCode);
+			mozuUrl.FormatUrl( "includeCounts", includeCounts);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
@@ -55,6 +57,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets
         /// </summary>
         /// <param name="couponSetCode"></param>
         /// <param name="filter"></param>
+        /// <param name="includeCounts"></param>
         /// <param name="pageSize"></param>
         /// <param name="responseFields"></param>
         /// <param name="sortBy"></param>
@@ -62,12 +65,13 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetCouponsUrl(string couponSetCode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+        public static MozuUrl GetCouponsUrl(string couponSetCode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, bool? includeCounts =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}/coupons?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
+			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}/coupons?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&includeCounts={includeCounts}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "couponSetCode", couponSetCode);
 			mozuUrl.FormatUrl( "filter", filter);
+			mozuUrl.FormatUrl( "includeCounts", includeCounts);
 			mozuUrl.FormatUrl( "pageSize", pageSize);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "sortBy", sortBy);
@@ -79,15 +83,17 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets
         /// Get Resource Url for GetCouponSet
         /// </summary>
         /// <param name="couponSetCode"></param>
+        /// <param name="includeCounts"></param>
         /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetCouponSetUrl(string couponSetCode, string responseFields =  null)
+        public static MozuUrl GetCouponSetUrl(string couponSetCode, bool? includeCounts =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}?responseFields={responseFields}";
+			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}?includeCounts={includeCounts}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "couponSetCode", couponSetCode);
+			mozuUrl.FormatUrl( "includeCounts", includeCounts);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
