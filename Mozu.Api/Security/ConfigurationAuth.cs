@@ -18,6 +18,7 @@ namespace Mozu.Api.Security
             var body = HttpUtility.UrlDecode(request.Form.ToString());
 
             var messageHash = request.QueryString["messageHash"];
+            var tenantId = request.QueryString["tenantId"];
             var date = request.QueryString["dt"];
 
             var requestDate = DateTime.Parse(date, null, DateTimeStyles.AssumeUniversal).ToUniversalTime();
@@ -29,7 +30,7 @@ namespace Mozu.Api.Security
             _logger.Info(String.Format("ApplicationID : {0}", AppAuthenticator.Instance.AppAuthInfo.ApplicationId));
             var hash = SHA256Generator.GetHash(AppAuthenticator.Instance.AppAuthInfo.SharedSecret, date, body);
             _logger.Info(String.Format("Computed Hash : {0}", hash));
-            if (hash != messageHash || diff > MozuConfig.CapabilityTimeoutInSeconds)
+            if (body != null && (hash != messageHash || diff > MozuConfig.CapabilityTimeoutInSeconds || (!body.Contains("t" + tenantId+"."))))
             {
                 _logger.Error(String.Format("Unauthorized access from {0}, {1}, {2}, {3} Computed: {4}", request.UserHostAddress, messageHash, date, body, hash));
                 return false;
