@@ -19,5 +19,6 @@
         public const string DATE = "Date";
         public const string CONTENT_TYPE = "Content-type";
         public const string ETAG = "ETag";
+        public const string USERID = "userId";
     }
 }
