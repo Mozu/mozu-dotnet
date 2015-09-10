@@ -24,51 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// commerce/catalog/admin/couponsets/coupons related resources. DOCUMENT_HERE 
 	/// </summary>
 	public partial class CouponFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// 
-		/// <example> 
-		///  <code> 
-		/// var result = CouponFactory.GetAssignedDiscounts(handler : handler,  couponSetCode :  couponSetCode,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<List<AssignedDiscount>/>(result); 
-		/// return optionalCasting;
-		///  </code> 
-		/// </example> 
-		/// </summary>
-		public static List<Mozu.Api.Contracts.ProductAdmin.AssignedDiscount> GetAssignedDiscounts(ServiceClientMessageHandler handler, 
- 		 string couponSetCode, 
-		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
-		{
-			SetSdKparameters();
-			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
-			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
-			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.CouponClient.GetAssignedDiscountsClient(
-				 couponSetCode :  couponSetCode		);
-			try
-			{
-				apiClient.WithContext(handler.ApiContext).Execute();
-			}
-			catch (ApiException ex)
-			{
-				// Custom error handling for test cases can be placed here
-				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
-				if (customException != null)
-					throw customException;
-				return null;
-			}
-			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
-					 ? (apiClient.Result()) 
-					 : null;
-
-		}
-  
-		/// <summary> 
-		/// 
+		/// couponsets-coupons Get GetCoupon description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = CouponFactory.GetCoupon(handler : handler,  couponSetCode :  couponSetCode,  couponCode :  couponCode,  includeCounts :  includeCounts,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// couponsets-coupons Get GetCoupons description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = CouponFactory.GetCoupons(handler : handler,  couponSetCode :  couponSetCode,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  includeCounts :  includeCounts,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,82 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
-		/// <example> 
-		///  <code> 
-		/// var result = CouponFactory.GetCouponSet(handler : handler,  couponSetCode :  couponSetCode,  includeCounts :  includeCounts,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<CouponSet/>(result); 
-		/// return optionalCasting;
-		///  </code> 
-		/// </example> 
-		/// </summary>
-		public static Mozu.Api.Contracts.ProductAdmin.CouponSet GetCouponSet(ServiceClientMessageHandler handler, 
- 		 string couponSetCode, bool? includeCounts = null, string responseFields = null, 
-		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
-		{
-			SetSdKparameters();
-			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
-			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
-			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.CouponClient.GetCouponSetClient(
-				 couponSetCode :  couponSetCode,  includeCounts :  includeCounts,  responseFields :  responseFields		);
-			try
-			{
-				apiClient.WithContext(handler.ApiContext).Execute();
-			}
-			catch (ApiException ex)
-			{
-				// Custom error handling for test cases can be placed here
-				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
-				if (customException != null)
-					throw customException;
-				return null;
-			}
-			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
-					 ? (apiClient.Result()) 
-					 : null;
-
-		}
-  
-		/// <summary> 
-		/// 
-		/// <example> 
-		///  <code> 
-		/// var result = CouponFactory.AssignDiscount(handler : handler,  assignedDiscount :  assignedDiscount,  couponSetCode :  couponSetCode,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
-		/// return optionalCasting;
-		///  </code> 
-		/// </example> 
-		/// </summary>
-		public static void AssignDiscount(ServiceClientMessageHandler handler, 
- 		Mozu.Api.Contracts.ProductAdmin.AssignedDiscount assignedDiscount, string couponSetCode, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
-		{
-			SetSdKparameters();
-			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
-			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
-			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.CouponClient.AssignDiscountClient(
-				 assignedDiscount :  assignedDiscount,  couponSetCode :  couponSetCode		);
-			try
-			{
-				apiClient.WithContext(handler.ApiContext).Execute();
-			}
-			catch (ApiException ex)
-			{
-				// Custom error handling for test cases can be placed here
-				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
-				if (customException != null)
-					throw customException;
-			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
-					 ? (apiClient.Result()) 
-					 : null;
-
-		}
-  
-		/// <summary> 
-		/// 
+		/// couponsets-coupons Post AddCoupons description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = CouponFactory.AddCoupons(handler : handler,  coupons :  coupons,  couponSetCode :  couponSetCode,  expectedCode: expectedCode, successCode: successCode); 
@@ -256,7 +143,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// couponsets-coupons Post DeleteCoupons description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = CouponFactory.DeleteCoupons(handler : handler,  couponCodes :  couponCodes,  couponSetCode :  couponSetCode,  expectedCode: expectedCode, successCode: successCode); 
@@ -293,119 +180,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
-		/// <example> 
-		///  <code> 
-		/// var result = CouponFactory.UpdateCouponSet(handler : handler,  couponSet :  couponSet,  couponSetCode :  couponSetCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<CouponSet/>(result); 
-		/// return optionalCasting;
-		///  </code> 
-		/// </example> 
-		/// </summary>
-		public static Mozu.Api.Contracts.ProductAdmin.CouponSet UpdateCouponSet(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ProductAdmin.CouponSet couponSet, string couponSetCode, string responseFields = null, 
-		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
-		{
-			SetSdKparameters();
-			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
-			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
-			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.CouponClient.UpdateCouponSetClient(
-				 couponSet :  couponSet,  couponSetCode :  couponSetCode,  responseFields :  responseFields		);
-			try
-			{
-				apiClient.WithContext(handler.ApiContext).Execute();
-			}
-			catch (ApiException ex)
-			{
-				// Custom error handling for test cases can be placed here
-				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
-				if (customException != null)
-					throw customException;
-				return null;
-			}
-			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
-					 ? (apiClient.Result()) 
-					 : null;
-
-		}
-  
-		/// <summary> 
-		/// 
-		/// <example> 
-		///  <code> 
-		/// var result = CouponFactory.DeleteCouponSet(handler : handler,  couponSetCode :  couponSetCode,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
-		/// return optionalCasting;
-		///  </code> 
-		/// </example> 
-		/// </summary>
-		public static void DeleteCouponSet(ServiceClientMessageHandler handler, 
- 		string couponSetCode, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
-		{
-			SetSdKparameters();
-			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
-			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
-			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.CouponClient.DeleteCouponSetClient(
-				 couponSetCode :  couponSetCode		);
-			try
-			{
-				apiClient.WithContext(handler.ApiContext).Execute();
-			}
-			catch (ApiException ex)
-			{
-				// Custom error handling for test cases can be placed here
-				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
-				if (customException != null)
-					throw customException;
-			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
-					 ? (apiClient.Result()) 
-					 : null;
-
-		}
-  
-		/// <summary> 
-		/// 
-		/// <example> 
-		///  <code> 
-		/// var result = CouponFactory.UnAssignDiscount(handler : handler,  couponSetCode :  couponSetCode,  discountId :  discountId,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
-		/// return optionalCasting;
-		///  </code> 
-		/// </example> 
-		/// </summary>
-		public static void UnAssignDiscount(ServiceClientMessageHandler handler, 
- 		string couponSetCode, int discountId, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
-		{
-			SetSdKparameters();
-			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
-			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
-			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.CouponClient.UnAssignDiscountClient(
-				 couponSetCode :  couponSetCode,  discountId :  discountId		);
-			try
-			{
-				apiClient.WithContext(handler.ApiContext).Execute();
-			}
-			catch (ApiException ex)
-			{
-				// Custom error handling for test cases can be placed here
-				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
-				if (customException != null)
-					throw customException;
-			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
-					 ? (apiClient.Result()) 
-					 : null;
-
-		}
-  
-		/// <summary> 
-		/// 
+		/// couponsets-coupons Delete DeleteCoupon description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = CouponFactory.DeleteCoupon(handler : handler,  couponSetCode :  couponSetCode,  couponCode :  couponCode,  expectedCode: expectedCode, successCode: successCode); 

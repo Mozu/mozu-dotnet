@@ -17,12 +17,12 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Commerce.Orders
 {
 	/// <summary>
-	/// commerce/orders/orderrefunds related resources. DOCUMENT_HERE 
+	/// Use the refunds resource to create a refund.
 	/// </summary>
 	public partial class RefundClient 	{
 		
 		/// <summary>
-		/// orders-orderrefunds Post CreateRefund description DOCUMENT_HERE 
+		/// Creates a refund based on the information supplied in the request.  
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
@@ -48,10 +48,10 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		}
 
 		/// <summary>
-		/// orders-orderrefunds Put ResendRefundEmail description DOCUMENT_HERE 
+		/// Resends the order refund email previously sent to the shopper. 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="refundId"></param>
+		/// <param name="refundId">Unique ID of the refund.        </param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

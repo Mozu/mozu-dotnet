@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// platform/appdev/filebasedpackage related resources. DOCUMENT_HERE 
 	/// </summary>
 	public partial class PackageFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// 
+		/// appdev-filebasedpackage Get GetFile description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = PackageFactory.GetFile(handler : handler,  applicationKey :  applicationKey,  fileName :  fileName,  expectedCode: expectedCode, successCode: successCode); 

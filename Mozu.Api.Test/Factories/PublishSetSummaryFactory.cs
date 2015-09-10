@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// content/publishsets related resources. DOCUMENT_HERE 
 	/// </summary>
 	public partial class PublishSetSummaryFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// 
+		/// Returns a List of current Publishing sets with counts of drafts in each
 		/// <example> 
 		///  <code> 
 		/// var result = PublishSetSummaryFactory.GetPublishSets(handler : handler,  pageSize :  pageSize,  startIndex :  startIndex,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieve a paged collection of publish set Items.
 		/// <example> 
 		///  <code> 
 		/// var result = PublishSetSummaryFactory.GetPublishSetItems(handler : handler,  code :  code,  pageSize :  pageSize,  startIndex :  startIndex,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Adds a set of documents by id to a publish set
 		/// <example> 
 		///  <code> 
 		/// var result = PublishSetSummaryFactory.DeletePublishSet(handler : handler,  code :  code,  shouldDiscard :  shouldDiscard,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Adds a set of documents by id to a publish set
 		/// <example> 
 		///  <code> 
 		/// var result = PublishSetSummaryFactory.AddPublishSetItems(handler : handler,  itemsToPublish :  itemsToPublish,  code :  code,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

@@ -9,7 +9,9 @@
 //------------------------------------------------------------------------------
 
 using System;
+using Newtonsoft.Json.Linq;
 
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 {
@@ -43,6 +45,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///
 			public string CurrencyCode { get; set; }
 
+			public JObject Data { get; set; }
+
+			///
+			///Mozu.CommerceRuntime.Contracts.Payments.PaymentAction externalTransactionId ApiTypeMember DOCUMENT_HERE 
+			///
 			public string ExternalTransactionId { get; set; }
 
 			///

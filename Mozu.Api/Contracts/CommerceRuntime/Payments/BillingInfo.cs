@@ -44,6 +44,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///
 			public string PaymentType { get; set; }
 
+			///
+			///Mozu.CommerceRuntime.Contracts.Payments.BillingInfo paymentWorkflow ApiTypeMember DOCUMENT_HERE 
+			///
 			public string PaymentWorkflow { get; set; }
 
 			///

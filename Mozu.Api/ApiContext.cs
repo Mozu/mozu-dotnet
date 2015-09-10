@@ -24,7 +24,7 @@ namespace Mozu.Api
 		int? CatalogId { get; set; }
         Tenant Tenant { get; }
 	    string Date { get; }
-
+        string UserId { get; set; }
 		string Locale { get; set; }
 		string Currency { get; set; }
 
@@ -50,6 +50,8 @@ namespace Mozu.Api
         public AuthTicket UserAuthTicket { get; set; }
 
 		public string Date { get; protected set; }
+        public string UserId { get; set; }
+
 		public string Locale { get; set; }
 		public string Currency { get; set; }
 
@@ -103,6 +105,7 @@ namespace Mozu.Api
 			CorrelationId = headers.Get(Headers.X_VOL_CORRELATION);
 			HMACSha256 = headers.Get(Headers.X_VOL_HMAC_SHA256);
 		    Date = headers.Get(Headers.DATE);
+		    UserId = headers.Get(Headers.USERID);
 
 		    var siteIdStr = headers.Get(Headers.X_VOL_SITE);
             if (!String.IsNullOrEmpty(siteIdStr))
@@ -137,6 +140,7 @@ namespace Mozu.Api
 			CatalogId = HttpHelper.ParseFirstValue(Headers.X_VOL_CATALOG, headers);
 			Locale = HttpHelper.GetHeaderValue(Headers.X_VOL_LOCALE, headers);
 			Currency = HttpHelper.GetHeaderValue(Headers.X_VOL_CURRENCY, headers);
+		    UserId = HttpHelper.GetHeaderValue(Headers.USERID, headers);
 
 			if (!String.IsNullOrEmpty(TenantUrl))
 			{

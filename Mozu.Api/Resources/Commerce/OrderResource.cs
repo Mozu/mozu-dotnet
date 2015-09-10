@@ -391,12 +391,12 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// 
+		/// commerce-orders Put ProcessDigitalWallet description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="digitalWalletType"></param>
-		/// <param name="orderId"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="digitalWallet"></param>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="digitalWallet">Mozu.CommerceRuntime.Contracts.Orders.DigitalWallet ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
@@ -418,12 +418,12 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// 
+		/// commerce-orders Put ProcessDigitalWallet description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="digitalWalletType"></param>
-		/// <param name="orderId"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="digitalWallet"></param>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="digitalWallet">Mozu.CommerceRuntime.Contracts.Orders.DigitalWallet ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>

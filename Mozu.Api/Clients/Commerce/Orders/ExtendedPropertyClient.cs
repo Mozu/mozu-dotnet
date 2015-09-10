@@ -17,12 +17,12 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Commerce.Orders
 {
 	/// <summary>
-	/// commerce/orders/extendedproperties related resources. DOCUMENT_HERE 
+	/// Use the Extended Properties resource to store tracking strings for your orders. Extended properties can help you track affiliate sources.
 	/// </summary>
 	public partial class ExtendedPropertyClient 	{
 		
 		/// <summary>
-		/// orders-extendedproperties Get GetExtendedProperties description DOCUMENT_HERE 
+		/// Retrieves the extended property string associated with the order. 
 		/// </summary>
 		/// <param name="draft">If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.</param>
 		/// <param name="orderId">Unique identifier of the order.</param>
@@ -47,7 +47,7 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		}
 
 		/// <summary>
-		/// orders-extendedproperties Post AddExtendedProperties description DOCUMENT_HERE 
+		/// Create an extended property for the order.
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
@@ -74,13 +74,13 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		}
 
 		/// <summary>
-		/// orders-extendedproperties Put UpdateExtendedProperty description DOCUMENT_HERE 
+		/// Updates one ore more extended properties.
 		/// </summary>
 		/// <param name="key"></param>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="upsert"></param>
+		/// <param name="upsert">Inserts and updates an extended property.        </param>
 		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
 		/// <param name="extendedProperty">Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE </param>
 		/// <returns>
@@ -104,11 +104,11 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		}
 
 		/// <summary>
-		/// orders-extendedproperties Put UpdateExtendedProperties description DOCUMENT_HERE 
+		/// Updates one or more extended properties.
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="upsert"></param>
+		/// <param name="upsert">Inserts and updates the extended property.        </param>
 		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
 		/// <param name="extendedProperties">Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE </param>
 		/// <returns>
@@ -132,7 +132,7 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		}
 
 		/// <summary>
-		/// orders-extendedproperties Delete DeleteExtendedProperty description DOCUMENT_HERE 
+		/// Deletes one or more extended properties.
 		/// </summary>
 		/// <param name="key"></param>
 		/// <param name="orderId">Unique identifier of the order.</param>
@@ -159,7 +159,7 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		}
 
 		/// <summary>
-		/// orders-extendedproperties Delete DeleteExtendedProperties description DOCUMENT_HERE 
+		/// Deletes the extended property associated with the order. 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>

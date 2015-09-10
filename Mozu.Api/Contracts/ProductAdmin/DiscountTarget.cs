@@ -29,6 +29,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public List<TargetedCategory> ExcludedCategories { get; set; }
 
+			///
+			///Applies to Included categories Defaults to Any
+			///
 			public string ExcludedCategoriesOperator { get; set; }
 
 			///
@@ -51,6 +54,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool? IncludeAllProducts { get; set; }
 
+			///
+			///Applies to Included categories Defaults to Any
+			///
 			public string IncludedCategoriesOperator { get; set; }
 
 			///
@@ -69,7 +75,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public List<TargetedShippingMethod> ShippingMethods { get; set; }
 
 			///
-			///Shipping Zones that are applicable for this discount
+			///The list of shipping zones that are applicable for this discount.
 			///
 			public List<TargetedShippingZone> ShippingZones { get; set; }
 

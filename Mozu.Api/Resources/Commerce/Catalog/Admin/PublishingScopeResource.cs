@@ -45,10 +45,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 				
 		/// <summary>
-		/// 
+		/// Retrieves the details of a single PublishSet.
 		/// </summary>
 		/// <param name="publishSetCode"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PublishSet"/>
@@ -71,10 +71,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves the details of a single PublishSet.
 		/// </summary>
 		/// <param name="publishSetCode"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PublishSet"/>
@@ -96,9 +96,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves a list of PublishSets including the product counts.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PublishSetCollection"/>
@@ -121,9 +121,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves a list of PublishSets including the product counts.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PublishSetCollection"/>
@@ -239,11 +239,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// admin-publishing Post AssignProductsToPublishSet description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="publishSet"></param>
+		/// <param name="publishSet">Mozu.ProductAdmin.Contracts.PublishSet ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PublishSet"/>
 		/// </returns>
@@ -265,11 +265,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// admin-publishing Post AssignProductsToPublishSet description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="publishSet"></param>
+		/// <param name="publishSet">Mozu.ProductAdmin.Contracts.PublishSet ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PublishSet"/>
 		/// </returns>
@@ -290,7 +290,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Removes all details about a PublishSet from the product service. If the discardDrafts param is true, it also deletes the product drafts.
 		/// </summary>
 		/// <param name="discardDrafts"></param>
 		/// <param name="publishSetCode"></param>
@@ -315,7 +315,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Removes all details about a PublishSet from the product service. If the discardDrafts param is true, it also deletes the product drafts.
 		/// </summary>
 		/// <param name="discardDrafts"></param>
 		/// <param name="publishSetCode"></param>

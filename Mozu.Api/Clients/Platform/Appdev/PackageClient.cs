@@ -17,12 +17,12 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Platform.Appdev
 {
 	/// <summary>
-	/// 
+	/// platform/appdev/filebasedpackage related resources. DOCUMENT_HERE 
 	/// </summary>
 	public partial class PackageClient 	{
 		
 		/// <summary>
-		/// 
+		/// appdev-filebasedpackage Get GetFile description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="applicationKey"></param>
 		/// <param name="fileName"></param>

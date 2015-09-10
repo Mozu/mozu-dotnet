@@ -14,16 +14,34 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.AppDev
 {
+		///
+		///	Mozu.AppDev.Contracts.ApplicationCapabilityDomain ApiType DOCUMENT_HERE 
+		///
 		public class ApplicationCapabilityDomain
 		{
+			///
+			///Mozu.AppDev.Contracts.ApplicationCapabilityDomain applicationCapabilityDomainId ApiTypeMember DOCUMENT_HERE 
+			///
 			public int ApplicationCapabilityDomainId { get; set; }
 
+			///
+			///Mozu.AppDev.Contracts.ApplicationCapabilityDomain applicationCapabilityDomainValues1 ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<ApplicationCapabilityDomainValue> ApplicationCapabilityDomainValues1 { get; set; }
 
+			///
+			///Mozu.AppDev.Contracts.ApplicationCapabilityDomain applicationCapabilityDomainValues2 ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<ApplicationCapabilityDomainValue> ApplicationCapabilityDomainValues2 { get; set; }
 
+			///
+			///Mozu.AppDev.Contracts.ApplicationCapabilityDomain applicationCapabilityTypeId ApiTypeMember DOCUMENT_HERE 
+			///
 			public int ApplicationCapabilityTypeId { get; set; }
 
+			///
+			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
+			///
 			public string Name { get; set; }
 
 		}

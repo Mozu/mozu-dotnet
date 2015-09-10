@@ -94,11 +94,11 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		}
 
 		/// <summary>
-		/// 
+		/// documentlists-documentTree Get TransformTreeDocumentContent description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="crop"></param>
-		/// <param name="documentListName"></param>
-		/// <param name="documentName"></param>
+		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="documentName">The name of the document in the site.</param>
 		/// <param name="height"></param>
 		/// <param name="max"></param>
 		/// <param name="maxHeight"></param>
@@ -126,11 +126,11 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		}
 
 		/// <summary>
-		/// 
+		/// documentlists-documentTree Get TransformTreeDocumentContent description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="crop"></param>
-		/// <param name="documentListName"></param>
-		/// <param name="documentName"></param>
+		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="documentName">The name of the document in the site.</param>
 		/// <param name="height"></param>
 		/// <param name="max"></param>
 		/// <param name="maxHeight"></param>

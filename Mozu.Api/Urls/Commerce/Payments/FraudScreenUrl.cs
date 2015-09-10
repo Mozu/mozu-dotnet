@@ -24,8 +24,8 @@ namespace Mozu.Api.Urls.Commerce.Payments
         /// </returns>
         public static MozuUrl ScreenUrl()
 		{
-			var url = "/api/commerce/payments/fraudscreen/screen";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			var url = "/payments/commerce/payments/fraudscreen/screen";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.PCI_POD, false) ;
 			return mozuUrl;
 		}
 

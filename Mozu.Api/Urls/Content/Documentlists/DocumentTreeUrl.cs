@@ -37,8 +37,8 @@ namespace Mozu.Api.Urls.Content.Documentlists
         /// Get Resource Url for TransformTreeDocumentContent
         /// </summary>
         /// <param name="crop"></param>
-        /// <param name="documentListName"></param>
-        /// <param name="documentName"></param>
+        /// <param name="documentListName">Name of content documentListName to delete</param>
+        /// <param name="documentName">The name of the document in the site.</param>
         /// <param name="height"></param>
         /// <param name="max"></param>
         /// <param name="maxHeight"></param>

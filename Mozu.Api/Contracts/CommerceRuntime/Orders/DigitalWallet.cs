@@ -13,8 +13,14 @@ using System;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 {
+		///
+		///	Mozu.CommerceRuntime.Contracts.Orders.DigitalWallet ApiType DOCUMENT_HERE 
+		///
 		public class DigitalWallet
 		{
+			///
+			///Digital wallet data. Note: Transform the Json data to a string.
+			///
 			public string DigitalWalletData { get; set; }
 
 		}

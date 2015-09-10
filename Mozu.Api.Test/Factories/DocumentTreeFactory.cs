@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// documentlists-documentTree Get TransformTreeDocumentContent description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = DocumentTreeFactory.TransformTreeDocumentContent(handler : handler,  documentListName :  documentListName,  documentName :  documentName,  width :  width,  height :  height,  max :  max,  maxWidth :  maxWidth,  maxHeight :  maxHeight,  crop :  crop,  quality :  quality,  expectedCode: expectedCode, successCode: successCode); 

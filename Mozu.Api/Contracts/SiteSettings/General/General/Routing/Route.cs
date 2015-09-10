@@ -14,18 +14,39 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.SiteSettings.General.General.Routing
 {
+		///
+		///	Mozu.SiteSettings.General.Contracts.General.Routing.Route ApiType DOCUMENT_HERE 
+		///
 		public class Route
 		{
+			///
+			///Mozu.SiteSettings.General.Contracts.General.Routing.Route canonical ApiTypeMember DOCUMENT_HERE 
+			///
 			public bool? Canonical { get; set; }
 
+			///
+			///Mozu.SiteSettings.General.Contracts.General.Routing.Route defaults ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<string> Defaults { get; set; }
 
+			///
+			///Mozu.SiteSettings.General.Contracts.General.Routing.Route internalRoute ApiTypeMember DOCUMENT_HERE 
+			///
 			public string InternalRoute { get; set; }
 
+			///
+			///Mozu.SiteSettings.General.Contracts.General.Routing.Route mappings ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<string> Mappings { get; set; }
 
+			///
+			///Mozu.SiteSettings.General.Contracts.General.Routing.Route template ApiTypeMember DOCUMENT_HERE 
+			///
 			public string Template { get; set; }
 
+			///
+			///Mozu.SiteSettings.General.Contracts.General.Routing.Route validators ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<string> Validators { get; set; }
 
 		}

@@ -30,7 +30,7 @@ namespace Mozu.Api.Test.Factories
 	{
 
 		/// <summary> 
-		/// 
+		/// admin-search Get GetSearchTuningRule description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.GetSearchTuningRule(handler : handler,  searchTuningRuleCode :  searchTuningRuleCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// admin-search Get GetSearchTuningRules description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.GetSearchTuningRules(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// admin-search Get GetSearchTuningSortRelevance description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.GetSearchTuningSortRelevance(handler : handler,  expectedCode: expectedCode, successCode: successCode); 
@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// admin-search Post AddSearchTuningRule description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.AddSearchTuningRule(handler : handler,  searchTuningRuleIn :  searchTuningRuleIn,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -220,7 +220,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// admin-search Post UpdateSearchTuningSortRelevance description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.UpdateSearchTuningSortRelevance(handler : handler,  searchTuningSortRelevanceIn :  searchTuningSortRelevanceIn,  expectedCode: expectedCode, successCode: successCode); 
@@ -257,7 +257,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// admin-search Put UpdateSearchTuningRule description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.UpdateSearchTuningRule(handler : handler,  searchTuningRuleIn :  searchTuningRuleIn,  searchTuningRuleCode :  searchTuningRuleCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -333,7 +333,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// admin-search Delete DeleteSearchTuningRule description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.DeleteSearchTuningRule(handler : handler,  searchTuningRuleCode :  searchTuningRuleCode,  expectedCode: expectedCode, successCode: successCode); 

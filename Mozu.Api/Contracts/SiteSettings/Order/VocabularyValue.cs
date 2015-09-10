@@ -14,10 +14,19 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.SiteSettings.Order
 {
+		///
+		///	Mozu.SiteSettings.Order.Contracts.VocabularyValue ApiType DOCUMENT_HERE 
+		///
 		public class VocabularyValue
 		{
+			///
+			///Mozu.SiteSettings.Order.Contracts.VocabularyValue contents ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<LocalizedContent> Contents { get; set; }
 
+			///
+			///Key used for metadata defined for objects, including extensible attributes, custom attributes associated with a shipping provider, and search synonyms definitions. This content may be user-defined depending on the object and usage.
+			///
 			public string Key { get; set; }
 
 		}
