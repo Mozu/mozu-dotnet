@@ -18,6 +18,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class MasterCatalog
 		{
+			///
+			///If the publishingMode is Pending and LiveEditsEnabled = true, DataViewMode live can be passed in the header and live products can be directly edited.
+			///
 			public bool? EnableLiveEdit { get; set; }
 
 			///

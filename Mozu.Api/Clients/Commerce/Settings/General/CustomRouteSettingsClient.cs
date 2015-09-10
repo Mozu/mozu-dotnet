@@ -17,14 +17,14 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Commerce.Settings.General
 {
 	/// <summary>
-	/// 
+	/// commerce/settings/general/customroutes related resources. DOCUMENT_HERE 
 	/// </summary>
 	public partial class CustomRouteSettingsClient 	{
 		
 		/// <summary>
-		/// 
+		/// general-customroutes Get GetCustomRouteSettings description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.General.General.Routing.CustomRouteSettings"/>}
 		/// </returns>
@@ -46,10 +46,10 @@ namespace Mozu.Api.Clients.Commerce.Settings.General
 		}
 
 		/// <summary>
-		/// 
+		/// general-customroutes Post CreateCustomRouteSettings description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="settings"></param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="settings">Mozu.SiteSettings.General.Contracts.General.Routing.CustomRouteSettings ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.General.General.Routing.CustomRouteSettings"/>}
 		/// </returns>
@@ -71,10 +71,10 @@ namespace Mozu.Api.Clients.Commerce.Settings.General
 		}
 
 		/// <summary>
-		/// 
+		/// general-customroutes Put UpdateCustomRouteSettings description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="settings"></param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="settings">Mozu.SiteSettings.General.Contracts.General.Routing.CustomRouteSettings ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.General.General.Routing.CustomRouteSettings"/>}
 		/// </returns>
@@ -96,7 +96,7 @@ namespace Mozu.Api.Clients.Commerce.Settings.General
 		}
 
 		/// <summary>
-		/// 
+		/// general-customroutes Delete DeleteCustomRouteSettings description DOCUMENT_HERE 
 		/// </summary>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />

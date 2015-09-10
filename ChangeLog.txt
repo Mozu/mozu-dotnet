@@ -10,42 +10,42 @@ Events
 Operation Params
 0.    Added - commerce.catalog.admin.categories.ValidateDynamicExpression- Param : dynamicExpressionIn
 1.    Added - commerce.catalog.admin.categories.ValidateRealTimeDynamicExpression- Param : dynamicExpressionIn
-2.    Added - commerce.catalog.admin.couponsets.ValidateUniqueCouponSetCode- Param : code
-3.    Added - commerce.catalog.admin.couponsets.coupons.AssignDiscount- Param : assignedDiscount
-4.    Added - commerce.catalog.admin.couponsets.coupons.DeleteCoupon- Param : couponCode
-5.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupon- Param : couponCode
-6.    Added - commerce.catalog.admin.couponsets.coupons.DeleteCoupons- Param : couponCodes
-7.    Added - commerce.catalog.admin.couponsets.coupons.AddCoupons- Param : coupons
-8.    Added - commerce.catalog.admin.couponsets.coupons.UpdateCouponSet- Param : couponSet
-9.    Added - commerce.catalog.admin.couponsets.coupons.AddCoupons- Param : couponSetCode
-10.    Added - commerce.catalog.admin.couponsets.coupons.AssignDiscount- Param : couponSetCode
-11.    Added - commerce.catalog.admin.couponsets.coupons.DeleteCoupon- Param : couponSetCode
-12.    Added - commerce.catalog.admin.couponsets.coupons.DeleteCoupons- Param : couponSetCode
-13.    Added - commerce.catalog.admin.couponsets.coupons.DeleteCouponSet- Param : couponSetCode
-14.    Added - commerce.catalog.admin.couponsets.coupons.GetAssignedDiscounts- Param : couponSetCode
+2.    Added - commerce.catalog.admin.couponsets.assigneddiscounts.AssignDiscount- Param : assignedDiscount
+3.    Added - commerce.catalog.admin.couponsets.assigneddiscounts.AssignDiscount- Param : couponSetCode
+4.    Added - commerce.catalog.admin.couponsets.assigneddiscounts.GetAssignedDiscounts- Param : couponSetCode
+5.    Added - commerce.catalog.admin.couponsets.assigneddiscounts.UnAssignDiscount- Param : couponSetCode
+6.    Added - commerce.catalog.admin.couponsets.assigneddiscounts.UnAssignDiscount- Param : discountId
+7.    Added - commerce.catalog.admin.couponsets.ValidateUniqueCouponSetCode- Param : code
+8.    Added - commerce.catalog.admin.couponsets.coupons.DeleteCoupon- Param : couponCode
+9.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupon- Param : couponCode
+10.    Added - commerce.catalog.admin.couponsets.coupons.DeleteCoupons- Param : couponCodes
+11.    Added - commerce.catalog.admin.couponsets.coupons.AddCoupons- Param : coupons
+12.    Added - commerce.catalog.admin.couponsets.coupons.AddCoupons- Param : couponSetCode
+13.    Added - commerce.catalog.admin.couponsets.coupons.DeleteCoupon- Param : couponSetCode
+14.    Added - commerce.catalog.admin.couponsets.coupons.DeleteCoupons- Param : couponSetCode
 15.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupon- Param : couponSetCode
-16.    Added - commerce.catalog.admin.couponsets.coupons.UnAssignDiscount- Param : couponSetCode
-17.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : couponSetCode
-18.    Added - commerce.catalog.admin.couponsets.coupons.UpdateCouponSet- Param : couponSetCode
-19.    Added - commerce.catalog.admin.couponsets.coupons.GetCouponSet- Param : couponSetCode
-20.    Added - commerce.catalog.admin.couponsets.coupons.UnAssignDiscount- Param : discountId
-21.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : filter
-22.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupon- Param : includeCounts
-23.    Added - commerce.catalog.admin.couponsets.coupons.GetCouponSet- Param : includeCounts
-24.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : includeCounts
-25.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : pageSize
-26.    Added - commerce.catalog.admin.couponsets.coupons.GetCouponSet- Param : responseFields
-27.    Added - commerce.catalog.admin.couponsets.coupons.UpdateCouponSet- Param : responseFields
-28.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupon- Param : responseFields
-29.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : responseFields
-30.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : sortBy
-31.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : startIndex
-32.    Added - commerce.catalog.admin.couponsets.AddCouponSet- Param : couponSet
-33.    Added - commerce.catalog.admin.couponsets.GetCouponSets- Param : filter
-34.    Added - commerce.catalog.admin.couponsets.GetCouponSets- Param : includeCounts
-35.    Added - commerce.catalog.admin.couponsets.GetCouponSets- Param : pageSize
-36.    Added - commerce.catalog.admin.couponsets.GetUniqueCouponSetCode- Param : responseFields
-37.    Added - commerce.catalog.admin.couponsets.AddCouponSet- Param : responseFields
+16.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : couponSetCode
+17.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : filter
+18.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupon- Param : includeCounts
+19.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : includeCounts
+20.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : pageSize
+21.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupon- Param : responseFields
+22.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : responseFields
+23.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : sortBy
+24.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : startIndex
+25.    Added - commerce.catalog.admin.couponsets.AddCouponSet- Param : couponSet
+26.    Added - commerce.catalog.admin.couponsets.UpdateCouponSet- Param : couponSet
+27.    Added - commerce.catalog.admin.couponsets.DeleteCouponSet- Param : couponSetCode
+28.    Added - commerce.catalog.admin.couponsets.UpdateCouponSet- Param : couponSetCode
+29.    Added - commerce.catalog.admin.couponsets.GetCouponSet- Param : couponSetCode
+30.    Added - commerce.catalog.admin.couponsets.GetCouponSets- Param : filter
+31.    Added - commerce.catalog.admin.couponsets.GetCouponSets- Param : includeCounts
+32.    Added - commerce.catalog.admin.couponsets.GetCouponSet- Param : includeCounts
+33.    Added - commerce.catalog.admin.couponsets.GetCouponSets- Param : pageSize
+34.    Added - commerce.catalog.admin.couponsets.GetUniqueCouponSetCode- Param : responseFields
+35.    Added - commerce.catalog.admin.couponsets.AddCouponSet- Param : responseFields
+36.    Added - commerce.catalog.admin.couponsets.GetCouponSet- Param : responseFields
+37.    Added - commerce.catalog.admin.couponsets.UpdateCouponSet- Param : responseFields
 38.    Added - commerce.catalog.admin.couponsets.GetCouponSets- Param : responseFields
 39.    Added - commerce.catalog.admin.couponsets.GetCouponSets- Param : sortBy
 40.    Added - commerce.catalog.admin.couponsets.GetCouponSets- Param : startIndex
@@ -171,19 +171,19 @@ Operations
 0.    Added - commerce.catalog.admin.categories.ValidateDynamicExpression - POST
 1.    Added - commerce.catalog.admin.categories.ValidateRealTimeDynamicExpression - POST
 2.    Added - commerce.catalog.admin.couponsets.AddCouponSet - POST
-3.    Added - commerce.catalog.admin.couponsets.coupons.AddCoupons - POST
-4.    Added - commerce.catalog.admin.couponsets.coupons.AssignDiscount - POST
-5.    Added - commerce.catalog.admin.couponsets.coupons.DeleteCoupon - DELETE
-6.    Added - commerce.catalog.admin.couponsets.coupons.DeleteCoupons - POST
-7.    Added - commerce.catalog.admin.couponsets.coupons.DeleteCouponSet - DELETE
-8.    Added - commerce.catalog.admin.couponsets.coupons.GetAssignedDiscounts - GET
+3.    Added - commerce.catalog.admin.couponsets.assigneddiscounts.AssignDiscount - POST
+4.    Added - commerce.catalog.admin.couponsets.assigneddiscounts.GetAssignedDiscounts - GET
+5.    Added - commerce.catalog.admin.couponsets.assigneddiscounts.UnAssignDiscount - DELETE
+6.    Added - commerce.catalog.admin.couponsets.coupons.AddCoupons - POST
+7.    Added - commerce.catalog.admin.couponsets.coupons.DeleteCoupon - DELETE
+8.    Added - commerce.catalog.admin.couponsets.coupons.DeleteCoupons - POST
 9.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupon - GET
 10.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons - GET
-11.    Added - commerce.catalog.admin.couponsets.coupons.GetCouponSet - GET
-12.    Added - commerce.catalog.admin.couponsets.coupons.UnAssignDiscount - DELETE
-13.    Added - commerce.catalog.admin.couponsets.coupons.UpdateCouponSet - PUT
-14.    Added - commerce.catalog.admin.couponsets.GetCouponSets - GET
-15.    Added - commerce.catalog.admin.couponsets.GetUniqueCouponSetCode - GET
+11.    Added - commerce.catalog.admin.couponsets.DeleteCouponSet - DELETE
+12.    Added - commerce.catalog.admin.couponsets.GetCouponSet - GET
+13.    Added - commerce.catalog.admin.couponsets.GetCouponSets - GET
+14.    Added - commerce.catalog.admin.couponsets.GetUniqueCouponSetCode - GET
+15.    Added - commerce.catalog.admin.couponsets.UpdateCouponSet - PUT
 16.    Added - commerce.catalog.admin.couponsets.ValidateUniqueCouponSetCode - POST
 17.    Added - commerce.catalog.admin.publishing.AssignProductsToPublishSet - POST
 18.    Added - commerce.catalog.admin.publishing.DeletePublishSet - DELETE
@@ -238,9 +238,10 @@ Operations
 
 Resources
 0.    Added - commerce.catalog.admin.couponsets | commerce/catalog/admin/couponsets
-1.    Added - commerce.catalog.admin.couponsets.coupons | commerce/catalog/admin/couponsets/coupons
-2.    Added - commerce.payments.fraudscreen | commerce/payments/fraudscreen
-3.    Added - commerce.settings.general.customroutes | commerce/settings/general/customroutes
-4.    Added - content.publishsets | content/publishsets
-5.    Added - platform.appdev.apppackages | platform/appdev/apppackages
-6.    Added - platform.appdev.filebasedpackage | platform/appdev/filebasedpackage
+1.    Added - commerce.catalog.admin.couponsets.assigneddiscounts | commerce/catalog/admin/couponsets/assigneddiscounts
+2.    Added - commerce.catalog.admin.couponsets.coupons | commerce/catalog/admin/couponsets/coupons
+3.    Added - commerce.payments.fraudscreen | commerce/payments/fraudscreen
+4.    Added - commerce.settings.general.customroutes | commerce/settings/general/customroutes
+5.    Added - content.publishsets | content/publishsets
+6.    Added - platform.appdev.apppackages | platform/appdev/apppackages
+7.    Added - platform.appdev.filebasedpackage | platform/appdev/filebasedpackage

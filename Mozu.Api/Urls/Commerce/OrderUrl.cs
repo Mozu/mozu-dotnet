@@ -145,8 +145,8 @@ namespace Mozu.Api.Urls.Commerce
         /// Get Resource Url for ProcessDigitalWallet
         /// </summary>
         /// <param name="digitalWalletType"></param>
-        /// <param name="orderId"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="orderId">Unique identifier of the order.</param>
+        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

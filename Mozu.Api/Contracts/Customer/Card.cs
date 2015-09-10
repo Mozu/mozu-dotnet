@@ -48,6 +48,9 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public string Id { get; set; }
 
+			///
+			///Mozu.Customer.Contracts.Card isDefaultPayMethod ApiTypeMember DOCUMENT_HERE 
+			///
 			public bool IsDefaultPayMethod { get; set; }
 
 			///

@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 {
 	/// <summary>
-	/// 
+	/// commerce/catalog/admin/couponsets related resources. DOCUMENT_HERE 
 	/// </summary>
 	public partial class CouponSetResource  	{
 		///
@@ -38,14 +38,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 
 				
 		/// <summary>
-		/// 
+		/// Returns a paged collection of CouponSets
 		/// </summary>
-		/// <param name="filter"></param>
+		/// <param name="filter">A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.</param>
 		/// <param name="includeCounts"></param>
-		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="sortBy"></param>
-		/// <param name="startIndex"></param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=3`.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.CouponSetCollection"/>
 		/// </returns>
@@ -67,14 +67,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Returns a paged collection of CouponSets
 		/// </summary>
-		/// <param name="filter"></param>
+		/// <param name="filter">A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.</param>
 		/// <param name="includeCounts"></param>
-		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="sortBy"></param>
-		/// <param name="startIndex"></param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=3`.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.CouponSetCollection"/>
 		/// </returns>
@@ -97,7 +97,58 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="couponSetCode"></param>
+		/// <param name="includeCounts"></param>
 		/// <param name="responseFields"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.CouponSet"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var couponset = new CouponSet();
+		///   var couponSet = couponset.GetCouponSet( couponSetCode,  includeCounts,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.CouponSet GetCouponSet(string couponSetCode, bool? includeCounts =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.CouponSet> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CouponSetClient.GetCouponSetClient( couponSetCode,  includeCounts,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="couponSetCode"></param>
+		/// <param name="includeCounts"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.CouponSet"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var couponset = new CouponSet();
+		///   var couponSet = await couponset.GetCouponSetAsync( couponSetCode,  includeCounts,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.CouponSet> GetCouponSetAsync(string couponSetCode, bool? includeCounts =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.CouponSet> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CouponSetClient.GetCouponSetClient( couponSetCode,  includeCounts,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// Returns a random 4 character code that is unique as a coupon set code.
+		/// </summary>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <returns>
 		/// string
 		/// </returns>
@@ -119,9 +170,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Returns a random 4 character code that is unique as a coupon set code.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <returns>
 		/// string
 		/// </returns>
@@ -142,10 +193,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Adds a single
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="couponSet"></param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="couponSet">Mozu.ProductAdmin.Contracts.CouponSet ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.CouponSet"/>
 		/// </returns>
@@ -167,10 +218,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Adds a single
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="couponSet"></param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="couponSet">Mozu.ProductAdmin.Contracts.CouponSet ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.CouponSet"/>
 		/// </returns>
@@ -191,9 +242,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Tests code for uniqueness and validity
 		/// </summary>
-		/// <param name="code"></param>
+		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -214,9 +265,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Tests code for uniqueness and validity
 		/// </summary>
-		/// <param name="code"></param>
+		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -230,6 +281,102 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CouponSetClient.ValidateUniqueCouponSetCodeClient( code);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="couponSetCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="couponSet"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.CouponSet"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var couponset = new CouponSet();
+		///   var couponSet = couponset.UpdateCouponSet( couponSet,  couponSetCode,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.CouponSet UpdateCouponSet(Mozu.Api.Contracts.ProductAdmin.CouponSet couponSet, string couponSetCode, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.CouponSet> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CouponSetClient.UpdateCouponSetClient( couponSet,  couponSetCode,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="couponSetCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="couponSet"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.CouponSet"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var couponset = new CouponSet();
+		///   var couponSet = await couponset.UpdateCouponSetAsync( couponSet,  couponSetCode,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.CouponSet> UpdateCouponSetAsync(Mozu.Api.Contracts.ProductAdmin.CouponSet couponSet, string couponSetCode, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.CouponSet> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CouponSetClient.UpdateCouponSetClient( couponSet,  couponSetCode,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="couponSetCode"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var couponset = new CouponSet();
+		///   couponset.DeleteCouponSet( couponSetCode);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void DeleteCouponSet(string couponSetCode)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CouponSetClient.DeleteCouponSetClient( couponSetCode);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="couponSetCode"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var couponset = new CouponSet();
+		///   await couponset.DeleteCouponSetAsync( couponSetCode);
+		/// </code>
+		/// </example>
+		public virtual async Task DeleteCouponSetAsync(string couponSetCode)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CouponSetClient.DeleteCouponSetClient( couponSetCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 

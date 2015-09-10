@@ -106,6 +106,7 @@
     <Compile Include="Factories\ApplicationSettingsFactory.cs" />
     <Compile Include="Factories\AppliedDiscountCartsFactory.cs" />
     <Compile Include="Factories\AppliedDiscountOrdersFactory.cs" />
+    <Compile Include="Factories\AssignedDiscountFactory.cs" />
     <Compile Include="Factories\AttributeFactory.cs" />
     <Compile Include="Factories\AttributeLocalizedContentFactory.cs" />
     <Compile Include="Factories\AttributeTypeRuleFactory.cs" />

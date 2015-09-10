@@ -32,10 +32,19 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			///
 			public AuditInfo AuditInfo { get; set; }
 
+			///
+			///Set of settings to deal with site caching.
+			///
 			public CacheSettings CacheSettings { get; set; }
 
+			///
+			///Custom dns host name for cnd edge caching.
+			///
 			public string CustomCdnHostName { get; set; }
 
+			///
+			///Site-level control over request routing for SEO purposes. Not available for update, must use its own subresource.
+			///
 			public CustomRouteSettings CustomRoutes { get; set; }
 
 			///

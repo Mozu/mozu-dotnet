@@ -49,6 +49,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public List<CategoryDiscountCondition> IncludedCategories { get; set; }
 
+			///
+			///List of payment types that trigger this discount to be valid.
+			///
 			public List<string> IncludedPaymentWorkflows { get; set; }
 
 			///

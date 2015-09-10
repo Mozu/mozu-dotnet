@@ -24,31 +24,31 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Cart Coupons subresource to apply a coupon to a defined cart or remove a coupon from a cart. When the shopper proceeds to checkout, the coupons applied to the cart apply to the order.
+	/// 
 	/// </summary>
-	public partial class AppliedDiscountCartsFactory : BaseDataFactory
+	public partial class AssignedDiscountFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Applies a defined coupon to the cart specified in the request.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = AppliedDiscountFactory.ApplyCoupon(handler : handler,  cartId :  cartId,  couponCode :  couponCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Cart/>(result); 
+		/// var result = AssignedDiscountFactory.GetAssignedDiscounts(handler : handler,  couponSetCode :  couponSetCode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<List<AssignedDiscount>/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.CommerceRuntime.Carts.Cart ApplyCoupon(ServiceClientMessageHandler handler, 
- 		 string cartId, string couponCode, string responseFields = null, 
+		public static List<Mozu.Api.Contracts.ProductAdmin.AssignedDiscount> GetAssignedDiscounts(ServiceClientMessageHandler handler, 
+ 		 string couponSetCode, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Carts.AppliedDiscountClient.ApplyCouponClient(
-				 cartId :  cartId,  couponCode :  couponCode,  responseFields :  responseFields		);
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.AssignedDiscountClient.GetAssignedDiscountsClient(
+				 couponSetCode :  couponSetCode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -68,25 +68,25 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Removes all coupons from the cart specified in the request.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = AppliedDiscountFactory.RemoveCoupons(handler : handler,  cartId :  cartId,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Cart/>(result); 
+		/// var result = AssignedDiscountFactory.AssignDiscount(handler : handler,  assignedDiscount :  assignedDiscount,  couponSetCode :  couponSetCode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.CommerceRuntime.Carts.Cart RemoveCoupons(ServiceClientMessageHandler handler, 
- 		 string cartId, 
-		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		public static void AssignDiscount(ServiceClientMessageHandler handler, 
+ 		Mozu.Api.Contracts.ProductAdmin.AssignedDiscount assignedDiscount, string couponSetCode, 
+		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Carts.AppliedDiscountClient.RemoveCouponsClient(
-				 cartId :  cartId		);
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.AssignedDiscountClient.AssignDiscountClient(
+				 assignedDiscount :  assignedDiscount,  couponSetCode :  couponSetCode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -97,34 +97,33 @@ namespace Mozu.Api.Test.Factories
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
-				return null;
 			}
-			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 
 		}
   
 		/// <summary> 
-		/// Removes an applied coupon from the cart specified in the request.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = AppliedDiscountFactory.RemoveCoupon(handler : handler,  cartId :  cartId,  couponCode :  couponCode,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Cart/>(result); 
+		/// var result = AssignedDiscountFactory.UnAssignDiscount(handler : handler,  couponSetCode :  couponSetCode,  discountId :  discountId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.CommerceRuntime.Carts.Cart RemoveCoupon(ServiceClientMessageHandler handler, 
- 		 string cartId, string couponCode, 
-		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		public static void UnAssignDiscount(ServiceClientMessageHandler handler, 
+ 		string couponSetCode, int discountId, 
+		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Carts.AppliedDiscountClient.RemoveCouponClient(
-				 cartId :  cartId,  couponCode :  couponCode		);
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.AssignedDiscountClient.UnAssignDiscountClient(
+				 couponSetCode :  couponSetCode,  discountId :  discountId		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -135,9 +134,8 @@ namespace Mozu.Api.Test.Factories
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
-				return null;
 			}
-			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

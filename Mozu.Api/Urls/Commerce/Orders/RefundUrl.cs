@@ -37,7 +37,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// Get Resource Url for ResendRefundEmail
         /// </summary>
         /// <param name="orderId">Unique identifier of the order.</param>
-        /// <param name="refundId"></param>
+        /// <param name="refundId">Unique ID of the refund.        </param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// commerce/orders/orderrefunds related resources. DOCUMENT_HERE 
+	/// Use the refunds resource to create a refund.
 	/// </summary>
 	public partial class RefundFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// orders-orderrefunds Post CreateRefund description DOCUMENT_HERE 
+		/// Creates a refund based on the information supplied in the request.  
 		/// <example> 
 		///  <code> 
 		/// var result = RefundFactory.CreateRefund(handler : handler,  refund :  refund,  orderId :  orderId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// orders-orderrefunds Put ResendRefundEmail description DOCUMENT_HERE 
+		/// Resends the order refund email previously sent to the shopper. 
 		/// <example> 
 		///  <code> 
 		/// var result = RefundFactory.ResendRefundEmail(handler : handler,  orderId :  orderId,  refundId :  refundId,  expectedCode: expectedCode, successCode: successCode); 

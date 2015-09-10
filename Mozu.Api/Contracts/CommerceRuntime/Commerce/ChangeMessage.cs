@@ -29,12 +29,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
 			public string AppId { get; set; }
 
 			///
-			///App Key
+			///The application's key.
 			///
 			public string AppKey { get; set; }
 
 			///
-			///App Name
+			///The application's name.
 			///
 			public string AppName { get; set; }
 
@@ -94,7 +94,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
 			public bool? Success { get; set; }
 
 			///
-			///User First Name
+			///The user's first name.
 			///
 			public string UserFirstName { get; set; }
 
@@ -104,12 +104,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
 			public string UserId { get; set; }
 
 			///
-			///User Last Name
+			///The user's last name.
 			///
 			public string UserLastName { get; set; }
 
 			///
-			///User Type (e.g. Shopper, Admin, etc.)
+			///The user type (e.g. Shopper, Admin, etc.).
 			///
 			public string UserScopeType { get; set; }
 

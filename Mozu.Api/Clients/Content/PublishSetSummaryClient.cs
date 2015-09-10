@@ -17,16 +17,16 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Content
 {
 	/// <summary>
-	/// 
+	/// content/publishsets related resources. DOCUMENT_HERE 
 	/// </summary>
 	public partial class PublishSetSummaryClient 	{
 		
 		/// <summary>
-		/// 
+		/// Returns a List of current Publishing sets with counts of drafts in each
 		/// </summary>
-		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="startIndex"></param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=3`.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.PublishSetSummaryPagedCollection"/>}
 		/// </returns>
@@ -48,12 +48,12 @@ namespace Mozu.Api.Clients.Content
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieve a paged collection of publish set Items.
 		/// </summary>
-		/// <param name="code"></param>
-		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="startIndex"></param>
+		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=3`.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection"/>}
 		/// </returns>
@@ -75,10 +75,10 @@ namespace Mozu.Api.Clients.Content
 		}
 
 		/// <summary>
-		/// 
+		/// Adds a set of documents by id to a publish set
 		/// </summary>
-		/// <param name="code"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="shouldDiscard"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{object}
@@ -101,11 +101,11 @@ namespace Mozu.Api.Clients.Content
 		}
 
 		/// <summary>
-		/// 
+		/// Adds a set of documents by id to a publish set
 		/// </summary>
-		/// <param name="code"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="itemsToPublish"></param>
+		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="itemsToPublish">Mozu.Content.Contracts.AddOrDeletePublishItem ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{object}
 		/// </returns>

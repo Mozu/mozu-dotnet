@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves information about a single product given its product code for Mozu to index in the search engine
 		/// <example> 
 		///  <code> 
 		/// var result = ProductFactory.GetProductForIndexing(handler : handler,  productCode :  productCode,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 

@@ -30,7 +30,7 @@ namespace Mozu.Api.Test.Factories
 	{
 
 		/// <summary> 
-		/// 
+		/// Retrieves the details of a single PublishSet.
 		/// <example> 
 		///  <code> 
 		/// var result = PublishingScopeFactory.GetPublishSet(handler : handler,  publishSetCode :  publishSetCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves a list of PublishSets including the product counts.
 		/// <example> 
 		///  <code> 
 		/// var result = PublishingScopeFactory.GetPublishSets(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -180,7 +180,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// admin-publishing Post AssignProductsToPublishSet description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = PublishingScopeFactory.AssignProductsToPublishSet(handler : handler,  publishSet :  publishSet,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -218,7 +218,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Removes all details about a PublishSet from the product service. If the discardDrafts param is true, it also deletes the product drafts.
 		/// <example> 
 		///  <code> 
 		/// var result = PublishingScopeFactory.DeletePublishSet(handler : handler,  publishSetCode :  publishSetCode,  discardDrafts :  discardDrafts,  expectedCode: expectedCode, successCode: successCode); 
