@@ -50,6 +50,9 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public List<CustomerContact> Contacts { get; set; }
 
+			///
+			///Mozu.Customer.Contracts.CustomerAccount customerSinceDate ApiTypeMember DOCUMENT_HERE 
+			///
 			public DateTime? CustomerSinceDate { get; set; }
 
 			///
@@ -97,8 +100,14 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public string LastName { get; set; }
 
+			///
+			///Mozu.Customer.Contracts.CustomerAccount lifetimeValue ApiTypeMember DOCUMENT_HERE 
+			///
 			public CurrencyAmount LifetimeValue { get; set; }
 
+			///
+			///Mozu.Customer.Contracts.CustomerAccount lifeTimeValueSetDate ApiTypeMember DOCUMENT_HERE 
+			///
 			public DateTime? LifeTimeValueSetDate { get; set; }
 
 			///

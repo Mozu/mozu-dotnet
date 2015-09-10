@@ -13,10 +13,19 @@ using System;
 
 namespace Mozu.Api.Contracts.Content
 {
+		///
+		///	Mozu.Content.Contracts.AddOrDeletePublishItem ApiType DOCUMENT_HERE 
+		///
 		public class AddOrDeletePublishItem
 		{
+			///
+			///Mozu.Content.Contracts.AddOrDeletePublishItem docListFQN ApiTypeMember DOCUMENT_HERE 
+			///
 			public string DocListFQN { get; set; }
 
+			///
+			///Mozu.Content.Contracts.AddOrDeletePublishItem documentId ApiTypeMember DOCUMENT_HERE 
+			///
 			public string DocumentId { get; set; }
 
 		}

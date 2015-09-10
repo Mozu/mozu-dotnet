@@ -64,7 +64,7 @@ namespace Mozu.Api.Urls.Commerce.Carts
 		/// <summary>
         /// Get Resource Url for UpdateExtendedProperties
         /// </summary>
-        /// <param name="upsert"></param>
+        /// <param name="upsert">Any set of key value pairs to be stored in the extended properties of a cart.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

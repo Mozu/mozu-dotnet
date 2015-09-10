@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// commerce/settings/general/customroutes related resources. DOCUMENT_HERE 
 	/// </summary>
 	public partial class CustomRouteSettingsFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// 
+		/// general-customroutes Get GetCustomRouteSettings description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomRouteSettingsFactory.GetCustomRouteSettings(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// general-customroutes Post CreateCustomRouteSettings description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomRouteSettingsFactory.CreateCustomRouteSettings(handler : handler,  settings :  settings,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// general-customroutes Put UpdateCustomRouteSettings description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomRouteSettingsFactory.UpdateCustomRouteSettings(handler : handler,  settings :  settings,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// general-customroutes Delete DeleteCustomRouteSettings description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomRouteSettingsFactory.DeleteCustomRouteSettings(handler : handler,  expectedCode: expectedCode, successCode: successCode); 

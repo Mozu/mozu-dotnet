@@ -17,33 +17,18 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets
 	{
 
 		/// <summary>
-        /// Get Resource Url for GetAssignedDiscounts
-        /// </summary>
-        /// <param name="couponSetCode"></param>
-        /// <returns>
-        /// String - Resource Url
-        /// </returns>
-        public static MozuUrl GetAssignedDiscountsUrl(string couponSetCode)
-		{
-			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}/assigneddiscounts";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "couponSetCode", couponSetCode);
-			return mozuUrl;
-		}
-
-		/// <summary>
         /// Get Resource Url for GetCoupon
         /// </summary>
-        /// <param name="couponCode"></param>
+        /// <param name="couponCode">Code associated with the coupon to remove from the cart.</param>
         /// <param name="couponSetCode"></param>
         /// <param name="includeCounts"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
         public static MozuUrl GetCouponUrl(string couponSetCode, string couponCode, bool? includeCounts =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}/coupons/{couponCode}?includeCounts={includeCounts}&responseFields={responseFields}";
+			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}/couponcodes/{couponCode}?includeCounts={includeCounts}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "couponCode", couponCode);
 			mozuUrl.FormatUrl( "couponSetCode", couponSetCode);
@@ -56,18 +41,18 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets
         /// Get Resource Url for GetCoupons
         /// </summary>
         /// <param name="couponSetCode"></param>
-        /// <param name="filter"></param>
+        /// <param name="filter">A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.</param>
         /// <param name="includeCounts"></param>
-        /// <param name="pageSize"></param>
-        /// <param name="responseFields"></param>
-        /// <param name="sortBy"></param>
-        /// <param name="startIndex"></param>
+        /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
+        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+        /// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.</param>
+        /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=3`.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
         public static MozuUrl GetCouponsUrl(string couponSetCode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, bool? includeCounts =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}/coupons?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&includeCounts={includeCounts}&responseFields={responseFields}";
+			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}/couponcodes?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&includeCounts={includeCounts}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "couponSetCode", couponSetCode);
 			mozuUrl.FormatUrl( "filter", filter);
@@ -79,41 +64,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets
 			return mozuUrl;
 		}
 
-		/// <summary>
-        /// Get Resource Url for GetCouponSet
-        /// </summary>
-        /// <param name="couponSetCode"></param>
-        /// <param name="includeCounts"></param>
-        /// <param name="responseFields"></param>
-        /// <returns>
-        /// String - Resource Url
-        /// </returns>
-        public static MozuUrl GetCouponSetUrl(string couponSetCode, bool? includeCounts =  null, string responseFields =  null)
-		{
-			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}?includeCounts={includeCounts}&responseFields={responseFields}";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "couponSetCode", couponSetCode);
-			mozuUrl.FormatUrl( "includeCounts", includeCounts);
-			mozuUrl.FormatUrl( "responseFields", responseFields);
-			return mozuUrl;
-		}
-
 				/// <summary>
-        /// Get Resource Url for AssignDiscount
-        /// </summary>
-        /// <param name="couponSetCode"></param>
-        /// <returns>
-        /// String - Resource Url
-        /// </returns>
-        public static MozuUrl AssignDiscountUrl(string couponSetCode)
-		{
-			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}/assigneddiscounts";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "couponSetCode", couponSetCode);
-			return mozuUrl;
-		}
-
-		/// <summary>
         /// Get Resource Url for AddCoupons
         /// </summary>
         /// <param name="couponSetCode"></param>
@@ -122,7 +73,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets
         /// </returns>
         public static MozuUrl AddCouponsUrl(string couponSetCode)
 		{
-			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}/coupons";
+			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}/couponcodes";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "couponSetCode", couponSetCode);
 			return mozuUrl;
@@ -137,72 +88,23 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets
         /// </returns>
         public static MozuUrl DeleteCouponsUrl(string couponSetCode)
 		{
-			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}/coupons/remove";
+			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}/couponcodes/remove";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "couponSetCode", couponSetCode);
 			return mozuUrl;
 		}
 
-				/// <summary>
-        /// Get Resource Url for UpdateCouponSet
-        /// </summary>
-        /// <param name="couponSetCode"></param>
-        /// <param name="responseFields"></param>
-        /// <returns>
-        /// String - Resource Url
-        /// </returns>
-        public static MozuUrl UpdateCouponSetUrl(string couponSetCode, string responseFields =  null)
-		{
-			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}?responseFields={responseFields}";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "couponSetCode", couponSetCode);
-			mozuUrl.FormatUrl( "responseFields", responseFields);
-			return mozuUrl;
-		}
-
-				/// <summary>
-        /// Get Resource Url for DeleteCouponSet
-        /// </summary>
-        /// <param name="couponSetCode"></param>
-        /// <returns>
-        /// String - Resource Url
-        /// </returns>
-        public static MozuUrl DeleteCouponSetUrl(string couponSetCode)
-		{
-			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "couponSetCode", couponSetCode);
-			return mozuUrl;
-		}
-
-		/// <summary>
-        /// Get Resource Url for UnAssignDiscount
-        /// </summary>
-        /// <param name="couponSetCode"></param>
-        /// <param name="discountId"></param>
-        /// <returns>
-        /// String - Resource Url
-        /// </returns>
-        public static MozuUrl UnAssignDiscountUrl(string couponSetCode, int discountId)
-		{
-			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}/assigneddiscounts/{discountId}";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "couponSetCode", couponSetCode);
-			mozuUrl.FormatUrl( "discountId", discountId);
-			return mozuUrl;
-		}
-
-		/// <summary>
+						/// <summary>
         /// Get Resource Url for DeleteCoupon
         /// </summary>
-        /// <param name="couponCode"></param>
+        /// <param name="couponCode">Code associated with the coupon to remove from the cart.</param>
         /// <param name="couponSetCode"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
         public static MozuUrl DeleteCouponUrl(string couponSetCode, string couponCode)
 		{
-			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}/coupons/{couponCode}";
+			var url = "/api/commerce/catalog/admin/couponsets/{couponSetCode}/couponcodes/{couponCode}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "couponCode", couponCode);
 			mozuUrl.FormatUrl( "couponSetCode", couponSetCode);

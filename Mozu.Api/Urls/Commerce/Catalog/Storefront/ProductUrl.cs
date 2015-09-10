@@ -86,8 +86,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
 		/// <summary>
         /// Get Resource Url for GetProductForIndexing
         /// </summary>
-        /// <param name="productCode"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

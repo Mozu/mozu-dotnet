@@ -13,12 +13,24 @@ using System;
 
 namespace Mozu.Api.Contracts.ProductAdmin.Search
 {
+		///
+		///	Mozu.ProductAdmin.Contracts.Search.SearchTuningRuleFunction ApiType DOCUMENT_HERE 
+		///
 		public class SearchTuningRuleFunction
 		{
+			///
+			///Mozu.ProductAdmin.Contracts.Search.SearchTuningRuleFunction boostFunction ApiTypeMember DOCUMENT_HERE 
+			///
 			public string BoostFunction { get; set; }
 
+			///
+			///Mozu.ProductAdmin.Contracts.Search.SearchTuningRuleFunction boostFunctionCode ApiTypeMember DOCUMENT_HERE 
+			///
 			public string BoostFunctionCode { get; set; }
 
+			///
+			///Mozu.ProductAdmin.Contracts.Search.SearchTuningRuleFunction boostScore ApiTypeMember DOCUMENT_HERE 
+			///
 			public decimal BoostScore { get; set; }
 
 		}

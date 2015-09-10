@@ -29,8 +29,14 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 			///
 			public string DisplayName { get; set; }
 
+			///
+			///The type of input selection used to define a value for the attribute, including Yes/No, Date, DateTime, List, TextBox, or TextArea.
+			///
 			public string InputType { get; set; }
 
+			///
+			///the value holds sensitive information.
+			///
 			public bool? IsSensitive { get; set; }
 
 			///
@@ -38,6 +44,9 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 			///
 			public string Value { get; set; }
 
+			///
+			///List of valid vocabulary values defined for an attribute.
+			///
 			public List<VocabularyValue> VocabularyValues { get; set; }
 
 		}

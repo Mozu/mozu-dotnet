@@ -12,7 +12,7 @@ open SourceLink
 
 let projectName = "Mozu.Api"
 //NOTE! you need to increment this if you want the version published to change.
-let version = "1.15.1.2"
+let version = "1.18.1.2"
 let bin = "bin"
 
 Target "Clean" (fun _ -> !! "**/bin/" ++ "**/obj/" |> CleanDirs)

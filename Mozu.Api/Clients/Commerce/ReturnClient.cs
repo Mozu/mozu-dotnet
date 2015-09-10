@@ -226,9 +226,9 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// 
+		/// commerce-returns Get GetReasons description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.ReasonCollection"/>}
 		/// </returns>

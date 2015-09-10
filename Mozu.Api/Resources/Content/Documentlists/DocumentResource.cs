@@ -94,11 +94,11 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		}
 
 		/// <summary>
-		/// 
+		/// documentlists-documents Get TransformDocumentContent description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="crop"></param>
-		/// <param name="documentId"></param>
-		/// <param name="documentListName"></param>
+		/// <param name="documentId">Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.</param>
+		/// <param name="documentListName">Name of content documentListName to delete</param>
 		/// <param name="height"></param>
 		/// <param name="max"></param>
 		/// <param name="maxHeight"></param>
@@ -126,11 +126,11 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		}
 
 		/// <summary>
-		/// 
+		/// documentlists-documents Get TransformDocumentContent description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="crop"></param>
-		/// <param name="documentId"></param>
-		/// <param name="documentListName"></param>
+		/// <param name="documentId">Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.</param>
+		/// <param name="documentListName">Name of content documentListName to delete</param>
 		/// <param name="height"></param>
 		/// <param name="max"></param>
 		/// <param name="maxHeight"></param>

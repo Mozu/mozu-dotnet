@@ -359,7 +359,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		}
 
 		/// <summary>
-		/// Updatesthe localized delta price value for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		/// Updates the localized delta price value for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
 		/// </summary>
 		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
@@ -387,7 +387,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		}
 
 		/// <summary>
-		/// Updatesthe localized delta price value for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		/// Updates the localized delta price value for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
 		/// </summary>
 		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>

@@ -30,7 +30,7 @@ namespace Mozu.Api.Test.Factories
 	{
 
 		/// <summary> 
-		/// 
+		/// checkout-paymentsettings Get GetThirdPartyPaymentWorkflowWithValues description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = PaymentSettingsFactory.GetThirdPartyPaymentWorkflowWithValues(handler : handler,  fullyQualifiedName :  fullyQualifiedName,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// checkout-paymentsettings Put AddThirdPartyPaymentWorkflow description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = PaymentSettingsFactory.AddThirdPartyPaymentWorkflow(handler : handler,  definition :  definition,  expectedCode: expectedCode, successCode: successCode); 
@@ -143,7 +143,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// checkout-paymentsettings Delete DeleteThirdPartyPaymentWorkflow description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = PaymentSettingsFactory.DeleteThirdPartyPaymentWorkflow(handler : handler,  fullyQualifiedName :  fullyQualifiedName,  expectedCode: expectedCode, successCode: successCode); 

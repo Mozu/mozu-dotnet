@@ -118,6 +118,7 @@
     <Compile Include="Clients\Commerce\Catalog\Admin\Attributedefinition\Producttypes\ProductTypeVariationClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\CategoryClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\CouponSetClient.cs" />
+    <Compile Include="Clients\Commerce\Catalog\Admin\Couponsets\AssignedDiscountClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\Couponsets\CouponClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\DiscountClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\Discounts\DiscountTargetClient.cs" />
@@ -712,6 +713,7 @@
     <Compile Include="Resources\Commerce\Catalog\Admin\Attributedefinition\Producttypes\ProductTypeVariationResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\CategoryResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\CouponSetResource.cs" />
+    <Compile Include="Resources\Commerce\Catalog\Admin\Couponsets\AssignedDiscountResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\Couponsets\CouponResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\DiscountResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\Discounts\DiscountTargetResource.cs" />
@@ -832,6 +834,7 @@
     <Compile Include="Urls\Commerce\Catalog\Admin\Attributedefinition\Producttypes\ProductTypeVariationUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\Attributedefinition\ProductTypeUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\CategoryUrl.cs" />
+    <Compile Include="Urls\Commerce\Catalog\Admin\Couponsets\AssignedDiscountUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\Couponsets\CouponUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\CouponSetUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\Discounts\DiscountTargetUrl.cs" />
