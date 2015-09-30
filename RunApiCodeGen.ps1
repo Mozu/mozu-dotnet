@@ -7,7 +7,7 @@ param(
 [string]$GenPath=$(throw "GenPath param is required"),
 [string]$CodeGenBaseUrl=$(throw "CodeGenBaseUrl param is required"),
 [string]$AppClaim=$(throw "CodeGenBaseUrl param is required"),
-[boolean]$RunPublisher
+[boolean]$RunPublisher=$true
 )
 
 
