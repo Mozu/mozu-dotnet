@@ -68,7 +68,7 @@ Operation Params
 57.    Added - commerce.catalog.admin.search.UpdateSearchTuningRule- Param : searchTuningRuleCode
 58.    Added - commerce.catalog.admin.search.AddSearchTuningRule- Param : searchTuningRuleIn
 59.    Added - commerce.catalog.admin.search.UpdateSearchTuningRule- Param : searchTuningRuleIn
-60.    Added - commerce.catalog.admin.search.UpdateSearchTuningSortRelevance- Param : searchTuningSortRelevanceIn
+60.    Added - commerce.catalog.admin.search.UpdateSearchTuningRuleSortFields- Param : searchTuningRuleSortFieldsIn
 61.    Added - commerce.catalog.admin.search.GetSearchTuningRules- Param : sortBy
 62.    Added - commerce.catalog.admin.search.GetSearchTuningRules- Param : startIndex
 63.    Added - commerce.catalog.storefront.categories.GetProductsOutOfSyncWithDynamicCategory- Param : excludeProductsAlreadyAssignedCategory
@@ -193,11 +193,11 @@ Operations
 22.    Added - commerce.catalog.admin.search.DeleteSearchTuningRule - DELETE
 23.    Added - commerce.catalog.admin.search.GetSearchTuningRule - GET
 24.    Added - commerce.catalog.admin.search.GetSearchTuningRules - GET
-25.    Added - commerce.catalog.admin.search.GetSearchTuningSortRelevance - GET
+25.    Added - commerce.catalog.admin.search.GetSearchTuningRuleSortFields - GET
 26.    Added - commerce.catalog.admin.search.GetSiteIdsWithSearchTuning - GET
 27.    Added - commerce.catalog.admin.search.ReindexProduct - POST
 28.    Added - commerce.catalog.admin.search.UpdateSearchTuningRule - PUT
-29.    Added - commerce.catalog.admin.search.UpdateSearchTuningSortRelevance - POST
+29.    Added - commerce.catalog.admin.search.UpdateSearchTuningRuleSortFields - POST
 30.    Added - commerce.catalog.storefront.categories.GetProductsOutOfSyncWithDynamicCategory - GET
 31.    Added - commerce.catalog.storefront.products.GetProductForIndexing - GET
 32.    Added - commerce.catalog.storefront.productsearch.GetSearchTuningRules - GET

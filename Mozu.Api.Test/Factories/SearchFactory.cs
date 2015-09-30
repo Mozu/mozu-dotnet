@@ -106,16 +106,16 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// admin-search Get GetSearchTuningSortRelevance description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = SearchFactory.GetSearchTuningSortRelevance(handler : handler,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = SearchFactory.GetSearchTuningRuleSortFields(handler : handler,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static System.IO.Stream GetSearchTuningSortRelevance(ServiceClientMessageHandler handler, 
+		public static System.IO.Stream GetSearchTuningRuleSortFields(ServiceClientMessageHandler handler, 
  		 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
@@ -123,7 +123,7 @@ namespace Mozu.Api.Test.Factories
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.GetSearchTuningSortRelevanceClient(
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.GetSearchTuningRuleSortFieldsClient(
 						);
 			try
 			{
@@ -220,25 +220,25 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// admin-search Post UpdateSearchTuningSortRelevance description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = SearchFactory.UpdateSearchTuningSortRelevance(handler : handler,  searchTuningSortRelevanceIn :  searchTuningSortRelevanceIn,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = SearchFactory.UpdateSearchTuningRuleSortFields(handler : handler,  searchTuningRuleSortFieldsIn :  searchTuningRuleSortFieldsIn,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void UpdateSearchTuningSortRelevance(ServiceClientMessageHandler handler, 
- 		Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningSortRelevance searchTuningSortRelevanceIn, 
+		public static void UpdateSearchTuningRuleSortFields(ServiceClientMessageHandler handler, 
+ 		Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields searchTuningRuleSortFieldsIn, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.UpdateSearchTuningSortRelevanceClient(
-				 searchTuningSortRelevanceIn :  searchTuningSortRelevanceIn		);
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.UpdateSearchTuningRuleSortFieldsClient(
+				 searchTuningRuleSortFieldsIn :  searchTuningRuleSortFieldsIn		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

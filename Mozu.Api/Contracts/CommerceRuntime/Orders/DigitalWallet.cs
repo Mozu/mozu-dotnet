@@ -18,6 +18,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 		///
 		public class DigitalWallet
 		{
+			public string CartId { get; set; }
+
 			///
 			///Digital wallet data. Note: Transform the Json data to a string.
 			///

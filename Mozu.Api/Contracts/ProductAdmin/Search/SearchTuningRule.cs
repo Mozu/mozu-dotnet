@@ -51,16 +51,6 @@ namespace Mozu.Api.Contracts.ProductAdmin.Search
 			public List<string> BoostedProductCodes { get; set; }
 
 			///
-			///Mozu.ProductAdmin.Contracts.Search.SearchTuningRule boostExpressions ApiTypeMember DOCUMENT_HERE 
-			///
-			public List<SearchTuningRuleExpression> BoostExpressions { get; set; }
-
-			///
-			///Mozu.ProductAdmin.Contracts.Search.SearchTuningRule boostFunctions ApiTypeMember DOCUMENT_HERE 
-			///
-			public List<SearchTuningRuleFunction> BoostFunctions { get; set; }
-
-			///
 			///Mozu.ProductAdmin.Contracts.Search.SearchTuningRule filters ApiTypeMember DOCUMENT_HERE 
 			///
 			public List<SearchTuningRuleFilter> Filters { get; set; }

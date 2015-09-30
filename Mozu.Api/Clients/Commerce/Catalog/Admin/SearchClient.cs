@@ -75,20 +75,20 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// admin-search Get GetSearchTuningSortRelevance description DOCUMENT_HERE 
+		/// 
 		/// </summary>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetSearchTuningSortRelevance();
+		///   var mozuClient=GetSearchTuningRuleSortFields();
 		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<System.IO.Stream> GetSearchTuningSortRelevanceClient()
+		public static MozuClient<System.IO.Stream> GetSearchTuningRuleSortFieldsClient()
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.SearchUrl.GetSearchTuningSortRelevanceUrl();
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.SearchUrl.GetSearchTuningRuleSortFieldsUrl();
 			const string verb = "GET";
 			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -147,25 +147,25 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// admin-search Post UpdateSearchTuningSortRelevance description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="searchTuningSortRelevanceIn">Mozu.ProductAdmin.Contracts.Search.SearchTuningSortRelevance ApiType DOCUMENT_HERE </param>
+		/// <param name="searchTuningRuleSortFieldsIn"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateSearchTuningSortRelevance( searchTuningSortRelevanceIn);
+		///   var mozuClient=UpdateSearchTuningRuleSortFields( searchTuningRuleSortFieldsIn);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient UpdateSearchTuningSortRelevanceClient(Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningSortRelevance searchTuningSortRelevanceIn)
+		public static MozuClient UpdateSearchTuningRuleSortFieldsClient(Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields searchTuningRuleSortFieldsIn)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.SearchUrl.UpdateSearchTuningSortRelevanceUrl();
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.SearchUrl.UpdateSearchTuningRuleSortFieldsUrl();
 			const string verb = "POST";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningSortRelevance>(searchTuningSortRelevanceIn);
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields>(searchTuningRuleSortFieldsIn);
 			return mozuClient;
 
 		}

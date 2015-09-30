@@ -28,6 +28,10 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public string DocumentId { get; set; }
 
+			public int ScopeId { get; set; }
+
+			public string ScopeType { get; set; }
+
 		}
 
 }
