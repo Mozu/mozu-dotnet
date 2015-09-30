@@ -20,21 +20,6 @@ namespace Mozu.Api.Contracts.ProductAdmin.Search
 		public class SearchTuningRuleCollection
 		{
 			///
-			///Mozu.ProductAdmin.Contracts.Search.SearchTuningRuleCollection capacity ApiTypeMember DOCUMENT_HERE 
-			///
-			public int Capacity { get; set; }
-
-			///
-			///The number of facet results for a product search.
-			///
-			public int Count { get; set; }
-
-			///
-			///Mozu.ProductAdmin.Contracts.Search.SearchTuningRuleCollection item ApiTypeMember DOCUMENT_HERE 
-			///
-			public SearchTuningRule Item { get; set; }
-
-			///
 			///Collection list of items. All returned data is provided in an items array. For a failed request, the returned response may be success with an empty item collection. Items are used throughout APIs for carts, wish lists, documents, payments, returns, properties, and more.
 			///
 			public List<SearchTuningRule> Items { get; set; }

@@ -142,7 +142,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// admin-search Get GetSearchTuningSortRelevance description DOCUMENT_HERE 
+		/// 
 		/// </summary>
 		/// <returns>
 		/// <see cref="System.IO.Stream"/>
@@ -150,14 +150,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var search = new Search();
-		///   var stream = search.GetSearchTuningSortRelevance();
+		///   var stream = search.GetSearchTuningRuleSortFields();
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual System.IO.Stream GetSearchTuningSortRelevance()
+		public virtual System.IO.Stream GetSearchTuningRuleSortFields()
 		{
 			MozuClient<System.IO.Stream> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.GetSearchTuningSortRelevanceClient();
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.GetSearchTuningRuleSortFieldsClient();
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -165,7 +165,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// admin-search Get GetSearchTuningSortRelevance description DOCUMENT_HERE 
+		/// 
 		/// </summary>
 		/// <returns>
 		/// <see cref="System.IO.Stream"/>
@@ -173,13 +173,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var search = new Search();
-		///   var stream = await search.GetSearchTuningSortRelevanceAsync();
+		///   var stream = await search.GetSearchTuningRuleSortFieldsAsync();
 		/// </code>
 		/// </example>
-		public virtual async Task<System.IO.Stream> GetSearchTuningSortRelevanceAsync()
+		public virtual async Task<System.IO.Stream> GetSearchTuningRuleSortFieldsAsync()
 		{
 			MozuClient<System.IO.Stream> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.GetSearchTuningSortRelevanceClient();
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.GetSearchTuningRuleSortFieldsClient();
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -283,45 +283,45 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// admin-search Post UpdateSearchTuningSortRelevance description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="searchTuningSortRelevanceIn">Mozu.ProductAdmin.Contracts.Search.SearchTuningSortRelevance ApiType DOCUMENT_HERE </param>
+		/// <param name="searchTuningRuleSortFieldsIn"></param>
 		/// <returns>
 		/// 
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var search = new Search();
-		///   search.UpdateSearchTuningSortRelevance( searchTuningSortRelevanceIn);
+		///   search.UpdateSearchTuningRuleSortFields( searchTuningRuleSortFieldsIn);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void UpdateSearchTuningSortRelevance(Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningSortRelevance searchTuningSortRelevanceIn)
+		public virtual void UpdateSearchTuningRuleSortFields(Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields searchTuningRuleSortFieldsIn)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.UpdateSearchTuningSortRelevanceClient( searchTuningSortRelevanceIn);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.UpdateSearchTuningRuleSortFieldsClient( searchTuningRuleSortFieldsIn);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 
 		}
 
 		/// <summary>
-		/// admin-search Post UpdateSearchTuningSortRelevance description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="searchTuningSortRelevanceIn">Mozu.ProductAdmin.Contracts.Search.SearchTuningSortRelevance ApiType DOCUMENT_HERE </param>
+		/// <param name="searchTuningRuleSortFieldsIn"></param>
 		/// <returns>
 		/// 
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var search = new Search();
-		///   await search.UpdateSearchTuningSortRelevanceAsync( searchTuningSortRelevanceIn);
+		///   await search.UpdateSearchTuningRuleSortFieldsAsync( searchTuningRuleSortFieldsIn);
 		/// </code>
 		/// </example>
-		public virtual async Task UpdateSearchTuningSortRelevanceAsync(Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningSortRelevance searchTuningSortRelevanceIn)
+		public virtual async Task UpdateSearchTuningRuleSortFieldsAsync(Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields searchTuningRuleSortFieldsIn)
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.UpdateSearchTuningSortRelevanceClient( searchTuningSortRelevanceIn);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.UpdateSearchTuningRuleSortFieldsClient( searchTuningRuleSortFieldsIn);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 

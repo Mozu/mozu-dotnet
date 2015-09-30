@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using Newtonsoft.Json.Linq;
 
 using Mozu.Api.Contracts.Core;
 
@@ -33,6 +34,10 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///If the customer is paying by card, the credit card information.
 			///
 			public PaymentCard Card { get; set; }
+
+			public JObject Data { get; set; }
+
+			public string ExternalTransactionId { get; set; }
 
 			///
 			///If true, the system overrides the customer's billing address information with the supplied fulfillment information.

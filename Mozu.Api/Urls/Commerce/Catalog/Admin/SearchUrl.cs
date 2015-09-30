@@ -26,7 +26,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// </returns>
         public static MozuUrl GetSearchTuningRuleUrl(string searchTuningRuleCode, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/search/searchtuningrule/{searchTuningRuleCode}?responseFields={responseFields}";
+			var url = "/api/commerce/catalog/admin/search/searchtuningrules/{searchTuningRuleCode}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "searchTuningRuleCode", searchTuningRuleCode);
@@ -46,7 +46,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// </returns>
         public static MozuUrl GetSearchTuningRulesUrl(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/search/searchtuningrule?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
+			var url = "/api/commerce/catalog/admin/search/searchtuningrules?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "filter", filter);
 			mozuUrl.FormatUrl( "pageSize", pageSize);
@@ -57,14 +57,14 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-        /// Get Resource Url for GetSearchTuningSortRelevance
+        /// Get Resource Url for GetSearchTuningRuleSortFields
         /// </summary>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetSearchTuningSortRelevanceUrl()
+        public static MozuUrl GetSearchTuningRuleSortFieldsUrl()
 		{
-			var url = "/api/commerce/catalog/admin/search/searchtuningsortrelevance";
+			var url = "/api/commerce/catalog/admin/search/searchtuningrulesortfields";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			return mozuUrl;
 		}
@@ -93,21 +93,21 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// </returns>
         public static MozuUrl AddSearchTuningRuleUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/search/searchtuningrule?responseFields={responseFields}";
+			var url = "/api/commerce/catalog/admin/search/searchtuningrules?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 		/// <summary>
-        /// Get Resource Url for UpdateSearchTuningSortRelevance
+        /// Get Resource Url for UpdateSearchTuningRuleSortFields
         /// </summary>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateSearchTuningSortRelevanceUrl()
+        public static MozuUrl UpdateSearchTuningRuleSortFieldsUrl()
 		{
-			var url = "/api/commerce/catalog/admin/search/searchtuningsortrelevance";
+			var url = "/api/commerce/catalog/admin/search/searchtuningrulesortfields";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			return mozuUrl;
 		}
@@ -122,7 +122,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// </returns>
         public static MozuUrl UpdateSearchTuningRuleUrl(string searchTuningRuleCode, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/search/searchtuningrule/{searchTuningRuleCode}?responseFields={responseFields}";
+			var url = "/api/commerce/catalog/admin/search/searchtuningrules/{searchTuningRuleCode}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "searchTuningRuleCode", searchTuningRuleCode);
@@ -153,7 +153,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// </returns>
         public static MozuUrl DeleteSearchTuningRuleUrl(string searchTuningRuleCode)
 		{
-			var url = "/api/commerce/catalog/admin/search/searchtuningrule/{searchTuningRuleCode}";
+			var url = "/api/commerce/catalog/admin/search/searchtuningrules/{searchTuningRuleCode}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "searchTuningRuleCode", searchTuningRuleCode);
 			return mozuUrl;
