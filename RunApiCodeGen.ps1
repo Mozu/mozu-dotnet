@@ -8,6 +8,7 @@ param(
 [string]$CodeGenBaseUrl=$(throw "CodeGenBaseUrl param is required"),
 [string]$AppClaim=$(throw "CodeGenBaseUrl param is required"),
 [boolean]$RunPublisher=$true
+[string]$lang=$(throw "lang param is required")
 )
 
 
@@ -67,7 +68,7 @@ try {
      throw;
 }
 
-#$body = "{""environment"": ""$env"",""apiVersion"": ""$versionToUse"",""createChangeLog"": ""false"",""changeLogSourceApiVersion"": ""$versionToUse"",""languages"":  [""csharp""],""destinationDirectory"": ""$GenPath""}"
+#$body = "{""environment"": ""$env"",""apiVersion"": ""$versionToUse"",""createChangeLog"": ""false"",""changeLogSourceApiVersion"": ""$versionToUse"",""languages"":  [""$lang""],""destinationDirectory"": ""$GenPath""}"
 
 $body = New-Object psobject
 $languages = @("csharp")
