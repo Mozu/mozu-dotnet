@@ -11,6 +11,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using Mozu.Api.Cache;
+using Mozu.Api.Contracts.Tenant;
 using Mozu.Api.Logging;
 using Mozu.Api.Resources.Platform;
 using Mozu.Api.Security;
@@ -381,7 +382,8 @@ namespace Mozu.Api
 
 				if (string.IsNullOrEmpty(_apiContext.TenantUrl))
 				{
-					var tenantResource = new TenantResource();
+				    var tenant = GetTenant(_apiContext.TenantId).Result;
+					/*var tenantResource = new TenantResource();
 					var tenant = tenantResource.GetTenant(_apiContext.TenantId);
 
 					if (tenant == null)
@@ -389,7 +391,7 @@ namespace Mozu.Api
 					    var apiException = new ApiException("Tenant " + _apiContext.TenantId + " Not found") {ApiContext = _apiContext};
                         _log.Error(apiException.Message, apiException);
                         throw apiException;
-					}
+					}*/
 						
                     _baseAddress = HttpHelper.GetUrl(tenant.Domain);
 				}
@@ -417,12 +419,27 @@ namespace Mozu.Api
 					_log.Info("TenantId is missing", new ApiException("TenantId is missing") { ApiContext = _apiContext });
 					throw new ApiException("TenantId is missing");
 				}
-
-				_baseAddress = MozuConfig.BasePciUrl;
+                var tenant = GetTenant(_apiContext.TenantId).Result;
+                _baseAddress = tenant.IsDevTenant? MozuConfig.BaseDevPciUrl : MozuConfig.BasePciUrl;
 			}
 
 
 		}
+
+        private async Task<Tenant> GetTenant(int tenantId)
+        {
+            var tenantResource = new TenantResource();
+            var tenant = await tenantResource.GetTenantAsync(_apiContext.TenantId);
+
+            if (tenant == null)
+            {
+                var apiException = new ApiException("Tenant " + _apiContext.TenantId + " Not found") { ApiContext = _apiContext };
+                _log.Error(apiException.Message, apiException);
+                throw apiException;
+            }
+
+            return tenant;
+        }
 
 		protected void ExecuteRequest()
 		{
