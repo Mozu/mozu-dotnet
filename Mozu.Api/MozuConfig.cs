@@ -19,8 +19,9 @@ namespace Mozu.Api
         /// use the default https://pmts.mozu.com for production tenants.
         /// </summary>
 		private static string _basePciUrl = "https://pmts.mozu.com";
+        private static string _baseDevPciUrl = "https://payments-sb.mozu.com";
 
-		private static bool _throwExceptionOn404 = false;
+        private static bool _throwExceptionOn404 = false;
 
         public static string SharedSecret { get; internal set; }
         public static string ApplicationId { get; internal set; }
@@ -55,7 +56,13 @@ namespace Mozu.Api
 			set { _basePciUrl = value; }
 		}
 
-		public static bool ThrowExceptionOn404
+        public static string BaseDevPciUrl
+        {
+            get { return _baseDevPciUrl; }
+            set { _baseDevPciUrl = value; }
+        }
+
+        public static bool ThrowExceptionOn404
 		{
             get { return _throwExceptionOn404; }
             set { _throwExceptionOn404 = value; }
