@@ -101,16 +101,6 @@ namespace Mozu.Api.Contracts.Customer
 			public string LastName { get; set; }
 
 			///
-			///Mozu.Customer.Contracts.CustomerAccount lifetimeValue ApiTypeMember DOCUMENT_HERE 
-			///
-			public CurrencyAmount LifetimeValue { get; set; }
-
-			///
-			///Mozu.Customer.Contracts.CustomerAccount lifeTimeValueSetDate ApiTypeMember DOCUMENT_HERE 
-			///
-			public DateTime? LifeTimeValueSetDate { get; set; }
-
-			///
 			///Language used for the entity. Currently, only "en-US" is supported.
 			///
 			public string LocaleCode { get; set; }

@@ -64,6 +64,8 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///
 			public decimal ShippingAmount { get; set; }
 
+			public string VariantProductCode { get; set; }
+
 		}
 
 }

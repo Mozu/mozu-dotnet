@@ -50,6 +50,8 @@ namespace Mozu.Api.Contracts.PaymentService.Request
 			///
 			public string CountryCode { get; set; }
 
+			public List<GatewayCredentialFieldValue> CredentialFieldsOverride { get; set; }
+
 			///
 			///The localized currency code for the monetary amount. 
 			///
@@ -59,6 +61,8 @@ namespace Mozu.Api.Contracts.PaymentService.Request
 			///Mozu.PaymentService.Contracts.Request.FraudScreenRequest customData ApiTypeMember DOCUMENT_HERE 
 			///
 			public List<CustomData> CustomData { get; set; }
+
+			public string CustomerId { get; set; }
 
 			///
 			///Mozu.PaymentService.Contracts.Request.FraudScreenRequest cvV2Codes ApiTypeMember DOCUMENT_HERE 
@@ -90,6 +94,12 @@ namespace Mozu.Api.Contracts.PaymentService.Request
 			///
 			public List<OrderItem> OrderItems { get; set; }
 
+			public int OrderNumber { get; set; }
+
+			public string PaymentTransactionId { get; set; }
+
+			public string PaymentType { get; set; }
+
 			///
 			///Mozu.PaymentService.Contracts.Request.FraudScreenRequest requestorIp ApiTypeMember DOCUMENT_HERE 
 			///
@@ -114,6 +124,8 @@ namespace Mozu.Api.Contracts.PaymentService.Request
 			///Mozu.PaymentService.Contracts.Request.FraudScreenRequest shippingContact ApiTypeMember DOCUMENT_HERE 
 			///
 			public Contact ShippingContact { get; set; }
+
+			public decimal Total { get; set; }
 
 		}
 

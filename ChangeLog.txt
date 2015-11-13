@@ -1,247 +1,31 @@
-Events
-0.    Added - PublishSet.Publish Set Content Completed
-1.    Added - PublishSet.Publish Set Deleted
-2.    Added - PublishSet.Publish Set Products Completed
-3.    Added - PublishSet.Publish Set Published
-4.    Added - SearchTuningRule.SearchTuningRule Created
-5.    Added - SearchTuningRule.SearchTuningRule Deleted
-6.    Added - SearchTuningRule.SearchTuningRule Updated
-
 Operation Params
-0.    Added - commerce.catalog.admin.categories.ValidateDynamicExpression- Param : dynamicExpressionIn
-1.    Added - commerce.catalog.admin.categories.ValidateRealTimeDynamicExpression- Param : dynamicExpressionIn
-2.    Added - commerce.catalog.admin.couponsets.assigneddiscounts.AssignDiscount- Param : assignedDiscount
-3.    Added - commerce.catalog.admin.couponsets.assigneddiscounts.AssignDiscount- Param : couponSetCode
-4.    Added - commerce.catalog.admin.couponsets.assigneddiscounts.GetAssignedDiscounts- Param : couponSetCode
-5.    Added - commerce.catalog.admin.couponsets.assigneddiscounts.UnAssignDiscount- Param : couponSetCode
-6.    Added - commerce.catalog.admin.couponsets.assigneddiscounts.UnAssignDiscount- Param : discountId
-7.    Added - commerce.catalog.admin.couponsets.ValidateUniqueCouponSetCode- Param : code
-8.    Added - commerce.catalog.admin.couponsets.coupons.DeleteCoupon- Param : couponCode
-9.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupon- Param : couponCode
-10.    Added - commerce.catalog.admin.couponsets.coupons.DeleteCoupons- Param : couponCodes
-11.    Added - commerce.catalog.admin.couponsets.coupons.AddCoupons- Param : coupons
-12.    Added - commerce.catalog.admin.couponsets.coupons.AddCoupons- Param : couponSetCode
-13.    Added - commerce.catalog.admin.couponsets.coupons.DeleteCoupon- Param : couponSetCode
-14.    Added - commerce.catalog.admin.couponsets.coupons.DeleteCoupons- Param : couponSetCode
-15.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupon- Param : couponSetCode
-16.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : couponSetCode
-17.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : filter
-18.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupon- Param : includeCounts
-19.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : includeCounts
-20.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : pageSize
-21.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupon- Param : responseFields
-22.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : responseFields
-23.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : sortBy
-24.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons- Param : startIndex
-25.    Added - commerce.catalog.admin.couponsets.AddCouponSet- Param : couponSet
-26.    Added - commerce.catalog.admin.couponsets.UpdateCouponSet- Param : couponSet
-27.    Added - commerce.catalog.admin.couponsets.DeleteCouponSet- Param : couponSetCode
-28.    Added - commerce.catalog.admin.couponsets.UpdateCouponSet- Param : couponSetCode
-29.    Added - commerce.catalog.admin.couponsets.GetCouponSet- Param : couponSetCode
-30.    Added - commerce.catalog.admin.couponsets.GetCouponSets- Param : filter
-31.    Added - commerce.catalog.admin.couponsets.GetCouponSets- Param : includeCounts
-32.    Added - commerce.catalog.admin.couponsets.GetCouponSet- Param : includeCounts
-33.    Added - commerce.catalog.admin.couponsets.GetCouponSets- Param : pageSize
-34.    Added - commerce.catalog.admin.couponsets.GetUniqueCouponSetCode- Param : responseFields
-35.    Added - commerce.catalog.admin.couponsets.AddCouponSet- Param : responseFields
-36.    Added - commerce.catalog.admin.couponsets.GetCouponSet- Param : responseFields
-37.    Added - commerce.catalog.admin.couponsets.UpdateCouponSet- Param : responseFields
-38.    Added - commerce.catalog.admin.couponsets.GetCouponSets- Param : responseFields
-39.    Added - commerce.catalog.admin.couponsets.GetCouponSets- Param : sortBy
-40.    Added - commerce.catalog.admin.couponsets.GetCouponSets- Param : startIndex
-41.    Added - commerce.catalog.admin.publishing.DeletePublishSet- Param : discardDrafts
-42.    Added - commerce.catalog.admin.publishing.AssignProductsToPublishSet- Param : publishSet
-43.    Added - commerce.catalog.admin.publishing.GetPublishSet- Param : publishSetCode
-44.    Added - commerce.catalog.admin.publishing.DeletePublishSet- Param : publishSetCode
-45.    Added - commerce.catalog.admin.publishing.GetPublishSets- Param : responseFields
-46.    Added - commerce.catalog.admin.publishing.AssignProductsToPublishSet- Param : responseFields
-47.    Added - commerce.catalog.admin.publishing.GetPublishSet- Param : responseFields
-48.    Added - commerce.catalog.admin.search.GetSearchTuningRules- Param : filter
-49.    Added - commerce.catalog.admin.search.ReindexPod- Param : forceUpdate
-50.    Added - commerce.catalog.admin.search.ReindexSite- Param : forceUpdate
-51.    Added - commerce.catalog.admin.search.ReindexTenant- Param : forceUpdate
-52.    Added - commerce.catalog.admin.search.ReindexProduct- Param : forceUpdate
-53.    Added - commerce.catalog.admin.search.GetSearchTuningRules- Param : pageSize
-54.    Added - commerce.catalog.admin.search.ReindexProduct- Param : productCode
-55.    Added - commerce.catalog.admin.search.DeleteSearchTuningRule- Param : searchTuningRuleCode
-56.    Added - commerce.catalog.admin.search.GetSearchTuningRule- Param : searchTuningRuleCode
-57.    Added - commerce.catalog.admin.search.UpdateSearchTuningRule- Param : searchTuningRuleCode
-58.    Added - commerce.catalog.admin.search.AddSearchTuningRule- Param : searchTuningRuleIn
-59.    Added - commerce.catalog.admin.search.UpdateSearchTuningRule- Param : searchTuningRuleIn
-60.    Added - commerce.catalog.admin.search.UpdateSearchTuningRuleSortFields- Param : searchTuningRuleSortFieldsIn
-61.    Added - commerce.catalog.admin.search.GetSearchTuningRules- Param : sortBy
-62.    Added - commerce.catalog.admin.search.GetSearchTuningRules- Param : startIndex
-63.    Added - commerce.catalog.storefront.categories.GetProductsOutOfSyncWithDynamicCategory- Param : excludeProductsAlreadyAssignedCategory
-64.    Added - commerce.catalog.storefront.productsearch.Search- Param : enableSearchTuningRules
-65.    Added - commerce.catalog.storefront.productsearch.Search- Param : facetTemplateExclude
-66.    Added - commerce.catalog.storefront.productsearch.Search- Param : searchTuningRuleCode
-67.    Added - commerce.catalog.storefront.productsearch.Search- Param : searchTuningRuleContext
-68.    Added - commerce.catalog.storefront.productsearch.GetSearchTuningRules- Param : siteId
-69.    Added - commerce.orders.ProcessDigitalWallet- Param : digitalWallet
-70.    Added - commerce.orders.ProcessDigitalWallet- Param : digitalWalletType
-71.    Added - commerce.payments.fraudscreen.Screen- Param : request
-72.    Added - commerce.settings.checkout.paymentsettings.AddThirdPartyPaymentWorkflow- Param : definition
-73.    Added - commerce.settings.checkout.paymentsettings.DeleteThirdPartyPaymentWorkflow- Param : fullyQualifiedName
-74.    Added - commerce.settings.checkout.paymentsettings.GetThirdPartyPaymentWorkflowWithValues- Param : fullyQualifiedName
-75.    Added - commerce.settings.general.customroutes.GetCustomRouteSettings- Param : responseFields
-76.    Added - commerce.settings.general.customroutes.CreateCustomRouteSettings- Param : responseFields
-77.    Added - commerce.settings.general.customroutes.UpdateCustomRouteSettings- Param : responseFields
-78.    Added - commerce.settings.general.customroutes.CreateCustomRouteSettings- Param : settings
-79.    Added - commerce.settings.general.customroutes.UpdateCustomRouteSettings- Param : settings
-80.    Added - content.documentlists.documents.TransformDocumentContent- Param : crop
-81.    Added - content.documentlists.documents.TransformDocumentContent- Param : height
-82.    Added - content.documentlists.documents.GetDocumentContentHead- Param : includeInactive
-83.    Added - content.documentlists.documents.GetDocument- Param : includeInactive
-84.    Added - content.documentlists.documents.GetDocuments- Param : includeInactive
-85.    Added - content.documentlists.documents.TransformDocumentContent- Param : max
-86.    Added - content.documentlists.documents.TransformDocumentContent- Param : maxHeight
-87.    Added - content.documentlists.documents.TransformDocumentContent- Param : maxWidth
-88.    Added - content.documentlists.documents.TransformDocumentContent- Param : quality
-89.    Added - content.documentlists.documents.TransformDocumentContent- Param : width
-90.    Added - content.documentlists.documentTree.TransformTreeDocumentContent- Param : crop
-91.    Added - content.documentlists.documentTree.TransformTreeDocumentContent- Param : height
-92.    Added - content.documentlists.documentTree.GetTreeDocument- Param : includeInactive
-93.    Added - content.documentlists.documentTree.TransformTreeDocumentContent- Param : max
-94.    Added - content.documentlists.documentTree.TransformTreeDocumentContent- Param : maxHeight
-95.    Added - content.documentlists.documentTree.TransformTreeDocumentContent- Param : maxWidth
-96.    Added - content.documentlists.documentTree.TransformTreeDocumentContent- Param : quality
-97.    Added - content.documentlists.documentTree.TransformTreeDocumentContent- Param : width
-98.    Added - content.documentlists.views.GetViewDocuments- Param : includeInactive
-99.    Added - content.publishsets.AddPublishSetItems- Param : code
-100.    Added - content.publishsets.DeletePublishSet- Param : code
-101.    Added - content.publishsets.GetPublishSetItems- Param : code
-102.    Added - content.publishsets.AddPublishSetItems- Param : itemsToPublish
-103.    Added - content.publishsets.GetPublishSets- Param : pageSize
-104.    Added - content.publishsets.GetPublishSetItems- Param : pageSize
-105.    Added - content.publishsets.AddPublishSetItems- Param : responseFields
-106.    Added - content.publishsets.DeletePublishSet- Param : responseFields
-107.    Added - content.publishsets.GetPublishSets- Param : responseFields
-108.    Added - content.publishsets.GetPublishSetItems- Param : responseFields
-109.    Added - content.publishsets.DeletePublishSet- Param : shouldDiscard
-110.    Added - content.publishsets.GetPublishSets- Param : startIndex
-111.    Added - content.publishsets.GetPublishSetItems- Param : startIndex
-112.    Added - platform.appdev.apppackages.GetApplicationSummaryChildren- Param : appId
-113.    Added - platform.appdev.apppackages.ClonePackage- Param : applicationKey
-114.    Added - platform.appdev.apppackages.DeletePackage- Param : applicationKey
-115.    Added - platform.appdev.apppackages.GetPackage- Param : applicationKey
-116.    Added - platform.appdev.apppackages.GetPackages- Param : applicationKey
-117.    Added - platform.appdev.apppackages.UpdatePackage- Param : applicationKey
-118.    Added - platform.appdev.apppackages.UpdatePackageBehaviors- Param : behaviors
-119.    Added - platform.appdev.apppackages.GetAllPackages- Param : filter
-120.    Added - platform.appdev.apppackages.GetApplicationSummaryParents- Param : filter
-121.    Added - platform.appdev.apppackages.GetPackages- Param : filter
-122.    Added - platform.appdev.apppackages.GetPackage- Param : includeChildren
-123.    Added - platform.appdev.apppackages.CreatePackage- Param : package
-124.    Added - platform.appdev.apppackages.UpdatePackage- Param : package
-125.    Added - platform.appdev.apppackages.GetPackageBehaviors- Param : packageId
-126.    Added - platform.appdev.apppackages.UpdatePackageBehaviors- Param : packageId
-127.    Added - platform.appdev.apppackages.ClonePackage- Param : packageName
-128.    Added - platform.appdev.apppackages.CreateNewCorePackage- Param : packageRequest
-129.    Added - platform.appdev.apppackages.GetAllPackages- Param : pageSize
-130.    Added - platform.appdev.apppackages.GetApplicationSummaryParents- Param : pageSize
-131.    Added - platform.appdev.apppackages.GetPackages- Param : pageSize
-132.    Added - platform.appdev.apppackages.CreatePackage- Param : projectId
-133.    Added - platform.appdev.apppackages.CreateNewCorePackage- Param : responseFields
-134.    Added - platform.appdev.apppackages.GetPackageBehaviors- Param : responseFields
-135.    Added - platform.appdev.apppackages.ClonePackage- Param : responseFields
-136.    Added - platform.appdev.apppackages.CreatePackage- Param : responseFields
-137.    Added - platform.appdev.apppackages.GetPackage- Param : responseFields
-138.    Added - platform.appdev.apppackages.UpdatePackage- Param : responseFields
-139.    Added - platform.appdev.apppackages.UpdatePackageBehaviors- Param : responseFields
-140.    Added - platform.appdev.apppackages.GetAllPackages- Param : responseFields
-141.    Added - platform.appdev.apppackages.GetApplicationSummaryParents- Param : responseFields
-142.    Added - platform.appdev.apppackages.GetPackages- Param : responseFields
-143.    Added - platform.appdev.apppackages.GetAllPackages- Param : sortBy
-144.    Added - platform.appdev.apppackages.GetApplicationSummaryParents- Param : sortBy
-145.    Added - platform.appdev.apppackages.GetPackages- Param : sortBy
-146.    Added - platform.appdev.apppackages.GetAllPackages- Param : startIndex
-147.    Added - platform.appdev.apppackages.GetApplicationSummaryParents- Param : startIndex
-148.    Added - platform.appdev.apppackages.GetPackages- Param : startIndex
-149.    Added - platform.appdev.filebasedpackage.UpdateZipFile- Param : appKeyStr
-150.    Added - platform.appdev.filebasedpackage.GetFile- Param : applicationKey
-151.    Added - platform.appdev.filebasedpackage.GetFile- Param : fileName
-152.    Added - platform.appdev.filebasedpackage.GetZipFile- Param : format
-153.    Added - platform.appdev.filebasedpackage.GetZipFile- Param : packageId
-154.    Added - platform.appdev.filebasedpackage.AddZipFile- Param : responseFields
-155.    Added - platform.appdev.filebasedpackage.UpdateZipFile- Param : responseFields
-156.    Added - platform.appdev.filebasedpackage.AddZipFile- Param : stream
-157.    Added - platform.appdev.filebasedpackage.UpdateZipFile- Param : stream
+0.    Added - content.publishsets.GetPublishSetItems- Param : filter
+1.    Added - content.publishsets.GetPublishSetItems- Param : sortBy
+2.    Added - platform.secureappdata.DeleteDBValue- Param : appKeyId
+3.    Added - platform.secureappdata.GetAllDbEntries- Param : appKeyId
+4.    Added - platform.secureappdata.GetDBValue- Param : appKeyId
+5.    Added - platform.secureappdata.UpdateAllDbEntries- Param : appKeyId
+6.    Added - platform.secureappdata.CreateDBValue- Param : appKeyId
+7.    Added - platform.secureappdata.UpdateDBValue- Param : appKeyId
+8.    Added - platform.secureappdata.DeleteDBValue- Param : dbEntryQuery
+9.    Added - platform.secureappdata.GetDBValue- Param : dbEntryQuery
+10.    Added - platform.secureappdata.CreateDBValue- Param : dbEntryQuery
+11.    Added - platform.secureappdata.UpdateDBValue- Param : dbEntryQuery
+12.    Added - platform.secureappdata.UpdateAllDbEntries- Param : entries
+13.    Added - platform.secureappdata.GetAllDbEntries- Param : pageSize
+14.    Added - platform.secureappdata.GetDBValue- Param : responseFields
+15.    Added - platform.secureappdata.GetAllDbEntries- Param : responseFields
+16.    Added - platform.secureappdata.GetAllDbEntries- Param : startIndex
+17.    Added - platform.secureappdata.CreateDBValue- Param : value
+18.    Added - platform.secureappdata.UpdateDBValue- Param : value
 
 Operations
-0.    Added - commerce.catalog.admin.categories.ValidateDynamicExpression - POST
-1.    Added - commerce.catalog.admin.categories.ValidateRealTimeDynamicExpression - POST
-2.    Added - commerce.catalog.admin.couponsets.AddCouponSet - POST
-3.    Added - commerce.catalog.admin.couponsets.assigneddiscounts.AssignDiscount - POST
-4.    Added - commerce.catalog.admin.couponsets.assigneddiscounts.GetAssignedDiscounts - GET
-5.    Added - commerce.catalog.admin.couponsets.assigneddiscounts.UnAssignDiscount - DELETE
-6.    Added - commerce.catalog.admin.couponsets.coupons.AddCoupons - POST
-7.    Added - commerce.catalog.admin.couponsets.coupons.DeleteCoupon - DELETE
-8.    Added - commerce.catalog.admin.couponsets.coupons.DeleteCoupons - POST
-9.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupon - GET
-10.    Added - commerce.catalog.admin.couponsets.coupons.GetCoupons - GET
-11.    Added - commerce.catalog.admin.couponsets.DeleteCouponSet - DELETE
-12.    Added - commerce.catalog.admin.couponsets.GetCouponSet - GET
-13.    Added - commerce.catalog.admin.couponsets.GetCouponSets - GET
-14.    Added - commerce.catalog.admin.couponsets.GetUniqueCouponSetCode - GET
-15.    Added - commerce.catalog.admin.couponsets.UpdateCouponSet - PUT
-16.    Added - commerce.catalog.admin.couponsets.ValidateUniqueCouponSetCode - POST
-17.    Added - commerce.catalog.admin.publishing.AssignProductsToPublishSet - POST
-18.    Added - commerce.catalog.admin.publishing.DeletePublishSet - DELETE
-19.    Added - commerce.catalog.admin.publishing.GetPublishSet - GET
-20.    Added - commerce.catalog.admin.publishing.GetPublishSets - GET
-21.    Added - commerce.catalog.admin.search.AddSearchTuningRule - POST
-22.    Added - commerce.catalog.admin.search.DeleteSearchTuningRule - DELETE
-23.    Added - commerce.catalog.admin.search.GetSearchTuningRule - GET
-24.    Added - commerce.catalog.admin.search.GetSearchTuningRules - GET
-25.    Added - commerce.catalog.admin.search.GetSearchTuningRuleSortFields - GET
-26.    Added - commerce.catalog.admin.search.GetSiteIdsWithSearchTuning - GET
-27.    Added - commerce.catalog.admin.search.ReindexProduct - POST
-28.    Added - commerce.catalog.admin.search.UpdateSearchTuningRule - PUT
-29.    Added - commerce.catalog.admin.search.UpdateSearchTuningRuleSortFields - POST
-30.    Added - commerce.catalog.storefront.categories.GetProductsOutOfSyncWithDynamicCategory - GET
-31.    Added - commerce.catalog.storefront.products.GetProductForIndexing - GET
-32.    Added - commerce.catalog.storefront.productsearch.GetSearchTuningRules - GET
-33.    Added - commerce.orders.ProcessDigitalWallet - PUT
-34.    Added - commerce.payments.fraudscreen.Screen - POST
-35.    Added - commerce.returns.GetReasons - GET
-36.    Added - commerce.settings.checkout.paymentsettings.AddThirdPartyPaymentWorkflow - PUT
-37.    Added - commerce.settings.checkout.paymentsettings.DeleteThirdPartyPaymentWorkflow - DELETE
-38.    Added - commerce.settings.checkout.paymentsettings.GetThirdPartyPaymentWorkflowWithValues - GET
-39.    Added - commerce.settings.general.customroutes.CreateCustomRouteSettings - POST
-40.    Added - commerce.settings.general.customroutes.DeleteCustomRouteSettings - DELETE
-41.    Added - commerce.settings.general.customroutes.GetCustomRouteSettings - GET
-42.    Added - commerce.settings.general.customroutes.UpdateCustomRouteSettings - PUT
-43.    Added - content.documentlists.documents.TransformDocumentContent - GET
-44.    Added - content.documentlists.documentTree.TransformTreeDocumentContent - GET
-45.    Added - content.publishsets.AddPublishSetItems - PUT
-46.    Added - content.publishsets.DeletePublishSet - POST
-47.    Added - content.publishsets.GetPublishSetItems - GET
-48.    Added - content.publishsets.GetPublishSets - GET
-49.    Added - platform.appdev.apppackages.ClonePackage - POST
-50.    Added - platform.appdev.apppackages.CreateNewCorePackage - POST
-51.    Added - platform.appdev.apppackages.CreatePackage - POST
-52.    Added - platform.appdev.apppackages.DeletePackage - DELETE
-53.    Added - platform.appdev.apppackages.GetAllPackages - GET
-54.    Added - platform.appdev.apppackages.GetApplicationSummaryChildren - GET
-55.    Added - platform.appdev.apppackages.GetApplicationSummaryParents - GET
-56.    Added - platform.appdev.apppackages.GetPackage - GET
-57.    Added - platform.appdev.apppackages.GetPackageBehaviors - GET
-58.    Added - platform.appdev.apppackages.GetPackages - GET
-59.    Added - platform.appdev.apppackages.UpdatePackage - PUT
-60.    Added - platform.appdev.apppackages.UpdatePackageBehaviors - POST
-61.    Added - platform.appdev.filebasedpackage.AddZipFile - POST
-62.    Added - platform.appdev.filebasedpackage.GetFile - GET
-63.    Added - platform.appdev.filebasedpackage.GetZipFile - GET
-64.    Added - platform.appdev.filebasedpackage.UpdateZipFile - POST
-65.    Added - platform.extensions.GetActionsManifest - GET
-66.    Added - platform.extensions.GetActionsManifestByContext - GET
+0.    Added - platform.secureappdata.CreateDBValue - POST
+1.    Added - platform.secureappdata.DeleteDBValue - DELETE
+2.    Added - platform.secureappdata.GetAllDbEntries - GET
+3.    Added - platform.secureappdata.GetDBValue - GET
+4.    Added - platform.secureappdata.UpdateAllDbEntries - PUT
+5.    Added - platform.secureappdata.UpdateDBValue - PUT
 
 Resources
-0.    Added - commerce.catalog.admin.couponsets | commerce/catalog/admin/couponsets
-1.    Added - commerce.catalog.admin.couponsets.assigneddiscounts | commerce/catalog/admin/couponsets/assigneddiscounts
-2.    Added - commerce.catalog.admin.couponsets.coupons | commerce/catalog/admin/couponsets/coupons
-3.    Added - commerce.payments.fraudscreen | commerce/payments/fraudscreen
-4.    Added - commerce.settings.general.customroutes | commerce/settings/general/customroutes
-5.    Added - content.publishsets | content/publishsets
-6.    Added - platform.appdev.apppackages | platform/appdev/apppackages
-7.    Added - platform.appdev.filebasedpackage | platform/appdev/filebasedpackage
+0.    Added - platform.secureappdata | platform/secureappdata

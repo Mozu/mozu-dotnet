@@ -61,7 +61,7 @@ namespace Mozu.Api.Urls.Platform
         /// </returns>
         public static MozuUrl GetPackageFileMetadataUrl(string applicationKey, string filepath, string responseFields =  null)
 		{
-			var url = "/api/platform/developer/packages/{applicationKey}/filemetadata/{filepath}?responseFields={responseFields}";
+			var url = "/api/platform/developer/packages/{applicationKey}/filemetadata/{*filepath}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
 			mozuUrl.FormatUrl( "applicationKey", applicationKey);
 			mozuUrl.FormatUrl( "filepath", filepath);
@@ -98,7 +98,7 @@ namespace Mozu.Api.Urls.Platform
         /// </returns>
         public static MozuUrl UpsertPackageFileUrl(string applicationKey, string filepath, string lastModifiedTime =  null, string responseFields =  null)
 		{
-			var url = "/api/platform/developer/packages/{applicationKey}/files/{filepath}?lastModifiedTime={lastModifiedTime}&responseFields={responseFields}";
+			var url = "/api/platform/developer/packages/{applicationKey}/files/{*filepath}?lastModifiedTime={lastModifiedTime}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
 			mozuUrl.FormatUrl( "applicationKey", applicationKey);
 			mozuUrl.FormatUrl( "filepath", filepath);
@@ -134,7 +134,7 @@ namespace Mozu.Api.Urls.Platform
         /// </returns>
         public static MozuUrl DeletePackageFileUrl(string applicationKey, string filepath)
 		{
-			var url = "/api/platform/developer/packages/{applicationKey}/files/{filepath}";
+			var url = "/api/platform/developer/packages/{applicationKey}/files/{*filepath}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
 			mozuUrl.FormatUrl( "applicationKey", applicationKey);
 			mozuUrl.FormatUrl( "filepath", filepath);

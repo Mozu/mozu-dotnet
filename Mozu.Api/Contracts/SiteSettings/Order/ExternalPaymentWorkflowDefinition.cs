@@ -24,6 +24,8 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 			///
 			public List<ThirdPartyCredentialField> Credentials { get; set; }
 
+			public string Description { get; set; }
+
 			///
 			///Fully qualified name of the attribute for the order or customer. 
 			///

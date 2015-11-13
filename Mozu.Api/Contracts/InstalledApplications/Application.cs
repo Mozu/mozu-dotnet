@@ -24,6 +24,8 @@ namespace Mozu.Api.Contracts.InstalledApplications
 			///
 			public string AppId { get; set; }
 
+			public string AppKey { get; set; }
+
 			///
 			///List of capabilities installed in a tenant.
 			///
@@ -43,6 +45,8 @@ namespace Mozu.Api.Contracts.InstalledApplications
 			///Indicates if the installed application is of type extension. If true, the application type is Extension.
 			///
 			public bool? IsExtension { get; set; }
+
+			public bool? IsExtensionCertified { get; set; }
 
 			///
 			///The URL defined for the application that represents the configuration website for the capability. This value is used by installed applications or the site.

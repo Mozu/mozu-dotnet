@@ -20,11 +20,6 @@ namespace Mozu.Api.Contracts.AppDev
 		public class Package
 		{
 			///
-			///Mozu.AppDev.Contracts.Package alert ApiTypeMember DOCUMENT_HERE 
-			///
-			public string Alert { get; set; }
-
-			///
 			///Mozu.AppDev.Contracts.Package apiVersion ApiTypeMember DOCUMENT_HERE 
 			///
 			public string ApiVersion { get; set; }
@@ -253,6 +248,10 @@ namespace Mozu.Api.Contracts.AppDev
 			///The AppKey is a runtime type. This only applies for themes that inherit from another theme. It shows the most current update available.
 			///
 			public string UpdateParentAppKey { get; set; }
+
+			public string UpdateParentThemeName { get; set; }
+
+			public string UpdateParentThemeVersion { get; set; }
 
 			///
 			///Unique identifier of the customer account (shopper or system user). System-supplied and read-only. If the shopper user is anonymous, the user ID represents a system-generated user ID string.

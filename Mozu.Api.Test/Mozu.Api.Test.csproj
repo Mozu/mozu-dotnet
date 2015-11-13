@@ -196,6 +196,7 @@
     <Compile Include="Factories\ReturnsPackageFactory.cs" />
     <Compile Include="Factories\ReturnsShipmentFactory.cs" />
     <Compile Include="Factories\SearchFactory.cs" />
+    <Compile Include="Factories\SecureAppDataFactory.cs" />
     <Compile Include="Factories\SiteDataFactory.cs" />
     <Compile Include="Factories\SiteShippingHandlingFeeFactory.cs" />
     <Compile Include="Factories\SiteShippingSettingsFactory.cs" />

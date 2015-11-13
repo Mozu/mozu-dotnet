@@ -39,19 +39,23 @@ namespace Mozu.Api.Urls.Content
         /// Get Resource Url for GetPublishSetItems
         /// </summary>
         /// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+        /// <param name="filter"></param>
         /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
         /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+        /// <param name="sortBy"></param>
         /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=3`.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetPublishSetItemsUrl(string code, int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
+        public static MozuUrl GetPublishSetItemsUrl(string code, int? pageSize =  null, int? startIndex =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
-			var url = "/api/content/publishsets/{code}/items?pageSize={pageSize}&startIndex={startIndex}&responseFields={responseFields}";
+			var url = "/api/content/publishsets/{code}/items?pageSize={pageSize}&startIndex={startIndex}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "code", code);
+			mozuUrl.FormatUrl( "filter", filter);
 			mozuUrl.FormatUrl( "pageSize", pageSize);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "sortBy", sortBy);
 			mozuUrl.FormatUrl( "startIndex", startIndex);
 			return mozuUrl;
 		}
