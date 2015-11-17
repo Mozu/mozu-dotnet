@@ -70,10 +70,14 @@ namespace Mozu.Api.Contracts.ProductAdmin.Search
 			///
 			public string SearchTuningRuleCode { get; set; }
 
+			public string SearchTuningRuleDescription { get; set; }
+
 			///
 			///Mozu.ProductAdmin.Contracts.Search.SearchTuningRule searchTuningRuleName ApiTypeMember DOCUMENT_HERE 
 			///
 			public string SearchTuningRuleName { get; set; }
+
+			public int SiteId { get; set; }
 
 		}
 

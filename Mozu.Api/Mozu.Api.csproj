@@ -217,6 +217,7 @@
     <Compile Include="Clients\Platform\Entitylists\EntityContainerClient.cs" />
     <Compile Include="Clients\Platform\Entitylists\ListViewClient.cs" />
     <Compile Include="Clients\Platform\ReferenceDataClient.cs" />
+    <Compile Include="Clients\Platform\SecureAppDataClient.cs" />
     <Compile Include="Clients\Platform\SiteDataClient.cs" />
     <Compile Include="Clients\Platform\TenantClient.cs" />
     <Compile Include="Clients\Platform\TenantDataClient.cs" />
@@ -810,6 +811,7 @@
     <Compile Include="Resources\Platform\Entitylists\EntityResource.cs" />
     <Compile Include="Resources\Platform\Entitylists\ListViewResource.cs" />
     <Compile Include="Resources\Platform\ReferenceDataResource.cs" />
+    <Compile Include="Resources\Platform\SecureAppDataResource.cs" />
     <Compile Include="Resources\Platform\SiteDataResource.cs" />
     <Compile Include="Resources\Platform\TenantDataResource.cs" />
     <Compile Include="Resources\Platform\TenantExtensionsResource.cs" />
@@ -932,6 +934,7 @@
     <Compile Include="Urls\Platform\Entitylists\ListViewUrl.cs" />
     <Compile Include="Urls\Platform\EntityListUrl.cs" />
     <Compile Include="Urls\Platform\ReferenceDataUrl.cs" />
+    <Compile Include="Urls\Platform\SecureAppDataUrl.cs" />
     <Compile Include="Urls\Platform\SiteDataUrl.cs" />
     <Compile Include="Urls\Platform\TenantDataUrl.cs" />
     <Compile Include="Urls\Platform\TenantExtensionsUrl.cs" />

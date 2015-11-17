@@ -49,6 +49,8 @@ namespace Mozu.Api.Contracts.SiteSettings.Application
 			///
 			public bool? IsExtension { get; set; }
 
+			public bool? IsExtensionCertified { get; set; }
+
 			///
 			///The URL defined for the application that represents the configuration website for the capability. This value is used by installed applications or the site.
 			///

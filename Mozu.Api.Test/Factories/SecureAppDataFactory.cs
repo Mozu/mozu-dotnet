@@ -24,31 +24,31 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// content/publishsets related resources. DOCUMENT_HERE 
+	/// 
 	/// </summary>
-	public partial class PublishSetSummaryFactory : BaseDataFactory
+	public partial class SecureAppDataFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Returns a List of current Publishing sets with counts of drafts in each
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = PublishSetSummaryFactory.GetPublishSets(handler : handler,  pageSize :  pageSize,  startIndex :  startIndex,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<PublishSetSummaryPagedCollection/>(result); 
+		/// var result = SecureAppDataFactory.GetDBValue(handler : handler,  appKeyId :  appKeyId,  dbEntryQuery :  dbEntryQuery,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<JObject/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.Content.PublishSetSummaryPagedCollection GetPublishSets(ServiceClientMessageHandler handler, 
- 		 int? pageSize = null, int? startIndex = null, string responseFields = null, 
+		public static JObject GetDBValue(ServiceClientMessageHandler handler, 
+ 		 string appKeyId, string dbEntryQuery, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Content.PublishSetSummaryClient.GetPublishSetsClient(
-				 pageSize :  pageSize,  startIndex :  startIndex,  responseFields :  responseFields		);
+			var apiClient = Mozu.Api.Clients.Platform.SecureAppDataClient.GetDBValueClient(
+				 appKeyId :  appKeyId,  dbEntryQuery :  dbEntryQuery,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -68,25 +68,25 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieve a paged collection of publish set Items.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = PublishSetSummaryFactory.GetPublishSetItems(handler : handler,  code :  code,  pageSize :  pageSize,  startIndex :  startIndex,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<DocumentDraftSummaryPagedCollection/>(result); 
+		/// var result = SecureAppDataFactory.CreateDBValue(handler : handler,  value :  value,  appKeyId :  appKeyId,  dbEntryQuery :  dbEntryQuery,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection GetPublishSetItems(ServiceClientMessageHandler handler, 
- 		 string code, int? pageSize = null, int? startIndex = null, string sortBy = null, string filter = null, string responseFields = null, 
-		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		public static void CreateDBValue(ServiceClientMessageHandler handler, 
+ 		JObject value, string appKeyId, string dbEntryQuery, 
+		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Content.PublishSetSummaryClient.GetPublishSetItemsClient(
-				 code :  code,  pageSize :  pageSize,  startIndex :  startIndex,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields		);
+			var apiClient = Mozu.Api.Clients.Platform.SecureAppDataClient.CreateDBValueClient(
+				 value :  value,  appKeyId :  appKeyId,  dbEntryQuery :  dbEntryQuery		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -97,34 +97,33 @@ namespace Mozu.Api.Test.Factories
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
-				return null;
 			}
-			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 
 		}
   
 		/// <summary> 
-		/// Adds a set of documents by id to a publish set
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = PublishSetSummaryFactory.DeletePublishSet(handler : handler,  code :  code,  shouldDiscard :  shouldDiscard,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<object/>(result); 
+		/// var result = SecureAppDataFactory.UpdateDBValue(handler : handler,  value :  value,  appKeyId :  appKeyId,  dbEntryQuery :  dbEntryQuery,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static object DeletePublishSet(ServiceClientMessageHandler handler, 
- 		 string code, bool? shouldDiscard = null, string responseFields = null, 
-		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		public static void UpdateDBValue(ServiceClientMessageHandler handler, 
+ 		JObject value, string appKeyId, string dbEntryQuery, 
+		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Content.PublishSetSummaryClient.DeletePublishSetClient(
-				 code :  code,  shouldDiscard :  shouldDiscard,  responseFields :  responseFields		);
+			var apiClient = Mozu.Api.Clients.Platform.SecureAppDataClient.UpdateDBValueClient(
+				 value :  value,  appKeyId :  appKeyId,  dbEntryQuery :  dbEntryQuery		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -135,34 +134,33 @@ namespace Mozu.Api.Test.Factories
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
-				return null;
 			}
-			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 
 		}
   
 		/// <summary> 
-		/// Adds a set of documents by id to a publish set
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = PublishSetSummaryFactory.AddPublishSetItems(handler : handler,  itemsToPublish :  itemsToPublish,  code :  code,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<object/>(result); 
+		/// var result = SecureAppDataFactory.DeleteDBValue(handler : handler,  appKeyId :  appKeyId,  dbEntryQuery :  dbEntryQuery,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static object AddPublishSetItems(ServiceClientMessageHandler handler, 
- 		 List<Mozu.Api.Contracts.Content.AddOrDeletePublishItem> itemsToPublish, string code, string responseFields = null, 
-		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
+		public static void DeleteDBValue(ServiceClientMessageHandler handler, 
+ 		string appKeyId, string dbEntryQuery, 
+		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Content.PublishSetSummaryClient.AddPublishSetItemsClient(
-				 itemsToPublish :  itemsToPublish,  code :  code,  responseFields :  responseFields		);
+			var apiClient = Mozu.Api.Clients.Platform.SecureAppDataClient.DeleteDBValueClient(
+				 appKeyId :  appKeyId,  dbEntryQuery :  dbEntryQuery		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -173,9 +171,8 @@ namespace Mozu.Api.Test.Factories
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
-				return null;
 			}
-			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

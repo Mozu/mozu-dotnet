@@ -92,8 +92,10 @@ namespace Mozu.Api.Resources.Content
 		/// Retrieve a paged collection of publish set Items.
 		/// </summary>
 		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="filter"></param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="sortBy"></param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=3`.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection"/>
@@ -101,14 +103,14 @@ namespace Mozu.Api.Resources.Content
 		/// <example>
 		/// <code>
 		///   var publishsetsummary = new PublishSetSummary();
-		///   var documentDraftSummaryPagedCollection = publishsetsummary.GetPublishSetItems( code,  pageSize,  startIndex,  responseFields);
+		///   var documentDraftSummaryPagedCollection = publishsetsummary.GetPublishSetItems( code,  pageSize,  startIndex,  sortBy,  filter,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection GetPublishSetItems(string code, int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
+		public virtual Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection GetPublishSetItems(string code, int? pageSize =  null, int? startIndex =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection> response;
-			var client = Mozu.Api.Clients.Content.PublishSetSummaryClient.GetPublishSetItemsClient( code,  pageSize,  startIndex,  responseFields);
+			var client = Mozu.Api.Clients.Content.PublishSetSummaryClient.GetPublishSetItemsClient( code,  pageSize,  startIndex,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -119,8 +121,10 @@ namespace Mozu.Api.Resources.Content
 		/// Retrieve a paged collection of publish set Items.
 		/// </summary>
 		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="filter"></param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="sortBy"></param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=3`.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection"/>
@@ -128,13 +132,13 @@ namespace Mozu.Api.Resources.Content
 		/// <example>
 		/// <code>
 		///   var publishsetsummary = new PublishSetSummary();
-		///   var documentDraftSummaryPagedCollection = await publishsetsummary.GetPublishSetItemsAsync( code,  pageSize,  startIndex,  responseFields);
+		///   var documentDraftSummaryPagedCollection = await publishsetsummary.GetPublishSetItemsAsync( code,  pageSize,  startIndex,  sortBy,  filter,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection> GetPublishSetItemsAsync(string code, int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection> GetPublishSetItemsAsync(string code, int? pageSize =  null, int? startIndex =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection> response;
-			var client = Mozu.Api.Clients.Content.PublishSetSummaryClient.GetPublishSetItemsClient( code,  pageSize,  startIndex,  responseFields);
+			var client = Mozu.Api.Clients.Content.PublishSetSummaryClient.GetPublishSetItemsClient( code,  pageSize,  startIndex,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
