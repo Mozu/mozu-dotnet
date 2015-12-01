@@ -382,7 +382,7 @@ namespace Mozu.Api
 
 				if (string.IsNullOrEmpty(_apiContext.TenantUrl))
 				{
-				    var tenant = GetTenant(_apiContext.TenantId).Result;
+				    var tenant = GetTenant(_apiContext.TenantId);
 					/*var tenantResource = new TenantResource();
 					var tenant = tenantResource.GetTenant(_apiContext.TenantId);
 
@@ -419,17 +419,17 @@ namespace Mozu.Api
 					_log.Info("TenantId is missing", new ApiException("TenantId is missing") { ApiContext = _apiContext });
 					throw new ApiException("TenantId is missing");
 				}
-                var tenant = GetTenant(_apiContext.TenantId).Result;
+                var tenant = GetTenant(_apiContext.TenantId);
                 _baseAddress = tenant.IsDevTenant? MozuConfig.BaseDevPciUrl : MozuConfig.BasePciUrl;
 			}
 
 
 		}
 
-        private async Task<Tenant> GetTenant(int tenantId)
+        private Tenant GetTenant(int tenantId)
         {
             var tenantResource = new TenantResource();
-            var tenant = await tenantResource.GetTenantAsync(_apiContext.TenantId);
+            var tenant = tenantResource.GetTenant(_apiContext.TenantId);
 
             if (tenant == null)
             {
