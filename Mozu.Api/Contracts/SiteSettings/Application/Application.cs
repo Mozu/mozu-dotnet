@@ -49,6 +49,9 @@ namespace Mozu.Api.Contracts.SiteSettings.Application
 			///
 			public bool? IsExtension { get; set; }
 
+			///
+			///denotes if the Application is certified to use extension
+			///
 			public bool? IsExtensionCertified { get; set; }
 
 			///

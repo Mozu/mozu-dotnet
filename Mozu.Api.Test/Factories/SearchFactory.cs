@@ -30,7 +30,7 @@ namespace Mozu.Api.Test.Factories
 	{
 
 		/// <summary> 
-		/// admin-search Get GetSearchTuningRule description DOCUMENT_HERE 
+		/// Retrieves the details of the specified search tuning rule.
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.GetSearchTuningRule(handler : handler,  searchTuningRuleCode :  searchTuningRuleCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// admin-search Get GetSearchTuningRuleSortFields description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.GetSearchTuningRuleSortFields(handler : handler,  expectedCode: expectedCode, successCode: successCode); 
@@ -220,7 +220,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// admin-search Post UpdateSearchTuningRuleSortFields description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.UpdateSearchTuningRuleSortFields(handler : handler,  searchTuningRuleSortFieldsIn :  searchTuningRuleSortFieldsIn,  expectedCode: expectedCode, successCode: successCode); 
@@ -333,7 +333,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// admin-search Delete DeleteSearchTuningRule description DOCUMENT_HERE 
+		/// Deletes the specified search tuning rule.
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.DeleteSearchTuningRule(handler : handler,  searchTuningRuleCode :  searchTuningRuleCode,  expectedCode: expectedCode, successCode: successCode); 

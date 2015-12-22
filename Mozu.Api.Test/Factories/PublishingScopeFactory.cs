@@ -180,7 +180,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// admin-publishing Post AssignProductsToPublishSet description DOCUMENT_HERE 
+		/// Assigns a product draft to a specified publish set.
 		/// <example> 
 		///  <code> 
 		/// var result = PublishingScopeFactory.AssignProductsToPublishSet(handler : handler,  publishSet :  publishSet,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

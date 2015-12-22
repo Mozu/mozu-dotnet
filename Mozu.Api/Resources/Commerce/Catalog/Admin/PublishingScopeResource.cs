@@ -47,7 +47,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// Retrieves the details of a single PublishSet.
 		/// </summary>
-		/// <param name="publishSetCode"></param>
+		/// <param name="publishSetCode">The unique identifier of the publish set.</param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
@@ -73,7 +73,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// Retrieves the details of a single PublishSet.
 		/// </summary>
-		/// <param name="publishSetCode"></param>
+		/// <param name="publishSetCode">The unique identifier of the publish set.</param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
@@ -239,7 +239,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// admin-publishing Post AssignProductsToPublishSet description DOCUMENT_HERE 
+		/// Assigns a product draft to a specified publish set.
 		/// </summary>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
@@ -265,7 +265,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// admin-publishing Post AssignProductsToPublishSet description DOCUMENT_HERE 
+		/// Assigns a product draft to a specified publish set.
 		/// </summary>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
@@ -292,8 +292,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// Removes all details about a PublishSet from the product service. If the discardDrafts param is true, it also deletes the product drafts.
 		/// </summary>
-		/// <param name="discardDrafts"></param>
-		/// <param name="publishSetCode"></param>
+		/// <param name="discardDrafts">Specifies whether to discard all the drafts assigned to the publish set when the publish set is deleted.</param>
+		/// <param name="publishSetCode">The unique identifier of the publish set.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// 
@@ -317,8 +317,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// Removes all details about a PublishSet from the product service. If the discardDrafts param is true, it also deletes the product drafts.
 		/// </summary>
-		/// <param name="discardDrafts"></param>
-		/// <param name="publishSetCode"></param>
+		/// <param name="discardDrafts">Specifies whether to discard all the drafts assigned to the publish set when the publish set is deleted.</param>
+		/// <param name="publishSetCode">The unique identifier of the publish set.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// 

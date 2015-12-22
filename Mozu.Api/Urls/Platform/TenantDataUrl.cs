@@ -26,7 +26,7 @@ namespace Mozu.Api.Urls.Platform
         /// </returns>
         public static MozuUrl GetDBValueUrl(string dbEntryQuery, string responseFields =  null)
 		{
-			var url = "/api/platform/tenantdata/{*dbEntryQuery}?responseFields={responseFields}";
+			var url = "/api/platform/tenantdata/{dbEntryQuery}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "dbEntryQuery", dbEntryQuery);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
@@ -42,7 +42,7 @@ namespace Mozu.Api.Urls.Platform
         /// </returns>
         public static MozuUrl CreateDBValueUrl(string dbEntryQuery)
 		{
-			var url = "/api/platform/tenantdata/{*dbEntryQuery}";
+			var url = "/api/platform/tenantdata/{dbEntryQuery}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "dbEntryQuery", dbEntryQuery);
 			return mozuUrl;
@@ -57,7 +57,7 @@ namespace Mozu.Api.Urls.Platform
         /// </returns>
         public static MozuUrl UpdateDBValueUrl(string dbEntryQuery)
 		{
-			var url = "/api/platform/tenantdata/{*dbEntryQuery}";
+			var url = "/api/platform/tenantdata/{dbEntryQuery}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "dbEntryQuery", dbEntryQuery);
 			return mozuUrl;
@@ -72,7 +72,7 @@ namespace Mozu.Api.Urls.Platform
         /// </returns>
         public static MozuUrl DeleteDBValueUrl(string dbEntryQuery)
 		{
-			var url = "/api/platform/tenantdata/{*dbEntryQuery}";
+			var url = "/api/platform/tenantdata/{dbEntryQuery}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "dbEntryQuery", dbEntryQuery);
 			return mozuUrl;

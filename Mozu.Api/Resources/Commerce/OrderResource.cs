@@ -393,7 +393,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// commerce-orders Put ProcessDigitalWallet description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="digitalWalletType"></param>
+		/// <param name="digitalWalletType">The type of digital wallet to be processed.</param>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="digitalWallet">Mozu.CommerceRuntime.Contracts.Orders.DigitalWallet ApiType DOCUMENT_HERE </param>
@@ -420,7 +420,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// commerce-orders Put ProcessDigitalWallet description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="digitalWalletType"></param>
+		/// <param name="digitalWalletType">The type of digital wallet to be processed.</param>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="digitalWallet">Mozu.CommerceRuntime.Contracts.Orders.DigitalWallet ApiType DOCUMENT_HERE </param>
@@ -446,7 +446,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// Update the properties of a discount applied to an order.
 		/// </summary>
-		/// <param name="discountId">Unique identifier of the discount. System-supplied and read only.</param>
+		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
@@ -475,7 +475,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// Update the properties of a discount applied to an order.
 		/// </summary>
-		/// <param name="discountId">Unique identifier of the discount. System-supplied and read only.</param>
+		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>

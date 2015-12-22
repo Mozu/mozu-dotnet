@@ -85,6 +85,11 @@ namespace Mozu.Api.Contracts.AppDev
 			public string ApplicationName { get; set; }
 
 			///
+			///This is the DevAccountId that owns the application
+			///
+			public int ApplicationOwnerDevAccountId { get; set; }
+
+			///
 			///Mozu.AppDev.Contracts.Package applicationStatus ApiTypeMember DOCUMENT_HERE 
 			///
 			public string ApplicationStatus { get; set; }
@@ -249,8 +254,14 @@ namespace Mozu.Api.Contracts.AppDev
 			///
 			public string UpdateParentAppKey { get; set; }
 
+			///
+			///This only applies for themes that inherit from another theme. It shows the name of the most current update available.
+			///
 			public string UpdateParentThemeName { get; set; }
 
+			///
+			///This only applies for themes that inherit from another theme. It shows the version of the most current update available.
+			///
 			public string UpdateParentThemeVersion { get; set; }
 
 			///

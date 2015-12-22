@@ -47,7 +47,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		}
 
 		/// <summary>
-		/// Retrieves the localized content for an attribute  based on a `localeCode`. 
+		/// Retrieves the localized content for an attribute based on a `localeCode`.
 		/// </summary>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
@@ -74,7 +74,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		}
 
 		/// <summary>
-		/// Adds new localized content for an attribute  based on a `localeCode`. 
+		/// Adds new localized content for an attribute based on a `localeCode`.
 		/// </summary>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
@@ -101,7 +101,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		}
 
 		/// <summary>
-		/// Updates the localized content for a collection of existing attributes  based on a `localeCode`. 
+		/// Updates the localized content for a collection of existing attributes based on a `localeCode`.
 		/// </summary>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
@@ -127,7 +127,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		}
 
 		/// <summary>
-		/// Updates the localized content for an existing attribute  based on a `localeCode`. 
+		/// Updates the localized content for an existing attribute based on a `localeCode`.
 		/// </summary>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>

@@ -45,9 +45,9 @@ namespace Mozu.Api.Urls.Commerce.Carts
 				/// <summary>
         /// Get Resource Url for UpdateExtendedProperty
         /// </summary>
-        /// <param name="key"></param>
+        /// <param name="key">Key used for metadata defined for objects, including extensible attributes, custom attributes associated with a shipping provider, and search synonyms definitions. This content may be user-defined depending on the object and usage.</param>
         /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
-        /// <param name="upsert"></param>
+        /// <param name="upsert">Any set of key value pairs to be stored in the extended properties of a cart.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

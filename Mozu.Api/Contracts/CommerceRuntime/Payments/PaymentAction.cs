@@ -45,6 +45,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///
 			public string CurrencyCode { get; set; }
 
+			///
+			///Custom data from payment providers
+			///
 			public JObject Data { get; set; }
 
 			///

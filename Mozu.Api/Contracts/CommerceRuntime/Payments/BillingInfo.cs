@@ -35,8 +35,14 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///
 			public PaymentCard Card { get; set; }
 
+			///
+			///Custom data from payment providers
+			///
 			public JObject Data { get; set; }
 
+			///
+			///Transaction Id from third party payment source like Visa Checkout, Amazon
+			///
 			public string ExternalTransactionId { get; set; }
 
 			///

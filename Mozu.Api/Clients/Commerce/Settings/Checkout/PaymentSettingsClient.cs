@@ -22,9 +22,9 @@ namespace Mozu.Api.Clients.Commerce.Settings.Checkout
 	public partial class PaymentSettingsClient 	{
 		
 		/// <summary>
-		/// checkout-paymentsettings Get GetThirdPartyPaymentWorkflowWithValues description DOCUMENT_HERE 
+		/// Retrieves the schema and definition along with the actual instance values of the third-party payment service workflow configured for the corresponding fully qualified name.
 		/// </summary>
-		/// <param name="fullyQualifiedName"></param>
+		/// <param name="fullyQualifiedName">Fully qualified name of the attribute for the third-party payment workflow.</param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Order.ExternalPaymentWorkflowDefinition"/>}
@@ -47,7 +47,7 @@ namespace Mozu.Api.Clients.Commerce.Settings.Checkout
 		}
 
 		/// <summary>
-		/// Retrieves the details of the third-party payment service workflows configured for the site.
+		/// Retrieves the schema and definition of all third-party payment service workflows configured for the site.
 		/// </summary>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.SiteSettings.Order.ExternalPaymentWorkflowDefinition"/>}}
@@ -70,7 +70,7 @@ namespace Mozu.Api.Clients.Commerce.Settings.Checkout
 		}
 
 		/// <summary>
-		/// checkout-paymentsettings Put AddThirdPartyPaymentWorkflow description DOCUMENT_HERE 
+		/// Adds a third-party payment workflow to the site. A third-party payment workflow is a definition of a process by which a third-party payment provider (such as Amazon Payments or PayPal Express) interacts with the Mozu platform.
 		/// </summary>
 		/// <param name="definition">Properties of an external payment processing workflow defined for the site. At this time, only PayPal Express is supported.</param>
 		/// <returns>
@@ -94,9 +94,9 @@ namespace Mozu.Api.Clients.Commerce.Settings.Checkout
 		}
 
 		/// <summary>
-		/// checkout-paymentsettings Delete DeleteThirdPartyPaymentWorkflow description DOCUMENT_HERE 
+		/// Deletes a third-party payment workflow. A third-party payment workflow is a definition of a process by which a third-party payment provider (such as Amazon Payments or PayPal Express) interacts with the Mozu platform. 
 		/// </summary>
-		/// <param name="fullyQualifiedName"></param>
+		/// <param name="fullyQualifiedName">Fully qualified name of the attribute for the third-party payment workflow.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

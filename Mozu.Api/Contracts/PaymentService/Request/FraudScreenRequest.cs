@@ -50,6 +50,9 @@ namespace Mozu.Api.Contracts.PaymentService.Request
 			///
 			public string CountryCode { get; set; }
 
+			///
+			///Mozu.PaymentService.Contracts.Request.FraudScreenRequest credentialFieldsOverride ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<GatewayCredentialFieldValue> CredentialFieldsOverride { get; set; }
 
 			///
@@ -62,6 +65,9 @@ namespace Mozu.Api.Contracts.PaymentService.Request
 			///
 			public List<CustomData> CustomData { get; set; }
 
+			///
+			///Unique identifier of the customer in Mozu, used to associate customers with data, orders, returns, and in-store credit.
+			///
 			public string CustomerId { get; set; }
 
 			///
@@ -94,10 +100,19 @@ namespace Mozu.Api.Contracts.PaymentService.Request
 			///
 			public List<OrderItem> OrderItems { get; set; }
 
+			///
+			///Mozu.PaymentService.Contracts.Request.FraudScreenRequest orderNumber ApiTypeMember DOCUMENT_HERE 
+			///
 			public int OrderNumber { get; set; }
 
+			///
+			///Mozu.PaymentService.Contracts.Request.FraudScreenRequest paymentTransactionId ApiTypeMember DOCUMENT_HERE 
+			///
 			public string PaymentTransactionId { get; set; }
 
+			///
+			///The type of payment, such as credit card, check, or PayPal Express. Additional payment types will be supported in future releases.
+			///
 			public string PaymentType { get; set; }
 
 			///
@@ -125,6 +140,9 @@ namespace Mozu.Api.Contracts.PaymentService.Request
 			///
 			public Contact ShippingContact { get; set; }
 
+			///
+			///Total is used to indicate the monetary, estimated total amount of the cart or order, including items, sales tax, shipping costs, and other fees. Totals are not estimated for wish lists at this time.
+			///
 			public decimal Total { get; set; }
 
 		}

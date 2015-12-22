@@ -16,6 +16,7 @@ using Mozu.Api.Contracts.Event;
 using Mozu.Api.Config.Event;
 using System.Configuration;
 using System.Reflection;
+using Newtonsoft.Json.Linq;
 
 namespace Mozu.Api.Events
 {
@@ -161,13 +162,17 @@ namespace Mozu.Api.Events
                 catch (Exception exc)
                 {
                     response.StatusCode = 500;
-                    response.StatusDescription = exc.Message;
+                    response.StatusDescription = "Event Process Error";
+                    //response.StatusDescription = exc.Message;
                     response.ContentType = _context.Request.ContentType;
                     _log.Error(exc.Message, exc);
-                    if (exc.InnerException != null)
-                        response.Write(JsonConvert.SerializeObject(exc.InnerException));
-                    else
-                        response.Write(JsonConvert.SerializeObject(exc));
+                    //if (exc.InnerException != null)
+                    //    response.Write(JsonConvert.SerializeObject(exc.InnerException));
+                    //else
+                    dynamic jsonExc= new JObject();
+                    jsonExc.message = exc.Message;
+                    //jsonExc.exc = exc;
+                    response.Write(JsonConvert.SerializeObject(jsonExc));
                 }
             }
 

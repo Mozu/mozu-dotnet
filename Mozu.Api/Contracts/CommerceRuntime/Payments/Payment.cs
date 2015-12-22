@@ -57,6 +57,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///
 			public List<ChangeMessage> ChangeMessages { get; set; }
 
+			///
+			///Custom data from payment providers
+			///
 			public JObject Data { get; set; }
 
 			///
