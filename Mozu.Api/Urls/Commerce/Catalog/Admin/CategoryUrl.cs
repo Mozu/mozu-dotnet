@@ -142,10 +142,10 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for DeleteCategoryById
         /// </summary>
-        /// <param name="cascadeDelete">If true, also delete all subcategories associated with the specified category.</param>
+        /// <param name="cascadeDelete">Specifies whether to also delete all subcategories associated with the specified category.If you set this value is false, only the specified category is deleted.The default value is false.</param>
         /// <param name="categoryId">Unique identifier of the category to modify.</param>
-        /// <param name="forceDelete"></param>
-        /// <param name="reassignToParent"></param>
+        /// <param name="forceDelete">Specifies whether the category, and any associated subcategories, are deleted even if there are products that reference them. The default value is false.</param>
+        /// <param name="reassignToParent">Specifies whether any subcategories of the specified category are reassigned to the parent of the specified category.This field only applies if the cascadeDelete parameter is false.The default value is false.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

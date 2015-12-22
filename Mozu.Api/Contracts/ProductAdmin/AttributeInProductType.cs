@@ -55,6 +55,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public bool? IsMultiValueProperty { get; set; }
 
 			///
+			///If True this property will not be returned storefront product listings (Search,GetProduct) it will still be returned on GetProduct, ValidateProduct...)
+			///
+			public bool? IsProductDetailsOnlyProperty { get; set; }
+
+			///
 			///If true, the entity is required by the admin. If false, the entity is not required by the admin.
 			///
 			public bool? IsRequiredByAdmin { get; set; }

@@ -29,6 +29,9 @@ namespace Mozu.Api.Contracts.SiteSettings.General.General.Routing
 			///
 			public List<string> Defaults { get; set; }
 
+			///
+			///Mozu.SiteSettings.General.Contracts.General.Routing.Route functionId ApiTypeMember DOCUMENT_HERE 
+			///
 			public string FunctionId { get; set; }
 
 			///
@@ -46,6 +49,9 @@ namespace Mozu.Api.Contracts.SiteSettings.General.General.Routing
 			///
 			public string Template { get; set; }
 
+			///
+			///Mozu.SiteSettings.General.Contracts.General.Routing.Route urlScheme ApiTypeMember DOCUMENT_HERE 
+			///
 			public string UrlScheme { get; set; }
 
 			///

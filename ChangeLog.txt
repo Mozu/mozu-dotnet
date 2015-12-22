@@ -1,31 +1,6 @@
 Operation Params
-0.    Added - content.publishsets.GetPublishSetItems- Param : filter
-1.    Added - content.publishsets.GetPublishSetItems- Param : sortBy
-2.    Added - platform.secureappdata.DeleteDBValue- Param : appKeyId
-3.    Added - platform.secureappdata.GetAllDbEntries- Param : appKeyId
-4.    Added - platform.secureappdata.GetDBValue- Param : appKeyId
-5.    Added - platform.secureappdata.UpdateAllDbEntries- Param : appKeyId
-6.    Added - platform.secureappdata.CreateDBValue- Param : appKeyId
-7.    Added - platform.secureappdata.UpdateDBValue- Param : appKeyId
-8.    Added - platform.secureappdata.DeleteDBValue- Param : dbEntryQuery
-9.    Added - platform.secureappdata.GetDBValue- Param : dbEntryQuery
-10.    Added - platform.secureappdata.CreateDBValue- Param : dbEntryQuery
-11.    Added - platform.secureappdata.UpdateDBValue- Param : dbEntryQuery
-12.    Added - platform.secureappdata.UpdateAllDbEntries- Param : entries
-13.    Added - platform.secureappdata.GetAllDbEntries- Param : pageSize
-14.    Added - platform.secureappdata.GetDBValue- Param : responseFields
-15.    Added - platform.secureappdata.GetAllDbEntries- Param : responseFields
-16.    Added - platform.secureappdata.GetAllDbEntries- Param : startIndex
-17.    Added - platform.secureappdata.CreateDBValue- Param : value
-18.    Added - platform.secureappdata.UpdateDBValue- Param : value
+0.    Added - commerce.catalog.storefront.products.GetProductForIndexing- Param : productVersion
+1.    Added - platform.appdev.apppackages.GetPackage- Param : skipDevAccountCheck
 
 Operations
-0.    Added - platform.secureappdata.CreateDBValue - POST
-1.    Added - platform.secureappdata.DeleteDBValue - DELETE
-2.    Added - platform.secureappdata.GetAllDbEntries - GET
-3.    Added - platform.secureappdata.GetDBValue - GET
-4.    Added - platform.secureappdata.UpdateAllDbEntries - PUT
-5.    Added - platform.secureappdata.UpdateDBValue - PUT
-
-Resources
-0.    Added - platform.secureappdata | platform/secureappdata
+0.    Added - commerce.catalog.storefront.products.GetProductSummary - GET

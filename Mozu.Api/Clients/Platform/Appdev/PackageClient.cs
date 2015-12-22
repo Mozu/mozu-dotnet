@@ -24,7 +24,7 @@ namespace Mozu.Api.Clients.Platform.Appdev
 		/// <summary>
 		/// appdev-filebasedpackage Get GetFile description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="applicationKey"></param>
+		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}. </param>
 		/// <param name="fileName"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}

@@ -60,6 +60,11 @@ namespace Mozu.Api.Contracts.AppDev
 			public string ApplicationVersion { get; set; }
 
 			///
+			///Mozu.AppDev.Contracts.ApplicationEntitlement devAccountId ApiTypeMember DOCUMENT_HERE 
+			///
+			public int DevAccountId { get; set; }
+
+			///
 			///Mozu.AppDev.Contracts.ApplicationEntitlement effectiveEndDate ApiTypeMember DOCUMENT_HERE 
 			///
 			public DateTime? EffectiveEndDate { get; set; }
@@ -73,6 +78,11 @@ namespace Mozu.Api.Contracts.AppDev
 			///Mozu.AppDev.Contracts.ApplicationEntitlement entitlementStatus ApiTypeMember DOCUMENT_HERE 
 			///
 			public string EntitlementStatus { get; set; }
+
+			///
+			///Mozu.AppDev.Contracts.ApplicationEntitlement installedAppsApplicationId ApiTypeMember DOCUMENT_HERE 
+			///
+			public string InstalledAppsApplicationId { get; set; }
 
 			///
 			///Mozu.AppDev.Contracts.ApplicationEntitlement installedByFirstName ApiTypeMember DOCUMENT_HERE 

@@ -28,8 +28,14 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public string DocumentId { get; set; }
 
+			///
+			///The ID of the specific scope for the object. 
+			///
 			public int ScopeId { get; set; }
 
+			///
+			///The scope at which the object exists, such as "Tenant", "MasterCatalog", or "Site". Scope delineates the level and area of Mozu the object exists within or affects.
+			///
 			public string ScopeType { get; set; }
 
 		}

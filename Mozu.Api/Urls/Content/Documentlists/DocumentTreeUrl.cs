@@ -36,15 +36,15 @@ namespace Mozu.Api.Urls.Content.Documentlists
 		/// <summary>
         /// Get Resource Url for TransformTreeDocumentContent
         /// </summary>
-        /// <param name="crop"></param>
+        /// <param name="crop">Crops the image based on the specified coordinates. The reference point for positive coordinates is the top-left corner of the image, and the reference point for negative coordinates is the bottom-right corner of the image.Usage: Example:  removes 10 pixels from all edges of the image.  leaves the image uncropped.</param>
         /// <param name="documentListName">Name of content documentListName to delete</param>
         /// <param name="documentName">The name of the document in the site.</param>
-        /// <param name="height"></param>
-        /// <param name="max"></param>
-        /// <param name="maxHeight"></param>
-        /// <param name="maxWidth"></param>
-        /// <param name="quality"></param>
-        /// <param name="width"></param>
+        /// <param name="height">Specifies an exact height dimension for the image, in pixels.</param>
+        /// <param name="max">Specifies a pixel limitation for the largest side of an image.</param>
+        /// <param name="maxHeight">Specifies a pixel limitation for the height of the image, preserving the aspect ratio if the image needs resizing.</param>
+        /// <param name="maxWidth">Specifies a pixel limitation for the width of the image, preserving the aspect ratio if the image needs resizing.</param>
+        /// <param name="quality">Adjusts the image compression. Accepts values from 0-100, where 100 = highest quality, least compression.</param>
+        /// <param name="width">Specifies an exact width dimension for the image, in pixels.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -69,7 +69,7 @@ namespace Mozu.Api.Urls.Content.Documentlists
         /// </summary>
         /// <param name="documentListName">Name of content documentListName to delete</param>
         /// <param name="documentName">The name of the document in the site.</param>
-        /// <param name="includeInactive"></param>
+        /// <param name="includeInactive">Include inactive content.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url

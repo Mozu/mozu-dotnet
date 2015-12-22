@@ -44,7 +44,7 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// platform-developer Get GetAppPackageNames description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="applicationKey"></param>
+		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AppDev.PackageNamesCollection"/>
@@ -69,7 +69,7 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// platform-developer Get GetAppPackageNames description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="applicationKey"></param>
+		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AppDev.PackageNamesCollection"/>
@@ -93,7 +93,7 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// platform-developer Get GetAppVersions description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="nsAndAppId"></param>
+		/// <param name="nsAndAppId">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AppDev.ApplicationVersionsCollection"/>
@@ -118,7 +118,7 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// platform-developer Get GetAppVersions description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="nsAndAppId"></param>
+		/// <param name="nsAndAppId">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AppDev.ApplicationVersionsCollection"/>
@@ -142,8 +142,8 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// platform-developer Get GetPackageFileMetadata description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="applicationKey"></param>
-		/// <param name="filepath"></param>
+		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
+		/// <param name="filepath">Represents the file name and location.</param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AppDev.FileMetadata"/>
@@ -168,8 +168,8 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// platform-developer Get GetPackageFileMetadata description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="applicationKey"></param>
-		/// <param name="filepath"></param>
+		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
+		/// <param name="filepath">Represents the file name and location.</param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AppDev.FileMetadata"/>
@@ -193,7 +193,7 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// platform-developer Get GetPackageMetadata description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="applicationKey"></param>
+		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AppDev.FolderMetadata"/>
@@ -218,7 +218,7 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// platform-developer Get GetPackageMetadata description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="applicationKey"></param>
+		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AppDev.FolderMetadata"/>
@@ -242,9 +242,9 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// platform-developer Post UpsertPackageFile description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="applicationKey"></param>
-		/// <param name="filepath"></param>
-		/// <param name="lastModifiedTime"></param>
+		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
+		/// <param name="filepath">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
+		/// <param name="lastModifiedTime">The date and time of the last file insert or update. This parameter is optional.</param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="stream">Data stream that delivers information. Used to input and output data.</param>
 		/// <returns>
@@ -270,9 +270,9 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// platform-developer Post UpsertPackageFile description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="applicationKey"></param>
-		/// <param name="filepath"></param>
-		/// <param name="lastModifiedTime"></param>
+		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
+		/// <param name="filepath">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
+		/// <param name="lastModifiedTime">The date and time of the last file insert or update. This parameter is optional.</param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="stream">Data stream that delivers information. Used to input and output data.</param>
 		/// <returns>
@@ -297,7 +297,7 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// platform-developer Post RenamePackageFile description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="applicationKey"></param>
+		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="renameInfo">Information required to update the name of a file in a package, which consists of the original name and the new name.</param>
 		/// <returns>
@@ -323,7 +323,7 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// platform-developer Post RenamePackageFile description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="applicationKey"></param>
+		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="renameInfo">Information required to update the name of a file in a package, which consists of the original name and the new name.</param>
 		/// <returns>
@@ -348,8 +348,8 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// platform-developer Delete DeletePackageFile description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="applicationKey"></param>
-		/// <param name="filepath"></param>
+		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
+		/// <param name="filepath">Represents the file name and location.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -372,8 +372,8 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// platform-developer Delete DeletePackageFile description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="applicationKey"></param>
-		/// <param name="filepath"></param>
+		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
+		/// <param name="filepath">Represents the file name and location.</param>
 		/// <returns>
 		/// 
 		/// </returns>

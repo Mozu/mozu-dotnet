@@ -70,6 +70,9 @@ namespace Mozu.Api.Contracts.ProductAdmin.Search
 			///
 			public string SearchTuningRuleCode { get; set; }
 
+			///
+			///Mozu.ProductAdmin.Contracts.Search.SearchTuningRule searchTuningRuleDescription ApiTypeMember DOCUMENT_HERE 
+			///
 			public string SearchTuningRuleDescription { get; set; }
 
 			///
@@ -77,6 +80,9 @@ namespace Mozu.Api.Contracts.ProductAdmin.Search
 			///
 			public string SearchTuningRuleName { get; set; }
 
+			///
+			///Unique identifier for the site. This ID is used at all levels of a store, catalog, and tenant to associate objects to a site.
+			///
 			public int SiteId { get; set; }
 
 		}

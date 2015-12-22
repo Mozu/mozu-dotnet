@@ -85,7 +85,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public int? SetSize { get; set; }
 
 			///
-			///Date and time that the coupon codes becomes active
+			///The date and time in UTC format that the coupon codes in the coupon set become active.
 			///
 			public DateTime? StartDate { get; set; }
 

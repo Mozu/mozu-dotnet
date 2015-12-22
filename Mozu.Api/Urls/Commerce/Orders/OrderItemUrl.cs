@@ -103,7 +103,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
 				/// <summary>
         /// Get Resource Url for UpdateOrderItemDiscount
         /// </summary>
-        /// <param name="discountId">Unique identifier of the discount. System-supplied and read only.</param>
+        /// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
         /// <param name="orderId">Unique identifier of the order.</param>
         /// <param name="orderItemId">Unique identifier of the item to remove from the order.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
