@@ -77,20 +77,21 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// admin-search Get GetSearchTuningRuleSortFields description DOCUMENT_HERE 
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetSearchTuningRuleSortFields();
-		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var mozuClient=GetSearchTuningRuleSortFields( responseFields);
+		///   var searchTuningRuleSortFieldsClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<System.IO.Stream> GetSearchTuningRuleSortFieldsClient()
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields> GetSearchTuningRuleSortFieldsClient(string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.SearchUrl.GetSearchTuningRuleSortFieldsUrl();
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.SearchUrl.GetSearchTuningRuleSortFieldsUrl(responseFields);
 			const string verb = "GET";
-			var mozuClient = new MozuClient<System.IO.Stream>()
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -149,21 +150,22 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// admin-search Post UpdateSearchTuningRuleSortFields description DOCUMENT_HERE 
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="searchTuningRuleSortFieldsIn">Mozu.ProductAdmin.Contracts.Search.SearchTuningRuleSortFields ApiType DOCUMENT_HERE </param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateSearchTuningRuleSortFields( searchTuningRuleSortFieldsIn);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var mozuClient=UpdateSearchTuningRuleSortFields( searchTuningRuleSortFieldsIn,  responseFields);
+		///   var searchTuningRuleSortFieldsClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient UpdateSearchTuningRuleSortFieldsClient(Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields searchTuningRuleSortFieldsIn)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields> UpdateSearchTuningRuleSortFieldsClient(Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields searchTuningRuleSortFieldsIn, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.SearchUrl.UpdateSearchTuningRuleSortFieldsUrl();
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.SearchUrl.UpdateSearchTuningRuleSortFieldsUrl(responseFields);
 			const string verb = "POST";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields>(searchTuningRuleSortFieldsIn);
 			return mozuClient;

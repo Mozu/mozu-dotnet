@@ -242,6 +242,51 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="categorySequencies"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var category = new Category();
+		///   category.UpdateCategoryTree( categorySequencies);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void UpdateCategoryTree(Mozu.Api.Contracts.ProductAdmin.CategorySequenceCollection categorySequencies)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.UpdateCategoryTreeClient( categorySequencies);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="categorySequencies"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var category = new Category();
+		///   await category.UpdateCategoryTreeAsync( categorySequencies);
+		/// </code>
+		/// </example>
+		public virtual async Task UpdateCategoryTreeAsync(Mozu.Api.Contracts.ProductAdmin.CategorySequenceCollection categorySequencies)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.UpdateCategoryTreeClient( categorySequencies);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+
+		}
+
+		/// <summary>
 		/// Validates the precomputed dynamic category expression.
 		/// </summary>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>

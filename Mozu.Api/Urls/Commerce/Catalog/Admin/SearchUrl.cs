@@ -59,13 +59,15 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetSearchTuningRuleSortFields
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetSearchTuningRuleSortFieldsUrl()
+        public static MozuUrl GetSearchTuningRuleSortFieldsUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/search/searchtuningrulesortfields";
+			var url = "/api/commerce/catalog/admin/search/searchtuningrulesortfields?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
@@ -102,13 +104,15 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for UpdateSearchTuningRuleSortFields
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateSearchTuningRuleSortFieldsUrl()
+        public static MozuUrl UpdateSearchTuningRuleSortFieldsUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/search/searchtuningrulesortfields";
+			var url = "/api/commerce/catalog/admin/search/searchtuningrulesortfields?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

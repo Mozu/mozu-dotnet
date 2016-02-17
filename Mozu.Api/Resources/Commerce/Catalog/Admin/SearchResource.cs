@@ -144,20 +144,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// admin-search Get GetSearchTuningRuleSortFields description DOCUMENT_HERE 
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
-		/// <see cref="System.IO.Stream"/>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var search = new Search();
-		///   var stream = search.GetSearchTuningRuleSortFields();
+		///   var searchTuningRuleSortFields = search.GetSearchTuningRuleSortFields( responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual System.IO.Stream GetSearchTuningRuleSortFields()
+		public virtual Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields GetSearchTuningRuleSortFields(string responseFields =  null)
 		{
-			MozuClient<System.IO.Stream> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.GetSearchTuningRuleSortFieldsClient();
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.GetSearchTuningRuleSortFieldsClient( responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -167,19 +168,20 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// admin-search Get GetSearchTuningRuleSortFields description DOCUMENT_HERE 
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
-		/// <see cref="System.IO.Stream"/>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var search = new Search();
-		///   var stream = await search.GetSearchTuningRuleSortFieldsAsync();
+		///   var searchTuningRuleSortFields = await search.GetSearchTuningRuleSortFieldsAsync( responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<System.IO.Stream> GetSearchTuningRuleSortFieldsAsync()
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields> GetSearchTuningRuleSortFieldsAsync(string responseFields =  null)
 		{
-			MozuClient<System.IO.Stream> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.GetSearchTuningRuleSortFieldsClient();
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.GetSearchTuningRuleSortFieldsClient( responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -285,45 +287,49 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// admin-search Post UpdateSearchTuningRuleSortFields description DOCUMENT_HERE 
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="searchTuningRuleSortFieldsIn">Mozu.ProductAdmin.Contracts.Search.SearchTuningRuleSortFields ApiType DOCUMENT_HERE </param>
 		/// <returns>
-		/// 
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var search = new Search();
-		///   search.UpdateSearchTuningRuleSortFields( searchTuningRuleSortFieldsIn);
+		///   var searchTuningRuleSortFields = search.UpdateSearchTuningRuleSortFields( searchTuningRuleSortFieldsIn,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void UpdateSearchTuningRuleSortFields(Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields searchTuningRuleSortFieldsIn)
+		public virtual Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields UpdateSearchTuningRuleSortFields(Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields searchTuningRuleSortFieldsIn, string responseFields =  null)
 		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.UpdateSearchTuningRuleSortFieldsClient( searchTuningRuleSortFieldsIn);
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.UpdateSearchTuningRuleSortFieldsClient( searchTuningRuleSortFieldsIn,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
+			return response.Result();
 
 		}
 
 		/// <summary>
 		/// admin-search Post UpdateSearchTuningRuleSortFields description DOCUMENT_HERE 
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="searchTuningRuleSortFieldsIn">Mozu.ProductAdmin.Contracts.Search.SearchTuningRuleSortFields ApiType DOCUMENT_HERE </param>
 		/// <returns>
-		/// 
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var search = new Search();
-		///   await search.UpdateSearchTuningRuleSortFieldsAsync( searchTuningRuleSortFieldsIn);
+		///   var searchTuningRuleSortFields = await search.UpdateSearchTuningRuleSortFieldsAsync( searchTuningRuleSortFieldsIn,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task UpdateSearchTuningRuleSortFieldsAsync(Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields searchTuningRuleSortFieldsIn)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields> UpdateSearchTuningRuleSortFieldsAsync(Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields searchTuningRuleSortFieldsIn, string responseFields =  null)
 		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.UpdateSearchTuningRuleSortFieldsClient( searchTuningRuleSortFieldsIn);
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.UpdateSearchTuningRuleSortFieldsClient( searchTuningRuleSortFieldsIn,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 

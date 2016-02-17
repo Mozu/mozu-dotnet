@@ -126,6 +126,30 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="categorySequencies"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=UpdateCategoryTree( categorySequencies);
+		///mozuClient.WithBaseAddress(url).Execute();
+		/// </code>
+		/// </example>
+		public static MozuClient UpdateCategoryTreeClient(Mozu.Api.Contracts.ProductAdmin.CategorySequenceCollection categorySequencies)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.CategoryUrl.UpdateCategoryTreeUrl();
+			const string verb = "POST";
+			var mozuClient = new MozuClient()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.CategorySequenceCollection>(categorySequencies);
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Validates the precomputed dynamic category expression.
 		/// </summary>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>

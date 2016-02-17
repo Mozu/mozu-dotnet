@@ -494,6 +494,8 @@
     <Compile Include="Contracts\ProductAdmin\CategoryLocalizedContent.cs" />
     <Compile Include="Contracts\ProductAdmin\CategoryLocalizedImage.cs" />
     <Compile Include="Contracts\ProductAdmin\CategoryPagedCollection.cs" />
+    <Compile Include="Contracts\ProductAdmin\CategorySequence.cs" />
+    <Compile Include="Contracts\ProductAdmin\CategorySequenceCollection.cs" />
     <Compile Include="Contracts\ProductAdmin\Coupon.cs" />
     <Compile Include="Contracts\ProductAdmin\CouponCollection.cs" />
     <Compile Include="Contracts\ProductAdmin\CouponSet.cs" />

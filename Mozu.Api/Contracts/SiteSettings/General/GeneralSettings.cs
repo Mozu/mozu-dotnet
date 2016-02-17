@@ -97,6 +97,8 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			///
 			public string LogoText { get; set; }
 
+			public string MissingImageSubstitute { get; set; }
+
 			///
 			///The name of the theme to use when viewing this website on a mobile device.
 			///
