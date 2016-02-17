@@ -109,14 +109,14 @@ namespace Mozu.Api.Test.Factories
 		/// admin-search Get GetSearchTuningRuleSortFields description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
-		/// var result = SearchFactory.GetSearchTuningRuleSortFields(handler : handler,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Stream/>(result); 
+		/// var result = SearchFactory.GetSearchTuningRuleSortFields(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<SearchTuningRuleSortFields/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static System.IO.Stream GetSearchTuningRuleSortFields(ServiceClientMessageHandler handler, 
- 		 
+		public static Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields GetSearchTuningRuleSortFields(ServiceClientMessageHandler handler, 
+ 		 string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -124,7 +124,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.GetSearchTuningRuleSortFieldsClient(
-						);
+				 responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -223,22 +223,22 @@ namespace Mozu.Api.Test.Factories
 		/// admin-search Post UpdateSearchTuningRuleSortFields description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
-		/// var result = SearchFactory.UpdateSearchTuningRuleSortFields(handler : handler,  searchTuningRuleSortFieldsIn :  searchTuningRuleSortFieldsIn,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var result = SearchFactory.UpdateSearchTuningRuleSortFields(handler : handler,  searchTuningRuleSortFieldsIn :  searchTuningRuleSortFieldsIn,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<SearchTuningRuleSortFields/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void UpdateSearchTuningRuleSortFields(ServiceClientMessageHandler handler, 
- 		Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields searchTuningRuleSortFieldsIn, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields UpdateSearchTuningRuleSortFields(ServiceClientMessageHandler handler, 
+ 		 Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields searchTuningRuleSortFieldsIn, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.UpdateSearchTuningRuleSortFieldsClient(
-				 searchTuningRuleSortFieldsIn :  searchTuningRuleSortFieldsIn		);
+				 searchTuningRuleSortFieldsIn :  searchTuningRuleSortFieldsIn,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -249,8 +249,9 @@ namespace Mozu.Api.Test.Factories
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 
