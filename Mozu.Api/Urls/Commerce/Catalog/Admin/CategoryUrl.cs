@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetCategories
         /// </summary>
-        /// <param name="filter">A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.</param>
+        /// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product category search results by any of its properties, including its position in the category hierarchy. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
         /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="sortBy"></param>
@@ -42,7 +42,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetChildCategories
         /// </summary>
-        /// <param name="categoryId">Unique identifier of the category to modify.</param>
+        /// <param name="categoryId">Unique identifier of the category for which to retrieve subcategories.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
@@ -59,7 +59,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetCategory
         /// </summary>
-        /// <param name="categoryId">Unique identifier of the category to modify.</param>
+        /// <param name="categoryId">Unique identifier of the category to retrieve.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
@@ -106,7 +106,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for ValidateDynamicExpression
         /// </summary>
-        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -121,7 +121,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for ValidateRealTimeDynamicExpression
         /// </summary>
-        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -136,7 +136,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for UpdateCategory
         /// </summary>
-        /// <param name="cascadeVisibility">If true, when changing the display option for the category, change it for all subcategories also. The default value is false.</param>
+        /// <param name="cascadeVisibility">If true, when changing the display option for the category, change it for all subcategories also. Default: False.</param>
         /// <param name="categoryId">Unique identifier of the category to modify.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
@@ -155,10 +155,10 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for DeleteCategoryById
         /// </summary>
-        /// <param name="cascadeDelete">Specifies whether to also delete all subcategories associated with the specified category.If you set this value is false, only the specified category is deleted.The default value is false.</param>
-        /// <param name="categoryId">Unique identifier of the category to modify.</param>
-        /// <param name="forceDelete">Specifies whether the category, and any associated subcategories, are deleted even if there are products that reference them. The default value is false.</param>
-        /// <param name="reassignToParent">Specifies whether any subcategories of the specified category are reassigned to the parent of the specified category.This field only applies if the cascadeDelete parameter is false.The default value is false.</param>
+        /// <param name="cascadeDelete">If true, also delete all subcategories associated with the specified category.</param>
+        /// <param name="categoryId">Unique identifier of the category to delete.</param>
+        /// <param name="forceDelete"></param>
+        /// <param name="reassignToParent"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

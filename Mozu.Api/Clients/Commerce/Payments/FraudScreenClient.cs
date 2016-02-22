@@ -17,14 +17,14 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Commerce.Payments
 {
 	/// <summary>
-	/// commerce/payments/fraudscreen related resources. DOCUMENT_HERE 
+	/// 
 	/// </summary>
 	public partial class FraudScreenClient 	{
 		
 		/// <summary>
-		/// payments-fraudscreen Post Screen description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="request">Mozu.PaymentService.Contracts.Request.FraudScreenRequest ApiType DOCUMENT_HERE </param>
+		/// <param name="request"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.PaymentService.Response.FraudScreen"/>}
 		/// </returns>

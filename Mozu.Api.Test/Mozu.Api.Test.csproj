@@ -175,6 +175,8 @@
     <Compile Include="Factories\PaymentFactory.cs" />
     <Compile Include="Factories\PaymentSettingsFactory.cs" />
     <Compile Include="Factories\PickupFactory.cs" />
+    <Compile Include="Factories\PriceListEntryFactory.cs" />
+    <Compile Include="Factories\PriceListFactory.cs" />
     <Compile Include="Factories\ProductExtraFactory.cs" />
     <Compile Include="Factories\ProductFactory.cs" />
     <Compile Include="Factories\ProductOptionFactory.cs" />

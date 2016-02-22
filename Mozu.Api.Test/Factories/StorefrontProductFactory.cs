@@ -109,14 +109,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves information about a single product given its product code.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductFactory.GetProduct(handler : handler,  productCode :  productCode,  variationProductCode :  variationProductCode,  allowInactive :  allowInactive,  skipInventoryCheck :  skipInventoryCheck,  supressOutOfStock404 :  supressOutOfStock404,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductFactory.GetProduct(handler : handler,  productCode :  productCode,  variationProductCode :  variationProductCode,  allowInactive :  allowInactive,  skipInventoryCheck :  skipInventoryCheck,  supressOutOfStock404 :  supressOutOfStock404,  quantity :  quantity,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Product/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductRuntime.Product GetProduct(ServiceClientMessageHandler handler, 
- 		 string productCode, string variationProductCode = null, bool? allowInactive = null, bool? skipInventoryCheck = null, bool? supressOutOfStock404 = null, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 string productCode, string variationProductCode = null, bool? allowInactive = null, bool? skipInventoryCheck = null, bool? supressOutOfStock404 = null, int? quantity = null, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -124,7 +124,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductClient(
-				 productCode :  productCode,  variationProductCode :  variationProductCode,  allowInactive :  allowInactive,  skipInventoryCheck :  skipInventoryCheck,  supressOutOfStock404 :  supressOutOfStock404,  responseFields :  responseFields, dataViewMode: dataViewMode		);
+				 productCode :  productCode,  variationProductCode :  variationProductCode,  allowInactive :  allowInactive,  skipInventoryCheck :  skipInventoryCheck,  supressOutOfStock404 :  supressOutOfStock404,  quantity :  quantity,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves information about a single product given its product code for Mozu to index in the search engine
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ProductFactory.GetProductForIndexing(handler : handler,  productCode :  productCode,  productVersion :  productVersion,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -185,14 +185,14 @@ namespace Mozu.Api.Test.Factories
 		/// Creates a new product configuration each time a shopper selects a product option value. After the shopper defines values for all required product options, the shopper can add the product configuration to a cart.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductFactory.ConfiguredProduct(handler : handler,  productOptionSelections :  productOptionSelections,  productCode :  productCode,  includeOptionDetails :  includeOptionDetails,  skipInventoryCheck :  skipInventoryCheck,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductFactory.ConfiguredProduct(handler : handler,  productOptionSelections :  productOptionSelections,  productCode :  productCode,  includeOptionDetails :  includeOptionDetails,  skipInventoryCheck :  skipInventoryCheck,  quantity :  quantity,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<ConfiguredProduct/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductRuntime.ConfiguredProduct ConfiguredProduct(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode, bool? includeOptionDetails = null, bool? skipInventoryCheck = null, string responseFields = null, 
+ 		 Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode, bool? includeOptionDetails = null, bool? skipInventoryCheck = null, int? quantity = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -200,7 +200,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.ConfiguredProductClient(
-				 productOptionSelections :  productOptionSelections,  productCode :  productCode,  includeOptionDetails :  includeOptionDetails,  skipInventoryCheck :  skipInventoryCheck,  responseFields :  responseFields		);
+				 productOptionSelections :  productOptionSelections,  productCode :  productCode,  includeOptionDetails :  includeOptionDetails,  skipInventoryCheck :  skipInventoryCheck,  quantity :  quantity,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -223,14 +223,14 @@ namespace Mozu.Api.Test.Factories
 		/// Validate the final state of shopper-selected options.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductFactory.ValidateProduct(handler : handler,  productOptionSelections :  productOptionSelections,  productCode :  productCode,  skipInventoryCheck :  skipInventoryCheck,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductFactory.ValidateProduct(handler : handler,  productOptionSelections :  productOptionSelections,  productCode :  productCode,  skipInventoryCheck :  skipInventoryCheck,  quantity :  quantity,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<ProductValidationSummary/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductRuntime.ProductValidationSummary ValidateProduct(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode, bool? skipInventoryCheck = null, string responseFields = null, 
+ 		 Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode, bool? skipInventoryCheck = null, int? quantity = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -238,7 +238,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.ValidateProductClient(
-				 productOptionSelections :  productOptionSelections,  productCode :  productCode,  skipInventoryCheck :  skipInventoryCheck,  responseFields :  responseFields		);
+				 productOptionSelections :  productOptionSelections,  productCode :  productCode,  skipInventoryCheck :  skipInventoryCheck,  quantity :  quantity,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -296,7 +296,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves product inventories for the storefront displayed products.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ProductFactory.GetProductInventories(handler : handler,  query :  query,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 

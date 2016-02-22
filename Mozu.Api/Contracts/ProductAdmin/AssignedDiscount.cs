@@ -14,29 +14,14 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
-		///
-		///	Mozu.ProductAdmin.Contracts.AssignedDiscount ApiType DOCUMENT_HERE 
-		///
 		public class AssignedDiscount
 		{
-			///
-			///Basic audit info about the object, including date, time, and user account. Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
 			public AuditInfo AuditInfo { get; set; }
 
-			///
-			///ReadOnly, CouponSetCode copied from URI
-			///
 			public string CouponSetCode { get; set; }
 
-			///
-			///ReadOnly, CouponSetId
-			///
 			public int CouponSetId { get; set; }
 
-			///
-			///Unique identifier for the discount in the storefront.
-			///
 			public int DiscountId { get; set; }
 
 		}

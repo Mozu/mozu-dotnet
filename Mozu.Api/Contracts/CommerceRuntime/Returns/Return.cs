@@ -30,17 +30,17 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			public AuditInfo AuditInfo { get; set; }
 
 			///
-			///Available actions you can complete for an order. These actions may differ depending on the status of the order, such as actions required to enter a payment, return of a package, and fulfillment of a shipment.
+			///The actions a user can perform for the return at this time.
 			///
 			public List<string> AvailableActions { get; set; }
 
 			///
-			///Collection (list or paged) of change messages logged for each modification made by a shopper to their carts, wishlists, orders, package, payment, pickup, and returns. Change log messages are system-supplied based on shopper actions and read only.
+			///List of change messages associated with the return.
 			///
 			public List<ChangeMessage> ChangeMessages { get; set; }
 
 			///
-			///Code that identifies the channel associated with the site for the shopper's created shopping cart, order, and return.
+			///The code that identifies the channel associated with the return, which is typically the same channel associated with the order.
 			///
 			public string ChannelCode { get; set; }
 
@@ -50,17 +50,17 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			public string CurrencyCode { get; set; }
 
 			///
-			///Unique identifer of the customer account. This ID is used to associate numerous types of data and object with the customer account, including orders, returns, wish lists, and in-store credit.
+			///Unique identifier of the customer account associated with the return.
 			///
 			public int? CustomerAccountId { get; set; }
 
 			///
-			///The type of customer interaction used to create this shopping cart. Possible values are Website, Call, Store, or Unknown.
+			///String that describes the customer interaction used to return an item. Possible values are Website, Store, Call, and Unknown.
 			///
 			public string CustomerInteractionType { get; set; }
 
 			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///Unique identifier of the return.
 			///
 			public string Id { get; set; }
 
@@ -70,7 +70,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			public List<ReturnItem> Items { get; set; }
 
 			///
-			///The unique, user-defined code that identifies a location. This location can be the location where the order was entered, location for newly in-stock products, and where products are returned.
+			///The code that uniquely identifies the location where items were returned.
 			///
 			public string LocationCode { get; set; }
 
@@ -80,7 +80,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			public decimal? LossTotal { get; set; }
 
 			///
-			///Paged list collection of note content for objects including customers, orders, and returns. 
+			///Collection of merchant-supplied notes entered for the return.
 			///
 			public List<OrderNote> Notes { get; set; }
 
@@ -90,12 +90,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			public string OriginalOrderId { get; set; }
 
 			///
-			///Array list of physical packages shipped for a specified order.
+			///List of packages associated with a replacement order for a return.
 			///
 			public List<Package> Packages { get; set; }
 
 			///
-			///Wrapper for a collection of payments associated with an order or return. An order can include a number of payments until the full total is covered. 
+			///Array list of payments associated with this return, if applicable.
 			///
 			public List<Payment> Payments { get; set; }
 
@@ -150,7 +150,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			public int? SiteId { get; set; }
 
 			///
-			///The current status of an object. This status is specific to the object including payment (New, Authorized, Captured, Declined, Failed, Voided, Credited, CheckRequested, or RolledBack), discount (Active, Scheduled, or Expired), returns (ReturnAuthorized), tenant, package (Fulfilled or NotFulfilled), application, master and product catalogs, orders (Pending, Submitted, Processing, Pending Review, Closed, or Canceled), and order validation results (Pass, Fail, Error, or Review).
+			///Current status of the return, such as "ReturnAuthorized".
 			///
 			public string Status { get; set; }
 
@@ -160,17 +160,17 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			public int? TenantId { get; set; }
 
 			///
-			///Unique identifier of the customer account (shopper or system user). System-supplied and read-only. If the shopper user is anonymous, the user ID represents a system-generated user ID string.
+			///Unique identifier of the user responsible for the return. Read only and supplied by the original order.
 			///
 			public string UserId { get; set; }
 
 			///
-			///Unique identifier of the customer visit in which the cart was created or last modified.
+			///The unique identifier of the customer visit associated with the return transaction.
 			///
 			public string VisitId { get; set; }
 
 			///
-			///Unique identifier of the web session in which the cart, order, return, or wish list was created or last modified.
+			///Unique identifier of the web session in which the return was created or last modified, which is system-supplied and read only.
 			///
 			public string WebSessionId { get; set; }
 

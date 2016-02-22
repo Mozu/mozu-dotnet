@@ -14,24 +14,12 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.InstalledApplications
 {
-		///
-		///	Mozu.InstalledApplications.Contracts.TenantExtensions ApiType DOCUMENT_HERE 
-		///
 		public class TenantExtensions
 		{
-			///
-			///Mozu.InstalledApplications.Contracts.TenantExtensions actions ApiTypeMember DOCUMENT_HERE 
-			///
 			public List<CustomFunctionsForAction> Actions { get; set; }
 
-			///
-			///Mozu.InstalledApplications.Contracts.TenantExtensions configurations ApiTypeMember DOCUMENT_HERE 
-			///
 			public List<ExtensionConfiguration> Configurations { get; set; }
 
-			///
-			///Mozu.InstalledApplications.Contracts.TenantExtensions defaultLogLevel ApiTypeMember DOCUMENT_HERE 
-			///
 			public string DefaultLogLevel { get; set; }
 
 		}

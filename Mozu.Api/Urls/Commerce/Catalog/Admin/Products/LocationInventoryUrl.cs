@@ -44,7 +44,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 		/// <summary>
         /// Get Resource Url for GetLocationInventory
         /// </summary>
-        /// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
+        /// <param name="locationCode">User-defined code that identifies the location.</param>
         /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
@@ -63,7 +63,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 				/// <summary>
         /// Get Resource Url for AddLocationInventory
         /// </summary>
-        /// <param name="performUpserts">Query string parameter lets the service perform an update for a new or existing record. When run, the update occurs without throwing a conflict exception that the record exists. If true, the updates completes regardless of the record currently existing. By default, if no value is specified, the service assumes this value is false.</param>
+        /// <param name="performUpserts">The performUpserts query string parameter lets the service perform an update if the record already exists instead of throwing an already exists conflict exception. PerformUpserts=true means it updates if the record already exists. By default, no value specified means that the service assumes PerformUpserts=false.</param>
         /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
         /// <returns>
         /// String - Resource Url
@@ -80,7 +80,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 				/// <summary>
         /// Get Resource Url for UpdateLocationInventory
         /// </summary>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="productCode">The product code of the product for which to update active stock on hand inventory at a specified location.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -95,8 +95,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 				/// <summary>
         /// Get Resource Url for DeleteLocationInventory
         /// </summary>
-        /// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="locationCode">The code that identifies the location for which to delete product inventory.</param>
+        /// <param name="productCode">The product code for which to delete a location's inventory.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

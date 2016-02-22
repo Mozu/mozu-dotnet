@@ -92,11 +92,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		}
 
 		/// <summary>
-		/// Retrieves a collection of all localized delta price values for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
+		/// <param name="value"></param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>}
 		/// </returns>
@@ -118,11 +118,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		}
 
 		/// <summary>
-		/// Retrieves a collection of all localized delta price values for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
+		/// <param name="value"></param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>}
 		/// </returns>
@@ -143,13 +143,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		}
 
 		/// <summary>
-		/// Retrieves the localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="value"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>
 		/// </returns>
@@ -171,13 +171,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		}
 
 		/// <summary>
-		/// Retrieves the localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="value"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>
 		/// </returns>
@@ -249,13 +249,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		}
 
 		/// <summary>
-		/// Adds a localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <param name="localizedDeltaPrice">The properties of the price difference between the product extra and the base product.</param>
+		/// <param name="value"></param>
+		/// <param name="localizedDeltaPrice"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>
 		/// </returns>
@@ -277,13 +277,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		}
 
 		/// <summary>
-		/// Adds a localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <param name="localizedDeltaPrice">The properties of the price difference between the product extra and the base product.</param>
+		/// <param name="value"></param>
+		/// <param name="localizedDeltaPrice"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>
 		/// </returns>
@@ -308,7 +308,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="productExtra">Properties of an extra attribute to defined for a product that is associated with a product type that uses the extra. Setting up extras for a product enables shopper-entered information, such as initials for a monogram.</param>
+		/// <param name="productExtra">Properties of the product extra to configure for the specified product.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtra"/>
 		/// </returns>
@@ -334,7 +334,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="productExtra">Properties of an extra attribute to defined for a product that is associated with a product type that uses the extra. Setting up extras for a product enables shopper-entered information, such as initials for a monogram.</param>
+		/// <param name="productExtra">Properties of the product extra to configure for the specified product.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtra"/>
 		/// </returns>
@@ -355,12 +355,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		}
 
 		/// <summary>
-		/// Updates all localized delta price values for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <param name="localizedDeltaPrice">The properties of the price difference between the product extra and the base product.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
+		/// <param name="value"></param>
+		/// <param name="localizedDeltaPrice"></param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>}
 		/// </returns>
@@ -382,12 +382,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		}
 
 		/// <summary>
-		/// Updates all localized delta price values for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <param name="localizedDeltaPrice">The properties of the price difference between the product extra and the base product.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
+		/// <param name="value"></param>
+		/// <param name="localizedDeltaPrice"></param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>}
 		/// </returns>
@@ -408,14 +408,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		}
 
 		/// <summary>
-		/// Updates the localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <param name="localizedDeltaPrice">The properties of the price difference between the product extra and the base product.</param>
+		/// <param name="value"></param>
+		/// <param name="localizedDeltaPrice"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>
 		/// </returns>
@@ -437,14 +437,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		}
 
 		/// <summary>
-		/// Updates the localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <param name="localizedDeltaPrice">The properties of the price difference between the product extra and the base product.</param>
+		/// <param name="value"></param>
+		/// <param name="localizedDeltaPrice"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>
 		/// </returns>
@@ -470,7 +470,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="productExtra">Properties of an extra attribute to defined for a product that is associated with a product type that uses the extra. Setting up extras for a product enables shopper-entered information, such as initials for a monogram.</param>
+		/// <param name="productExtra">Properties of the extra attribute to update for the specified product.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtra"/>
 		/// </returns>
@@ -497,7 +497,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="productExtra">Properties of an extra attribute to defined for a product that is associated with a product type that uses the extra. Setting up extras for a product enables shopper-entered information, such as initials for a monogram.</param>
+		/// <param name="productExtra">Properties of the extra attribute to update for the specified product.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtra"/>
 		/// </returns>
@@ -565,11 +565,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		}
 
 		/// <summary>
-		/// Deletes the localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
 		/// <param name="value">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// 
@@ -591,11 +591,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		}
 
 		/// <summary>
-		/// Deletes the localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
 		/// <param name="value">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// 

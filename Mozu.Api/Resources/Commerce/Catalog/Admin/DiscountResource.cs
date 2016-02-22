@@ -102,7 +102,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// Retrieves the localized content specified for the specified discount.
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent"/>
@@ -127,7 +127,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// Retrieves the localized content specified for the specified discount.
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent"/>
@@ -151,7 +151,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// Retrieves the details of a single discount.
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Discount"/>
@@ -176,7 +176,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// Retrieves the details of a single discount.
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Discount"/>
@@ -248,7 +248,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// Creates a new discount or coupon to apply to a product, category, order, or shipping.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="discount">Name of the discount added and applied to a shopping cart and order for a shopper's purchase. </param>
+		/// <param name="discount">Properties of the discount to create. You must specify the discount name, amount type, start date, and target.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Discount"/>
 		/// </returns>
@@ -273,7 +273,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// Creates a new discount or coupon to apply to a product, category, order, or shipping.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="discount">Name of the discount added and applied to a shopping cart and order for a shopper's purchase. </param>
+		/// <param name="discount">Properties of the discount to create. You must specify the discount name, amount type, start date, and target.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Discount"/>
 		/// </returns>
@@ -296,9 +296,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// Updates the localizable content for the specified discount or rename the discount without modifying its other properties.
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="content">The container for the language-specific name of the discount. A container exists for each supported language (LocaleCode). This parameter enables you to display the discount name in multiple languages yet manage it as a single discount internally.</param>
+		/// <param name="content">The discount content to update, including the discount name.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent"/>
 		/// </returns>
@@ -322,9 +322,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// Updates the localizable content for the specified discount or rename the discount without modifying its other properties.
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="content">The container for the language-specific name of the discount. A container exists for each supported language (LocaleCode). This parameter enables you to display the discount name in multiple languages yet manage it as a single discount internally.</param>
+		/// <param name="content">The discount content to update, including the discount name.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent"/>
 		/// </returns>
@@ -347,9 +347,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// Updates one or more properties of a defined discount.
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
+		/// <param name="discountId">Unique identifier of the discount to update.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="discount">Name of the discount added and applied to a shopping cart and order for a shopper's purchase. </param>
+		/// <param name="discount">Properties of the discount to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Discount"/>
 		/// </returns>
@@ -373,9 +373,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// Updates one or more properties of a defined discount.
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
+		/// <param name="discountId">Unique identifier of the discount to update.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="discount">Name of the discount added and applied to a shopping cart and order for a shopper's purchase. </param>
+		/// <param name="discount">Properties of the discount to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Discount"/>
 		/// </returns>
@@ -398,7 +398,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// Deletes a discount specified by its discount ID.
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -421,7 +421,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// Deletes a discount specified by its discount ID.
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
 		/// <returns>
 		/// 
 		/// </returns>

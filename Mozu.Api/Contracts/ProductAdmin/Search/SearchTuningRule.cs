@@ -15,74 +15,32 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.ProductAdmin.Search
 {
-		///
-		///	Mozu.ProductAdmin.Contracts.Search.SearchTuningRule ApiType DOCUMENT_HERE 
-		///
 		public class SearchTuningRule
 		{
-			///
-			///Mozu.ProductAdmin.Contracts.Search.SearchTuningRule active ApiTypeMember DOCUMENT_HERE 
-			///
 			public bool Active { get; set; }
 
-			///
-			///Mozu.ProductAdmin.Contracts.Search.SearchTuningRule activeEndDate ApiTypeMember DOCUMENT_HERE 
-			///
 			public DateTime? ActiveEndDate { get; set; }
 
-			///
-			///Mozu.ProductAdmin.Contracts.Search.SearchTuningRule activeStartDate ApiTypeMember DOCUMENT_HERE 
-			///
 			public DateTime? ActiveStartDate { get; set; }
 
-			///
-			///Basic audit info about the object, including date, time, and user account. Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
 			public AuditInfo AuditInfo { get; set; }
 
-			///
-			///Mozu.ProductAdmin.Contracts.Search.SearchTuningRule blockedProductCodes ApiTypeMember DOCUMENT_HERE 
-			///
 			public List<string> BlockedProductCodes { get; set; }
 
-			///
-			///Mozu.ProductAdmin.Contracts.Search.SearchTuningRule boostedProductCodes ApiTypeMember DOCUMENT_HERE 
-			///
 			public List<string> BoostedProductCodes { get; set; }
 
-			///
-			///Mozu.ProductAdmin.Contracts.Search.SearchTuningRule filters ApiTypeMember DOCUMENT_HERE 
-			///
 			public List<SearchTuningRuleFilter> Filters { get; set; }
 
-			///
-			///Indicates if the object is default. This indicator is used for product variations and site search settings. If true, the value/object is the default option. 
-			///
 			public bool IsDefault { get; set; }
 
-			///
-			///Mozu.ProductAdmin.Contracts.Search.SearchTuningRule keywords ApiTypeMember DOCUMENT_HERE 
-			///
 			public List<string> Keywords { get; set; }
 
-			///
-			///Mozu.ProductAdmin.Contracts.Search.SearchTuningRule searchTuningRuleCode ApiTypeMember DOCUMENT_HERE 
-			///
 			public string SearchTuningRuleCode { get; set; }
 
-			///
-			///Mozu.ProductAdmin.Contracts.Search.SearchTuningRule searchTuningRuleDescription ApiTypeMember DOCUMENT_HERE 
-			///
 			public string SearchTuningRuleDescription { get; set; }
 
-			///
-			///Mozu.ProductAdmin.Contracts.Search.SearchTuningRule searchTuningRuleName ApiTypeMember DOCUMENT_HERE 
-			///
 			public string SearchTuningRuleName { get; set; }
 
-			///
-			///Unique identifier for the site. This ID is used at all levels of a store, catalog, and tenant to associate objects to a site.
-			///
 			public int SiteId { get; set; }
 
 		}

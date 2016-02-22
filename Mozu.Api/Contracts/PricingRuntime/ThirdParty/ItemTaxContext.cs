@@ -19,7 +19,7 @@ namespace Mozu.Api.Contracts.PricingRuntime.ThirdParty
 		public class ItemTaxContext
 		{
 			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///Unique identifier of the line item in the order.
 			///
 			public string Id { get; set; }
 
@@ -29,12 +29,12 @@ namespace Mozu.Api.Contracts.PricingRuntime.ThirdParty
 			public string ProductCode { get; set; }
 
 			///
-			///The specified quantity of objects and items. This property is used for numerous object types including products, options, components within a product bundle, cart and order items, returned items, shipping line items, items in a digital product. and items associated with types and reservations.
+			///Quantity of the line item in the order.
 			///
 			public int Quantity { get; set; }
 
 			///
-			///Amount of tax applied to shipping costs for line items in and entire orders.
+			///Amount of tax applied to shipping costs for the line item in the order.
 			///
 			public decimal ShippingTax { get; set; }
 

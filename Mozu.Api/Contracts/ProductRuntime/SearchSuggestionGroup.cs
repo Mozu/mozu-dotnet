@@ -14,19 +14,10 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.ProductRuntime
 {
-		///
-		///	A group of product search terms to suggest to a customer based on defined queries.
-		///
 		public class SearchSuggestionGroup
 		{
-			///
-			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
-			///
 			public string Name { get; set; }
 
-			///
-			///List of related SearchSuggestions
-			///
 			public List<SearchSuggestion> Suggestions { get; set; }
 
 		}

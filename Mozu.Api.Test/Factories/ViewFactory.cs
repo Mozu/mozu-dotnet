@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Properties and content for views within a site/tenant. Views provide the schema, formatting, and associated content and entities for displaying content within a site/tenant.
+	/// 
 	/// </summary>
 	public partial class ViewFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves a collection of documents associated with a view.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ViewFactory.GetViewDocuments(handler : handler,  documentListName :  documentListName,  viewName :  viewName,  filter :  filter,  sortBy :  sortBy,  pageSize :  pageSize,  startIndex :  startIndex,  includeInactive :  includeInactive,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

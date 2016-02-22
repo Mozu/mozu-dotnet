@@ -15,19 +15,10 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.InstalledApplications
 {
-		///
-		///	Mozu.InstalledApplications.Contracts.ExtensionConfiguration ApiType DOCUMENT_HERE 
-		///
 		public class ExtensionConfiguration
 		{
-			///
-			///Mozu.InstalledApplications.Contracts.ExtensionConfiguration applicationKey ApiTypeMember DOCUMENT_HERE 
-			///
 			public string ApplicationKey { get; set; }
 
-			///
-			///Mozu.InstalledApplications.Contracts.ExtensionConfiguration configuration ApiTypeMember DOCUMENT_HERE 
-			///
 			public JObject Configuration { get; set; }
 
 		}

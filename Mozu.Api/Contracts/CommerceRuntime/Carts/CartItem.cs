@@ -29,69 +29,60 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///
 			public AuditInfo AuditInfo { get; set; }
 
-			///
-			///Custom data for a given vendor set within the commerce process.
-			///
 			public JObject Data { get; set; }
 
 			///
-			///The subtotal of the cart, order, and wishlist items, including any applied discount calculations. Wishlist subtotals may change depending on the length of time, available discounts, and stock amounts of products at the time of review by shoppers.
+			///The subtotal of the cart item including any applied discount calculations.
 			///
 			public decimal? DiscountedTotal { get; set; }
 
 			///
-			///Estimated amount of discounts applied to all items in the carts and orders. System-supplied and read-only. This value will be available at the wish list, cart item, order item, and wish list item level at a later time.
+			///Estimated amount of discounts applied to the item in the cart, which is system-supplied and read-only.
 			///
 			public decimal? DiscountTotal { get; set; }
 
 			///
-			///Represents the total price of the cart item extended to the shopper. This begins with the Unit Price, then uses any of the following prices if they are defined, in the following order: Override Amount, Sale Amount, List Amount. This value is not calculated for wish lists at this time.
+			///Represents the total price of the cart item extended to the shopper. This begins with the Unit Price, then uses any of the following prices if they are defined, in the following order: Override Amount, Sale Amount, List Amount.
 			///
 			public decimal? ExtendedTotal { get; set; }
 
 			///
-			///The monetary sum of all fees incurred in the cart, order, line item in a cart, or line item in an order. This value is not calculated for wish lists at this time.
+			///The total amount of all fees incurred for the item.
 			///
 			public decimal? FeeTotal { get; set; }
 
 			///
-			///The code that identifies the location used to fulfill the cart/cart item or order/order item. This code can include physical store locations for in-store pickup, warehouse locations providing the products for shipment, or the location for the digital file(s).
+			///The location code associated with the location where this cart item will be fulfilled.
 			///
 			public string FulfillmentLocationCode { get; set; }
 
 			///
-			///The method used to fulfill this cart or order item. The method includes direct ship or in-store pickup. The available methods depend on the supported fulfillment types for the product. 
+			///The method used to fulfill this cart item, which is direct ship or in-store pickup.
 			///
 			public string FulfillmentMethod { get; set; }
 
-			///
-			///The combined price for all handling costs calculated together for shipped orders, not for digital or in-store pickup. This includes all handling costs per the product line items and options, excluding taxes and discounts. 
-			///
 			public decimal? HandlingAmount { get; set; }
 
 			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///Unique identifier of the cart item.
 			///
 			public string Id { get; set; }
 
 			///
-			///Indicates if the product in a cart, order, or wish list is purchased on a recurring schedule. If true, the item can be purchased or fulfilled at regular intervals, such as a monthly billing cycle. For example, digital or physical product subscriptions are recurring cart items. This property is not used at this time and is reserved for future functionality.
+			///If true, the item can be purchased or fulfilled at regular intervals, such as a monthly billing cycle. For example, digital or physical product subscriptions are recurring cart items. This property is not used at this time and is reserved for future functionality.
 			///
 			public bool? IsRecurring { get; set; }
 
 			///
-			///Indicates if the item is subject to taxation, used by products, options, extras, cart and order items, line items, and wish lists. If true, the entity is subject to tax based on the relevant tax rate and rules.
+			///If true, the entity is subject to tax based on the relevant tax rate.
 			///
 			public bool? IsTaxable { get; set; }
 
 			///
-			///The total amount of calculated tax for items, used by carts, orders, and wish lists.
+			///The total amount of tax for the item in the cart.
 			///
 			public decimal? ItemTaxTotal { get; set; }
 
-			///
-			///The line id assigned to the order item. Visible only in the Admin, this is set from the Admin or in CommerceRuntime when a cart is converted to an order.
-			///
 			public int? LineId { get; set; }
 
 			///
@@ -100,57 +91,57 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			public string LocaleCode { get; set; }
 
 			///
-			///The properties of a product, referenced and used by carts, orders, wish lists, and returns.
+			///The properties of the associated product.
 			///
 			public Product Product { get; set; }
 
 			///
-			///The applicable product discount for an associated cart, order, or wish list. 
+			///Product discounts displays a list of all applicable discount.
 			///
 			public AppliedLineItemProductDiscount ProductDiscount { get; set; }
 
 			///
-			///List of product-level discounts projected to apply to a cart, order, or wish list.
+			///List of product-level discounts projected to apply to the cart item at checkout.
 			///
 			public List<AppliedLineItemProductDiscount> ProductDiscounts { get; set; }
 
 			///
-			///The specified quantity of objects and items. This property is used for numerous object types including products, options, components within a product bundle, cart and order items, returned items, shipping line items, items in a digital product. and items associated with types and reservations.
+			///The specified quantity of the cart item.
 			///
 			public int Quantity { get; set; }
 
 			///
-			///List of shipping discounts projected to apply to carts, orders, and wish lists and items at checkout.
+			///List of shipping discounts projected to apply to the cart item at checkout.
 			///
 			public List<AppliedLineItemShippingDiscount> ShippingDiscounts { get; set; }
 
 			///
-			///The total amount of tax incurred on the shipping charges in the cart and order. This property is not calculated at this time for wish lists.
+			///The total amount of tax incurred on the shipping charges in the cart.
 			///
 			public decimal? ShippingTaxTotal { get; set; }
 
 			///
-			///The calculated total shipping amount estimated for carts or orders, including tax. This amount is not calculated for wish lists at this time.
+			///The estimated total amount of shipping fees for the item in the cart.
 			///
 			public decimal? ShippingTotal { get; set; }
 
 			///
-			///Estimated amount of the cart or order without sales tax, shipping costs, and other fees. This amount is not calculated for wish lists at this time.
+			///Estimated amount of the item in the cart without sales tax, shipping costs, and other fees.
 			///
 			public decimal? Subtotal { get; set; }
 
 			///
-			///The monetary amount of an item in the cart that is subject to tax. This amount typically represents the line item subtotal before applied discounts for an order.
+			///The amount of the item in the cart that is subject to tax.
 			///
 			public decimal? TaxableTotal { get; set; }
 
 			///
-			///Total is used to indicate the monetary, estimated total amount of the cart or order, including items, sales tax, shipping costs, and other fees. Totals are not estimated for wish lists at this time.
+			///Estimated total amount of the item, including the product price, sales tax, shipping costs, and other fees.
 			///
 			public decimal? Total { get; set; }
 
 			///
-			///Properties of the price per unit of a product, associated with cart and order items. This price is not used for wish lists at this time.
+			///Properties of the unit price associated with the cart item.
 			///
 			public CommerceUnitPrice UnitPrice { get; set; }
 

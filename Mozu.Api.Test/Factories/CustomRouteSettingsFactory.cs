@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Create new custom route settings.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomRouteSettingsFactory.CreateCustomRouteSettings(handler : handler,  settings :  settings,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates custom route settings.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomRouteSettingsFactory.UpdateCustomRouteSettings(handler : handler,  settings :  settings,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Deletes all the custom route settings for a site, returning all routes to their Mozu defaults.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomRouteSettingsFactory.DeleteCustomRouteSettings(handler : handler,  expectedCode: expectedCode, successCode: successCode); 

@@ -40,7 +40,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// Retrieves the details of the order shipment specified in the request.
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the shipment to retrieve.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="shipmentId">Unique identifier of the shipment to retrieve.</param>
 		/// <returns>
@@ -66,7 +66,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// Retrieves the details of the order shipment specified in the request.
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the shipment to retrieve.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="shipmentId">Unique identifier of the shipment to retrieve.</param>
 		/// <returns>
@@ -91,8 +91,8 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// Retrieves the available shipping methods applicable to the order. Typically used to display available shipping method options on the checkout page.
 		/// </summary>
-		/// <param name="draft">If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.</param>
-		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="draft"></param>
+		/// <param name="orderId">Unique identifier of the order for the available shipment methods being retrieved.</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.ShippingRate"/>}
 		/// </returns>
@@ -116,8 +116,8 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// Retrieves the available shipping methods applicable to the order. Typically used to display available shipping method options on the checkout page.
 		/// </summary>
-		/// <param name="draft">If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.</param>
-		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="draft"></param>
+		/// <param name="orderId">Unique identifier of the order for the available shipment methods being retrieved.</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.ShippingRate"/>}
 		/// </returns>
@@ -140,7 +140,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// Creates a shipment from one or more package associated with an order and assign a label and tracking number to an order shipment.
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="orderId">Unique identifier of the order for this shipment.</param>
 		/// <param name="packageIds">List of unique identifiers for each package associated with this shipment. Not all packages must belong to the same shipment.</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>}
@@ -165,7 +165,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// Creates a shipment from one or more package associated with an order and assign a label and tracking number to an order shipment.
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="orderId">Unique identifier of the order for this shipment.</param>
 		/// <param name="packageIds">List of unique identifiers for each package associated with this shipment. Not all packages must belong to the same shipment.</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>}
@@ -189,8 +189,8 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// Deletes the shipment specified in the request.
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="shipmentId">Unique identifier of the shipment to retrieve.</param>
+		/// <param name="orderId">Unique identifier of the order to cancel shipment.</param>
+		/// <param name="shipmentId">Unique identifier of the shipment to cancel.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -213,8 +213,8 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// Deletes the shipment specified in the request.
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="shipmentId">Unique identifier of the shipment to retrieve.</param>
+		/// <param name="orderId">Unique identifier of the order to cancel shipment.</param>
+		/// <param name="shipmentId">Unique identifier of the shipment to cancel.</param>
 		/// <returns>
 		/// 
 		/// </returns>

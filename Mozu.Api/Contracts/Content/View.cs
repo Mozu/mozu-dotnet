@@ -16,14 +16,8 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.Content
 {
-		///
-		///	A view can select which fields are returned from a document query.
-		///
 		public class View
 		{
-			///
-			///The list of fields to display for a view or an associated schema. For example, the address schema would display fields for postal addresses.
-			///
 			public List<ViewField> Fields { get; set; }
 
 			///
@@ -31,24 +25,12 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public string Filter { get; set; }
 
-			///
-			///The isVisibleInStorefront field indicates whether documents in the view can be accessed from the Mozu storefront application. If true, the storefront application and storefront client application (javascript tier) can GET documents from the view.
-			///
 			public bool? IsVisibleInStorefront { get; set; }
 
-			///
-			///Metadata content for entities, used by document lists, document type lists, document type, views, entity lists, and list views.
-			///
 			public JObject Metadata { get; set; }
 
-			///
-			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
-			///
 			public string Name { get; set; }
 
-			///
-			///List description of usages for content within a view and scope.
-			///
 			public List<string> Usages { get; set; }
 
 		}

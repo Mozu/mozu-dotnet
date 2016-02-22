@@ -25,7 +25,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public bool IsPurchasable { get; set; }
 
 			///
-			///Array list of validation and status messages associated with shipping rates, orders, and product purchasable state.
+			///List of messages associated with the product if the product is not ready for purchase.
 			///
 			public List<ValidationMessage> Messages { get; set; }
 

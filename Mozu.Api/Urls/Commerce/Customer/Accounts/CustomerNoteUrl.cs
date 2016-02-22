@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
 		/// <summary>
         /// Get Resource Url for GetAccountNote
         /// </summary>
-        /// <param name="accountId">Unique identifier of the customer account.</param>
+        /// <param name="accountId">Unique identifier of the customer account that contains the note being retrieved.</param>
         /// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
@@ -63,7 +63,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
 				/// <summary>
         /// Get Resource Url for AddAccountNote
         /// </summary>
-        /// <param name="accountId">Unique identifier of the customer account.</param>
+        /// <param name="accountId">Unique identifier of the customer account for which to create the note.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
@@ -80,8 +80,8 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
 				/// <summary>
         /// Get Resource Url for UpdateAccountNote
         /// </summary>
-        /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
+        /// <param name="accountId">Unique identifier of the customer account note to modify.</param>
+        /// <param name="noteId">Unique identifier of the note to update.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
@@ -99,8 +99,8 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
 				/// <summary>
         /// Get Resource Url for DeleteAccountNote
         /// </summary>
-        /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
+        /// <param name="accountId">Unique identifier of the customer account that contains the note being deleted.</param>
+        /// <param name="noteId">Unique identifier of the customer account note being deleted.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

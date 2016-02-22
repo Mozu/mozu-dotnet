@@ -40,7 +40,7 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// Retrieves the value of a record in the Mozu database.
 		/// </summary>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
+		/// <param name="dbEntryQuery">The database entry query string used to retrieve the record information.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// string
@@ -65,7 +65,7 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// Retrieves the value of a record in the Mozu database.
 		/// </summary>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
+		/// <param name="dbEntryQuery">The database entry query string used to retrieve the record information.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// string
@@ -136,8 +136,8 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// Updates a record in the Mozu database based on the information supplied in the request.
 		/// </summary>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="dbEntryQuery">The database entry query string used to update the record information.</param>
+		/// <param name="value">The database value to update.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -160,8 +160,8 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// Updates a record in the Mozu database based on the information supplied in the request.
 		/// </summary>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="dbEntryQuery">The database entry query string used to update the record information.</param>
+		/// <param name="value">The database value to update.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -183,7 +183,7 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// Removes a previously defined record in the Mozu database.
 		/// </summary>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
+		/// <param name="dbEntryQuery">The database entry string to delete.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -206,7 +206,7 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// Removes a previously defined record in the Mozu database.
 		/// </summary>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
+		/// <param name="dbEntryQuery">The database entry string to delete.</param>
 		/// <returns>
 		/// 
 		/// </returns>

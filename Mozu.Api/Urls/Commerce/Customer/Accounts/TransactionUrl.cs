@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
 		/// <summary>
         /// Get Resource Url for GetTransactions
         /// </summary>
-        /// <param name="accountId">Unique identifier of the customer account.</param>
+        /// <param name="accountId">Unique identifier of the customer account for which to retrieve transactions.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -51,7 +51,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
 						/// <summary>
         /// Get Resource Url for RemoveTransaction
         /// </summary>
-        /// <param name="accountId">Unique identifier of the customer account.</param>
+        /// <param name="accountId">Unique identifier of the customer account from which to delete the transaction.</param>
         /// <param name="transactionId">Unique identifier of the transaction to delete.</param>
         /// <returns>
         /// String - Resource Url

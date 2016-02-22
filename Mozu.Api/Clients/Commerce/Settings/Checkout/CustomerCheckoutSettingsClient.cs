@@ -49,7 +49,7 @@ namespace Mozu.Api.Clients.Commerce.Settings.Checkout
 		/// Modifies existing site checkout settings. Modify Payment, Customer Checkout, and Order Processing settings in one PUT.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="customerCheckoutSettings">The properties of the customer checkout settings such as whether shoppers must be logged in.</param>
+		/// <param name="customerCheckoutSettings">All the properties to update in the checkout settings.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Order.CustomerCheckoutSettings"/>}
 		/// </returns>

@@ -19,8 +19,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetSearchTuningRule
         /// </summary>
-        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
-        /// <param name="searchTuningRuleCode">The unique identifier of the search tuning rule.</param>
+        /// <param name="responseFields"></param>
+        /// <param name="searchTuningRuleCode"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -36,11 +36,11 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetSearchTuningRules
         /// </summary>
-        /// <param name="filter">A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.</param>
-        /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
-        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
-        /// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.</param>
-        /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=50`.</param>
+        /// <param name="filter"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="sortBy"></param>
+        /// <param name="startIndex"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -74,7 +74,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetSettings
         /// </summary>
-        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -106,7 +106,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for AddSearchTuningRule
         /// </summary>
-        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -153,8 +153,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for UpdateSearchTuningRule
         /// </summary>
-        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
-        /// <param name="searchTuningRuleCode">The unique identifier of the search tuning rule.</param>
+        /// <param name="responseFields"></param>
+        /// <param name="searchTuningRuleCode"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -170,7 +170,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for UpdateSettings
         /// </summary>
-        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -185,7 +185,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for DeleteSearchTuningRule
         /// </summary>
-        /// <param name="searchTuningRuleCode">The unique identifier of the search tuning rule.</param>
+        /// <param name="searchTuningRuleCode"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

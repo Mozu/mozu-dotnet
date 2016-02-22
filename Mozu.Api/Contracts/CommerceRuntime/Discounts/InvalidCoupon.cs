@@ -25,18 +25,15 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Discounts
 			///
 			public DateTime CreateDate { get; set; }
 
-			///
-			///Unique identifier for the discount in the storefront.
-			///
 			public int DiscountId { get; set; }
 
 			///
-			///The reason description for an action, including item return, coupon not valid, and item is taxed. 
+			///The reason the coupon was determined to be invalid.
 			///
 			public string Reason { get; set; }
 
 			///
-			///A code indicating the reason why a facet is invalid.
+			///The code that identifies the reason the coupon code is invalid.
 			///
 			public int ReasonCode { get; set; }
 

@@ -20,7 +20,7 @@ namespace Mozu.Api.Contracts.PricingRuntime
 		public class ProductProperty
 		{
 			///
-			///Detail data for a product or product options attribute. This acts as a wrapper for the properties to configure or generate from the system in the product Admin. Properties may include namespace, attribute code, attribute sequence, site group ID, input type, and value.
+			///Details of a product attribute.
 			///
 			public ProductAttribute AttributeDetail { get; set; }
 
@@ -30,17 +30,17 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			public string AttributeFQN { get; set; }
 
 			///
-			///Indicates if the object is hidden or breaks inheritance, primarily used by facets, products, and attribute vocabulary values. For example, if true, the attribute vocabulary value does not appear in the list when defining a value for an attribute.
+			///If true, this product property does not appear on the storefront.
 			///
 			public bool? IsHidden { get; set; }
 
 			///
-			///Indicates if the object has or can have multiple properties or values. If true, the object can have more than one value, selectable by shoppers through the storefront or configurable through the catalogs. 
+			///If true, the product property has multiple values.
 			///
 			public bool? IsMultiValue { get; set; }
 
 			///
-			///List of value data for objects.
+			///List of values predefined for the product property attribute.
 			///
 			public List<ProductPropertyValue> Values { get; set; }
 

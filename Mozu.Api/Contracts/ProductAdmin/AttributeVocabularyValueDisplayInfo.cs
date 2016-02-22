@@ -13,24 +13,12 @@ using System;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
-		///
-		///	Provides the display information for attribute vocabulary values. 
-		///
 		public class AttributeVocabularyValueDisplayInfo
 		{
-			///
-			///The identifier of the image in the Mozu CMS. Supply a value for either the CMS ID or Image URL parameter.
-			///
 			public string CmsId { get; set; }
 
-			///
-			///Hex value for a color to display in a color picker. This is an HTML supported code for color.
-			///
 			public string ColorValue { get; set; }
 
-			///
-			///The URL link for the image file associated with a product or category.
-			///
 			public string ImageUrl { get; set; }
 
 		}

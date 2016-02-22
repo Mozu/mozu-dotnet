@@ -15,44 +15,20 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.InstalledApplications
 {
-		///
-		///	Mozu.InstalledApplications.Contracts.CustomFunction ApiType DOCUMENT_HERE 
-		///
 		public class CustomFunction
 		{
-			///
-			///Mozu.InstalledApplications.Contracts.CustomFunction applicationKey ApiTypeMember DOCUMENT_HERE 
-			///
 			public string ApplicationKey { get; set; }
 
-			///
-			///Mozu.InstalledApplications.Contracts.CustomFunction configuration ApiTypeMember DOCUMENT_HERE 
-			///
 			public JObject Configuration { get; set; }
 
-			///
-			///Indicates if the capability or app is enabled for the tenant/site. If true, the capability/application is enabled for the tenant. System-supplied and read-only.
-			///
 			public bool? Enabled { get; set; }
 
-			///
-			///Mozu.InstalledApplications.Contracts.CustomFunction exceptionBehavior ApiTypeMember DOCUMENT_HERE 
-			///
 			public string ExceptionBehavior { get; set; }
 
-			///
-			///Mozu.InstalledApplications.Contracts.CustomFunction functionId ApiTypeMember DOCUMENT_HERE 
-			///
 			public string FunctionId { get; set; }
 
-			///
-			///Mozu.InstalledApplications.Contracts.CustomFunction logLevel ApiTypeMember DOCUMENT_HERE 
-			///
 			public string LogLevel { get; set; }
 
-			///
-			///Mozu.InstalledApplications.Contracts.CustomFunction timeoutMilliseconds ApiTypeMember DOCUMENT_HERE 
-			///
 			public int? TimeoutMilliseconds { get; set; }
 
 		}

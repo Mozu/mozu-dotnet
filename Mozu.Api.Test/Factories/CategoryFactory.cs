@@ -219,7 +219,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Validates the precomputed dynamic category expression.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CategoryFactory.ValidateDynamicExpression(handler : handler,  dynamicExpressionIn :  dynamicExpressionIn,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -257,7 +257,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Validates the realtime dynamic expression.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CategoryFactory.ValidateRealTimeDynamicExpression(handler : handler,  dynamicExpressionIn :  dynamicExpressionIn,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

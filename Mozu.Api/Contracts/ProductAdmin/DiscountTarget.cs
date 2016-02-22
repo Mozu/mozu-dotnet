@@ -25,33 +25,24 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public bool? AppliesToLeastExpensiveProductsFirst { get; set; }
 
 			///
-			///The list of all categories associated with the product. These categories contain products, can have discounts associated, and define the grouping of products to display on the storefront.
+			///The product categories to which the discount can apply. When a discount applies to a category, all products in the category are eligible for the discount.
 			///
 			public List<TargetedCategory> Categories { get; set; }
 
 			///
-			///List of the product categories that are not eligible for the discount.
+			///Array list of categories to exclude for this discount.
 			///
 			public List<TargetedCategory> ExcludedCategories { get; set; }
 
-			///
-			///Applies to Included categories Defaults to Any
-			///
 			public string ExcludedCategoriesOperator { get; set; }
 
 			///
-			///List of products that are not eligible for the discount.
+			///Array list of products to exclude for this discount.
 			///
 			public List<TargetedProduct> ExcludedProducts { get; set; }
 
-			///
-			///Prevents order scoped discounts from layering over items that already have a product discount with the same type.
-			///
 			public bool? ExcludeItemsWithExistingProductDiscounts { get; set; }
 
-			///
-			///Prevents order scoped discounts from layering over items that already have a shipping discount with the same type.
-			///
 			public bool? ExcludeItemsWithExistingShippingDiscounts { get; set; }
 
 			///
@@ -59,9 +50,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool? IncludeAllProducts { get; set; }
 
-			///
-			///Applies to Included categories Defaults to Any
-			///
 			public string IncludedCategoriesOperator { get; set; }
 
 			///
@@ -79,9 +67,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public List<TargetedShippingMethod> ShippingMethods { get; set; }
 
-			///
-			///The list of shipping zones that are applicable for this discount.
-			///
 			public List<TargetedShippingZone> ShippingZones { get; set; }
 
 			///

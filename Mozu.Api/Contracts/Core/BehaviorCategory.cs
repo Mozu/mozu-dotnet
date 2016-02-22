@@ -19,12 +19,12 @@ namespace Mozu.Api.Contracts.Core
 		public class BehaviorCategory
 		{
 			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///Unique identifier of the behavior.
 			///
 			public int Id { get; set; }
 
 			///
-			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
+			///The name of the behavior.
 			///
 			public string Name { get; set; }
 

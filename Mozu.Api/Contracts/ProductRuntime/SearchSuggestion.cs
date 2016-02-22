@@ -18,14 +18,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		///
 		public class SearchSuggestion
 		{
-			///
-			///A suggested entity based on the search query. Use the SuggestionType to determine the type of entity. Could be a SearchTerm, Product, or Category
-			///
 			public object Suggestion { get; set; }
 
-			///
-			///The type of Suggestion (e.g. Term, Product, Category). Will be one of the values of the SuggestionTypeConst type.
-			///
 			public string SuggestionType { get; set; }
 
 		}

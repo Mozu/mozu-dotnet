@@ -24,12 +24,12 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string CouponCode { get; set; }
 
 			///
-			///Name of the discount added and applied to a shopping cart and order for a shopper's purchase. 
+			///Properties of the discount currently applied to the product.
 			///
 			public Discount Discount { get; set; }
 
 			///
-			///The value of the discount applied to the cart or order, represented as a negative currency amount to apply to the original price.
+			///The value of the discount applied to the product, represented as a negative currency amount to apply to the original price.
 			///
 			public decimal Impact { get; set; }
 

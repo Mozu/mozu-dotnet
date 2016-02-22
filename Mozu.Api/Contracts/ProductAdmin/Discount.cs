@@ -15,7 +15,7 @@ using Mozu.Api.Contracts.Core;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	Name of the discount added and applied to a shopping cart and order for a shopper's purchase. 
+		///	Discount used to calculate SalePrice. Includes coupon code if applicable, amount of the discount, and discount savings. Discounts can be either an absolute price or a percentage off. The sale price beats any discounts.
 		///
 		public class Discount
 		{
@@ -34,9 +34,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public AuditInfo AuditInfo { get; set; }
 
-			///
-			///Signifies that the discount is not referenced and can be hard deleted
-			///
 			public bool CanBeDeleted { get; set; }
 
 			///
@@ -54,9 +51,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public int? CurrentRedemptionCount { get; set; }
 
-			///
-			///Determines whether or not a discount applies to a items with a sale price. Applicable on order and line item discounts. For line items, when this is true, the discount will be disqualified. For order level discounts, when true, the discount will not be applied to those items have a sale price.
-			///
 			public bool? DoesNotApplyToProductsWithSalePrice { get; set; }
 
 			///
@@ -65,23 +59,14 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public bool? DoesNotApplyToSalePrice { get; set; }
 
 			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///Unique identifier of the discount.
 			///
 			public int? Id { get; set; }
 
-			///
-			///Maximum impact this discount can apply on a single order. Must be either null or greater than zero.
-			///
 			public decimal? MaximumDiscountImpactPerOrder { get; set; }
 
-			///
-			///Maximum impact this discount can apply on a single line item. Must be either null or greater than zero.
-			///
 			public decimal? MaximumDiscountImpactPerRedemption { get; set; }
 
-			///
-			///Maximum number of redemptions allowed per order. If null, defaults to unlimited.
-			///
 			public int? MaximumRedemptionsPerOrder { get; set; }
 
 			///
@@ -95,12 +80,12 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string Scope { get; set; }
 
 			///
-			///The current status of an object. This status is specific to the object including payment (New, Authorized, Captured, Declined, Failed, Voided, Credited, CheckRequested, or RolledBack), discount (Active, Scheduled, or Expired), returns (ReturnAuthorized), tenant, package (Fulfilled or NotFulfilled), application, master and product catalogs, orders (Pending, Submitted, Processing, Pending Review, Closed, or Canceled), and order validation results (Pass, Fail, Error, or Review).
+			///Current status of the product discount. Possible values are "Active", "Scheduled", or "Expired".
 			///
 			public string Status { get; set; }
 
 			///
-			///Targets represent the object, such as an item to apply discounts (products or orders) or a view field for content. When accessing MZDB APIs for Mongo interactions, targets are the dot notation that links to the source document property. For example, firstitem for the direc level or firstitem.seconditem.thirditem for a deeper property.              
+			///Properties of the target object to which the discount applies, such as a product or an order.
 			///
 			public DiscountTarget Target { get; set; }
 

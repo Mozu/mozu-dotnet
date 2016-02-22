@@ -125,6 +125,8 @@
     <Compile Include="Clients\Commerce\Catalog\Admin\FacetClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\LocationInventoryClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\MasterCatalogClient.cs" />
+    <Compile Include="Clients\Commerce\Catalog\Admin\PriceListClient.cs" />
+    <Compile Include="Clients\Commerce\Catalog\Admin\Pricelists\PriceListEntryClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\ProductClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\ProductReservationClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\Products\LocationInventoryClient.cs" />
@@ -518,6 +520,11 @@
     <Compile Include="Contracts\ProductAdmin\LocationInventoryCollection.cs" />
     <Compile Include="Contracts\ProductAdmin\MasterCatalog.cs" />
     <Compile Include="Contracts\ProductAdmin\MasterCatalogCollection.cs" />
+    <Compile Include="Contracts\ProductAdmin\PriceList.cs" />
+    <Compile Include="Contracts\ProductAdmin\PriceListCollection.cs" />
+    <Compile Include="Contracts\ProductAdmin\PriceListEntry.cs" />
+    <Compile Include="Contracts\ProductAdmin\PriceListEntryCollection.cs" />
+    <Compile Include="Contracts\ProductAdmin\PriceListEntryPrice.cs" />
     <Compile Include="Contracts\ProductAdmin\Product.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductCategory.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductCodeRename.cs" />
@@ -723,6 +730,8 @@
     <Compile Include="Resources\Commerce\Catalog\Admin\FacetResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\LocationInventoryResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\MasterCatalogResource.cs" />
+    <Compile Include="Resources\Commerce\Catalog\Admin\PriceListResource.cs" />
+    <Compile Include="Resources\Commerce\Catalog\Admin\Pricelists\PriceListEntryResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\ProductReservationResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\ProductResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\Products\LocationInventoryResource.cs" />
@@ -846,6 +855,8 @@
     <Compile Include="Urls\Commerce\Catalog\Admin\FacetUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\LocationInventoryUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\MasterCatalogUrl.cs" />
+    <Compile Include="Urls\Commerce\Catalog\Admin\Pricelists\PriceListEntryUrl.cs" />
+    <Compile Include="Urls\Commerce\Catalog\Admin\PriceListUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\ProductReservationUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\Products\LocationInventoryUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\Products\ProductExtraUrl.cs" />
