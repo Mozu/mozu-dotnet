@@ -222,6 +222,44 @@ namespace Mozu.Api.Test.Factories
 		/// <summary> 
 		/// <example> 
 		///  <code> 
+		/// var result = SearchFactory.GetSynonymDefinitionCollection(handler : handler,  localeCode :  localeCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<SynonymDefinitionCollection/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection GetSynonymDefinitionCollection(ServiceClientMessageHandler handler, 
+ 		 string localeCode, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.GetSynonymDefinitionCollectionClient(
+				 localeCode :  localeCode,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
 		/// var result = SearchFactory.AddSearchTuningRule(handler : handler,  searchTuningRuleIn :  searchTuningRuleIn,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<SearchTuningRule/>(result); 
 		/// return optionalCasting;
@@ -296,6 +334,44 @@ namespace Mozu.Api.Test.Factories
   
 		/// <summary> 
 		/// Updates synonym definitions for product searches. Synonyms aid with determining matches for entered searches.
+		/// <example> 
+		///  <code> 
+		/// var result = SearchFactory.UpdateSynonymDefinitionCollection(handler : handler,  collection :  collection,  localeCode :  localeCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<SynonymDefinitionCollection/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection UpdateSynonymDefinitionCollection(ServiceClientMessageHandler handler, 
+ 		 Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection collection, string localeCode, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.UpdateSynonymDefinitionCollectionClient(
+				 collection :  collection,  localeCode :  localeCode,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.UpdateSynonymDefinitionCollection(handler : handler,  collection :  collection,  localeCode :  localeCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

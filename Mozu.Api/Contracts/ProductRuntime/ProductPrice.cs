@@ -45,6 +45,10 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public decimal? Price { get; set; }
 
+			public string PriceListEntryCode { get; set; }
+
+			public string PriceListEntryMode { get; set; }
+
 			///
 			///The price type that displays on the storefront website for the Price field, which is List, MAP, or CatalogSalePrice
 			///

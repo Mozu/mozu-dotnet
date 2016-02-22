@@ -205,6 +205,7 @@
     <Compile Include="Factories\SoftAllocationFactory.cs" />
     <Compile Include="Factories\StorefrontCategoryFactory.cs" />
     <Compile Include="Factories\StorefrontPackageFactory.cs" />
+    <Compile Include="Factories\StorefrontPriceListFactory.cs" />
     <Compile Include="Factories\StorefrontProductFactory.cs" />
     <Compile Include="Factories\StorefrontProductSearchResultFactory.cs" />
     <Compile Include="Factories\StorefrontShipmentFactory.cs" />
