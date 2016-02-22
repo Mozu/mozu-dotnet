@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 
 using Mozu.Api.Contracts.Core;
 
@@ -57,6 +58,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///If true, this discount does not apply to a line item product with a defined sale price. The default is false, which applies the discount to products with and without defined sale prices.
 			///
 			public bool? DoesNotApplyToSalePrice { get; set; }
+
+			public List<string> ExcludedPriceLists { get; set; }
 
 			///
 			///Unique identifier of the discount.

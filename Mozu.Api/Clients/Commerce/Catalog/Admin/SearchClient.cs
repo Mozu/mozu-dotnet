@@ -125,6 +125,31 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="localeCode"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetSynonymDefinitionCollection( localeCode,  responseFields);
+		///   var synonymDefinitionCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection> GetSynonymDefinitionCollectionClient(string localeCode, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.SearchUrl.GetSynonymDefinitionCollectionUrl(localeCode, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="responseFields"></param>
 		/// <param name="searchTuningRuleIn"></param>
 		/// <returns>
@@ -168,6 +193,32 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields>(searchTuningRuleSortFieldsIn);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="localeCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="collection"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=UpdateSynonymDefinitionCollection( collection,  localeCode,  responseFields);
+		///   var synonymDefinitionCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection> UpdateSynonymDefinitionCollectionClient(Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection collection, string localeCode, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.SearchUrl.UpdateSynonymDefinitionCollectionUrl(localeCode, responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection>(collection);
 			return mozuClient;
 
 		}

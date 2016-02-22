@@ -86,6 +86,23 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for GetSynonymDefinitionCollection
+        /// </summary>
+        /// <param name="localeCode"></param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetSynonymDefinitionCollectionUrl(string localeCode, string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/search/synonym-definitions/{localeCode}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "localeCode", localeCode);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for AddSearchTuningRule
         /// </summary>
@@ -112,6 +129,23 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		{
 			var url = "/api/commerce/catalog/admin/search/searchtuningrulesortfields?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for UpdateSynonymDefinitionCollection
+        /// </summary>
+        /// <param name="localeCode"></param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl UpdateSynonymDefinitionCollectionUrl(string localeCode, string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/search/synonym-definitions/{localeCode}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "localeCode", localeCode);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
