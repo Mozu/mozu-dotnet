@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Payments
 {
 	/// <summary>
-	/// commerce/payments/fraudscreen related resources. DOCUMENT_HERE 
+	/// 
 	/// </summary>
 	public partial class FraudScreenResource  	{
 		///
@@ -38,9 +38,9 @@ namespace Mozu.Api.Resources.Commerce.Payments
 
 				
 		/// <summary>
-		/// payments-fraudscreen Post Screen description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="request">Mozu.PaymentService.Contracts.Request.FraudScreenRequest ApiType DOCUMENT_HERE </param>
+		/// <param name="request"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.PaymentService.Response.FraudScreen"/>
 		/// </returns>
@@ -62,9 +62,9 @@ namespace Mozu.Api.Resources.Commerce.Payments
 		}
 
 		/// <summary>
-		/// payments-fraudscreen Post Screen description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="request">Mozu.PaymentService.Contracts.Request.FraudScreenRequest ApiType DOCUMENT_HERE </param>
+		/// <param name="request"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.PaymentService.Response.FraudScreen"/>
 		/// </returns>

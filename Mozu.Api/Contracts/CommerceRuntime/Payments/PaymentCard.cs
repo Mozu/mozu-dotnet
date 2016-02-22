@@ -24,12 +24,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			public string CardNumberPartOrMask { get; set; }
 
 			///
-			///The two-digit month a credit card expires for a payment method.
+			///The two-digit month the credit card expires.
 			///
 			public short ExpireMonth { get; set; }
 
 			///
-			///The four-digit year the credit card expires for a payment method.
+			///The four-digit year the credit card expires.
 			///
 			public short ExpireYear { get; set; }
 
@@ -44,7 +44,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			public bool? IsUsedRecurring { get; set; }
 
 			///
-			///The full name printed on a credit card. The name should match what is printed on the card exactly, used in validation during a payment.
+			///The name printed on the credit card.
 			///
 			public string NameOnCard { get; set; }
 

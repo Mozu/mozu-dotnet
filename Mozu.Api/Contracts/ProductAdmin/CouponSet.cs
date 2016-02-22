@@ -14,84 +14,36 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
-		///
-		///	Mozu.ProductAdmin.Contracts.CouponSet ApiType DOCUMENT_HERE 
-		///
 		public class CouponSet
 		{
-			///
-			///ReadOnly sum of all redemptions for this coupon. Use "counts" response group.
-			///
 			public int? AssignedDiscountCount { get; set; }
 
-			///
-			///Basic audit info about the object, including date, time, and user account. Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
 			public AuditInfo AuditInfo { get; set; }
 
-			///
-			///Signifies that the coupon has not been exported and can be updated ReadOnly
-			///
 			public bool CanBeDeleted { get; set; }
 
-			///
-			///Count of associated couponCodes. Must use "counts" response group to get this value ReadOnly
-			///
 			public int? CouponCodeCount { get; set; }
 
-			///
-			///Determines if the coupon is a persisted list of codes (static) or a list based on generated specification (dynamic).
-			///
 			public string CouponCodeType { get; set; }
 
-			///
-			///Unique tenant supplied identifier. Used as the prefix for generated sets. Required System generated if left null.
-			///
 			public string CouponSetCode { get; set; }
 
-			///
-			///Date and time that the coupon codes becomes expired
-			///
 			public DateTime? EndDate { get; set; }
 
-			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
-			///
 			public int? Id { get; set; }
 
-			///
-			///Maximum number of times any code can de used. Must be null, &gt;=1 or -1. Defaults to 1 on creation if null. -1 indicates unlimited.
-			///
 			public int? MaxRedemptionsPerCouponCode { get; set; }
 
-			///
-			///Maximum number of times any single user can redeem any code. Must be null, &gt;=1 or -1. Defaults to 1 on creation if null. -1 indicates unlimited.
-			///
 			public int? MaxRedemptionsPerUser { get; set; }
 
-			///
-			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
-			///
 			public string Name { get; set; }
 
-			///
-			///ReadOnly count of all redemptions for this coupon set.
-			///
 			public int? RedemptionCount { get; set; }
 
-			///
-			///Sets the number of codes to generate for dynamic coupons Required when CouponCodeType is "Dynamic"
-			///
 			public int? SetSize { get; set; }
 
-			///
-			///The date and time in UTC format that the coupon codes in the coupon set become active.
-			///
 			public DateTime? StartDate { get; set; }
 
-			///
-			///The current status of an object. This status is specific to the object including payment (New, Authorized, Captured, Declined, Failed, Voided, Credited, CheckRequested, or RolledBack), discount (Active, Scheduled, or Expired), returns (ReturnAuthorized), tenant, package (Fulfilled or NotFulfilled), application, master and product catalogs, orders (Pending, Submitted, Processing, Pending Review, Closed, or Canceled), and order validation results (Pass, Fail, Error, or Review).
-			///
 			public string Status { get; set; }
 
 		}

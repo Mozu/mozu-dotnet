@@ -41,7 +41,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// Validates the customer address supplied in the request.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="addressValidationRequest">Properties of the address used for validation of the account's full address. This content may include multiple lines of an address, city, state/province, zip/postal code, and country.</param>
+		/// <param name="addressValidationRequest">Properties of the address to validate.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.AddressValidationResponse"/>
 		/// </returns>
@@ -66,7 +66,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// Validates the customer address supplied in the request.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="addressValidationRequest">Properties of the address used for validation of the account's full address. This content may include multiple lines of an address, city, state/province, zip/postal code, and country.</param>
+		/// <param name="addressValidationRequest">Properties of the address to validate.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.AddressValidationResponse"/>
 		/// </returns>

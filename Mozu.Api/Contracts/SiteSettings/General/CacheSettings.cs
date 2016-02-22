@@ -13,14 +13,8 @@ using System;
 
 namespace Mozu.Api.Contracts.SiteSettings.General
 {
-		///
-		///	Mozu.SiteSettings.General.Contracts.CacheSettings ApiType DOCUMENT_HERE 
-		///
 		public class CacheSettings
 		{
-			///
-			///The a query string value that can be used to invalidate a client browser cache/ cdn cache.
-			///
 			public string CdnCacheBustKey { get; set; }
 
 		}

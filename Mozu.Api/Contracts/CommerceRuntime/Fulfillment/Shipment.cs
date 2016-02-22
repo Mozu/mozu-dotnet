@@ -36,27 +36,27 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			public string CurrencyCode { get; set; }
 
 			///
-			///The physical address orders are sent to as a shipping destination. This address may contain multiple lines, city, state/province, country, and zip/postal code. The destination is used to calculate shipping costs.
+			///The address to which to shipment will ship.
 			///
 			public Contact DestinationAddress { get; set; }
 
 			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///Unique identifier of the shipment.
 			///
 			public string Id { get; set; }
 
 			///
-			///The physical address from which the order or shipment will ship.
+			///The address from which the shipment will ship.
 			///
 			public Contact OriginAddress { get; set; }
 
 			///
-			///Array list of unique IDs of packages in a shipment planned for or finished a shipping fulfillment action. 
+			///Array list of identifiers that represent the packages in this shipment.
 			///
 			public List<string> PackageIds { get; set; }
 
 			///
-			///The code associated with a carrier's shipping method service type, used during fulfillment of packages and shipments. Service type codes include a prefix that indicates the carrier. For example: FEDEX_INTERNATIONAL_STANDARD and UPS_GROUND.
+			///Code that identifies the service type method used to perform the shipment, such as UPS_GROUND.
 			///
 			public string ShippingMethodCode { get; set; }
 
@@ -66,7 +66,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			public bool? SignatureRequired { get; set; }
 
 			///
-			///Tracking number for the package or shipment, supplied by the shipping carrier to track the shipment until fulfillment completes. The tracking number format may differ between carriers.
+			///The shipping tracking number supplied by the shipping provider to track the shipment.
 			///
 			public string TrackingNumber { get; set; }
 

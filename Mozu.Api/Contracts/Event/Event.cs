@@ -42,18 +42,15 @@ namespace Mozu.Api.Contracts.Event
 
 			public string EventId { get; set; }
 
-			///
-			///Extended properties. Note: This is purposefully not a CollectionBase type wrapper so consumers start to get used to not having counts returned.
-			///
 			public List<EventExtendedProperty> ExtendedProperties { get; set; }
 
 			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///The unique identifier of the event.
 			///
 			public string Id { get; set; }
 
 			///
-			///Indicates if the event is a test request or test entity. If true, the generated and captured event record was generated as a test request for an application.
+			///If true, the event record was generated as a test request for an application.
 			///
 			public bool? IsTest { get; set; }
 

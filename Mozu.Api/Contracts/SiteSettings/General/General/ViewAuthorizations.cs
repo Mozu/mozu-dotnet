@@ -13,19 +13,10 @@ using System;
 
 namespace Mozu.Api.Contracts.SiteSettings.General.General
 {
-		///
-		///	Set whether you require users to be authenticated to preview content or view the live site.
-		///
 		public class ViewAuthorizations
 		{
-			///
-			///Mozu.SiteSettings.General.Contracts.General.ViewAuthorizations requireAuthForLive ApiTypeMember DOCUMENT_HERE 
-			///
 			public bool RequireAuthForLive { get; set; }
 
-			///
-			///Mozu.SiteSettings.General.Contracts.General.ViewAuthorizations requireAuthForPending ApiTypeMember DOCUMENT_HERE 
-			///
 			public bool RequireAuthForPending { get; set; }
 
 		}

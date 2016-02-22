@@ -31,7 +31,7 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 			public List<ExternalPaymentWorkflowDefinition> ExternalPaymentWorkflowDefinitions { get; set; }
 
 			///
-			///List of name and account information for a payment gateway.
+			///List of name and account information for a payment gateway. Additional payment gateway providers will be supported in future releases.
 			///
 			public List<Gateway> Gateways { get; set; }
 

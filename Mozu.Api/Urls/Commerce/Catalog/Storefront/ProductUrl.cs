@@ -21,7 +21,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
         /// </summary>
         /// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
         /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+        /// <param name="responseFields"></param>
         /// <param name="sortBy"></param>
         /// <param name="startIndex"></param>
         /// <returns>
@@ -44,7 +44,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
         /// </summary>
         /// <param name="locationCodes">Array of location codes for which to retrieve product inventory information.</param>
         /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -61,21 +61,23 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
 		/// <summary>
         /// Get Resource Url for GetProduct
         /// </summary>
-        /// <param name="allowInactive">If true, allow inactive categories to be retrieved in the category list response. If false, the categories retrieved will not include ones marked inactive.</param>
+        /// <param name="allowInactive">If true, returns an inactive product as part of the query.</param>
         /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
-        /// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
-        /// <param name="supressOutOfStock404">Specifies whether to supress the 404 error when the product is out of stock.</param>
+        /// <param name="quantity"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="skipInventoryCheck">If true, skip the inventory validation process for the specified product.</param>
+        /// <param name="supressOutOfStock404"></param>
         /// <param name="variationProductCode">Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetProductUrl(string productCode, string variationProductCode =  null, bool? allowInactive =  null, bool? skipInventoryCheck =  null, bool? supressOutOfStock404 =  null, string responseFields =  null)
+        public static MozuUrl GetProductUrl(string productCode, string variationProductCode =  null, bool? allowInactive =  null, bool? skipInventoryCheck =  null, bool? supressOutOfStock404 =  null, int? quantity =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/storefront/products/{productCode}?variationProductCode={variationProductCode}&allowInactive={allowInactive}&skipInventoryCheck={skipInventoryCheck}&supressOutOfStock404={supressOutOfStock404}&responseFields={responseFields}";
+			var url = "/api/commerce/catalog/storefront/products/{productCode}?variationProductCode={variationProductCode}&allowInactive={allowInactive}&skipInventoryCheck={skipInventoryCheck}&supressOutOfStock404={supressOutOfStock404}&quantity={quantity}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "allowInactive", allowInactive);
 			mozuUrl.FormatUrl( "productCode", productCode);
+			mozuUrl.FormatUrl( "quantity", quantity);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "skipInventoryCheck", skipInventoryCheck);
 			mozuUrl.FormatUrl( "supressOutOfStock404", supressOutOfStock404);
@@ -86,9 +88,9 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
 		/// <summary>
         /// Get Resource Url for GetProductForIndexing
         /// </summary>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="productCode"></param>
         /// <param name="productVersion"></param>
-        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -107,17 +109,19 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
         /// </summary>
         /// <param name="includeOptionDetails">If true, the response returns details about the product. If false, returns a product summary such as the product name, price, and sale price.</param>
         /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
-        /// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
+        /// <param name="quantity"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="skipInventoryCheck">If true, skip the inventory validation process for the specified product.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl ConfiguredProductUrl(string productCode, bool? includeOptionDetails =  null, bool? skipInventoryCheck =  null, string responseFields =  null)
+        public static MozuUrl ConfiguredProductUrl(string productCode, bool? includeOptionDetails =  null, bool? skipInventoryCheck =  null, int? quantity =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/storefront/products/{productCode}/configure?includeOptionDetails={includeOptionDetails}&skipInventoryCheck={skipInventoryCheck}&responseFields={responseFields}";
+			var url = "/api/commerce/catalog/storefront/products/{productCode}/configure?includeOptionDetails={includeOptionDetails}&skipInventoryCheck={skipInventoryCheck}&quantity={quantity}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "includeOptionDetails", includeOptionDetails);
 			mozuUrl.FormatUrl( "productCode", productCode);
+			mozuUrl.FormatUrl( "quantity", quantity);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "skipInventoryCheck", skipInventoryCheck);
 			return mozuUrl;
@@ -127,16 +131,18 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
         /// Get Resource Url for ValidateProduct
         /// </summary>
         /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+        /// <param name="quantity"></param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
+        /// <param name="skipInventoryCheck">If true, skip the inventory validation process for the specified product.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl ValidateProductUrl(string productCode, bool? skipInventoryCheck =  null, string responseFields =  null)
+        public static MozuUrl ValidateProductUrl(string productCode, bool? skipInventoryCheck =  null, int? quantity =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/storefront/products/{productCode}/validate?skipInventoryCheck={skipInventoryCheck}&responseFields={responseFields}";
+			var url = "/api/commerce/catalog/storefront/products/{productCode}/validate?skipInventoryCheck={skipInventoryCheck}&quantity={quantity}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "productCode", productCode);
+			mozuUrl.FormatUrl( "quantity", quantity);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "skipInventoryCheck", skipInventoryCheck);
 			return mozuUrl;
@@ -145,11 +151,11 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
 		/// <summary>
         /// Get Resource Url for ValidateDiscounts
         /// </summary>
-        /// <param name="allowInactive">If true, allow inactive categories to be retrieved in the category list response. If false, the categories retrieved will not include ones marked inactive.</param>
-        /// <param name="customerAccountId">The unique identifier of the customer account for which to retrieve wish lists.</param>
+        /// <param name="allowInactive">If true, this operation returns inactive product discounts as part of the POST.</param>
+        /// <param name="customerAccountId">Unique ID of the customer account associated with the shopper requesting the discount.</param>
         /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
-        /// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
+        /// <param name="responseFields"></param>
+        /// <param name="skipInventoryCheck">If true, do not validate the product inventory when evaluating the list of discounts.</param>
         /// <param name="variationProductCode">Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.</param>
         /// <returns>
         /// String - Resource Url
@@ -170,7 +176,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
 		/// <summary>
         /// Get Resource Url for GetProductInventories
         /// </summary>
-        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

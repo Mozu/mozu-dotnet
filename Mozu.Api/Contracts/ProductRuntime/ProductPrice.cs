@@ -14,7 +14,7 @@ using System;
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
-		///	The price of the product in the specified currency code (USD). This price can either be the sale price or the price for which the merchang intends to sell the product.
+		///	The price of the product in the specified currency code (USD). This price can either be the sale price or the price for which the merchant intends to sell the product.
 		///
 		public class ProductPrice
 		{
@@ -28,18 +28,15 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public decimal? CatalogSalePrice { get; set; }
 
-			///
-			///The credit value of the product or bundled product. When the `goodsType `is `DigitalCredit`, this value is populated to indicate the value of the credit. This is used to create store credit in the fulfillment of gift cards.
-			///
 			public decimal? CreditValue { get; set; }
 
 			///
-			///Name of the discount added and applied to a shopping cart and order for a shopper's purchase. 
+			///The discount applied to the product price.
 			///
 			public AppliedDiscount Discount { get; set; }
 
 			///
-			///The manufacturer's suggested retail price for the product. This content may be defined by the supplier.
+			///The manufacturer's suggested retail price for the product.
 			///
 			public decimal? Msrp { get; set; }
 
@@ -54,7 +51,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string PriceType { get; set; }
 
 			///
-			///The set sale price for a product consisting of a price with a discount already applied.
+			///The sale price defined for the product.
 			///
 			public decimal? SalePrice { get; set; }
 

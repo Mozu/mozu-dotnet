@@ -14,22 +14,19 @@ using System;
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
-		///	Properties of a value for a product property.
+		///	Values of a product property attribute.
 		///
 		public class ProductPropertyValue
 		{
-			///
-			///Defines the intended display of this attribute in the storefront. Options include Drop Down, Image Picker, and Radio Buttons.
-			///
 			public AttributeVocabularyValueDisplayInfo DisplayInfo { get; set; }
 
 			///
-			///If the object value is a String, this value provides that string value, used by vocabulary property values, products, and options.
+			///Property string value in the language specified in the locale code for the product storefront.
 			///
 			public string StringValue { get; set; }
 
 			///
-			///The value of a property, used by numerous objects within Mozu including facets, attributes, products, localized content, metadata, capabilities (Mozu and third-party), location inventory adjustment, and more. The value may be a string, integer, or double. Validation may be run against the entered and saved values depending on the object type.
+			///Value of the product property.
 			///
 			public object Value { get; set; }
 

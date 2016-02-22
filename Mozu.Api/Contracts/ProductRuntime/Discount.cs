@@ -14,27 +14,27 @@ using System;
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
-		///	Name of the discount added and applied to a shopping cart and order for a shopper's purchase. 
+		///	Properties of a defined product, order, or shipping discount.
 		///
 		public class Discount
 		{
 			///
-			///Unique identifier for the discount in the storefront.
+			///Unique identifier of the discount. System-supplied and read only.
 			///
 			public int DiscountId { get; set; }
 
 			///
-			///Date and time in UTC format when a discount, credit, wish list, or cart expires. An expired discount no longer can be redeemed. An expired wish list is no longer available. An expired credit can no longer be redeemed for a purchase. Acart becomes inactive and expired based on a system-calculated interval. For example, if an anonymous shopper has 14 days of inactivity, the cart is considered abandoned after that period of inactivity. System-supplied and read-only.
+			///The date and time the discount can no longer be redeemed. Date in UTC Date/Time. System-supplied and read only.
 			///
 			public DateTime? ExpirationDate { get; set; }
 
 			///
-			///The localizable, shopper-facing description defined for a discount or a storefront message. 
+			///Client-defined description that displays for the shopper on the web storefront.
 			///
 			public string FriendlyDescription { get; set; }
 
 			///
-			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
+			///The localizable name assigned for the product discount.
 			///
 			public string Name { get; set; }
 

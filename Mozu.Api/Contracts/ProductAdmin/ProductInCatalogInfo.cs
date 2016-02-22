@@ -20,9 +20,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class ProductInCatalogInfo
 		{
-			///
-			///If true, the product is marked as available for sale in the catalog. Setting a product to IsActive = false will prevent it from being shown on the customer facing storefront.
-			///
 			public ActiveDateRange ActiveDateRange { get; set; }
 
 			///
@@ -36,17 +33,14 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public int CatalogId { get; set; }
 
 			///
-			///Localizable content (such as a name and/or description) for an attribute. The content may be localized when displayed according to the locale code specified by the master catalog. Content can include descriptive text for product extensible attributes, catalog-level descriptions (displayed if isContentOverriden is true), product bundles, and customer account notes.
+			///Localizable content for a product associated with a specific catalog. If no catalog-level content is specified, the master catalog content is used. To override content at the catalog level, the IsContentOverridden flag must be set to "true".
 			///
 			public ProductLocalizedContent Content { get; set; }
 
-			///
-			///Date this product was first Available for sale in the catalog. This is utilized in expressions that refrence DaysInCatloag.
-			///
 			public DateTime? DateFirstAvailableInCatalog { get; set; }
 
 			///
-			///Indicates if the object or feature is active. This indicator is used for subscriptions (at the site or tenant level), customer accounts, products and variations.
+			///If true, the product is actively available (for sale) in the associated catalog.
 			///
 			public bool? IsActive { get; set; }
 
@@ -76,7 +70,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public List<ProductCategory> ProductCategories { get; set; }
 
 			///
-			///The search engine optimized content defined for products or products associated with a catalog. If no SEO content is specified in the request for products associated with a catalog, this catalog uses the SEO content defined in the master catalog. To override the SEO content for this catalog, the `IsSEOContentOverridden `flag must be set to "true".
+			///The SEO content of the product associated with the specific catalog. If no SEO content is specified in the request, this catalog uses the SEO content defined in the master catalog. To override the SEO content for this catalog, the IsSEOContentOverridden flag must be set to "true".
 			///
 			public ProductLocalizedSEOContent SeoContent { get; set; }
 

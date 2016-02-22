@@ -40,7 +40,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <summary>
 		/// Retrieves the contents of a particular note attached to a specified customer account.
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="accountId">Unique identifier of the customer account that contains the note being retrieved.</param>
 		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
@@ -66,7 +66,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <summary>
 		/// Retrieves the contents of a particular note attached to a specified customer account.
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="accountId">Unique identifier of the customer account that contains the note being retrieved.</param>
 		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
@@ -148,9 +148,9 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <summary>
 		/// Adds a new note to the specified customer account.
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="accountId">Unique identifier of the customer account for which to create the note.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="note">Properties of a note configured for a customer account.</param>
+		/// <param name="note">Properties of the customer account note to create.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerNote"/>
 		/// </returns>
@@ -174,9 +174,9 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <summary>
 		/// Adds a new note to the specified customer account.
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="accountId">Unique identifier of the customer account for which to create the note.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="note">Properties of a note configured for a customer account.</param>
+		/// <param name="note">Properties of the customer account note to create.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerNote"/>
 		/// </returns>
@@ -199,10 +199,10 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <summary>
 		/// Modifies an existing note for a customer account.
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
+		/// <param name="accountId">Unique identifier of the customer account note to modify.</param>
+		/// <param name="noteId">Unique identifier of the note to update.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="note">Properties of a note configured for a customer account.</param>
+		/// <param name="note">The new content to replace the existing note.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerNote"/>
 		/// </returns>
@@ -226,10 +226,10 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <summary>
 		/// Modifies an existing note for a customer account.
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
+		/// <param name="accountId">Unique identifier of the customer account note to modify.</param>
+		/// <param name="noteId">Unique identifier of the note to update.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="note">Properties of a note configured for a customer account.</param>
+		/// <param name="note">The new content to replace the existing note.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerNote"/>
 		/// </returns>
@@ -252,8 +252,8 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <summary>
 		/// Removes a note from the specified customer account.
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
+		/// <param name="accountId">Unique identifier of the customer account that contains the note being deleted.</param>
+		/// <param name="noteId">Unique identifier of the customer account note being deleted.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -276,8 +276,8 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <summary>
 		/// Removes a note from the specified customer account.
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
+		/// <param name="accountId">Unique identifier of the customer account that contains the note being deleted.</param>
+		/// <param name="noteId">Unique identifier of the customer account note being deleted.</param>
 		/// <returns>
 		/// 
 		/// </returns>

@@ -14,59 +14,26 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.Event
 {
-		///
-		///	Data for event deliveries. Returned content details a summary of actions, events, and results for a delivery event.
-		///
 		public class EventDeliverySummary
 		{
-			///
-			///The date time in UTC format set when the object was created. 
-			///
 			public DateTime? CreateDate { get; set; }
 
-			///
-			///Details about each attempted delivery of the event to the endpoint
-			///
 			public List<EventDeliveryAttempt> DeliveryAttempts { get; set; }
 
-			///
-			///Status of the delivery process `EventDeliveryStatusType`. System-supplied and read-only.
-			///
 			public string DeliveryStatus { get; set; }
 
-			///
-			///Event Summary
-			///
 			public EventSummary EventSummary { get; set; }
 
-			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
-			///
 			public int? Id { get; set; }
 
-			///
-			///Indicates whether delivery of the event is currently being attempted at this moment in time
-			///
 			public bool IsRunning { get; set; }
 
-			///
-			///The date that the delivery was last attempted (either successfully or not)
-			///
 			public DateTime LastExecutionDate { get; set; }
 
-			///
-			///The date that the delivery will next be attempted, if the event has not been successfully delivered yet and there are still retries remaining
-			///
 			public DateTime NextExecutionDate { get; set; }
 
-			///
-			///Number of delivery attempts remaining
-			///
 			public int? RetriesRemaining { get; set; }
 
-			///
-			///The date and time the object was updated most recently. The date is in UTC format.
-			///
 			public DateTime? UpdateDate { get; set; }
 
 		}

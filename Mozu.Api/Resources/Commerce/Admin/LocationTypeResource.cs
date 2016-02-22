@@ -135,7 +135,7 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// Creates a new location type based on the information specified in the request.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="locationType">Properties of a type of physical location, such as warehouse or kiosk. Location types enable tenants to group similar locations for filtering and location usage type definition.</param>
+		/// <param name="locationType">Properties of the location type to create.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Location.LocationType"/>
 		/// </returns>
@@ -160,7 +160,7 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// Creates a new location type based on the information specified in the request.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="locationType">Properties of a type of physical location, such as warehouse or kiosk. Location types enable tenants to group similar locations for filtering and location usage type definition.</param>
+		/// <param name="locationType">Properties of the location type to create.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Location.LocationType"/>
 		/// </returns>
@@ -185,7 +185,7 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// </summary>
 		/// <param name="locationTypeCode">The user-defined code that identifies the location type.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="locationType">Properties of a type of physical location, such as warehouse or kiosk. Location types enable tenants to group similar locations for filtering and location usage type definition.</param>
+		/// <param name="locationType">Properties of the location type to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Location.LocationType"/>
 		/// </returns>
@@ -211,7 +211,7 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// </summary>
 		/// <param name="locationTypeCode">The user-defined code that identifies the location type.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="locationType">Properties of a type of physical location, such as warehouse or kiosk. Location types enable tenants to group similar locations for filtering and location usage type definition.</param>
+		/// <param name="locationType">Properties of the location type to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Location.LocationType"/>
 		/// </returns>
@@ -234,7 +234,7 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// <summary>
 		/// Deletes the location type specified in the request.
 		/// </summary>
-		/// <param name="locationTypeCode">The user-defined code that identifies the location type.</param>
+		/// <param name="locationTypeCode">User-defined code used to identify the location type.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -257,7 +257,7 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// <summary>
 		/// Deletes the location type specified in the request.
 		/// </summary>
-		/// <param name="locationTypeCode">The user-defined code that identifies the location type.</param>
+		/// <param name="locationTypeCode">User-defined code used to identify the location type.</param>
 		/// <returns>
 		/// 
 		/// </returns>

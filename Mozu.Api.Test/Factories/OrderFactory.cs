@@ -296,7 +296,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// commerce-orders Put ProcessDigitalWallet description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = OrderFactory.ProcessDigitalWallet(handler : handler,  digitalWallet :  digitalWallet,  orderId :  orderId,  digitalWalletType :  digitalWalletType,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -409,7 +409,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// commerce-orders Put ResendOrderConfirmationEmail description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = OrderFactory.ResendOrderConfirmationEmail(handler : handler,  action :  action,  orderId :  orderId,  expectedCode: expectedCode, successCode: successCode); 

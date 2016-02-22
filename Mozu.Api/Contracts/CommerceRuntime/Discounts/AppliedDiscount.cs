@@ -24,12 +24,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Discounts
 			public string CouponCode { get; set; }
 
 			///
-			///Name of the discount added and applied to a shopping cart and order for a shopper's purchase. 
+			///Discount currently applied to the cart or order.
 			///
 			public Discount Discount { get; set; }
 
 			///
-			///Indicates if a discount is not used for the product or product line item in an order. If true, the system ignores this discount when pricing the order.
+			///If true, the system ignores this discount when pricing the order.
 			///
 			public bool? Excluded { get; set; }
 

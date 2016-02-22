@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// The Search resource manages all settings and options for providing product search on your site.
+	/// 
 	/// </summary>
 	public partial class SearchFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves the details of the specified search tuning rule.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.GetSearchTuningRule(handler : handler,  searchTuningRuleCode :  searchTuningRuleCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// admin-search Get GetSearchTuningRules description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.GetSearchTuningRules(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// admin-search Get GetSearchTuningRuleSortFields description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.GetSearchTuningRuleSortFields(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Get site search settings
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.GetSettings(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// admin-search Post AddSearchTuningRule description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.AddSearchTuningRule(handler : handler,  searchTuningRuleIn :  searchTuningRuleIn,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -220,7 +220,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// admin-search Post UpdateSearchTuningRuleSortFields description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.UpdateSearchTuningRuleSortFields(handler : handler,  searchTuningRuleSortFieldsIn :  searchTuningRuleSortFieldsIn,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -258,7 +258,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// admin-search Put UpdateSearchTuningRule description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.UpdateSearchTuningRule(handler : handler,  searchTuningRuleIn :  searchTuningRuleIn,  searchTuningRuleCode :  searchTuningRuleCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -296,7 +296,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Adds or Updates (Upsert) the Search Settings for a specific site
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.UpdateSettings(handler : handler,  settings :  settings,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -334,7 +334,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Deletes the specified search tuning rule.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.DeleteSearchTuningRule(handler : handler,  searchTuningRuleCode :  searchTuningRuleCode,  expectedCode: expectedCode, successCode: successCode); 

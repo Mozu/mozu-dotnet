@@ -19,12 +19,12 @@ namespace Mozu.Api.Contracts.Content
 		public class Facet
 		{
 			///
-			///The number of facet results for a product search.
+			///The number of facet results.
 			///
 			public int Count { get; set; }
 
 			///
-			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
+			///The name of the facet.
 			///
 			public string Name { get; set; }
 

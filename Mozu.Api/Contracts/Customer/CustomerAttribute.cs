@@ -36,7 +36,7 @@ namespace Mozu.Api.Contracts.Customer
 			public string FullyQualifiedName { get; set; }
 
 			///
-			///List of value data for objects.
+			///List of values for the attribute.
 			///
 			public List<object> Values { get; set; }
 

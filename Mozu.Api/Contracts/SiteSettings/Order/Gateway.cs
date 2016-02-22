@@ -36,7 +36,7 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 			public GatewayDefinition GatewayDefinition { get; set; }
 
 			///
-			///The types of credit cards supported by the payment gateway.
+			///The types of credit cards the merchant supports using this payment gateway.
 			///
 			public List<string> SupportedCards { get; set; }
 
