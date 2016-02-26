@@ -19,7 +19,7 @@ namespace Mozu.Api.Contracts.PaymentService
 		public class GatewayCredentialFieldDefinition
 		{
 			///
-			///The sequential display order of the gateway in Mozu Admin.
+			///The sequential display order of the gateway in .
 			///
 			public int AdminDisplayOrder { get; set; }
 

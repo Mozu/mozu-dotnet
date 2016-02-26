@@ -19,6 +19,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class DiscountTarget
 		{
+			///
+			///Determines which way the discount is optimized. Consumers favor(default - false/null) or tenants favor (when this is set to true) Applies to discounts where target is not a specific product or list of products. May also impact behavior of Buy X Get Y so that X is the most expensive items and Y the least expensive.
+			///
 			public bool? AppliesToLeastExpensiveProductsFirst { get; set; }
 
 			///

@@ -29,6 +29,9 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			///
 			public List<ProductOption> Options { get; set; }
 
+			///
+			///Price (unit price * quantity)
+			///
 			public decimal Price { get; set; }
 
 			///
@@ -36,6 +39,9 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			///
 			public string ProductCode { get; set; }
 
+			///
+			///Product name/description
+			///
 			public string ProductDescription { get; set; }
 
 			///
@@ -48,6 +54,9 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			///
 			public List<ProductProperty> Properties { get; set; }
 
+			///
+			///The specified quantity of objects and items. This property is used for numerous object types including products, options, components within a product bundle, cart and order items, returned items, shipping line items, items in a digital product. and items associated with types and reservations.
+			///
 			public int Quantity { get; set; }
 
 			///

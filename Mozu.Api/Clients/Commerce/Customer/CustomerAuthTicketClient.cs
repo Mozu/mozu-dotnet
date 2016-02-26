@@ -24,20 +24,21 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <summary>
 		/// Creates an authentication ticket for an anonymous shopper user.
 		/// </summary>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=CreateAnonymousShopperAuthTicket();
-		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var mozuClient=CreateAnonymousShopperAuthTicket( responseFields);
+		///   var customerAuthTicketClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<System.IO.Stream> CreateAnonymousShopperAuthTicketClient()
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAuthTicket> CreateAnonymousShopperAuthTicketClient(string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAuthTicketUrl.CreateAnonymousShopperAuthTicketUrl();
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAuthTicketUrl.CreateAnonymousShopperAuthTicketUrl(responseFields);
 			const string verb = "GET";
-			var mozuClient = new MozuClient<System.IO.Stream>()
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerAuthTicket>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

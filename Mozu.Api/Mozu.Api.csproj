@@ -558,6 +558,8 @@
     <Compile Include="Contracts\ProductAdmin\Search\SearchTuningRuleCollection.cs" />
     <Compile Include="Contracts\ProductAdmin\Search\SearchTuningRuleFilter.cs" />
     <Compile Include="Contracts\ProductAdmin\Search\SearchTuningRuleSortFields.cs" />
+    <Compile Include="Contracts\ProductAdmin\Search\SynonymDefinition.cs" />
+    <Compile Include="Contracts\ProductAdmin\Search\SynonymDefinitionCollection.cs" />
     <Compile Include="Contracts\ProductAdmin\SearchSettings.cs" />
     <Compile Include="Contracts\ProductAdmin\SiteSearchKeywordRelevancySettings.cs" />
     <Compile Include="Contracts\ProductAdmin\SiteSearchPhraseRelevancySettings.cs" />
