@@ -40,20 +40,21 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Creates an authentication ticket for an anonymous shopper user.
 		/// </summary>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <returns>
-		/// <see cref="System.IO.Stream"/>
+		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customerauthticket = new CustomerAuthTicket();
-		///   var stream = customerauthticket.CreateAnonymousShopperAuthTicket();
+		///   var customerAuthTicket = customerauthticket.CreateAnonymousShopperAuthTicket( responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual System.IO.Stream CreateAnonymousShopperAuthTicket()
+		public virtual Mozu.Api.Contracts.Customer.CustomerAuthTicket CreateAnonymousShopperAuthTicket(string responseFields =  null)
 		{
-			MozuClient<System.IO.Stream> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAuthTicketClient.CreateAnonymousShopperAuthTicketClient();
+			MozuClient<Mozu.Api.Contracts.Customer.CustomerAuthTicket> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAuthTicketClient.CreateAnonymousShopperAuthTicketClient( responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -63,19 +64,20 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Creates an authentication ticket for an anonymous shopper user.
 		/// </summary>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <returns>
-		/// <see cref="System.IO.Stream"/>
+		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customerauthticket = new CustomerAuthTicket();
-		///   var stream = await customerauthticket.CreateAnonymousShopperAuthTicketAsync();
+		///   var customerAuthTicket = await customerauthticket.CreateAnonymousShopperAuthTicketAsync( responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<System.IO.Stream> CreateAnonymousShopperAuthTicketAsync()
+		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAuthTicket> CreateAnonymousShopperAuthTicketAsync(string responseFields =  null)
 		{
-			MozuClient<System.IO.Stream> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAuthTicketClient.CreateAnonymousShopperAuthTicketClient();
+			MozuClient<Mozu.Api.Contracts.Customer.CustomerAuthTicket> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAuthTicketClient.CreateAnonymousShopperAuthTicketClient( responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
