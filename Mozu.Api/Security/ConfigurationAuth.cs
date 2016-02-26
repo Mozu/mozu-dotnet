@@ -19,6 +19,11 @@ namespace Mozu.Api.Security
 
             var messageHash = request.QueryString["messageHash"];
             var tenantId = request.QueryString["tenantId"];
+            if (tenantId == null)
+            {
+                ApiContext context = new ApiContext(request.Form);
+                tenantId = context.TenantId.ToString();
+            }
             var date = request.QueryString["dt"];
 
             var requestDate = DateTime.Parse(date, null, DateTimeStyles.AssumeUniversal).ToUniversalTime();
