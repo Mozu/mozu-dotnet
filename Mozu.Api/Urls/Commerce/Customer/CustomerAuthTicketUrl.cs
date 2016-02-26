@@ -19,13 +19,15 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for CreateAnonymousShopperAuthTicket
         /// </summary>
+        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl CreateAnonymousShopperAuthTicketUrl()
+        public static MozuUrl CreateAnonymousShopperAuthTicketUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/authtickets/anonymousshopper";
+			var url = "/api/commerce/customer/authtickets/anonymousshopper?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Modifies the sequence and hierarchy of multiple categories in a category tree in one operation. This is better for moving a category to a different location in the tree and adjusting the order of multiple categories than doing individual category updates.
 		/// <example> 
 		///  <code> 
 		/// var result = CategoryFactory.UpdateCategoryTree(handler : handler,  categorySequencies :  categorySequencies,  expectedCode: expectedCode, successCode: successCode); 

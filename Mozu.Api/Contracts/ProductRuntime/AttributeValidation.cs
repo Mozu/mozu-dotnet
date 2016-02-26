@@ -14,7 +14,7 @@ using System;
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
-		///	Validates the attribute configured for the customer in the storefront against the attribute configured in Mozu admin.
+		///	Validates the attribute configured for the customer in the storefront against the attribute configured in .
 		///
 		public class AttributeValidation
 		{

@@ -59,6 +59,9 @@ namespace Mozu.Api.Contracts.AppDev
 			///
 			public string ApplicationVersion { get; set; }
 
+			///
+			///Denotes the application owner dev account id
+			///
 			public int AppOwnerDevAccountId { get; set; }
 
 			///
