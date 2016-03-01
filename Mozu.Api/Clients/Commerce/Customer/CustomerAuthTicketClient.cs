@@ -24,20 +24,21 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <summary>
 		/// Creates an authentication ticket for an anonymous shopper user.
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=CreateAnonymousShopperAuthTicket();
-		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var mozuClient=CreateAnonymousShopperAuthTicket( responseFields);
+		///   var customerAuthTicketClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<System.IO.Stream> CreateAnonymousShopperAuthTicketClient()
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAuthTicket> CreateAnonymousShopperAuthTicketClient(string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAuthTicketUrl.CreateAnonymousShopperAuthTicketUrl();
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAuthTicketUrl.CreateAnonymousShopperAuthTicketUrl(responseFields);
 			const string verb = "GET";
-			var mozuClient = new MozuClient<System.IO.Stream>()
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerAuthTicket>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

@@ -33,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Creates an authentication ticket for an anonymous shopper user.
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAuthTicketFactory.CreateAnonymousShopperAuthTicket(handler : handler,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Stream/>(result); 
+		/// var result = CustomerAuthTicketFactory.CreateAnonymousShopperAuthTicket(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<CustomerAuthTicket/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static System.IO.Stream CreateAnonymousShopperAuthTicket(ServiceClientMessageHandler handler, 
- 		 
+		public static Mozu.Api.Contracts.Customer.CustomerAuthTicket CreateAnonymousShopperAuthTicket(ServiceClientMessageHandler handler, 
+ 		 string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -48,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.CustomerAuthTicketClient.CreateAnonymousShopperAuthTicketClient(
-						);
+				 responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
