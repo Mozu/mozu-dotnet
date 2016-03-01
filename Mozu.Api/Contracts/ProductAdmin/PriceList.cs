@@ -19,6 +19,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		{
 			public AuditInfo AuditInfo { get; set; }
 
+			public List<int> DefaultForSites { get; set; }
+
 			public string Description { get; set; }
 
 			public bool? Enabled { get; set; }
@@ -31,9 +33,13 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public string ParentPriceListCode { get; set; }
 
+			public string ParentPriceListName { get; set; }
+
 			public string PriceListCode { get; set; }
 
-			public int? ResolutionRank { get; set; }
+			public int? Rank { get; set; }
+
+			public bool? Resolvable { get; set; }
 
 			public int? SearchIndexSequence { get; set; }
 

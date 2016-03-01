@@ -32,6 +32,8 @@ namespace Mozu.Api.Contracts.AppDev
 
 			public string ApplicationVersion { get; set; }
 
+			public int AppOwnerDevAccountId { get; set; }
+
 			public int DevAccountId { get; set; }
 
 			public DateTime? EffectiveEndDate { get; set; }

@@ -33,6 +33,10 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			///
 			public decimal? Price { get; set; }
 
+			public string PriceListCode { get; set; }
+
+			public string PriceListEntryMode { get; set; }
+
 			///
 			///Current sale price defined for a product on a storefront.
 			///
