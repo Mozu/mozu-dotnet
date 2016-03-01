@@ -307,6 +307,10 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public List<Pickup> Pickups { get; set; }
 
+			public string PriceListCode { get; set; }
+
+			public string PricelistName { get; set; }
+
 			public List<Refund> Refunds { get; set; }
 
 			///

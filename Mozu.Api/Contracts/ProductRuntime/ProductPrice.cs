@@ -35,6 +35,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public AppliedDiscount Discount { get; set; }
 
+			public string EffectivePricelistCode { get; set; }
+
 			///
 			///The manufacturer's suggested retail price for the product.
 			///
