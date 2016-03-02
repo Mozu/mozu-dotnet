@@ -29,9 +29,15 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public DateTime? DiscountsRestrictedEndDate { get; set; }
 
+			public string DiscountsRestrictedMode { get; set; }
+
 			public DateTime? DiscountsRestrictedStartDate { get; set; }
 
 			public DateTime? EndDate { get; set; }
+
+			public List<PriceListEntryExtra> ExtraEntries { get; set; }
+
+			public bool IsVariation { get; set; }
 
 			public decimal? Map { get; set; }
 
@@ -45,11 +51,15 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public string MsrpMode { get; set; }
 
+			public List<ProductOption> Options { get; set; }
+
 			public List<PriceListEntryPrice> PriceEntries { get; set; }
 
 			public string PriceListCode { get; set; }
 
 			public string PriceListEntryMode { get; set; }
+
+			public int PriceListEntrySequence { get; set; }
 
 			public string ProductCode { get; set; }
 

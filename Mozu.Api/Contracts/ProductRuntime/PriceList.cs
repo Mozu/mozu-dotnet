@@ -22,13 +22,19 @@ namespace Mozu.Api.Contracts.ProductRuntime
 
 			public string Description { get; set; }
 
+			public bool Enabled { get; set; }
+
 			public bool FilteredInStoreFront { get; set; }
+
+			public bool IsSiteDefault { get; set; }
 
 			public string Name { get; set; }
 
 			public string PriceListCode { get; set; }
 
 			public int PriceListId { get; set; }
+
+			public bool Resolvable { get; set; }
 
 			public List<int> ValidSites { get; set; }
 

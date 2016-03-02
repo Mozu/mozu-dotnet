@@ -59,12 +59,12 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool? DoesNotApplyToSalePrice { get; set; }
 
-			public List<string> ExcludedPriceLists { get; set; }
-
 			///
 			///Unique identifier of the discount.
 			///
 			public int? Id { get; set; }
+
+			public List<string> IncludedPriceLists { get; set; }
 
 			public decimal? MaximumDiscountImpactPerOrder { get; set; }
 

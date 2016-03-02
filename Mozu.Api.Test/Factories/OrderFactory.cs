@@ -446,6 +446,44 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = OrderFactory.ChangeOrderPriceList(handler : handler,  priceListCode :  priceListCode,  orderId :  orderId,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Order/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order ChangeOrderPriceList(ServiceClientMessageHandler handler, 
+ 		 string priceListCode, string orderId, string updateMode = null, string version = null, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.OrderClient.ChangeOrderPriceListClient(
+				 priceListCode :  priceListCode,  orderId :  orderId,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
 		/// Updates the user ID of the shopper who placed the order to the current user.
 		/// <example> 
 		///  <code> 

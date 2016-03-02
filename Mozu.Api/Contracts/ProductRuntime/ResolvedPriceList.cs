@@ -11,15 +11,17 @@
 using System;
 
 
-namespace Mozu.Api.Contracts.PaymentService
+namespace Mozu.Api.Contracts.ProductRuntime
 {
-		public class Product
+		public class ResolvedPriceList
 		{
-			public string ProductCode { get; set; }
+			public string Description { get; set; }
 
-			public string ProductName { get; set; }
+			public string Name { get; set; }
 
-			public string VariantProductCode { get; set; }
+			public string PriceListCode { get; set; }
+
+			public int PriceListId { get; set; }
 
 		}
 

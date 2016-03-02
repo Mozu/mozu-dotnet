@@ -241,6 +241,53 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="cascadeDeleteEntries"></param>
+		/// <param name="priceListCode"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var pricelist = new PriceList();
+		///   pricelist.DeletePriceList( priceListCode,  cascadeDeleteEntries);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void DeletePriceList(string priceListCode, bool? cascadeDeleteEntries =  null)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.DeletePriceListClient( priceListCode,  cascadeDeleteEntries);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="cascadeDeleteEntries"></param>
+		/// <param name="priceListCode"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var pricelist = new PriceList();
+		///   await pricelist.DeletePriceListAsync( priceListCode,  cascadeDeleteEntries);
+		/// </code>
+		/// </example>
+		public virtual async Task DeletePriceListAsync(string priceListCode, bool? cascadeDeleteEntries =  null)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.DeletePriceListClient( priceListCode,  cascadeDeleteEntries);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+
+		}
+
 
 	}
 

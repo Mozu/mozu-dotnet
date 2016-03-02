@@ -160,31 +160,6 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Pricelists
 
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="cascadeDeleteEntries"></param>
-		/// <param name="priceListCode"></param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=DeletePriceList( priceListCode,  cascadeDeleteEntries);
-		///mozuClient.WithBaseAddress(url).Execute();
-		/// </code>
-		/// </example>
-		public static MozuClient DeletePriceListClient(string priceListCode, bool? cascadeDeleteEntries =  null)
-		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Pricelists.PriceListEntryUrl.DeletePriceListUrl(priceListCode, cascadeDeleteEntries);
-			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
-									.WithVerb(verb).WithResourceUrl(url)
-;
-			return mozuClient;
-
-		}
-
 
 	}
 

@@ -33,6 +33,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public DateTime? DiscountsRestrictedStartDate { get; set; }
 
+			public string VariationPricingMethod { get; set; }
+
 		}
 
 }

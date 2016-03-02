@@ -9,17 +9,19 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 
+using Mozu.Api.Contracts.CommerceRuntime.Products;
 
-namespace Mozu.Api.Contracts.PaymentService
+namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 {
-		public class Product
+		public class CartMessage
 		{
-			public string ProductCode { get; set; }
+			public string Message { get; set; }
 
-			public string ProductName { get; set; }
+			public string MessageType { get; set; }
 
-			public string VariantProductCode { get; set; }
+			public List<Product> ProductsRemoved { get; set; }
 
 		}
 

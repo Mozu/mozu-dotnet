@@ -65,6 +65,8 @@ namespace Mozu.Api.Contracts.PaymentService.Request
 
 			public Contact ShippingContact { get; set; }
 
+			public string ShipType { get; set; }
+
 			public decimal Total { get; set; }
 
 		}
