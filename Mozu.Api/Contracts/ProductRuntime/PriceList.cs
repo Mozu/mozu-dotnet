@@ -24,6 +24,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 
 			public bool FilteredInStoreFront { get; set; }
 
+			public bool IsSiteDefault { get; set; }
+
 			public string Name { get; set; }
 
 			public string PriceListCode { get; set; }

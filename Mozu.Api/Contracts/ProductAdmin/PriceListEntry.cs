@@ -29,6 +29,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public DateTime? DiscountsRestrictedEndDate { get; set; }
 
+			public string DiscountsRestrictedMode { get; set; }
+
 			public DateTime? DiscountsRestrictedStartDate { get; set; }
 
 			public DateTime? EndDate { get; set; }
