@@ -13,12 +13,24 @@ using System;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
+		///
+		///	Mozu.ProductAdmin.Contracts.CategorySequence ApiType DOCUMENT_HERE 
+		///
 		public class CategorySequence
 		{
+			///
+			///Unique identifier of a category. 
+			///
 			public int CategoryId { get; set; }
 
+			///
+			///Mozu.ProductAdmin.Contracts.CategorySequence parentCategoryId ApiTypeMember DOCUMENT_HERE 
+			///
 			public int? ParentCategoryId { get; set; }
 
+			///
+			///The numeric order of objects, used by a vocabulary value defined for an extensible attribute, images, and categories.
+			///
 			public int Sequence { get; set; }
 
 		}

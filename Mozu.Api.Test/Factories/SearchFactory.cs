@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves a collection of synonyms definitions for product searches. Synonyms aid with determining matches for entered searches.
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.GetSynonymDefinitionCollection(handler : handler,  localeCode :  localeCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -218,6 +218,7 @@ namespace Mozu.Api.Test.Factories
 					 : null;
 
 		}
+		
   
 		/// <summary> 
 		/// 
@@ -296,7 +297,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Updates synonym definitions for product searches. Synonyms aid with determining matches for entered searches.
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.UpdateSynonymDefinitionCollection(handler : handler,  collection :  collection,  localeCode :  localeCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -332,6 +333,8 @@ namespace Mozu.Api.Test.Factories
 					 : null;
 
 		}
+  
+		
   
 		/// <summary> 
 		/// 

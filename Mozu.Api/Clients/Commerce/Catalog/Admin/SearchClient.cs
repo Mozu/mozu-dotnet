@@ -77,7 +77,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields"/>}
 		/// </returns>
@@ -123,10 +123,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves a collection of synonyms definitions for product searches. Synonyms aid with determining matches for entered searches.
 		/// </summary>
-		/// <param name="localeCode"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="localeCode">The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.</param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection"/>}
 		/// </returns>
@@ -146,6 +146,8 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 			return mozuClient;
 
 		}
+
+		
 
 		/// <summary>
 		/// 
@@ -175,7 +177,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="searchTuningRuleSortFieldsIn"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields"/>}
@@ -198,11 +200,11 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Updates synonym definitions for product searches. Synonyms aid with determining matches for entered searches.
 		/// </summary>
-		/// <param name="localeCode"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="collection"></param>
+		/// <param name="localeCode">The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.</param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="collection">Collection of synonym definitions used for determining search results.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection"/>}
 		/// </returns>
@@ -223,6 +225,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 
 		}
 
+		
 		/// <summary>
 		/// 
 		/// </summary>

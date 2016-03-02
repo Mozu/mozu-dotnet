@@ -14,6 +14,9 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.AppDev
 {
+		///
+		///	Mozu.AppDev.Contracts.ApplicationEntitlement ApiType DOCUMENT_HERE 
+		///
 		public class ApplicationEntitlement
 		{
 			public string AppKey { get; set; }
@@ -32,8 +35,9 @@ namespace Mozu.Api.Contracts.AppDev
 
 			public string ApplicationVersion { get; set; }
 
-			public int AppOwnerDevAccountId { get; set; }
-
+			///
+			///Denotes the application owner dev account id
+			///
 			public int DevAccountId { get; set; }
 
 			public DateTime? EffectiveEndDate { get; set; }
