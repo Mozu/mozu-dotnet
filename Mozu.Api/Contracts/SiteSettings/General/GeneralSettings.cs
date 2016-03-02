@@ -88,9 +88,6 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			///
 			public string LogoText { get; set; }
 
-			///
-			///MissingImageSubstitute for 404 image requests. Can be name or id of cmsImage in files@mozu.
-			///
 			public string MissingImageSubstitute { get; set; }
 
 			///

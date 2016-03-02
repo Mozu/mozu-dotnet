@@ -24,11 +24,7 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <summary>
 		/// Creates an authentication ticket for an anonymous shopper user.
 		/// </summary>
-<<<<<<< HEAD
 		/// <param name="responseFields"></param>
-=======
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
->>>>>>> 6bf361c5ee37a0a0c4e2b2861073a872b6ce5791
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>}
 		/// </returns>

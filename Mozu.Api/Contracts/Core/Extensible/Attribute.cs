@@ -50,7 +50,7 @@ namespace Mozu.Api.Contracts.Core.Extensible
 			public string DataType { get; set; }
 
 			///
-			///Whether the customer or order attribute appears in  only, or in both  and the website storefront. Possible values are Admin and AdminAndStorefront.
+			///Whether the customer or order attribute appears in Mozu Admin only, or in both Mozu Admin and the website storefront. Possible values are Admin and AdminAndStorefront.
 			///
 			public string DisplayGroup { get; set; }
 
