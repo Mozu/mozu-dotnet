@@ -284,54 +284,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 
 		}
 
-		/// <summary>
-		/// </summary>
-		/// <param name="localeCode"></param>
-		/// <param name="responseFields"></param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var search = new Search();
-		///   var synonymDefinitionCollection = search.GetSynonymDefinitionCollection( localeCode,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection GetSynonymDefinitionCollection(string localeCode, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.GetSynonymDefinitionCollectionClient( localeCode,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="localeCode"></param>
-		/// <param name="responseFields"></param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var search = new Search();
-		///   var synonymDefinitionCollection = await search.GetSynonymDefinitionCollectionAsync( localeCode,  responseFields);
-		/// </code>
-		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection> GetSynonymDefinitionCollectionAsync(string localeCode, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.GetSynonymDefinitionCollectionClient( localeCode,  responseFields);
-			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
-			return await response.ResultAsync();
-
-		}
-
+		
 		/// <summary>
 		/// 
 		/// </summary>
@@ -481,57 +434,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 
 		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="localeCode"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="collection"></param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var search = new Search();
-		///   var synonymDefinitionCollection = search.UpdateSynonymDefinitionCollection( collection,  localeCode,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection UpdateSynonymDefinitionCollection(Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection collection, string localeCode, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.UpdateSynonymDefinitionCollectionClient( collection,  localeCode,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="localeCode"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="collection"></param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var search = new Search();
-		///   var synonymDefinitionCollection = await search.UpdateSynonymDefinitionCollectionAsync( collection,  localeCode,  responseFields);
-		/// </code>
-		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection> UpdateSynonymDefinitionCollectionAsync(Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection collection, string localeCode, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.UpdateSynonymDefinitionCollectionClient( collection,  localeCode,  responseFields);
-			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
-			return await response.ResultAsync();
-
-		}
-
+		
 		/// <summary>
 		/// 
 		/// </summary>
