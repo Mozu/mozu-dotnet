@@ -125,23 +125,6 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Pricelists
 			return mozuUrl;
 		}
 
-		/// <summary>
-        /// Get Resource Url for DeletePriceList
-        /// </summary>
-        /// <param name="cascadeDeleteEntries"></param>
-        /// <param name="priceListCode"></param>
-        /// <returns>
-        /// String - Resource Url
-        /// </returns>
-        public static MozuUrl DeletePriceListUrl(string priceListCode, bool? cascadeDeleteEntries =  null)
-		{
-			var url = "/api/commerce/catalog/admin/pricelists/{priceListCode}?cascadeDeleteEntries={cascadeDeleteEntries}";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "cascadeDeleteEntries", cascadeDeleteEntries);
-			mozuUrl.FormatUrl( "priceListCode", priceListCode);
-			return mozuUrl;
-		}
-
 		
 	}
 }

@@ -29,6 +29,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public decimal? DeltaWeight { get; set; }
 
+			public ProductVariationFixedPrice FixedPrice { get; set; }
+
 			///
 			///Describes the types of fulfillment that are supported for this product variation. A variation can support direct ship, in-store pickup, or both. Supported fulfillment types are defined at the master catalog level. Client administrators cannot override the supported fulfillment types at the catalog level.
 			///
@@ -45,6 +47,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public bool? IsOrphan { get; set; }
 
 			public List<ProductVariationDeltaPrice> LocalizedDeltaPrice { get; set; }
+
+			public List<ProductVariationFixedPrice> LocalizedFixedPrice { get; set; }
 
 			///
 			///Wrapper for the list of option attributes configured for the product variation.

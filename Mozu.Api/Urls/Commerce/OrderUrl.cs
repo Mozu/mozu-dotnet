@@ -216,6 +216,27 @@ namespace Mozu.Api.Urls.Commerce
 		}
 
 		/// <summary>
+        /// Get Resource Url for ChangeOrderPriceList
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="updateMode"></param>
+        /// <param name="version"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl ChangeOrderPriceListUrl(string orderId, string updateMode =  null, string version =  null, string responseFields =  null)
+		{
+			var url = "/api/commerce/orders/{orderId}/priceList?updatemode={updateMode}&version={version}&responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "orderId", orderId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "updateMode", updateMode);
+			mozuUrl.FormatUrl( "version", version);
+			return mozuUrl;
+		}
+
+		/// <summary>
         /// Get Resource Url for ChangeOrderUserId
         /// </summary>
         /// <param name="orderId">Unique identifier of the order.</param>

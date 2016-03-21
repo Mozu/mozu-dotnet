@@ -86,6 +86,55 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="customerAccountId"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var pricelist = new PriceList();
+		///   var resolvedPriceList = pricelist.GetResolvedPriceList( customerAccountId,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList GetResolvedPriceList(int? customerAccountId =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.PriceListClient.GetResolvedPriceListClient( customerAccountId,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="customerAccountId"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var pricelist = new PriceList();
+		///   var resolvedPriceList = await pricelist.GetResolvedPriceListAsync( customerAccountId,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList> GetResolvedPriceListAsync(int? customerAccountId =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.PriceListClient.GetResolvedPriceListClient( customerAccountId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
 
 	}
 

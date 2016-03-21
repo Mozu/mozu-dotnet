@@ -147,6 +147,108 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="productCode"></param>
+		/// <param name="variationKey"></param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productvariation = new ProductVariation();
+		///   var productVariationFixedPrice = productvariation.GetProductVariationLocalizedPrices(_dataViewMode,  productCode,  variationKey);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice> GetProductVariationLocalizedPrices(string productCode, string variationKey)
+		{
+			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice>> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.GetProductVariationLocalizedPricesClient(_dataViewMode,  productCode,  variationKey);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="productCode"></param>
+		/// <param name="variationKey"></param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productvariation = new ProductVariation();
+		///   var productVariationFixedPrice = await productvariation.GetProductVariationLocalizedPricesAsync(_dataViewMode,  productCode,  variationKey);
+		/// </code>
+		/// </example>
+		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice>> GetProductVariationLocalizedPricesAsync(string productCode, string variationKey)
+		{
+			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice>> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.GetProductVariationLocalizedPricesClient(_dataViewMode,  productCode,  variationKey);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="variationKey"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productvariation = new ProductVariation();
+		///   var productVariationFixedPrice = productvariation.GetProductVariationLocalizedPrice(_dataViewMode,  productCode,  variationKey,  currencyCode,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice GetProductVariationLocalizedPrice(string productCode, string variationKey, string currencyCode, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.GetProductVariationLocalizedPriceClient(_dataViewMode,  productCode,  variationKey,  currencyCode,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="variationKey"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productvariation = new ProductVariation();
+		///   var productVariationFixedPrice = await productvariation.GetProductVariationLocalizedPriceAsync(_dataViewMode,  productCode,  variationKey,  currencyCode,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice> GetProductVariationLocalizedPriceAsync(string productCode, string variationKey, string currencyCode, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.GetProductVariationLocalizedPriceClient(_dataViewMode,  productCode,  variationKey,  currencyCode,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
 		/// Retrieves the details of a product variation based on the supplied product code and variation key.
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
@@ -311,6 +413,59 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// 
 		/// </summary>
 		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="variationKey"></param>
+		/// <param name="localizedPrice"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productvariation = new ProductVariation();
+		///   var productVariationFixedPrice = productvariation.AddProductVariationLocalizedPrice(_dataViewMode,  localizedPrice,  productCode,  variationKey,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice AddProductVariationLocalizedPrice(Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice localizedPrice, string productCode, string variationKey, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.AddProductVariationLocalizedPriceClient(_dataViewMode,  localizedPrice,  productCode,  variationKey,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="variationKey"></param>
+		/// <param name="localizedPrice"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productvariation = new ProductVariation();
+		///   var productVariationFixedPrice = await productvariation.AddProductVariationLocalizedPriceAsync(_dataViewMode,  localizedPrice,  productCode,  variationKey,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice> AddProductVariationLocalizedPriceAsync(Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice localizedPrice, string productCode, string variationKey, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.AddProductVariationLocalizedPriceClient(_dataViewMode,  localizedPrice,  productCode,  variationKey,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="productCode"></param>
 		/// <param name="variationKey"></param>
 		/// <param name="localizedDeltaPrice"></param>
 		/// <returns>
@@ -407,6 +562,112 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.UpdateProductVariationLocalizedDeltaPriceClient(_dataViewMode,  localizedDeltaPrice,  productCode,  variationKey,  currencyCode,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="productCode"></param>
+		/// <param name="variationKey"></param>
+		/// <param name="localizedPrice"></param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productvariation = new ProductVariation();
+		///   var productVariationFixedPrice = productvariation.UpdateProductVariationLocalizedPrices(_dataViewMode,  localizedPrice,  productCode,  variationKey);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice> UpdateProductVariationLocalizedPrices(List<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice> localizedPrice, string productCode, string variationKey)
+		{
+			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice>> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.UpdateProductVariationLocalizedPricesClient(_dataViewMode,  localizedPrice,  productCode,  variationKey);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="productCode"></param>
+		/// <param name="variationKey"></param>
+		/// <param name="localizedPrice"></param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productvariation = new ProductVariation();
+		///   var productVariationFixedPrice = await productvariation.UpdateProductVariationLocalizedPricesAsync(_dataViewMode,  localizedPrice,  productCode,  variationKey);
+		/// </code>
+		/// </example>
+		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice>> UpdateProductVariationLocalizedPricesAsync(List<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice> localizedPrice, string productCode, string variationKey)
+		{
+			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice>> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.UpdateProductVariationLocalizedPricesClient(_dataViewMode,  localizedPrice,  productCode,  variationKey);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="variationKey"></param>
+		/// <param name="localizedPrice"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productvariation = new ProductVariation();
+		///   var productVariationFixedPrice = productvariation.UpdateProductVariationLocalizedPrice(_dataViewMode,  localizedPrice,  productCode,  variationKey,  currencyCode,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice UpdateProductVariationLocalizedPrice(Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice localizedPrice, string productCode, string variationKey, string currencyCode, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.UpdateProductVariationLocalizedPriceClient(_dataViewMode,  localizedPrice,  productCode,  variationKey,  currencyCode,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="variationKey"></param>
+		/// <param name="localizedPrice"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productvariation = new ProductVariation();
+		///   var productVariationFixedPrice = await productvariation.UpdateProductVariationLocalizedPriceAsync(_dataViewMode,  localizedPrice,  productCode,  variationKey,  currencyCode,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice> UpdateProductVariationLocalizedPriceAsync(Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice localizedPrice, string productCode, string variationKey, string currencyCode, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.UpdateProductVariationLocalizedPriceClient(_dataViewMode,  localizedPrice,  productCode,  variationKey,  currencyCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -608,6 +869,55 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.DeleteProductVariationLocalizedDeltaPriceClient(_dataViewMode,  productCode,  variationKey,  currencyCode);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="variationKey"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productvariation = new ProductVariation();
+		///   productvariation.DeleteProductVariationLocalizedPrice(_dataViewMode,  productCode,  variationKey,  currencyCode);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void DeleteProductVariationLocalizedPrice(string productCode, string variationKey, string currencyCode)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.DeleteProductVariationLocalizedPriceClient(_dataViewMode,  productCode,  variationKey,  currencyCode);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="variationKey"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productvariation = new ProductVariation();
+		///   await productvariation.DeleteProductVariationLocalizedPriceAsync(_dataViewMode,  productCode,  variationKey,  currencyCode);
+		/// </code>
+		/// </example>
+		public virtual async Task DeleteProductVariationLocalizedPriceAsync(string productCode, string variationKey, string currencyCode)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.DeleteProductVariationLocalizedPriceClient(_dataViewMode,  productCode,  variationKey,  currencyCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 

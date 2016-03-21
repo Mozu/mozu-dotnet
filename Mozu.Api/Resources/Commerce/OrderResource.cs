@@ -595,6 +595,61 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="updateMode"></param>
+		/// <param name="version"></param>
+		/// <param name="priceListCode"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var order = new Order();
+		///   var order = order.ChangeOrderPriceList( priceListCode,  orderId,  updateMode,  version,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.Order ChangeOrderPriceList(string priceListCode, string orderId, string updateMode =  null, string version =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
+			var client = Mozu.Api.Clients.Commerce.OrderClient.ChangeOrderPriceListClient( priceListCode,  orderId,  updateMode,  version,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="updateMode"></param>
+		/// <param name="version"></param>
+		/// <param name="priceListCode"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var order = new Order();
+		///   var order = await order.ChangeOrderPriceListAsync( priceListCode,  orderId,  updateMode,  version,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> ChangeOrderPriceListAsync(string priceListCode, string orderId, string updateMode =  null, string version =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
+			var client = Mozu.Api.Clients.Commerce.OrderClient.ChangeOrderPriceListClient( priceListCode,  orderId,  updateMode,  version,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
 		/// Updates the user ID of the shopper who placed the order to the current user.
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>

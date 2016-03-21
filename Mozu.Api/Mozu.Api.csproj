@@ -556,6 +556,7 @@
     <Compile Include="Contracts\ProductAdmin\ProductVariation.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductVariationCollection.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductVariationDeltaPrice.cs" />
+    <Compile Include="Contracts\ProductAdmin\ProductVariationFixedPrice.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductVariationOption.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductVariationPagedCollection.cs" />
     <Compile Include="Contracts\ProductAdmin\PublishingScope.cs" />
@@ -620,6 +621,7 @@
     <Compile Include="Contracts\ProductRuntime\ProductPurchasableState.cs" />
     <Compile Include="Contracts\ProductRuntime\ProductSearchResult.cs" />
     <Compile Include="Contracts\ProductRuntime\ProductValidationSummary.cs" />
+    <Compile Include="Contracts\ProductRuntime\ResolvedPriceList.cs" />
     <Compile Include="Contracts\ProductRuntime\SearchSuggestion.cs" />
     <Compile Include="Contracts\ProductRuntime\SearchSuggestionGroup.cs" />
     <Compile Include="Contracts\ProductRuntime\SearchSuggestionResult.cs" />

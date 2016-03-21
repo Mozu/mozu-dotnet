@@ -308,6 +308,34 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="updateMode"></param>
+		/// <param name="version"></param>
+		/// <param name="priceListCode"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=ChangeOrderPriceList( priceListCode,  orderId,  updateMode,  version,  responseFields);
+		///   var orderClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> ChangeOrderPriceListClient(string priceListCode, string orderId, string updateMode =  null, string version =  null, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.OrderUrl.ChangeOrderPriceListUrl(orderId, updateMode, version, responseFields);
+			const string verb = "PUT";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody(priceListCode);
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Updates the user ID of the shopper who placed the order to the current user.
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>

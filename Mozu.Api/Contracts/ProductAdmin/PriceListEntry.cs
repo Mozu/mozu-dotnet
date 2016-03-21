@@ -53,6 +53,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public string PriceListEntryMode { get; set; }
 
+			public int PriceListEntrySequence { get; set; }
+
 			public string ProductCode { get; set; }
 
 			public string ProductName { get; set; }

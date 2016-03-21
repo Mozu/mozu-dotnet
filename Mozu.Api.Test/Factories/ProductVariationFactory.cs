@@ -106,6 +106,82 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = ProductVariationFactory.GetProductVariationLocalizedPrices(handler : handler,  productCode :  productCode,  variationKey :  variationKey,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<List<ProductVariationFixedPrice>/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static List<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice> GetProductVariationLocalizedPrices(ServiceClientMessageHandler handler, 
+ 		 string productCode, string variationKey,  DataViewMode dataViewMode= DataViewMode.Live, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.GetProductVariationLocalizedPricesClient(
+				 productCode :  productCode,  variationKey :  variationKey, dataViewMode: dataViewMode		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = ProductVariationFactory.GetProductVariationLocalizedPrice(handler : handler,  productCode :  productCode,  variationKey :  variationKey,  currencyCode :  currencyCode,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<ProductVariationFixedPrice/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice GetProductVariationLocalizedPrice(ServiceClientMessageHandler handler, 
+ 		 string productCode, string variationKey, string currencyCode, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.GetProductVariationLocalizedPriceClient(
+				 productCode :  productCode,  variationKey :  variationKey,  currencyCode :  currencyCode,  responseFields :  responseFields, dataViewMode: dataViewMode		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
 		/// Retrieves the details of a product variation based on the supplied product code and variation key.
 		/// <example> 
 		///  <code> 
@@ -223,6 +299,44 @@ namespace Mozu.Api.Test.Factories
 		/// 
 		/// <example> 
 		///  <code> 
+		/// var result = ProductVariationFactory.AddProductVariationLocalizedPrice(handler : handler,  localizedPrice :  localizedPrice,  productCode :  productCode,  variationKey :  variationKey,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<ProductVariationFixedPrice/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice AddProductVariationLocalizedPrice(ServiceClientMessageHandler handler, 
+ 		 Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice localizedPrice, string productCode, string variationKey, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
+		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.AddProductVariationLocalizedPriceClient(
+				 localizedPrice :  localizedPrice,  productCode :  productCode,  variationKey :  variationKey,  responseFields :  responseFields, dataViewMode: dataViewMode		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
 		/// var result = ProductVariationFactory.UpdateProductVariationLocalizedDeltaPrices(handler : handler,  localizedDeltaPrice :  localizedDeltaPrice,  productCode :  productCode,  variationKey :  variationKey,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<List<ProductVariationDeltaPrice>/>(result); 
 		/// return optionalCasting;
@@ -277,6 +391,82 @@ namespace Mozu.Api.Test.Factories
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.UpdateProductVariationLocalizedDeltaPriceClient(
 				 localizedDeltaPrice :  localizedDeltaPrice,  productCode :  productCode,  variationKey :  variationKey,  currencyCode :  currencyCode,  responseFields :  responseFields, dataViewMode: dataViewMode		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = ProductVariationFactory.UpdateProductVariationLocalizedPrices(handler : handler,  localizedPrice :  localizedPrice,  productCode :  productCode,  variationKey :  variationKey,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<List<ProductVariationFixedPrice>/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static List<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice> UpdateProductVariationLocalizedPrices(ServiceClientMessageHandler handler, 
+ 		 List<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice> localizedPrice, string productCode, string variationKey,  DataViewMode dataViewMode= DataViewMode.Live, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.UpdateProductVariationLocalizedPricesClient(
+				 localizedPrice :  localizedPrice,  productCode :  productCode,  variationKey :  variationKey, dataViewMode: dataViewMode		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = ProductVariationFactory.UpdateProductVariationLocalizedPrice(handler : handler,  localizedPrice :  localizedPrice,  productCode :  productCode,  variationKey :  variationKey,  currencyCode :  currencyCode,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<ProductVariationFixedPrice/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice UpdateProductVariationLocalizedPrice(ServiceClientMessageHandler handler, 
+ 		 Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice localizedPrice, string productCode, string variationKey, string currencyCode, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.UpdateProductVariationLocalizedPriceClient(
+				 localizedPrice :  localizedPrice,  productCode :  productCode,  variationKey :  variationKey,  currencyCode :  currencyCode,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -427,6 +617,43 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.DeleteProductVariationLocalizedDeltaPriceClient(
+				 productCode :  productCode,  variationKey :  variationKey,  currencyCode :  currencyCode, dataViewMode: dataViewMode		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+			}
+			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = ProductVariationFactory.DeleteProductVariationLocalizedPrice(handler : handler,  productCode :  productCode,  variationKey :  variationKey,  currencyCode :  currencyCode,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static void DeleteProductVariationLocalizedPrice(ServiceClientMessageHandler handler, 
+ 		string productCode, string variationKey, string currencyCode,  DataViewMode dataViewMode= DataViewMode.Live, 
+		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.DeleteProductVariationLocalizedPriceClient(
 				 productCode :  productCode,  variationKey :  variationKey,  currencyCode :  currencyCode, dataViewMode: dataViewMode		);
 			try
 			{

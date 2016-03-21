@@ -33,6 +33,23 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for GetResolvedPriceList
+        /// </summary>
+        /// <param name="customerAccountId"></param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetResolvedPriceListUrl(int? customerAccountId =  null, string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/storefront/pricelists/resolved?customerAccountId={customerAccountId}&responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "customerAccountId", customerAccountId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
 								
 	}
 }

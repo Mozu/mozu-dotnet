@@ -37,11 +37,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public string PriceListCode { get; set; }
 
+			public int PriceListSequence { get; set; }
+
 			public int? Rank { get; set; }
 
 			public bool? Resolvable { get; set; }
-
-			public int? SearchIndexSequence { get; set; }
 
 			public bool? ValidForAllSites { get; set; }
 
