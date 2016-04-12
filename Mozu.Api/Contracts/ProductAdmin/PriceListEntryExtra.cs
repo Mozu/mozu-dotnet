@@ -11,15 +11,21 @@
 using System;
 
 
-namespace Mozu.Api.Contracts.PaymentService
+namespace Mozu.Api.Contracts.ProductAdmin
 {
-		public class Product
+		public class PriceListEntryExtra
 		{
-			public string ProductCode { get; set; }
+			public string AttributeCode { get; set; }
 
-			public string ProductName { get; set; }
+			public string AttributeFQN { get; set; }
 
-			public string VariantProductCode { get; set; }
+			public string AttributeName { get; set; }
+
+			public string DisplayValue { get; set; }
+
+			public decimal Price { get; set; }
+
+			public object Value { get; set; }
 
 		}
 

@@ -15,7 +15,7 @@ using Mozu.Api.Contracts.Event;
 
 namespace Mozu.Api.Events
 {
-	public interface ITenantEvents
+	public interface IPriceListEvents
 	{
 		[Obsolete("This method is obsolete; use the async method instead")]
 		void Created(IApiContext apiContext, Event eventPayLoad);

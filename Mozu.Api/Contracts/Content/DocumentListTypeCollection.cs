@@ -9,17 +9,22 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 
 
-namespace Mozu.Api.Contracts.PaymentService
+namespace Mozu.Api.Contracts.Content
 {
-		public class Product
+		public class DocumentListTypeCollection
 		{
-			public string ProductCode { get; set; }
+			public List<DocumentListType> Items { get; set; }
 
-			public string ProductName { get; set; }
+			public int PageCount { get; set; }
 
-			public string VariantProductCode { get; set; }
+			public int PageSize { get; set; }
+
+			public int StartIndex { get; set; }
+
+			public int TotalCount { get; set; }
 
 		}
 
