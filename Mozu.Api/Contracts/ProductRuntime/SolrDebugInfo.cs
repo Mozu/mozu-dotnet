@@ -14,16 +14,34 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.ProductRuntime
 {
+		///
+		///	Mozu.ProductRuntime.Contracts.SolrDebugInfo ApiType DOCUMENT_HERE 
+		///
 		public class SolrDebugInfo
 		{
+			///
+			///Mozu.ProductRuntime.Contracts.SolrDebugInfo blockedProductCodes ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<string> BlockedProductCodes { get; set; }
 
+			///
+			///Mozu.ProductRuntime.Contracts.SolrDebugInfo boostedProductCodes ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<string> BoostedProductCodes { get; set; }
 
+			///
+			///Mozu.ProductRuntime.Contracts.SolrDebugInfo boostFunctions ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<string> BoostFunctions { get; set; }
 
+			///
+			///Mozu.ProductRuntime.Contracts.SolrDebugInfo boostQueries ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<string> BoostQueries { get; set; }
 
+			///
+			///Mozu.ProductRuntime.Contracts.SolrDebugInfo searchTuningRuleCode ApiTypeMember DOCUMENT_HERE 
+			///
 			public string SearchTuningRuleCode { get; set; }
 
 		}

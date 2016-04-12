@@ -30,7 +30,7 @@ namespace Mozu.Api.Test.Factories
 	{
 
 		/// <summary> 
-		/// 
+		/// Retrieves an order item with the order line ID.
 		/// <example> 
 		///  <code> 
 		/// var result = OrderItemFactory.GetOrderItemViaLineId(handler : handler,  orderId :  orderId,  lineId :  lineId,  draft :  draft,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -220,7 +220,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Update the duty fee information for an order item.
 		/// <example> 
 		///  <code> 
 		/// var result = OrderItemFactory.UpdateItemDuty(handler : handler,  orderId :  orderId,  orderItemId :  orderItemId,  dutyAmount :  dutyAmount,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

@@ -13,10 +13,19 @@ using System;
 
 namespace Mozu.Api.Contracts.Event
 {
+		///
+		///	Key and value data for an extended property event.
+		///
 		public class EventExtendedProperty
 		{
+			///
+			///Key used for metadata defined for objects, including extensible attributes, custom attributes associated with a shipping provider, and search synonyms definitions. This content may be user-defined depending on the object and usage.
+			///
 			public string Key { get; set; }
 
+			///
+			///The value of a property, used by numerous objects within Mozu including facets, attributes, products, localized content, metadata, capabilities (Mozu and third-party), location inventory adjustment, and more. The value may be a string, integer, or double. Validation may be run against the entered and saved values depending on the object type.
+			///
 			public object Value { get; set; }
 
 		}

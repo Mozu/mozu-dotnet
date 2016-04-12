@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// platform/extensions related resources. DOCUMENT_HERE 
 	/// </summary>
 	public partial class TenantExtensionsFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// 
+		/// platform-extensions Get GetExtensions description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = TenantExtensionsFactory.GetExtensions(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// platform-extensions Put UpdateExtensions description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = TenantExtensionsFactory.UpdateExtensions(handler : handler,  extensions :  extensions,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

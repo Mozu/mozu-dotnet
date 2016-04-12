@@ -27,17 +27,17 @@ namespace Mozu.Api.Contracts.Customer
 			public string Code { get; set; }
 
 			///
-			///Description of the customer segment.
+			///The localized description in text for the object, displayed per the locale code. For example, descriptions are used for product descriptions, attributes, and pre-authorization transaction types.
 			///
 			public string Description { get; set; }
 
 			///
-			///Unique identifier of the customer segment. System-supplied and read only.
+			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 			///
 			public int Id { get; set; }
 
 			///
-			///Name of the customer segment.
+			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
 			///
 			public string Name { get; set; }
 

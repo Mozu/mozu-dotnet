@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Performs transformations on a document. For example, resizing an image.
 		/// <example> 
 		///  <code> 
 		/// var result = DocumentTreeFactory.TransformTreeDocumentContent(handler : handler,  documentListName :  documentListName,  documentName :  documentName,  width :  width,  height :  height,  max :  max,  maxWidth :  maxWidth,  maxHeight :  maxHeight,  crop :  crop,  quality :  quality,  expectedCode: expectedCode, successCode: successCode); 

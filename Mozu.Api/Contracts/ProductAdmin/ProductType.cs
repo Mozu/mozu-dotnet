@@ -26,17 +26,17 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public AuditInfo AuditInfo { get; set; }
 
 			///
-			///The list of product type attributes which exist as extras. Example: monogram
+			///List of extra product attributes defined for this product. For example, monogram could be a possible extra for a shirt product.
 			///
 			public List<AttributeInProductType> Extras { get; set; }
 
 			///
-			///The type of goods for this product.
+			///The type of goods in a bundled product. A bundled product is composed of products associated to sell together. Possible values include “Physical” and “DigitalCredit”. This comes from the `productType `of the product. Products are defaulted to a Physical `goodsType`. Gift cards have a `goodsType `of DigitalCredit.
 			///
 			public string GoodsType { get; set; }
 
 			///
-			///Unique identifier of the product type.
+			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 			///
 			public int? Id { get; set; }
 
@@ -51,17 +51,17 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public int? MasterCatalogId { get; set; }
 
 			///
-			///Name of the product type, such as "Shoes" or "TVs."
+			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
 			///
 			public string Name { get; set; }
 
 			///
-			///The list of product type attributes which exist as options.
+			///List of option attributes configured for an object. These values are associated and used by products, product bundles, and product types.
 			///
 			public List<AttributeInProductType> Options { get; set; }
 
 			///
-			///The number of products associated with this product type.
+			///The total number of products. This total may indicate the total products associate with a product type or number of products in a list.
 			///
 			public int? ProductCount { get; set; }
 
@@ -71,7 +71,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public List<string> ProductUsages { get; set; }
 
 			///
-			///The list of product type attributes which exist as properties, such as color.
+			///Collection of property attributes defined for the object. Properties are associated to all objects within Mozu, including documents, products, and product types.
 			///
 			public List<AttributeInProductType> Properties { get; set; }
 

@@ -53,7 +53,7 @@ namespace Mozu.Api.Urls.Platform.Developer
 				/// <summary>
         /// Get Resource Url for DeleteUserAuthTicket
         /// </summary>
-        /// <param name="refreshToken">Refresh token string associated with the developer account authentication ticket.</param>
+        /// <param name="refreshToken">Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

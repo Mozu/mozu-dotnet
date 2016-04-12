@@ -19,12 +19,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 		public class ProductPrice
 		{
 			///
-			///The credit value when the product happens to be a gift card or similar product.
+			///The credit value of the product or bundled product. When the `goodsType `is `DigitalCredit`, this value is populated to indicate the value of the credit. This is used to create store credit in the fulfillment of gift cards.
 			///
 			public decimal? CreditValue { get; set; }
 
 			///
-			///The manufacturer's suggested retail price for the product.
+			///The manufacturer's suggested retail price for the product. This content may be defined by the supplier.
 			///
 			public decimal? Msrp { get; set; }
 
@@ -33,12 +33,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			///
 			public decimal? Price { get; set; }
 
-			public string PriceListCode { get; set; }
-
-			public string PriceListEntryMode { get; set; }
-
 			///
-			///Current sale price defined for a product on a storefront.
+			///The set sale price for a product consisting of a price with a discount already applied.
 			///
 			public decimal? SalePrice { get; set; }
 

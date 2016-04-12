@@ -24,7 +24,7 @@ namespace Mozu.Api.Contracts.Reference
 			public string Code { get; set; }
 
 			///
-			///The name of the country.
+			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
 			///
 			public string Name { get; set; }
 

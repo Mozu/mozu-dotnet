@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Orders
 {
 	/// <summary>
-	/// 
+	/// Use the refunds resource to create a refund.
 	/// </summary>
 	public partial class RefundResource  	{
 		///
@@ -38,11 +38,11 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 				
 		/// <summary>
-		/// 
+		/// Creates a refund based on the information supplied in the request.  
 		/// </summary>
-		/// <param name="orderId"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="refund"></param>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="refund">Mozu.CommerceRuntime.Contracts.Refunds.Refund ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Refunds.Refund"/>
 		/// </returns>
@@ -64,11 +64,11 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		}
 
 		/// <summary>
-		/// 
+		/// Creates a refund based on the information supplied in the request.  
 		/// </summary>
-		/// <param name="orderId"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="refund"></param>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="refund">Mozu.CommerceRuntime.Contracts.Refunds.Refund ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Refunds.Refund"/>
 		/// </returns>
@@ -89,10 +89,10 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		}
 
 		/// <summary>
-		/// 
+		/// Resends the order refund email previously sent to the shopper. 
 		/// </summary>
-		/// <param name="orderId"></param>
-		/// <param name="refundId"></param>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="refundId">Unique ID of the refund.        </param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -113,10 +113,10 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		}
 
 		/// <summary>
-		/// 
+		/// Resends the order refund email previously sent to the shopper. 
 		/// </summary>
-		/// <param name="orderId"></param>
-		/// <param name="refundId"></param>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="refundId">Unique ID of the refund.        </param>
 		/// <returns>
 		/// 
 		/// </returns>

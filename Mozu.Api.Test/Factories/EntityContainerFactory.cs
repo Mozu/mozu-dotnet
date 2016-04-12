@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// Entity containers provide all properties and data for entities within a site/tenant. This data encapsulates all associated IDs including entity lists, entity views, site, tenant, entities, and more.
 	/// </summary>
 	public partial class EntityContainerFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// 
+		/// Retrieves an entity container, providing all schema and rules and associated IDs for entities.
 		/// <example> 
 		///  <code> 
 		/// var result = EntityContainerFactory.GetEntityContainer(handler : handler,  entityListFullName :  entityListFullName,  id :  id,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves a collection of entity containers. Each container holds a set of entities per ID. 
 		/// <example> 
 		///  <code> 
 		/// var result = EntityContainerFactory.GetEntityContainers(handler : handler,  entityListFullName :  entityListFullName,  pageSize :  pageSize,  startIndex :  startIndex,  filter :  filter,  sortBy :  sortBy,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

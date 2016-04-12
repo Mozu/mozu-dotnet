@@ -15,18 +15,39 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.MZDB
 {
+		///
+		///	Properties of the EntityContainer within a specific tenant and site.
+		///
 		public class EntityContainer
 		{
+			///
+			///The unique identifier for the product catalog. Catalogs are part of a master catalog.
+			///
 			public int? CatalogId { get; set; }
 
+			///
+			///Identifier of the user that created the object. System created and read only.
+			///
 			public string CreateBy { get; set; }
 
+			///
+			///The date time in UTC format set when the object was created. 
+			///
 			public DateTime CreateDate { get; set; }
 
+			///
+			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///
 			public string Id { get; set; }
 
+			///
+			///The entity in JSON format.
+			///
 			public JObject Item { get; set; }
 
+			///
+			///The nameSpace and name for the EntityList in the format name@nameSpace.
+			///
 			public string ListFullName { get; set; }
 
 			///
@@ -34,8 +55,14 @@ namespace Mozu.Api.Contracts.MZDB
 			///
 			public string LocaleCode { get; set; }
 
+			///
+			///Unique identifier for the master catalog. 
+			///
 			public int? MasterCatalogId { get; set; }
 
+			///
+			///Unique identifier for the site. This ID is used at all levels of a store, catalog, and tenant to associate objects to a site.
+			///
 			public int? SiteId { get; set; }
 
 			///
@@ -43,10 +70,19 @@ namespace Mozu.Api.Contracts.MZDB
 			///
 			public int TenantId { get; set; }
 
+			///
+			///Identifier of the user that updated the entity most recently.
+			///
 			public string UpdateBy { get; set; }
 
+			///
+			///The date and time the object was updated most recently. The date is in UTC format.
+			///
 			public DateTime UpdateDate { get; set; }
 
+			///
+			///Unique identifier of the customer account (shopper or system user). System-supplied and read-only. If the shopper user is anonymous, the user ID represents a system-generated user ID string.
+			///
 			public string UserId { get; set; }
 
 		}

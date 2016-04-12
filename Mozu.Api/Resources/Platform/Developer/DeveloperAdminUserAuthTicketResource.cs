@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Platform.Developer
 {
 	/// <summary>
-	/// Use this resource to manage authentication tickets for your developer account.
+	/// Use the Authtickets resource to manage authentication tickets for your developer account.
 	/// </summary>
 	public partial class DeveloperAdminUserAuthTicketResource  	{
 		///
@@ -46,7 +46,7 @@ namespace Mozu.Api.Resources.Platform.Developer
 		/// </summary>
 		/// <param name="developerAccountId">Unique identifier of the developer account.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="userAuthInfo">The user authentication information required to generate the developer account user authentication ticket, which consists of a user name and password.</param>
+		/// <param name="userAuthInfo">Information required to authenticate a user.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket"/>
 		/// </returns>
@@ -72,7 +72,7 @@ namespace Mozu.Api.Resources.Platform.Developer
 		/// </summary>
 		/// <param name="developerAccountId">Unique identifier of the developer account.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="userAuthInfo">The user authentication information required to generate the developer account user authentication ticket, which consists of a user name and password.</param>
+		/// <param name="userAuthInfo">Information required to authenticate a user.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket"/>
 		/// </returns>
@@ -97,7 +97,7 @@ namespace Mozu.Api.Resources.Platform.Developer
 		/// </summary>
 		/// <param name="developerAccountId">Unique identifier of the developer account.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="existingAuthTicket">Properties of the authentication ticket to refresh. The refresh token is required to complete this request.</param>
+		/// <param name="existingAuthTicket">Properties of the authentication ticket to be used in developer account claims with the Mozu API.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket"/>
 		/// </returns>
@@ -123,7 +123,7 @@ namespace Mozu.Api.Resources.Platform.Developer
 		/// </summary>
 		/// <param name="developerAccountId">Unique identifier of the developer account.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="existingAuthTicket">Properties of the authentication ticket to refresh. The refresh token is required to complete this request.</param>
+		/// <param name="existingAuthTicket">Properties of the authentication ticket to be used in developer account claims with the Mozu API.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket"/>
 		/// </returns>
@@ -146,7 +146,7 @@ namespace Mozu.Api.Resources.Platform.Developer
 		/// <summary>
 		/// Deletes the authentication ticket for the developer account by supplying the refresh token.
 		/// </summary>
-		/// <param name="refreshToken">Refresh token string associated with the developer account authentication ticket.</param>
+		/// <param name="refreshToken">Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -169,7 +169,7 @@ namespace Mozu.Api.Resources.Platform.Developer
 		/// <summary>
 		/// Deletes the authentication ticket for the developer account by supplying the refresh token.
 		/// </summary>
-		/// <param name="refreshToken">Refresh token string associated with the developer account authentication ticket.</param>
+		/// <param name="refreshToken">Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.</param>
 		/// <returns>
 		/// 
 		/// </returns>

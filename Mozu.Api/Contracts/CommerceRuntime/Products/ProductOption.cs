@@ -24,27 +24,27 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			public string AttributeFQN { get; set; }
 
 			///
-			///The data type, such as bool or string, used in this option attribute.
+			///The data type of the source product property, typically of type Bool, DateTime, Number, or String.
 			///
 			public string DataType { get; set; }
 
 			///
-			///The name of the product option attribute in the language of the locale code specified for the storefront.
+			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
 			///
 			public string Name { get; set; }
 
 			///
-			///The value a shopper entered for an option attribute that requires additional input for the product on a storefront.
+			///The value a shopper entered for an attribute that requires additional input for the product on a storefront. This entered value is a selected option or entered content for an extra, such as selecting a color or entering content for a monogram.
 			///
 			public object ShopperEnteredValue { get; set; }
 
 			///
-			///If the value is a string, the string entered for the value.
+			///If the object value is a String, this value provides that string value, used by vocabulary property values, products, and options.
 			///
 			public string StringValue { get; set; }
 
 			///
-			///If the value if an object, the value selected.
+			///The value of a property, used by numerous objects within Mozu including facets, attributes, products, localized content, metadata, capabilities (Mozu and third-party), location inventory adjustment, and more. The value may be a string, integer, or double. Validation may be run against the entered and saved values depending on the object type.
 			///
 			public object Value { get; set; }
 

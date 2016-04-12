@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// Manage Secure App Settings. Expose via arc.js so that arc apps can securely access secrets. Third-party extensions can also access their data. Secured via AppKey.AppId
 	/// </summary>
 	public partial class SecureAppDataFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// 
+		/// platform-secureappdata Get GetDBValue description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = SecureAppDataFactory.GetDBValue(handler : handler,  appKeyId :  appKeyId,  dbEntryQuery :  dbEntryQuery,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// platform-secureappdata Post CreateDBValue description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = SecureAppDataFactory.CreateDBValue(handler : handler,  value :  value,  appKeyId :  appKeyId,  dbEntryQuery :  dbEntryQuery,  expectedCode: expectedCode, successCode: successCode); 
@@ -105,7 +105,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// platform-secureappdata Put UpdateDBValue description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = SecureAppDataFactory.UpdateDBValue(handler : handler,  value :  value,  appKeyId :  appKeyId,  dbEntryQuery :  dbEntryQuery,  expectedCode: expectedCode, successCode: successCode); 
@@ -142,7 +142,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// platform-secureappdata Delete DeleteDBValue description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = SecureAppDataFactory.DeleteDBValue(handler : handler,  appKeyId :  appKeyId,  dbEntryQuery :  dbEntryQuery,  expectedCode: expectedCode, successCode: successCode); 

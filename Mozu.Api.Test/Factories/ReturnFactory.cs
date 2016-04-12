@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves the details of a single return item.
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.GetReturnItem(handler : handler,  returnId :  returnId,  returnItemId :  returnItemId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves the details of all return items in an order.
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.GetReturnItems(handler : handler,  returnId :  returnId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -334,7 +334,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// commerce-returns Get GetReasons description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.GetReasons(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -410,7 +410,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Adds a return item to the return.
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.CreateReturnItem(handler : handler,  returnItem :  returnItem,  returnId :  returnId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -600,7 +600,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// commerce-returns Put ResendReturnEmail description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.ResendReturnEmail(handler : handler,  action :  action,  expectedCode: expectedCode, successCode: successCode); 
@@ -637,7 +637,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Removes a particular order item from the order of the current shopper.
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.DeleteOrderItem(handler : handler,  returnId :  returnId,  returnItemId :  returnItemId,  expectedCode: expectedCode, successCode: successCode); 

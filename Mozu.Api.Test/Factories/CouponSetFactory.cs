@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// Use the Coupon Sets resource to view and create coupon sets. You can use coupon sets to group multiple coupon codes together and associate them with one or more discounts.
 	/// </summary>
 	public partial class CouponSetFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// 
+		/// Retrieves a list of coupon sets according to any specified filter criteria and sort options.
 		/// <example> 
 		///  <code> 
 		/// var result = CouponSetFactory.GetCouponSets(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  includeCounts :  includeCounts,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Returns a single
 		/// <example> 
 		///  <code> 
 		/// var result = CouponSetFactory.GetCouponSet(handler : handler,  couponSetCode :  couponSetCode,  includeCounts :  includeCounts,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Returns a random, unique four character coupon set code.
 		/// <example> 
 		///  <code> 
 		/// var result = CouponSetFactory.GetUniqueCouponSetCode(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Adds a new coupon set.
 		/// <example> 
 		///  <code> 
 		/// var result = CouponSetFactory.AddCouponSet(handler : handler,  couponSet :  couponSet,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Validates the coupon set code and tests it for uniqueness.
 		/// <example> 
 		///  <code> 
 		/// var result = CouponSetFactory.ValidateUniqueCouponSetCode(handler : handler,  code :  code,  expectedCode: expectedCode, successCode: successCode); 
@@ -219,7 +219,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Update a representation. You can not update the Code or ID once the set is created.
 		/// <example> 
 		///  <code> 
 		/// var result = CouponSetFactory.UpdateCouponSet(handler : handler,  couponSet :  couponSet,  couponSetCode :  couponSetCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -257,7 +257,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// admin-couponsets Delete DeleteCouponSet description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = CouponSetFactory.DeleteCouponSet(handler : handler,  couponSetCode :  couponSetCode,  expectedCode: expectedCode, successCode: successCode); 

@@ -23,12 +23,24 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
 			///
 			public decimal? Amount { get; set; }
 
+			///
+			///Unique identifier of an app available in your Mozu tenant or within Mozu Dev Center. This ID is unique across all apps installed, initialized, and enabled in the Mozu Admin and those in development through the Dev Center Console.
+			///
 			public string AppId { get; set; }
 
+			///
+			///The application's key.
+			///
 			public string AppKey { get; set; }
 
+			///
+			///The application's name.
+			///
 			public string AppName { get; set; }
 
+			///
+			///The unique identifier of the API request associated with the event action, which might contain multiple actions.
+			///
 			public string CorrelationId { get; set; }
 
 			///
@@ -37,7 +49,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
 			public DateTime? CreateDate { get; set; }
 
 			///
-			///Unique identifier of the change message. System-supplied and read-only.
+			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 			///
 			public string Id { get; set; }
 
@@ -47,10 +59,13 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
 			public string Identifier { get; set; }
 
 			///
-			///The text of the change message, such as "This product is no longer available". System-supplied and read-only.
+			///The text of the change message, such as "This product is no longer available." System-supplied and read-only.
 			///
 			public string Message { get; set; }
 
+			///
+			///Metadata content for entities, used by document lists, document type lists, document type, views, entity lists, and list views.
+			///
 			public object Metadata { get; set; }
 
 			///
@@ -78,15 +93,24 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
 			///
 			public bool? Success { get; set; }
 
+			///
+			///The user's first name.
+			///
 			public string UserFirstName { get; set; }
 
 			///
-			///The unique identifier of the user who initiated the change.
+			///Unique identifier of the customer account (shopper or system user). System-supplied and read-only. If the shopper user is anonymous, the user ID represents a system-generated user ID string.
 			///
 			public string UserId { get; set; }
 
+			///
+			///The user's last name.
+			///
 			public string UserLastName { get; set; }
 
+			///
+			///The user type (e.g. Shopper, Admin, etc.).
+			///
 			public string UserScopeType { get; set; }
 
 			///

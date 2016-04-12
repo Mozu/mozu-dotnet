@@ -21,7 +21,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 		public class OrderAttribute
 		{
 			///
-			///Unique identifier of the order attribute definition.
+			///Unique identifier of the attribute definition.
 			///
 			public int? AttributeDefinitionId { get; set; }
 
@@ -36,7 +36,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public string FullyQualifiedName { get; set; }
 
 			///
-			///The values defined for the order attribute.
+			///List of value data for objects.
 			///
 			public List<object> Values { get; set; }
 

@@ -15,14 +15,29 @@ using Mozu.Api.Contracts.PaymentService;
 
 namespace Mozu.Api.Contracts.PaymentService.Response
 {
+		///
+		///	Mozu.PaymentService.Contracts.Response.FraudScreen ApiType DOCUMENT_HERE 
+		///
 		public class FraudScreen
 		{
+			///
+			///Mozu.PaymentService.Contracts.Response.FraudScreen fraudScreenResponseData ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<FraudScreenResponseData> FraudScreenResponseData { get; set; }
 
+			///
+			///Unique identifier of the payment interaction from the payment gateway.
+			///
 			public int? GatewayInteractionId { get; set; }
 
+			///
+			///The current status of an object. This status is specific to the object including payment (New, Authorized, Captured, Declined, Failed, Voided, Credited, CheckRequested, or RolledBack), discount (Active, Scheduled, or Expired), returns (ReturnAuthorized), tenant, package (Fulfilled or NotFulfilled), application, master and product catalogs, orders (Pending, Submitted, Processing, Pending Review, Closed, or Canceled), and order validation results (Pass, Fail, Error, or Review).
+			///
 			public string Status { get; set; }
 
+			///
+			///Mozu.PaymentService.Contracts.Response.FraudScreen transactionId ApiTypeMember DOCUMENT_HERE 
+			///
 			public string TransactionId { get; set; }
 
 		}
