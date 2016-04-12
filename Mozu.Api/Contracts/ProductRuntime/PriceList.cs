@@ -22,6 +22,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 
 			public string Description { get; set; }
 
+			public bool Enabled { get; set; }
+
 			public bool FilteredInStoreFront { get; set; }
 
 			public bool IsSiteDefault { get; set; }

@@ -35,6 +35,10 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public DateTime? EndDate { get; set; }
 
+			public List<PriceListEntryExtra> ExtraEntries { get; set; }
+
+			public bool IsVariation { get; set; }
+
 			public decimal? Map { get; set; }
 
 			public DateTime? MapEndDate { get; set; }
@@ -46,6 +50,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public decimal? Msrp { get; set; }
 
 			public string MsrpMode { get; set; }
+
+			public List<ProductOption> Options { get; set; }
 
 			public List<PriceListEntryPrice> PriceEntries { get; set; }
 

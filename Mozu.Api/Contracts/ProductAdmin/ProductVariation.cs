@@ -31,6 +31,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public ProductVariationFixedPrice FixedPrice { get; set; }
 
+			public decimal? FixedWeight { get; set; }
+
 			///
 			///Describes the types of fulfillment that are supported for this product variation. A variation can support direct ship, in-store pickup, or both. Supported fulfillment types are defined at the master catalog level. Client administrators cannot override the supported fulfillment types at the catalog level.
 			///

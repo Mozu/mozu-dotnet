@@ -29,6 +29,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///
 			public AuditInfo AuditInfo { get; set; }
 
+			public CartMessage CartMessage { get; set; }
+
 			///
 			///Messages logged or created each time the cart was modified.
 			///
@@ -124,8 +126,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			public List<AppliedDiscount> OrderDiscounts { get; set; }
 
 			public string PriceListCode { get; set; }
-
-			public string PricelistName { get; set; }
 
 			///
 			///The shipping subtotal amount calculated without any applied discounts.
