@@ -76,6 +76,60 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		}
 
 		/// <summary>
+		/// products-variations Get GetProductVariationLocalizedPrices description DOCUMENT_HERE 
+		/// </summary>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice"/>}}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetProductVariationLocalizedPrices(dataViewMode,  productCode,  variationKey);
+		///   var productVariationFixedPriceClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice>> GetProductVariationLocalizedPricesClient(DataViewMode dataViewMode, string productCode, string variationKey)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductVariationUrl.GetProductVariationLocalizedPricesUrl(productCode, variationKey);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice>>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// products-variations Get GetProductVariationLocalizedPrice description DOCUMENT_HERE 
+		/// </summary>
+		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetProductVariationLocalizedPrice(dataViewMode,  productCode,  variationKey,  currencyCode,  responseFields);
+		///   var productVariationFixedPriceClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice> GetProductVariationLocalizedPriceClient(DataViewMode dataViewMode, string productCode, string variationKey, string currencyCode, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductVariationUrl.GetProductVariationLocalizedPriceUrl(productCode, variationKey, currencyCode, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Retrieves the details of a product variation based on the supplied product code and variation key.
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
@@ -161,6 +215,34 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		}
 
 		/// <summary>
+		/// products-variations Post AddProductVariationLocalizedPrice description DOCUMENT_HERE 
+		/// </summary>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
+		/// <param name="localizedPrice">Mozu.ProductAdmin.Contracts.ProductVariationFixedPrice ApiType DOCUMENT_HERE </param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=AddProductVariationLocalizedPrice(dataViewMode,  localizedPrice,  productCode,  variationKey,  responseFields);
+		///   var productVariationFixedPriceClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice> AddProductVariationLocalizedPriceClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice localizedPrice, string productCode, string variationKey, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductVariationUrl.AddProductVariationLocalizedPriceUrl(productCode, variationKey, responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice>(localizedPrice)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Updates all localized delta price values for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
 		/// </summary>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
@@ -211,6 +293,62 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice>(localizedDeltaPrice)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// products-variations Put UpdateProductVariationLocalizedPrices description DOCUMENT_HERE 
+		/// </summary>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
+		/// <param name="localizedPrice">Mozu.ProductAdmin.Contracts.ProductVariationFixedPrice ApiType DOCUMENT_HERE </param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice"/>}}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=UpdateProductVariationLocalizedPrices(dataViewMode,  localizedPrice,  productCode,  variationKey);
+		///   var productVariationFixedPriceClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice>> UpdateProductVariationLocalizedPricesClient(DataViewMode dataViewMode, List<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice> localizedPrice, string productCode, string variationKey)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductVariationUrl.UpdateProductVariationLocalizedPricesUrl(productCode, variationKey);
+			const string verb = "PUT";
+			var mozuClient = new MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice>>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice>>(localizedPrice)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// products-variations Put UpdateProductVariationLocalizedPrice description DOCUMENT_HERE 
+		/// </summary>
+		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
+		/// <param name="localizedPrice">Mozu.ProductAdmin.Contracts.ProductVariationFixedPrice ApiType DOCUMENT_HERE </param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=UpdateProductVariationLocalizedPrice(dataViewMode,  localizedPrice,  productCode,  variationKey,  currencyCode,  responseFields);
+		///   var productVariationFixedPriceClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice> UpdateProductVariationLocalizedPriceClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice localizedPrice, string productCode, string variationKey, string currencyCode, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductVariationUrl.UpdateProductVariationLocalizedPriceUrl(productCode, variationKey, currencyCode, responseFields);
+			const string verb = "PUT";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice>(localizedPrice)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
@@ -315,6 +453,33 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		public static MozuClient DeleteProductVariationLocalizedDeltaPriceClient(DataViewMode dataViewMode, string productCode, string variationKey, string currencyCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductVariationUrl.DeleteProductVariationLocalizedDeltaPriceUrl(productCode, variationKey, currencyCode);
+			const string verb = "DELETE";
+			var mozuClient = new MozuClient()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// products-variations Delete DeleteProductVariationLocalizedPrice description DOCUMENT_HERE 
+		/// </summary>
+		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=DeleteProductVariationLocalizedPrice(dataViewMode,  productCode,  variationKey,  currencyCode);
+		///mozuClient.WithBaseAddress(url).Execute();
+		/// </code>
+		/// </example>
+		public static MozuClient DeleteProductVariationLocalizedPriceClient(DataViewMode dataViewMode, string productCode, string variationKey, string currencyCode)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductVariationUrl.DeleteProductVariationLocalizedPriceUrl(productCode, variationKey, currencyCode);
 			const string verb = "DELETE";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)

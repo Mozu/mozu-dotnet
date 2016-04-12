@@ -28,6 +28,11 @@ namespace Mozu.Api.Contracts.PaymentService
 			///
 			public string ProductName { get; set; }
 
+			///
+			///Mozu.PaymentService.Contracts.Product variantProductCode ApiTypeMember DOCUMENT_HERE 
+			///
+			public string VariantProductCode { get; set; }
+
 		}
 
 }

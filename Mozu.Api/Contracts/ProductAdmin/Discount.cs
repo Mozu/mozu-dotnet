@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 
 using Mozu.Api.Contracts.Core;
 
@@ -68,6 +69,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 			///
 			public int? Id { get; set; }
+
+			///
+			///Products receiving a price from a price list specified here or a child of a specified price list can be discounted.
+			///
+			public List<string> IncludedPriceLists { get; set; }
 
 			///
 			///Maximum impact this discount can apply on a single order. Must be either null or greater than zero.

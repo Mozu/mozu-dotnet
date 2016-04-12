@@ -45,6 +45,106 @@ namespace Mozu.Api.Resources.Content
 		}
 				
 		/// <summary>
+		/// content-documentlistTypes Get GetDocumentListTypes description DOCUMENT_HERE 
+		/// </summary>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=50`.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Content.DocumentListTypeCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documentlisttype = new DocumentListType();
+		///   var documentListTypeCollection = documentlisttype.GetDocumentListTypes(_dataViewMode,  pageSize,  startIndex,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Content.DocumentListTypeCollection GetDocumentListTypes(int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Content.DocumentListTypeCollection> response;
+			var client = Mozu.Api.Clients.Content.DocumentListTypeClient.GetDocumentListTypesClient(_dataViewMode,  pageSize,  startIndex,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// content-documentlistTypes Get GetDocumentListTypes description DOCUMENT_HERE 
+		/// </summary>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=50`.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Content.DocumentListTypeCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documentlisttype = new DocumentListType();
+		///   var documentListTypeCollection = await documentlisttype.GetDocumentListTypesAsync(_dataViewMode,  pageSize,  startIndex,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.Content.DocumentListTypeCollection> GetDocumentListTypesAsync(int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Content.DocumentListTypeCollection> response;
+			var client = Mozu.Api.Clients.Content.DocumentListTypeClient.GetDocumentListTypesClient(_dataViewMode,  pageSize,  startIndex,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// content-documentlistTypes Get GetDocumentListType description DOCUMENT_HERE 
+		/// </summary>
+		/// <param name="documentListTypeFQN"></param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Content.DocumentListType"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documentlisttype = new DocumentListType();
+		///   var documentListType = documentlisttype.GetDocumentListType(_dataViewMode,  documentListTypeFQN,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Content.DocumentListType GetDocumentListType(string documentListTypeFQN, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Content.DocumentListType> response;
+			var client = Mozu.Api.Clients.Content.DocumentListTypeClient.GetDocumentListTypeClient(_dataViewMode,  documentListTypeFQN,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// content-documentlistTypes Get GetDocumentListType description DOCUMENT_HERE 
+		/// </summary>
+		/// <param name="documentListTypeFQN"></param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Content.DocumentListType"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var documentlisttype = new DocumentListType();
+		///   var documentListType = await documentlisttype.GetDocumentListTypeAsync(_dataViewMode,  documentListTypeFQN,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.Content.DocumentListType> GetDocumentListTypeAsync(string documentListTypeFQN, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Content.DocumentListType> response;
+			var client = Mozu.Api.Clients.Content.DocumentListTypeClient.GetDocumentListTypeClient(_dataViewMode,  documentListTypeFQN,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
 		/// Creates a new documentListType
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>

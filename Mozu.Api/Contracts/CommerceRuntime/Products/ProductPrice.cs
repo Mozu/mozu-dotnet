@@ -34,6 +34,16 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			public decimal? Price { get; set; }
 
 			///
+			///Pricelist code for the product
+			///
+			public string PriceListCode { get; set; }
+
+			///
+			///Pricelist entry mode of the product. Note: possible values are below 1. null : Product doesn't participate in pricelist 2. Bulk : Bulk volume price available(unit price vary based on quantity) 3. Simple:
+			///
+			public string PriceListEntryMode { get; set; }
+
+			///
 			///The set sale price for a product consisting of a price with a discount already applied.
 			///
 			public decimal? SalePrice { get; set; }

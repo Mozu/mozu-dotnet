@@ -55,6 +55,44 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 		}
 
 		/// <summary>
+        /// Get Resource Url for GetProductVariationLocalizedPrices
+        /// </summary>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetProductVariationLocalizedPricesUrl(string productCode, string variationKey)
+		{
+			var url = "/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedPrice";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "productCode", productCode);
+			mozuUrl.FormatUrl( "variationKey", variationKey);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for GetProductVariationLocalizedPrice
+        /// </summary>
+        /// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+        /// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetProductVariationLocalizedPriceUrl(string productCode, string variationKey, string currencyCode, string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedPrice/{currencyCode}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "currencyCode", currencyCode);
+			mozuUrl.FormatUrl( "productCode", productCode);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "variationKey", variationKey);
+			return mozuUrl;
+		}
+
+		/// <summary>
         /// Get Resource Url for GetProductVariation
         /// </summary>
         /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
@@ -117,6 +155,25 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for AddProductVariationLocalizedPrice
+        /// </summary>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+        /// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl AddProductVariationLocalizedPriceUrl(string productCode, string variationKey, string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedPrice?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "productCode", productCode);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "variationKey", variationKey);
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for UpdateProductVariationLocalizedDeltaPrices
         /// </summary>
@@ -147,6 +204,44 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         public static MozuUrl UpdateProductVariationLocalizedDeltaPriceUrl(string productCode, string variationKey, string currencyCode, string responseFields =  null)
 		{
 			var url = "/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedDeltaPrice/{currencyCode}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "currencyCode", currencyCode);
+			mozuUrl.FormatUrl( "productCode", productCode);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "variationKey", variationKey);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for UpdateProductVariationLocalizedPrices
+        /// </summary>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl UpdateProductVariationLocalizedPricesUrl(string productCode, string variationKey)
+		{
+			var url = "/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedPrice";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "productCode", productCode);
+			mozuUrl.FormatUrl( "variationKey", variationKey);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for UpdateProductVariationLocalizedPrice
+        /// </summary>
+        /// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+        /// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl UpdateProductVariationLocalizedPriceUrl(string productCode, string variationKey, string currencyCode, string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedPrice/{currencyCode}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "currencyCode", currencyCode);
 			mozuUrl.FormatUrl( "productCode", productCode);
@@ -220,6 +315,25 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         public static MozuUrl DeleteProductVariationLocalizedDeltaPriceUrl(string productCode, string variationKey, string currencyCode)
 		{
 			var url = "/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedDeltaPrice/{currencyCode}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "currencyCode", currencyCode);
+			mozuUrl.FormatUrl( "productCode", productCode);
+			mozuUrl.FormatUrl( "variationKey", variationKey);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for DeleteProductVariationLocalizedPrice
+        /// </summary>
+        /// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl DeleteProductVariationLocalizedPriceUrl(string productCode, string variationKey, string currencyCode)
+		{
+			var url = "/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedPrice/{currencyCode}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "currencyCode", currencyCode);
 			mozuUrl.FormatUrl( "productCode", productCode);

@@ -30,6 +30,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			public AuditInfo AuditInfo { get; set; }
 
 			///
+			///Mozu.CommerceRuntime.Contracts.Carts.Cart cartMessage ApiTypeMember DOCUMENT_HERE 
+			///
+			public CartMessage CartMessage { get; set; }
+
+			///
 			///Collection (list or paged) of change messages logged for each modification made by a shopper to their carts, wishlists, orders, package, payment, pickup, and returns. Change log messages are system-supplied based on shopper actions and read only.
 			///
 			public List<ChangeMessage> ChangeMessages { get; set; }
@@ -128,6 +133,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///List of order-level discounts projected to apply to the cart at checkout or order.
 			///
 			public List<AppliedDiscount> OrderDiscounts { get; set; }
+
+			///
+			///Pricelist code
+			///
+			public string PriceListCode { get; set; }
 
 			///
 			///The shipping subtotal amount calculated without any applied discounts for line item and entire amounts of carts and orders. This property is not calculated for wish lists at this time.
