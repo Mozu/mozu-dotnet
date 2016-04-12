@@ -19,24 +19,27 @@ namespace Mozu.Api.Contracts.Customer
 		public class CustomerLoginInfo
 		{
 			///
-			///The email address associated with the customer login.
+			///The email address for the customer account and contact. This email may be used for login to the storefront and for subscription mailing lists.
 			///
 			public string EmailAddress { get; set; }
 
+			///
+			///Mozu.Customer.Contracts.CustomerLoginInfo externalPassword ApiTypeMember DOCUMENT_HERE 
+			///
 			public string ExternalPassword { get; set; }
 
 			///
-			///If true, this customer account data was imported from an external program.
+			///Indicates if this object/data was imported from an outside source such as a data import or synchronization via an app or service. If true, this data was originally imported into Mozu and accessible through your store database. Examples of imported objects/data include orders and customer accounts.
 			///
 			public bool? IsImport { get; set; }
 
 			///
-			///The password associated with the customer login.
+			///The saved password for the customer account. 
 			///
 			public string Password { get; set; }
 
 			///
-			///The user name associated with the customer login.
+			///The user name associated with the user profile. The customer uses the user name to access the account.
 			///
 			public string Username { get; set; }
 

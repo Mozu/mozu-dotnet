@@ -13,10 +13,19 @@ using System;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
+		///
+		///	Mozu.ProductAdmin.Contracts.DynamicExpression ApiType DOCUMENT_HERE 
+		///
 		public class DynamicExpression
 		{
+			///
+			///Mozu.ProductAdmin.Contracts.DynamicExpression text ApiTypeMember DOCUMENT_HERE 
+			///
 			public string Text { get; set; }
 
+			///
+			///Mozu.ProductAdmin.Contracts.DynamicExpression tree ApiTypeMember DOCUMENT_HERE 
+			///
 			public Expression Tree { get; set; }
 
 		}

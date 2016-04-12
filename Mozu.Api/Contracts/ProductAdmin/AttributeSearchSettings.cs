@@ -18,6 +18,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class AttributeSearchSettings
 		{
+			///
+			///Indicates whether the attribute should be able to be used in filters, facets, and sorting on the public storefront.
+			///
 			public bool? AllowFilteringAndSortingInStorefront { get; set; }
 
 			///
@@ -26,12 +29,12 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public bool SearchableInAdmin { get; set; }
 
 			///
-			///Indicates whether the attribute value is searchable on the public storefront.
+			///Indicates if the attribute value is searchable on the public storefront.
 			///
 			public bool SearchableInStorefront { get; set; }
 
 			///
-			///If true, the system indexs the display value of string attributes instead of the canonical value for searching. Always use the canonical value for filtering. This does not apply for for non-string attributes.
+			///Indicates what kind of values search queries and returns. If true, the system indexes the display value of string attributes instead of the canonical value for searching. Always use the canonical value for filtering. This does not apply for non-string attributes.
 			///
 			public bool SearchDisplayValue { get; set; }
 

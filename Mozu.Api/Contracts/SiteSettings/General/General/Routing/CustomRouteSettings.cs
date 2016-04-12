@@ -14,12 +14,24 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.SiteSettings.General.General.Routing
 {
+		///
+		///	Mozu.SiteSettings.General.Contracts.General.Routing.CustomRouteSettings ApiType DOCUMENT_HERE 
+		///
 		public class CustomRouteSettings
 		{
+			///
+			///Mozu.SiteSettings.General.Contracts.General.Routing.CustomRouteSettings mappings ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<string> Mappings { get; set; }
 
+			///
+			///Mozu.SiteSettings.General.Contracts.General.Routing.CustomRouteSettings routes ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<Route> Routes { get; set; }
 
+			///
+			///Mozu.SiteSettings.General.Contracts.General.Routing.CustomRouteSettings validators ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<string> Validators { get; set; }
 
 		}

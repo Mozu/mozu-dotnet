@@ -43,7 +43,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
         /// Get Resource Url for GetVisit
         /// </summary>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="visitId">Unique identifier of the customer visit to retrieve.</param>
+        /// <param name="visitId">Unique identifier of the customer visit to update.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

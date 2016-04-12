@@ -14,24 +14,54 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.ShippingRuntime
 {
+		///
+		///	Properties of summary data for a product, including all data for name, code, categories, options, types, measurements, and more.
+		///
 		public class ProductSummary
 		{
+			///
+			///The list of all categories associated with the product. These categories contain products, can have discounts associated, and define the grouping of products to display on the storefront.
+			///
 			public List<Category> Categories { get; set; }
 
+			///
+			///List of option attributes configured for an object. These values are associated and used by products, product bundles, and product types.
+			///
 			public List<ProductOption> Options { get; set; }
 
+			///
+			///Price (unit price * quantity)
+			///
 			public decimal Price { get; set; }
 
+			///
+			///The unique, user-defined  product code of a product, used throughout Mozu to reference and associate to a product.
+			///
 			public string ProductCode { get; set; }
 
+			///
+			///Product name/description
+			///
 			public string ProductDescription { get; set; }
 
+			///
+			///The product type template associated with the product on the storefront.
+			///
 			public string ProductType { get; set; }
 
+			///
+			///Collection of property attributes defined for the object. Properties are associated to all objects within Mozu, including documents, products, and product types.
+			///
 			public List<ProductProperty> Properties { get; set; }
 
+			///
+			///The specified quantity of objects and items. This property is used for numerous object types including products, options, components within a product bundle, cart and order items, returned items, shipping line items, items in a digital product. and items associated with types and reservations.
+			///
 			public int Quantity { get; set; }
 
+			///
+			///Product specific dimensions used for shipping, used by product summary and rate request items.  The dimensions can differ between the two uses as a `RateRequestItem `package may contain one or more products.
+			///
 			public ItemMeasurements UnitMeasurements { get; set; }
 
 		}

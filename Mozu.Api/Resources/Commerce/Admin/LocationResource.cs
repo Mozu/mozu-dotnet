@@ -95,8 +95,8 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// <summary>
 		/// Retrieves the details of the location specified in the request by location code.
 		/// </summary>
-		/// <param name="locationCode">The merchant-defined code of the location to retrieve.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Location.Location"/>
 		/// </returns>
@@ -120,8 +120,8 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// <summary>
 		/// Retrieves the details of the location specified in the request by location code.
 		/// </summary>
-		/// <param name="locationCode">The merchant-defined code of the location to retrieve.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Location.Location"/>
 		/// </returns>
@@ -144,8 +144,8 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// <summary>
 		/// Creates a new physical location for the tenant specified in the request header.
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="location">Properties of the location to create.</param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="location">Properties of a physical location a tenant uses to manage inventory and fulfills orders, provide store finder functionality, or both.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Location.Location"/>
 		/// </returns>
@@ -169,8 +169,8 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// <summary>
 		/// Creates a new physical location for the tenant specified in the request header.
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="location">Properties of the location to create.</param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="location">Properties of a physical location a tenant uses to manage inventory and fulfills orders, provide store finder functionality, or both.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Location.Location"/>
 		/// </returns>
@@ -193,9 +193,9 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// <summary>
 		/// Updates one or more details of a the location specified in the request by location code.
 		/// </summary>
-		/// <param name="locationCode">The merchant-defined code associated with the location to update.</param>
+		/// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="location">Properties of the location to update.</param>
+		/// <param name="location">Properties of a physical location a tenant uses to manage inventory and fulfills orders, provide store finder functionality, or both.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Location.Location"/>
 		/// </returns>
@@ -219,9 +219,9 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// <summary>
 		/// Updates one or more details of a the location specified in the request by location code.
 		/// </summary>
-		/// <param name="locationCode">The merchant-defined code associated with the location to update.</param>
+		/// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="location">Properties of the location to update.</param>
+		/// <param name="location">Properties of a physical location a tenant uses to manage inventory and fulfills orders, provide store finder functionality, or both.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Location.Location"/>
 		/// </returns>
@@ -244,7 +244,7 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// <summary>
 		/// Deletes the location specified in the request.
 		/// </summary>
-		/// <param name="locationCode">The merchant-defined code of the location to delete.</param>
+		/// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -267,7 +267,7 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// <summary>
 		/// Deletes the location specified in the request.
 		/// </summary>
-		/// <param name="locationCode">The merchant-defined code of the location to delete.</param>
+		/// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
 		/// <returns>
 		/// 
 		/// </returns>

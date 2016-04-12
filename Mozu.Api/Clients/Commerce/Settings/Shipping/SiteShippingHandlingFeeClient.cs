@@ -49,7 +49,7 @@ namespace Mozu.Api.Clients.Commerce.Settings.Shipping
 		/// Creates a new order handling fee for the site.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="orderHandlingFee">Properties of the order handling fee to assess for order shipment.</param>
+		/// <param name="orderHandlingFee">Properties of the handling fee to apply to order shipments for the site.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee"/>}
 		/// </returns>
@@ -74,7 +74,7 @@ namespace Mozu.Api.Clients.Commerce.Settings.Shipping
 		/// Updates the order handling fee amount for the site.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="orderHandlingFee">The combined price for all items in the order, including all selected options but excluding any discounts.</param>
+		/// <param name="orderHandlingFee">Properties of the handling fee to apply to order shipments for the site.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee"/>}
 		/// </returns>

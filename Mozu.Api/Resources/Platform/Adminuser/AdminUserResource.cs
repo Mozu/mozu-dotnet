@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Platform.Adminuser
 {
 	/// <summary>
-	/// Displays the user accounts and account details associated with a developer or Mozu tenant administrator. Email addresses uniquely identify admin user accounts.
+	/// The Accounts resource displays the user accounts and account details associated with a developer or Mozu tenant administrator. Email addresses uniquely identify admin user accounts.
 	/// </summary>
 	public partial class AdminUserResource  	{
 		///
@@ -94,7 +94,7 @@ namespace Mozu.Api.Resources.Platform.Adminuser
 		/// Retrieves the details of the specified administrator user account.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="userId">Unique identifier of the administrator account to retrieve.</param>
+		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Core.User"/>
 		/// </returns>
@@ -119,7 +119,7 @@ namespace Mozu.Api.Resources.Platform.Adminuser
 		/// Retrieves the details of the specified administrator user account.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="userId">Unique identifier of the administrator account to retrieve.</param>
+		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Core.User"/>
 		/// </returns>

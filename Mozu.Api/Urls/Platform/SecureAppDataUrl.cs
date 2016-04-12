@@ -20,8 +20,8 @@ namespace Mozu.Api.Urls.Platform
         /// Get Resource Url for GetDBValue
         /// </summary>
         /// <param name="appKeyId"></param>
-        /// <param name="dbEntryQuery"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="dbEntryQuery">The database entry string to create.</param>
+        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -39,7 +39,7 @@ namespace Mozu.Api.Urls.Platform
         /// Get Resource Url for CreateDBValue
         /// </summary>
         /// <param name="appKeyId"></param>
-        /// <param name="dbEntryQuery"></param>
+        /// <param name="dbEntryQuery">The database entry string to create.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -56,7 +56,7 @@ namespace Mozu.Api.Urls.Platform
         /// Get Resource Url for UpdateDBValue
         /// </summary>
         /// <param name="appKeyId"></param>
-        /// <param name="dbEntryQuery"></param>
+        /// <param name="dbEntryQuery">The database entry string to create.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -73,7 +73,7 @@ namespace Mozu.Api.Urls.Platform
         /// Get Resource Url for DeleteDBValue
         /// </summary>
         /// <param name="appKeyId"></param>
-        /// <param name="dbEntryQuery"></param>
+        /// <param name="dbEntryQuery">The database entry string to create.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

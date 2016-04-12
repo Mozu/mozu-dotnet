@@ -17,68 +17,15 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Content
 {
 	/// <summary>
-	/// 
+	/// Use the Document List Types resource to manage the types of document lists in your site's document hierarchy. The type denotes a content type for that list of folders, sub-folders, and documents such as `web_pages`.
 	/// </summary>
 	public partial class DocumentListTypeClient 	{
 		
 		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="startIndex"></param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.DocumentListTypeCollection"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetDocumentListTypes(dataViewMode,  pageSize,  startIndex,  responseFields);
-		///   var documentListTypeCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Content.DocumentListTypeCollection> GetDocumentListTypesClient(DataViewMode dataViewMode, int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
-		{
-			var url = Mozu.Api.Urls.Content.DocumentListTypeUrl.GetDocumentListTypesUrl(pageSize, startIndex, responseFields);
-			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.Content.DocumentListTypeCollection>()
-									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
-;
-			return mozuClient;
-
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="documentListTypeFQN"></param>
-		/// <param name="responseFields"></param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.DocumentListType"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetDocumentListType(dataViewMode,  documentListTypeFQN,  responseFields);
-		///   var documentListTypeClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Content.DocumentListType> GetDocumentListTypeClient(DataViewMode dataViewMode, string documentListTypeFQN, string responseFields =  null)
-		{
-			var url = Mozu.Api.Urls.Content.DocumentListTypeUrl.GetDocumentListTypeUrl(documentListTypeFQN, responseFields);
-			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.Content.DocumentListType>()
-									.WithVerb(verb).WithResourceUrl(url)
-									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
-;
-			return mozuClient;
-
-		}
-
-		/// <summary>
-		/// 
+		/// Creates a new documentListType
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="list"></param>
+		/// <param name="list">Properties for the document list type. Document lists contain documents with an associated document type, such as web pages.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.DocumentListType"/>}
 		/// </returns>
@@ -101,11 +48,11 @@ namespace Mozu.Api.Clients.Content
 		}
 
 		/// <summary>
-		/// 
+		/// Updates a DocumentListType
 		/// </summary>
 		/// <param name="documentListTypeFQN"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="list"></param>
+		/// <param name="list">Properties for the document list type. Document lists contain documents with an associated document type, such as web pages.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.DocumentListType"/>}
 		/// </returns>

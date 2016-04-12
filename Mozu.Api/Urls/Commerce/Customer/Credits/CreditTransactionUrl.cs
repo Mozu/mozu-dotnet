@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.Credits
 		/// <summary>
         /// Get Resource Url for GetTransactions
         /// </summary>
-        /// <param name="code">User-defined code that identifies the customer credit.</param>
+        /// <param name="code">User-defined code that uniqely identifies the channel group.</param>
         /// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
         /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
@@ -44,7 +44,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.Credits
 				/// <summary>
         /// Get Resource Url for AddTransaction
         /// </summary>
-        /// <param name="code">User-defined code that identifies the customer credit to update.</param>
+        /// <param name="code">User-defined code that uniqely identifies the channel group.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url

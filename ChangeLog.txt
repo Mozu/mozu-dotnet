@@ -1,6 +1,7 @@
 Operation Params
-0.    Added - commerce.catalog.storefront.pricelists.GetResolvedPriceList- Param : customerAccountId
+0.    Added - commerce.catalog.admin.categories.UpdateCategoryTree- Param : categorySequencies
+1.    Added - commerce.catalog.storefront.productsearch.ValidateSearchTuningRule- Param : rule
 
 Operations
-0.    Added - commerce.catalog.storefront.pricelists.GetPriceLists - GET
-1.    Added - commerce.catalog.storefront.pricelists.GetResolvedPriceList - GET
+0.    Added - commerce.catalog.admin.categories.UpdateCategoryTree - POST
+1.    Added - commerce.catalog.storefront.productsearch.ValidateSearchTuningRule - POST

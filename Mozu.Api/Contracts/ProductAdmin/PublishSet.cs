@@ -14,12 +14,24 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
+		///
+		///	Mozu.ProductAdmin.Contracts.PublishSet ApiType DOCUMENT_HERE 
+		///
 		public class PublishSet
 		{
+			///
+			///The PublishSet unique identifier
+			///
 			public string Code { get; set; }
 
+			///
+			///List of product codes of associated products, used for pending product changes to publish or delete and returned in a product inventory location query.
+			///
 			public List<string> ProductCodes { get; set; }
 
+			///
+			///The total number of products. This total may indicate the total products associate with a product type or number of products in a list.
+			///
 			public int ProductCount { get; set; }
 
 		}

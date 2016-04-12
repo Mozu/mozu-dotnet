@@ -19,8 +19,8 @@ namespace Mozu.Api.Urls.Commerce.Returns
 		/// <summary>
         /// Get Resource Url for GetPackageLabel
         /// </summary>
-        /// <param name="packageId">Unique identifier of the return replacement package for which to retrieve the label.</param>
-        /// <param name="returnId">Unique identifier of the return associated with the replacement package label to retrieve.</param>
+        /// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
+        /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -36,9 +36,9 @@ namespace Mozu.Api.Urls.Commerce.Returns
 		/// <summary>
         /// Get Resource Url for GetPackage
         /// </summary>
-        /// <param name="packageId">Unique identifier of the return replacement package to retrieve.</param>
+        /// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="returnId">Unique identifier of the return associated with the replacement package to retrieve.</param>
+        /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -56,7 +56,7 @@ namespace Mozu.Api.Urls.Commerce.Returns
         /// Get Resource Url for CreatePackage
         /// </summary>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="returnId">Unique identifier of the return for which to create a replacement package.</param>
+        /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -72,9 +72,9 @@ namespace Mozu.Api.Urls.Commerce.Returns
 				/// <summary>
         /// Get Resource Url for UpdatePackage
         /// </summary>
-        /// <param name="packageId">Unique identifier of the return replacement package to update.</param>
+        /// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="returnId">Unique identifier of the return associated with the replacement package to update.</param>
+        /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -91,8 +91,8 @@ namespace Mozu.Api.Urls.Commerce.Returns
 				/// <summary>
         /// Get Resource Url for DeletePackage
         /// </summary>
-        /// <param name="packageId">Unique identifier of the return replacement package to delete.</param>
-        /// <param name="returnId">Unique identifier of the return associated with the replacement package to delete.</param>
+        /// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
+        /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

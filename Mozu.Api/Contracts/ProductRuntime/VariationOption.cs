@@ -13,12 +13,24 @@ using System;
 
 namespace Mozu.Api.Contracts.ProductRuntime
 {
+		///
+		///	Mozu.ProductRuntime.Contracts.VariationOption ApiType DOCUMENT_HERE 
+		///
 		public class VariationOption
 		{
+			///
+			///The fully qualified name of the attribute. The attributeDefiniteId may be used to generate this name.
+			///
 			public string AttributeFQN { get; set; }
 
+			///
+			///The value of a property, used by numerous objects within Mozu including facets, attributes, products, localized content, metadata, capabilities (Mozu and third-party), location inventory adjustment, and more. The value may be a string, integer, or double. Validation may be run against the entered and saved values depending on the object type.
+			///
 			public object Value { get; set; }
 
+			///
+			///Mozu.ProductRuntime.Contracts.VariationOption valueSequence ApiTypeMember DOCUMENT_HERE 
+			///
 			public int ValueSequence { get; set; }
 
 		}

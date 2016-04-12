@@ -24,10 +24,13 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public AuditInfo AuditInfo { get; set; }
 
+			///
+			///Product code defined by the tenant administrator to use as a base prefix when generating product codes for any variations of this product.
+			///
 			public string BaseProductCode { get; set; }
 
 			///
-			///User-defined code that uniquely identifies the location.
+			///The unique, user-defined code that identifies a location. This location can be the location where the order was entered, location for newly in-stock products, and where products are returned.
 			///
 			public string LocationCode { get; set; }
 
@@ -37,12 +40,12 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string ProductCode { get; set; }
 
 			///
-			///The name defined in the product definition. System-supplied and read only.
+			///The name of the product that represents a line item in a taxable order or product bundle.
 			///
 			public string ProductName { get; set; }
 
 			///
-			///The stock level for the associated product currently available at this location, based on the number of pending product reservations. System-supplied and read only.
+			///The stock level for the associated product currently available, at specified locations, and based on the number of pending product reservations as applicable. System-supplied and read only.
 			///
 			public int? StockAvailable { get; set; }
 

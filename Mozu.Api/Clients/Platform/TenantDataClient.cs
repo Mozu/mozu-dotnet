@@ -24,7 +24,7 @@ namespace Mozu.Api.Clients.Platform
 		/// <summary>
 		/// Retrieves the value of a record in the Mozu database.
 		/// </summary>
-		/// <param name="dbEntryQuery">The database entry query string used to retrieve the record information.</param>
+		/// <param name="dbEntryQuery">The database entry string to create.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{string}
@@ -74,8 +74,8 @@ namespace Mozu.Api.Clients.Platform
 		/// <summary>
 		/// Updates a record in the Mozu database based on the information supplied in the request.
 		/// </summary>
-		/// <param name="dbEntryQuery">The database entry query string used to update the record information.</param>
-		/// <param name="value">The database value to update.</param>
+		/// <param name="dbEntryQuery">The database entry string to create.</param>
+		/// <param name="value">The value string to create.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
@@ -99,7 +99,7 @@ namespace Mozu.Api.Clients.Platform
 		/// <summary>
 		/// Removes a previously defined record in the Mozu database.
 		/// </summary>
-		/// <param name="dbEntryQuery">The database entry string to delete.</param>
+		/// <param name="dbEntryQuery">The database entry string to create.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

@@ -14,17 +14,17 @@ using System;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	System-supplied and read only parameter that validates a facet for its associated category.
+		///	Describes whether a facet is currently valid and the reason. 			A facet may become invalid if the source data is changed in some ways (for example if the category tree structure is changed).		
 		///
 		public class FacetValidity
 		{
 			///
-			///If true, the facet source is valid for its associated category.
+			///Indicates if the facet is currently valid.
 			///
 			public bool IsValid { get; set; }
 
 			///
-			///Code associated with a reason for facet validation to return false for its associated category.
+			///A code indicating the reason why a facet is invalid.
 			///
 			public string ReasonCode { get; set; }
 

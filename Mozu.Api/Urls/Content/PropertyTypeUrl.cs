@@ -38,7 +38,7 @@ namespace Mozu.Api.Urls.Content
 		/// <summary>
         /// Get Resource Url for GetPropertyType
         /// </summary>
-        /// <param name="propertyTypeName">The name of the content property type.</param>
+        /// <param name="propertyTypeName">The name of the property type.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
@@ -70,7 +70,7 @@ namespace Mozu.Api.Urls.Content
 				/// <summary>
         /// Get Resource Url for UpdatePropertyType
         /// </summary>
-        /// <param name="propertyTypeName"></param>
+        /// <param name="propertyTypeName">The name of the property type.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
@@ -87,7 +87,7 @@ namespace Mozu.Api.Urls.Content
 				/// <summary>
         /// Get Resource Url for DeletePropertyType
         /// </summary>
-        /// <param name="propertyTypeName"></param>
+        /// <param name="propertyTypeName">The name of the property type.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

@@ -19,7 +19,7 @@ namespace Mozu.Api.Contracts.Core
 		public class Contact
 		{
 			///
-			///Address information for the contact.
+			///All address information for the contact. This data is used to validate the address for the customer account and includes the full address.
 			///
 			public Address Address { get; set; }
 
@@ -39,7 +39,7 @@ namespace Mozu.Api.Contracts.Core
 			public string FirstName { get; set; }
 
 			///
-			///Identifier of the contact.
+			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 			///
 			public int Id { get; set; }
 
@@ -54,7 +54,7 @@ namespace Mozu.Api.Contracts.Core
 			public string MiddleNameOrInitial { get; set; }
 
 			///
-			///List of phone numbers associated with the customer account contact.
+			///List of phone numbers associated with the customer account contact. The phone numbers include area codes.
 			///
 			public Phone PhoneNumbers { get; set; }
 
