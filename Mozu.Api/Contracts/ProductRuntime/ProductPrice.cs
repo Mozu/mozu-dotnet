@@ -39,6 +39,11 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public AppliedDiscount Discount { get; set; }
 
 			///
+			///The priceList that was applied to this product
+			///
+			public string EffectivePricelistCode { get; set; }
+
+			///
 			///The manufacturer's suggested retail price for the product. This content may be defined by the supplier.
 			///
 			public decimal? Msrp { get; set; }
@@ -47,6 +52,16 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///The price the merchant intends to charge for the product.
 			///
 			public decimal? Price { get; set; }
+
+			///
+			///The specific PriceListCode that was applied (includes inheritence
+			///
+			public string PriceListEntryCode { get; set; }
+
+			///
+			///IF a PriceList Entry was applied to this price it will be (simple, bulk...)
+			///
+			public string PriceListEntryMode { get; set; }
 
 			///
 			///The price type that displays on the storefront website for the Price field, which is List, MAP, or CatalogSalePrice

@@ -141,6 +141,11 @@ namespace Mozu.Api.Contracts.PaymentService.Request
 			public Contact ShippingContact { get; set; }
 
 			///
+			///Mozu.PaymentService.Contracts.Request.FraudScreenRequest shipType ApiTypeMember DOCUMENT_HERE 
+			///
+			public string ShipType { get; set; }
+
+			///
 			///Total is used to indicate the monetary, estimated total amount of the cart or order, including items, sales tax, shipping costs, and other fees. Totals are not estimated for wish lists at this time.
 			///
 			public decimal Total { get; set; }

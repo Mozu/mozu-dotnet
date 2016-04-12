@@ -308,6 +308,34 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
+		/// Changes the pricelist associated with an order. The desired price list code should be specified on the ApiContext.
+		/// </summary>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
+		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
+		/// <param name="priceListCode"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=ChangeOrderPriceList( priceListCode,  orderId,  updateMode,  version,  responseFields);
+		///   var orderClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> ChangeOrderPriceListClient(string priceListCode, string orderId, string updateMode =  null, string version =  null, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.OrderUrl.ChangeOrderPriceListUrl(orderId, updateMode, version, responseFields);
+			const string verb = "PUT";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody(priceListCode);
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Updates the user ID of the shopper who placed the order to the current user.
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>

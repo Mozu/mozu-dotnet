@@ -33,6 +33,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public DateTime? DiscountsRestrictedStartDate { get; set; }
 
+			///
+			///Only used when product is a variation
+			///
+			public string VariationPricingMethod { get; set; }
+
 		}
 
 }
