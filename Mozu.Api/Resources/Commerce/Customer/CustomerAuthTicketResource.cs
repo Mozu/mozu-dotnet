@@ -40,7 +40,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Creates an authentication ticket for an anonymous shopper user.
 		/// </summary>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>
 		/// </returns>
@@ -64,7 +64,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Creates an authentication ticket for an anonymous shopper user.
 		/// </summary>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>
 		/// </returns>
@@ -88,7 +88,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// Generates a new authentication ticket for a customer account.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="userAuthInfo">The authentication information required to generate an authentication ticket for a customer account.</param>
+		/// <param name="userAuthInfo">The authentication information required to generate an authetication ticket for a user, which consists of a user name and password.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>
 		/// </returns>
@@ -113,7 +113,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// Generates a new authentication ticket for a customer account.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="userAuthInfo">The authentication information required to generate an authentication ticket for a customer account.</param>
+		/// <param name="userAuthInfo">The authentication information required to generate an authetication ticket for a user, which consists of a user name and password.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>
 		/// </returns>
@@ -136,7 +136,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Refreshes an existing authentication ticket for a customer account by providing the refresh token string.
 		/// </summary>
-		/// <param name="refreshToken">Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.</param>
+		/// <param name="refreshToken">The refresh token string required to refresh a user's authentication ticket.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>
@@ -161,7 +161,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Refreshes an existing authentication ticket for a customer account by providing the refresh token string.
 		/// </summary>
-		/// <param name="refreshToken">Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.</param>
+		/// <param name="refreshToken">The refresh token string required to refresh a user's authentication ticket.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>

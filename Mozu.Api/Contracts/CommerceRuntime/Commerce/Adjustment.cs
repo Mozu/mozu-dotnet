@@ -24,7 +24,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
 			public decimal? Amount { get; set; }
 
 			///
-			///The localized description in text for the object, displayed per the locale code. For example, descriptions are used for product descriptions, attributes, and pre-authorization transaction types.
+			///The shopper-facing description of the order-level adjustment.
 			///
 			public string Description { get; set; }
 

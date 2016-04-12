@@ -42,7 +42,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for GetCredit
         /// </summary>
-        /// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+        /// <param name="code">User-defined code that identifies the store credit to retrieve.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
@@ -74,7 +74,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 				/// <summary>
         /// Get Resource Url for AssociateCreditToShopper
         /// </summary>
-        /// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+        /// <param name="code">The code that represents the credit to claim for the shopper.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
@@ -91,7 +91,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for ResendCreditCreatedEmail
         /// </summary>
-        /// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+        /// <param name="code"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -106,7 +106,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for UpdateCredit
         /// </summary>
-        /// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+        /// <param name="code">User-defined code of the store credit to update.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
@@ -123,7 +123,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 				/// <summary>
         /// Get Resource Url for DeleteCredit
         /// </summary>
-        /// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+        /// <param name="code">User-defined code of the store credit to delete.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

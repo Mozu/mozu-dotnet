@@ -19,27 +19,27 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class CategoryLocalizedImage
 		{
 			///
-			///Descriptive text associated with the image or video that appears on the web storefront. This text displays on a hover-over in the browser, providing further information on the content displayed. The alternate text should be plain alphanumeric text without special characters or HTML coding.
+			///Descriptive text associated with the image or video that appears on the web storefront.
 			///
 			public string AltText { get; set; }
 
 			///
-			///The identifier of the image in the Mozu CMS. Supply a value for either the CMS ID or Image URL parameter.
+			///The identifier of the category image in the Mozu CMS. Supply a value for either the CMS ID or Image URL parameter.
 			///
 			public string CmsId { get; set; }
 
 			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///Identifier of the localized product category image.
 			///
 			public int? Id { get; set; }
 
 			///
-			///The localized title for an image that displays on the storefront. If localized, the displayed content is set per the locale code for the site.
+			///Image title that appears on the web storefront set to the language specified by the site's LocaleCode.
 			///
 			public string ImageLabel { get; set; }
 
 			///
-			///The URL link for the image file associated with a product or category.
+			///URL of the product category image.
 			///
 			public string ImageUrl { get; set; }
 
@@ -49,17 +49,17 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string LocaleCode { get; set; }
 
 			///
-			///Type of media specification required to successfully render the image, video, or other media content for products and categories.
+			///Type of media specification required to successfully render the image, video, or other media content for the product category.
 			///
 			public string MediaType { get; set; }
 
 			///
-			///The numeric order of objects, used by a vocabulary value defined for an extensible attribute, images, and categories.
+			///Integer that represents the sequential order of this category image or video.
 			///
 			public int? Sequence { get; set; }
 
 			///
-			///The URL of a video files for a product or category. The path name is set in the language specified by the LocaleCode.
+			///The URL of the product category video. The path name is set in the language specified by the LocaleCode.
 			///
 			public string VideoUrl { get; set; }
 

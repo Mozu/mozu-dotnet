@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Coupons subresource to manage coupons within manual coupon sets.
+	/// 
 	/// </summary>
 	public partial class CouponFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves the details of the specified coupon. Use the couponSetCode and the couponCode parameter to specify the coupon within a coupon set. Use the includeCounts paramter to specify whether to return the redemptionCount property in the response body object.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CouponFactory.GetCoupon(handler : handler,  couponSetCode :  couponSetCode,  couponCode :  couponCode,  includeCounts :  includeCounts,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves a list of coupons in a specified coupon set according to any specified filter criteria and sort options.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CouponFactory.GetCoupons(handler : handler,  couponSetCode :  couponSetCode,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  includeCounts :  includeCounts,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Adds coupons  to a specified manual coupon set. Use the couponSetCode parameter to specify the manual coupon set.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CouponFactory.AddCoupons(handler : handler,  coupons :  coupons,  couponSetCode :  couponSetCode,  expectedCode: expectedCode, successCode: successCode); 
@@ -143,7 +143,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Deletes the specified coupons and removes them from the coupon set. You can only delete a coupon if it has not been redeemed. Use the canBeDeleted property to determine whether a coupon can be deleted.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CouponFactory.DeleteCoupons(handler : handler,  couponCodes :  couponCodes,  couponSetCode :  couponSetCode,  expectedCode: expectedCode, successCode: successCode); 
@@ -180,7 +180,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Deletes the specified coupon and remove it from the coupon set. You can only delete a coupon if it has not been redeemed. Use the canBeDeleted property to determine whether a coupon can be deleted.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CouponFactory.DeleteCoupon(handler : handler,  couponSetCode :  couponSetCode,  couponCode :  couponCode,  expectedCode: expectedCode, successCode: successCode); 

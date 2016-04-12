@@ -47,8 +47,8 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// Retrieve the content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
 		/// </summary>
-		/// <param name="documentId">Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.</param>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="documentId">Unique identifier of the document.</param>
+		/// <param name="documentListName">The name of the document list associated with the document.</param>
 		/// <returns>
 		/// <see cref="System.IO.Stream"/>
 		/// </returns>
@@ -72,8 +72,8 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// Retrieve the content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
 		/// </summary>
-		/// <param name="documentId">Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.</param>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="documentId">Unique identifier of the document.</param>
+		/// <param name="documentListName">The name of the document list associated with the document.</param>
 		/// <returns>
 		/// <see cref="System.IO.Stream"/>
 		/// </returns>
@@ -94,17 +94,17 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		}
 
 		/// <summary>
-		/// Performs transformations on a document. For example, resizing an image.
+		/// 
 		/// </summary>
-		/// <param name="crop">Crops the image based on the specified coordinates. The reference point for positive coordinates is the top-left corner of the image, and the reference point for negative coordinates is the bottom-right corner of the image.Usage: Example:  removes 10 pixels from all edges of the image.  leaves the image uncropped.</param>
-		/// <param name="documentId">Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.</param>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
-		/// <param name="height">Specifies an exact height dimension for the image, in pixels.</param>
-		/// <param name="max">Specifies a pixel limitation for the largest side of an image.</param>
-		/// <param name="maxHeight">Specifies a pixel limitation for the height of the image, preserving the aspect ratio if the image needs resizing.</param>
-		/// <param name="maxWidth">Specifies a pixel limitation for the width of the image, preserving the aspect ratio if the image needs resizing.</param>
-		/// <param name="quality">Adjusts the image compression. Accepts values from 0-100, where 100 = highest quality, least compression.</param>
-		/// <param name="width">Specifies an exact width dimension for the image, in pixels.</param>
+		/// <param name="crop"></param>
+		/// <param name="documentId"></param>
+		/// <param name="documentListName"></param>
+		/// <param name="height"></param>
+		/// <param name="max"></param>
+		/// <param name="maxHeight"></param>
+		/// <param name="maxWidth"></param>
+		/// <param name="quality"></param>
+		/// <param name="width"></param>
 		/// <returns>
 		/// <see cref="System.IO.Stream"/>
 		/// </returns>
@@ -126,17 +126,17 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		}
 
 		/// <summary>
-		/// Performs transformations on a document. For example, resizing an image.
+		/// 
 		/// </summary>
-		/// <param name="crop">Crops the image based on the specified coordinates. The reference point for positive coordinates is the top-left corner of the image, and the reference point for negative coordinates is the bottom-right corner of the image.Usage: Example:  removes 10 pixels from all edges of the image.  leaves the image uncropped.</param>
-		/// <param name="documentId">Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.</param>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
-		/// <param name="height">Specifies an exact height dimension for the image, in pixels.</param>
-		/// <param name="max">Specifies a pixel limitation for the largest side of an image.</param>
-		/// <param name="maxHeight">Specifies a pixel limitation for the height of the image, preserving the aspect ratio if the image needs resizing.</param>
-		/// <param name="maxWidth">Specifies a pixel limitation for the width of the image, preserving the aspect ratio if the image needs resizing.</param>
-		/// <param name="quality">Adjusts the image compression. Accepts values from 0-100, where 100 = highest quality, least compression.</param>
-		/// <param name="width">Specifies an exact width dimension for the image, in pixels.</param>
+		/// <param name="crop"></param>
+		/// <param name="documentId"></param>
+		/// <param name="documentListName"></param>
+		/// <param name="height"></param>
+		/// <param name="max"></param>
+		/// <param name="maxHeight"></param>
+		/// <param name="maxWidth"></param>
+		/// <param name="quality"></param>
+		/// <param name="width"></param>
 		/// <returns>
 		/// <see cref="System.IO.Stream"/>
 		/// </returns>
@@ -159,9 +159,9 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// Retrieves a document within the specified document list.
 		/// </summary>
-		/// <param name="documentId">Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.</param>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
-		/// <param name="includeInactive">Include inactive content.</param>
+		/// <param name="documentId">Identifier of the document being retrieved.</param>
+		/// <param name="documentListName">The name of the document list associated with the document to retrieve.</param>
+		/// <param name="includeInactive"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.Document"/>
@@ -186,9 +186,9 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// Retrieves a document within the specified document list.
 		/// </summary>
-		/// <param name="documentId">Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.</param>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
-		/// <param name="includeInactive">Include inactive content.</param>
+		/// <param name="documentId">Identifier of the document being retrieved.</param>
+		/// <param name="documentListName">The name of the document list associated with the document to retrieve.</param>
+		/// <param name="includeInactive"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.Document"/>
@@ -212,9 +212,9 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// Retrieves a collection of documents according to any filter and sort criteria.
 		/// </summary>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.</param>
-		/// <param name="includeInactive">Include inactive content.</param>
+		/// <param name="documentListName">The name of the document list.</param>
+		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter a document's search results by any of its properties, including its name or folder path. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+sw+Events"</param>
+		/// <param name="includeInactive"></param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
@@ -242,9 +242,9 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// Retrieves a collection of documents according to any filter and sort criteria.
 		/// </summary>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.</param>
-		/// <param name="includeInactive">Include inactive content.</param>
+		/// <param name="documentListName">The name of the document list.</param>
+		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter a document's search results by any of its properties, including its name or folder path. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+sw+Events"</param>
+		/// <param name="includeInactive"></param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
@@ -271,9 +271,9 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// Creates a new document in an defined document list.
 		/// </summary>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="documentListName">The descriptive alphanumeric document list name being created.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="document">The document properties that define the content used by the content management system (CMS).</param>
+		/// <param name="document">The descriptive name of the newly created document.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.Document"/>
 		/// </returns>
@@ -297,9 +297,9 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// Creates a new document in an defined document list.
 		/// </summary>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="documentListName">The descriptive alphanumeric document list name being created.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="document">The document properties that define the content used by the content management system (CMS).</param>
+		/// <param name="document">The descriptive name of the newly created document.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.Document"/>
 		/// </returns>
@@ -322,9 +322,9 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// Updates the content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
 		/// </summary>
-		/// <param name="documentId">Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.</param>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
-		/// <param name="stream">Data stream that delivers information. Used to input and output data.</param>
+		/// <param name="documentId">Unique identifier of the document.</param>
+		/// <param name="documentListName">The name of the document list associated with the document.</param>
+		/// <param name="stream">Input output stream that delivers information.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -347,9 +347,9 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// Updates the content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
 		/// </summary>
-		/// <param name="documentId">Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.</param>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
-		/// <param name="stream">Data stream that delivers information. Used to input and output data.</param>
+		/// <param name="documentId">Unique identifier of the document.</param>
+		/// <param name="documentListName">The name of the document list associated with the document.</param>
+		/// <param name="stream">Input output stream that delivers information.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -371,10 +371,10 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// Updates a document in a document list.
 		/// </summary>
-		/// <param name="documentId">Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.</param>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="documentId">Unique identifier of the document to update.</param>
+		/// <param name="documentListName">Name of the document list associated with the document.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="document">The document properties that define the content used by the content management system (CMS).</param>
+		/// <param name="document">Properties of the document to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.Document"/>
 		/// </returns>
@@ -398,10 +398,10 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// Updates a document in a document list.
 		/// </summary>
-		/// <param name="documentId">Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.</param>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="documentId">Unique identifier of the document to update.</param>
+		/// <param name="documentListName">Name of the document list associated with the document.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="document">The document properties that define the content used by the content management system (CMS).</param>
+		/// <param name="document">Properties of the document to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.Document"/>
 		/// </returns>
@@ -424,8 +424,8 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// Deletes a specific document based on the specified document ID.
 		/// </summary>
-		/// <param name="documentId">Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.</param>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="documentId">Identifier of the document being deleted.</param>
+		/// <param name="documentListName">The name of the document list associated with the document list being deleted.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -448,8 +448,8 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// Deletes a specific document based on the specified document ID.
 		/// </summary>
-		/// <param name="documentId">Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.</param>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="documentId">Identifier of the document being deleted.</param>
+		/// <param name="documentListName">The name of the document list associated with the document list being deleted.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -471,8 +471,8 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// Deletes the content associated with a document, such as a product image or PDF specification, by supplying the document ID.
 		/// </summary>
-		/// <param name="documentId">Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.</param>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="documentId">Unique identifier of the document.</param>
+		/// <param name="documentListName">The name of the document list associated with the document.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -495,8 +495,8 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// Deletes the content associated with a document, such as a product image or PDF specification, by supplying the document ID.
 		/// </summary>
-		/// <param name="documentId">Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.</param>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="documentId">Unique identifier of the document.</param>
+		/// <param name="documentListName">The name of the document list associated with the document.</param>
 		/// <returns>
 		/// 
 		/// </returns>

@@ -95,7 +95,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// Retrieves a list of the actions available to perform for the specified return based on its current state.
 		/// </summary>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="returnId">Unique identifier of the return for which to retrieve available actions.</param>
 		/// <returns>
 		/// List{string}
 		/// </returns>
@@ -119,7 +119,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// Retrieves a list of the actions available to perform for the specified return based on its current state.
 		/// </summary>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="returnId">Unique identifier of the return for which to retrieve available actions.</param>
 		/// <returns>
 		/// List{string}
 		/// </returns>
@@ -140,11 +140,11 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// Retrieves the details of a single return item.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
-		/// <param name="returnItemId">Unique identifier of the return item whose details you want to get.</param>
+		/// <param name="returnId"></param>
+		/// <param name="returnItemId"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnItem"/>
 		/// </returns>
@@ -166,11 +166,11 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// Retrieves the details of a single return item.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
-		/// <param name="returnItemId">Unique identifier of the return item whose details you want to get.</param>
+		/// <param name="returnId"></param>
+		/// <param name="returnItemId"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnItem"/>
 		/// </returns>
@@ -191,10 +191,10 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// Retrieves the details of all return items in an order.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="returnId"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnItemCollection"/>
 		/// </returns>
@@ -216,10 +216,10 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// Retrieves the details of all return items in an order.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="returnId"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnItemCollection"/>
 		/// </returns>
@@ -243,7 +243,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// Retrieves a list of the payment actions available to perform for the specified return when a return results in a refund to the customer.
 		/// </summary>
 		/// <param name="paymentId">Unique identifier of the payment for which to perform the action.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="returnId">Unique identifier of the return associated with the payment.</param>
 		/// <returns>
 		/// List{string}
 		/// </returns>
@@ -268,7 +268,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// Retrieves a list of the payment actions available to perform for the specified return when a return results in a refund to the customer.
 		/// </summary>
 		/// <param name="paymentId">Unique identifier of the payment for which to perform the action.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="returnId">Unique identifier of the return associated with the payment.</param>
 		/// <returns>
 		/// List{string}
 		/// </returns>
@@ -291,9 +291,9 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// Retrieves the details of a payment submitted as part of a refund associated with a customer return.
 		/// </summary>
-		/// <param name="paymentId">Unique identifier of the payment for which to perform the action.</param>
+		/// <param name="paymentId">Unique identifier of the return payment to retrieve.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="returnId">Unique identifier of the return associated with the payment.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Payments.Payment"/>
 		/// </returns>
@@ -317,9 +317,9 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// Retrieves the details of a payment submitted as part of a refund associated with a customer return.
 		/// </summary>
-		/// <param name="paymentId">Unique identifier of the payment for which to perform the action.</param>
+		/// <param name="paymentId">Unique identifier of the return payment to retrieve.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="returnId">Unique identifier of the return associated with the payment.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Payments.Payment"/>
 		/// </returns>
@@ -343,7 +343,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// Retrieves a list of all payments submitted as part of a refund associated with a customer return.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="returnId">Returns the details of the refund payment associated with the return specified in the request.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentCollection"/>
 		/// </returns>
@@ -368,7 +368,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// Retrieves a list of all payments submitted as part of a refund associated with a customer return.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="returnId">Returns the details of the refund payment associated with the return specified in the request.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentCollection"/>
 		/// </returns>
@@ -392,7 +392,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// Retrieves a list of properties for the specified return.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="returnId">Returns the properties of the return specified in the request as well as system-supplied information.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>
 		/// </returns>
@@ -417,7 +417,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// Retrieves a list of properties for the specified return.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="returnId">Returns the properties of the return specified in the request as well as system-supplied information.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>
 		/// </returns>
@@ -438,9 +438,9 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// commerce-returns Get GetReasons description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.ReasonCollection"/>
 		/// </returns>
@@ -462,9 +462,9 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// commerce-returns Get GetReasons description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.ReasonCollection"/>
 		/// </returns>
@@ -488,7 +488,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// Creates a return for previously fulfilled items. Each return must either be associated with an original order or a product definition to represent each returned item.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="ret">Properties of a return of one or more previously fulfilled items.</param>
+		/// <param name="ret">Wrapper for the properties of the return to create.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>
 		/// </returns>
@@ -513,7 +513,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// Creates a return for previously fulfilled items. Each return must either be associated with an original order or a product definition to represent each returned item.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="ret">Properties of a return of one or more previously fulfilled items.</param>
+		/// <param name="ret">Wrapper for the properties of the return to create.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>
 		/// </returns>
@@ -534,11 +534,11 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// Adds a return item to the return.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
-		/// <param name="returnItem">Properties of a previously fulfilled item associated with a return.</param>
+		/// <param name="returnId"></param>
+		/// <param name="returnItem"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>
 		/// </returns>
@@ -560,11 +560,11 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// Adds a return item to the return.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
-		/// <param name="returnItem">Properties of a previously fulfilled item associated with a return.</param>
+		/// <param name="returnId"></param>
+		/// <param name="returnItem"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>
 		/// </returns>
@@ -587,10 +587,10 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// Updates a refund payment associated with a customer return by performing the specified action.
 		/// </summary>
-		/// <param name="paymentId">Unique identifier of the payment for which to perform the action.</param>
+		/// <param name="paymentId">Unique identifier of the return payment to update.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
-		/// <param name="action">Properties of the payment action performed for an order.</param>
+		/// <param name="returnId">Unique identifier of the return associated with the refund payment.</param>
+		/// <param name="action">The payment action to perform for the refund payment.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>
 		/// </returns>
@@ -614,10 +614,10 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// Updates a refund payment associated with a customer return by performing the specified action.
 		/// </summary>
-		/// <param name="paymentId">Unique identifier of the payment for which to perform the action.</param>
+		/// <param name="paymentId">Unique identifier of the return payment to update.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
-		/// <param name="action">Properties of the payment action performed for an order.</param>
+		/// <param name="returnId">Unique identifier of the return associated with the refund payment.</param>
+		/// <param name="action">The payment action to perform for the refund payment.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>
 		/// </returns>
@@ -641,8 +641,8 @@ namespace Mozu.Api.Resources.Commerce
 		/// Creates a new payment for a return that results in a refund to the customer.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
-		/// <param name="action">Properties of the payment action performed for an order.</param>
+		/// <param name="returnId">Unique identifier of the return associated with the payment action.</param>
+		/// <param name="action">The payment action to perform for the customer return.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>
 		/// </returns>
@@ -667,8 +667,8 @@ namespace Mozu.Api.Resources.Commerce
 		/// Creates a new payment for a return that results in a refund to the customer.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
-		/// <param name="action">Properties of the payment action performed for an order.</param>
+		/// <param name="returnId">Unique identifier of the return associated with the payment action.</param>
+		/// <param name="action">The payment action to perform for the customer return.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>
 		/// </returns>
@@ -692,7 +692,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// Updates the return by performing the action specified in the request.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="action">Properties of an action a user can perform for a return.</param>
+		/// <param name="action">The name of the return action to perform, such as "Reject" or "Authorize".</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection"/>
 		/// </returns>
@@ -717,7 +717,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// Updates the return by performing the action specified in the request.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="action">Properties of an action a user can perform for a return.</param>
+		/// <param name="action">The name of the return action to perform, such as "Reject" or "Authorize".</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection"/>
 		/// </returns>
@@ -741,8 +741,8 @@ namespace Mozu.Api.Resources.Commerce
 		/// Updates one or more properties of a return for items previously shipped in a completed order.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
-		/// <param name="ret">Properties of a return of one or more previously fulfilled items.</param>
+		/// <param name="returnId">Unique identifier of the return.</param>
+		/// <param name="ret">Wrapper for the array of properties to update for the return.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>
 		/// </returns>
@@ -767,8 +767,8 @@ namespace Mozu.Api.Resources.Commerce
 		/// Updates one or more properties of a return for items previously shipped in a completed order.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
-		/// <param name="ret">Properties of a return of one or more previously fulfilled items.</param>
+		/// <param name="returnId">Unique identifier of the return.</param>
+		/// <param name="ret">Wrapper for the array of properties to update for the return.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>
 		/// </returns>
@@ -789,9 +789,9 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// commerce-returns Put ResendReturnEmail description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="action">Properties of an action a user can perform for a return.</param>
+		/// <param name="action"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -812,9 +812,9 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// commerce-returns Put ResendReturnEmail description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="action">Properties of an action a user can perform for a return.</param>
+		/// <param name="action"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -834,10 +834,10 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// Removes a particular order item from the order of the current shopper.
+		/// 
 		/// </summary>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
-		/// <param name="returnItemId">Unique identifier of the return item whose details you want to get.</param>
+		/// <param name="returnId"></param>
+		/// <param name="returnItemId"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>
 		/// </returns>
@@ -859,10 +859,10 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// Removes a particular order item from the order of the current shopper.
+		/// 
 		/// </summary>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
-		/// <param name="returnItemId">Unique identifier of the return item whose details you want to get.</param>
+		/// <param name="returnId"></param>
+		/// <param name="returnItemId"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>
 		/// </returns>
@@ -885,7 +885,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// Deletes the return specified in the request.
 		/// </summary>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="returnId">Unique identifier of the return to delete.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -908,7 +908,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// Deletes the return specified in the request.
 		/// </summary>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="returnId">Unique identifier of the return to delete.</param>
 		/// <returns>
 		/// 
 		/// </returns>

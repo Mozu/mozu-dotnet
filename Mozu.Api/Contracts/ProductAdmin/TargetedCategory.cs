@@ -19,7 +19,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class TargetedCategory
 		{
 			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///Identifier of the product category associated with the targeted discount.
 			///
 			public int? Id { get; set; }
 

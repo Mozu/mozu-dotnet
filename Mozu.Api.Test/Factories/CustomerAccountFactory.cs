@@ -444,7 +444,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Changes a collection of shopper passwords
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerAccountFactory.ChangePasswords(handler : handler,  accountPasswordInfos :  accountPasswordInfos,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

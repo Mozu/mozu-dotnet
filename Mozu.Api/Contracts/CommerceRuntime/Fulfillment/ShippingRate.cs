@@ -26,18 +26,15 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			///
 			public string CurrencyCode { get; set; }
 
-			///
-			///Custom data returned by the shipping service.
-			///
 			public JObject Data { get; set; }
 
 			///
-			///Indicates if the facet is currently valid.
+			///If true, the estimated shipping rate is valid.
 			///
 			public bool? IsValid { get; set; }
 
 			///
-			///Array list of validation and status messages associated with shipping rates, orders, and product purchasable state.
+			///Array list of validation messages associated with the shipping rate.
 			///
 			public List<string> Messages { get; set; }
 
@@ -47,18 +44,15 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			public decimal? Price { get; set; }
 
 			///
-			///The code associated with a carrier's shipping method service type, used during fulfillment of packages and shipments. Service type codes include a prefix that indicates the carrier. For example: FEDEX_INTERNATIONAL_STANDARD and UPS_GROUND.
+			///The code that identifies the service type shipping method, such as FED_EX_INTERNATIONAL.
 			///
 			public string ShippingMethodCode { get; set; }
 
 			///
-			///The carrier-supplied name for the shipping service type, such as "UPS Ground" or "2nd Day Air".
+			///The name of the shipping method associated with the estimated rate, such as "UPS Ground".
 			///
 			public string ShippingMethodName { get; set; }
 
-			///
-			///The shipping zone to which this rate applies.
-			///
 			public string ShippingZoneCode { get; set; }
 
 		}

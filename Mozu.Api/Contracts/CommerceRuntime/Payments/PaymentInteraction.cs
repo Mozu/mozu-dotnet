@@ -30,7 +30,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			public AuditInfo AuditInfo { get; set; }
 
 			///
-			///If applicable, the check number associated with the payment action or interaction.
+			///If applicable, the check number associated with this payment interaction.
 			///
 			public string CheckNumber { get; set; }
 
@@ -45,17 +45,17 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			public string GatewayAuthCode { get; set; }
 
 			///
-			///AVS (Address Verification Service) codes supplied by the payment gateway. The codes indicate partial to complete or failed matches against the billing address for the shopper against the financial institute data through the gateway.
+			///AVS codes supplied by the payment gateway.
 			///
 			public string GatewayAVSCodes { get; set; }
 
 			///
-			///CVV2 (Card Verification Value) codes supplied by the payment gateway. The codes indicate a verified or failed match of the encrypted code entered against the financial institution data through the gateway.
+			///CVV2 codes supplied by the payment gateway.
 			///
 			public string GatewayCVV2Codes { get; set; }
 
 			///
-			///Unique identifier of the payment interaction from the payment gateway.
+			///Unique identifier of the gateway interaction. Used for credit card transactions where the payment creates a GatewayInteractionId for each interaction. System-supplied and read-only.
 			///
 			public int? GatewayInteractionId { get; set; }
 
@@ -65,7 +65,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			public string GatewayResponseCode { get; set; }
 
 			///
-			///Textual message returned by the payment gateway for the associated success or failure code.
+			///Textual message returned by the payment gateway.
 			///
 			public string GatewayResponseText { get; set; }
 
@@ -75,17 +75,17 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			public string GatewayTransactionId { get; set; }
 
 			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///Unique identifier of the payment interaction.
 			///
 			public string Id { get; set; }
 
 			///
-			///Date and time of a payment interaction, including handling and processing a payment and validating and completing a payment with a payment gateway.
+			///Date and time the payment interaction occured.
 			///
 			public DateTime? InteractionDate { get; set; }
 
 			///
-			///The type of payment interaction. The payment can be Capture or CheckReceived. The value also includes customer payment interactions such as Website, Call, Store, or Unknown.
+			///The type of payment interaction, such as Capture or CheckReceived.
 			///
 			public string InteractionType { get; set; }
 
@@ -95,17 +95,17 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			public bool IsManual { get; set; }
 
 			///
-			///Indicates if the product in a cart, order, or wish list is purchased on a recurring schedule. If true, the item can be purchased or fulfilled at regular intervals, such as a monthly billing cycle. For example, digital or physical product subscriptions are recurring cart items. This property is not used at this time and is reserved for future functionality.
+			///If true, this payment interaction repeats on a scheduled interval.
 			///
 			public bool? IsRecurring { get; set; }
 
 			///
-			///User-entered notation content for an object, used to save information such as payment, return, account, and order notes.
+			///Note content entered for a payment interaction.
 			///
 			public string Note { get; set; }
 
 			///
-			///Unique identifier of the order associated with the payment.
+			///Unique identifier of the order associated with this payment interaction.
 			///
 			public string OrderId { get; set; }
 
@@ -125,7 +125,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			public int? PaymentTransactionInteractionIdReference { get; set; }
 
 			///
-			///The current status of an object. This status is specific to the object including payment (New, Authorized, Captured, Declined, Failed, Voided, Credited, CheckRequested, or RolledBack), discount (Active, Scheduled, or Expired), returns (ReturnAuthorized), tenant, package (Fulfilled or NotFulfilled), application, master and product catalogs, orders (Pending, Submitted, Processing, Pending Review, Closed, or Canceled), and order validation results (Pass, Fail, Error, or Review).
+			///The status of this payment interaction. Possible values are New, Authorized, Captured, Declined, Failed, Voided, Credited, CheckRequested, or RolledBack.
 			///
 			public string Status { get; set; }
 

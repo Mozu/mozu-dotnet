@@ -87,7 +87,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for UpdateProductReservations
         /// </summary>
-        /// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
+        /// <param name="skipInventoryCheck">If true, skip the inventory validation process when updating this product reservation.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -102,7 +102,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for DeleteProductReservation
         /// </summary>
-        /// <param name="productReservationId">Unique identifier of the product reservation.</param>
+        /// <param name="productReservationId">Unique identifier of the reservation.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

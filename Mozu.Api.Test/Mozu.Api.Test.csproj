@@ -175,6 +175,8 @@
     <Compile Include="Factories\PaymentFactory.cs" />
     <Compile Include="Factories\PaymentSettingsFactory.cs" />
     <Compile Include="Factories\PickupFactory.cs" />
+    <Compile Include="Factories\PriceListEntryFactory.cs" />
+    <Compile Include="Factories\PriceListFactory.cs" />
     <Compile Include="Factories\ProductExtraFactory.cs" />
     <Compile Include="Factories\ProductFactory.cs" />
     <Compile Include="Factories\ProductOptionFactory.cs" />
@@ -203,6 +205,7 @@
     <Compile Include="Factories\SoftAllocationFactory.cs" />
     <Compile Include="Factories\StorefrontCategoryFactory.cs" />
     <Compile Include="Factories\StorefrontPackageFactory.cs" />
+    <Compile Include="Factories\StorefrontPriceListFactory.cs" />
     <Compile Include="Factories\StorefrontProductFactory.cs" />
     <Compile Include="Factories\StorefrontProductSearchResultFactory.cs" />
     <Compile Include="Factories\StorefrontShipmentFactory.cs" />

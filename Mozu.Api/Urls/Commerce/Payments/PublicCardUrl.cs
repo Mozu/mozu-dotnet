@@ -32,7 +32,7 @@ namespace Mozu.Api.Urls.Commerce.Payments
 				/// <summary>
         /// Get Resource Url for Update
         /// </summary>
-        /// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
+        /// <param name="cardId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -47,7 +47,7 @@ namespace Mozu.Api.Urls.Commerce.Payments
 				/// <summary>
         /// Get Resource Url for Delete
         /// </summary>
-        /// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
+        /// <param name="cardId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

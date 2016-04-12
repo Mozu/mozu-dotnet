@@ -15,7 +15,7 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.Core
 {
 		///
-		///	Properties of the user. Users include customers and Mozu users.
+		///	Properties of the user.
 		///
 		public class User
 		{
@@ -30,12 +30,12 @@ namespace Mozu.Api.Contracts.Core
 			public string FirstName { get; set; }
 
 			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///Identifier of the user.
 			///
 			public string Id { get; set; }
 
 			///
-			///Indicates if the object or feature is active. This indicator is used for subscriptions (at the site or tenant level), customer accounts, products and variations.
+			///If true, the user is an active user.
 			///
 			public bool IsActive { get; set; }
 
@@ -50,7 +50,7 @@ namespace Mozu.Api.Contracts.Core
 			public string LocaleCode { get; set; }
 
 			///
-			///The saved password for the customer account. 
+			///The user password.
 			///
 			public string Password { get; set; }
 

@@ -20,22 +20,22 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		public class PackageMeasurements
 		{
 			///
-			///Height of a package or bundle package in imperial units of feet and inches.
+			///Height of the package in imperial units of feet and inches.
 			///
 			public Measurement PackageHeight { get; set; }
 
 			///
-			///Length of a package or bundle package in imperial units of feet and inches.
+			///Length of the package in imperial units of feet and inches.
 			///
 			public Measurement PackageLength { get; set; }
 
 			///
-			///Weight of a package or bundle package in imperial units of pounds and ounces.
+			///Weight of the package in imperial units of pounds and ounces.
 			///
 			public Measurement PackageWeight { get; set; }
 
 			///
-			///Width of a package or bundle package in imperial units of feet and inches.
+			///Width of the package in imperial units of feet and inches.
 			///
 			public Measurement PackageWidth { get; set; }
 

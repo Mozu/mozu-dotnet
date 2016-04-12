@@ -24,7 +24,7 @@ namespace Mozu.Api.Contracts.Core
 			public string EmailAddress { get; set; }
 
 			///
-			///The saved password for the customer account. 
+			///Password of the user.
 			///
 			public string Password { get; set; }
 
