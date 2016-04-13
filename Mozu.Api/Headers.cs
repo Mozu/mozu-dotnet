@@ -20,5 +20,6 @@
         public const string CONTENT_TYPE = "Content-type";
         public const string ETAG = "ETag";
         public const string USERID = "userId";
+        public const string USER_AGENT = "User-Agent";
     }
 }
