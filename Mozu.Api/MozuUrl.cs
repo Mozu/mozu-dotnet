@@ -35,7 +35,11 @@ namespace Mozu.Api
 		public void FormatUrl(string paramName, object value)
 		{
 		    paramName = paramName.ToLower();
-           
+            if (value is DateTime)
+            {
+               var date = (DateTime)value;
+               value = date.ToString("yyyy-MM-ddTHH:mm:ssZ");
+            }
             Url = Url.Replace("{" + paramName + "}", value == null ? "" : value.ToString());
             Url = Url.Replace("{*" + paramName + "}", value == null ? "" : value.ToString());
 			var removeString = "&" + paramName + "=";
