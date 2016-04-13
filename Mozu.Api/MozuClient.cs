@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Reflection;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
@@ -517,7 +518,8 @@ namespace Mozu.Api
 
             
             AddHeader(Headers.X_VOL_VERSION, Version.ApiVersion);
-
+            var userAgentVal = String.Format("Mozu .Net SDK/{0} (Internal Version-{1}) ", Version.ApiVersion, Assembly.GetExecutingAssembly().GetName().Version);
+            AddHeader(Headers.USER_AGENT, userAgentVal);
             if (_apiContext != null && !String.IsNullOrEmpty(_apiContext.CorrelationId))
                 AddHeader(Headers.X_VOL_CORRELATION, _apiContext.CorrelationId);
 
