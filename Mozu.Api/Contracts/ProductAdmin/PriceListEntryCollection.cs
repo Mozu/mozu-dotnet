@@ -24,6 +24,12 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public List<PriceListEntry> Items { get; set; }
 
+			public int PageCount { get; set; }
+
+			public int PageSize { get; set; }
+
+			public int StartIndex { get; set; }
+
 			///
 			///Total number of objects in am item collection. Total counts are calculated for numerous objects in Mozu, including location inventory, products, options, product types, product reservations, categories, addresses, carriers, tax rates, time zones, and much more.
 			///
