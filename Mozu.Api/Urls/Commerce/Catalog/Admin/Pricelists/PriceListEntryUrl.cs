@@ -29,7 +29,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Pricelists
         /// </returns>
         public static MozuUrl GetPriceListEntryUrl(string priceListCode, string productCode, string currencyCode, DateTime? startDate =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/pricelists/{priceListCode}/Entries/{productCode}/{currencyCode}?startDate={startDate}&responseFields={responseFields}";
+			var url = "/api/commerce/catalog/admin/pricelists/{priceListCode}/entries/{productCode}/{currencyCode}?startDate={startDate}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "currencyCode", currencyCode);
 			mozuUrl.FormatUrl( "priceListCode", priceListCode);
@@ -53,7 +53,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Pricelists
         /// </returns>
         public static MozuUrl GetPriceListEntriesUrl(string priceListCode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/pricelists/{priceListCode}/Entries?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
+			var url = "/api/commerce/catalog/admin/pricelists/{priceListCode}/entries?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "filter", filter);
 			mozuUrl.FormatUrl( "pageSize", pageSize);
@@ -74,7 +74,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Pricelists
         /// </returns>
         public static MozuUrl AddPriceListEntryUrl(string priceListCode, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/pricelists/{priceListCode}/Entries?responseFields={responseFields}";
+			var url = "/api/commerce/catalog/admin/pricelists/{priceListCode}/entries?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "priceListCode", priceListCode);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
@@ -94,7 +94,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Pricelists
         /// </returns>
         public static MozuUrl UpdatePriceListEntryUrl(string priceListCode, string productCode, string currencyCode, DateTime? startDate =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/pricelists/{priceListCode}/Entries/{productCode}/{currencyCode}?startDate={startDate}&responseFields={responseFields}";
+			var url = "/api/commerce/catalog/admin/pricelists/{priceListCode}/entries/{productCode}/{currencyCode}?startDate={startDate}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "currencyCode", currencyCode);
 			mozuUrl.FormatUrl( "priceListCode", priceListCode);
@@ -116,7 +116,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Pricelists
         /// </returns>
         public static MozuUrl DeletePriceListEntryUrl(string priceListCode, string productCode, string currencyCode, DateTime? startDate =  null)
 		{
-			var url = "/api/commerce/catalog/admin/pricelists/{priceListCode}/Entries/{productCode}/{currencyCode}?startDate={startDate}";
+			var url = "/api/commerce/catalog/admin/pricelists/{priceListCode}/entries/{productCode}/{currencyCode}?startDate={startDate}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "currencyCode", currencyCode);
 			mozuUrl.FormatUrl( "priceListCode", priceListCode);
