@@ -28,6 +28,8 @@ namespace Mozu.Api
 		string Locale { get; set; }
 		string Currency { get; set; }
 
+        string ReturnUrl{ get; set; }
+
         AuthTicket UserAuthTicket { get; set; }
 
 		IApiContext CloneWith(Action<IApiContext> contextModification);
@@ -47,6 +49,7 @@ namespace Mozu.Api
 
         public int? CatalogId { get;  set; }
         public Tenant Tenant { get; set; }
+        public string ReturnUrl { get; set; }
         public AuthTicket UserAuthTicket { get; set; }
 
 		public string Date { get; protected set; }
@@ -119,12 +122,15 @@ namespace Mozu.Api
 			if (!String.IsNullOrEmpty(catalogStr))
 				CatalogId = int.Parse(catalogStr);
 
-			if (!String.IsNullOrEmpty(TenantUrl))
+            var returnUrl = headers.Get(Headers.X_VOL_RETURN_URL);
+            if (!string.IsNullOrEmpty(returnUrl))
+                ReturnUrl = returnUrl;
+
+            if (!String.IsNullOrEmpty(TenantUrl))
 				TenantUrl = TenantUrl;
 
 			if (!String.IsNullOrEmpty(SiteUrl))
 				SiteUrl = SiteUrl;
-
 		}
 
 		public ApiContext(HttpRequestHeaders headers)
@@ -141,6 +147,7 @@ namespace Mozu.Api
 			Locale = HttpHelper.GetHeaderValue(Headers.X_VOL_LOCALE, headers);
 			Currency = HttpHelper.GetHeaderValue(Headers.X_VOL_CURRENCY, headers);
 		    UserId = HttpHelper.GetHeaderValue(Headers.USERID, headers);
+		    ReturnUrl = HttpHelper.GetHeaderValue(Headers.X_VOL_RETURN_URL, headers);
 
 			if (!String.IsNullOrEmpty(TenantUrl))
 			{
@@ -171,7 +178,8 @@ namespace Mozu.Api
 				Tenant = this.Tenant,
 				TenantId = this.TenantId,
 				TenantUrl = (!String.IsNullOrEmpty(this.TenantUrl) ? (string)this.TenantUrl.Clone() : null),
-				UserAuthTicket = this.UserAuthTicket
+                ReturnUrl = (!String.IsNullOrEmpty(this.ReturnUrl) ? (string)this.ReturnUrl.Clone() : null),
+                UserAuthTicket = this.UserAuthTicket
 			};
 
 			contextModification(cloned);
