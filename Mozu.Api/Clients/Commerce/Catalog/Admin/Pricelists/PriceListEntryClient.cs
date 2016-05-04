@@ -17,17 +17,17 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Pricelists
 {
 	/// <summary>
-	/// 
+	/// commerce/catalog/admin/pricelists/entries related resources. DOCUMENT_HERE 
 	/// </summary>
 	public partial class PriceListEntryClient 	{
 		
 		/// <summary>
-		/// 
+		/// pricelists-entries Get GetPriceListEntry description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="currencyCode"></param>
+		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
 		/// <param name="priceListCode"></param>
-		/// <param name="productCode"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="startDate"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.PriceListEntry"/>}
@@ -50,14 +50,14 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Pricelists
 		}
 
 		/// <summary>
-		/// 
+		/// pricelists-entries Get GetPriceListEntries description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="filter"></param>
-		/// <param name="pageSize"></param>
+		/// <param name="filter">A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.</param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
 		/// <param name="priceListCode"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="sortBy"></param>
-		/// <param name="startIndex"></param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=50`.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.PriceListEntryCollection"/>}
 		/// </returns>
@@ -79,11 +79,11 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Pricelists
 		}
 
 		/// <summary>
-		/// 
+		/// pricelists-entries Post AddPriceListEntry description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="priceListCode"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="priceListEntryIn"></param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="priceListEntryIn">Mozu.ProductAdmin.Contracts.PriceListEntry ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.PriceListEntry"/>}
 		/// </returns>
@@ -105,14 +105,14 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Pricelists
 		}
 
 		/// <summary>
-		/// 
+		/// pricelists-entries Put UpdatePriceListEntry description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="currencyCode"></param>
+		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
 		/// <param name="priceListCode"></param>
-		/// <param name="productCode"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="startDate"></param>
-		/// <param name="priceListEntryIn"></param>
+		/// <param name="priceListEntryIn">Mozu.ProductAdmin.Contracts.PriceListEntry ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.PriceListEntry"/>}
 		/// </returns>
@@ -134,11 +134,11 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Pricelists
 		}
 
 		/// <summary>
-		/// 
+		/// pricelists-entries Delete DeletePriceListEntry description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="currencyCode"></param>
+		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
 		/// <param name="priceListCode"></param>
-		/// <param name="productCode"></param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
 		/// <param name="startDate"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />

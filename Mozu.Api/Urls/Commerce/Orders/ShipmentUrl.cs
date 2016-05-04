@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
 		/// <summary>
         /// Get Resource Url for GetShipment
         /// </summary>
-        /// <param name="orderId">Unique identifier of the order associated with the shipment to retrieve.</param>
+        /// <param name="orderId">Unique identifier of the order.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="shipmentId">Unique identifier of the shipment to retrieve.</param>
         /// <returns>
@@ -38,8 +38,8 @@ namespace Mozu.Api.Urls.Commerce.Orders
 		/// <summary>
         /// Get Resource Url for GetAvailableShipmentMethods
         /// </summary>
-        /// <param name="draft"></param>
-        /// <param name="orderId">Unique identifier of the order for the available shipment methods being retrieved.</param>
+        /// <param name="draft">If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.</param>
+        /// <param name="orderId">Unique identifier of the order.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -55,7 +55,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
 				/// <summary>
         /// Get Resource Url for CreatePackageShipments
         /// </summary>
-        /// <param name="orderId">Unique identifier of the order for this shipment.</param>
+        /// <param name="orderId">Unique identifier of the order.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -70,8 +70,8 @@ namespace Mozu.Api.Urls.Commerce.Orders
 						/// <summary>
         /// Get Resource Url for DeleteShipment
         /// </summary>
-        /// <param name="orderId">Unique identifier of the order to cancel shipment.</param>
-        /// <param name="shipmentId">Unique identifier of the shipment to cancel.</param>
+        /// <param name="orderId">Unique identifier of the order.</param>
+        /// <param name="shipmentId">Unique identifier of the shipment to retrieve.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

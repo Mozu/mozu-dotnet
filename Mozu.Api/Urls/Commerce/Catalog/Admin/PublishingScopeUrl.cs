@@ -19,8 +19,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetPublishSet
         /// </summary>
-        /// <param name="publishSetCode"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="publishSetCode">The unique identifier of the publish set.</param>
+        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -36,7 +36,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetPublishSets
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -77,7 +77,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for AssignProductsToPublishSet
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -92,8 +92,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 						/// <summary>
         /// Get Resource Url for DeletePublishSet
         /// </summary>
-        /// <param name="discardDrafts"></param>
-        /// <param name="publishSetCode"></param>
+        /// <param name="discardDrafts">Specifies whether to discard all the drafts assigned to the publish set when the publish set is deleted.</param>
+        /// <param name="publishSetCode">The unique identifier of the publish set.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

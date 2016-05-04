@@ -25,6 +25,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			///
 			public AuditInfo AuditInfo { get; set; }
 
+			///
+			///Custom data originated by the shipping service.
+			///
 			public JObject Data { get; set; }
 
 			///
@@ -38,7 +41,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			public bool? IsDestinationCommercial { get; set; }
 
 			///
-			///The code associated with the carrier's shipping method service type. Service type codes include a prefix that indicates the carrier. For example: FEDEX_INTERNATIONAL_STANDARD
+			///The code associated with a carrier's shipping method service type, used during fulfillment of packages and shipments. Service type codes include a prefix that indicates the carrier. For example: FEDEX_INTERNATIONAL_STANDARD and UPS_GROUND.
 			///
 			public string ShippingMethodCode { get; set; }
 

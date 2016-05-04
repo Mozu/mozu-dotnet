@@ -47,7 +47,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// <summary>
 		/// Retrieves a list of product types according to any specified filter criteria and sort options.
 		/// </summary>
-		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product type search results by any of its properties. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+cont+shoes"</param>
+		/// <param name="filter">A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy"></param>
@@ -76,7 +76,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// <summary>
 		/// Retrieves a list of product types according to any specified filter criteria and sort options.
 		/// </summary>
-		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product type search results by any of its properties. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+cont+shoes"</param>
+		/// <param name="filter">A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy"></param>
@@ -104,7 +104,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// <summary>
 		/// Retrieves the details of the product type specified in the request.
 		/// </summary>
-		/// <param name="productTypeId">Identifier of the product type to retrieve.</param>
+		/// <param name="productTypeId">Identifier of the product type.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
@@ -130,7 +130,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// <summary>
 		/// Retrieves the details of the product type specified in the request.
 		/// </summary>
-		/// <param name="productTypeId">Identifier of the product type to retrieve.</param>
+		/// <param name="productTypeId">Identifier of the product type.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
@@ -157,7 +157,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="productType">Properties of the product type to create.</param>
+		/// <param name="productType">A product type is like a product template.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductType"/>
 		/// </returns>
@@ -183,7 +183,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="productType">Properties of the product type to create.</param>
+		/// <param name="productType">A product type is like a product template.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductType"/>
 		/// </returns>
@@ -206,10 +206,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// <summary>
 		/// Updates one or more properties of a product type.
 		/// </summary>
-		/// <param name="productTypeId">Identifier of the product type to update.</param>
+		/// <param name="productTypeId">Identifier of the product type.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="productType">The details of the product type to update.</param>
+		/// <param name="productType">A product type is like a product template.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductType"/>
 		/// </returns>
@@ -233,10 +233,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// <summary>
 		/// Updates one or more properties of a product type.
 		/// </summary>
-		/// <param name="productTypeId">Identifier of the product type to update.</param>
+		/// <param name="productTypeId">Identifier of the product type.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="productType">The details of the product type to update.</param>
+		/// <param name="productType">A product type is like a product template.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductType"/>
 		/// </returns>
@@ -259,7 +259,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// <summary>
 		/// Deletes the product type by providing the product type ID.
 		/// </summary>
-		/// <param name="productTypeId">Identifier of the product type to delete.</param>
+		/// <param name="productTypeId">Identifier of the product type.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// 
@@ -283,7 +283,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// <summary>
 		/// Deletes the product type by providing the product type ID.
 		/// </summary>
-		/// <param name="productTypeId">Identifier of the product type to delete.</param>
+		/// <param name="productTypeId">Identifier of the product type.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// 

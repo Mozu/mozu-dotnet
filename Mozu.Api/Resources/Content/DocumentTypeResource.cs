@@ -145,10 +145,10 @@ namespace Mozu.Api.Resources.Content
 		}
 
 		/// <summary>
-		/// 
+		/// Creates a new DocumentType
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="documentType"></param>
+		/// <param name="documentType">The type of documents used in the CMS such as "web_page" or "template" or "image_url".</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentType"/>
 		/// </returns>
@@ -170,10 +170,10 @@ namespace Mozu.Api.Resources.Content
 		}
 
 		/// <summary>
-		/// 
+		/// Creates a new DocumentType
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="documentType"></param>
+		/// <param name="documentType">The type of documents used in the CMS such as "web_page" or "template" or "image_url".</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentType"/>
 		/// </returns>
@@ -194,11 +194,11 @@ namespace Mozu.Api.Resources.Content
 		}
 
 		/// <summary>
-		/// 
+		/// Updates a DocumentType
 		/// </summary>
-		/// <param name="documentTypeName"></param>
+		/// <param name="documentTypeName">The name of the document type to retrieve.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="documentType"></param>
+		/// <param name="documentType">The type of documents used in the CMS such as "web_page" or "template" or "image_url".</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentType"/>
 		/// </returns>
@@ -220,11 +220,11 @@ namespace Mozu.Api.Resources.Content
 		}
 
 		/// <summary>
-		/// 
+		/// Updates a DocumentType
 		/// </summary>
-		/// <param name="documentTypeName"></param>
+		/// <param name="documentTypeName">The name of the document type to retrieve.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="documentType"></param>
+		/// <param name="documentType">The type of documents used in the CMS such as "web_page" or "template" or "image_url".</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentType"/>
 		/// </returns>

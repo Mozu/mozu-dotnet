@@ -24,7 +24,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use this resource to manage authentication tickets for your developer account.
+	/// Use the Authtickets resource to manage authentication tickets for your developer account.
 	/// </summary>
 	public partial class DeveloperAdminUserAuthTicketFactory : BaseDataFactory
 	{

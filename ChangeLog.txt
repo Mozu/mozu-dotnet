@@ -1,6 +1,138 @@
+Events
+0.    Added - PriceList.PriceList Created
+1.    Added - PriceList.PriceList Deleted
+2.    Added - PriceList.PriceList Updated
+3.    Added - PriceList.PriceListEntry Created
+4.    Added - PriceList.PriceListEntry Deleted
+5.    Added - PriceList.PriceListEntry StatusChanged
+6.    Added - PriceList.PriceListEntry Updated
+7.    Added - Tenant.Tenant Created
+
 Operation Params
-0.    Added - commerce.catalog.storefront.pricelists.GetResolvedPriceList- Param : customerAccountId
+0.    Added - commerce.catalog.admin.pricelists.DeletePriceList- Param : cascadeDeleteEntries
+1.    Added - commerce.catalog.admin.pricelists.entries.DeletePriceListEntry- Param : currencyCode
+2.    Added - commerce.catalog.admin.pricelists.entries.GetPriceListEntry- Param : currencyCode
+3.    Added - commerce.catalog.admin.pricelists.entries.UpdatePriceListEntry- Param : currencyCode
+4.    Added - commerce.catalog.admin.pricelists.entries.GetPriceListEntries- Param : filter
+5.    Added - commerce.catalog.admin.pricelists.entries.GetPriceListEntries- Param : pageSize
+6.    Added - commerce.catalog.admin.pricelists.entries.AddPriceListEntry- Param : priceListCode
+7.    Added - commerce.catalog.admin.pricelists.entries.DeletePriceListEntry- Param : priceListCode
+8.    Added - commerce.catalog.admin.pricelists.entries.GetPriceListEntries- Param : priceListCode
+9.    Added - commerce.catalog.admin.pricelists.entries.GetPriceListEntry- Param : priceListCode
+10.    Added - commerce.catalog.admin.pricelists.entries.UpdatePriceListEntry- Param : priceListCode
+11.    Added - commerce.catalog.admin.pricelists.entries.UpdatePriceListEntry- Param : priceListEntryIn
+12.    Added - commerce.catalog.admin.pricelists.entries.AddPriceListEntry- Param : priceListEntryIn
+13.    Added - commerce.catalog.admin.pricelists.entries.DeletePriceListEntry- Param : productCode
+14.    Added - commerce.catalog.admin.pricelists.entries.GetPriceListEntry- Param : productCode
+15.    Added - commerce.catalog.admin.pricelists.entries.UpdatePriceListEntry- Param : productCode
+16.    Added - commerce.catalog.admin.pricelists.entries.AddPriceListEntry- Param : responseFields
+17.    Added - commerce.catalog.admin.pricelists.entries.GetPriceListEntry- Param : responseFields
+18.    Added - commerce.catalog.admin.pricelists.entries.GetPriceListEntries- Param : responseFields
+19.    Added - commerce.catalog.admin.pricelists.entries.UpdatePriceListEntry- Param : responseFields
+20.    Added - commerce.catalog.admin.pricelists.entries.GetPriceListEntries- Param : sortBy
+21.    Added - commerce.catalog.admin.pricelists.entries.DeletePriceListEntry- Param : startDate
+22.    Added - commerce.catalog.admin.pricelists.entries.GetPriceListEntry- Param : startDate
+23.    Added - commerce.catalog.admin.pricelists.entries.UpdatePriceListEntry- Param : startDate
+24.    Added - commerce.catalog.admin.pricelists.entries.GetPriceListEntries- Param : startIndex
+25.    Added - commerce.catalog.admin.pricelists.GetPriceLists- Param : filter
+26.    Added - commerce.catalog.admin.pricelists.GetPriceLists- Param : pageSize
+27.    Added - commerce.catalog.admin.pricelists.AddPriceList- Param : priceList
+28.    Added - commerce.catalog.admin.pricelists.UpdatePriceList- Param : priceList
+29.    Added - commerce.catalog.admin.pricelists.DeletePriceList- Param : priceListCode
+30.    Added - commerce.catalog.admin.pricelists.GetPriceList- Param : priceListCode
+31.    Added - commerce.catalog.admin.pricelists.UpdatePriceList- Param : priceListCode
+32.    Added - commerce.catalog.admin.pricelists.AddPriceList- Param : responseFields
+33.    Added - commerce.catalog.admin.pricelists.GetPriceList- Param : responseFields
+34.    Added - commerce.catalog.admin.pricelists.UpdatePriceList- Param : responseFields
+35.    Added - commerce.catalog.admin.pricelists.GetPriceLists- Param : responseFields
+36.    Added - commerce.catalog.admin.pricelists.GetPriceLists- Param : sortBy
+37.    Added - commerce.catalog.admin.pricelists.GetPriceLists- Param : startIndex
+38.    Added - commerce.catalog.admin.products.variations.AddProductVariationLocalizedPrice- Param : localizedPrice
+39.    Added - commerce.catalog.admin.products.variations.UpdateProductVariationLocalizedPrice- Param : localizedPrice
+40.    Added - commerce.catalog.admin.products.variations.UpdateProductVariationLocalizedPrices- Param : localizedPrice
+41.    Added - commerce.catalog.storefront.pricelists.GetResolvedPriceList- Param : customerAccountId
+42.    Added - commerce.catalog.storefront.pricelists.GetPriceList- Param : priceListCode
+43.    Added - commerce.catalog.storefront.pricelists.GetDefaultPriceList- Param : responseFields
+44.    Added - commerce.catalog.storefront.pricelists.GetPriceList- Param : responseFields
+45.    Added - commerce.catalog.storefront.pricelists.GetResolvedPriceList- Param : responseFields
+46.    Added - commerce.catalog.storefront.products.ValidateProduct- Param : quantity
+47.    Added - commerce.catalog.storefront.products.ConfiguredProduct- Param : quantity
+48.    Added - commerce.catalog.storefront.products.GetProduct- Param : quantity
+49.    Added - commerce.customer.authtickets.CreateImpersonatedAuthTicket- Param : accountId
+50.    Added - commerce.orders.ChangeOrderPriceList- Param : priceListCode
+51.    Added - commerce.settings.checkout.paymentsettings.GetActiveGatewayForCardType- Param : cardType
+52.    Added - content.documentlistTypes.GetDocumentListTypes- Param : pageSize
+53.    Added - content.documentlistTypes.GetDocumentListTypes- Param : startIndex
+54.    Added - event.push.subscriptions.tenants.sites.GetSubscribingSites- Param : filter
+55.    Added - event.push.subscriptions.tenants.sites.GetSubscribingSites- Param : pageSize
+56.    Added - event.push.subscriptions.tenants.sites.AddSubscribingSite- Param : responseFields
+57.    Added - event.push.subscriptions.tenants.sites.GetSubscribingSite- Param : responseFields
+58.    Added - event.push.subscriptions.tenants.sites.UpdateSubscribingSite- Param : responseFields
+59.    Added - event.push.subscriptions.tenants.sites.GetSubscribingSites- Param : responseFields
+60.    Added - event.push.subscriptions.tenants.sites.DeleteSubscribingSite- Param : siteId
+61.    Added - event.push.subscriptions.tenants.sites.GetSubscribingSite- Param : siteId
+62.    Added - event.push.subscriptions.tenants.sites.GetSubscribingSites- Param : sortBy
+63.    Added - event.push.subscriptions.tenants.sites.GetSubscribingSites- Param : startIndex
+64.    Added - event.push.subscriptions.tenants.sites.AddSubscribingSite- Param : subscribingSite
+65.    Added - event.push.subscriptions.tenants.sites.UpdateSubscribingSite- Param : subscribingSite
+66.    Added - event.push.subscriptions.tenants.sites.AddSubscribingSite- Param : subscriptionId
+67.    Added - event.push.subscriptions.tenants.sites.DeleteSubscribingSite- Param : subscriptionId
+68.    Added - event.push.subscriptions.tenants.sites.GetSubscribingSite- Param : subscriptionId
+69.    Added - event.push.subscriptions.tenants.sites.UpdateSubscribingSite- Param : subscriptionId
+70.    Added - event.push.subscriptions.tenants.sites.GetSubscribingSites- Param : subscriptionId
+71.    Added - event.push.subscriptions.tenants.sites.AddSubscribingSite- Param : tenantId
+72.    Added - event.push.subscriptions.tenants.sites.DeleteSubscribingSite- Param : tenantId
+73.    Added - event.push.subscriptions.tenants.sites.GetSubscribingSite- Param : tenantId
+74.    Added - event.push.subscriptions.tenants.sites.UpdateSubscribingSite- Param : tenantId
+75.    Added - event.push.subscriptions.tenants.sites.GetSubscribingSites- Param : tenantId
+76.    Removed - event.push.subscriptions.tenants.DeleteSubscribingSite- Param : siteId
+77.    Removed - event.push.subscriptions.tenants.GetSubscribingSite- Param : siteId
+78.    Removed - event.push.subscriptions.tenants.AddSubscribingSite- Param : subscribingSite
+79.    Removed - event.push.subscriptions.tenants.UpdateSubscribingSite- Param : subscribingSite
 
 Operations
-0.    Added - commerce.catalog.storefront.pricelists.GetPriceLists - GET
-1.    Added - commerce.catalog.storefront.pricelists.GetResolvedPriceList - GET
+0.    Added - commerce.catalog.admin.pricelists.AddPriceList - POST
+1.    Added - commerce.catalog.admin.pricelists.DeletePriceList - DELETE
+2.    Added - commerce.catalog.admin.pricelists.entries.AddPriceListEntry - POST
+3.    Added - commerce.catalog.admin.pricelists.entries.DeletePriceListEntry - DELETE
+4.    Added - commerce.catalog.admin.pricelists.entries.GetPriceListEntries - GET
+5.    Added - commerce.catalog.admin.pricelists.entries.GetPriceListEntry - GET
+6.    Added - commerce.catalog.admin.pricelists.entries.UpdatePriceListEntry - PUT
+7.    Added - commerce.catalog.admin.pricelists.GetPriceList - GET
+8.    Added - commerce.catalog.admin.pricelists.GetPriceLists - GET
+9.    Added - commerce.catalog.admin.pricelists.UpdatePriceList - PUT
+10.    Added - commerce.catalog.admin.products.variations.AddProductVariationLocalizedPrice - POST
+11.    Added - commerce.catalog.admin.products.variations.DeleteProductVariationLocalizedPrice - DELETE
+12.    Added - commerce.catalog.admin.products.variations.GetProductVariationLocalizedPrice - GET
+13.    Added - commerce.catalog.admin.products.variations.GetProductVariationLocalizedPrices - GET
+14.    Added - commerce.catalog.admin.products.variations.UpdateProductVariationLocalizedPrice - PUT
+15.    Added - commerce.catalog.admin.products.variations.UpdateProductVariationLocalizedPrices - PUT
+16.    Added - commerce.catalog.storefront.pricelists.GetDefaultPriceList - GET
+17.    Added - commerce.catalog.storefront.pricelists.GetPriceList - GET
+18.    Added - commerce.catalog.storefront.pricelists.GetPriceLists - GET
+19.    Added - commerce.catalog.storefront.pricelists.GetResolvedPriceList - GET
+20.    Added - commerce.customer.authtickets.CreateImpersonatedAuthTicket - GET
+21.    Added - commerce.orders.ChangeOrderPriceList - PUT
+22.    Added - commerce.settings.checkout.paymentsettings.CreateTenantGateway - POST
+23.    Added - commerce.settings.checkout.paymentsettings.DeleteTenantGateway - DELETE
+24.    Added - commerce.settings.checkout.paymentsettings.GetActiveGatewayForCardType - GET
+25.    Added - commerce.settings.checkout.paymentsettings.GetGateways - GET
+26.    Added - commerce.settings.checkout.paymentsettings.UpdateTenantGateway - PUT
+27.    Added - content.documentlistTypes.GetDocumentListType - GET
+28.    Added - content.documentlistTypes.GetDocumentListTypes - GET
+29.    Added - event.push.subscriptions.tenants.sites.AddSubscribingSite - POST
+30.    Added - event.push.subscriptions.tenants.sites.DeleteSubscribingSite - DELETE
+31.    Added - event.push.subscriptions.tenants.sites.GetSubscribingSite - GET
+32.    Added - event.push.subscriptions.tenants.sites.GetSubscribingSites - GET
+33.    Added - event.push.subscriptions.tenants.sites.UpdateSubscribingSite - PUT
+34.    Removed - event.push.subscriptions.tenants.AddSubscribingSite - POST
+35.    Removed - event.push.subscriptions.tenants.DeleteSubscribingSite - DELETE
+36.    Removed - event.push.subscriptions.tenants.GetSubscribingSite - GET
+37.    Removed - event.push.subscriptions.tenants.GetSubscribingSites - GET
+38.    Removed - event.push.subscriptions.tenants.UpdateSubscribingSite - PUT
+
+Resources
+0.    Added - commerce.catalog.admin.pricelists | commerce/catalog/admin/pricelists
+1.    Added - commerce.catalog.admin.pricelists.entries | commerce/catalog/admin/pricelists/entries
+2.    Added - commerce.catalog.storefront.pricelists | commerce/catalog/storefront/pricelists
+3.    Added - event.push.subscriptions.tenants.sites | event/push/subscriptions/tenants/sites

@@ -51,7 +51,7 @@ namespace Mozu.Api.Clients.Content
 		/// <summary>
 		/// Retrieves the details of the content property type.
 		/// </summary>
-		/// <param name="propertyTypeName">The name of the content property type.</param>
+		/// <param name="propertyTypeName">The name of the property type.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.PropertyType"/>}
@@ -75,10 +75,10 @@ namespace Mozu.Api.Clients.Content
 		}
 
 		/// <summary>
-		/// 
+		/// Creates a new
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="propertyType"></param>
+		/// <param name="propertyType">Property type available for content. Property types are like templates that can be reused.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.PropertyType"/>}
 		/// </returns>
@@ -100,11 +100,11 @@ namespace Mozu.Api.Clients.Content
 		}
 
 		/// <summary>
-		/// 
+		/// Updates a
 		/// </summary>
-		/// <param name="propertyTypeName"></param>
+		/// <param name="propertyTypeName">The name of the property type.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="propertyType"></param>
+		/// <param name="propertyType">Property type available for content. Property types are like templates that can be reused.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.PropertyType"/>}
 		/// </returns>
@@ -127,9 +127,9 @@ namespace Mozu.Api.Clients.Content
 		}
 
 		/// <summary>
-		/// 
+		/// Delete a specific
 		/// </summary>
-		/// <param name="propertyTypeName"></param>
+		/// <param name="propertyTypeName">The name of the property type.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

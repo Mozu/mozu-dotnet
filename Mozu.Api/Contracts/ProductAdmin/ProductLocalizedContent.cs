@@ -25,22 +25,22 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string LocaleCode { get; set; }
 
 			///
-			///More detailed or full product description typically used for a product details page.
+			///Lengthy full description for a product description, displayed on product detail pages within the storefront.
 			///
 			public string ProductFullDescription { get; set; }
 
 			///
-			///List of product images associated with a product.
+			///List of image files associated with a product. This content may include the image file URL, name, and other information as available.
 			///
 			public List<ProductLocalizedImage> ProductImages { get; set; }
 
 			///
-			///The descriptive brief product name.
+			///The name of the product that represents a line item in a taxable order or product bundle.
 			///
 			public string ProductName { get; set; }
 
 			///
-			///Brief description of the product typically used when the product is displayed in a list or in search results.
+			///Brief text description of the product or component in a product bundle, typically used when the product is displayed in a list or in search results.
 			///
 			public string ProductShortDescription { get; set; }
 

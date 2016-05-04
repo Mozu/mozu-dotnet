@@ -13,10 +13,19 @@ using System;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
+		///
+		///	Mozu.ProductAdmin.Contracts.ActiveDateRange ApiType DOCUMENT_HERE 
+		///
 		public class ActiveDateRange
 		{
+			///
+			///Mozu.ProductAdmin.Contracts.ActiveDateRange endDate ApiTypeMember DOCUMENT_HERE 
+			///
 			public DateTime? EndDate { get; set; }
 
+			///
+			///Mozu.ProductAdmin.Contracts.ActiveDateRange startDate ApiTypeMember DOCUMENT_HERE 
+			///
 			public DateTime? StartDate { get; set; }
 
 		}

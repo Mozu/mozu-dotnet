@@ -24,12 +24,12 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			public string HelpLink { get; set; }
 
 			///
-			///Content of the shipping rate validation message.
+			///The text of the change message, such as "This product is no longer available." System-supplied and read-only.
 			///
 			public string Message { get; set; }
 
 			///
-			///Severity level of the shipping rate validation failure.
+			///The severity level of validation failures for shipping rates and products.
 			///
 			public string Severity { get; set; }
 

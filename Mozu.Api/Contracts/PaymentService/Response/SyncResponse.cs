@@ -13,12 +13,24 @@ using System;
 
 namespace Mozu.Api.Contracts.PaymentService.Response
 {
+		///
+		///	Mozu.PaymentService.Contracts.Response.SyncResponse ApiType DOCUMENT_HERE 
+		///
 		public class SyncResponse
 		{
+			///
+			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///
 			public string Id { get; set; }
 
+			///
+			///Mozu.PaymentService.Contracts.Response.SyncResponse isSuccessful ApiTypeMember DOCUMENT_HERE 
+			///
 			public bool IsSuccessful { get; set; }
 
+			///
+			///Credit card Number Part
+			///
 			public string NumberPart { get; set; }
 
 		}

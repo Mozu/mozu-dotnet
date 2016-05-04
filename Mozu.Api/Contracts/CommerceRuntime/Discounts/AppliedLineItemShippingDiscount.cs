@@ -19,20 +19,23 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Discounts
 		public class AppliedLineItemShippingDiscount
 		{
 			///
-			///This describes shipping discounts that apply to a line item in the order, if any.
+			///Name of the discount added and applied to a shopping cart and order for a shopper's purchase. 
 			///
 			public AppliedDiscount Discount { get; set; }
 
 			///
-			///The number of the line item that is used for this particular discount.
+			///The number of the line items that are used for this particular discount.
 			///
 			public int DiscountQuantity { get; set; }
 
 			///
-			///The impact of this discount for each discount quantity.
+			///The impact of a discount for each discount quantity. 
 			///
 			public decimal ImpactPerUnit { get; set; }
 
+			///
+			///Carrier-supplied, unique code that represents the shipping method service type associated with the shipping discount.
+			///
 			public string MethodCode { get; set; }
 
 		}

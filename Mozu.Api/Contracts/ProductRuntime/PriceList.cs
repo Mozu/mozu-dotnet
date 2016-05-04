@@ -14,28 +14,64 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.ProductRuntime
 {
+		///
+		///	Mozu.ProductRuntime.Contracts.PriceList ApiType DOCUMENT_HERE 
+		///
 		public class PriceList
 		{
+			///
+			///Mozu.ProductRuntime.Contracts.PriceList ancestors ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<PriceListNode> Ancestors { get; set; }
 
+			///
+			///Mozu.ProductRuntime.Contracts.PriceList descendants ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<PriceListNode> Descendants { get; set; }
 
+			///
+			///The localized description in text for the object, displayed per the locale code. For example, descriptions are used for product descriptions, attributes, and pre-authorization transaction types.
+			///
 			public string Description { get; set; }
 
+			///
+			///Indicates if the capability or app is enabled for the tenant/site. If true, the capability/application is enabled for the tenant. System-supplied and read-only.
+			///
 			public bool Enabled { get; set; }
 
+			///
+			///Mozu.ProductRuntime.Contracts.PriceList filteredInStoreFront ApiTypeMember DOCUMENT_HERE 
+			///
 			public bool FilteredInStoreFront { get; set; }
 
+			///
+			///Mozu.ProductRuntime.Contracts.PriceList isSiteDefault ApiTypeMember DOCUMENT_HERE 
+			///
 			public bool IsSiteDefault { get; set; }
 
+			///
+			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
+			///
 			public string Name { get; set; }
 
+			///
+			///Mozu.ProductRuntime.Contracts.PriceList priceListCode ApiTypeMember DOCUMENT_HERE 
+			///
 			public string PriceListCode { get; set; }
 
+			///
+			///Mozu.ProductRuntime.Contracts.PriceList priceListId ApiTypeMember DOCUMENT_HERE 
+			///
 			public int PriceListId { get; set; }
 
+			///
+			///Mozu.ProductRuntime.Contracts.PriceList resolvable ApiTypeMember DOCUMENT_HERE 
+			///
 			public bool Resolvable { get; set; }
 
+			///
+			///Mozu.ProductRuntime.Contracts.PriceList validSites ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<int> ValidSites { get; set; }
 
 		}

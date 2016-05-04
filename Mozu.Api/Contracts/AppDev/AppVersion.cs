@@ -13,12 +13,24 @@ using System;
 
 namespace Mozu.Api.Contracts.AppDev
 {
+		///
+		///	Mozu.AppDev.Contracts.AppVersion ApiType DOCUMENT_HERE 
+		///
 		public class AppVersion
 		{
+			///
+			///Mozu.AppDev.Contracts.AppVersion majorVersion ApiTypeMember DOCUMENT_HERE 
+			///
 			public int MajorVersion { get; set; }
 
+			///
+			///Mozu.AppDev.Contracts.AppVersion minorVersion ApiTypeMember DOCUMENT_HERE 
+			///
 			public int MinorVersion { get; set; }
 
+			///
+			///Mozu.AppDev.Contracts.AppVersion revision ApiTypeMember DOCUMENT_HERE 
+			///
 			public int Revision { get; set; }
 
 		}

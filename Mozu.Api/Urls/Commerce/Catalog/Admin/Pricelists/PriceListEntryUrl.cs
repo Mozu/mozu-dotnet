@@ -19,17 +19,17 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Pricelists
 		/// <summary>
         /// Get Resource Url for GetPriceListEntry
         /// </summary>
-        /// <param name="currencyCode"></param>
+        /// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
         /// <param name="priceListCode"></param>
-        /// <param name="productCode"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
         /// <param name="startDate"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
         public static MozuUrl GetPriceListEntryUrl(string priceListCode, string productCode, string currencyCode, DateTime? startDate =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/pricelists/{priceListCode}/Entries/{productCode}/{currencyCode}?startDate={startDate}&responseFields={responseFields}";
+			var url = "/api/commerce/catalog/admin/pricelists/{priceListCode}/entries/{productCode}/{currencyCode}?startDate={startDate}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "currencyCode", currencyCode);
 			mozuUrl.FormatUrl( "priceListCode", priceListCode);
@@ -42,18 +42,18 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Pricelists
 		/// <summary>
         /// Get Resource Url for GetPriceListEntries
         /// </summary>
-        /// <param name="filter"></param>
-        /// <param name="pageSize"></param>
+        /// <param name="filter">A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.</param>
+        /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
         /// <param name="priceListCode"></param>
-        /// <param name="responseFields"></param>
-        /// <param name="sortBy"></param>
-        /// <param name="startIndex"></param>
+        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+        /// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.</param>
+        /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=50`.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
         public static MozuUrl GetPriceListEntriesUrl(string priceListCode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/pricelists/{priceListCode}/Entries?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
+			var url = "/api/commerce/catalog/admin/pricelists/{priceListCode}/entries?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "filter", filter);
 			mozuUrl.FormatUrl( "pageSize", pageSize);
@@ -68,13 +68,13 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Pricelists
         /// Get Resource Url for AddPriceListEntry
         /// </summary>
         /// <param name="priceListCode"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
         public static MozuUrl AddPriceListEntryUrl(string priceListCode, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/pricelists/{priceListCode}/Entries?responseFields={responseFields}";
+			var url = "/api/commerce/catalog/admin/pricelists/{priceListCode}/entries?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "priceListCode", priceListCode);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
@@ -84,17 +84,17 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Pricelists
 				/// <summary>
         /// Get Resource Url for UpdatePriceListEntry
         /// </summary>
-        /// <param name="currencyCode"></param>
+        /// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
         /// <param name="priceListCode"></param>
-        /// <param name="productCode"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
         /// <param name="startDate"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
         public static MozuUrl UpdatePriceListEntryUrl(string priceListCode, string productCode, string currencyCode, DateTime? startDate =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/pricelists/{priceListCode}/Entries/{productCode}/{currencyCode}?startDate={startDate}&responseFields={responseFields}";
+			var url = "/api/commerce/catalog/admin/pricelists/{priceListCode}/entries/{productCode}/{currencyCode}?startDate={startDate}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "currencyCode", currencyCode);
 			mozuUrl.FormatUrl( "priceListCode", priceListCode);
@@ -107,16 +107,16 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Pricelists
 				/// <summary>
         /// Get Resource Url for DeletePriceListEntry
         /// </summary>
-        /// <param name="currencyCode"></param>
+        /// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
         /// <param name="priceListCode"></param>
-        /// <param name="productCode"></param>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
         /// <param name="startDate"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
         public static MozuUrl DeletePriceListEntryUrl(string priceListCode, string productCode, string currencyCode, DateTime? startDate =  null)
 		{
-			var url = "/api/commerce/catalog/admin/pricelists/{priceListCode}/Entries/{productCode}/{currencyCode}?startDate={startDate}";
+			var url = "/api/commerce/catalog/admin/pricelists/{priceListCode}/entries/{productCode}/{currencyCode}?startDate={startDate}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "currencyCode", currencyCode);
 			mozuUrl.FormatUrl( "priceListCode", priceListCode);

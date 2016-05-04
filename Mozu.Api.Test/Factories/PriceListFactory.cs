@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// Allows you to create and manage products that you will offer on your storefront. You can create products with options that a shopper configures (such as a T-shirt color and size). You can set discounts and sale prices for your products, manage product inventory, and more.
 	/// </summary>
 	public partial class PriceListFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// 
+		/// admin-pricelists Get GetPriceLists description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListFactory.GetPriceLists(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// admin-pricelists Get GetPriceList description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListFactory.GetPriceList(handler : handler,  priceListCode :  priceListCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// admin-pricelists Post AddPriceList description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListFactory.AddPriceList(handler : handler,  priceList :  priceList,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// admin-pricelists Put UpdatePriceList description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListFactory.UpdatePriceList(handler : handler,  priceList :  priceList,  priceListCode :  priceListCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// admin-pricelists Delete DeletePriceList description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListFactory.DeletePriceList(handler : handler,  priceListCode :  priceListCode,  cascadeDeleteEntries :  cascadeDeleteEntries,  expectedCode: expectedCode, successCode: successCode); 

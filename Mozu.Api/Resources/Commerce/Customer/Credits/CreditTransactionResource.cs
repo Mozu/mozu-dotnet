@@ -40,7 +40,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Credits
 		/// <summary>
 		/// Retrieves a list of the transactions performed using a customer credit that update the balance of the credit.
 		/// </summary>
-		/// <param name="code">User-defined code that identifies the customer credit.</param>
+		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
@@ -69,7 +69,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Credits
 		/// <summary>
 		/// Retrieves a list of the transactions performed using a customer credit that update the balance of the credit.
 		/// </summary>
-		/// <param name="code">User-defined code that identifies the customer credit.</param>
+		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
@@ -97,9 +97,9 @@ namespace Mozu.Api.Resources.Commerce.Customer.Credits
 		/// <summary>
 		/// Creates a new transaction and updates the amount of a store credit or gift card.
 		/// </summary>
-		/// <param name="code">User-defined code that identifies the customer credit to update.</param>
+		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="creditTransaction">Properties of the transaction to create for the customer credit.</param>
+		/// <param name="creditTransaction">Properties of a transaction performed for a customer credit that update the remaining balance of the credit.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Credit.CreditTransaction"/>
 		/// </returns>
@@ -123,9 +123,9 @@ namespace Mozu.Api.Resources.Commerce.Customer.Credits
 		/// <summary>
 		/// Creates a new transaction and updates the amount of a store credit or gift card.
 		/// </summary>
-		/// <param name="code">User-defined code that identifies the customer credit to update.</param>
+		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="creditTransaction">Properties of the transaction to create for the customer credit.</param>
+		/// <param name="creditTransaction">Properties of a transaction performed for a customer credit that update the remaining balance of the credit.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Credit.CreditTransaction"/>
 		/// </returns>

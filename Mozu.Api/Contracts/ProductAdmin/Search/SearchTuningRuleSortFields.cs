@@ -14,10 +14,19 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.ProductAdmin.Search
 {
+		///
+		///	Mozu.ProductAdmin.Contracts.Search.SearchTuningRuleSortFields ApiType DOCUMENT_HERE 
+		///
 		public class SearchTuningRuleSortFields
 		{
+			///
+			///Mozu.ProductAdmin.Contracts.Search.SearchTuningRuleSortFields inclusionExclusionType ApiTypeMember DOCUMENT_HERE 
+			///
 			public string InclusionExclusionType { get; set; }
 
+			///
+			///Mozu.ProductAdmin.Contracts.Search.SearchTuningRuleSortFields sortFields ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<string> SortFields { get; set; }
 
 		}
