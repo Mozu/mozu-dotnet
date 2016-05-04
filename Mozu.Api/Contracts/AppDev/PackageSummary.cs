@@ -13,44 +13,20 @@ using System;
 
 namespace Mozu.Api.Contracts.AppDev
 {
-		///
-		///	Mozu.AppDev.Contracts.PackageSummary ApiType DOCUMENT_HERE 
-		///
 		public class PackageSummary
 		{
-			///
-			///Application Name
-			///
 			public string ApplicationName { get; set; }
 
-			///
-			///Application Type Id
-			///
 			public int ApplicationTypeId { get; set; }
 
-			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
-			///
 			public int Id { get; set; }
 
-			///
-			///Application Major Version
-			///
 			public int MajorVersion { get; set; }
 
-			///
-			///Application Minor Version
-			///
 			public int MinorVersion { get; set; }
 
-			///
-			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
-			///
 			public string Name { get; set; }
 
-			///
-			///Application Revision
-			///
 			public int Revision { get; set; }
 
 		}

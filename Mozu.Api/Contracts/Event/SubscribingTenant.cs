@@ -26,7 +26,7 @@ namespace Mozu.Api.Contracts.Event
 			public AuditInfo AuditInfo { get; set; }
 
 			///
-			///Indicates if the object or feature is active. This indicator is used for subscriptions (at the site or tenant level), customer accounts, products and variations.
+			///This specifies if the subscription is active at the tenant level. If the subscription context is at the tenant level, this property is used over the site level.
 			///
 			public bool? IsActive { get; set; }
 
@@ -41,7 +41,7 @@ namespace Mozu.Api.Contracts.Event
 			public List<SubscribingSite> SubscribingSites { get; set; }
 
 			///
-			///Unique identifier for the tenant.
+			///This specifies the tenant identifier.
 			///
 			public int? TenantId { get; set; }
 

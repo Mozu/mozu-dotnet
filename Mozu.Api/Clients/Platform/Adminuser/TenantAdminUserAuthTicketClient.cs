@@ -26,7 +26,7 @@ namespace Mozu.Api.Clients.Platform.Adminuser
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="tenantId">Unique identifier of the development or production tenant for which to generate the user authentication ticket.</param>
-		/// <param name="userAuthInfo">Information required to authenticate a user.</param>
+		/// <param name="userAuthInfo">The user authentication information required to generate the user authentication ticket, which consists of a user name and password.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket"/>}
 		/// </returns>
@@ -52,7 +52,7 @@ namespace Mozu.Api.Clients.Platform.Adminuser
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="tenantId"></param>
-		/// <param name="existingAuthTicket">Properties of the authentication ticket to be used in user claims with the Mozu API.</param>
+		/// <param name="existingAuthTicket">Properties of the authentication ticket to refresh. The refresh token is required to complete this request.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket"/>}
 		/// </returns>
@@ -76,7 +76,7 @@ namespace Mozu.Api.Clients.Platform.Adminuser
 		/// <summary>
 		/// Deletes the authentication ticket for the user by supplying the refresh token.
 		/// </summary>
-		/// <param name="refreshToken">Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.</param>
+		/// <param name="refreshToken">Refresh token string associated with the user authentication ticket.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

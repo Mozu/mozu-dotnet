@@ -24,7 +24,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			public bool? HasActiveCart { get; set; }
 
 			///
-			///suaIf true, the cart's period of inactivity is past its calculated expiration date and the cart is considered abandoned.
+			///If true, the cart's period of inactivity is past its calculated expiration date and the cart is considered abandoned.
 			///
 			public bool? IsExpired { get; set; }
 
@@ -34,7 +34,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			public int? ItemCount { get; set; }
 
 			///
-			///Total is used to indicate the monetary, estimated total amount of the cart or order, including items, sales tax, shipping costs, and other fees. Totals are not estimated for wish lists at this time.
+			///Estimated total amount of the cart, including items, sales tax, shipping costs, and other fees.
 			///
 			public decimal? Total { get; set; }
 

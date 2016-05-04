@@ -88,7 +88,7 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		/// Updates a site's general global settings.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="generalSettings">General settings used on the storefront site.</param>
+		/// <param name="generalSettings">The properties of the site's general settings to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.General.GeneralSettings"/>
 		/// </returns>
@@ -113,7 +113,7 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		/// Updates a site's general global settings.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="generalSettings">General settings used on the storefront site.</param>
+		/// <param name="generalSettings">The properties of the site's general settings to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.General.GeneralSettings"/>
 		/// </returns>

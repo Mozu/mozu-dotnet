@@ -19,8 +19,8 @@ namespace Mozu.Api.Urls.Commerce.Orders
 		/// <summary>
         /// Get Resource Url for GetAvailablePickupFulfillmentActions
         /// </summary>
-        /// <param name="orderId">Unique identifier of the order.</param>
-        /// <param name="pickupId">Unique identifier of the pickup to remove.</param>
+        /// <param name="orderId">Unique identifier of the order associated with the pickup.</param>
+        /// <param name="pickupId">Unique identifier of the pickup for which to retrieve available actions.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -36,8 +36,8 @@ namespace Mozu.Api.Urls.Commerce.Orders
 		/// <summary>
         /// Get Resource Url for GetPickup
         /// </summary>
-        /// <param name="orderId">Unique identifier of the order.</param>
-        /// <param name="pickupId">Unique identifier of the pickup to remove.</param>
+        /// <param name="orderId">Unique identifier of the order associated with the pickup.</param>
+        /// <param name="pickupId">Unique identifier of the pickup to retrieve.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
@@ -72,8 +72,8 @@ namespace Mozu.Api.Urls.Commerce.Orders
 				/// <summary>
         /// Get Resource Url for UpdatePickup
         /// </summary>
-        /// <param name="orderId">Unique identifier of the order.</param>
-        /// <param name="pickupId">Unique identifier of the pickup to remove.</param>
+        /// <param name="orderId">Unique identifier of the order associated with the in-store pickup.</param>
+        /// <param name="pickupId">Unique identifier of the pickup to update.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
@@ -91,7 +91,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
 				/// <summary>
         /// Get Resource Url for DeletePickup
         /// </summary>
-        /// <param name="orderId">Unique identifier of the order.</param>
+        /// <param name="orderId">Unique identifier of the order associated with the pickup.</param>
         /// <param name="pickupId">Unique identifier of the pickup to remove.</param>
         /// <returns>
         /// String - Resource Url

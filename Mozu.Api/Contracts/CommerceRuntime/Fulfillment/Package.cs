@@ -27,12 +27,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			public AuditInfo AuditInfo { get; set; }
 
 			///
-			///Available actions you can complete for an order. These actions may differ depending on the status of the order, such as actions required to enter a payment, return of a package, and fulfillment of a shipment.
+			///The actions that a user can perform for a package at this time.
 			///
 			public List<string> AvailableActions { get; set; }
 
 			///
-			///Collection (list or paged) of change messages logged for each modification made by a shopper to their carts, wishlists, orders, package, payment, pickup, and returns. Change log messages are system-supplied based on shopper actions and read only.
+			///List of change messages associated with the package.
 			///
 			public List<ChangeMessage> ChangeMessages { get; set; }
 
@@ -42,22 +42,19 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			public string Code { get; set; }
 
 			///
-			///Date and time when a shipment completes fulfillment by delivery to a customer's physical address, picked up by a customer at a store, or delivered digitally for downloadable products.
+			///The date and time the package shipped to the customer.
 			///
 			public DateTime? FulfillmentDate { get; set; }
 
 			///
-			///The code that identifies the location used to fulfill the cart/cart item or order/order item. This code can include physical store locations for in-store pickup, warehouse locations providing the products for shipment, or the location for the digital file(s).
+			///The location code that represents the location from which this package will ship.
 			///
 			public string FulfillmentLocationCode { get; set; }
 
-			///
-			///If there is a shipping label present for this Package, this will be set to true
-			///
 			public bool HasLabel { get; set; }
 
 			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///Unique identifier of a package.
 			///
 			public string Id { get; set; }
 
@@ -67,7 +64,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			public List<PackageItem> Items { get; set; }
 
 			///
-			///Dimensional properties (height, length, and width) of packages, products and bundles.
+			///Dimensional properties of the package.
 			///
 			public PackageMeasurements Measurements { get; set; }
 
@@ -82,22 +79,22 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			public string ShipmentId { get; set; }
 
 			///
-			///The code associated with a carrier's shipping method service type, used during fulfillment of packages and shipments. Service type codes include a prefix that indicates the carrier. For example: FEDEX_INTERNATIONAL_STANDARD and UPS_GROUND.
+			///The code associated with the carrier's shipping method service type. Service type codes include a prefix that indicates the carrier. For example: FEDEX_INTERNATIONAL_STANDARD
 			///
 			public string ShippingMethodCode { get; set; }
 
 			///
-			///The carrier-supplied name for the shipping service type, such as "UPS Ground" or "2nd Day Air".
+			///Name of the shipping method associated with the package. For example: UPS Ground or 2nd Day Air.
 			///
 			public string ShippingMethodName { get; set; }
 
 			///
-			///The current status of an object. This status is specific to the object including payment (New, Authorized, Captured, Declined, Failed, Voided, Credited, CheckRequested, or RolledBack), discount (Active, Scheduled, or Expired), returns (ReturnAuthorized), tenant, package (Fulfilled or NotFulfilled), application, master and product catalogs, orders (Pending, Submitted, Processing, Pending Review, Closed, or Canceled), and order validation results (Pass, Fail, Error, or Review).
+			///Status of the package, which is "Fulfilled" or "NotFulfilled".
 			///
 			public string Status { get; set; }
 
 			///
-			///Tracking number for the package or shipment, supplied by the shipping carrier to track the shipment until fulfillment completes. The tracking number format may differ between carriers.
+			///Tracking number for the package supplied by the carrier.
 			///
 			public string TrackingNumber { get; set; }
 

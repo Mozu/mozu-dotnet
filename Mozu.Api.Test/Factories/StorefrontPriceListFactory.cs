@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Allows you to get a price list. This may contain a hierarchy of price lists dependent on setup.
+	/// 
 	/// </summary>
 	public partial class StorefrontPriceListFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves the price list for the given priceListCode
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListFactory.GetPriceList(handler : handler,  priceListCode :  priceListCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// storefront-pricelists Get GetResolvedPriceList description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListFactory.GetResolvedPriceList(handler : handler,  customerAccountId :  customerAccountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

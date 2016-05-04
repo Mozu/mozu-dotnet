@@ -13,29 +13,14 @@ using System;
 
 namespace Mozu.Api.Contracts.Content
 {
-		///
-		///	Mozu.Content.Contracts.AddOrDeletePublishItem ApiType DOCUMENT_HERE 
-		///
 		public class AddOrDeletePublishItem
 		{
-			///
-			///Mozu.Content.Contracts.AddOrDeletePublishItem docListFQN ApiTypeMember DOCUMENT_HERE 
-			///
 			public string DocListFQN { get; set; }
 
-			///
-			///Mozu.Content.Contracts.AddOrDeletePublishItem documentId ApiTypeMember DOCUMENT_HERE 
-			///
 			public string DocumentId { get; set; }
 
-			///
-			///The ID of the specific scope for the object. 
-			///
 			public int ScopeId { get; set; }
 
-			///
-			///The scope at which the object exists, such as "Tenant", "MasterCatalog", or "Site". Scope delineates the level and area of Mozu the object exists within or affects.
-			///
 			public string ScopeType { get; set; }
 
 		}

@@ -13,19 +13,10 @@ using System;
 
 namespace Mozu.Api.Contracts.Content
 {
-		///
-		///	Mozu.Content.Contracts.PublishSetSummary ApiType DOCUMENT_HERE 
-		///
 		public class PublishSetSummary
 		{
-			///
-			///The number of facet results for a product search.
-			///
 			public int Count { get; set; }
 
-			///
-			///the code of the associated publish set
-			///
 			public string PublishSetCode { get; set; }
 
 		}

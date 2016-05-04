@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets
 		/// <summary>
         /// Get Resource Url for GetAssignedDiscounts
         /// </summary>
-        /// <param name="couponSetCode">The unique identifier of the coupon set.</param>
+        /// <param name="couponSetCode"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -34,7 +34,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets
 				/// <summary>
         /// Get Resource Url for AssignDiscount
         /// </summary>
-        /// <param name="couponSetCode">The unique identifier of the coupon set.</param>
+        /// <param name="couponSetCode"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -49,8 +49,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets
 						/// <summary>
         /// Get Resource Url for UnAssignDiscount
         /// </summary>
-        /// <param name="couponSetCode">The unique identifier of the coupon set.</param>
-        /// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
+        /// <param name="couponSetCode"></param>
+        /// <param name="discountId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

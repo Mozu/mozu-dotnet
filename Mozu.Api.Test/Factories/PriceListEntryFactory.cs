@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// commerce/catalog/admin/pricelists/entries related resources. DOCUMENT_HERE 
+	/// 
 	/// </summary>
 	public partial class PriceListEntryFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// pricelists-entries Get GetPriceListEntry description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListEntryFactory.GetPriceListEntry(handler : handler,  priceListCode :  priceListCode,  productCode :  productCode,  currencyCode :  currencyCode,  startDate :  startDate,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// pricelists-entries Get GetPriceListEntries description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListEntryFactory.GetPriceListEntries(handler : handler,  priceListCode :  priceListCode,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// pricelists-entries Post AddPriceListEntry description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListEntryFactory.AddPriceListEntry(handler : handler,  priceListEntryIn :  priceListEntryIn,  priceListCode :  priceListCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// pricelists-entries Put UpdatePriceListEntry description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListEntryFactory.UpdatePriceListEntry(handler : handler,  priceListEntryIn :  priceListEntryIn,  priceListCode :  priceListCode,  productCode :  productCode,  currencyCode :  currencyCode,  startDate :  startDate,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// pricelists-entries Delete DeletePriceListEntry description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListEntryFactory.DeletePriceListEntry(handler : handler,  priceListCode :  priceListCode,  productCode :  productCode,  currencyCode :  currencyCode,  startDate :  startDate,  expectedCode: expectedCode, successCode: successCode); 

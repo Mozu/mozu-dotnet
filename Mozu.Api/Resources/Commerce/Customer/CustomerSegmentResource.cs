@@ -145,7 +145,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// Creates a new customer segments. New customer segments do not have any associated customer accounts.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="segment">The Customer Segment object includes properties of a defined customer segment used to group customer accounts.</param>
+		/// <param name="segment">Properties of the customer segment to add.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerSegment"/>
 		/// </returns>
@@ -170,7 +170,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// Creates a new customer segments. New customer segments do not have any associated customer accounts.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="segment">The Customer Segment object includes properties of a defined customer segment used to group customer accounts.</param>
+		/// <param name="segment">Properties of the customer segment to add.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerSegment"/>
 		/// </returns>
@@ -193,7 +193,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Adds one or more customer accounts to a defined customer segment.
 		/// </summary>
-		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
+		/// <param name="id">Unique identifier of the customer segment for which to add the associated customer accounts.</param>
 		/// <param name="accountIds">List of customer account IDs to add to the customer segment specified in the request.</param>
 		/// <returns>
 		/// 
@@ -217,7 +217,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Adds one or more customer accounts to a defined customer segment.
 		/// </summary>
-		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
+		/// <param name="id">Unique identifier of the customer segment for which to add the associated customer accounts.</param>
 		/// <param name="accountIds">List of customer account IDs to add to the customer segment specified in the request.</param>
 		/// <returns>
 		/// 
@@ -240,9 +240,9 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Updates the details of the customer segment specified in the request.
 		/// </summary>
-		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
+		/// <param name="id">Unique identifier of the customer segment.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="segment">The Customer Segment object includes properties of a defined customer segment used to group customer accounts.</param>
+		/// <param name="segment">Properties of the customer segment to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerSegment"/>
 		/// </returns>
@@ -266,9 +266,9 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Updates the details of the customer segment specified in the request.
 		/// </summary>
-		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
+		/// <param name="id">Unique identifier of the customer segment.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="segment">The Customer Segment object includes properties of a defined customer segment used to group customer accounts.</param>
+		/// <param name="segment">Properties of the customer segment to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerSegment"/>
 		/// </returns>
@@ -291,7 +291,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Deletes a customer segment specified by its unique identifier. Deleting a segment removes any customer account associations, but does not delete the customer account itself.
 		/// </summary>
-		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
+		/// <param name="id">Unique identifier of the customer segment to delete.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -314,7 +314,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Deletes a customer segment specified by its unique identifier. Deleting a segment removes any customer account associations, but does not delete the customer account itself.
 		/// </summary>
-		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
+		/// <param name="id">Unique identifier of the customer segment to delete.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -334,10 +334,10 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		}
 
 		/// <summary>
-		/// Removes single account from a segment.
+		/// 
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
+		/// <param name="accountId"></param>
+		/// <param name="id"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -358,10 +358,10 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		}
 
 		/// <summary>
-		/// Removes single account from a segment.
+		/// 
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
+		/// <param name="accountId"></param>
+		/// <param name="id"></param>
 		/// <returns>
 		/// 
 		/// </returns>
