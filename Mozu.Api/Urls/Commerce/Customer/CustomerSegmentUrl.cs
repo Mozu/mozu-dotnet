@@ -74,7 +74,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for AddSegmentAccounts
         /// </summary>
-        /// <param name="id">Unique identifier of the customer segment to retrieve.</param>
+        /// <param name="id">Unique identifier of the customer segment for which to add the associated customer accounts.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -89,7 +89,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 				/// <summary>
         /// Get Resource Url for UpdateSegment
         /// </summary>
-        /// <param name="id">Unique identifier of the customer segment to retrieve.</param>
+        /// <param name="id">Unique identifier of the customer segment.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
@@ -106,7 +106,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 				/// <summary>
         /// Get Resource Url for DeleteSegment
         /// </summary>
-        /// <param name="id">Unique identifier of the customer segment to retrieve.</param>
+        /// <param name="id">Unique identifier of the customer segment to delete.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -121,8 +121,8 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for RemoveSegmentAccount
         /// </summary>
-        /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="id">Unique identifier of the customer segment to retrieve.</param>
+        /// <param name="accountId"></param>
+        /// <param name="id"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

@@ -42,7 +42,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetChannelGroup
         /// </summary>
-        /// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+        /// <param name="code">The code that uniquely identifies the channel group.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
@@ -74,7 +74,7 @@ namespace Mozu.Api.Urls.Commerce
 				/// <summary>
         /// Get Resource Url for UpdateChannelGroup
         /// </summary>
-        /// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+        /// <param name="code">Code that identifies the channel group.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url

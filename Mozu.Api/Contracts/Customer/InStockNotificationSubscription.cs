@@ -25,7 +25,7 @@ namespace Mozu.Api.Contracts.Customer
 			public AuditInfo AuditInfo { get; set; }
 
 			///
-			///Unique identifier of the customer in Mozu, used to associate customers with data, orders, returns, and in-store credit.
+			///Unique identifier of the customer associated with the in-stock notification subscription.
 			///
 			public int? CustomerId { get; set; }
 
@@ -35,12 +35,12 @@ namespace Mozu.Api.Contracts.Customer
 			public string Email { get; set; }
 
 			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///Unique identifier of the customer in-stock notification subscription.
 			///
 			public int? Id { get; set; }
 
 			///
-			///The unique, user-defined code that identifies a location. This location can be the location where the order was entered, location for newly in-stock products, and where products are returned.
+			///Tenant-defined code that identifies the customer in-stock notification subscription.
 			///
 			public string LocationCode { get; set; }
 

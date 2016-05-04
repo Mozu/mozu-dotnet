@@ -14,19 +14,10 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.InstalledApplications
 {
-		///
-		///	Mozu.InstalledApplications.Contracts.CustomFunctionsForAction ApiType DOCUMENT_HERE 
-		///
 		public class CustomFunctionsForAction
 		{
-			///
-			///Mozu.InstalledApplications.Contracts.CustomFunctionsForAction actionId ApiTypeMember DOCUMENT_HERE 
-			///
 			public string ActionId { get; set; }
 
-			///
-			///Mozu.InstalledApplications.Contracts.CustomFunctionsForAction contexts ApiTypeMember DOCUMENT_HERE 
-			///
 			public List<CustomFunctionsForContext> Contexts { get; set; }
 
 		}

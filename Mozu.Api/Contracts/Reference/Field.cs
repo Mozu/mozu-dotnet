@@ -25,17 +25,17 @@ namespace Mozu.Api.Contracts.Reference
 			public List<FieldData> Data { get; set; }
 
 			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///Identifier of the field.
 			///
 			public int Id { get; set; }
 
 			///
-			///Descriptive text used as a label for objects, such as field names, facets, date ranges, contact information, and package information.
+			///Label for the field.
 			///
 			public string Label { get; set; }
 
 			///
-			///Integer that represents the sequence order of the attribute.
+			///Sequence of the field.
 			///
 			public int Order { get; set; }
 

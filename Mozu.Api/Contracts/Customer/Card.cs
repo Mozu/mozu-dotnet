@@ -34,27 +34,24 @@ namespace Mozu.Api.Contracts.Customer
 			public int ContactId { get; set; }
 
 			///
-			///The two-digit month a credit card expires for a payment method.
+			///The two-digit month the credit card expires.
 			///
 			public short ExpireMonth { get; set; }
 
 			///
-			///The four-digit year the credit card expires for a payment method.
+			///The four-digit year the credit card expires.
 			///
 			public short ExpireYear { get; set; }
 
 			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///Unique ID of the credit card for the customer account. This identifier is separate from the credit card number.
 			///
 			public string Id { get; set; }
 
-			///
-			///Mozu.Customer.Contracts.Card isDefaultPayMethod ApiTypeMember DOCUMENT_HERE 
-			///
 			public bool IsDefaultPayMethod { get; set; }
 
 			///
-			///The full name printed on a credit card. The name should match what is printed on the card exactly, used in validation during a payment.
+			///The name printed on the credit card.
 			///
 			public string NameOnCard { get; set; }
 

@@ -17,16 +17,16 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Platform
 {
 	/// <summary>
-	/// Manage Secure App Settings. Expose via arc.js so that arc apps can securely access secrets. Third-party extensions can also access their data. Secured via AppKey.AppId
+	/// 
 	/// </summary>
 	public partial class SecureAppDataClient 	{
 		
 		/// <summary>
-		/// platform-secureappdata Get GetDBValue description DOCUMENT_HERE 
+		/// 
 		/// </summary>
 		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="dbEntryQuery"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{JObject}
 		/// </returns>
@@ -48,11 +48,11 @@ namespace Mozu.Api.Clients.Platform
 		}
 
 		/// <summary>
-		/// platform-secureappdata Post CreateDBValue description DOCUMENT_HERE 
+		/// 
 		/// </summary>
 		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="value">JSON code for objects.</param>
+		/// <param name="dbEntryQuery"></param>
+		/// <param name="value"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
@@ -74,11 +74,11 @@ namespace Mozu.Api.Clients.Platform
 		}
 
 		/// <summary>
-		/// platform-secureappdata Put UpdateDBValue description DOCUMENT_HERE 
+		/// 
 		/// </summary>
 		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="value">JSON code for objects.</param>
+		/// <param name="dbEntryQuery"></param>
+		/// <param name="value"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
@@ -100,10 +100,10 @@ namespace Mozu.Api.Clients.Platform
 		}
 
 		/// <summary>
-		/// platform-secureappdata Delete DeleteDBValue description DOCUMENT_HERE 
+		/// 
 		/// </summary>
 		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
+		/// <param name="dbEntryQuery"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

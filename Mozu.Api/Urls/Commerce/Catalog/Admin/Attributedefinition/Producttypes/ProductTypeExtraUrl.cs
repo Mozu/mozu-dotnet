@@ -35,7 +35,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes
         /// Get Resource Url for GetExtra
         /// </summary>
         /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-        /// <param name="productTypeId">Identifier of the product type.</param>
+        /// <param name="productTypeId">Identifier of the product type whose extra is being retrieved.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url

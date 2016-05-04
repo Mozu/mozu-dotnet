@@ -20,13 +20,10 @@ namespace Mozu.Api.Contracts.Content
 		///
 		public class Document
 		{
-			///
-			///Mozu.Content.Contracts.Document activeDateRange ApiTypeMember DOCUMENT_HERE 
-			///
 			public ActiveDateRange ActiveDateRange { get; set; }
 
 			///
-			///The character length allowed for the content text.
+			///The character length associated with the document content.
 			///
 			public long ContentLength { get; set; }
 
@@ -40,48 +37,39 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public DateTime? ContentUpdateDate { get; set; }
 
-			///
-			///Fully qualified name of the document type. 
-			///
 			public string DocumentTypeFQN { get; set; }
 
 			///
-			///If applicable, the file extension associated with the document content. For example, the extension may be .html for an HTML web page.
+			///If applicable, the file extension associated with the document content.
 			///
 			public string Extension { get; set; }
 
 			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///Unique identifier of the document.
 			///
 			public string Id { get; set; }
 
 			///
-			///The date and time when a document was added to the document list. System-supplied and read-only.
+			///When the document was added to the document list. System-supplied and read-only.
 			///
 			public DateTime? InsertDate { get; set; }
 
-			///
-			///The fully qualified name of the document list.
-			///
 			public string ListFQN { get; set; }
 
 			///
-			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
+			///The name of the document, which is unique within its folder.
 			///
 			public string Name { get; set; }
 
 			///
-			///Collection of property attributes defined for the object. Properties are associated to all objects within Mozu, including documents, products, and product types.
+			///List of properties for the given property value.
 			///
 			public JObject Properties { get; set; }
 
-			///
-			///The name of the publish set that this document belongs to, if any.
-			///
 			public string PublishSetCode { get; set; }
 
 			///
-			///The current state of the document or product definition. States for documents include Active, Draft, or Latest. Active documents are published and cannot be deleted. Querying Latest returns the most recent version of the document, regardless of whether it is published or a draft. States for product include New, Draft, or Live.
+			///The current state of the document, which is Active, Draft, or Latest. Active documents are published and cannot be deleted. Querying Latest returns the most recent version of the document, regardless of whether it is published or a draft.
 			///
 			public string PublishState { get; set; }
 

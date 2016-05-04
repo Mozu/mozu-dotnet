@@ -20,14 +20,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class SearchSettings
 		{
-			///
-			///Settings of keys and values for synonyms in search results.
-			///
 			public SearchSynonymSettings SearchSynonymSettings { get; set; }
 
-			///
-			///Settings for searches performed at the site level.
-			///
 			public List<SiteSearchSettings> SiteSearchSettings { get; set; }
 
 		}

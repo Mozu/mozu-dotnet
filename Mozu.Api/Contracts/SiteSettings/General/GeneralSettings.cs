@@ -32,19 +32,10 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			///
 			public AuditInfo AuditInfo { get; set; }
 
-			///
-			///Set of settings to deal with site caching.
-			///
 			public CacheSettings CacheSettings { get; set; }
 
-			///
-			///Custom dns host name for cnd edge caching.
-			///
 			public string CustomCdnHostName { get; set; }
 
-			///
-			///Site-level control over request routing for SEO purposes. Not available for update, must use its own subresource.
-			///
 			public CustomRouteSettings CustomRoutes { get; set; }
 
 			///
@@ -97,9 +88,6 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			///
 			public string LogoText { get; set; }
 
-			///
-			///MissingImageSubstitute for 404 image requests. Can be name or id of cmsImage in files@mozu.
-			///
 			public string MissingImageSubstitute { get; set; }
 
 			///
@@ -117,9 +105,6 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			///
 			public string SenderEmailAddress { get; set; }
 
-			///
-			///Email alias used in emails sent to your shoppers.
-			///
 			public string SenderEmailAlias { get; set; }
 
 			///
@@ -132,9 +117,6 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			///
 			public string SiteTimeZone { get; set; }
 
-			///
-			///Supressed emails. Setting any of these to 'true' will block Mozu from sending that email and an event will be published instead.
-			///
 			public EmailTransactionSettings SupressedEmailTransactions { get; set; }
 
 			///
@@ -157,9 +139,6 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			///
 			public string Theme { get; set; }
 
-			///
-			///Mozu.SiteSettings.General.Contracts.GeneralSettings viewAuthorizations ApiTypeMember DOCUMENT_HERE 
-			///
 			public ViewAuthorizations ViewAuthorizations { get; set; }
 
 			///

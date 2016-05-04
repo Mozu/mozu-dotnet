@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Platform.Entitylists
 {
 	/// <summary>
-	/// Entities are JSON entries within the MZDB (Mozu Mongo DB) for handling large data sets to heavily filter (&gt;2,000 items). Each entity is associated to an EntityList with schema, rules, and formatting for storing the content. This content can be accessed via the Mozu API and Mozu Hypr tags.
+	/// 
 	/// </summary>
 	public partial class EntityResource  	{
 		///
@@ -38,10 +38,10 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 
 				
 		/// <summary>
-		/// Retrieves an entity with an associated entity list and context level at tenant, master catalog, catalog, or site. 
+		/// 
 		/// </summary>
-		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
-		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
+		/// <param name="entityListFullName"></param>
+		/// <param name="id"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// JObject
@@ -64,10 +64,10 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		}
 
 		/// <summary>
-		/// Retrieves an entity with an associated entity list and context level at tenant, master catalog, catalog, or site. 
+		/// 
 		/// </summary>
-		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
-		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
+		/// <param name="entityListFullName"></param>
+		/// <param name="id"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// JObject
@@ -89,14 +89,14 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		}
 
 		/// <summary>
-		/// Retrieves a collection of entities with an associated entity list and context level at tenant, master catalog, catalog, or site. 
+		/// 
 		/// </summary>
-		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
+		/// <param name="entityListFullName"></param>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
+		/// <param name="pageSize"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=50`.</param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.MZDB.EntityCollection"/>
 		/// </returns>
@@ -118,14 +118,14 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		}
 
 		/// <summary>
-		/// Retrieves a collection of entities with an associated entity list and context level at tenant, master catalog, catalog, or site. 
+		/// 
 		/// </summary>
-		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
+		/// <param name="entityListFullName"></param>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
+		/// <param name="pageSize"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=50`.</param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.MZDB.EntityCollection"/>
 		/// </returns>
@@ -146,11 +146,11 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		}
 
 		/// <summary>
-		/// Inserts a new entity per the entered item, the entity list full name, and associated response fields. 
+		/// 
 		/// </summary>
-		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
+		/// <param name="entityListFullName"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="item">JSON code for objects.</param>
+		/// <param name="item"></param>
 		/// <returns>
 		/// JObject
 		/// </returns>
@@ -172,11 +172,11 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		}
 
 		/// <summary>
-		/// Inserts a new entity per the entered item, the entity list full name, and associated response fields. 
+		/// 
 		/// </summary>
-		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
+		/// <param name="entityListFullName"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="item">JSON code for objects.</param>
+		/// <param name="item"></param>
 		/// <returns>
 		/// JObject
 		/// </returns>
@@ -197,12 +197,12 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		}
 
 		/// <summary>
-		/// Updates the content and associations for an existing entity.
+		/// 
 		/// </summary>
-		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
-		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
+		/// <param name="entityListFullName"></param>
+		/// <param name="id"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="item">JSON code for objects.</param>
+		/// <param name="item"></param>
 		/// <returns>
 		/// JObject
 		/// </returns>
@@ -224,12 +224,12 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		}
 
 		/// <summary>
-		/// Updates the content and associations for an existing entity.
+		/// 
 		/// </summary>
-		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
-		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
+		/// <param name="entityListFullName"></param>
+		/// <param name="id"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="item">JSON code for objects.</param>
+		/// <param name="item"></param>
 		/// <returns>
 		/// JObject
 		/// </returns>
@@ -250,10 +250,10 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		}
 
 		/// <summary>
-		/// Deletes an entity depending on the context of tenant, master catalog, catalog, or site level. Entities are associated to an entity list (schema and formatting) for displaying within a namespace and context level.
+		/// 
 		/// </summary>
-		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
-		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
+		/// <param name="entityListFullName"></param>
+		/// <param name="id"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -274,10 +274,10 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		}
 
 		/// <summary>
-		/// Deletes an entity depending on the context of tenant, master catalog, catalog, or site level. Entities are associated to an entity list (schema and formatting) for displaying within a namespace and context level.
+		/// 
 		/// </summary>
-		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
-		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
+		/// <param name="entityListFullName"></param>
+		/// <param name="id"></param>
 		/// <returns>
 		/// 
 		/// </returns>

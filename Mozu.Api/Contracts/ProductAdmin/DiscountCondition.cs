@@ -20,7 +20,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class DiscountCondition
 		{
 			///
-			///Code of a discount coupon. This code can be used by a shopper when a coupon code is required to earn the associated discount on a purchase.
+			///If the discount is a coupon, the code required to redeem the coupon.
 			///
 			public string CouponCode { get; set; }
 
@@ -35,12 +35,12 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public List<CategoryDiscountCondition> ExcludedCategories { get; set; }
 
 			///
-			///List of products that are not eligible for the discount.
+			///List of the products that are not eligible for the discount.
 			///
 			public List<ProductDiscountCondition> ExcludedProducts { get; set; }
 
 			///
-			///Date and time in UTC format when a discount, credit, wish list, or cart expires. An expired discount no longer can be redeemed. An expired wish list is no longer available. An expired credit can no longer be redeemed for a purchase. Acart becomes inactive and expired based on a system-calculated interval. For example, if an anonymous shopper has 14 days of inactivity, the cart is considered abandoned after that period of inactivity. System-supplied and read-only.
+			///The date and time on which the discount expires and cannot be redeemed.
 			///
 			public DateTime? ExpirationDate { get; set; }
 
@@ -49,9 +49,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public List<CategoryDiscountCondition> IncludedCategories { get; set; }
 
-			///
-			///List of payment types that trigger this discount to be valid.
-			///
 			public List<string> IncludedPaymentWorkflows { get; set; }
 
 			///

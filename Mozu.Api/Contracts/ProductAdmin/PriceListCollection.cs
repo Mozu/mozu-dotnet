@@ -14,14 +14,8 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
-		///
-		///	Mozu.ProductAdmin.Contracts.PriceListCollection ApiType DOCUMENT_HERE 
-		///
 		public class PriceListCollection
 		{
-			///
-			///Collection list of items. All returned data is provided in an items array. For a failed request, the returned response may be success with an empty item collection. Items are used throughout APIs for carts, wish lists, documents, payments, returns, properties, and more.
-			///
 			public List<PriceList> Items { get; set; }
 
 			public int PageCount { get; set; }
@@ -30,9 +24,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public int StartIndex { get; set; }
 
-			///
-			///Total number of objects in am item collection. Total counts are calculated for numerous objects in Mozu, including location inventory, products, options, product types, product reservations, categories, addresses, carriers, tax rates, time zones, and much more.
-			///
 			public int TotalCount { get; set; }
 
 		}

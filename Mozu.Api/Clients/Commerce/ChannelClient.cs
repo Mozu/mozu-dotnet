@@ -52,7 +52,7 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// Retrieves the details of the channel specified in the request.
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="code">User-defined code that identifies the channel to retrieve.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Channels.Channel"/>}
@@ -78,7 +78,7 @@ namespace Mozu.Api.Clients.Commerce
 		/// Creates a new channel that defines a new logical business division to use for financial reporting.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="channel">Properties of a channel used to divide a company into logical business divisions, such as "US Retail," "US Online," or "Amazon." All sites and orders are associated with a channel.</param>
+		/// <param name="channel">Properties of the channel to create.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Channels.Channel"/>}
 		/// </returns>
@@ -102,9 +102,9 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// Updates one or more details of a defined channel, including the associated sites.
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="code">User-defined code that identifies the channel to update.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="channel">Properties of a channel used to divide a company into logical business divisions, such as "US Retail," "US Online," or "Amazon." All sites and orders are associated with a channel.</param>
+		/// <param name="channel">Properties of a the channel to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Channels.Channel"/>}
 		/// </returns>
@@ -128,7 +128,7 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// Deletes a defined channel for the tenant and removes the defined site associations. After deleting this channel, assign its associated sites to another channel.
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="code">User-defined code that identifies the channel to delete.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

@@ -30,7 +30,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Channels
 			public string Code { get; set; }
 
 			///
-			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
+			///User-defined name of the channel group.
 			///
 			public string Name { get; set; }
 

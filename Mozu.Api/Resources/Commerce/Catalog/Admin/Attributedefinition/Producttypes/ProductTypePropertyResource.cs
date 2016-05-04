@@ -152,7 +152,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Productt
 		/// <param name="productTypeId">Identifier of the product type.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="attributeInProductType">Properties of an attribute definition associated with a specific product type. When an attribute is applied to a product type, each product of that type maintains the same set of attributes.</param>
+		/// <param name="attributeInProductType">Properties of the property attribute to define for the specified product type.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.AttributeInProductType"/>
 		/// </returns>
@@ -179,7 +179,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Productt
 		/// <param name="productTypeId">Identifier of the product type.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="attributeInProductType">Properties of an attribute definition associated with a specific product type. When an attribute is applied to a product type, each product of that type maintains the same set of attributes.</param>
+		/// <param name="attributeInProductType">Properties of the property attribute to define for the specified product type.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.AttributeInProductType"/>
 		/// </returns>
@@ -206,7 +206,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Productt
 		/// <param name="productTypeId">Identifier of the product type.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="attributeInProductType">Properties of an attribute definition associated with a specific product type. When an attribute is applied to a product type, each product of that type maintains the same set of attributes.</param>
+		/// <param name="attributeInProductType">Properties of the property attribute to define for the product type.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.AttributeInProductType"/>
 		/// </returns>
@@ -234,7 +234,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Productt
 		/// <param name="productTypeId">Identifier of the product type.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="attributeInProductType">Properties of an attribute definition associated with a specific product type. When an attribute is applied to a product type, each product of that type maintains the same set of attributes.</param>
+		/// <param name="attributeInProductType">Properties of the property attribute to define for the product type.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.AttributeInProductType"/>
 		/// </returns>

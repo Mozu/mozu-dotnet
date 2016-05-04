@@ -41,7 +41,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// Retrieves the shipping rates applicable for the site.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="rateRequest">Properties required to request a shipping rate calculation.</param>
+		/// <param name="rateRequest">Properties of the shipping rate request sent on behalf of the storefront website.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ShippingRuntime.RatesResponse"/>
 		/// </returns>
@@ -66,7 +66,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// Retrieves the shipping rates applicable for the site.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="rateRequest">Properties required to request a shipping rate calculation.</param>
+		/// <param name="rateRequest">Properties of the shipping rate request sent on behalf of the storefront website.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ShippingRuntime.RatesResponse"/>
 		/// </returns>

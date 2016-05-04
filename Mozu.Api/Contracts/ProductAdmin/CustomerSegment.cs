@@ -14,12 +14,12 @@ using System;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	The Customer Segment object includes properties of a defined customer segment used to group customer accounts.
+		///	Properties of a customer segment used to group sets of customers for targeted reporting and discounts.
 		///
 		public class CustomerSegment
 		{
 			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///Unique identifier of the customer segment.
 			///
 			public int Id { get; set; }
 

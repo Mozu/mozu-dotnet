@@ -49,7 +49,7 @@ namespace Mozu.Api.Urls.Platform.Applications
 				/// <summary>
         /// Get Resource Url for DeleteAppAuthTicket
         /// </summary>
-        /// <param name="refreshToken">Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.</param>
+        /// <param name="refreshToken">The refresh token string from the application's authentication ticket.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

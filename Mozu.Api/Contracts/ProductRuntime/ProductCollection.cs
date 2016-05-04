@@ -15,7 +15,7 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
-		///	The container for a set of products.
+		///	Collection of products and their related properties.
 		///
 		public class ProductCollection
 		{

@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 {
 	/// <summary>
-	/// Allows you to get a price list. This may contain a hierarchy of price lists dependent on setup.
+	/// 
 	/// </summary>
 	public partial class PriceListResource  	{
 		///
@@ -38,10 +38,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 
 				
 		/// <summary>
-		/// Retrieves the price list for the given priceListCode
+		/// 
 		/// </summary>
 		/// <param name="priceListCode"></param>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.PriceList"/>
 		/// </returns>
@@ -63,10 +63,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		}
 
 		/// <summary>
-		/// Retrieves the price list for the given priceListCode
+		/// 
 		/// </summary>
 		/// <param name="priceListCode"></param>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.PriceList"/>
 		/// </returns>
@@ -87,10 +87,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		}
 
 		/// <summary>
-		/// storefront-pricelists Get GetResolvedPriceList description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="customerAccountId">The unique identifier of the customer account for which to retrieve wish lists.</param>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="customerAccountId"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList"/>
 		/// </returns>
@@ -112,10 +112,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		}
 
 		/// <summary>
-		/// storefront-pricelists Get GetResolvedPriceList description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="customerAccountId">The unique identifier of the customer account for which to retrieve wish lists.</param>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="customerAccountId"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList"/>
 		/// </returns>
