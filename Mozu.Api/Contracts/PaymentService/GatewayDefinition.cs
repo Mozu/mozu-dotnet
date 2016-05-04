@@ -30,7 +30,7 @@ namespace Mozu.Api.Contracts.PaymentService
 			public List<GatewayCredentialFieldDefinition> CredentialDefinitions { get; set; }
 
 			///
-			///Unique identifier of the payment gateway definition.
+			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 			///
 			public string Id { get; set; }
 
@@ -40,7 +40,7 @@ namespace Mozu.Api.Contracts.PaymentService
 			public string IntegrationImplTypeName { get; set; }
 
 			///
-			///Name of the payment gateway.
+			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
 			///
 			public string Name { get; set; }
 
@@ -55,7 +55,7 @@ namespace Mozu.Api.Contracts.PaymentService
 			public string ProdServiceURL { get; set; }
 
 			///
-			///The types of credit cards supported by this payment gateway.
+			///The types of credit cards supported by the payment gateway.
 			///
 			public List<SupportedCard> SupportedCards { get; set; }
 

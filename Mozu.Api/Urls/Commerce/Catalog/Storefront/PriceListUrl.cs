@@ -20,7 +20,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
         /// Get Resource Url for GetPriceList
         /// </summary>
         /// <param name="priceListCode"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -36,8 +36,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
 		/// <summary>
         /// Get Resource Url for GetResolvedPriceList
         /// </summary>
-        /// <param name="customerAccountId"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="customerAccountId">The unique identifier of the customer account for which to retrieve wish lists.</param>
+        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

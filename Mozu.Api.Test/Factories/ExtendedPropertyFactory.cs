@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// Use the Cart Extended Properties subresource to store an arbitrary number of cart extended properties such as tracking strings, marketing sources, affiliates, sales personnel/data, and so on, on a per cart basis. Each cart may have none, one, or more than one entry in the extended properties collection, and all values in the extended properties collection are represented as strings. When you create an order from a cart, all extended properties are retained from the cart and copied to the order. Refer to the subresource for more information about order extended properties.
 	/// </summary>
 	public partial class ExtendedPropertyFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// 
+		/// Retrieves a list of cart extended properties specified in the request.
 		/// <example> 
 		///  <code> 
 		/// var result = ExtendedPropertyFactory.GetExtendedProperties(handler : handler,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Adds one or more specified extended properties to the carts extended properties collection.
 		/// <example> 
 		///  <code> 
 		/// var result = ExtendedPropertyFactory.AddExtendedProperties(handler : handler,  extendedProperties :  extendedProperties,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Updates one or more details of the extended property specified in the request.
 		/// <example> 
 		///  <code> 
 		/// var result = ExtendedPropertyFactory.UpdateExtendedProperty(handler : handler,  extendedProperty :  extendedProperty,  key :  key,  upsert :  upsert,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Updates one or more details of the extended properties specified in the request.
 		/// <example> 
 		///  <code> 
 		/// var result = ExtendedPropertyFactory.UpdateExtendedProperties(handler : handler,  extendedProperties :  extendedProperties,  upsert :  upsert,  expectedCode: expectedCode, successCode: successCode); 
@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Deletes the extended properties cart extended properties collection.
 		/// <example> 
 		///  <code> 
 		/// var result = ExtendedPropertyFactory.DeleteExtendedProperties(handler : handler,  keys :  keys,  expectedCode: expectedCode, successCode: successCode); 
@@ -219,7 +219,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Deletes a specific extended property from the cart extended property collection.
 		/// <example> 
 		///  <code> 
 		/// var result = ExtendedPropertyFactory.DeleteExtendedProperty(handler : handler,  key :  key,  expectedCode: expectedCode, successCode: successCode); 

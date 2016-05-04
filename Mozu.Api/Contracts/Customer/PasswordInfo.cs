@@ -18,10 +18,13 @@ namespace Mozu.Api.Contracts.Customer
 		///
 		public class PasswordInfo
 		{
+			///
+			///The External Password, typically used for imports in conjunction with a custom action
+			///
 			public string ExternalPassword { get; set; }
 
 			///
-			///The new account password value.
+			///The new password entered and saved by the user of the account. 
 			///
 			public string NewPassword { get; set; }
 

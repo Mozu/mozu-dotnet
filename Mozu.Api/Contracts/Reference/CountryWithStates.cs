@@ -14,10 +14,19 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.Reference
 {
+		///
+		///	A country and its states. Contrains the 2-letter geographic code representing the country and any states within the country.
+		///
 		public class CountryWithStates
 		{
+			///
+			///The two character country code.
+			///
 			public string Code { get; set; }
 
+			///
+			///The state code, name, and tags, if applicable. 
+			///
 			public List<State> States { get; set; }
 
 		}

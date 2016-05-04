@@ -49,7 +49,7 @@ namespace Mozu.Api.Clients.Commerce.Settings
 		/// Initializes an application with the necessary configured settings.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="application">Properties of the application to update.</param>
+		/// <param name="application">Properties of an application installed in a tenant.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Application.Application"/>}
 		/// </returns>

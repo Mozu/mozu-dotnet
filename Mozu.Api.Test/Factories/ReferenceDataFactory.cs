@@ -334,7 +334,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves the entire list of countries that the system supports.
 		/// <example> 
 		///  <code> 
 		/// var result = ReferenceDataFactory.GetCountriesWithStates(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

@@ -24,17 +24,17 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string AttributeFQN { get; set; }
 
 			///
-			///Identifier of the value of this attribute.
+			///Unique identifier of the attribute's value.
 			///
 			public int? AttributeValueId { get; set; }
 
 			///
-			///The custom value the shopper entered for an option set up in product admin.
+			///The value a shopper entered for an attribute that requires additional input for the product on a storefront. This entered value is a selected option or entered content for an extra, such as selecting a color or entering content for a monogram.
 			///
 			public object ShopperEnteredValue { get; set; }
 
 			///
-			///The attribute value.
+			///The value of a property, used by numerous objects within Mozu including facets, attributes, products, localized content, metadata, capabilities (Mozu and third-party), location inventory adjustment, and more. The value may be a string, integer, or double. Validation may be run against the entered and saved values depending on the object type.
 			///
 			public object Value { get; set; }
 

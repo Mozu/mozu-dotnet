@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Resends an email with details about the package fulfillment to the shopper. 
 		/// <example> 
 		///  <code> 
 		/// var result = FulfillmentActionFactory.ResendPackageFulfillmentEmail(handler : handler,  action :  action,  orderId :  orderId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

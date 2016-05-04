@@ -34,8 +34,8 @@ namespace Mozu.Api.Urls.Commerce.Orders
 		/// <summary>
         /// Get Resource Url for GetOrderNote
         /// </summary>
-        /// <param name="noteId">Unique identifier of the order note to retrieve.</param>
-        /// <param name="orderId">Unique identifier of the order associated with the note.</param>
+        /// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
+        /// <param name="orderId">Unique identifier of the order.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
@@ -53,7 +53,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
 				/// <summary>
         /// Get Resource Url for CreateOrderNote
         /// </summary>
-        /// <param name="orderId">Unique identifier of the order for which to add a note.</param>
+        /// <param name="orderId">Unique identifier of the order.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
@@ -70,7 +70,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
 				/// <summary>
         /// Get Resource Url for UpdateOrderNote
         /// </summary>
-        /// <param name="noteId">Unique identifier of the order note.</param>
+        /// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
         /// <param name="orderId">Unique identifier of the order.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
@@ -89,8 +89,8 @@ namespace Mozu.Api.Urls.Commerce.Orders
 				/// <summary>
         /// Get Resource Url for DeleteOrderNote
         /// </summary>
-        /// <param name="noteId">Unique identifier of the order note to delete.</param>
-        /// <param name="orderId">Unique identifier of the order associated with the note.</param>
+        /// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
+        /// <param name="orderId">Unique identifier of the order.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

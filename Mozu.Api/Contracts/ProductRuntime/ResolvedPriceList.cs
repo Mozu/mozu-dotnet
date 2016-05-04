@@ -13,14 +13,29 @@ using System;
 
 namespace Mozu.Api.Contracts.ProductRuntime
 {
+		///
+		///	Mozu.ProductRuntime.Contracts.ResolvedPriceList ApiType DOCUMENT_HERE 
+		///
 		public class ResolvedPriceList
 		{
+			///
+			///The localized description in text for the object, displayed per the locale code. For example, descriptions are used for product descriptions, attributes, and pre-authorization transaction types.
+			///
 			public string Description { get; set; }
 
+			///
+			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
+			///
 			public string Name { get; set; }
 
+			///
+			///Mozu.ProductRuntime.Contracts.ResolvedPriceList priceListCode ApiTypeMember DOCUMENT_HERE 
+			///
 			public string PriceListCode { get; set; }
 
+			///
+			///Mozu.ProductRuntime.Contracts.ResolvedPriceList priceListId ApiTypeMember DOCUMENT_HERE 
+			///
 			public int PriceListId { get; set; }
 
 		}

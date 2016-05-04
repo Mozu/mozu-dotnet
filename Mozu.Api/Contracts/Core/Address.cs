@@ -54,7 +54,7 @@ namespace Mozu.Api.Contracts.Core
 			public string CountryCode { get; set; }
 
 			///
-			///If true, the address has been verified by an address validation service.
+			///Indicates if the address has been validated. If true, the address has been verified by an address validation service.
 			///
 			public bool? IsValidated { get; set; }
 

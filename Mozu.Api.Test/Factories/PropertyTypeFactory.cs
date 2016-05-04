@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Creates a new
 		/// <example> 
 		///  <code> 
 		/// var result = PropertyTypeFactory.CreatePropertyType(handler : handler,  propertyType :  propertyType,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Updates a
 		/// <example> 
 		///  <code> 
 		/// var result = PropertyTypeFactory.UpdatePropertyType(handler : handler,  propertyType :  propertyType,  propertyTypeName :  propertyTypeName,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Delete a specific
 		/// <example> 
 		///  <code> 
 		/// var result = PropertyTypeFactory.DeletePropertyType(handler : handler,  propertyTypeName :  propertyTypeName,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 

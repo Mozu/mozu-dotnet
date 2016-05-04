@@ -40,7 +40,7 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// <summary>
 		/// Retrieves a particular cart item by providing the cart item ID.
 		/// </summary>
-		/// <param name="cartItemId">Identifier of the cart item to retrieve.</param>
+		/// <param name="cartItemId">Identifier of the cart item to delete.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>
@@ -65,7 +65,7 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// <summary>
 		/// Retrieves a particular cart item by providing the cart item ID.
 		/// </summary>
-		/// <param name="cartItemId">Identifier of the cart item to retrieve.</param>
+		/// <param name="cartItemId">Identifier of the cart item to delete.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>
@@ -137,7 +137,7 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// Adds a product to the current shopper's cart.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="cartItem">All properties of the new cart item. The product code is required.</param>
+		/// <param name="cartItem">Properties of an item added to an active shopping cart.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>
 		/// </returns>
@@ -162,7 +162,7 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// Adds a product to the current shopper's cart.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="cartItem">All properties of the new cart item. The product code is required.</param>
+		/// <param name="cartItem">Properties of an item added to an active shopping cart.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>
 		/// </returns>
@@ -185,7 +185,7 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// <summary>
 		/// Update the quantity of an individual cart item in the cart of the current shopper.
 		/// </summary>
-		/// <param name="cartItemId">Identifier of the cart item to update quantity.</param>
+		/// <param name="cartItemId">Identifier of the cart item to delete.</param>
 		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
@@ -211,7 +211,7 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// <summary>
 		/// Update the quantity of an individual cart item in the cart of the current shopper.
 		/// </summary>
-		/// <param name="cartItemId">Identifier of the cart item to update quantity.</param>
+		/// <param name="cartItemId">Identifier of the cart item to delete.</param>
 		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
@@ -236,9 +236,9 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// <summary>
 		/// Update the product or product quantity of an item in the current shopper's cart.
 		/// </summary>
-		/// <param name="cartItemId">Identifier of the cart item to update.</param>
+		/// <param name="cartItemId">Identifier of the cart item to delete.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="cartItem">The properties of the cart item to update.</param>
+		/// <param name="cartItem">Properties of an item added to an active shopping cart.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>
 		/// </returns>
@@ -262,9 +262,9 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// <summary>
 		/// Update the product or product quantity of an item in the current shopper's cart.
 		/// </summary>
-		/// <param name="cartItemId">Identifier of the cart item to update.</param>
+		/// <param name="cartItemId">Identifier of the cart item to delete.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="cartItem">The properties of the cart item to update.</param>
+		/// <param name="cartItem">Properties of an item added to an active shopping cart.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>
 		/// </returns>

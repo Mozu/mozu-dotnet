@@ -25,7 +25,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public List<FacetValue> ChildrenFacetValues { get; set; }
 
 			///
-			///The number of facet value selections in a product search result set.
+			///The number of facet results for a product search.
 			///
 			public int Count { get; set; }
 
@@ -39,10 +39,13 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public bool? IsApplied { get; set; }
 
+			///
+			///Indicates if the object is displayed on the storefront. If true, the admin product category is displayed in the store. If true, the category is not displayed.
+			///
 			public bool IsDisplayed { get; set; }
 
 			///
-			///The descriptive label of the facet value.
+			///Descriptive text used as a label for objects, such as field names, facets, date ranges, contact information, and package information.
 			///
 			public string Label { get; set; }
 
@@ -62,7 +65,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string RangeQueryValueStart { get; set; }
 
 			///
-			///String representation of the facet value selected for the product search.
+			///The value of a property, used by numerous objects within Mozu including facets, attributes, products, localized content, metadata, capabilities (Mozu and third-party), location inventory adjustment, and more. The value may be a string, integer, or double. Validation may be run against the entered and saved values depending on the object type.
 			///
 			public string Value { get; set; }
 

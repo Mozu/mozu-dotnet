@@ -89,7 +89,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="validationResult">Properties of the validation result to add for the order.</param>
+		/// <param name="validationResult">Properties of the resulting order validation performed by an order validation capability.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult"/>
 		/// </returns>
@@ -115,7 +115,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="validationResult">Properties of the validation result to add for the order.</param>
+		/// <param name="validationResult">Properties of the resulting order validation performed by an order validation capability.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderValidationResult"/>
 		/// </returns>

@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Modifies the sequence and hierarchy of multiple categories in a category tree in one operation. This is better for moving a category to a different location in the tree and adjusting the order of multiple categories than doing individual category updates.
 		/// <example> 
 		///  <code> 
 		/// var result = CategoryFactory.UpdateCategoryTree(handler : handler,  categorySequencies :  categorySequencies,  expectedCode: expectedCode, successCode: successCode); 
@@ -219,7 +219,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Validates the precomputed dynamic category expression.
 		/// <example> 
 		///  <code> 
 		/// var result = CategoryFactory.ValidateDynamicExpression(handler : handler,  dynamicExpressionIn :  dynamicExpressionIn,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -257,7 +257,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Validates the realtime dynamic expression.
 		/// <example> 
 		///  <code> 
 		/// var result = CategoryFactory.ValidateRealTimeDynamicExpression(handler : handler,  dynamicExpressionIn :  dynamicExpressionIn,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

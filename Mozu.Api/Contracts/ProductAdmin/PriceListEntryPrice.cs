@@ -13,36 +13,34 @@ using System;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
+		///
+		///	Mozu.ProductAdmin.Contracts.PriceListEntryPrice ApiType DOCUMENT_HERE 
+		///
 		public class PriceListEntryPrice
 		{
+			///
+			///Mozu.ProductAdmin.Contracts.PriceListEntryPrice listPrice ApiTypeMember DOCUMENT_HERE 
+			///
 			public decimal? ListPrice { get; set; }
 
-			public decimal? ListPriceCalcAdder { get; set; }
-
-			public decimal? ListPriceCalcMax { get; set; }
-
-			public decimal? ListPriceCalcMin { get; set; }
-
-			public decimal? ListPriceCalcMultiplier { get; set; }
-
-			public string ListPriceCalcSrcField { get; set; }
-
+			///
+			///Mozu.ProductAdmin.Contracts.PriceListEntryPrice listPriceMode ApiTypeMember DOCUMENT_HERE 
+			///
 			public string ListPriceMode { get; set; }
 
+			///
+			///Mozu.ProductAdmin.Contracts.PriceListEntryPrice minQty ApiTypeMember DOCUMENT_HERE 
+			///
 			public int MinQty { get; set; }
 
+			///
+			///The set sale price for a product consisting of a price with a discount already applied.
+			///
 			public decimal? SalePrice { get; set; }
 
-			public decimal? SalePriceCalcAdder { get; set; }
-
-			public string SalePriceCalcField { get; set; }
-
-			public decimal? SalePriceCalcMax { get; set; }
-
-			public decimal? SalePriceCalcMin { get; set; }
-
-			public decimal? SalePriceCalcMultiplier { get; set; }
-
+			///
+			///Mozu.ProductAdmin.Contracts.PriceListEntryPrice salePriceMode ApiTypeMember DOCUMENT_HERE 
+			///
 			public string SalePriceMode { get; set; }
 
 		}

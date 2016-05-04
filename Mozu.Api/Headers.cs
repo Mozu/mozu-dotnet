@@ -16,9 +16,11 @@
 		public const string X_VOL_CURRENCY = "x-vol-currency";
 		public const string X_VOL_VERSION = "x-vol-version";
         public const string X_VOL_DATAVIEW_MODE = "x-vol-dataview-mode";
+        public const string X_VOL_RETURN_URL = "x-vol-return-url";
         public const string DATE = "Date";
         public const string CONTENT_TYPE = "Content-type";
         public const string ETAG = "ETag";
         public const string USERID = "userId";
+        public const string USER_AGENT = "User-Agent";
     }
 }

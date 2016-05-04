@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// The Subscriptions resource triggers a push service to sent immediate notifications to the subscribed tenants and applications when triggers. The resource sends messages regarding a subscription event tha occurs in the tenant or site.
 	/// </summary>
 	public partial class SubscriptionFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// 
+		/// Retrieves a list of events according to any specified filter criteria and sort options.
 		/// <example> 
 		///  <code> 
 		/// var result = SubscriptionFactory.GetSubscriptions(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

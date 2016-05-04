@@ -18,39 +18,48 @@ namespace Mozu.Api.Contracts.Tenant
 		///
 		public class Catalog
 		{
+			///
+			///The date time in UTC format set when the object was created. 
+			///
 			public DateTime CreateDate { get; set; }
 
 			///
-			///The default currency code for the product catalog. Currently, only "USD" is supported.
+			///The default three-letter ISO currency code for monetary amounts. Currently, only "USD" is supported for U.S. Dollar.
 			///
 			public string DefaultCurrencyCode { get; set; }
 
 			///
-			///The default locale code for the product catalog. Currently, only "en-US" is supported.
+			///The two-letter default locale code for setting the localized text content. Currently, only "en-US" is supported for U.S. English.
 			///
 			public string DefaultLocaleCode { get; set; }
 
 			///
-			///The date and time the catalog was deleted.
+			///The date and time the object was deleted. 
 			///
 			public DateTime DeleteDate { get; set; }
 
+			///
+			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///
 			public int Id { get; set; }
 
 			///
-			///If true, the catalog has been deleted.
+			///Indicates if the object is deleted. If true, the object has been deleted. This may affect associated child members and objects. For example, a deleted master catalog affects all associated catalogs. 
 			///
 			public bool IsDeleted { get; set; }
 
+			///
+			///Unique identifier for the master catalog. 
+			///
 			public int MasterCatalogId { get; set; }
 
 			///
-			///The user-defined name of the product catalog.
+			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
 			///
 			public string Name { get; set; }
 
 			///
-			///The current status of the product catalog.
+			///The current status of an object. This status is specific to the object including payment (New, Authorized, Captured, Declined, Failed, Voided, Credited, CheckRequested, or RolledBack), discount (Active, Scheduled, or Expired), returns (ReturnAuthorized), tenant, package (Fulfilled or NotFulfilled), application, master and product catalogs, orders (Pending, Submitted, Processing, Pending Review, Closed, or Canceled), and order validation results (Pass, Fail, Error, or Review).
 			///
 			public string Status { get; set; }
 
@@ -59,6 +68,9 @@ namespace Mozu.Api.Contracts.Tenant
 			///
 			public int TenantId { get; set; }
 
+			///
+			///The date and time the object was updated most recently. The date is in UTC format.
+			///
 			public DateTime UpdateDate { get; set; }
 
 		}
