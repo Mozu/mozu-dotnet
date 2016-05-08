@@ -114,6 +114,7 @@
     <Compile Include="Factories\AuthTicketFactory.cs" />
     <Compile Include="Factories\BillingInfoFactory.cs" />
     <Compile Include="Factories\CardFactory.cs" />
+    <Compile Include="Factories\CarrierConfigurationFactory.cs" />
     <Compile Include="Factories\CartFactory.cs" />
     <Compile Include="Factories\CartItemFactory.cs" />
     <Compile Include="Factories\CategoryFactory.cs" />
@@ -157,6 +158,7 @@
     <Compile Include="Factories\FulfillmentActionFactory.cs" />
     <Compile Include="Factories\FulfillmentInfoFactory.cs" />
     <Compile Include="Factories\GeneralSettingsFactory.cs" />
+    <Compile Include="Factories\HandlingFeeRuleFactory.cs" />
     <Compile Include="Factories\InStockNotificationSubscriptionFactory.cs" />
     <Compile Include="Factories\ListViewFactory.cs" />
     <Compile Include="Factories\LocationAdminFactory.cs" />
@@ -199,6 +201,9 @@
     <Compile Include="Factories\ReturnsShipmentFactory.cs" />
     <Compile Include="Factories\SearchFactory.cs" />
     <Compile Include="Factories\SecureAppDataFactory.cs" />
+    <Compile Include="Factories\ShippingInclusionRuleFactory.cs" />
+    <Compile Include="Factories\ShippingProfileFactory.cs" />
+    <Compile Include="Factories\ShippingStatesFactory.cs" />
     <Compile Include="Factories\SiteDataFactory.cs" />
     <Compile Include="Factories\SiteShippingHandlingFeeFactory.cs" />
     <Compile Include="Factories\SiteShippingSettingsFactory.cs" />
@@ -211,6 +216,7 @@
     <Compile Include="Factories\StorefrontShipmentFactory.cs" />
     <Compile Include="Factories\StorefrontShippingFactory.cs" />
     <Compile Include="Factories\SubscriptionFactory.cs" />
+    <Compile Include="Factories\TargetRuleFactory.cs" />
     <Compile Include="Factories\TaxableTerritoryFactory.cs" />
     <Compile Include="Factories\TenantAdminUserAuthTicketFactory.cs" />
     <Compile Include="Factories\TenantDataFactory.cs" />

@@ -210,7 +210,7 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		}
 
 		/// <summary>
-		/// Updates the content associated with a document, such as a product image or PDF specifications file, based on the document's position in the document hierarchy.
+		/// Updates the binary data or content associated with a document, such as a product image or PDF specifications file, by supplying the document name.
 		/// </summary>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
 		/// <param name="documentName">The name of the document in the site.</param>
@@ -235,7 +235,7 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		}
 
 		/// <summary>
-		/// Updates the content associated with a document, such as a product image or PDF specifications file, based on the document's position in the document hierarchy.
+		/// Updates the binary data or content associated with a document, such as a product image or PDF specifications file, by supplying the document name.
 		/// </summary>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
 		/// <param name="documentName">The name of the document in the site.</param>

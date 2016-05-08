@@ -53,7 +53,7 @@ namespace Mozu.Api.Clients.Commerce.Admin
 		/// Retrieves the details of the location specified in the request by location code.
 		/// </summary>
 		/// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Location.Location"/>}
 		/// </returns>
@@ -77,7 +77,7 @@ namespace Mozu.Api.Clients.Commerce.Admin
 		/// <summary>
 		/// Creates a new physical location for the tenant specified in the request header.
 		/// </summary>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
 		/// <param name="location">Properties of a physical location a tenant uses to manage inventory and fulfills orders, provide store finder functionality, or both.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Location.Location"/>}

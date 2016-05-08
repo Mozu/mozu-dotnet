@@ -184,6 +184,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public List<string> UpCs { get; set; }
 
+			public List<string> ValidPriceLists { get; set; }
+
 			///
 			///Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
 			///
