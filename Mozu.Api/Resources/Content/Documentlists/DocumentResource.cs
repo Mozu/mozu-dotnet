@@ -320,7 +320,7 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		}
 
 		/// <summary>
-		/// Updates the content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
+		/// Updates the binary data or content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
 		/// </summary>
 		/// <param name="documentId">Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.</param>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
@@ -345,7 +345,7 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		}
 
 		/// <summary>
-		/// Updates the content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
+		/// Updates the binary data or content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
 		/// </summary>
 		/// <param name="documentId">Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.</param>
 		/// <param name="documentListName">Name of content documentListName to delete</param>

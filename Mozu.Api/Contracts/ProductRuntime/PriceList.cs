@@ -44,6 +44,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public bool FilteredInStoreFront { get; set; }
 
+			public bool? IsIndexed { get; set; }
+
 			///
 			///Mozu.ProductRuntime.Contracts.PriceList isSiteDefault ApiTypeMember DOCUMENT_HERE 
 			///

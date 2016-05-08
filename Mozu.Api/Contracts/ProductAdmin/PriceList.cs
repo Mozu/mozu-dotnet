@@ -45,6 +45,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool? FilteredInStorefront { get; set; }
 
+			public List<int> IndexedSites { get; set; }
+
 			///
 			///List of customer segment code associated with this price list. Used to resolve default price list
 			///
