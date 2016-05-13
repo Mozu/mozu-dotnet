@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetLocation
         /// </summary>
-        /// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+        /// <param name="code">User-defined code that identifies the location.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
@@ -76,7 +76,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetInStorePickupLocation
         /// </summary>
-        /// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+        /// <param name="code">The user-defined code that identifies the location to retrieve.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url

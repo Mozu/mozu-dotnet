@@ -14,49 +14,22 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
-		///
-		///	Mozu.ProductAdmin.Contracts.SoftAllocation ApiType DOCUMENT_HERE 
-		///
 		public class SoftAllocation
 		{
-			///
-			///Basic audit info about the object, including date, time, and user account. Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
 			public AuditInfo AuditInfo { get; set; }
 
-			///
-			///The UTC DateTime this allocation will expire
-			///
 			public DateTime? ExpiresAt { get; set; }
 
-			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
-			///
 			public int? Id { get; set; }
 
-			///
-			///The unique, user-defined code that identifies a location. This location can be the location where the order was entered, location for newly in-stock products, and where products are returned.
-			///
 			public string LocationCode { get; set; }
 
-			///
-			///The unique, user-defined  product code of a product, used throughout Mozu to reference and associate to a product.
-			///
 			public string ProductCode { get; set; }
 
-			///
-			///The specified quantity of objects and items. This property is used for numerous object types including products, options, components within a product bundle, cart and order items, returned items, shipping line items, items in a digital product. and items associated with types and reservations.
-			///
 			public int? Quantity { get; set; }
 
-			///
-			///Entity RefrenceID this allocation is linked to.
-			///
 			public string ReferenceId { get; set; }
 
-			///
-			///item Id of the RefrenceID.
-			///
 			public string ReferenceItemId { get; set; }
 
 		}

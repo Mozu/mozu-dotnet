@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves information about a single product given its product code for Mozu to index in the search engine
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ProductFactory.GetProductForIndexing(handler : handler,  productCode :  productCode,  productVersion :  productVersion,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -296,7 +296,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves product inventories for the storefront displayed products.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ProductFactory.GetProductInventories(handler : handler,  query :  query,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 

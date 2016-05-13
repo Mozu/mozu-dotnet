@@ -13,19 +13,10 @@ using System;
 
 namespace Mozu.Api.Contracts.MZDB
 {
-		///
-		///	Data for indexed properties within the database.
-		///
 		public class IndexedProperty
 		{
-			///
-			///The data type of the source product property, typically of type Bool, DateTime, Number, or String.
-			///
 			public string DataType { get; set; }
 
-			///
-			///A JPath query indicating the property that should be indexed to enable querying and sorting.  Non-indexed properties may be used in queries as long as at least one indexed property is also provided in the query.
-			///
 			public string PropertyName { get; set; }
 
 		}

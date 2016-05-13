@@ -20,7 +20,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class AttributeInProductType
 		{
 			///
-			///Detail data for a product or product options attribute. This acts as a wrapper for the properties to configure or generate from the system in the product Admin. Properties may include namespace, attribute code, attribute sequence, site group ID, input type, and value.
+			///The wrapper for the properties of the product attribute to set up or generate from the system in the product admin. Properties include namespace, attribute code, attribute sequence, site group ID, input type, value type, data type, boolean flags, and metadata key value pairs.
 			///
 			public Attribute AttributeDetail { get; set; }
 
@@ -29,14 +29,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public string AttributeFQN { get; set; }
 
-			///
-			///Defines the intended display of this attribute in the storefront. Options include Drop Down, Image Picker, and Radio Buttons.
-			///
 			public AttributeInProductTypeDisplayInfo DisplayInfo { get; set; }
 
-			///
-			///If true, this property is not available on the storefront. If false, this property will be available on storefront. The IsHiddenProperty hides the property from the customer, but is still available from the API.
-			///
 			public bool? IsAdminOnlyProperty { get; set; }
 
 			///
@@ -54,9 +48,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool? IsMultiValueProperty { get; set; }
 
-			///
-			///If True this property will not be returned storefront product listings (Search,GetProduct) it will still be returned on GetProduct, ValidateProduct...)
-			///
 			public bool? IsProductDetailsOnlyProperty { get; set; }
 
 			///
@@ -65,12 +56,12 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public bool? IsRequiredByAdmin { get; set; }
 
 			///
-			///Integer that represents the sequence order of the attribute.
+			///The sequence of this attribute within its product type.
 			///
 			public int? Order { get; set; }
 
 			///
-			///List of valid vocabulary values defined for an attribute.
+			///The list of vocabulary values available for the attribute associated with the product type.
 			///
 			public List<AttributeVocabularyValueInProductType> VocabularyValues { get; set; }
 

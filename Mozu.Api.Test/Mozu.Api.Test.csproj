@@ -133,6 +133,7 @@
     <Compile Include="Factories\CustomerCheckoutSettingsFactory.cs" />
     <Compile Include="Factories\CustomerContactFactory.cs" />
     <Compile Include="Factories\CustomerNoteFactory.cs" />
+    <Compile Include="Factories\CustomerPurchaseOrderAccountFactory.cs" />
     <Compile Include="Factories\CustomerSegmentAccountsFactory.cs" />
     <Compile Include="Factories\CustomerSegmentFactory.cs" />
     <Compile Include="Factories\CustomRouteSettingsFactory.cs" />

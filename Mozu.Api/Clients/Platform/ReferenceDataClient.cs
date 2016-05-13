@@ -98,7 +98,7 @@ namespace Mozu.Api.Clients.Platform
 		/// <summary>
 		/// Retrieves the details of the behavior category specified in the request.
 		/// </summary>
-		/// <param name="categoryId">Unique identifier of the category to modify.</param>
+		/// <param name="categoryId">Unique identifier of the behavior category.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.BehaviorCategory"/>}
@@ -218,9 +218,9 @@ namespace Mozu.Api.Clients.Platform
 		}
 
 		/// <summary>
-		/// Retrieves the entire list of countries that the system supports.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Reference.CountryWithStatesCollection"/>}
 		/// </returns>

@@ -19,7 +19,7 @@ namespace Mozu.Api.Contracts.Reference
 		public class UnitOfMeasure
 		{
 			///
-			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
+			///The name of the unit of measure, such as "foot".
 			///
 			public string Name { get; set; }
 

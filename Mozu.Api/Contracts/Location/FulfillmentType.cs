@@ -24,7 +24,7 @@ namespace Mozu.Api.Contracts.Location
 			public string Code { get; set; }
 
 			///
-			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
+			///The system-supplied name of the fulfillment type, which is "Direct Ship" or "In Store Pickup".
 			///
 			public string Name { get; set; }
 

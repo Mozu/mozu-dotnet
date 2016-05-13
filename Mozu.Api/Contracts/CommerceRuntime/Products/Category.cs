@@ -14,17 +14,17 @@ using System;
 namespace Mozu.Api.Contracts.CommerceRuntime.Products
 {
 		///
-		///	The category associated with assigned products. Products, product bundles, and options can be classified to multiple categories. 
+		///	The category into which products are classified.
 		///
 		public class Category
 		{
 			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///Identifier of the category.
 			///
 			public int? Id { get; set; }
 
 			///
-			///If applicable, the parent category in the category tree. This can be associated to a product as the parent category.
+			///If applicable, the parent category in the category tree.
 			///
 			public Category Parent { get; set; }
 

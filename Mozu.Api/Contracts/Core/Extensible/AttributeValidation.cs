@@ -14,7 +14,7 @@ using System;
 namespace Mozu.Api.Contracts.Core.Extensible
 {
 		///
-		///	Validates the attribute configured for the customer in the storefront against the attribute configured in .
+		///	Validates the attribute configured for the customer in the storefront against the attribute configured in Mozu admin.
 		///
 		public class AttributeValidation
 		{
@@ -29,7 +29,7 @@ namespace Mozu.Api.Contracts.Core.Extensible
 			public decimal? MaxNumericValue { get; set; }
 
 			///
-			///The maximum character length possible for a string value entered for an extensible attribute.
+			///The maximum length possible for a string value entered for an extensible attribute.
 			///
 			public int? MaxStringLength { get; set; }
 
@@ -44,12 +44,12 @@ namespace Mozu.Api.Contracts.Core.Extensible
 			public decimal? MinNumericValue { get; set; }
 
 			///
-			///The minimum character length possible for a string value entered for an extensible attribute.
+			///The maximum length possible for a string value entered for an extensible attribute.
 			///
 			public int? MinStringLength { get; set; }
 
 			///
-			///Regular expression used to process and validate an extensible attribute value that require special formatting, such as phone numbers.
+			///Regular expression used to validate the extensible attribute value.
 			///
 			public string RegularExpression { get; set; }
 

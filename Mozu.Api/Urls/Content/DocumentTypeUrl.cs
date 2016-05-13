@@ -70,7 +70,7 @@ namespace Mozu.Api.Urls.Content
 				/// <summary>
         /// Get Resource Url for UpdateDocumentType
         /// </summary>
-        /// <param name="documentTypeName">The name of the document type to retrieve.</param>
+        /// <param name="documentTypeName"></param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url

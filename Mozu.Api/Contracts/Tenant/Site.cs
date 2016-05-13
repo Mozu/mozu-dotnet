@@ -31,7 +31,7 @@ namespace Mozu.Api.Contracts.Tenant
 			public string CurrencyCode { get; set; }
 
 			///
-			///The domain associated with the site and/or tenant.
+			///The domain associated with the site.
 			///
 			public string Domain { get; set; }
 
@@ -43,7 +43,7 @@ namespace Mozu.Api.Contracts.Tenant
 			public string LocaleCode { get; set; }
 
 			///
-			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
+			///The name of the site.
 			///
 			public string Name { get; set; }
 

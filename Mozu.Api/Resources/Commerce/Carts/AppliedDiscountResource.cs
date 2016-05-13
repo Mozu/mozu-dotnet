@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Carts
 {
 	/// <summary>
-	/// Use the Cart Coupons subresource to apply a coupon to a defined cart or remove a coupon from a cart. When the shopper proceeds to checkout, the coupons applied to the cart apply to the order.
+	/// Use the Cart Coupons resource to apply a coupon to a defined cart or remove a coupon from a cart. When the shopper proceeds to checkout, the coupons applied to the cart apply to the order.
 	/// </summary>
 	public partial class AppliedDiscountResource  	{
 		///
@@ -40,8 +40,8 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// <summary>
 		/// Applies a defined coupon to the cart specified in the request.
 		/// </summary>
-		/// <param name="cartId">Identifier of the cart to delete.</param>
-		/// <param name="couponCode">Code associated with the coupon to remove from the cart.</param>
+		/// <param name="cartId">Unique identifier of the cart to which to apply the coupon.</param>
+		/// <param name="couponCode">Code associated with the coupon to apply to the cart.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>
@@ -66,8 +66,8 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// <summary>
 		/// Applies a defined coupon to the cart specified in the request.
 		/// </summary>
-		/// <param name="cartId">Identifier of the cart to delete.</param>
-		/// <param name="couponCode">Code associated with the coupon to remove from the cart.</param>
+		/// <param name="cartId">Unique identifier of the cart to which to apply the coupon.</param>
+		/// <param name="couponCode">Code associated with the coupon to apply to the cart.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>
@@ -89,9 +89,9 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		}
 
 		/// <summary>
-		/// Removes all coupons from the cart specified in the request.
+		/// Removes one or more applied coupons from the cart specified in the request.
 		/// </summary>
-		/// <param name="cartId">Identifier of the cart to delete.</param>
+		/// <param name="cartId">Unique identifier of the cart.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>
 		/// </returns>
@@ -113,9 +113,9 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		}
 
 		/// <summary>
-		/// Removes all coupons from the cart specified in the request.
+		/// Removes one or more applied coupons from the cart specified in the request.
 		/// </summary>
-		/// <param name="cartId">Identifier of the cart to delete.</param>
+		/// <param name="cartId">Unique identifier of the cart.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>
 		/// </returns>
@@ -138,7 +138,7 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// <summary>
 		/// Removes an applied coupon from the cart specified in the request.
 		/// </summary>
-		/// <param name="cartId">Identifier of the cart to delete.</param>
+		/// <param name="cartId">Unique identifier of the cart.</param>
 		/// <param name="couponCode">Code associated with the coupon to remove from the cart.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>
@@ -163,7 +163,7 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// <summary>
 		/// Removes an applied coupon from the cart specified in the request.
 		/// </summary>
-		/// <param name="cartId">Identifier of the cart to delete.</param>
+		/// <param name="cartId">Unique identifier of the cart.</param>
 		/// <param name="couponCode">Code associated with the coupon to remove from the cart.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>

@@ -17,16 +17,16 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Commerce.Orders
 {
 	/// <summary>
-	/// Use the refunds resource to create a refund.
+	/// 
 	/// </summary>
 	public partial class RefundClient 	{
 		
 		/// <summary>
-		/// Creates a refund based on the information supplied in the request.  
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
-		/// <param name="refund">Mozu.CommerceRuntime.Contracts.Refunds.Refund ApiType DOCUMENT_HERE </param>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="refund"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Refunds.Refund"/>}
 		/// </returns>
@@ -48,10 +48,10 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		}
 
 		/// <summary>
-		/// Resends the order refund email previously sent to the shopper. 
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="refundId">Unique ID of the refund.        </param>
+		/// <param name="orderId"></param>
+		/// <param name="refundId"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

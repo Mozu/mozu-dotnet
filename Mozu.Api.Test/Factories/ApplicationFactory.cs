@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// platform/developer related resources. DOCUMENT_HERE 
+	/// 
 	/// </summary>
 	public partial class ApplicationFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// platform-developer Get GetAppPackageNames description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ApplicationFactory.GetAppPackageNames(handler : handler,  applicationKey :  applicationKey,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// platform-developer Get GetAppVersions description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ApplicationFactory.GetAppVersions(handler : handler,  nsAndAppId :  nsAndAppId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// platform-developer Get GetPackageFileMetadata description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ApplicationFactory.GetPackageFileMetadata(handler : handler,  applicationKey :  applicationKey,  filepath :  filepath,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// platform-developer Get GetPackageMetadata description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ApplicationFactory.GetPackageMetadata(handler : handler,  applicationKey :  applicationKey,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// platform-developer Post UpsertPackageFile description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ApplicationFactory.UpsertPackageFile(handler : handler,  stream :  stream,  applicationKey :  applicationKey,  filepath :  filepath,  lastModifiedTime :  lastModifiedTime,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -220,7 +220,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// platform-developer Post RenamePackageFile description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ApplicationFactory.RenamePackageFile(handler : handler,  renameInfo :  renameInfo,  applicationKey :  applicationKey,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -258,7 +258,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// platform-developer Delete DeletePackageFile description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ApplicationFactory.DeletePackageFile(handler : handler,  applicationKey :  applicationKey,  filepath :  filepath,  expectedCode: expectedCode, successCode: successCode); 

@@ -19,7 +19,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 		public class OrderAction
 		{
 			///
-			///The name of the fulfillment action to perform for the purchased product. Options include "Ship" or "PickUp" (in-store pick-up).
+			///The name of the action for the order.
 			///
 			public string ActionName { get; set; }
 

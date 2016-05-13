@@ -14,39 +14,18 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
-		///
-		///	Mozu.ProductAdmin.Contracts.Expression ApiType DOCUMENT_HERE 
-		///
 		public class Expression
 		{
-			///
-			///The field target of a predicate
-			///
 			public string Left { get; set; }
 
-			///
-			///And or Or (if Container with More than one Node)
-			///
 			public string LogicalOperator { get; set; }
 
-			///
-			///Mozu.ProductAdmin.Contracts.Expression nodes ApiTypeMember DOCUMENT_HERE 
-			///
 			public List<Expression> Nodes { get; set; }
 
-			///
-			///The operator of a predicate
-			///
 			public string Operator { get; set; }
 
-			///
-			///The literal values of a predicate
-			///
 			public object Right { get; set; }
 
-			///
-			///Container or Predicate
-			///
 			public string Type { get; set; }
 
 		}

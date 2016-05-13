@@ -25,22 +25,22 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			public string AttributeFQN { get; set; }
 
 			///
-			///The data type of the source product property, typically of type Bool, DateTime, Number, or String.
+			///The data type of the property attribute, which is Bool, DateTime, Number, or String.
 			///
 			public string DataType { get; set; }
 
 			///
-			///Indicates if the object has or can have multiple properties or values. If true, the object can have more than one value, selectable by shoppers through the storefront or configurable through the catalogs. 
+			///If true, the product property can have more than one value.
 			///
 			public bool IsMultiValue { get; set; }
 
 			///
-			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
+			///The name of the product property.
 			///
 			public string Name { get; set; }
 
 			///
-			///List of value data for objects.
+			///The list of possible values for the product property.
 			///
 			public List<ProductPropertyValue> Values { get; set; }
 

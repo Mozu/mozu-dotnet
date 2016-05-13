@@ -24,7 +24,7 @@ namespace Mozu.Api.Contracts.Customer
 			public string EmailAddress { get; set; }
 
 			///
-			///The user name associated with the user profile. The customer uses the user name to access the account.
+			///User name of the user associated with the customer account.
 			///
 			public string UserName { get; set; }
 
