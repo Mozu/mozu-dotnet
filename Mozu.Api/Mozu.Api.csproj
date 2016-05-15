@@ -711,9 +711,9 @@
     <Compile Include="Contracts\SiteSettings\Order\LocalizedContent.cs" />
     <Compile Include="Contracts\SiteSettings\Order\OrderProcessingSettings.cs" />
     <Compile Include="Contracts\SiteSettings\Order\PaymentSettings.cs" />
-    <Compile Include="Contracts\SiteSettings\Order\PurchaseOrderMemoField.cs" />
-    <Compile Include="Contracts\SiteSettings\Order\PurchaseOrderNetTerm.cs" />
+    <Compile Include="Contracts\SiteSettings\Order\PurchaseOrderCustomField.cs" />
     <Compile Include="Contracts\SiteSettings\Order\PurchaseOrderPaymentDefinition.cs" />
+    <Compile Include="Contracts\SiteSettings\Order\PurchaseOrderPaymentTerm.cs" />
     <Compile Include="Contracts\SiteSettings\Order\ThirdPartyCredentialField.cs" />
     <Compile Include="Contracts\SiteSettings\Order\VocabularyValue.cs" />
     <Compile Include="Contracts\SiteSettings\Shipping\SiteShippingHandlingFee.cs" />

@@ -31,9 +31,9 @@ namespace Mozu.Api.Contracts.Customer
 
 			public bool IsEnabled { get; set; }
 
-			public string OverdraftType { get; set; }
+			public decimal? OverdraftAllowance { get; set; }
 
-			public decimal? OverdraftValue { get; set; }
+			public string OverdraftAllowanceType { get; set; }
 
 		}
 

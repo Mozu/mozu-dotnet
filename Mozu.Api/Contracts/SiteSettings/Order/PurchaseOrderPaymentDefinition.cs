@@ -18,11 +18,11 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 		{
 			public bool AllowSplitPayment { get; set; }
 
+			public List<PurchaseOrderCustomField> CustomFields { get; set; }
+
 			public bool IsEnabled { get; set; }
 
-			public List<PurchaseOrderMemoField> MemoFields { get; set; }
-
-			public List<PurchaseOrderNetTerm> NetTerms { get; set; }
+			public List<PurchaseOrderPaymentTerm> PaymentTerms { get; set; }
 
 		}
 

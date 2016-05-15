@@ -13,7 +13,7 @@ using System;
 
 namespace Mozu.Api.Contracts.SiteSettings.Order
 {
-		public class PurchaseOrderMemoField
+		public class PurchaseOrderCustomField
 		{
 			public string Code { get; set; }
 

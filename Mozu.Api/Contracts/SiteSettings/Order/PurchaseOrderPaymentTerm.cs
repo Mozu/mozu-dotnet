@@ -13,11 +13,11 @@ using System;
 
 namespace Mozu.Api.Contracts.SiteSettings.Order
 {
-		public class PurchaseOrderNetTerm
+		public class PurchaseOrderPaymentTerm
 		{
-			public int SequenceNumber { get; set; }
+			public string Description { get; set; }
 
-			public string Term { get; set; }
+			public int SequenceNumber { get; set; }
 
 		}
 
