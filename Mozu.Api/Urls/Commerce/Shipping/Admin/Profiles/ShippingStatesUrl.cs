@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce.Shipping.Admin.Profiles
 		/// <summary>
         /// Get Resource Url for GetStates
         /// </summary>
-        /// <param name="profileCode"></param>
+        /// <param name="profileCode">The unique, user-defined code of the profile with which the shipping state is associated.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -34,7 +34,7 @@ namespace Mozu.Api.Urls.Commerce.Shipping.Admin.Profiles
 						/// <summary>
         /// Get Resource Url for UpdateStates
         /// </summary>
-        /// <param name="profilecode"></param>
+        /// <param name="profilecode">The unique, user-defined code of the profile with which the shipping state is associated.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

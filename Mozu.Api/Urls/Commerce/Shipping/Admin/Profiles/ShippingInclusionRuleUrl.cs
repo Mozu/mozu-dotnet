@@ -19,9 +19,9 @@ namespace Mozu.Api.Urls.Commerce.Shipping.Admin.Profiles
 		/// <summary>
         /// Get Resource Url for GetShippingInclusionRule
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="profilecode"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="id">Unique identifier of the customer segment to retrieve.</param>
+        /// <param name="profilecode">The unique, user-defined code of the profile with which the shipping inclusion rule is associated.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -38,8 +38,8 @@ namespace Mozu.Api.Urls.Commerce.Shipping.Admin.Profiles
 		/// <summary>
         /// Get Resource Url for GetShippingInclusionRules
         /// </summary>
-        /// <param name="profilecode"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="profilecode">The unique, user-defined code of the profile with which the shipping inclusion rule is associated.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -55,8 +55,8 @@ namespace Mozu.Api.Urls.Commerce.Shipping.Admin.Profiles
 				/// <summary>
         /// Get Resource Url for CreateShippingInclusionRule
         /// </summary>
-        /// <param name="profilecode"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="profilecode">The unique, user-defined code of the profile with which the shipping inclusion rule is associated.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -72,9 +72,9 @@ namespace Mozu.Api.Urls.Commerce.Shipping.Admin.Profiles
 				/// <summary>
         /// Get Resource Url for UpdateShippingInclusionRule
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="profilecode"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="id">Unique identifier of the customer segment to retrieve.</param>
+        /// <param name="profilecode">The unique, user-defined code of the profile with which the shipping inclusion rule is associated.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -91,8 +91,8 @@ namespace Mozu.Api.Urls.Commerce.Shipping.Admin.Profiles
 				/// <summary>
         /// Get Resource Url for DeleteShippingInclusionRule
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="profilecode"></param>
+        /// <param name="id">Unique identifier of the customer segment to retrieve.</param>
+        /// <param name="profilecode">The unique, user-defined code of the profile with which the shipping inclusion rule is associated.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

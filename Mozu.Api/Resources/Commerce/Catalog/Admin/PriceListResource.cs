@@ -95,7 +95,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// admin-pricelists Get GetPriceList description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="priceListCode"></param>
+		/// <param name="priceListCode">The unique, user-defined code of the price list.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PriceList"/>
@@ -120,7 +120,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// admin-pricelists Get GetPriceList description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="priceListCode"></param>
+		/// <param name="priceListCode">The unique, user-defined code of the price list.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PriceList"/>
@@ -193,7 +193,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// admin-pricelists Put UpdatePriceList description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="priceListCode"></param>
+		/// <param name="priceListCode">The unique, user-defined code of the price list.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
 		/// <param name="priceList">Mozu.ProductAdmin.Contracts.PriceList ApiType DOCUMENT_HERE </param>
 		/// <returns>
@@ -219,7 +219,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// admin-pricelists Put UpdatePriceList description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="priceListCode"></param>
+		/// <param name="priceListCode">The unique, user-defined code of the price list.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
 		/// <param name="priceList">Mozu.ProductAdmin.Contracts.PriceList ApiType DOCUMENT_HERE </param>
 		/// <returns>
@@ -244,8 +244,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// admin-pricelists Delete DeletePriceList description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="cascadeDeleteEntries"></param>
-		/// <param name="priceListCode"></param>
+		/// <param name="cascadeDeleteEntries">Specifies whether to deletes all price list entries associated with the price list.</param>
+		/// <param name="priceListCode">The unique, user-defined code of the price list.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -268,8 +268,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// admin-pricelists Delete DeletePriceList description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="cascadeDeleteEntries"></param>
-		/// <param name="priceListCode"></param>
+		/// <param name="cascadeDeleteEntries">Specifies whether to deletes all price list entries associated with the price list.</param>
+		/// <param name="priceListCode">The unique, user-defined code of the price list.</param>
 		/// <returns>
 		/// 
 		/// </returns>

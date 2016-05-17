@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Shipping.Admin.Profiles
 {
 	/// <summary>
-	/// 
+	/// Use the ShippingStates sub-resource to manage the states your shipping profile supports. For example, you can specify one of your shipping profiles to only support Texas, Oklahoma, Arkansas, Louisiana, and New Mexico.Each shipping state is composed of a user-definied code and name.
 	/// </summary>
 	public partial class ShippingStatesResource  	{
 		///
@@ -38,9 +38,9 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin.Profiles
 
 				
 		/// <summary>
-		/// 
+		/// Retrieves a list of shipping states and their details.
 		/// </summary>
-		/// <param name="profileCode"></param>
+		/// <param name="profileCode">The unique, user-defined code of the profile with which the shipping state is associated.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingStates"/>}
@@ -63,9 +63,9 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin.Profiles
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves a list of shipping states and their details.
 		/// </summary>
-		/// <param name="profileCode"></param>
+		/// <param name="profileCode">The unique, user-defined code of the profile with which the shipping state is associated.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingStates"/>}
@@ -87,11 +87,11 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin.Profiles
 		}
 
 		/// <summary>
-		/// 
+		/// Updates the details of the shipping states.
 		/// </summary>
-		/// <param name="profilecode"></param>
+		/// <param name="profilecode">The unique, user-defined code of the profile with which the shipping state is associated.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="states"></param>
+		/// <param name="states">Mozu.ShippingAdmin.Contracts.Profile.ShippingStates ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingStates"/>}
 		/// </returns>
@@ -113,11 +113,11 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin.Profiles
 		}
 
 		/// <summary>
-		/// 
+		/// Updates the details of the shipping states.
 		/// </summary>
-		/// <param name="profilecode"></param>
+		/// <param name="profilecode">The unique, user-defined code of the profile with which the shipping state is associated.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="states"></param>
+		/// <param name="states">Mozu.ShippingAdmin.Contracts.Profile.ShippingStates ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingStates"/>}
 		/// </returns>

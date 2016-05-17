@@ -15,18 +15,39 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.ShippingAdmin.Profile
 {
+		///
+		///	Mozu.ShippingAdmin.Contracts.Profile.ShippingProfile ApiType DOCUMENT_HERE 
+		///
 		public class ShippingProfile
 		{
+			///
+			///Basic audit info about the object, including date, time, and user account. Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
 			public AuditInfo AuditInfo { get; set; }
 
+			///
+			///Merchant entered unique identifier for a ShippingProfile
+			///
 			public string Code { get; set; }
 
+			///
+			///Mozu.ShippingAdmin.Contracts.Profile.ShippingProfile orderHandlingFeeRules ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<HandlingFeeRule> OrderHandlingFeeRules { get; set; }
 
+			///
+			///Mozu.ShippingAdmin.Contracts.Profile.ShippingProfile productHandlingFeeRules ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<HandlingFeeRule> ProductHandlingFeeRules { get; set; }
 
+			///
+			///Mozu.ShippingAdmin.Contracts.Profile.ShippingProfile shippingInclusionRules ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<ShippingInclusionRule> ShippingInclusionRules { get; set; }
 
+			///
+			///The siteid's for which this profile applies for now there is a 1-1 relationship between this profile and site so only 1 siteid should be in this list
+			///
 			public List<int> TargetedSiteIds { get; set; }
 
 		}

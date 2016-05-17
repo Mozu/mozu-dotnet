@@ -45,6 +45,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool? FilteredInStorefront { get; set; }
 
+			///
+			///Mozu.ProductAdmin.Contracts.PriceList indexedSites ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<int> IndexedSites { get; set; }
 
 			///

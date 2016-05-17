@@ -42,7 +42,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetPriceList
         /// </summary>
-        /// <param name="priceListCode"></param>
+        /// <param name="priceListCode">The unique, user-defined code of the price list.</param>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
@@ -74,7 +74,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for UpdatePriceList
         /// </summary>
-        /// <param name="priceListCode"></param>
+        /// <param name="priceListCode">The unique, user-defined code of the price list.</param>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
@@ -91,8 +91,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for DeletePriceList
         /// </summary>
-        /// <param name="cascadeDeleteEntries"></param>
-        /// <param name="priceListCode"></param>
+        /// <param name="cascadeDeleteEntries">Specifies whether to deletes all price list entries associated with the price list.</param>
+        /// <param name="priceListCode">The unique, user-defined code of the price list.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

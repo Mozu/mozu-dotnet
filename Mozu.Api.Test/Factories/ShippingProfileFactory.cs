@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// commerce/shipping/admin/profiles related resources. DOCUMENT_HERE 
 	/// </summary>
 	public partial class ShippingProfileFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// 
+		/// Get Shipping Profiles for the Tenant/Master Catalog
 		/// <example> 
 		///  <code> 
 		/// var result = ShippingProfileFactory.GetProfiles(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

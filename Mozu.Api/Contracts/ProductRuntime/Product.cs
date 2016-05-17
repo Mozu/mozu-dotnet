@@ -184,6 +184,9 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public List<string> UpCs { get; set; }
 
+			///
+			///Mozu.ProductRuntime.Contracts.Product validPriceLists ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<string> ValidPriceLists { get; set; }
 
 			///
