@@ -419,6 +419,8 @@
     <Compile Include="Contracts\Customer\PasswordInfo.cs" />
     <Compile Include="Contracts\Customer\PurchaseOrderTransaction.cs" />
     <Compile Include="Contracts\Customer\PurchaseOrderTransactionCollection.cs" />
+    <Compile Include="Contracts\Customer\PurchaseOrderTransactionInternal.cs" />
+    <Compile Include="Contracts\Customer\PurchaseOrderTransactionInternalCollection.cs" />
     <Compile Include="Contracts\Customer\ResetPasswordInfo.cs" />
     <Compile Include="Contracts\Customer\Transaction.cs" />
     <Compile Include="Contracts\Customer\Visit.cs" />

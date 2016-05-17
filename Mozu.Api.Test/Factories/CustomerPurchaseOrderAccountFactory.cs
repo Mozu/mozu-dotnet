@@ -109,6 +109,44 @@ namespace Mozu.Api.Test.Factories
 		/// 
 		/// <example> 
 		///  <code> 
+		/// var result = CustomerPurchaseOrderAccountFactory.GetCustomerPurchaseOrderTransactionsInternal(handler : handler,  accountId :  accountId,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<PurchaseOrderTransactionInternalCollection/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.Customer.PurchaseOrderTransactionInternalCollection GetCustomerPurchaseOrderTransactionsInternal(ServiceClientMessageHandler handler, 
+ 		 int accountId, int? startIndex = null, int? pageSize = null, string sortBy = null, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerPurchaseOrderAccountClient.GetCustomerPurchaseOrderTransactionsInternalClient(
+				 accountId :  accountId,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
 		/// var result = CustomerPurchaseOrderAccountFactory.CreateCustomerPurchaseOrderAccount(handler : handler,  customerPurchaseOrderAccount :  customerPurchaseOrderAccount,  accountId :  accountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CustomerPurchaseOrderAccount/>(result); 
 		/// return optionalCasting;
@@ -163,6 +201,44 @@ namespace Mozu.Api.Test.Factories
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerPurchaseOrderAccountClient.CreatePurchaseOrderTransactionClient(
 				 purchaseOrderTransaction :  purchaseOrderTransaction,  accountId :  accountId,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = CustomerPurchaseOrderAccountFactory.CreatePurchaseOrderTransactionInternal(handler : handler,  purchaseOrderTransactionInternal :  purchaseOrderTransactionInternal,  accountId :  accountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<PurchaseOrderTransactionInternal/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.Customer.PurchaseOrderTransactionInternal CreatePurchaseOrderTransactionInternal(ServiceClientMessageHandler handler, 
+ 		 Mozu.Api.Contracts.Customer.PurchaseOrderTransactionInternal purchaseOrderTransactionInternal, int accountId, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerPurchaseOrderAccountClient.CreatePurchaseOrderTransactionInternalClient(
+				 purchaseOrderTransactionInternal :  purchaseOrderTransactionInternal,  accountId :  accountId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

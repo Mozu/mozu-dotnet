@@ -145,6 +145,61 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// 
 		/// </summary>
 		/// <param name="accountId"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.PurchaseOrderTransactionInternalCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customerpurchaseorderaccount = new CustomerPurchaseOrderAccount();
+		///   var purchaseOrderTransactionInternalCollection = customerpurchaseorderaccount.GetCustomerPurchaseOrderTransactionsInternal( accountId,  startIndex,  pageSize,  sortBy,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Customer.PurchaseOrderTransactionInternalCollection GetCustomerPurchaseOrderTransactionsInternal(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Customer.PurchaseOrderTransactionInternalCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerPurchaseOrderAccountClient.GetCustomerPurchaseOrderTransactionsInternalClient( accountId,  startIndex,  pageSize,  sortBy,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="accountId"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.PurchaseOrderTransactionInternalCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customerpurchaseorderaccount = new CustomerPurchaseOrderAccount();
+		///   var purchaseOrderTransactionInternalCollection = await customerpurchaseorderaccount.GetCustomerPurchaseOrderTransactionsInternalAsync( accountId,  startIndex,  pageSize,  sortBy,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.Customer.PurchaseOrderTransactionInternalCollection> GetCustomerPurchaseOrderTransactionsInternalAsync(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Customer.PurchaseOrderTransactionInternalCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerPurchaseOrderAccountClient.GetCustomerPurchaseOrderTransactionsInternalClient( accountId,  startIndex,  pageSize,  sortBy,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="accountId"></param>
 		/// <param name="responseFields"></param>
 		/// <param name="customerPurchaseOrderAccount"></param>
 		/// <returns>
@@ -237,6 +292,57 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.PurchaseOrderTransaction> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerPurchaseOrderAccountClient.CreatePurchaseOrderTransactionClient( purchaseOrderTransaction,  accountId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="accountId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="purchaseOrderTransactionInternal"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.PurchaseOrderTransactionInternal"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customerpurchaseorderaccount = new CustomerPurchaseOrderAccount();
+		///   var purchaseOrderTransactionInternal = customerpurchaseorderaccount.CreatePurchaseOrderTransactionInternal( purchaseOrderTransactionInternal,  accountId,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Customer.PurchaseOrderTransactionInternal CreatePurchaseOrderTransactionInternal(Mozu.Api.Contracts.Customer.PurchaseOrderTransactionInternal purchaseOrderTransactionInternal, int accountId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Customer.PurchaseOrderTransactionInternal> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerPurchaseOrderAccountClient.CreatePurchaseOrderTransactionInternalClient( purchaseOrderTransactionInternal,  accountId,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="accountId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="purchaseOrderTransactionInternal"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.PurchaseOrderTransactionInternal"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customerpurchaseorderaccount = new CustomerPurchaseOrderAccount();
+		///   var purchaseOrderTransactionInternal = await customerpurchaseorderaccount.CreatePurchaseOrderTransactionInternalAsync( purchaseOrderTransactionInternal,  accountId,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.Customer.PurchaseOrderTransactionInternal> CreatePurchaseOrderTransactionInternalAsync(Mozu.Api.Contracts.Customer.PurchaseOrderTransactionInternal purchaseOrderTransactionInternal, int accountId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Customer.PurchaseOrderTransactionInternal> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerPurchaseOrderAccountClient.CreatePurchaseOrderTransactionInternalClient( purchaseOrderTransactionInternal,  accountId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

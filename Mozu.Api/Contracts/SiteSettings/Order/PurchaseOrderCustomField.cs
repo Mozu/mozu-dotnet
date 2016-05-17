@@ -23,6 +23,8 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 
 			public string Label { get; set; }
 
+			public int SequenceNumber { get; set; }
+
 		}
 
 }

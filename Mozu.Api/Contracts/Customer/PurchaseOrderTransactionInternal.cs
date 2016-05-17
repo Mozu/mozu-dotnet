@@ -14,7 +14,7 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.Customer
 {
-		public class PurchaseOrderTransaction
+		public class PurchaseOrderTransactionInternal
 		{
 			public string AdditionalTransactionDetail { get; set; }
 
@@ -39,6 +39,8 @@ namespace Mozu.Api.Contracts.Customer
 			public DateTime TransactionDate { get; set; }
 
 			public int? TransactionType { get; set; }
+
+			public int TransactionTypeId { get; set; }
 
 		}
 
