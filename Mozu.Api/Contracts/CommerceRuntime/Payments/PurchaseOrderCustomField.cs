@@ -9,22 +9,17 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
 
 
-namespace Mozu.Api.Contracts.Customer
+namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 {
-		public class PurchaseOrderTransactionInternalCollection
+		public class PurchaseOrderCustomField
 		{
-			public List<PurchaseOrderTransactionInternal> Items { get; set; }
+			public string Code { get; set; }
 
-			public int PageCount { get; set; }
+			public string Label { get; set; }
 
-			public int PageSize { get; set; }
-
-			public int StartIndex { get; set; }
-
-			public int TotalCount { get; set; }
+			public string Value { get; set; }
 
 		}
 

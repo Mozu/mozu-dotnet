@@ -33,52 +33,6 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
 			return mozuUrl;
 		}
 
-		/// <summary>
-        /// Get Resource Url for GetCustomerPurchaseOrderTransactions
-        /// </summary>
-        /// <param name="accountId"></param>
-        /// <param name="pageSize"></param>
-        /// <param name="responseFields"></param>
-        /// <param name="sortBy"></param>
-        /// <param name="startIndex"></param>
-        /// <returns>
-        /// String - Resource Url
-        /// </returns>
-        public static MozuUrl GetCustomerPurchaseOrderTransactionsUrl(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseFields =  null)
-		{
-			var url = "/api/commerce/customer/accounts/{accountId}/PurchaseOrderTransaction?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&responseFields={responseFields}";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "accountId", accountId);
-			mozuUrl.FormatUrl( "pageSize", pageSize);
-			mozuUrl.FormatUrl( "responseFields", responseFields);
-			mozuUrl.FormatUrl( "sortBy", sortBy);
-			mozuUrl.FormatUrl( "startIndex", startIndex);
-			return mozuUrl;
-		}
-
-		/// <summary>
-        /// Get Resource Url for GetCustomerPurchaseOrderTransactionsInternal
-        /// </summary>
-        /// <param name="accountId"></param>
-        /// <param name="pageSize"></param>
-        /// <param name="responseFields"></param>
-        /// <param name="sortBy"></param>
-        /// <param name="startIndex"></param>
-        /// <returns>
-        /// String - Resource Url
-        /// </returns>
-        public static MozuUrl GetCustomerPurchaseOrderTransactionsInternalUrl(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseFields =  null)
-		{
-			var url = "/api/commerce/customer/accounts/internal/{accountId}/PurchaseOrderTransaction?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&responseFields={responseFields}";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "accountId", accountId);
-			mozuUrl.FormatUrl( "pageSize", pageSize);
-			mozuUrl.FormatUrl( "responseFields", responseFields);
-			mozuUrl.FormatUrl( "sortBy", sortBy);
-			mozuUrl.FormatUrl( "startIndex", startIndex);
-			return mozuUrl;
-		}
-
 				/// <summary>
         /// Get Resource Url for CreateCustomerPurchaseOrderAccount
         /// </summary>
@@ -90,40 +44,6 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         public static MozuUrl CreateCustomerPurchaseOrderAccountUrl(int accountId, string responseFields =  null)
 		{
 			var url = "/api/commerce/customer/accounts/{accountId}/purchaseOrderAccount?responseFields={responseFields}";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "accountId", accountId);
-			mozuUrl.FormatUrl( "responseFields", responseFields);
-			return mozuUrl;
-		}
-
-		/// <summary>
-        /// Get Resource Url for CreatePurchaseOrderTransaction
-        /// </summary>
-        /// <param name="accountId"></param>
-        /// <param name="responseFields"></param>
-        /// <returns>
-        /// String - Resource Url
-        /// </returns>
-        public static MozuUrl CreatePurchaseOrderTransactionUrl(int accountId, string responseFields =  null)
-		{
-			var url = "/api/commerce/customer/accounts/{accountId}/PurchaseOrderTransaction?responseFields={responseFields}";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "accountId", accountId);
-			mozuUrl.FormatUrl( "responseFields", responseFields);
-			return mozuUrl;
-		}
-
-		/// <summary>
-        /// Get Resource Url for CreatePurchaseOrderTransactionInternal
-        /// </summary>
-        /// <param name="accountId"></param>
-        /// <param name="responseFields"></param>
-        /// <returns>
-        /// String - Resource Url
-        /// </returns>
-        public static MozuUrl CreatePurchaseOrderTransactionInternalUrl(int accountId, string responseFields =  null)
-		{
-			var url = "/api/commerce/customer/accounts/internal/{accountId}/PurchaseOrderTransaction?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "accountId", accountId);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
@@ -156,7 +76,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// </returns>
         public static MozuUrl DeleteCustomerPurchaseOrderAccountUrl(int accountId)
 		{
-			var url = "/api/commerce/customer/accounts/{accountId}/purchaseOrderAccount";
+			var url = "/api/commerce/customer/accounts/internal/{accountId}/purchaseOrderAccount";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "accountId", accountId);
 			return mozuUrl;

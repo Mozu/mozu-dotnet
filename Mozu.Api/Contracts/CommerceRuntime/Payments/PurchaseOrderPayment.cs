@@ -9,20 +9,20 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 
-using Mozu.Api.Contracts.Core;
 
-namespace Mozu.Api.Contracts.Customer
+namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 {
-		public class CustomerPurchaseOrderPaymentTerm
+		public class PurchaseOrderPayment
 		{
-			public AuditInfo AuditInfo { get; set; }
+			public int CustomerPurchaseOrderAccountId { get; set; }
 
-			public string Code { get; set; }
+			public List<PurchaseOrderCustomField> CustomFields { get; set; }
 
-			public string Description { get; set; }
+			public PurchaseOrderPaymentTerm PaymentTerm { get; set; }
 
-			public int SiteId { get; set; }
+			public string PurchaseOrderNumber { get; set; }
 
 		}
 

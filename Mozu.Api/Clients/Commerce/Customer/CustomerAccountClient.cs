@@ -104,6 +104,34 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="customeraccountId"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.PurchaseOrderTransactionCollection"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetCustomerPurchaseOrderTransactions( customeraccountId,  startIndex,  pageSize,  sortBy,  responseFields);
+		///   var purchaseOrderTransactionCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.Customer.PurchaseOrderTransactionCollection> GetCustomerPurchaseOrderTransactionsClient(int customeraccountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetCustomerPurchaseOrderTransactionsUrl(customeraccountId, startIndex, pageSize, sortBy, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.PurchaseOrderTransactionCollection>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Creates a new customer account based on the information specified in the request.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
@@ -255,6 +283,32 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="customeraccountId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="purchaseOrderTransaction"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.PurchaseOrderTransaction"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=CreatePurchaseOrderTransaction( purchaseOrderTransaction,  customeraccountId,  responseFields);
+		///   var purchaseOrderTransactionClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.Customer.PurchaseOrderTransaction> CreatePurchaseOrderTransactionClient(Mozu.Api.Contracts.Customer.PurchaseOrderTransaction purchaseOrderTransaction, int customeraccountId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.CreatePurchaseOrderTransactionUrl(customeraccountId, responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.PurchaseOrderTransaction>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.Customer.PurchaseOrderTransaction>(purchaseOrderTransaction);
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Creates a new customer account and logs the user associated with the customer account into the site.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
@@ -325,6 +379,32 @@ namespace Mozu.Api.Clients.Commerce.Customer
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.ChangePasswordResultCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.Customer.AccountPasswordInfoCollection>(accountPasswordInfos);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="customeraccountId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="purchaseOrderTransaction"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.PurchaseOrderTransaction"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=CreatePurchaseOrderTransactionInternal( purchaseOrderTransaction,  customeraccountId,  responseFields);
+		///   var purchaseOrderTransactionClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.Customer.PurchaseOrderTransaction> CreatePurchaseOrderTransactionInternalClient(Mozu.Api.Contracts.Customer.PurchaseOrderTransaction purchaseOrderTransaction, int customeraccountId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.CreatePurchaseOrderTransactionInternalUrl(customeraccountId, responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.PurchaseOrderTransaction>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.Customer.PurchaseOrderTransaction>(purchaseOrderTransaction);
 			return mozuClient;
 
 		}

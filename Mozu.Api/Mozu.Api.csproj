@@ -312,6 +312,9 @@
     <Compile Include="Contracts\CommerceRuntime\Payments\PaymentCollection.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PaymentGatewayInteraction.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PaymentInteraction.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Payments\PurchaseOrderCustomField.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Payments\PurchaseOrderPayment.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Payments\PurchaseOrderPaymentTerm.cs" />
     <Compile Include="Contracts\CommerceRuntime\Products\BundledProduct.cs" />
     <Compile Include="Contracts\CommerceRuntime\Products\Category.cs" />
     <Compile Include="Contracts\CommerceRuntime\Products\Product.cs" />
@@ -419,8 +422,6 @@
     <Compile Include="Contracts\Customer\PasswordInfo.cs" />
     <Compile Include="Contracts\Customer\PurchaseOrderTransaction.cs" />
     <Compile Include="Contracts\Customer\PurchaseOrderTransactionCollection.cs" />
-    <Compile Include="Contracts\Customer\PurchaseOrderTransactionInternal.cs" />
-    <Compile Include="Contracts\Customer\PurchaseOrderTransactionInternalCollection.cs" />
     <Compile Include="Contracts\Customer\ResetPasswordInfo.cs" />
     <Compile Include="Contracts\Customer\Transaction.cs" />
     <Compile Include="Contracts\Customer\Visit.cs" />

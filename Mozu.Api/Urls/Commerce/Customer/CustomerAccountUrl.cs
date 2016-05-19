@@ -81,6 +81,29 @@ namespace Mozu.Api.Urls.Commerce.Customer
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for GetCustomerPurchaseOrderTransactions
+        /// </summary>
+        /// <param name="customeraccountId"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="sortBy"></param>
+        /// <param name="startIndex"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetCustomerPurchaseOrderTransactionsUrl(int customeraccountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseFields =  null)
+		{
+			var url = "/api/commerce/customer/accounts/{customeraccountId}/PurchaseOrderTransaction?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "customeraccountId", customeraccountId);
+			mozuUrl.FormatUrl( "pageSize", pageSize);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "sortBy", sortBy);
+			mozuUrl.FormatUrl( "startIndex", startIndex);
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for AddAccount
         /// </summary>
@@ -176,6 +199,23 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		}
 
 		/// <summary>
+        /// Get Resource Url for CreatePurchaseOrderTransaction
+        /// </summary>
+        /// <param name="customeraccountId"></param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl CreatePurchaseOrderTransactionUrl(int customeraccountId, string responseFields =  null)
+		{
+			var url = "/api/commerce/customer/accounts/{customeraccountId}/PurchaseOrderTransaction?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "customeraccountId", customeraccountId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+		/// <summary>
         /// Get Resource Url for AddAccountAndLogin
         /// </summary>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
@@ -216,6 +256,23 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		{
 			var url = "/api/commerce/customer/accounts/Change-Passwords?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for CreatePurchaseOrderTransactionInternal
+        /// </summary>
+        /// <param name="customeraccountId"></param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl CreatePurchaseOrderTransactionInternalUrl(int customeraccountId, string responseFields =  null)
+		{
+			var url = "/api/commerce/customer/accounts/internal/{customeraccountId}/PurchaseOrderTransaction?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "customeraccountId", customeraccountId);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
