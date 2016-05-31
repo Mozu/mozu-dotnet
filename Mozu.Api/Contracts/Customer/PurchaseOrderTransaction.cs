@@ -38,6 +38,8 @@ namespace Mozu.Api.Contracts.Customer
 
 			public DateTime TransactionDate { get; set; }
 
+			public string TransactionDescription { get; set; }
+
 			public int TransactionTypeId { get; set; }
 
 		}

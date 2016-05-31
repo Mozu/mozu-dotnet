@@ -16,8 +16,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 {
 		public class PurchaseOrderPayment
 		{
-			public int CustomerPurchaseOrderAccountId { get; set; }
-
 			public List<PurchaseOrderCustomField> CustomFields { get; set; }
 
 			public PurchaseOrderPaymentTerm PaymentTerm { get; set; }

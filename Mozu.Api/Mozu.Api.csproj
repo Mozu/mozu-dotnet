@@ -146,6 +146,7 @@
     <Compile Include="Clients\Commerce\ChannelGroupClient.cs" />
     <Compile Include="Clients\Commerce\Customer\Accounts\CardClient.cs" />
     <Compile Include="Clients\Commerce\Customer\Accounts\CustomerAttributeClient.cs" />
+    <Compile Include="Clients\Commerce\Customer\Accounts\CustomerAuditEntryClient.cs" />
     <Compile Include="Clients\Commerce\Customer\Accounts\CustomerContactClient.cs" />
     <Compile Include="Clients\Commerce\Customer\Accounts\CustomerNoteClient.cs" />
     <Compile Include="Clients\Commerce\Customer\Accounts\CustomerPurchaseOrderAccountClient.cs" />
@@ -404,6 +405,8 @@
     <Compile Include="Contracts\Customer\CustomerAccountCollection.cs" />
     <Compile Include="Contracts\Customer\CustomerAttribute.cs" />
     <Compile Include="Contracts\Customer\CustomerAttributeCollection.cs" />
+    <Compile Include="Contracts\Customer\CustomerAuditEntry.cs" />
+    <Compile Include="Contracts\Customer\CustomerAuditEntryCollection.cs" />
     <Compile Include="Contracts\Customer\CustomerAuthTicket.cs" />
     <Compile Include="Contracts\Customer\CustomerContact.cs" />
     <Compile Include="Contracts\Customer\CustomerContactCollection.cs" />
@@ -798,6 +801,7 @@
     <Compile Include="Resources\Commerce\ChannelResource.cs" />
     <Compile Include="Resources\Commerce\Customer\Accounts\CardResource.cs" />
     <Compile Include="Resources\Commerce\Customer\Accounts\CustomerAttributeResource.cs" />
+    <Compile Include="Resources\Commerce\Customer\Accounts\CustomerAuditEntryResource.cs" />
     <Compile Include="Resources\Commerce\Customer\Accounts\CustomerContactResource.cs" />
     <Compile Include="Resources\Commerce\Customer\Accounts\CustomerNoteResource.cs" />
     <Compile Include="Resources\Commerce\Customer\Accounts\CustomerPurchaseOrderAccountResource.cs" />
@@ -931,6 +935,7 @@
     <Compile Include="Urls\Commerce\ChannelUrl.cs" />
     <Compile Include="Urls\Commerce\Customer\Accounts\CardUrl.cs" />
     <Compile Include="Urls\Commerce\Customer\Accounts\CustomerAttributeUrl.cs" />
+    <Compile Include="Urls\Commerce\Customer\Accounts\CustomerAuditEntryUrl.cs" />
     <Compile Include="Urls\Commerce\Customer\Accounts\CustomerContactUrl.cs" />
     <Compile Include="Urls\Commerce\Customer\Accounts\CustomerNoteUrl.cs" />
     <Compile Include="Urls\Commerce\Customer\Accounts\CustomerPurchaseOrderAccountUrl.cs" />

@@ -90,6 +90,61 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// 
 		/// </summary>
 		/// <param name="accountId"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.PurchaseOrderTransactionCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customerpurchaseorderaccount = new CustomerPurchaseOrderAccount();
+		///   var purchaseOrderTransactionCollection = customerpurchaseorderaccount.GetCustomerPurchaseOrderTransactions( accountId,  startIndex,  pageSize,  sortBy,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Customer.PurchaseOrderTransactionCollection GetCustomerPurchaseOrderTransactions(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Customer.PurchaseOrderTransactionCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerPurchaseOrderAccountClient.GetCustomerPurchaseOrderTransactionsClient( accountId,  startIndex,  pageSize,  sortBy,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="accountId"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.PurchaseOrderTransactionCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customerpurchaseorderaccount = new CustomerPurchaseOrderAccount();
+		///   var purchaseOrderTransactionCollection = await customerpurchaseorderaccount.GetCustomerPurchaseOrderTransactionsAsync( accountId,  startIndex,  pageSize,  sortBy,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.Customer.PurchaseOrderTransactionCollection> GetCustomerPurchaseOrderTransactionsAsync(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Customer.PurchaseOrderTransactionCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerPurchaseOrderAccountClient.GetCustomerPurchaseOrderTransactionsClient( accountId,  startIndex,  pageSize,  sortBy,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="accountId"></param>
 		/// <param name="responseFields"></param>
 		/// <param name="customerPurchaseOrderAccount"></param>
 		/// <returns>
@@ -131,6 +186,57 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerPurchaseOrderAccountClient.CreateCustomerPurchaseOrderAccountClient( customerPurchaseOrderAccount,  accountId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="accountId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="purchaseOrderTransaction"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.PurchaseOrderTransaction"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customerpurchaseorderaccount = new CustomerPurchaseOrderAccount();
+		///   var purchaseOrderTransaction = customerpurchaseorderaccount.CreatePurchaseOrderTransaction( purchaseOrderTransaction,  accountId,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Customer.PurchaseOrderTransaction CreatePurchaseOrderTransaction(Mozu.Api.Contracts.Customer.PurchaseOrderTransaction purchaseOrderTransaction, int accountId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Customer.PurchaseOrderTransaction> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerPurchaseOrderAccountClient.CreatePurchaseOrderTransactionClient( purchaseOrderTransaction,  accountId,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="accountId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="purchaseOrderTransaction"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.PurchaseOrderTransaction"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customerpurchaseorderaccount = new CustomerPurchaseOrderAccount();
+		///   var purchaseOrderTransaction = await customerpurchaseorderaccount.CreatePurchaseOrderTransactionAsync( purchaseOrderTransaction,  accountId,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.Customer.PurchaseOrderTransaction> CreatePurchaseOrderTransactionAsync(Mozu.Api.Contracts.Customer.PurchaseOrderTransaction purchaseOrderTransaction, int accountId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Customer.PurchaseOrderTransaction> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerPurchaseOrderAccountClient.CreatePurchaseOrderTransactionClient( purchaseOrderTransaction,  accountId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

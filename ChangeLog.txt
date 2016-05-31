@@ -1,23 +1,27 @@
 Operation Params
-0.    Added - commerce.customer.accounts.GetCustomerPurchaseOrderTransactions- Param : customeraccountId
-1.    Added - commerce.customer.accounts.CreatePurchaseOrderTransaction- Param : customeraccountId
-2.    Added - commerce.customer.accounts.CreatePurchaseOrderTransactionInternal- Param : customeraccountId
-3.    Added - commerce.customer.accounts.CreatePurchaseOrderTransaction- Param : purchaseOrderTransaction
-4.    Added - commerce.customer.accounts.CreatePurchaseOrderTransactionInternal- Param : purchaseOrderTransaction
-5.    Removed - commerce.customer.accounts.purchaseOrder.GetCustomerPurchaseOrderTransactions- Param : pageSize
-6.    Removed - commerce.customer.accounts.purchaseOrder.GetCustomerPurchaseOrderTransactionsInternal- Param : pageSize
-7.    Removed - commerce.customer.accounts.purchaseOrder.CreatePurchaseOrderTransaction- Param : purchaseOrderTransaction
-8.    Removed - commerce.customer.accounts.purchaseOrder.CreatePurchaseOrderTransactionInternal- Param : purchaseOrderTransactionInternal
-9.    Removed - commerce.customer.accounts.purchaseOrder.GetCustomerPurchaseOrderTransactions- Param : sortBy
-10.    Removed - commerce.customer.accounts.purchaseOrder.GetCustomerPurchaseOrderTransactionsInternal- Param : sortBy
-11.    Removed - commerce.customer.accounts.purchaseOrder.GetCustomerPurchaseOrderTransactions- Param : startIndex
-12.    Removed - commerce.customer.accounts.purchaseOrder.GetCustomerPurchaseOrderTransactionsInternal- Param : startIndex
+0.    Added - commerce.customer.accounts.auditLog.GetAccountAuditLog- Param : accountId
+1.    Added - commerce.customer.accounts.auditLog.GetAccountAuditLog- Param : filter
+2.    Added - commerce.customer.accounts.auditLog.GetAccountAuditLog- Param : pageSize
+3.    Added - commerce.customer.accounts.auditLog.GetAccountAuditLog- Param : responseFields
+4.    Added - commerce.customer.accounts.auditLog.GetAccountAuditLog- Param : sortBy
+5.    Added - commerce.customer.accounts.auditLog.GetAccountAuditLog- Param : startIndex
+6.    Added - commerce.customer.accounts.purchaseOrder.GetCustomerPurchaseOrderTransactions- Param : pageSize
+7.    Added - commerce.customer.accounts.purchaseOrder.CreatePurchaseOrderTransaction- Param : purchaseOrderTransaction
+8.    Added - commerce.customer.accounts.purchaseOrder.GetCustomerPurchaseOrderTransactions- Param : sortBy
+9.    Added - commerce.customer.accounts.purchaseOrder.GetCustomerPurchaseOrderTransactions- Param : startIndex
+10.    Removed - commerce.customer.accounts.GetCustomerPurchaseOrderTransactions- Param : customeraccountId
+11.    Removed - commerce.customer.accounts.CreatePurchaseOrderTransaction- Param : customeraccountId
+12.    Removed - commerce.customer.accounts.CreatePurchaseOrderTransactionInternal- Param : customeraccountId
+13.    Removed - commerce.customer.accounts.CreatePurchaseOrderTransaction- Param : purchaseOrderTransaction
+14.    Removed - commerce.customer.accounts.CreatePurchaseOrderTransactionInternal- Param : purchaseOrderTransaction
 
 Operations
-0.    Added - commerce.customer.accounts.CreatePurchaseOrderTransaction - POST
-1.    Added - commerce.customer.accounts.CreatePurchaseOrderTransactionInternal - POST
-2.    Added - commerce.customer.accounts.GetCustomerPurchaseOrderTransactions - GET
-3.    Removed - commerce.customer.accounts.purchaseOrder.CreatePurchaseOrderTransaction - POST
-4.    Removed - commerce.customer.accounts.purchaseOrder.CreatePurchaseOrderTransactionInternal - POST
-5.    Removed - commerce.customer.accounts.purchaseOrder.GetCustomerPurchaseOrderTransactions - GET
-6.    Removed - commerce.customer.accounts.purchaseOrder.GetCustomerPurchaseOrderTransactionsInternal - GET
+0.    Added - commerce.customer.accounts.auditLog.GetAccountAuditLog - GET
+1.    Added - commerce.customer.accounts.purchaseOrder.CreatePurchaseOrderTransaction - POST
+2.    Added - commerce.customer.accounts.purchaseOrder.GetCustomerPurchaseOrderTransactions - GET
+3.    Removed - commerce.customer.accounts.CreatePurchaseOrderTransaction - POST
+4.    Removed - commerce.customer.accounts.CreatePurchaseOrderTransactionInternal - POST
+5.    Removed - commerce.customer.accounts.GetCustomerPurchaseOrderTransactions - GET
+
+Resources
+0.    Added - commerce.customer.accounts.auditLog | commerce/customer/accounts/auditLog

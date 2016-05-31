@@ -9,18 +9,22 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 
-using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.Customer
 {
-		public class CustomerPurchaseOrderPaymentTerm
+		public class CustomerAuditEntryCollection
 		{
-			public AuditInfo AuditInfo { get; set; }
+			public List<CustomerAuditEntry> Items { get; set; }
 
-			public string Code { get; set; }
+			public int PageCount { get; set; }
 
-			public int SiteId { get; set; }
+			public int PageSize { get; set; }
+
+			public int StartIndex { get; set; }
+
+			public int TotalCount { get; set; }
 
 		}
 
