@@ -20,11 +20,15 @@ namespace Mozu.Api.Contracts.Customer
 
 			public AuditInfo AuditInfo { get; set; }
 
+			public string Author { get; set; }
+
 			public decimal AvailableBalance { get; set; }
 
 			public decimal CreditLimit { get; set; }
 
 			public int CustomerPurchaseOrderAccountId { get; set; }
+
+			public string ExternalId { get; set; }
 
 			public string OrderId { get; set; }
 

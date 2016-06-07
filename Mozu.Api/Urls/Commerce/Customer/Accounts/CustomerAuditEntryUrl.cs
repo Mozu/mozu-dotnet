@@ -30,7 +30,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// </returns>
         public static MozuUrl GetAccountAuditLogUrl(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/{accountId}/AuditLog/Entries?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
+			var url = "/api/commerce/customer/accounts/{accountId}/AuditLog/Entries?startIndex={startIndex}&pageSize={pageSize}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "accountId", accountId);
 			mozuUrl.FormatUrl( "filter", filter);

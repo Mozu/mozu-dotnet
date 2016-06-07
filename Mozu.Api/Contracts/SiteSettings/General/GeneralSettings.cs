@@ -32,7 +32,7 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			///
 			public AuditInfo AuditInfo { get; set; }
 
-			public string BccEmailAlias { get; set; }
+			public string BccEmailAddress { get; set; }
 
 			public CacheSettings CacheSettings { get; set; }
 
