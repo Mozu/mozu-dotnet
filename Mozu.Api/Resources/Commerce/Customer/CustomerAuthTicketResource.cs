@@ -40,7 +40,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Creates an authentication ticket for an anonymous shopper user.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>
 		/// </returns>
@@ -64,7 +64,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Creates an authentication ticket for an anonymous shopper user.
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>
 		/// </returns>
@@ -88,7 +88,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// Generates a new authentication ticket for a customer account.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="userAuthInfo">The authentication information required to generate an authetication ticket for a user, which consists of a user name and password.</param>
+		/// <param name="userAuthInfo">The authentication information required to generate an authentication ticket for a customer account.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>
 		/// </returns>
@@ -113,7 +113,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// Generates a new authentication ticket for a customer account.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="userAuthInfo">The authentication information required to generate an authetication ticket for a user, which consists of a user name and password.</param>
+		/// <param name="userAuthInfo">The authentication information required to generate an authentication ticket for a customer account.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>
 		/// </returns>
@@ -136,7 +136,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Refreshes an existing authentication ticket for a customer account by providing the refresh token string.
 		/// </summary>
-		/// <param name="refreshToken">The refresh token string required to refresh a user's authentication ticket.</param>
+		/// <param name="refreshToken">Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>
@@ -161,7 +161,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Refreshes an existing authentication ticket for a customer account by providing the refresh token string.
 		/// </summary>
-		/// <param name="refreshToken">The refresh token string required to refresh a user's authentication ticket.</param>
+		/// <param name="refreshToken">Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>

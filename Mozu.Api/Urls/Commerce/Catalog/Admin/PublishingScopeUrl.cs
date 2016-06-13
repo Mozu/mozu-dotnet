@@ -19,8 +19,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetPublishSet
         /// </summary>
-        /// <param name="publishSetCode"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="publishSetCode">The unique identifier of the publish set.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -36,7 +36,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetPublishSets
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -77,7 +77,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for AssignProductsToPublishSet
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -92,8 +92,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 						/// <summary>
         /// Get Resource Url for DeletePublishSet
         /// </summary>
-        /// <param name="discardDrafts"></param>
-        /// <param name="publishSetCode"></param>
+        /// <param name="discardDrafts">Specifies whether to discard all the drafts assigned to the publish set when the publish set is deleted.</param>
+        /// <param name="publishSetCode">The unique identifier of the publish set.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

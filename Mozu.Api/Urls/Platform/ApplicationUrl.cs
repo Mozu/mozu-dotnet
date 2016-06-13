@@ -19,8 +19,8 @@ namespace Mozu.Api.Urls.Platform
 		/// <summary>
         /// Get Resource Url for GetAppPackageNames
         /// </summary>
-        /// <param name="applicationKey"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -36,8 +36,8 @@ namespace Mozu.Api.Urls.Platform
 		/// <summary>
         /// Get Resource Url for GetAppVersions
         /// </summary>
-        /// <param name="nsAndAppId"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="nsAndAppId">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -53,9 +53,9 @@ namespace Mozu.Api.Urls.Platform
 		/// <summary>
         /// Get Resource Url for GetPackageFileMetadata
         /// </summary>
-        /// <param name="applicationKey"></param>
-        /// <param name="filepath"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
+        /// <param name="filepath">Represents the file name and location.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -72,8 +72,8 @@ namespace Mozu.Api.Urls.Platform
 		/// <summary>
         /// Get Resource Url for GetPackageMetadata
         /// </summary>
-        /// <param name="applicationKey"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -89,10 +89,10 @@ namespace Mozu.Api.Urls.Platform
 				/// <summary>
         /// Get Resource Url for UpsertPackageFile
         /// </summary>
-        /// <param name="applicationKey"></param>
-        /// <param name="filepath"></param>
-        /// <param name="lastModifiedTime"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
+        /// <param name="filepath">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
+        /// <param name="lastModifiedTime">The date and time of the last file insert or update. This parameter is optional.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -110,8 +110,8 @@ namespace Mozu.Api.Urls.Platform
 		/// <summary>
         /// Get Resource Url for RenamePackageFile
         /// </summary>
-        /// <param name="applicationKey"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -127,8 +127,8 @@ namespace Mozu.Api.Urls.Platform
 						/// <summary>
         /// Get Resource Url for DeletePackageFile
         /// </summary>
-        /// <param name="applicationKey"></param>
-        /// <param name="filepath"></param>
+        /// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
+        /// <param name="filepath">Represents the file name and location.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

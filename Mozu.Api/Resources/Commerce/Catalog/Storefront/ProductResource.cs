@@ -49,7 +49,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
 		/// <returns>
@@ -77,7 +77,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
 		/// <returns>
@@ -104,7 +104,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// </summary>
 		/// <param name="locationCodes">Array of location codes for which to retrieve product inventory information.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection"/>
 		/// </returns>
@@ -130,7 +130,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// </summary>
 		/// <param name="locationCodes">Array of location codes for which to retrieve product inventory information.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection"/>
 		/// </returns>
@@ -153,12 +153,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <summary>
 		/// Retrieves information about a single product given its product code.
 		/// </summary>
-		/// <param name="allowInactive">If true, returns an inactive product as part of the query.</param>
+		/// <param name="allowInactive">If true, allow inactive categories to be retrieved in the category list response. If false, the categories retrieved will not include ones marked inactive.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="quantity"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="skipInventoryCheck">If true, skip the inventory validation process for the specified product.</param>
-		/// <param name="supressOutOfStock404"></param>
+		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
+		/// <param name="supressOutOfStock404">Specifies whether to supress the 404 error when the product is out of stock.</param>
 		/// <param name="variationProductCode">Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.Product"/>
@@ -183,12 +183,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <summary>
 		/// Retrieves information about a single product given its product code.
 		/// </summary>
-		/// <param name="allowInactive">If true, returns an inactive product as part of the query.</param>
+		/// <param name="allowInactive">If true, allow inactive categories to be retrieved in the category list response. If false, the categories retrieved will not include ones marked inactive.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="quantity"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="skipInventoryCheck">If true, skip the inventory validation process for the specified product.</param>
-		/// <param name="supressOutOfStock404"></param>
+		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
+		/// <param name="supressOutOfStock404">Specifies whether to supress the 404 error when the product is out of stock.</param>
 		/// <param name="variationProductCode">Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.Product"/>
@@ -210,11 +210,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves information about a single product given its product code for Mozu to index in the search engine
 		/// </summary>
-		/// <param name="productCode"></param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
 		/// <param name="productVersion"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.Product"/>
 		/// </returns>
@@ -236,11 +236,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves information about a single product given its product code for Mozu to index in the search engine
 		/// </summary>
-		/// <param name="productCode"></param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
 		/// <param name="productVersion"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.Product"/>
 		/// </returns>
@@ -265,9 +265,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// </summary>
 		/// <param name="includeOptionDetails">If true, the response returns details about the product. If false, returns a product summary such as the product name, price, and sale price.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="quantity"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="skipInventoryCheck">If true, skip the inventory validation process for the specified product.</param>
+		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
 		/// <param name="productOptionSelections">For a product with shopper-configurable options, the properties of the product options selected by the shopper.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.ConfiguredProduct"/>
@@ -294,9 +294,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// </summary>
 		/// <param name="includeOptionDetails">If true, the response returns details about the product. If false, returns a product summary such as the product name, price, and sale price.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="quantity"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="skipInventoryCheck">If true, skip the inventory validation process for the specified product.</param>
+		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
 		/// <param name="productOptionSelections">For a product with shopper-configurable options, the properties of the product options selected by the shopper.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.ConfiguredProduct"/>
@@ -321,9 +321,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// Validate the final state of shopper-selected options.
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="quantity"></param>
+		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="skipInventoryCheck">If true, skip the inventory validation process for the specified product.</param>
+		/// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
 		/// <param name="productOptionSelections">For a product with shopper-configurable options, the properties of the product options selected by the shopper.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.ProductValidationSummary"/>
@@ -349,9 +349,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// Validate the final state of shopper-selected options.
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="quantity"></param>
+		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="skipInventoryCheck">If true, skip the inventory validation process for the specified product.</param>
+		/// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
 		/// <param name="productOptionSelections">For a product with shopper-configurable options, the properties of the product options selected by the shopper.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.ProductValidationSummary"/>
@@ -375,13 +375,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <summary>
 		/// Evaluates whether a collection of discounts specified in the request can be redeemed for the supplied product code.
 		/// </summary>
-		/// <param name="allowInactive">If true, this operation returns inactive product discounts as part of the POST.</param>
-		/// <param name="customerAccountId">Unique ID of the customer account associated with the shopper requesting the discount.</param>
+		/// <param name="allowInactive">If true, allow inactive categories to be retrieved in the category list response. If false, the categories retrieved will not include ones marked inactive.</param>
+		/// <param name="customerAccountId">The unique identifier of the customer account for which to retrieve wish lists.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields"></param>
-		/// <param name="skipInventoryCheck">If true, do not validate the product inventory when evaluating the list of discounts.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
 		/// <param name="variationProductCode">Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.</param>
-		/// <param name="discountSelections">List of discount IDs to evaluate for the specified product.</param>
+		/// <param name="discountSelections">The discounts to evaluate for a specified product code at the time of purchase.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.DiscountValidationSummary"/>
 		/// </returns>
@@ -405,13 +405,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <summary>
 		/// Evaluates whether a collection of discounts specified in the request can be redeemed for the supplied product code.
 		/// </summary>
-		/// <param name="allowInactive">If true, this operation returns inactive product discounts as part of the POST.</param>
-		/// <param name="customerAccountId">Unique ID of the customer account associated with the shopper requesting the discount.</param>
+		/// <param name="allowInactive">If true, allow inactive categories to be retrieved in the category list response. If false, the categories retrieved will not include ones marked inactive.</param>
+		/// <param name="customerAccountId">The unique identifier of the customer account for which to retrieve wish lists.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields"></param>
-		/// <param name="skipInventoryCheck">If true, do not validate the product inventory when evaluating the list of discounts.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
 		/// <param name="variationProductCode">Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.</param>
-		/// <param name="discountSelections">List of discount IDs to evaluate for the specified product.</param>
+		/// <param name="discountSelections">The discounts to evaluate for a specified product code at the time of purchase.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.DiscountValidationSummary"/>
 		/// </returns>
@@ -432,10 +432,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves product inventories for the storefront displayed products.
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="query"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="query">Properties for the product location inventory provided for queries to locate products by their location.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection"/>
 		/// </returns>
@@ -457,10 +457,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves product inventories for the storefront displayed products.
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="query"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="query">Properties for the product location inventory provided for queries to locate products by their location.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.LocationInventoryCollection"/>
 		/// </returns>

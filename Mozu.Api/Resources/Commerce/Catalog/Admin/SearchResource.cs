@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 {
 	/// <summary>
-	/// 
+	/// The Search resource manages all settings and options for providing product search on your site.
 	/// </summary>
 	public partial class SearchResource  	{
 		///
@@ -38,10 +38,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 
 				
 		/// <summary>
-		/// 
+		/// Retrieves the details of the specified search tuning rule.
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="searchTuningRuleCode"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="searchTuningRuleCode">The unique identifier of the search tuning rule.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule"/>
 		/// </returns>
@@ -63,10 +63,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves the details of the specified search tuning rule.
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="searchTuningRuleCode"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="searchTuningRuleCode">The unique identifier of the search tuning rule.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule"/>
 		/// </returns>
@@ -87,13 +87,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// admin-search Get GetSearchTuningRules description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="filter"></param>
-		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="sortBy"></param>
-		/// <param name="startIndex"></param>
+		/// <param name="filter">A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.</param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=50`.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleCollection"/>
 		/// </returns>
@@ -115,13 +115,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// admin-search Get GetSearchTuningRules description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="filter"></param>
-		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="sortBy"></param>
-		/// <param name="startIndex"></param>
+		/// <param name="filter">A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.</param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=50`.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleCollection"/>
 		/// </returns>
@@ -142,9 +142,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// admin-search Get GetSearchTuningRuleSortFields description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields"/>
 		/// </returns>
@@ -166,9 +166,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// admin-search Get GetSearchTuningRuleSortFields description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields"/>
 		/// </returns>
@@ -189,9 +189,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Get site search settings
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.SearchSettings"/>
 		/// </returns>
@@ -213,9 +213,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Get site search settings
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.SearchSettings"/>
 		/// </returns>
@@ -236,10 +236,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves a collection of synonyms definitions for product searches. Synonyms aid with determining matches for entered searches.
 		/// </summary>
-		/// <param name="localeCode"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="localeCode">The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection"/>
 		/// </returns>
@@ -261,10 +261,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves a collection of synonyms definitions for product searches. Synonyms aid with determining matches for entered searches.
 		/// </summary>
-		/// <param name="localeCode"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="localeCode">The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection"/>
 		/// </returns>
@@ -285,10 +285,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// admin-search Post AddSearchTuningRule description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="searchTuningRuleIn"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="searchTuningRuleIn">Mozu.ProductAdmin.Contracts.Search.SearchTuningRule ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule"/>
 		/// </returns>
@@ -310,10 +310,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// admin-search Post AddSearchTuningRule description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="searchTuningRuleIn"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="searchTuningRuleIn">Mozu.ProductAdmin.Contracts.Search.SearchTuningRule ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule"/>
 		/// </returns>
@@ -334,10 +334,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// admin-search Post UpdateSearchTuningRuleSortFields description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="searchTuningRuleSortFieldsIn"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="searchTuningRuleSortFieldsIn">Mozu.ProductAdmin.Contracts.Search.SearchTuningRuleSortFields ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields"/>
 		/// </returns>
@@ -359,10 +359,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// admin-search Post UpdateSearchTuningRuleSortFields description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="searchTuningRuleSortFieldsIn"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="searchTuningRuleSortFieldsIn">Mozu.ProductAdmin.Contracts.Search.SearchTuningRuleSortFields ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRuleSortFields"/>
 		/// </returns>
@@ -383,11 +383,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Updates synonym definitions for product searches. Synonyms aid with determining matches for entered searches.
 		/// </summary>
-		/// <param name="localeCode"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="collection"></param>
+		/// <param name="localeCode">The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="collection">Collection of synonym definitions used for determining search results.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection"/>
 		/// </returns>
@@ -409,11 +409,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Updates synonym definitions for product searches. Synonyms aid with determining matches for entered searches.
 		/// </summary>
-		/// <param name="localeCode"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="collection"></param>
+		/// <param name="localeCode">The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="collection">Collection of synonym definitions used for determining search results.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection"/>
 		/// </returns>
@@ -434,11 +434,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// admin-search Put UpdateSearchTuningRule description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="searchTuningRuleCode"></param>
-		/// <param name="searchTuningRuleIn"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="searchTuningRuleCode">The unique identifier of the search tuning rule.</param>
+		/// <param name="searchTuningRuleIn">Mozu.ProductAdmin.Contracts.Search.SearchTuningRule ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule"/>
 		/// </returns>
@@ -460,11 +460,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// admin-search Put UpdateSearchTuningRule description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="searchTuningRuleCode"></param>
-		/// <param name="searchTuningRuleIn"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="searchTuningRuleCode">The unique identifier of the search tuning rule.</param>
+		/// <param name="searchTuningRuleIn">Mozu.ProductAdmin.Contracts.Search.SearchTuningRule ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SearchTuningRule"/>
 		/// </returns>
@@ -485,10 +485,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Adds or Updates (Upsert) the Search Settings for a specific site
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="settings"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="settings">The settings to control product search and indexing behavior.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.SearchSettings"/>
 		/// </returns>
@@ -510,10 +510,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Adds or Updates (Upsert) the Search Settings for a specific site
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="settings"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="settings">The settings to control product search and indexing behavior.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.SearchSettings"/>
 		/// </returns>
@@ -534,9 +534,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Deletes the specified search tuning rule.
 		/// </summary>
-		/// <param name="searchTuningRuleCode"></param>
+		/// <param name="searchTuningRuleCode">The unique identifier of the search tuning rule.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -557,9 +557,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Deletes the specified search tuning rule.
 		/// </summary>
-		/// <param name="searchTuningRuleCode"></param>
+		/// <param name="searchTuningRuleCode">The unique identifier of the search tuning rule.</param>
 		/// <returns>
 		/// 
 		/// </returns>

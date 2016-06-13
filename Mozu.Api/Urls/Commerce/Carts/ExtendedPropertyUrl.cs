@@ -45,9 +45,9 @@ namespace Mozu.Api.Urls.Commerce.Carts
 				/// <summary>
         /// Get Resource Url for UpdateExtendedProperty
         /// </summary>
-        /// <param name="key"></param>
-        /// <param name="responseFields"></param>
-        /// <param name="upsert"></param>
+        /// <param name="key">Key used for metadata defined for objects, including extensible attributes, custom attributes associated with a shipping provider, and search synonyms definitions. This content may be user-defined depending on the object and usage.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+        /// <param name="upsert">Any set of key value pairs to be stored in the extended properties of a cart.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -64,7 +64,7 @@ namespace Mozu.Api.Urls.Commerce.Carts
 		/// <summary>
         /// Get Resource Url for UpdateExtendedProperties
         /// </summary>
-        /// <param name="upsert"></param>
+        /// <param name="upsert">Any set of key value pairs to be stored in the extended properties of a cart.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

@@ -19,8 +19,8 @@ namespace Mozu.Api.Urls.Commerce.Orders
 				/// <summary>
         /// Get Resource Url for PerformFulfillmentAction
         /// </summary>
-        /// <param name="orderId">Unique identifier of the order for which to perform the fulfillment action.</param>
-        /// <param name="responseFields">Updated order with a new fulfillment status resulting from the action supplied in the request.</param>
+        /// <param name="orderId">Unique identifier of the order.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -36,8 +36,8 @@ namespace Mozu.Api.Urls.Commerce.Orders
 		/// <summary>
         /// Get Resource Url for ResendPackageFulfillmentEmail
         /// </summary>
-        /// <param name="orderId"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="orderId">Unique identifier of the order.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

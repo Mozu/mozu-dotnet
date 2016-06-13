@@ -32,7 +32,12 @@ namespace Mozu.Api
 
         AuthTicket UserAuthTicket { get; set; }
 
-		IApiContext CloneWith(Action<IApiContext> contextModification);
+        string NoCacheUpdate { get; set; }
+        string BypassCache { get; set; }
+        string Pricelist { get; set; }
+        string PreviewDate { get; set; }
+
+    IApiContext CloneWith(Action<IApiContext> contextModification);
 	}
 
     [Serializable]
@@ -57,8 +62,12 @@ namespace Mozu.Api
 
 		public string Locale { get; set; }
 		public string Currency { get; set; }
+        public string NoCacheUpdate { get; set; }
+        public string BypassCache { get; set; }
+        public string Pricelist { get; set; }
+        public string PreviewDate { get; set; }
 
-		public ApiContext()
+        public ApiContext()
 		{
 		}
 
@@ -122,16 +131,32 @@ namespace Mozu.Api
 			if (!String.IsNullOrEmpty(catalogStr))
 				CatalogId = int.Parse(catalogStr);
 
-            var returnUrl = headers.Get(Headers.X_VOL_RETURN_URL);
-            if (!string.IsNullOrEmpty(returnUrl))
-                ReturnUrl = returnUrl;
+            var noCacheUpdate = headers.Get(Headers.X_VOL_NO_CACHE_UPDATE);
+            if (!string.IsNullOrEmpty(noCacheUpdate))
+                NoCacheUpdate = noCacheUpdate;
 
             if (!String.IsNullOrEmpty(TenantUrl))
 				TenantUrl = TenantUrl;
 
 			if (!String.IsNullOrEmpty(SiteUrl))
 				SiteUrl = SiteUrl;
-		}
+
+            var bypassCache = headers.Get(Headers.X_VOL_BYPASS_CACHE);
+            if (!string.IsNullOrEmpty(bypassCache))
+                BypassCache = bypassCache;
+
+            var pricelist = headers.Get(Headers.X_VOL_PRICELIST);
+            if (!string.IsNullOrEmpty(pricelist))
+                Pricelist = pricelist;
+
+            var previewDate = headers.Get(Headers.X_VOL_PRICELIST);
+            if (!string.IsNullOrEmpty(previewDate))
+                PreviewDate = previewDate;
+
+            var returnUrl = headers.Get(Headers.X_VOL_RETURN_URL);
+            if (!string.IsNullOrEmpty(returnUrl))
+                ReturnUrl = returnUrl;
+        }
 
 		public ApiContext(HttpRequestHeaders headers)
 		{
@@ -148,8 +173,12 @@ namespace Mozu.Api
 			Currency = HttpHelper.GetHeaderValue(Headers.X_VOL_CURRENCY, headers);
 		    UserId = HttpHelper.GetHeaderValue(Headers.USERID, headers);
 		    ReturnUrl = HttpHelper.GetHeaderValue(Headers.X_VOL_RETURN_URL, headers);
+            NoCacheUpdate = HttpHelper.GetHeaderValue(Headers.X_VOL_NO_CACHE_UPDATE, headers);
+            BypassCache = HttpHelper.GetHeaderValue(Headers.X_VOL_BYPASS_CACHE, headers);
+            Pricelist = HttpHelper.GetHeaderValue(Headers.X_VOL_PRICELIST, headers);
+            PreviewDate = HttpHelper.GetHeaderValue(Headers.X_VOL_PREVIEW_DATE, headers);
 
-			if (!String.IsNullOrEmpty(TenantUrl))
+            if (!String.IsNullOrEmpty(TenantUrl))
 			{
 				TenantUrl = TenantUrl;
 			}
@@ -179,8 +208,12 @@ namespace Mozu.Api
 				TenantId = this.TenantId,
 				TenantUrl = (!String.IsNullOrEmpty(this.TenantUrl) ? (string)this.TenantUrl.Clone() : null),
                 ReturnUrl = (!String.IsNullOrEmpty(this.ReturnUrl) ? (string)this.ReturnUrl.Clone() : null),
-                UserAuthTicket = this.UserAuthTicket
-			};
+                UserAuthTicket = this.UserAuthTicket,
+                NoCacheUpdate = (!String.IsNullOrEmpty(this.NoCacheUpdate) ? (string)this.NoCacheUpdate.Clone() : null),
+                BypassCache = (!String.IsNullOrEmpty(this.BypassCache) ? (string)this.BypassCache.Clone() : null),
+                Pricelist = (!String.IsNullOrEmpty(this.Pricelist) ? (string)this.Pricelist.Clone() : null),
+                PreviewDate = (!String.IsNullOrEmpty(this.PreviewDate) ? (string)this.PreviewDate.Clone() : null)
+            };
 
 			contextModification(cloned);
 			return cloned;

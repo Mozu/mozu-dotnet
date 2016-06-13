@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Content
 {
 	/// <summary>
-	/// 
+	/// content/publishsets related resources. DOCUMENT_HERE 
 	/// </summary>
 	public partial class PublishSetSummaryResource  	{
 		///
@@ -38,11 +38,11 @@ namespace Mozu.Api.Resources.Content
 
 				
 		/// <summary>
-		/// 
+		/// Returns a List of current Publishing sets with counts of drafts in each
 		/// </summary>
-		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="startIndex"></param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=50`.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.PublishSetSummaryPagedCollection"/>
 		/// </returns>
@@ -64,11 +64,11 @@ namespace Mozu.Api.Resources.Content
 		}
 
 		/// <summary>
-		/// 
+		/// Returns a List of current Publishing sets with counts of drafts in each
 		/// </summary>
-		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="startIndex"></param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=50`.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.PublishSetSummaryPagedCollection"/>
 		/// </returns>
@@ -89,14 +89,14 @@ namespace Mozu.Api.Resources.Content
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieve a paged collection of publish set Items.
 		/// </summary>
-		/// <param name="code"></param>
-		/// <param name="filter"></param>
-		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="sortBy"></param>
-		/// <param name="startIndex"></param>
+		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="filter">A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.</param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=50`.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection"/>
 		/// </returns>
@@ -118,14 +118,14 @@ namespace Mozu.Api.Resources.Content
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieve a paged collection of publish set Items.
 		/// </summary>
-		/// <param name="code"></param>
-		/// <param name="filter"></param>
-		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="sortBy"></param>
-		/// <param name="startIndex"></param>
+		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="filter">A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.</param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=50`.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection"/>
 		/// </returns>
@@ -146,11 +146,11 @@ namespace Mozu.Api.Resources.Content
 		}
 
 		/// <summary>
-		/// 
+		/// Adds a set of documents by id to a publish set
 		/// </summary>
-		/// <param name="code"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="shouldDiscard"></param>
+		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="shouldDiscard">Specifies whether to discard the pending content changes assigned to the content publish set when the publish set is deleted.</param>
 		/// <returns>
 		/// object
 		/// </returns>
@@ -172,11 +172,11 @@ namespace Mozu.Api.Resources.Content
 		}
 
 		/// <summary>
-		/// 
+		/// Adds a set of documents by id to a publish set
 		/// </summary>
-		/// <param name="code"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="shouldDiscard"></param>
+		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="shouldDiscard">Specifies whether to discard the pending content changes assigned to the content publish set when the publish set is deleted.</param>
 		/// <returns>
 		/// object
 		/// </returns>
@@ -197,11 +197,11 @@ namespace Mozu.Api.Resources.Content
 		}
 
 		/// <summary>
-		/// 
+		/// Adds a set of documents by id to a publish set
 		/// </summary>
-		/// <param name="code"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="itemsToPublish"></param>
+		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="itemsToPublish">Mozu.Content.Contracts.AddOrDeletePublishItem ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// object
 		/// </returns>
@@ -223,11 +223,11 @@ namespace Mozu.Api.Resources.Content
 		}
 
 		/// <summary>
-		/// 
+		/// Adds a set of documents by id to a publish set
 		/// </summary>
-		/// <param name="code"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="itemsToPublish"></param>
+		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="itemsToPublish">Mozu.Content.Contracts.AddOrDeletePublishItem ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// object
 		/// </returns>

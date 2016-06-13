@@ -166,6 +166,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public List<string> UpCs { get; set; }
 
+			public List<string> ValidPriceLists { get; set; }
+
 			///
 			///Product code that represents the product variation selected based on the option values the shopper entered.
 			///
