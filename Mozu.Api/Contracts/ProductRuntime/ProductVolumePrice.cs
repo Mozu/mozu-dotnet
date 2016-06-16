@@ -9,22 +9,21 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
 
 
-namespace Mozu.Api.Contracts.ProductAdmin
+namespace Mozu.Api.Contracts.ProductRuntime
 {
-		public class PriceListCollection
+		public class ProductVolumePrice
 		{
-			public List<PriceList> Items { get; set; }
+			public bool IsCurrent { get; set; }
 
-			public int PageCount { get; set; }
+			public int? MaxQty { get; set; }
 
-			public int PageSize { get; set; }
+			public int MinQty { get; set; }
 
-			public int StartIndex { get; set; }
+			public ProductPrice Price { get; set; }
 
-			public int TotalCount { get; set; }
+			public ProductPriceRange PriceRange { get; set; }
 
 		}
 

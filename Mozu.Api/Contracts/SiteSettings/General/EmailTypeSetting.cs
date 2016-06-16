@@ -9,22 +9,21 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
 
 
-namespace Mozu.Api.Contracts.ProductAdmin
+namespace Mozu.Api.Contracts.SiteSettings.General
 {
-		public class PriceListCollection
+		public class EmailTypeSetting
 		{
-			public List<PriceList> Items { get; set; }
+			public string BccEmailAddressOverride { get; set; }
 
-			public int PageCount { get; set; }
+			public string Id { get; set; }
 
-			public int PageSize { get; set; }
+			public string ReplyToEmailAddressOverride { get; set; }
 
-			public int StartIndex { get; set; }
+			public string SenderEmailAddressOverride { get; set; }
 
-			public int TotalCount { get; set; }
+			public string SenderEmailAliasOverride { get; set; }
 
 		}
 

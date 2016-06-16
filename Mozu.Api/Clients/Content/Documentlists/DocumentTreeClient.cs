@@ -108,7 +108,7 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		}
 
 		/// <summary>
-		/// Updates the binary data or content associated with a document, such as a product image or PDF specifications file, by supplying the document name.
+		/// Updates the content associated with a document, such as a product image or PDF specifications file, based on the document's position in the document hierarchy.
 		/// </summary>
 		/// <param name="documentListName">The name of the document list associated with the document.</param>
 		/// <param name="documentName">The name of the document, which is unique within its folder.</param>

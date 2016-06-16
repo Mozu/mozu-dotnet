@@ -220,7 +220,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates the binary data or content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
+		/// Updates the content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
 		/// <example> 
 		///  <code> 
 		/// var result = DocumentFactory.UpdateDocumentContent(handler : handler,  stream :  stream,  documentListName :  documentListName,  documentId :  documentId,  expectedCode: expectedCode, successCode: successCode); 

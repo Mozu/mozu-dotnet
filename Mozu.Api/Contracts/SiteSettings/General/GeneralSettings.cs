@@ -32,11 +32,15 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			///
 			public AuditInfo AuditInfo { get; set; }
 
+			public string BccEmailAddress { get; set; }
+
 			public CacheSettings CacheSettings { get; set; }
 
 			public string CustomCdnHostName { get; set; }
 
 			public CustomRouteSettings CustomRoutes { get; set; }
+
+			public List<EmailTypeSetting> EmailTypes { get; set; }
 
 			///
 			///The physical directory path or URL where the mobile favicon image file is stored. The favicon icon is generally 57x57 pixels. The icon appears on a mobile website or on the mobile device's OS Home.

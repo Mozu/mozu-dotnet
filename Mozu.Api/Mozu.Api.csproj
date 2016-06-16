@@ -630,6 +630,7 @@
     <Compile Include="Contracts\ProductRuntime\ProductPurchasableState.cs" />
     <Compile Include="Contracts\ProductRuntime\ProductSearchResult.cs" />
     <Compile Include="Contracts\ProductRuntime\ProductValidationSummary.cs" />
+    <Compile Include="Contracts\ProductRuntime\ProductVolumePrice.cs" />
     <Compile Include="Contracts\ProductRuntime\ResolvedPriceList.cs" />
     <Compile Include="Contracts\ProductRuntime\SearchSuggestion.cs" />
     <Compile Include="Contracts\ProductRuntime\SearchSuggestionGroup.cs" />
@@ -692,6 +693,7 @@
     <Compile Include="Contracts\SiteSettings\Application\Capability.cs" />
     <Compile Include="Contracts\SiteSettings\General\CacheSettings.cs" />
     <Compile Include="Contracts\SiteSettings\General\EmailTransactionSettings.cs" />
+    <Compile Include="Contracts\SiteSettings\General\EmailTypeSetting.cs" />
     <Compile Include="Contracts\SiteSettings\General\General\Routing\CustomRouteSettings.cs" />
     <Compile Include="Contracts\SiteSettings\General\General\Routing\Route.cs" />
     <Compile Include="Contracts\SiteSettings\General\General\ViewAuthorizations.cs" />

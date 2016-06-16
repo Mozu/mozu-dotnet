@@ -17,15 +17,15 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 {
 	/// <summary>
-	/// Allows you to get a price list. This may contain a hierarchy of price lists dependent on setup.
+	/// 
 	/// </summary>
 	public partial class PriceListClient 	{
 		
 		/// <summary>
-		/// Retrieves the price list for the given priceListCode
+		/// 
 		/// </summary>
 		/// <param name="priceListCode"></param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductRuntime.PriceList"/>}
 		/// </returns>
@@ -47,10 +47,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		}
 
 		/// <summary>
-		/// storefront-pricelists Get GetResolvedPriceList description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="customerAccountId">The unique identifier of the customer account for which to retrieve wish lists.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="customerAccountId"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList"/>}
 		/// </returns>
