@@ -129,10 +129,12 @@
     <Compile Include="Factories\CreditTransactionFactory.cs" />
     <Compile Include="Factories\CustomerAccountFactory.cs" />
     <Compile Include="Factories\CustomerAttributeFactory.cs" />
+    <Compile Include="Factories\CustomerAuditEntryFactory.cs" />
     <Compile Include="Factories\CustomerAuthTicketFactory.cs" />
     <Compile Include="Factories\CustomerCheckoutSettingsFactory.cs" />
     <Compile Include="Factories\CustomerContactFactory.cs" />
     <Compile Include="Factories\CustomerNoteFactory.cs" />
+    <Compile Include="Factories\CustomerPurchaseOrderAccountFactory.cs" />
     <Compile Include="Factories\CustomerSegmentAccountsFactory.cs" />
     <Compile Include="Factories\CustomerSegmentFactory.cs" />
     <Compile Include="Factories\CustomRouteSettingsFactory.cs" />

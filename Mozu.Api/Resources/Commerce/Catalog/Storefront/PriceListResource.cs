@@ -40,8 +40,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <summary>
 		/// Retrieves the price list for the given priceListCode
 		/// </summary>
-		/// <param name="priceListCode"></param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="priceListCode">The unique code of the price list for which you want to retrieve the details.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.PriceList"/>
 		/// </returns>
@@ -65,8 +65,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <summary>
 		/// Retrieves the price list for the given priceListCode
 		/// </summary>
-		/// <param name="priceListCode"></param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="priceListCode">The unique code of the price list for which you want to retrieve the details.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.PriceList"/>
 		/// </returns>
@@ -90,7 +90,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// storefront-pricelists Get GetResolvedPriceList description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="customerAccountId">The unique identifier of the customer account for which to retrieve wish lists.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList"/>
 		/// </returns>
@@ -115,7 +115,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// storefront-pricelists Get GetResolvedPriceList description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="customerAccountId">The unique identifier of the customer account for which to retrieve wish lists.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList"/>
 		/// </returns>

@@ -13,10 +13,19 @@ using System;
 
 namespace Mozu.Api.Contracts.ShippingAdmin.Profile
 {
+		///
+		///	Mozu.ShippingAdmin.Contracts.Profile.State ApiType DOCUMENT_HERE 
+		///
 		public class State
 		{
+			///
+			///Mozu.ShippingAdmin.Contracts.Profile.State code ApiTypeMember DOCUMENT_HERE 
+			///
 			public string Code { get; set; }
 
+			///
+			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
+			///
 			public string Name { get; set; }
 
 		}

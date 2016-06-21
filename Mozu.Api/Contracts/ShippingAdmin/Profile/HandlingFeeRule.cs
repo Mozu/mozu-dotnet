@@ -16,24 +16,54 @@ using Mozu.Api.Contracts.ShippingAdmin;
 
 namespace Mozu.Api.Contracts.ShippingAdmin.Profile
 {
+		///
+		///	Mozu.ShippingAdmin.Contracts.Profile.HandlingFeeRule ApiType DOCUMENT_HERE 
+		///
 		public class HandlingFeeRule
 		{
+			///
+			///The level at which this fee applies shippingrate order
+			///
 			public string AppliesTo { get; set; }
 
+			///
+			///Basic audit info about the object, including date, time, and user account. Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
 			public AuditInfo AuditInfo { get; set; }
 
+			///
+			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///
 			public string Id { get; set; }
 
+			///
+			///the product target rule codes associated with this rule leave empty or null to denote all products
+			///
 			public List<string> ProductTargetRuleCodes { get; set; }
 
+			///
+			///The numeric order of objects, used by a vocabulary value defined for an extensible attribute, images, and categories.
+			///
 			public int Sequence { get; set; }
 
+			///
+			///the servicetypes associated with this rule leave empty or null to denote all carriers and subsequent service types
+			///
 			public List<ServiceType> ServiceTypes { get; set; }
 
+			///
+			///The shipping target rule codes associated with this rule leave empty or null to denote all destinations
+			///
 			public List<string> ShippingTargetRuleCodes { get; set; }
 
+			///
+			///The value of a property, used by numerous objects within Mozu including facets, attributes, products, localized content, metadata, capabilities (Mozu and third-party), location inventory adjustment, and more. The value may be a string, integer, or double. Validation may be run against the entered and saved values depending on the object type.
+			///
 			public decimal Value { get; set; }
 
+			///
+			///An attribute value type is either predefined vocabulary by the admin during attribute set up or user-defined with an appropriate type (AdminEntered or ShopperEntered depending on the user). These types are used by products and attributes. The difference between predefined values versus manually entered values is such that the first choice is a set of options to choose from. AdminEntered and ShopperEntered are values that are entered rather than system-supplied and are not stored in the database, but captured during a live commerce operations such as during an order.
+			///
 			public string ValueType { get; set; }
 
 		}

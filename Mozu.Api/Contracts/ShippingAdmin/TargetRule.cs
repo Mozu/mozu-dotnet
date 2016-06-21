@@ -13,14 +13,29 @@ using System;
 
 namespace Mozu.Api.Contracts.ShippingAdmin
 {
+		///
+		///	Mozu.ShippingAdmin.Contracts.TargetRule ApiType DOCUMENT_HERE 
+		///
 		public class TargetRule
 		{
+			///
+			///The user defined code for this rule must be unique
+			///
 			public string Code { get; set; }
 
+			///
+			///The localized description in text for the object, displayed per the locale code. For example, descriptions are used for product descriptions, attributes, and pre-authorization transaction types.
+			///
 			public string Description { get; set; }
 
+			///
+			///The domain associated with the site and/or tenant.
+			///
 			public string Domain { get; set; }
 
+			///
+			///the expression of this rule
+			///
 			public string Expression { get; set; }
 
 		}

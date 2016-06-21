@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// products-variations Get GetProductVariationLocalizedPrices description DOCUMENT_HERE 
+		/// Retrieves a list of details of the localized price values for a product variation.
 		/// <example> 
 		///  <code> 
 		/// var result = ProductVariationFactory.GetProductVariationLocalizedPrices(handler : handler,  productCode :  productCode,  variationKey :  variationKey,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// products-variations Get GetProductVariationLocalizedPrice description DOCUMENT_HERE 
+		/// Retrieves the details of the localized price value for a product variation and a specific localized currency.
 		/// <example> 
 		///  <code> 
 		/// var result = ProductVariationFactory.GetProductVariationLocalizedPrice(handler : handler,  productCode :  productCode,  variationKey :  variationKey,  currencyCode :  currencyCode,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -296,7 +296,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// products-variations Post AddProductVariationLocalizedPrice description DOCUMENT_HERE 
+		/// Adds the localized price value for a product variation and a specific localized currency.
 		/// <example> 
 		///  <code> 
 		/// var result = ProductVariationFactory.AddProductVariationLocalizedPrice(handler : handler,  localizedPrice :  localizedPrice,  productCode :  productCode,  variationKey :  variationKey,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -410,7 +410,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// products-variations Put UpdateProductVariationLocalizedPrices description DOCUMENT_HERE 
+		/// Updates a list of localized price values for a product variation.
 		/// <example> 
 		///  <code> 
 		/// var result = ProductVariationFactory.UpdateProductVariationLocalizedPrices(handler : handler,  localizedPrice :  localizedPrice,  productCode :  productCode,  variationKey :  variationKey,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -448,7 +448,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// products-variations Put UpdateProductVariationLocalizedPrice description DOCUMENT_HERE 
+		/// Updates the localized price value for a product variation and a specific localized currency.
 		/// <example> 
 		///  <code> 
 		/// var result = ProductVariationFactory.UpdateProductVariationLocalizedPrice(handler : handler,  localizedPrice :  localizedPrice,  productCode :  productCode,  variationKey :  variationKey,  currencyCode :  currencyCode,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -636,7 +636,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// products-variations Delete DeleteProductVariationLocalizedPrice description DOCUMENT_HERE 
+		/// Deletes the localized price value for a product variation and a specific localized currency.
 		/// <example> 
 		///  <code> 
 		/// var result = ProductVariationFactory.DeleteProductVariationLocalizedPrice(handler : handler,  productCode :  productCode,  variationKey :  variationKey,  currencyCode :  currencyCode,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 

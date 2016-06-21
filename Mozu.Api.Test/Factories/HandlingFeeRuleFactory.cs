@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// Use the ProductHandlingFeeRules sub-resource to manage your product handling fee rules that are associated with a specific shipping profile.
 	/// </summary>
 	public partial class HandlingFeeRuleFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// 
+		/// Retrieves the details of the specified product handling fee rule.
 		/// <example> 
 		///  <code> 
 		/// var result = HandlingFeeRuleFactory.GetProductHandlingFeeRule(handler : handler,  profilecode :  profilecode,  id :  id,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves a list of product handling fee rules and their details.
 		/// <example> 
 		///  <code> 
 		/// var result = HandlingFeeRuleFactory.GetProductHandlingFeeRules(handler : handler,  profilecode :  profilecode,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Creates a new product handling fee rule.
 		/// <example> 
 		///  <code> 
 		/// var result = HandlingFeeRuleFactory.CreateProductHandlingFeeRule(handler : handler,  rule :  rule,  profilecode :  profilecode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Updates the details of the specified product handling fee rule.
 		/// <example> 
 		///  <code> 
 		/// var result = HandlingFeeRuleFactory.UpdateProductHandlingFeeRule(handler : handler,  rule :  rule,  profilecode :  profilecode,  id :  id,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Deletes the specified product handling fee rule.
 		/// <example> 
 		///  <code> 
 		/// var result = HandlingFeeRuleFactory.DeleteProductHandlingFeeRule(handler : handler,  profilecode :  profilecode,  id :  id,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 

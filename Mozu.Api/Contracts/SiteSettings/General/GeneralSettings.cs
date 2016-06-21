@@ -33,6 +33,11 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			public AuditInfo AuditInfo { get; set; }
 
 			///
+			///Email address to use for Blind Carbon Copies of mails sent from your site.
+			///
+			public string BccEmailAddress { get; set; }
+
+			///
 			///Set of settings to deal with site caching.
 			///
 			public CacheSettings CacheSettings { get; set; }
@@ -46,6 +51,11 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			///Site-level control over request routing for SEO purposes. Not available for update, must use its own subresource.
 			///
 			public CustomRouteSettings CustomRoutes { get; set; }
+
+			///
+			///Specific Settings by Email type
+			///
+			public List<EmailTypeSetting> EmailTypes { get; set; }
 
 			///
 			///The physical directory path or URL where the mobile favicon image file is stored. The favicon icon is generally 57x57 pixels. The icon appears on a mobile website or on the mobile device's OS Home.

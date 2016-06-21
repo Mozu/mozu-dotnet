@@ -60,6 +60,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///
 			public string PaymentWorkflow { get; set; }
 
+			public PurchaseOrderPayment PurchaseOrder { get; set; }
+
 			///
 			///The code that identifies the store credit to apply to the order.
 			///
