@@ -636,7 +636,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// products-variations Delete DeleteProductVariationLocalizedPrice description DOCUMENT_HERE 
+		/// Deletes the localized price value for a product variation and a specific localized currency.
 		/// <example> 
 		///  <code> 
 		/// var result = ProductVariationFactory.DeleteProductVariationLocalizedPrice(handler : handler,  productCode :  productCode,  variationKey :  variationKey,  currencyCode :  currencyCode,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 

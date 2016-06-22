@@ -62,6 +62,11 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			public List<RateRequestItem> Items { get; set; }
 
 			///
+			///The Order SubTotal After Discounts to be used in rate calculation
+			///
+			public decimal? OrderDiscountedSubTotal { get; set; }
+
+			///
 			///The total monetary amount of the order. This amount is used to calculate the shipping rate estimate.
 			///
 			public decimal? OrderTotal { get; set; }
@@ -70,6 +75,11 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			///The physical address from which the order or shipment will ship.
 			///
 			public Address OriginAddress { get; set; }
+
+			///
+			///The Order ID to be used in rate calculation Information al only
+			///
+			public string RelatedOrderId { get; set; }
 
 			///
 			///The shipping methods associated with this request.

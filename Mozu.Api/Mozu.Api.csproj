@@ -146,8 +146,10 @@
     <Compile Include="Clients\Commerce\ChannelGroupClient.cs" />
     <Compile Include="Clients\Commerce\Customer\Accounts\CardClient.cs" />
     <Compile Include="Clients\Commerce\Customer\Accounts\CustomerAttributeClient.cs" />
+    <Compile Include="Clients\Commerce\Customer\Accounts\CustomerAuditEntryClient.cs" />
     <Compile Include="Clients\Commerce\Customer\Accounts\CustomerContactClient.cs" />
     <Compile Include="Clients\Commerce\Customer\Accounts\CustomerNoteClient.cs" />
+    <Compile Include="Clients\Commerce\Customer\Accounts\CustomerPurchaseOrderAccountClient.cs" />
     <Compile Include="Clients\Commerce\Customer\Accounts\CustomerSegmentClient.cs" />
     <Compile Include="Clients\Commerce\Customer\Accounts\TransactionClient.cs" />
     <Compile Include="Clients\Commerce\Customer\AddressValidationRequestClient.cs" />
@@ -311,6 +313,9 @@
     <Compile Include="Contracts\CommerceRuntime\Payments\PaymentCollection.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PaymentGatewayInteraction.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PaymentInteraction.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Payments\PurchaseOrderCustomField.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Payments\PurchaseOrderPayment.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Payments\PurchaseOrderPaymentTerm.cs" />
     <Compile Include="Contracts\CommerceRuntime\Products\BundledProduct.cs" />
     <Compile Include="Contracts\CommerceRuntime\Products\Category.cs" />
     <Compile Include="Contracts\CommerceRuntime\Products\Product.cs" />
@@ -400,12 +405,17 @@
     <Compile Include="Contracts\Customer\CustomerAccountCollection.cs" />
     <Compile Include="Contracts\Customer\CustomerAttribute.cs" />
     <Compile Include="Contracts\Customer\CustomerAttributeCollection.cs" />
+    <Compile Include="Contracts\Customer\CustomerAuditEntry.cs" />
+    <Compile Include="Contracts\Customer\CustomerAuditEntryCollection.cs" />
     <Compile Include="Contracts\Customer\CustomerAuthTicket.cs" />
     <Compile Include="Contracts\Customer\CustomerContact.cs" />
     <Compile Include="Contracts\Customer\CustomerContactCollection.cs" />
     <Compile Include="Contracts\Customer\CustomerLoginInfo.cs" />
     <Compile Include="Contracts\Customer\CustomerNote.cs" />
     <Compile Include="Contracts\Customer\CustomerNoteCollection.cs" />
+    <Compile Include="Contracts\Customer\CustomerPurchaseOrderAccount.cs" />
+    <Compile Include="Contracts\Customer\CustomerPurchaseOrderAccountCollection.cs" />
+    <Compile Include="Contracts\Customer\CustomerPurchaseOrderPaymentTerm.cs" />
     <Compile Include="Contracts\Customer\CustomerSegment.cs" />
     <Compile Include="Contracts\Customer\CustomerSegmentCollection.cs" />
     <Compile Include="Contracts\Customer\CustomerUserAuthInfo.cs" />
@@ -413,6 +423,8 @@
     <Compile Include="Contracts\Customer\InStockNotificationSubscriptionCollection.cs" />
     <Compile Include="Contracts\Customer\LoginState.cs" />
     <Compile Include="Contracts\Customer\PasswordInfo.cs" />
+    <Compile Include="Contracts\Customer\PurchaseOrderTransaction.cs" />
+    <Compile Include="Contracts\Customer\PurchaseOrderTransactionCollection.cs" />
     <Compile Include="Contracts\Customer\ResetPasswordInfo.cs" />
     <Compile Include="Contracts\Customer\Transaction.cs" />
     <Compile Include="Contracts\Customer\Visit.cs" />
@@ -692,6 +704,7 @@
     <Compile Include="Contracts\SiteSettings\Application\Capability.cs" />
     <Compile Include="Contracts\SiteSettings\General\CacheSettings.cs" />
     <Compile Include="Contracts\SiteSettings\General\EmailTransactionSettings.cs" />
+    <Compile Include="Contracts\SiteSettings\General\EmailTypeSetting.cs" />
     <Compile Include="Contracts\SiteSettings\General\General\Routing\CustomRouteSettings.cs" />
     <Compile Include="Contracts\SiteSettings\General\General\Routing\Route.cs" />
     <Compile Include="Contracts\SiteSettings\General\General\ViewAuthorizations.cs" />
@@ -704,6 +717,9 @@
     <Compile Include="Contracts\SiteSettings\Order\LocalizedContent.cs" />
     <Compile Include="Contracts\SiteSettings\Order\OrderProcessingSettings.cs" />
     <Compile Include="Contracts\SiteSettings\Order\PaymentSettings.cs" />
+    <Compile Include="Contracts\SiteSettings\Order\PurchaseOrderCustomField.cs" />
+    <Compile Include="Contracts\SiteSettings\Order\PurchaseOrderPaymentDefinition.cs" />
+    <Compile Include="Contracts\SiteSettings\Order\PurchaseOrderPaymentTerm.cs" />
     <Compile Include="Contracts\SiteSettings\Order\ThirdPartyCredentialField.cs" />
     <Compile Include="Contracts\SiteSettings\Order\VocabularyValue.cs" />
     <Compile Include="Contracts\SiteSettings\Shipping\SiteShippingHandlingFee.cs" />
@@ -785,8 +801,10 @@
     <Compile Include="Resources\Commerce\ChannelResource.cs" />
     <Compile Include="Resources\Commerce\Customer\Accounts\CardResource.cs" />
     <Compile Include="Resources\Commerce\Customer\Accounts\CustomerAttributeResource.cs" />
+    <Compile Include="Resources\Commerce\Customer\Accounts\CustomerAuditEntryResource.cs" />
     <Compile Include="Resources\Commerce\Customer\Accounts\CustomerContactResource.cs" />
     <Compile Include="Resources\Commerce\Customer\Accounts\CustomerNoteResource.cs" />
+    <Compile Include="Resources\Commerce\Customer\Accounts\CustomerPurchaseOrderAccountResource.cs" />
     <Compile Include="Resources\Commerce\Customer\Accounts\CustomerSegmentResource.cs" />
     <Compile Include="Resources\Commerce\Customer\Accounts\TransactionResource.cs" />
     <Compile Include="Resources\Commerce\Customer\AddressValidationRequestResource.cs" />
@@ -917,8 +935,10 @@
     <Compile Include="Urls\Commerce\ChannelUrl.cs" />
     <Compile Include="Urls\Commerce\Customer\Accounts\CardUrl.cs" />
     <Compile Include="Urls\Commerce\Customer\Accounts\CustomerAttributeUrl.cs" />
+    <Compile Include="Urls\Commerce\Customer\Accounts\CustomerAuditEntryUrl.cs" />
     <Compile Include="Urls\Commerce\Customer\Accounts\CustomerContactUrl.cs" />
     <Compile Include="Urls\Commerce\Customer\Accounts\CustomerNoteUrl.cs" />
+    <Compile Include="Urls\Commerce\Customer\Accounts\CustomerPurchaseOrderAccountUrl.cs" />
     <Compile Include="Urls\Commerce\Customer\Accounts\CustomerSegmentUrl.cs" />
     <Compile Include="Urls\Commerce\Customer\Accounts\TransactionUrl.cs" />
     <Compile Include="Urls\Commerce\Customer\AddressValidationRequestUrl.cs" />

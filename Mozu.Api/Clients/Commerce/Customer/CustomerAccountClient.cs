@@ -307,7 +307,7 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <summary>
 		/// Changes a collection of shopper passwords
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="accountPasswordInfos">Mozu.Customer.Contracts.AccountPasswordInfoCollection ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.ChangePasswordResultCollection"/>}
@@ -373,6 +373,33 @@ namespace Mozu.Api.Clients.Commerce.Customer
 			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetLoginStateByUserNameUrl(userName, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.LoginState>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccountCollection"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetCustomersPurchaseOrderAccounts( startIndex,  pageSize,  sortBy,  responseFields);
+		///   var customerPurchaseOrderAccountCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccountCollection> GetCustomersPurchaseOrderAccountsClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetCustomersPurchaseOrderAccountsUrl(startIndex, pageSize, sortBy, responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccountCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

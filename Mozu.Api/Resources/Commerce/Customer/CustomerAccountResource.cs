@@ -587,7 +587,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Changes a collection of shopper passwords
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="accountPasswordInfos">Mozu.Customer.Contracts.AccountPasswordInfoCollection ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.ChangePasswordResultCollection"/>
@@ -612,7 +612,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Changes a collection of shopper passwords
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. For example, ) returns only the  and  items inside the  array of the specified product.This paramter should only be used to retrieve data. Attempting to update data using this parmater may cause data loss.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="accountPasswordInfos">Mozu.Customer.Contracts.AccountPasswordInfoCollection ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.ChangePasswordResultCollection"/>
@@ -725,6 +725,59 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.LoginState> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetLoginStateByUserNameClient( userName,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccountCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customeraccount = new CustomerAccount();
+		///   var customerPurchaseOrderAccountCollection = customeraccount.GetCustomersPurchaseOrderAccounts( startIndex,  pageSize,  sortBy,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccountCollection GetCustomersPurchaseOrderAccounts(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccountCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetCustomersPurchaseOrderAccountsClient( startIndex,  pageSize,  sortBy,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccountCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customeraccount = new CustomerAccount();
+		///   var customerPurchaseOrderAccountCollection = await customeraccount.GetCustomersPurchaseOrderAccountsAsync( startIndex,  pageSize,  sortBy,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccountCollection> GetCustomersPurchaseOrderAccountsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccountCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetCustomersPurchaseOrderAccountsClient( startIndex,  pageSize,  sortBy,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
