@@ -13,10 +13,19 @@ using System;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 {
+		///
+		///	Mozu.CommerceRuntime.Contracts.Payments.PurchaseOrderPaymentTerm ApiType DOCUMENT_HERE 
+		///
 		public class PurchaseOrderPaymentTerm
 		{
+			///
+			///Mozu.CommerceRuntime.Contracts.Payments.PurchaseOrderPaymentTerm code ApiTypeMember DOCUMENT_HERE 
+			///
 			public string Code { get; set; }
 
+			///
+			///The localized description in text for the object, displayed per the locale code. For example, descriptions are used for product descriptions, attributes, and pre-authorization transaction types.
+			///
 			public string Description { get; set; }
 
 		}

@@ -14,36 +14,84 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.Customer
 {
+		///
+		///	Mozu.Customer.Contracts.PurchaseOrderTransaction ApiType DOCUMENT_HERE 
+		///
 		public class PurchaseOrderTransaction
 		{
+			///
+			///Any additional transaction detail other than transaction description
+			///
 			public string AdditionalTransactionDetail { get; set; }
 
+			///
+			///Basic audit info about the object, including date, time, and user account. Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///
 			public AuditInfo AuditInfo { get; set; }
 
+			///
+			///Mozu.Customer.Contracts.PurchaseOrderTransaction author ApiTypeMember DOCUMENT_HERE 
+			///
 			public string Author { get; set; }
 
+			///
+			///Current available balance on Purchase Order account
+			///
 			public decimal AvailableBalance { get; set; }
 
+			///
+			///Maximum credit available on a purchase order account
+			///
 			public decimal CreditLimit { get; set; }
 
+			///
+			///Unique identifier for Customer purchase order account
+			///
 			public int CustomerPurchaseOrderAccountId { get; set; }
 
+			///
+			///Unique identifier used by an external program to identify a Mozu order, customer account, or wish list.
+			///
 			public string ExternalId { get; set; }
 
+			///
+			///Unique identifier of the order associated with the payment.
+			///
 			public string OrderId { get; set; }
 
+			///
+			///Purchase order number
+			///
 			public string PurchaseOrderNumber { get; set; }
 
+			///
+			///Unique identifier for the site. This ID is used at all levels of a store, catalog, and tenant to associate objects to a site.
+			///
 			public int SiteId { get; set; }
 
+			///
+			///Unique identifier for the tenant.
+			///
 			public int TenantId { get; set; }
 
+			///
+			///Transaction amount in transaction log for a purchase order account
+			///
 			public decimal TransactionAmount { get; set; }
 
+			///
+			///Date when the transaction was made on a purchase order account
+			///
 			public DateTime TransactionDate { get; set; }
 
+			///
+			///Purchase Order transaction description Line of Credit Change Order Submitted Payment Collected Payment Voided Payment Refund Manual Adjustment
+			///
 			public string TransactionDescription { get; set; }
 
+			///
+			///Purchase Order transaction type 1 - Line of Credit Change 2 - Order Submitted 3 - Payment Collected 4 - Payment Voided 5 - Payment Refund 6 - Manual Adjustment
+			///
 			public int TransactionTypeId { get; set; }
 
 		}

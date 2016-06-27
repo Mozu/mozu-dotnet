@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 {
 	/// <summary>
-	/// 
+	/// commerce/customer/accounts/purchaseOrder related resources. DOCUMENT_HERE 
 	/// </summary>
 	public partial class CustomerPurchaseOrderAccountResource  	{
 		///
@@ -38,10 +38,10 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 
 				
 		/// <summary>
-		/// 
+		/// accounts-purchaseOrder Get GetCustomerPurchaseOrderAccount description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="accountId"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount"/>
 		/// </returns>
@@ -63,10 +63,10 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		}
 
 		/// <summary>
-		/// 
+		/// accounts-purchaseOrder Get GetCustomerPurchaseOrderAccount description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="accountId"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount"/>
 		/// </returns>
@@ -87,13 +87,13 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		}
 
 		/// <summary>
-		/// 
+		/// accounts-purchaseOrder Get GetCustomerPurchaseOrderTransactions description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="accountId"></param>
-		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="sortBy"></param>
-		/// <param name="startIndex"></param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/applications/sorting-filtering.htm) for more information.</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.PurchaseOrderTransactionCollection"/>
 		/// </returns>
@@ -115,13 +115,13 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		}
 
 		/// <summary>
-		/// 
+		/// accounts-purchaseOrder Get GetCustomerPurchaseOrderTransactions description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="accountId"></param>
-		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="sortBy"></param>
-		/// <param name="startIndex"></param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/applications/sorting-filtering.htm) for more information.</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.PurchaseOrderTransactionCollection"/>
 		/// </returns>
@@ -142,11 +142,11 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		}
 
 		/// <summary>
-		/// 
+		/// accounts-purchaseOrder Post CreateCustomerPurchaseOrderAccount description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="accountId"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="customerPurchaseOrderAccount"></param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="customerPurchaseOrderAccount">Mozu.Customer.Contracts.CustomerPurchaseOrderAccount ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount"/>
 		/// </returns>
@@ -168,11 +168,11 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		}
 
 		/// <summary>
-		/// 
+		/// accounts-purchaseOrder Post CreateCustomerPurchaseOrderAccount description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="accountId"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="customerPurchaseOrderAccount"></param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="customerPurchaseOrderAccount">Mozu.Customer.Contracts.CustomerPurchaseOrderAccount ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount"/>
 		/// </returns>
@@ -193,11 +193,11 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		}
 
 		/// <summary>
-		/// 
+		/// accounts-purchaseOrder Post CreatePurchaseOrderTransaction description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="accountId"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="purchaseOrderTransaction"></param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="purchaseOrderTransaction">Mozu.Customer.Contracts.PurchaseOrderTransaction ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.PurchaseOrderTransaction"/>
 		/// </returns>
@@ -219,11 +219,11 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		}
 
 		/// <summary>
-		/// 
+		/// accounts-purchaseOrder Post CreatePurchaseOrderTransaction description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="accountId"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="purchaseOrderTransaction"></param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="purchaseOrderTransaction">Mozu.Customer.Contracts.PurchaseOrderTransaction ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.PurchaseOrderTransaction"/>
 		/// </returns>
@@ -244,11 +244,11 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		}
 
 		/// <summary>
-		/// 
+		/// accounts-purchaseOrder Put UpdateCustomerPurchaseOrderAccount description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="accountId"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="customerPurchaseOrderAccount"></param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="customerPurchaseOrderAccount">Mozu.Customer.Contracts.CustomerPurchaseOrderAccount ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount"/>
 		/// </returns>
@@ -270,11 +270,11 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		}
 
 		/// <summary>
-		/// 
+		/// accounts-purchaseOrder Put UpdateCustomerPurchaseOrderAccount description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="accountId"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="customerPurchaseOrderAccount"></param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="customerPurchaseOrderAccount">Mozu.Customer.Contracts.CustomerPurchaseOrderAccount ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount"/>
 		/// </returns>
@@ -295,9 +295,9 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		}
 
 		/// <summary>
-		/// 
+		/// accounts-purchaseOrder Delete DeleteCustomerPurchaseOrderAccount description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="accountId"></param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -318,9 +318,9 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		}
 
 		/// <summary>
-		/// 
+		/// accounts-purchaseOrder Delete DeleteCustomerPurchaseOrderAccount description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="accountId"></param>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <returns>
 		/// 
 		/// </returns>

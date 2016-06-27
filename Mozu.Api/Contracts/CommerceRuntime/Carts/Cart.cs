@@ -34,6 +34,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///
 			public CartMessage CartMessage { get; set; }
 
+			public List<CartMessage> CartMessages { get; set; }
+
 			///
 			///Collection (list or paged) of change messages logged for each modification made by a shopper to their carts, wishlists, orders, package, payment, pickup, and returns. Change log messages are system-supplied based on shopper actions and read only.
 			///

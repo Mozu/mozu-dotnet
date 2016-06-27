@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// commerce/customer/accounts/purchaseOrder related resources. DOCUMENT_HERE 
 	/// </summary>
 	public partial class CustomerPurchaseOrderAccountFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// 
+		/// accounts-purchaseOrder Get GetCustomerPurchaseOrderAccount description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerPurchaseOrderAccountFactory.GetCustomerPurchaseOrderAccount(handler : handler,  accountId :  accountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// accounts-purchaseOrder Get GetCustomerPurchaseOrderTransactions description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerPurchaseOrderAccountFactory.GetCustomerPurchaseOrderTransactions(handler : handler,  accountId :  accountId,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// accounts-purchaseOrder Post CreateCustomerPurchaseOrderAccount description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerPurchaseOrderAccountFactory.CreateCustomerPurchaseOrderAccount(handler : handler,  customerPurchaseOrderAccount :  customerPurchaseOrderAccount,  accountId :  accountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// accounts-purchaseOrder Post CreatePurchaseOrderTransaction description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerPurchaseOrderAccountFactory.CreatePurchaseOrderTransaction(handler : handler,  purchaseOrderTransaction :  purchaseOrderTransaction,  accountId :  accountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// accounts-purchaseOrder Put UpdateCustomerPurchaseOrderAccount description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerPurchaseOrderAccountFactory.UpdateCustomerPurchaseOrderAccount(handler : handler,  customerPurchaseOrderAccount :  customerPurchaseOrderAccount,  accountId :  accountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -220,7 +220,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// accounts-purchaseOrder Delete DeleteCustomerPurchaseOrderAccount description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerPurchaseOrderAccountFactory.DeleteCustomerPurchaseOrderAccount(handler : handler,  accountId :  accountId,  expectedCode: expectedCode, successCode: successCode); 

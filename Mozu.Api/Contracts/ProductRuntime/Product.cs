@@ -199,6 +199,10 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public List<VariationSummary> Variations { get; set; }
 
+			public List<ProductVolumePrice> VolumePriceBands { get; set; }
+
+			public ProductPriceRange VolumePriceRange { get; set; }
+
 		}
 
 }

@@ -25,24 +25,17 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		///
 		private readonly IApiContext _apiContext;
 
-		private readonly DataViewMode _dataViewMode;
 		
 		public CategoryResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
-			_dataViewMode = DataViewMode.Live;
 		}
 
 		public CategoryResource CloneWithApiContext(Action<IApiContext> contextModification) 
 		{
-			return new CategoryResource(_apiContext.CloneWith(contextModification), _dataViewMode);
+			return new CategoryResource(_apiContext.CloneWith(contextModification));
 		}
 
-		public CategoryResource(IApiContext apiContext, DataViewMode dataViewMode) 
-		{
-			_apiContext = apiContext;
-			_dataViewMode = dataViewMode;
-		}
 				
 		/// <summary>
 		/// Retrieves a list of categories according to any specified filter criteria and sort options.
@@ -58,14 +51,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var category = new Category();
-		///   var categoryPagedCollection = category.GetCategories(_dataViewMode,  filter,  startIndex,  pageSize,  sortBy,  responseFields);
+		///   var categoryPagedCollection = category.GetCategories( filter,  startIndex,  pageSize,  sortBy,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductRuntime.CategoryPagedCollection GetCategories(string filter =  null, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.CategoryPagedCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.CategoryClient.GetCategoriesClient(_dataViewMode,  filter,  startIndex,  pageSize,  sortBy,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.CategoryClient.GetCategoriesClient( filter,  startIndex,  pageSize,  sortBy,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -86,13 +79,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var category = new Category();
-		///   var categoryPagedCollection = await category.GetCategoriesAsync(_dataViewMode,  filter,  startIndex,  pageSize,  sortBy,  responseFields);
+		///   var categoryPagedCollection = await category.GetCategoriesAsync( filter,  startIndex,  pageSize,  sortBy,  responseFields);
 		/// </code>
 		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.CategoryPagedCollection> GetCategoriesAsync(string filter =  null, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.CategoryPagedCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.CategoryClient.GetCategoriesClient(_dataViewMode,  filter,  startIndex,  pageSize,  sortBy,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.CategoryClient.GetCategoriesClient( filter,  startIndex,  pageSize,  sortBy,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -111,14 +104,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var category = new Category();
-		///   var category = category.GetCategory(_dataViewMode,  categoryId,  allowInactive,  responseFields);
+		///   var category = category.GetCategory( categoryId,  allowInactive,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductRuntime.Category GetCategory(int categoryId, bool? allowInactive =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.Category> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.CategoryClient.GetCategoryClient(_dataViewMode,  categoryId,  allowInactive,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.CategoryClient.GetCategoryClient( categoryId,  allowInactive,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -137,13 +130,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var category = new Category();
-		///   var category = await category.GetCategoryAsync(_dataViewMode,  categoryId,  allowInactive,  responseFields);
+		///   var category = await category.GetCategoryAsync( categoryId,  allowInactive,  responseFields);
 		/// </code>
 		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.Category> GetCategoryAsync(int categoryId, bool? allowInactive =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.Category> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.CategoryClient.GetCategoryClient(_dataViewMode,  categoryId,  allowInactive,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.CategoryClient.GetCategoryClient( categoryId,  allowInactive,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -160,14 +153,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var category = new Category();
-		///   var categoryCollection = category.GetCategoryTree(_dataViewMode,  responseFields);
+		///   var categoryCollection = category.GetCategoryTree( responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductRuntime.CategoryCollection GetCategoryTree(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.CategoryCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.CategoryClient.GetCategoryTreeClient(_dataViewMode,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.CategoryClient.GetCategoryTreeClient( responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -184,13 +177,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var category = new Category();
-		///   var categoryCollection = await category.GetCategoryTreeAsync(_dataViewMode,  responseFields);
+		///   var categoryCollection = await category.GetCategoryTreeAsync( responseFields);
 		/// </code>
 		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.CategoryCollection> GetCategoryTreeAsync(string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.CategoryCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.CategoryClient.GetCategoryTreeClient(_dataViewMode,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.CategoryClient.GetCategoryTreeClient( responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

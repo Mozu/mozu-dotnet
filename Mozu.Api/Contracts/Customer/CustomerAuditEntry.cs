@@ -13,26 +13,59 @@ using System;
 
 namespace Mozu.Api.Contracts.Customer
 {
+		///
+		///	Mozu.Customer.Contracts.CustomerAuditEntry ApiType DOCUMENT_HERE 
+		///
 		public class CustomerAuditEntry
 		{
+			///
+			///Applicattion associated with this entry
+			///
 			public string Application { get; set; }
 
+			///
+			///Unique identifer of the customer account. This ID is used to associate numerous types of data and object with the customer account, including orders, returns, wish lists, and in-store credit.
+			///
 			public int CustomerAccountId { get; set; }
 
+			///
+			///Id of this entry
+			///
 			public int CustomerAuditEntryId { get; set; }
 
+			///
+			///The localized description in text for the object, displayed per the locale code. For example, descriptions are used for product descriptions, attributes, and pre-authorization transaction types.
+			///
 			public string Description { get; set; }
 
+			///
+			///Date of the Entry
+			///
 			public DateTime EntryDate { get; set; }
 
+			///
+			///User ID associated with this Entry
+			///
 			public string EntryUser { get; set; }
 
+			///
+			///Path of the field value being changed (e.g. /Customer/Contacts/1/FirstName)
+			///
 			public string FieldPath { get; set; }
 
+			///
+			///New Value after this event
+			///
 			public string NewValue { get; set; }
 
+			///
+			///Original value before this event
+			///
 			public string OldValue { get; set; }
 
+			///
+			///Site associated wit this entry
+			///
 			public string Site { get; set; }
 
 		}

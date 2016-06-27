@@ -642,6 +642,7 @@
     <Compile Include="Contracts\ProductRuntime\ProductPurchasableState.cs" />
     <Compile Include="Contracts\ProductRuntime\ProductSearchResult.cs" />
     <Compile Include="Contracts\ProductRuntime\ProductValidationSummary.cs" />
+    <Compile Include="Contracts\ProductRuntime\ProductVolumePrice.cs" />
     <Compile Include="Contracts\ProductRuntime\ResolvedPriceList.cs" />
     <Compile Include="Contracts\ProductRuntime\SearchSuggestion.cs" />
     <Compile Include="Contracts\ProductRuntime\SearchSuggestionGroup.cs" />
