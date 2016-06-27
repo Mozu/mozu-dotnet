@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// 
+	/// commerce/customer/accounts/auditLog related resources. DOCUMENT_HERE 
 	/// </summary>
 	public partial class CustomerAuditEntryFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// 
+		/// accounts-auditLog Get GetAccountAuditLog description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerAuditEntryFactory.GetAccountAuditLog(handler : handler,  accountId :  accountId,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

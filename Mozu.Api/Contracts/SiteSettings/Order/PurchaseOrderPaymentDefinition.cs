@@ -14,14 +14,29 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.SiteSettings.Order
 {
+		///
+		///	Mozu.SiteSettings.Order.Contracts.PurchaseOrderPaymentDefinition ApiType DOCUMENT_HERE 
+		///
 		public class PurchaseOrderPaymentDefinition
 		{
+			///
+			///Indicates whether another payment can be used with the purchase order
+			///
 			public bool AllowSplitPayment { get; set; }
 
+			///
+			///Mozu.SiteSettings.Order.Contracts.PurchaseOrderPaymentDefinition customFields ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<PurchaseOrderCustomField> CustomFields { get; set; }
 
+			///
+			///Indicates if the object or process is enabled. This indicator is used on external payment workflows and product option values. For product options, if true, the product option value is available for a shopper to choose. During configuration, this property will be false if the option value is invalid with other selected options. For external payment workflows, if true, the workflow is enabled and available for routing payments for the submitted order.
+			///
 			public bool IsEnabled { get; set; }
 
+			///
+			///Allowed net terms
+			///
 			public List<PurchaseOrderPaymentTerm> PaymentTerms { get; set; }
 
 		}

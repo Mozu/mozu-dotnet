@@ -14,12 +14,24 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 {
+		///
+		///	Mozu.CommerceRuntime.Contracts.Payments.PurchaseOrderPayment ApiType DOCUMENT_HERE 
+		///
 		public class PurchaseOrderPayment
 		{
+			///
+			///Memo/custom fields
+			///
 			public List<PurchaseOrderCustomField> CustomFields { get; set; }
 
+			///
+			///Net term / Payment term
+			///
 			public PurchaseOrderPaymentTerm PaymentTerm { get; set; }
 
+			///
+			///Purchase order number
+			///
 			public string PurchaseOrderNumber { get; set; }
 
 		}

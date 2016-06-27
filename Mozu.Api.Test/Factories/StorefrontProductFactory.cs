@@ -33,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves a list of products that appear on the web storefront according to any specified filter criteria and sort options.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductFactory.GetProducts(handler : handler,  filter :  filter,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductFactory.GetProducts(handler : handler,  filter :  filter,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  responseOptions :  responseOptions,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<ProductCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductRuntime.ProductCollection GetProducts(ServiceClientMessageHandler handler, 
- 		 string filter = null, int? startIndex = null, int? pageSize = null, string sortBy = null, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 string filter = null, int? startIndex = null, int? pageSize = null, string sortBy = null, string responseOptions = null, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -48,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductsClient(
-				 filter :  filter,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  responseFields :  responseFields, dataViewMode: dataViewMode		);
+				 filter :  filter,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  responseOptions :  responseOptions,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

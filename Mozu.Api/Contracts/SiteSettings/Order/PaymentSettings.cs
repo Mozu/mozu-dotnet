@@ -40,6 +40,9 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 			///
 			public bool PayByMail { get; set; }
 
+			///
+			///Mozu.SiteSettings.Order.Contracts.PaymentSettings purchaseOrder ApiTypeMember DOCUMENT_HERE 
+			///
 			public PurchaseOrderPaymentDefinition PurchaseOrder { get; set; }
 
 		}

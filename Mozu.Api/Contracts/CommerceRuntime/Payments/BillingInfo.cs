@@ -60,6 +60,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///
 			public string PaymentWorkflow { get; set; }
 
+			///
+			///Purchase order payment information
+			///
 			public PurchaseOrderPayment PurchaseOrder { get; set; }
 
 			///
