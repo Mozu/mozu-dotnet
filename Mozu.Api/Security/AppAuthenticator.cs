@@ -1,6 +1,7 @@
 using System;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Mozu.Api.Contracts.AppDev;
 using Mozu.Api.Logging;
@@ -25,8 +26,9 @@ namespace Mozu.Api.Security
         private RefreshInterval _refreshInterval = null;
 
         private static ILogger _log = LogManager.GetLogger(typeof(AppAuthenticator));
+        private static SemaphoreSlim _semaphoreWaiter = new SemaphoreSlim(10);
 
-		/// <summary>
+        /// <summary>
 		/// The application auth ticket
 		/// </summary>
         public AuthTicket AppAuthTicket { get; protected set; }
@@ -62,6 +64,7 @@ namespace Mozu.Api.Security
 
             if (_auth == null || (_auth != null && _auth.AppAuthInfo.ApplicationId != appAuthInfo.ApplicationId))
             {
+                _semaphoreWaiter.Wait();
                 lock (_lockObj)
                 {
                     try
@@ -79,6 +82,10 @@ namespace Mozu.Api.Security
                         _log.Error(exc.Message, exc);
                         _auth = null;
                         throw exc;
+                    }
+                    finally
+                    {
+                        _semaphoreWaiter.Release();
                     }
                 }
             }
@@ -99,18 +106,29 @@ namespace Mozu.Api.Security
 		        return _auth;
 		    try
 		    {
-		        _log.Info("Initializing App");
-		        var uri = new Uri(baseAppAuthUrl);
-		        HttpHelper.UrlScheme = uri.Scheme;
-		        var tmp = new AppAuthenticator(appAuthInfo, baseAppAuthUrl, refreshInterval);
-		        await tmp.AuthenticateAppAsync();
-		        lock (_lockObj)
-		        {
-		            _auth = tmp;
-		        }
-		        _log.Info("Initializing App..Done");
-
-		    }
+                await _semaphoreWaiter.WaitAsync();
+                // Double check to make sure that someone else didn't already initialize it while we were waiting
+                if (_auth == null || (_auth != null && _auth.AppAuthInfo.ApplicationId != appAuthInfo.ApplicationId))
+                {
+                    try
+		            {
+		                _log.Info("Initializing App");
+		                var uri = new Uri(baseAppAuthUrl);
+		                HttpHelper.UrlScheme = uri.Scheme;
+		                var tmp = new AppAuthenticator(appAuthInfo, baseAppAuthUrl, refreshInterval);
+		                await tmp.AuthenticateAppAsync();
+		                lock (_lockObj)
+		                {
+		                    _auth = tmp;
+		                }
+		            }
+		            finally
+		            {
+		                _semaphoreWaiter.Release();
+                    }
+                    _log.Info("Initializing App..Done");
+                }
+            }
 		    catch (ApiException exc)
 		    {
 		        _log.Error(exc.Message, exc);
