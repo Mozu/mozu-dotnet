@@ -24,6 +24,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public AttributeVocabularyValueLocalizedContent Content { get; set; }
 
+			public int? DisplayOrder { get; set; }
+
 			///
 			///The localized content of an attribute determined by the `localeCode`. This content is always in the default language of the MasterCatalog.
 			///

@@ -24,6 +24,8 @@ namespace Mozu.Api.Contracts.ProductAdmin.Search
 			///
 			public string Key { get; set; }
 
+			public int? SynonymId { get; set; }
+
 			///
 			///List of synonyms.  If no key is defined the matches are bidirectional
 			///
