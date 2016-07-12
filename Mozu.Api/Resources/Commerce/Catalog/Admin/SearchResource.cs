@@ -285,6 +285,110 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionPagedCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var search = new Search();
+		///   var synonymDefinitionPagedCollection = search.GetSynonymDefinitions( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionPagedCollection GetSynonymDefinitions(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionPagedCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.GetSynonymDefinitionsClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionPagedCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var search = new Search();
+		///   var synonymDefinitionPagedCollection = await search.GetSynonymDefinitionsAsync( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionPagedCollection> GetSynonymDefinitionsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionPagedCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.GetSynonymDefinitionsClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="synonymId"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var search = new Search();
+		///   var synonymDefinition = search.GetSynonymDefinition( synonymId,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition GetSynonymDefinition(int synonymId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.GetSynonymDefinitionClient( synonymId,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="synonymId"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var search = new Search();
+		///   var synonymDefinition = await search.GetSynonymDefinitionAsync( synonymId,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition> GetSynonymDefinitionAsync(int synonymId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.GetSynonymDefinitionClient( synonymId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
 		/// admin-search Post AddSearchTuningRule description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -434,6 +538,55 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="synonymDefinition"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var search = new Search();
+		///   var synonymDefinition = search.AddSynonymDefinition( synonymDefinition,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition AddSynonymDefinition(Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition synonymDefinition, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.AddSynonymDefinitionClient( synonymDefinition,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="synonymDefinition"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var search = new Search();
+		///   var synonymDefinition = await search.AddSynonymDefinitionAsync( synonymDefinition,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition> AddSynonymDefinitionAsync(Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition synonymDefinition, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.AddSynonymDefinitionClient( synonymDefinition,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
 		/// admin-search Put UpdateSearchTuningRule description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -534,6 +687,57 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="synonymId"></param>
+		/// <param name="synonymDefinition"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var search = new Search();
+		///   var synonymDefinition = search.UpdateSynonymDefinition( synonymDefinition,  synonymId,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition UpdateSynonymDefinition(Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition synonymDefinition, int synonymId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.UpdateSynonymDefinitionClient( synonymDefinition,  synonymId,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="synonymId"></param>
+		/// <param name="synonymDefinition"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var search = new Search();
+		///   var synonymDefinition = await search.UpdateSynonymDefinitionAsync( synonymDefinition,  synonymId,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition> UpdateSynonymDefinitionAsync(Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition synonymDefinition, int synonymId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.UpdateSynonymDefinitionClient( synonymDefinition,  synonymId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
 		/// Deletes the specified search tuning rule.
 		/// </summary>
 		/// <param name="searchTuningRuleCode">The unique identifier of the search tuning rule.</param>
@@ -573,6 +777,51 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.DeleteSearchTuningRuleClient( searchTuningRuleCode);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="synonymId"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var search = new Search();
+		///   search.DeleteSynonymDefinition( synonymId);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void DeleteSynonymDefinition(int synonymId)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.DeleteSynonymDefinitionClient( synonymId);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="synonymId"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var search = new Search();
+		///   await search.DeleteSynonymDefinitionAsync( synonymId);
+		/// </code>
+		/// </example>
+		public virtual async Task DeleteSynonymDefinitionAsync(int synonymId)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.DeleteSynonymDefinitionClient( synonymId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 

@@ -1,3 +1,14 @@
 Operation Params
-0.    Added - commerce.catalog.storefront.products.GetProducts- Param : responseOptions
-1.    Added - commerce.catalog.storefront.productsearch.Search- Param : responseOptions
+0.    Added - commerce.catalog.admin.search.AddSynonymDefinition- Param : synonymDefinition
+1.    Added - commerce.catalog.admin.search.UpdateSynonymDefinition- Param : synonymDefinition
+2.    Added - commerce.catalog.admin.search.DeleteSynonymDefinition- Param : synonymId
+3.    Added - commerce.catalog.admin.search.GetSynonymDefinition- Param : synonymId
+4.    Added - commerce.catalog.admin.search.UpdateSynonymDefinition- Param : synonymId
+5.    Added - commerce.customer.accounts.purchaseOrder.GetCustomerPurchaseOrderTransactions- Param : filter
+
+Operations
+0.    Added - commerce.catalog.admin.search.AddSynonymDefinition - POST
+1.    Added - commerce.catalog.admin.search.DeleteSynonymDefinition - DELETE
+2.    Added - commerce.catalog.admin.search.GetSynonymDefinition - GET
+3.    Added - commerce.catalog.admin.search.GetSynonymDefinitions - GET
+4.    Added - commerce.catalog.admin.search.UpdateSynonymDefinition - PUT

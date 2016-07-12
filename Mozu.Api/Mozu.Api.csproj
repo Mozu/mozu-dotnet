@@ -590,6 +590,7 @@
     <Compile Include="Contracts\ProductAdmin\Search\SearchTuningRuleSortFields.cs" />
     <Compile Include="Contracts\ProductAdmin\Search\SynonymDefinition.cs" />
     <Compile Include="Contracts\ProductAdmin\Search\SynonymDefinitionCollection.cs" />
+    <Compile Include="Contracts\ProductAdmin\Search\SynonymDefinitionPagedCollection.cs" />
     <Compile Include="Contracts\ProductAdmin\SearchSettings.cs" />
     <Compile Include="Contracts\ProductAdmin\SiteSearchKeywordRelevancySettings.cs" />
     <Compile Include="Contracts\ProductAdmin\SiteSearchPhraseRelevancySettings.cs" />
