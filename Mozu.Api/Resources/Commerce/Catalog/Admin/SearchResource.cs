@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 {
 	/// <summary>
-	/// The Search resource manages all settings and options for providing product search on your site.
+	/// 
 	/// </summary>
 	public partial class SearchResource  	{
 		///
@@ -189,9 +189,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Get site search settings
+		/// 
 		/// </summary>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.SearchSettings"/>
 		/// </returns>
@@ -213,9 +213,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Get site search settings
+		/// 
 		/// </summary>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.SearchSettings"/>
 		/// </returns>
@@ -236,10 +236,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Retrieves a collection of synonyms definitions for product searches. Synonyms aid with determining matches for entered searches.
+		/// 
 		/// </summary>
-		/// <param name="localeCode">The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.</param>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="localeCode"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection"/>
 		/// </returns>
@@ -261,10 +261,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Retrieves a collection of synonyms definitions for product searches. Synonyms aid with determining matches for entered searches.
+		/// 
 		/// </summary>
-		/// <param name="localeCode">The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.</param>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="localeCode"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection"/>
 		/// </returns>
@@ -287,11 +287,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="filter"></param>
-		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="sortBy"></param>
-		/// <param name="startIndex"></param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="searchTuningRuleIn">Mozu.ProductAdmin.Contracts.Search.SearchTuningRule ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionPagedCollection"/>
 		/// </returns>
@@ -487,11 +484,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Updates synonym definitions for product searches. Synonyms aid with determining matches for entered searches.
+		/// 
 		/// </summary>
-		/// <param name="localeCode">The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.</param>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
-		/// <param name="collection">Collection of synonym definitions used for determining search results.</param>
+		/// <param name="localeCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="collection"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection"/>
 		/// </returns>
@@ -513,11 +510,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Updates synonym definitions for product searches. Synonyms aid with determining matches for entered searches.
+		/// 
 		/// </summary>
-		/// <param name="localeCode">The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.</param>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
-		/// <param name="collection">Collection of synonym definitions used for determining search results.</param>
+		/// <param name="localeCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="collection"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection"/>
 		/// </returns>
@@ -538,56 +535,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="synonymDefinition"></param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var search = new Search();
-		///   var synonymDefinition = search.AddSynonymDefinition( synonymDefinition,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition AddSynonymDefinition(Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition synonymDefinition, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.AddSynonymDefinitionClient( synonymDefinition,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="synonymDefinition"></param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var search = new Search();
-		///   var synonymDefinition = await search.AddSynonymDefinitionAsync( synonymDefinition,  responseFields);
-		/// </code>
-		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition> AddSynonymDefinitionAsync(Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition synonymDefinition, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.AddSynonymDefinitionClient( synonymDefinition,  responseFields);
-			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
-			return await response.ResultAsync();
-
-		}
-
-		/// <summary>
-		/// 
+		/// admin-search Put UpdateSearchTuningRule description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="responseFields"></param>
 		/// <param name="searchTuningRuleCode"></param>
@@ -638,10 +586,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Adds or Updates (Upsert) the Search Settings for a specific site
+		/// 
 		/// </summary>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
-		/// <param name="settings">The settings to control product search and indexing behavior.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="settings"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.SearchSettings"/>
 		/// </returns>
@@ -663,10 +611,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Adds or Updates (Upsert) the Search Settings for a specific site
+		/// 
 		/// </summary>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
-		/// <param name="settings">The settings to control product search and indexing behavior.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="settings"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.SearchSettings"/>
 		/// </returns>
@@ -687,58 +635,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="synonymId"></param>
-		/// <param name="synonymDefinition"></param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var search = new Search();
-		///   var synonymDefinition = search.UpdateSynonymDefinition( synonymDefinition,  synonymId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition UpdateSynonymDefinition(Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition synonymDefinition, int synonymId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.UpdateSynonymDefinitionClient( synonymDefinition,  synonymId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="synonymId"></param>
-		/// <param name="synonymDefinition"></param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var search = new Search();
-		///   var synonymDefinition = await search.UpdateSynonymDefinitionAsync( synonymDefinition,  synonymId,  responseFields);
-		/// </code>
-		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition> UpdateSynonymDefinitionAsync(Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition synonymDefinition, int synonymId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.UpdateSynonymDefinitionClient( synonymDefinition,  synonymId,  responseFields);
-			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
-			return await response.ResultAsync();
-
-		}
-
-		/// <summary>
-		/// 
+		/// Deletes the specified search tuning rule.
 		/// </summary>
 		/// <param name="searchTuningRuleCode"></param>
 		/// <returns>
