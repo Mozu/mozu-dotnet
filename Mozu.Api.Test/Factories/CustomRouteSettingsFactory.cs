@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Custom Routes resource to manage your custom route settings. Custom routing allows you to display SEO-friendly URLs on your site that map behind-the-scenes to conventional Mozu resources such as a product page or a search results page. With custom routing, you gain advanced control over the URL structures on your site and can more visibly highlight the products or categories your shoppers are interested in purchasing.To learn more about custom routing, refer to the [Custom Route Settings](../../../guides/settings/custom-routes.htm) topic.
+	/// 
 	/// </summary>
 	public partial class CustomRouteSettingsFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves the custom route settings configured for a site. These are the same settings configured through  in the Custom Routing JSON Editor.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomRouteSettingsFactory.GetCustomRouteSettings(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Create new custom route settings.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomRouteSettingsFactory.CreateCustomRouteSettings(handler : handler,  settings :  settings,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates custom route settings.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomRouteSettingsFactory.UpdateCustomRouteSettings(handler : handler,  settings :  settings,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Deletes all the custom route settings for a site, returning all routes to their Mozu defaults.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomRouteSettingsFactory.DeleteCustomRouteSettings(handler : handler,  expectedCode: expectedCode, successCode: successCode); 

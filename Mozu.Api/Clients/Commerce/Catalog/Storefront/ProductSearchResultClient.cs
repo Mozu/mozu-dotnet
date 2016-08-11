@@ -24,26 +24,29 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// <summary>
 		/// Searches the categories displayed on the web storefront for products or product options that the shopper types in a search query.
 		/// </summary>
-		/// <param name="enableSearchTuningRules">Enables search tuning rules on your site.</param>
+		/// <param name="cursorMark"></param>
+		/// <param name="enableSearchTuningRules"></param>
 		/// <param name="facet">Individually list the facet fields you want to display in a web storefront product search.</param>
 		/// <param name="facetFieldRangeQuery">Display a range facet not specified in a template in a web storefront product search by listing the facet field and the range to display.</param>
 		/// <param name="facetHierDepth">If filtering using category facets in a hierarchy, the number of category hierarchy levels to return for the facet. This option is only available for category facets.</param>
 		/// <param name="facetHierPrefix">If filtering using category facets in a hierarchy, the parent categories you want to skip in the storefront product search. This parameter is only available for category facets.</param>
 		/// <param name="facetHierValue">If filtering using category facets in a hierarchy, the category in the hierarchy to begin faceting on. This parameter is only available for category facets.</param>
 		/// <param name="facetPageSize">The number of facet values to return for one or more facets.</param>
+		/// <param name="facetPrefix"></param>
 		/// <param name="facetSettings">Settings reserved for future facet search functionality on a web storefront product search.</param>
 		/// <param name="facetStartIndex">When paging through multiple facets, the startIndex value for each facet.</param>
 		/// <param name="facetTemplate">The facet template to use on the storefront. A template displays all facets associated with the template on the web storefront product search. Currently, only category-level facet templates are available.</param>
-		/// <param name="facetTemplateExclude">A comma-separated list of the facets to exclude from the facetTemplate.        </param>
+		/// <param name="facetTemplateExclude"></param>
 		/// <param name="facetTemplateSubset">Display a subset of the facets defined in the template specified in facetTemplate parameter.</param>
 		/// <param name="facetValueFilter">The facet values to apply to the filter.</param>
 		/// <param name="filter">A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-		/// <param name="query">Properties for the product location inventory provided for queries to locate products by their location.</param>
+		/// <param name="query">A query entered for searches and facet range.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="searchSettings">The settings to control product search and indexing behavior.</param>
-		/// <param name="searchTuningRuleCode">The unique identifier of the search tuning rule.</param>
-		/// <param name="searchTuningRuleContext">The category ID that the search tuning rule applies to.</param>
+		/// <param name="responseOptions"></param>
+		/// <param name="searchSettings"></param>
+		/// <param name="searchTuningRuleCode"></param>
+		/// <param name="searchTuningRuleContext"></param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
 		/// <returns>
@@ -51,13 +54,13 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=Search( query,  filter,  facetTemplate,  facetTemplateSubset,  facet,  facetFieldRangeQuery,  facetHierPrefix,  facetHierValue,  facetHierDepth,  facetStartIndex,  facetPageSize,  facetSettings,  facetValueFilter,  sortBy,  pageSize,  startIndex,  searchSettings,  enableSearchTuningRules,  searchTuningRuleContext,  searchTuningRuleCode,  facetTemplateExclude,  responseFields);
+		///   var mozuClient=Search( query,  filter,  facetTemplate,  facetTemplateSubset,  facet,  facetFieldRangeQuery,  facetHierPrefix,  facetHierValue,  facetHierDepth,  facetStartIndex,  facetPageSize,  facetSettings,  facetValueFilter,  sortBy,  pageSize,  startIndex,  searchSettings,  enableSearchTuningRules,  searchTuningRuleContext,  searchTuningRuleCode,  facetTemplateExclude,  facetPrefix,  responseOptions,  cursorMark,  responseFields);
 		///   var productSearchResultClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductSearchResult> SearchClient(string query =  null, string filter =  null, string facetTemplate =  null, string facetTemplateSubset =  null, string facet =  null, string facetFieldRangeQuery =  null, string facetHierPrefix =  null, string facetHierValue =  null, string facetHierDepth =  null, string facetStartIndex =  null, string facetPageSize =  null, string facetSettings =  null, string facetValueFilter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, string searchSettings =  null, bool? enableSearchTuningRules =  null, string searchTuningRuleContext =  null, string searchTuningRuleCode =  null, string facetTemplateExclude =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductSearchResult> SearchClient(string query =  null, string filter =  null, string facetTemplate =  null, string facetTemplateSubset =  null, string facet =  null, string facetFieldRangeQuery =  null, string facetHierPrefix =  null, string facetHierValue =  null, string facetHierDepth =  null, string facetStartIndex =  null, string facetPageSize =  null, string facetSettings =  null, string facetValueFilter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, string searchSettings =  null, bool? enableSearchTuningRules =  null, string searchTuningRuleContext =  null, string searchTuningRuleCode =  null, string facetTemplateExclude =  null, string facetPrefix =  null, string responseOptions =  null, string cursorMark =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductSearchResultUrl.SearchUrl(query, filter, facetTemplate, facetTemplateSubset, facet, facetFieldRangeQuery, facetHierPrefix, facetHierValue, facetHierDepth, facetStartIndex, facetPageSize, facetSettings, facetValueFilter, sortBy, pageSize, startIndex, searchSettings, enableSearchTuningRules, searchTuningRuleContext, searchTuningRuleCode, facetTemplateExclude, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductSearchResultUrl.SearchUrl(query, filter, facetTemplate, facetTemplateSubset, facet, facetFieldRangeQuery, facetHierPrefix, facetHierValue, facetHierDepth, facetStartIndex, facetPageSize, facetSettings, facetValueFilter, sortBy, pageSize, startIndex, searchSettings, enableSearchTuningRules, searchTuningRuleContext, searchTuningRuleCode, facetTemplateExclude, facetPrefix, responseOptions, cursorMark, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductSearchResult>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -71,7 +74,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// </summary>
 		/// <param name="groups"></param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-		/// <param name="query">Properties for the product location inventory provided for queries to locate products by their location.</param>
+		/// <param name="query">A query entered for searches and facet range.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductRuntime.SearchSuggestionResult"/>}

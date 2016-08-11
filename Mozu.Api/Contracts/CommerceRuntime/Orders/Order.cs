@@ -46,9 +46,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public decimal AmountAvailableForRefund { get; set; }
 
-			///
-			///A counter for how much money has been issued in refunds. This calculated field does NOT include refunds issued in returns.
-			///
 			public decimal AmountRefunded { get; set; }
 
 			///
@@ -121,9 +118,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public string CustomerTaxId { get; set; }
 
-			///
-			///Custom data for a given vendor set within the commerce process.
-			///
 			public JObject Data { get; set; }
 
 			///
@@ -146,14 +140,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public decimal? DiscountTotal { get; set; }
 
-			///
-			///Order level duty or tariff amount. Does not take into account duties or tariffs specifically on items on the order
-			///
 			public decimal? DutyAmount { get; set; }
 
-			///
-			///Duties or tariffs for the Order as well as OrderItems (e.g. if the Order has a $5 duty or tariff for any reason and an OrderItem has a $2 duty or tariff then the value in this property would be $7)
-			///
 			public decimal? DutyTotal { get; set; }
 
 			///
@@ -166,9 +154,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public DateTime? ExpirationDate { get; set; }
 
-			///
-			///Extra properties (key-value pairs) that extend the primary object. Think of this as a property bag of string keys and string values.
-			///
 			public List<ExtendedProperty> ExtendedProperties { get; set; }
 
 			///
@@ -331,9 +316,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public List<Pickup> Pickups { get; set; }
 
-			///
-			///Refunds associated with this order. A refund is a single exchange of money from merchant to customer that either encapsulates a refund to a credit card or an issuance of a store credit. Refunds does not reduce the 'amount collected' on an order and it is possible for refunds to exceed the total order amount.
-			///
+			public string PriceListCode { get; set; }
+
 			public List<Refund> Refunds { get; set; }
 
 			///

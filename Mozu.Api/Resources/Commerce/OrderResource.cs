@@ -391,12 +391,12 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// commerce-orders Put ProcessDigitalWallet description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="digitalWalletType">The type of digital wallet to be processed.</param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
-		/// <param name="digitalWallet">Mozu.CommerceRuntime.Contracts.Orders.DigitalWallet ApiType DOCUMENT_HERE </param>
+		/// <param name="digitalWalletType"></param>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="digitalWallet"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
@@ -418,12 +418,12 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// commerce-orders Put ProcessDigitalWallet description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="digitalWalletType">The type of digital wallet to be processed.</param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
-		/// <param name="digitalWallet">Mozu.CommerceRuntime.Contracts.Orders.DigitalWallet ApiType DOCUMENT_HERE </param>
+		/// <param name="digitalWalletType"></param>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="digitalWallet"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
@@ -446,7 +446,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// Update the properties of a discount applied to an order.
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read only.</param>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
@@ -475,7 +475,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// Update the properties of a discount applied to an order.
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read only.</param>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
@@ -548,10 +548,10 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// commerce-orders Put ResendOrderConfirmationEmail description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="action">The action to perform for the order.</param>
+		/// <param name="orderId"></param>
+		/// <param name="action"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -572,10 +572,10 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// commerce-orders Put ResendOrderConfirmationEmail description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="action">The action to perform for the order.</param>
+		/// <param name="orderId"></param>
+		/// <param name="action"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -591,6 +591,61 @@ namespace Mozu.Api.Resources.Commerce
 			var client = Mozu.Api.Clients.Commerce.OrderClient.ResendOrderConfirmationEmailClient( action,  orderId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="updateMode"></param>
+		/// <param name="version"></param>
+		/// <param name="priceListCode"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var order = new Order();
+		///   var order = order.ChangeOrderPriceList( priceListCode,  orderId,  updateMode,  version,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.Order ChangeOrderPriceList(string priceListCode, string orderId, string updateMode =  null, string version =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
+			var client = Mozu.Api.Clients.Commerce.OrderClient.ChangeOrderPriceListClient( priceListCode,  orderId,  updateMode,  version,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="updateMode"></param>
+		/// <param name="version"></param>
+		/// <param name="priceListCode"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var order = new Order();
+		///   var order = await order.ChangeOrderPriceListAsync( priceListCode,  orderId,  updateMode,  version,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> ChangeOrderPriceListAsync(string priceListCode, string orderId, string updateMode =  null, string version =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
+			var client = Mozu.Api.Clients.Commerce.OrderClient.ChangeOrderPriceListClient( priceListCode,  orderId,  updateMode,  version,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
 
 		}
 

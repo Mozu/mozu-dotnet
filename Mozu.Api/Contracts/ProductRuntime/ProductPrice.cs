@@ -38,6 +38,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public AppliedDiscount Discount { get; set; }
 
+			public string EffectivePricelistCode { get; set; }
+
 			///
 			///The manufacturer's suggested retail price for the product. This content may be defined by the supplier.
 			///
@@ -47,6 +49,10 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///The price the merchant intends to charge for the product.
 			///
 			public decimal? Price { get; set; }
+
+			public string PriceListEntryCode { get; set; }
+
+			public string PriceListEntryMode { get; set; }
 
 			///
 			///The price type that displays on the storefront website for the Price field, which is List, MAP, or CatalogSalePrice

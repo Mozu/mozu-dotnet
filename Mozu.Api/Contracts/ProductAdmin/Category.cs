@@ -31,9 +31,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public string CategoryCode { get; set; }
 
-			///
-			///The Type of Category Static, Dyanmic, DynamicPreComputed
-			///
 			public string CategoryType { get; set; }
 
 			///
@@ -46,9 +43,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public CategoryLocalizedContent Content { get; set; }
 
-			///
-			///Mozu.ProductAdmin.Contracts.Category dynamicExpression ApiTypeMember DOCUMENT_HERE 
-			///
 			public DynamicExpression DynamicExpression { get; set; }
 
 			///

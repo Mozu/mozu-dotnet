@@ -91,7 +91,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for ResendCreditCreatedEmail
         /// </summary>
-        /// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+        /// <param name="code"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

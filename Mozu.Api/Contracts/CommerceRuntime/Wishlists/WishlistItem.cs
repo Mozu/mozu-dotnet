@@ -34,9 +34,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			///
 			public string Comments { get; set; }
 
-			///
-			///Custom data for a given vendor set within the commerce process.
-			///
 			public JObject Data { get; set; }
 
 			///
@@ -84,9 +81,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			///
 			public decimal? ItemTaxTotal { get; set; }
 
-			///
-			///The line id assigned to the order item. Visible only in the Admin, this is set from the Admin or in CommerceRuntime when a cart is converted to an order.
-			///
 			public int? LineId { get; set; }
 
 			///

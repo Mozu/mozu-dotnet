@@ -38,12 +38,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 				
 		/// <summary>
-		/// Retrieves an order item with the order line ID.
+		/// 
 		/// </summary>
-		/// <param name="draft">If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.</param>
+		/// <param name="draft"></param>
 		/// <param name="lineId"></param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem"/>
 		/// </returns>
@@ -65,12 +65,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		}
 
 		/// <summary>
-		/// Retrieves an order item with the order line ID.
+		/// 
 		/// </summary>
-		/// <param name="draft">If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.</param>
+		/// <param name="draft"></param>
 		/// <param name="lineId"></param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem"/>
 		/// </returns>
@@ -254,7 +254,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// Update the discount applied to an item in an order.
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read only.</param>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="orderItemId">Unique identifier of the item to remove from the order.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
@@ -284,7 +284,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// Update the discount applied to an item in an order.
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read only.</param>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="orderItemId">Unique identifier of the item to remove from the order.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
@@ -311,14 +311,14 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		}
 
 		/// <summary>
-		/// Update the duty fee information for an order item.
+		/// 
 		/// </summary>
-		/// <param name="dutyAmount">The amount added to the order item for duty fees.        </param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="orderItemId">Unique identifier of the item to remove from the order.</param>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
+		/// <param name="dutyAmount"></param>
+		/// <param name="orderId"></param>
+		/// <param name="orderItemId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="updateMode"></param>
+		/// <param name="version"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
@@ -340,14 +340,14 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		}
 
 		/// <summary>
-		/// Update the duty fee information for an order item.
+		/// 
 		/// </summary>
-		/// <param name="dutyAmount">The amount added to the order item for duty fees.        </param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="orderItemId">Unique identifier of the item to remove from the order.</param>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
+		/// <param name="dutyAmount"></param>
+		/// <param name="orderId"></param>
+		/// <param name="orderItemId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="updateMode"></param>
+		/// <param name="version"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>

@@ -78,15 +78,17 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// </summary>
         /// <param name="incrementSequence">If true, when adding a new product category, set the sequence number of the new category to an increment of one integer greater than the maximum available sequence number across all product categories. If false, set the sequence number to zero.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="useProvidedId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl AddCategoryUrl(bool? incrementSequence =  null, string responseFields =  null)
+        public static MozuUrl AddCategoryUrl(bool? incrementSequence =  null, bool? useProvidedId =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/categories/?incrementSequence={incrementSequence}&responseFields={responseFields}";
+			var url = "/api/commerce/catalog/admin/categories/?incrementSequence={incrementSequence}&useProvidedId={useProvidedId}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "incrementSequence", incrementSequence);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "useProvidedId", useProvidedId);
 			return mozuUrl;
 		}
 
@@ -106,7 +108,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for ValidateDynamicExpression
         /// </summary>
-        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -121,7 +123,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for ValidateRealTimeDynamicExpression
         /// </summary>
-        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -136,7 +138,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for UpdateCategory
         /// </summary>
-        /// <param name="cascadeVisibility">If true, when changing the display option for the category, change it for all subcategories also. The default value is false.</param>
+        /// <param name="cascadeVisibility">If true, when changing the display option for the category, change it for all subcategories also. Default: False.</param>
         /// <param name="categoryId">Unique identifier of the category to modify.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
@@ -155,10 +157,10 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for DeleteCategoryById
         /// </summary>
-        /// <param name="cascadeDelete">Specifies whether to also delete all subcategories associated with the specified category.If you set this value is false, only the specified category is deleted.The default value is false.</param>
+        /// <param name="cascadeDelete">If true, also delete all subcategories associated with the specified category.</param>
         /// <param name="categoryId">Unique identifier of the category to modify.</param>
-        /// <param name="forceDelete">Specifies whether the category, and any associated subcategories, are deleted even if there are products that reference them. The default value is false.</param>
-        /// <param name="reassignToParent">Specifies whether any subcategories of the specified category are reassigned to the parent of the specified category.This field only applies if the cascadeDelete parameter is false.The default value is false.</param>
+        /// <param name="forceDelete"></param>
+        /// <param name="reassignToParent"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

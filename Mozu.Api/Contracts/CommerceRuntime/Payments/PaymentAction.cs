@@ -45,14 +45,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///
 			public string CurrencyCode { get; set; }
 
-			///
-			///Custom data from payment providers
-			///
 			public JObject Data { get; set; }
 
-			///
-			///Mozu.CommerceRuntime.Contracts.Payments.PaymentAction externalTransactionId ApiTypeMember DOCUMENT_HERE 
-			///
 			public string ExternalTransactionId { get; set; }
 
 			///

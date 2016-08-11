@@ -19,14 +19,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 		///
 		public class BundledProduct
 		{
-			///
-			///Allocation ID associated with this product on this order.
-			///
 			public DateTime? AllocationExpiration { get; set; }
 
-			///
-			///Allocation ID associated with this product on this order.
-			///
 			public int? AllocationId { get; set; }
 
 			///
@@ -39,9 +33,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			///
 			public string Description { get; set; }
 
-			///
-			///Fulfillment status of the product.
-			///
 			public string FulfillmentStatus { get; set; }
 
 			///

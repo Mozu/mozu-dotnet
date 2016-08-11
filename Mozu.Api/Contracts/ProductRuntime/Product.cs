@@ -29,14 +29,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public List<BundledProduct> BundledProducts { get; set; }
 
-			///
-			///Mozu.ProductRuntime.Contracts.Product catalogEndDate ApiTypeMember DOCUMENT_HERE 
-			///
 			public DateTime? CatalogEndDate { get; set; }
 
-			///
-			///Mozu.ProductRuntime.Contracts.Product catalogStartDate ApiTypeMember DOCUMENT_HERE 
-			///
 			public DateTime? CatalogStartDate { get; set; }
 
 			///
@@ -54,14 +48,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public DateTime CreateDate { get; set; }
 
-			///
-			///Mozu.ProductRuntime.Contracts.Product dateFirstAvailableInCatalog ApiTypeMember DOCUMENT_HERE 
-			///
 			public DateTime? DateFirstAvailableInCatalog { get; set; }
 
-			///
-			///Mozu.ProductRuntime.Contracts.Product daysAvailableInCatalog ApiTypeMember DOCUMENT_HERE 
-			///
 			public int? DaysAvailableInCatalog { get; set; }
 
 			///
@@ -149,9 +137,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public string ProductType { get; set; }
 
-			///
-			///Mozu.ProductRuntime.Contracts.Product productTypeId ApiTypeMember DOCUMENT_HERE 
-			///
 			public int? ProductTypeId { get; set; }
 
 			///
@@ -184,15 +169,18 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public List<string> UpCs { get; set; }
 
+			public List<string> ValidPriceLists { get; set; }
+
 			///
 			///Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
 			///
 			public string VariationProductCode { get; set; }
 
-			///
-			///A summary of all variations that exist for the product.
-			///
 			public List<VariationSummary> Variations { get; set; }
+
+			public List<ProductVolumePrice> VolumePriceBands { get; set; }
+
+			public ProductPriceRange VolumePriceRange { get; set; }
 
 		}
 

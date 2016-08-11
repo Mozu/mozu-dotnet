@@ -29,6 +29,10 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public decimal? DeltaWeight { get; set; }
 
+			public ProductVariationFixedPrice FixedPrice { get; set; }
+
+			public decimal? FixedWeight { get; set; }
+
 			///
 			///List of supported types of fulfillment  for the product or variation. The types include direct ship, in-store pickup, or both. 
 			///
@@ -48,6 +52,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///The difference between associated prices for a product, variation option, or extra that is localized per the `localeCode`. The difference is calculated by subtracting the base price from the associated price with this product, option, and/or extra. Depending on the localeCode, the price may be converted such as from USD (US Dollar) to EUR (euro).
 			///
 			public List<ProductVariationDeltaPrice> LocalizedDeltaPrice { get; set; }
+
+			public List<ProductVariationFixedPrice> LocalizedFixedPrice { get; set; }
 
 			///
 			///List of option attributes configured for an object. These values are associated and used by products, product bundles, and product types.

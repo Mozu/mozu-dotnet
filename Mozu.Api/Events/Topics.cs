@@ -91,6 +91,20 @@ namespace Mozu.Api.Events
 
 		public const string ORDERUPDATED = "order.updated";
 
+		public const string PRICELISTCREATED = "pricelist.created";
+
+		public const string PRICELISTDELETED = "pricelist.deleted";
+
+		public const string PRICELISTUPDATED = "pricelist.updated";
+
+		public const string PRICELISTENTRYCREATED = "pricelistentry.created";
+
+		public const string PRICELISTENTRYDELETED = "pricelistentry.deleted";
+
+		public const string PRICELISTENTRYSTATUSCHANGED = "pricelistentry.statuschanged";
+
+		public const string PRICELISTENTRYUPDATED = "pricelistentry.updated";
+
 		public const string PRODUCTCODERENAMED = "product.coderenamed";
 
 		public const string PRODUCTCREATED = "product.created";
@@ -142,6 +156,8 @@ namespace Mozu.Api.Events
 		public const string SITEDELETED = "site.deleted";
 
 		public const string SITEUPDATED = "site.updated";
+
+		public const string TENANTCREATED = "tenant.created";
 
 		public const string TENANTDELETED = "tenant.deleted";
 

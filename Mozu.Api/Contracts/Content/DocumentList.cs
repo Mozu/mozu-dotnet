@@ -31,9 +31,6 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public List<string> DocumentTypes { get; set; }
 
-			///
-			///If set, documents in this list will only be returned if the date queried for their is within their ActiveDateRange.
-			///
 			public bool? EnableActiveDateRanges { get; set; }
 
 			///
@@ -76,9 +73,6 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public string Security { get; set; }
 
-			///
-			///Determines if the documentList will support ranges of dates that documents are considered 'active'. This field defaults to false and cannot be updated. If the documentList is based on a documentListType, then this value will be derived from the documentListType.
-			///
 			public bool? SupportsActiveDateRanges { get; set; }
 
 			///

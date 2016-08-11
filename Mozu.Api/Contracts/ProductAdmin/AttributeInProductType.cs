@@ -34,9 +34,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public AttributeInProductTypeDisplayInfo DisplayInfo { get; set; }
 
-			///
-			///If true, this property is not available on the storefront. If false, this property will be available on storefront. The IsHiddenProperty hides the property from the customer, but is still available from the API.
-			///
 			public bool? IsAdminOnlyProperty { get; set; }
 
 			///
@@ -54,9 +51,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool? IsMultiValueProperty { get; set; }
 
-			///
-			///If True this property will not be returned storefront product listings (Search,GetProduct) it will still be returned on GetProduct, ValidateProduct...)
-			///
 			public bool? IsProductDetailsOnlyProperty { get; set; }
 
 			///

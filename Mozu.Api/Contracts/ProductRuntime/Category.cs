@@ -39,9 +39,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public CategoryContent Content { get; set; }
 
-			///
-			///The number of facet results for a product search.
-			///
 			public int? Count { get; set; }
 
 			///

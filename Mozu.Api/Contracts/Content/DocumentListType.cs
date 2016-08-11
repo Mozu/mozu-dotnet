@@ -36,9 +36,6 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public List<string> DocumentTypeFQNs { get; set; }
 
-			///
-			///Determines if documentLists belonging to this documentListType have ActiveDateRanges turned on or off. Each documentList created from the documentListType will use this value, but it can be overridden in an individual documentList.
-			///
 			public bool? EnableActiveDateRanges { get; set; }
 
 			///
@@ -71,9 +68,6 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public string ScopeType { get; set; }
 
-			///
-			///Determines if documentLists belonging to this documentListType will support drafting and ActiveDateRanges documents. This field defaults to false and cannot be updated. Each documentList created from the documentListType will use this value.
-			///
 			public bool SupportsActiveDateRanges { get; set; }
 
 			///

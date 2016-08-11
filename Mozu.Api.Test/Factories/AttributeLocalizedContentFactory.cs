@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves the localized content for an attribute based on a `localeCode`.
+		/// Retrieves the localized content for an attribute  based on a `localeCode`. 
 		/// <example> 
 		///  <code> 
 		/// var result = AttributeLocalizedContentFactory.GetAttributeLocalizedContent(handler : handler,  attributeFQN :  attributeFQN,  localeCode :  localeCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Adds new localized content for an attribute based on a `localeCode`.
+		/// Adds new localized content for an attribute  based on a `localeCode`. 
 		/// <example> 
 		///  <code> 
 		/// var result = AttributeLocalizedContentFactory.AddLocalizedContent(handler : handler,  localizedContent :  localizedContent,  attributeFQN :  attributeFQN,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates the localized content for a collection of existing attributes based on a `localeCode`.
+		/// Updates the localized content for a collection of existing attributes  based on a `localeCode`. 
 		/// <example> 
 		///  <code> 
 		/// var result = AttributeLocalizedContentFactory.UpdateLocalizedContents(handler : handler,  localizedContent :  localizedContent,  attributeFQN :  attributeFQN,  expectedCode: expectedCode, successCode: successCode); 
@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates the localized content for an existing attribute based on a `localeCode`.
+		/// Updates the localized content for an existing attribute  based on a `localeCode`. 
 		/// <example> 
 		///  <code> 
 		/// var result = AttributeLocalizedContentFactory.UpdateLocalizedContent(handler : handler,  localizedContent :  localizedContent,  attributeFQN :  attributeFQN,  localeCode :  localeCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

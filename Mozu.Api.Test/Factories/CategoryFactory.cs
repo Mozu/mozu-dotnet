@@ -147,14 +147,14 @@ namespace Mozu.Api.Test.Factories
 		/// Adds a new category to the site's category hierarchy. Specify a ParentCategoryID to determine where to place the category in the hierarchy. If no ParentCategoryID is specified, the new category is a top-level category.
 		/// <example> 
 		///  <code> 
-		/// var result = CategoryFactory.AddCategory(handler : handler,  category :  category,  incrementSequence :  incrementSequence,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CategoryFactory.AddCategory(handler : handler,  category :  category,  incrementSequence :  incrementSequence,  useProvidedId :  useProvidedId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Category/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.Category AddCategory(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ProductAdmin.Category category, bool? incrementSequence = null, string responseFields = null, 
+ 		 Mozu.Api.Contracts.ProductAdmin.Category category, bool? incrementSequence = null, bool? useProvidedId = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -162,7 +162,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.AddCategoryClient(
-				 category :  category,  incrementSequence :  incrementSequence,  responseFields :  responseFields		);
+				 category :  category,  incrementSequence :  incrementSequence,  useProvidedId :  useProvidedId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Modifies the sequence and hierarchy of multiple categories in a category tree in one operation. This is better for moving a category to a different location in the tree and adjusting the order of multiple categories than doing individual category updates.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CategoryFactory.UpdateCategoryTree(handler : handler,  categorySequencies :  categorySequencies,  expectedCode: expectedCode, successCode: successCode); 
@@ -219,7 +219,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Validates the precomputed dynamic category expression.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CategoryFactory.ValidateDynamicExpression(handler : handler,  dynamicExpressionIn :  dynamicExpressionIn,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -257,7 +257,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Validates the realtime dynamic expression.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CategoryFactory.ValidateRealTimeDynamicExpression(handler : handler,  dynamicExpressionIn :  dynamicExpressionIn,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

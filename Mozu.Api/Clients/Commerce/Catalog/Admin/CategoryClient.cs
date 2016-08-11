@@ -104,19 +104,20 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="incrementSequence">If true, when adding a new product category, set the sequence number of the new category to an increment of one integer greater than the maximum available sequence number across all product categories. If false, set the sequence number to zero.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="useProvidedId"></param>
 		/// <param name="category">A descriptive container that groups products. A category is merchant defined with associated products and discounts as configured. GThe storefront displays products in a hierarchy of categories. As such, categories can include a nesting of sub-categories to organize products and product options per set guidelines such as color, brand, material, and size.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Category"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddCategory( category,  incrementSequence,  responseFields);
+		///   var mozuClient=AddCategory( category,  incrementSequence,  useProvidedId,  responseFields);
 		///   var categoryClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Category> AddCategoryClient(Mozu.Api.Contracts.ProductAdmin.Category category, bool? incrementSequence =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Category> AddCategoryClient(Mozu.Api.Contracts.ProductAdmin.Category category, bool? incrementSequence =  null, bool? useProvidedId =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.CategoryUrl.AddCategoryUrl(incrementSequence, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.CategoryUrl.AddCategoryUrl(incrementSequence, useProvidedId, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Category>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -126,9 +127,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Modifies the sequence and hierarchy of multiple categories in a category tree in one operation. This is better for moving a category to a different location in the tree and adjusting the order of multiple categories than doing individual category updates.
+		/// 
 		/// </summary>
-		/// <param name="categorySequencies">Mozu.ProductAdmin.Contracts.CategorySequenceCollection ApiType DOCUMENT_HERE </param>
+		/// <param name="categorySequencies"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
@@ -150,10 +151,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Validates the precomputed dynamic category expression.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
-		/// <param name="dynamicExpressionIn">Mozu.ProductAdmin.Contracts.DynamicExpression ApiType DOCUMENT_HERE </param>
+		/// <param name="responseFields"></param>
+		/// <param name="dynamicExpressionIn"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.DynamicExpression"/>}
 		/// </returns>
@@ -175,10 +176,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Validates the realtime dynamic expression.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
-		/// <param name="dynamicExpressionIn">Mozu.ProductAdmin.Contracts.DynamicExpression ApiType DOCUMENT_HERE </param>
+		/// <param name="responseFields"></param>
+		/// <param name="dynamicExpressionIn"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.DynamicExpression"/>}
 		/// </returns>
@@ -202,7 +203,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// Update the properties of a defined category or move it to another location in the category hierarchy. Because this operation replaces the defined resource,include all the information to maintain for the category in the request.
 		/// </summary>
-		/// <param name="cascadeVisibility">If true, when changing the display option for the category, change it for all subcategories also. The default value is false.</param>
+		/// <param name="cascadeVisibility">If true, when changing the display option for the category, change it for all subcategories also. Default: False.</param>
 		/// <param name="categoryId">Unique identifier of the category to modify.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="category">A descriptive container that groups products. A category is merchant defined with associated products and discounts as configured. GThe storefront displays products in a hierarchy of categories. As such, categories can include a nesting of sub-categories to organize products and product options per set guidelines such as color, brand, material, and size.</param>
@@ -229,10 +230,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// Deletes the category specified by its category ID.
 		/// </summary>
-		/// <param name="cascadeDelete">Specifies whether to also delete all subcategories associated with the specified category.If you set this value is false, only the specified category is deleted.The default value is false.</param>
+		/// <param name="cascadeDelete">If true, also delete all subcategories associated with the specified category.</param>
 		/// <param name="categoryId">Unique identifier of the category to modify.</param>
-		/// <param name="forceDelete">Specifies whether the category, and any associated subcategories, are deleted even if there are products that reference them. The default value is false.</param>
-		/// <param name="reassignToParent">Specifies whether any subcategories of the specified category are reassigned to the parent of the specified category.This field only applies if the cascadeDelete parameter is false.The default value is false.</param>
+		/// <param name="forceDelete"></param>
+		/// <param name="reassignToParent"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

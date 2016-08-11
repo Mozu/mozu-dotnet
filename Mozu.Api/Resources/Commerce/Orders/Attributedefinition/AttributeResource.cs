@@ -188,6 +188,106 @@ namespace Mozu.Api.Resources.Commerce.Orders.Attributedefinition
 
 		}
 
+		/// <summary>
+		/// Create and save a new attribute. These attributes are used in products and product options.
+		/// </summary>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="attribute">Properties of an attribute used to describe customers or orders.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Core.Extensible.Attribute"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var attribute = new Attribute();
+		///   var attribute = attribute.CreateAttribute( attribute,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Core.Extensible.Attribute CreateAttribute(Mozu.Api.Contracts.Core.Extensible.Attribute attribute, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.Attributedefinition.AttributeClient.CreateAttributeClient( attribute,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// Create and save a new attribute. These attributes are used in products and product options.
+		/// </summary>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="attribute">Properties of an attribute used to describe customers or orders.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Core.Extensible.Attribute"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var attribute = new Attribute();
+		///   var attribute = await attribute.CreateAttributeAsync( attribute,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.Core.Extensible.Attribute> CreateAttributeAsync(Mozu.Api.Contracts.Core.Extensible.Attribute attribute, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.Attributedefinition.AttributeClient.CreateAttributeClient( attribute,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// Updates the values for an attribute, used by products and product options. 
+		/// </summary>
+		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="attribute">Properties of an attribute used to describe customers or orders.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Core.Extensible.Attribute"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var attribute = new Attribute();
+		///   var attribute = attribute.UpdateAttribute( attribute,  attributeFQN,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Core.Extensible.Attribute UpdateAttribute(Mozu.Api.Contracts.Core.Extensible.Attribute attribute, string attributeFQN, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.Attributedefinition.AttributeClient.UpdateAttributeClient( attribute,  attributeFQN,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// Updates the values for an attribute, used by products and product options. 
+		/// </summary>
+		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="attribute">Properties of an attribute used to describe customers or orders.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Core.Extensible.Attribute"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var attribute = new Attribute();
+		///   var attribute = await attribute.UpdateAttributeAsync( attribute,  attributeFQN,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.Core.Extensible.Attribute> UpdateAttributeAsync(Mozu.Api.Contracts.Core.Extensible.Attribute attribute, string attributeFQN, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.Attributedefinition.AttributeClient.UpdateAttributeClient( attribute,  attributeFQN,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
 
 	}
 

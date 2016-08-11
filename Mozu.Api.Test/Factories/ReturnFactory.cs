@@ -334,7 +334,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// commerce-returns Get GetReasons description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.GetReasons(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -600,7 +600,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// commerce-returns Put ResendReturnEmail description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.ResendReturnEmail(handler : handler,  action :  action,  expectedCode: expectedCode, successCode: successCode); 

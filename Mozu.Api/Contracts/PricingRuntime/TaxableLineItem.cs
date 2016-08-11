@@ -64,9 +64,6 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///
 			public decimal ShippingAmount { get; set; }
 
-			///
-			///For configurable products, the unique identifier of the product variation that has been selected.
-			///
 			public string VariantProductCode { get; set; }
 
 		}

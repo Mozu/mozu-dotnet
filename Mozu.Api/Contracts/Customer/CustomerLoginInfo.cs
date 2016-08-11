@@ -23,9 +23,6 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public string EmailAddress { get; set; }
 
-			///
-			///Mozu.Customer.Contracts.CustomerLoginInfo externalPassword ApiTypeMember DOCUMENT_HERE 
-			///
 			public string ExternalPassword { get; set; }
 
 			///

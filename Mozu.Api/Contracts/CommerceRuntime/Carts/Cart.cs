@@ -29,6 +29,10 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///
 			public AuditInfo AuditInfo { get; set; }
 
+			public CartMessage CartMessage { get; set; }
+
+			public List<CartMessage> CartMessages { get; set; }
+
 			///
 			///Collection (list or paged) of change messages logged for each modification made by a shopper to their carts, wishlists, orders, package, payment, pickup, and returns. Change log messages are system-supplied based on shopper actions and read only.
 			///
@@ -54,9 +58,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///
 			public string CustomerInteractionType { get; set; }
 
-			///
-			///Custom data for a given vendor set within the commerce process.
-			///
 			public JObject Data { get; set; }
 
 			///
@@ -79,9 +80,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///
 			public DateTime? ExpirationDate { get; set; }
 
-			///
-			///Extra properties (key-value pairs) that extend the primary object. Think of this as a property bag of string keys and string values.
-			///
 			public List<ExtendedProperty> ExtendedProperties { get; set; }
 
 			///
@@ -128,6 +126,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///List of order-level discounts projected to apply to the cart at checkout or order.
 			///
 			public List<AppliedDiscount> OrderDiscounts { get; set; }
+
+			public string PriceListCode { get; set; }
 
 			///
 			///The shipping subtotal amount calculated without any applied discounts for line item and entire amounts of carts and orders. This property is not calculated for wish lists at this time.

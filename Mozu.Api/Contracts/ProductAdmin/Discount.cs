@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 
 using Mozu.Api.Contracts.Core;
 
@@ -34,9 +35,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public AuditInfo AuditInfo { get; set; }
 
-			///
-			///Signifies that the discount is not referenced and can be hard deleted
-			///
 			public bool CanBeDeleted { get; set; }
 
 			///
@@ -54,9 +52,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public int? CurrentRedemptionCount { get; set; }
 
-			///
-			///Determines whether or not a discount applies to a items with a sale price. Applicable on order and line item discounts. For line items, when this is true, the discount will be disqualified. For order level discounts, when true, the discount will not be applied to those items have a sale price.
-			///
 			public bool? DoesNotApplyToProductsWithSalePrice { get; set; }
 
 			///
@@ -69,19 +64,12 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public int? Id { get; set; }
 
-			///
-			///Maximum impact this discount can apply on a single order. Must be either null or greater than zero.
-			///
+			public List<string> IncludedPriceLists { get; set; }
+
 			public decimal? MaximumDiscountImpactPerOrder { get; set; }
 
-			///
-			///Maximum impact this discount can apply on a single line item. Must be either null or greater than zero.
-			///
 			public decimal? MaximumDiscountImpactPerRedemption { get; set; }
 
-			///
-			///Maximum number of redemptions allowed per order. If null, defaults to unlimited.
-			///
 			public int? MaximumRedemptionsPerOrder { get; set; }
 
 			///

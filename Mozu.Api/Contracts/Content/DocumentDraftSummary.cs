@@ -23,14 +23,8 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public DateTime? ActiveUpdateDate { get; set; }
 
-			///
-			///Mozu.Content.Contracts.DocumentDraftSummary activeUpdatedBy ApiTypeMember DOCUMENT_HERE 
-			///
 			public string ActiveUpdatedBy { get; set; }
 
-			///
-			///The unique identifier for the product catalog. Catalogs are part of a master catalog.
-			///
 			public int? CatalogId { get; set; }
 
 			///
@@ -53,9 +47,6 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public string ListFQN { get; set; }
 
-			///
-			///Unique identifier for the master catalog. 
-			///
 			public int? MasterCatalogId { get; set; }
 
 			///
@@ -63,9 +54,6 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public string Name { get; set; }
 
-			///
-			///Mozu.Content.Contracts.DocumentDraftSummary publishSetCode ApiTypeMember DOCUMENT_HERE 
-			///
 			public string PublishSetCode { get; set; }
 
 			///
@@ -73,9 +61,6 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public string PublishType { get; set; }
 
-			///
-			///Unique identifier for the site. This ID is used at all levels of a store, catalog, and tenant to associate objects to a site.
-			///
 			public int? SiteId { get; set; }
 
 			///

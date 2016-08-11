@@ -47,9 +47,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <summary>
 		/// Retrieves a list of products that appear on the web storefront according to any specified filter criteria and sort options.
 		/// </summary>
+		/// <param name="cursorMark"></param>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="responseOptions"></param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
 		/// <returns>
@@ -58,14 +60,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var productCollection = product.GetProducts(_dataViewMode,  filter,  startIndex,  pageSize,  sortBy,  responseFields);
+		///   var productCollection = product.GetProducts(_dataViewMode,  filter,  startIndex,  pageSize,  sortBy,  responseOptions,  cursorMark,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductRuntime.ProductCollection GetProducts(string filter =  null, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseFields =  null)
+		public virtual Mozu.Api.Contracts.ProductRuntime.ProductCollection GetProducts(string filter =  null, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseOptions =  null, string cursorMark =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductsClient(_dataViewMode,  filter,  startIndex,  pageSize,  sortBy,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductsClient(_dataViewMode,  filter,  startIndex,  pageSize,  sortBy,  responseOptions,  cursorMark,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -75,9 +77,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <summary>
 		/// Retrieves a list of products that appear on the web storefront according to any specified filter criteria and sort options.
 		/// </summary>
+		/// <param name="cursorMark"></param>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="responseOptions"></param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
 		/// <returns>
@@ -86,13 +90,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var productCollection = await product.GetProductsAsync(_dataViewMode,  filter,  startIndex,  pageSize,  sortBy,  responseFields);
+		///   var productCollection = await product.GetProductsAsync(_dataViewMode,  filter,  startIndex,  pageSize,  sortBy,  responseOptions,  cursorMark,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.ProductCollection> GetProductsAsync(string filter =  null, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.ProductCollection> GetProductsAsync(string filter =  null, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseOptions =  null, string cursorMark =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductsClient(_dataViewMode,  filter,  startIndex,  pageSize,  sortBy,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductsClient(_dataViewMode,  filter,  startIndex,  pageSize,  sortBy,  responseOptions,  cursorMark,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -155,9 +159,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// </summary>
 		/// <param name="allowInactive">If true, allow inactive categories to be retrieved in the category list response. If false, the categories retrieved will not include ones marked inactive.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="quantity"></param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
-		/// <param name="supressOutOfStock404">Specifies whether to supress the 404 error when the product is out of stock.</param>
+		/// <param name="supressOutOfStock404"></param>
 		/// <param name="variationProductCode">Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.Product"/>
@@ -165,14 +170,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var product = product.GetProduct(_dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  supressOutOfStock404,  responseFields);
+		///   var product = product.GetProduct(_dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  supressOutOfStock404,  quantity,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductRuntime.Product GetProduct(string productCode, string variationProductCode =  null, bool? allowInactive =  null, bool? skipInventoryCheck =  null, bool? supressOutOfStock404 =  null, string responseFields =  null)
+		public virtual Mozu.Api.Contracts.ProductRuntime.Product GetProduct(string productCode, string variationProductCode =  null, bool? allowInactive =  null, bool? skipInventoryCheck =  null, bool? supressOutOfStock404 =  null, int? quantity =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.Product> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductClient(_dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  supressOutOfStock404,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductClient(_dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  supressOutOfStock404,  quantity,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -184,9 +189,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// </summary>
 		/// <param name="allowInactive">If true, allow inactive categories to be retrieved in the category list response. If false, the categories retrieved will not include ones marked inactive.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="quantity"></param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
-		/// <param name="supressOutOfStock404">Specifies whether to supress the 404 error when the product is out of stock.</param>
+		/// <param name="supressOutOfStock404"></param>
 		/// <param name="variationProductCode">Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.Product"/>
@@ -194,13 +200,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var product = await product.GetProductAsync(_dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  supressOutOfStock404,  responseFields);
+		///   var product = await product.GetProductAsync(_dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  supressOutOfStock404,  quantity,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.Product> GetProductAsync(string productCode, string variationProductCode =  null, bool? allowInactive =  null, bool? skipInventoryCheck =  null, bool? supressOutOfStock404 =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.Product> GetProductAsync(string productCode, string variationProductCode =  null, bool? allowInactive =  null, bool? skipInventoryCheck =  null, bool? supressOutOfStock404 =  null, int? quantity =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.Product> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductClient(_dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  supressOutOfStock404,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductClient(_dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  supressOutOfStock404,  quantity,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -208,11 +214,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		}
 
 		/// <summary>
-		/// Retrieves information about a single product given its product code for Mozu to index in the search engine
+		/// 
 		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode"></param>
 		/// <param name="productVersion"></param>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.Product"/>
 		/// </returns>
@@ -234,11 +240,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		}
 
 		/// <summary>
-		/// Retrieves information about a single product given its product code for Mozu to index in the search engine
+		/// 
 		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode"></param>
 		/// <param name="productVersion"></param>
-		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.Product"/>
 		/// </returns>
@@ -263,6 +269,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// </summary>
 		/// <param name="includeOptionDetails">If true, the response returns details about the product. If false, returns a product summary such as the product name, price, and sale price.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="quantity"></param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
 		/// <param name="productOptionSelections">For a product with shopper-configurable options, the properties of the product options selected by the shopper.</param>
@@ -272,14 +279,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var configuredProduct = product.ConfiguredProduct( productOptionSelections,  productCode,  includeOptionDetails,  skipInventoryCheck,  responseFields);
+		///   var configuredProduct = product.ConfiguredProduct( productOptionSelections,  productCode,  includeOptionDetails,  skipInventoryCheck,  quantity,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductRuntime.ConfiguredProduct ConfiguredProduct(Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode, bool? includeOptionDetails =  null, bool? skipInventoryCheck =  null, string responseFields =  null)
+		public virtual Mozu.Api.Contracts.ProductRuntime.ConfiguredProduct ConfiguredProduct(Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode, bool? includeOptionDetails =  null, bool? skipInventoryCheck =  null, int? quantity =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.ConfiguredProduct> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.ConfiguredProductClient( productOptionSelections,  productCode,  includeOptionDetails,  skipInventoryCheck,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.ConfiguredProductClient( productOptionSelections,  productCode,  includeOptionDetails,  skipInventoryCheck,  quantity,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -291,6 +298,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// </summary>
 		/// <param name="includeOptionDetails">If true, the response returns details about the product. If false, returns a product summary such as the product name, price, and sale price.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="quantity"></param>
 		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
 		/// <param name="productOptionSelections">For a product with shopper-configurable options, the properties of the product options selected by the shopper.</param>
@@ -300,13 +308,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var configuredProduct = await product.ConfiguredProductAsync( productOptionSelections,  productCode,  includeOptionDetails,  skipInventoryCheck,  responseFields);
+		///   var configuredProduct = await product.ConfiguredProductAsync( productOptionSelections,  productCode,  includeOptionDetails,  skipInventoryCheck,  quantity,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.ConfiguredProduct> ConfiguredProductAsync(Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode, bool? includeOptionDetails =  null, bool? skipInventoryCheck =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.ConfiguredProduct> ConfiguredProductAsync(Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode, bool? includeOptionDetails =  null, bool? skipInventoryCheck =  null, int? quantity =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.ConfiguredProduct> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.ConfiguredProductClient( productOptionSelections,  productCode,  includeOptionDetails,  skipInventoryCheck,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.ConfiguredProductClient( productOptionSelections,  productCode,  includeOptionDetails,  skipInventoryCheck,  quantity,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -317,6 +325,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// Validate the final state of shopper-selected options.
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="quantity"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
 		/// <param name="productOptionSelections">For a product with shopper-configurable options, the properties of the product options selected by the shopper.</param>
@@ -326,14 +335,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var productValidationSummary = product.ValidateProduct( productOptionSelections,  productCode,  skipInventoryCheck,  responseFields);
+		///   var productValidationSummary = product.ValidateProduct( productOptionSelections,  productCode,  skipInventoryCheck,  quantity,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductRuntime.ProductValidationSummary ValidateProduct(Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode, bool? skipInventoryCheck =  null, string responseFields =  null)
+		public virtual Mozu.Api.Contracts.ProductRuntime.ProductValidationSummary ValidateProduct(Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode, bool? skipInventoryCheck =  null, int? quantity =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductValidationSummary> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.ValidateProductClient( productOptionSelections,  productCode,  skipInventoryCheck,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.ValidateProductClient( productOptionSelections,  productCode,  skipInventoryCheck,  quantity,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -344,6 +353,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// Validate the final state of shopper-selected options.
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="quantity"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
 		/// <param name="productOptionSelections">For a product with shopper-configurable options, the properties of the product options selected by the shopper.</param>
@@ -353,13 +363,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var productValidationSummary = await product.ValidateProductAsync( productOptionSelections,  productCode,  skipInventoryCheck,  responseFields);
+		///   var productValidationSummary = await product.ValidateProductAsync( productOptionSelections,  productCode,  skipInventoryCheck,  quantity,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.ProductValidationSummary> ValidateProductAsync(Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode, bool? skipInventoryCheck =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.ProductValidationSummary> ValidateProductAsync(Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode, bool? skipInventoryCheck =  null, int? quantity =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductValidationSummary> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.ValidateProductClient( productOptionSelections,  productCode,  skipInventoryCheck,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.ValidateProductClient( productOptionSelections,  productCode,  skipInventoryCheck,  quantity,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

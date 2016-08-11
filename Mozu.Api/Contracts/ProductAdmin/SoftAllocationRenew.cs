@@ -14,19 +14,10 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
-		///
-		///	Mozu.ProductAdmin.Contracts.SoftAllocationRenew ApiType DOCUMENT_HERE 
-		///
 		public class SoftAllocationRenew
 		{
-			///
-			///The UTC DateTime these allocations will expire
-			///
 			public DateTime? ExpiresAt { get; set; }
 
-			///
-			///The allocation IDs to renew
-			///
 			public List<int> Ids { get; set; }
 
 		}

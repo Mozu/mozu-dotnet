@@ -20,9 +20,6 @@ namespace Mozu.Api.Contracts.Content
 		///
 		public class Document
 		{
-			///
-			///Mozu.Content.Contracts.Document activeDateRange ApiTypeMember DOCUMENT_HERE 
-			///
 			public ActiveDateRange ActiveDateRange { get; set; }
 
 			///
@@ -75,9 +72,6 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public JObject Properties { get; set; }
 
-			///
-			///The name of the publish set that this document belongs to, if any.
-			///
 			public string PublishSetCode { get; set; }
 
 			///

@@ -20,9 +20,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class ProductInCatalogInfo
 		{
-			///
-			///If true, the product is marked as available for sale in the catalog. Setting a product to IsActive = false will prevent it from being shown on the customer facing storefront.
-			///
 			public ActiveDateRange ActiveDateRange { get; set; }
 
 			///
@@ -40,9 +37,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public ProductLocalizedContent Content { get; set; }
 
-			///
-			///Date this product was first Available for sale in the catalog. This is utilized in expressions that refrence DaysInCatloag.
-			///
 			public DateTime? DateFirstAvailableInCatalog { get; set; }
 
 			///

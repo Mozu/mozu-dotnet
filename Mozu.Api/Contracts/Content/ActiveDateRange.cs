@@ -13,19 +13,10 @@ using System;
 
 namespace Mozu.Api.Contracts.Content
 {
-		///
-		///	Mozu.Content.Contracts.ActiveDateRange ApiType DOCUMENT_HERE 
-		///
 		public class ActiveDateRange
 		{
-			///
-			///The end of the active date range for this document
-			///
 			public DateTime? EndDate { get; set; }
 
-			///
-			///The beginning of the active date range of this document
-			///
 			public DateTime? StartDate { get; set; }
 
 		}

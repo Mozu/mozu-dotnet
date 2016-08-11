@@ -50,9 +50,8 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public List<CustomerContact> Contacts { get; set; }
 
-			///
-			///Mozu.Customer.Contracts.CustomerAccount customerSinceDate ApiTypeMember DOCUMENT_HERE 
-			///
+			public string CustomerSet { get; set; }
+
 			public DateTime? CustomerSinceDate { get; set; }
 
 			///
@@ -70,9 +69,6 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public string FirstName { get; set; }
 
-			///
-			///Indicates if an external password is set on this account
-			///
 			public bool HasExternalPassword { get; set; }
 
 			///

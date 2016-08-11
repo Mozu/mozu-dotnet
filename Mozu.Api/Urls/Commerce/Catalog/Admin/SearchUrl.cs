@@ -19,8 +19,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetSearchTuningRule
         /// </summary>
-        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
-        /// <param name="searchTuningRuleCode">The unique identifier of the search tuning rule.</param>
+        /// <param name="responseFields"></param>
+        /// <param name="searchTuningRuleCode"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -36,11 +36,11 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetSearchTuningRules
         /// </summary>
-        /// <param name="filter">A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.</param>
-        /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
-        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
-        /// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.</param>
-        /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=50`.</param>
+        /// <param name="filter"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="sortBy"></param>
+        /// <param name="startIndex"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -59,7 +59,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetSearchTuningRuleSortFields
         /// </summary>
-        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -103,10 +103,50 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for GetSynonymDefinitions
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="sortBy"></param>
+        /// <param name="startIndex"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetSynonymDefinitionsUrl(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/search/synonyms/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "filter", filter);
+			mozuUrl.FormatUrl( "pageSize", pageSize);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "sortBy", sortBy);
+			mozuUrl.FormatUrl( "startIndex", startIndex);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for GetSynonymDefinition
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <param name="synonymId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetSynonymDefinitionUrl(int synonymId, string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/search/synonyms/{synonymId}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "synonymId", synonymId);
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for AddSearchTuningRule
         /// </summary>
-        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -121,7 +161,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for UpdateSearchTuningRuleSortFields
         /// </summary>
-        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -150,11 +190,26 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for AddSynonymDefinition
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl AddSynonymDefinitionUrl(string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/search/synonyms?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for UpdateSearchTuningRule
         /// </summary>
-        /// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
-        /// <param name="searchTuningRuleCode">The unique identifier of the search tuning rule.</param>
+        /// <param name="responseFields"></param>
+        /// <param name="searchTuningRuleCode"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -182,10 +237,27 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for UpdateSynonymDefinition
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <param name="synonymId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl UpdateSynonymDefinitionUrl(int synonymId, string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/search/synonyms/{synonymId}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "synonymId", synonymId);
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for DeleteSearchTuningRule
         /// </summary>
-        /// <param name="searchTuningRuleCode">The unique identifier of the search tuning rule.</param>
+        /// <param name="searchTuningRuleCode"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -194,6 +266,21 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 			var url = "/api/commerce/catalog/admin/search/searchtuningrules/{searchTuningRuleCode}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "searchTuningRuleCode", searchTuningRuleCode);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for DeleteSynonymDefinition
+        /// </summary>
+        /// <param name="synonymId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl DeleteSynonymDefinitionUrl(int synonymId)
+		{
+			var url = "/api/commerce/catalog/admin/search/synonyms/{synonymId}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "synonymId", synonymId);
 			return mozuUrl;
 		}
 

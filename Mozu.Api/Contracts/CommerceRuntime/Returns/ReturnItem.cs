@@ -41,14 +41,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///
 			public string OrderItemId { get; set; }
 
-			///
-			///This is the Option attribute FQN for the item being returned .. typically only when the return item is a product bundle item.
-			///
 			public string OrderItemOptionAttributeFQN { get; set; }
 
-			///
-			///The OrderLineId that this ReturnItem is associated with. If order item is present, the orderLineId should be present also.
-			///
 			public int? OrderLineId { get; set; }
 
 			///

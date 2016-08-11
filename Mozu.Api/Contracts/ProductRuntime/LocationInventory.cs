@@ -28,9 +28,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public string ProductCode { get; set; }
 
-			///
-			///Mozu.ProductRuntime.Contracts.LocationInventory softStockAvailable ApiTypeMember DOCUMENT_HERE 
-			///
 			public int? SoftStockAvailable { get; set; }
 
 			///

@@ -26,9 +26,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			///
 			public string CurrencyCode { get; set; }
 
-			///
-			///Custom data returned by the shipping service.
-			///
 			public JObject Data { get; set; }
 
 			///

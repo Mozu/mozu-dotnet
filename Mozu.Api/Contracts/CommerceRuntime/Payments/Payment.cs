@@ -57,14 +57,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///
 			public List<ChangeMessage> ChangeMessages { get; set; }
 
-			///
-			///Custom data from payment providers
-			///
 			public JObject Data { get; set; }
 
-			///
-			///The external/third party transaction Id for this payment. This is used to store the transaction Id from digital wallet like Visa Checkout
-			///
 			public string ExternalTransactionId { get; set; }
 
 			///
@@ -97,9 +91,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///
 			public string PaymentType { get; set; }
 
-			///
-			///The source of data for this payment. By default, this will be set to 'mozu'
-			///
 			public string PaymentWorkflow { get; set; }
 
 			///

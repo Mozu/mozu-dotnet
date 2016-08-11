@@ -24,9 +24,6 @@ namespace Mozu.Api.Contracts.InstalledApplications
 			///
 			public string AppId { get; set; }
 
-			///
-			///denotes the Application Key for the app.
-			///
 			public string AppKey { get; set; }
 
 			///
@@ -49,9 +46,6 @@ namespace Mozu.Api.Contracts.InstalledApplications
 			///
 			public bool? IsExtension { get; set; }
 
-			///
-			///denotes if the Application is certified to use extension
-			///
 			public bool? IsExtensionCertified { get; set; }
 
 			///

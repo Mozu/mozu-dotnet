@@ -24,14 +24,8 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 			///
 			public List<ThirdPartyCredentialField> Credentials { get; set; }
 
-			///
-			///The localized description in text for the object, displayed per the locale code. For example, descriptions are used for product descriptions, attributes, and pre-authorization transaction types.
-			///
 			public string Description { get; set; }
 
-			///
-			///Fully qualified name of the attribute for the order or customer. 
-			///
 			public string FullyQualifiedName { get; set; }
 
 			///
@@ -44,9 +38,6 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 			///
 			public string Name { get; set; }
 
-			///
-			///If applicable, the registered namespace associated with objects, used to generate the fully qualified name. If no namespace is defined, the namespace associated with the tenant is automatically assigned.
-			///
 			public string Namespace { get; set; }
 
 		}

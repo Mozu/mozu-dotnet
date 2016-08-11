@@ -19,9 +19,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class DiscountTarget
 		{
-			///
-			///Determines which way the discount is optimized. Consumers favor(default - false/null) or tenants favor (when this is set to true) Applies to discounts where target is not a specific product or list of products. May also impact behavior of Buy X Get Y so that X is the most expensive items and Y the least expensive.
-			///
 			public bool? AppliesToLeastExpensiveProductsFirst { get; set; }
 
 			///
@@ -34,9 +31,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public List<TargetedCategory> ExcludedCategories { get; set; }
 
-			///
-			///Applies to Included categories Defaults to Any
-			///
 			public string ExcludedCategoriesOperator { get; set; }
 
 			///
@@ -44,14 +38,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public List<TargetedProduct> ExcludedProducts { get; set; }
 
-			///
-			///Prevents order scoped discounts from layering over items that already have a product discount with the same type.
-			///
 			public bool? ExcludeItemsWithExistingProductDiscounts { get; set; }
 
-			///
-			///Prevents order scoped discounts from layering over items that already have a shipping discount with the same type.
-			///
 			public bool? ExcludeItemsWithExistingShippingDiscounts { get; set; }
 
 			///
@@ -59,9 +47,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool? IncludeAllProducts { get; set; }
 
-			///
-			///Applies to Included categories Defaults to Any
-			///
 			public string IncludedCategoriesOperator { get; set; }
 
 			///
@@ -80,7 +65,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public List<TargetedShippingMethod> ShippingMethods { get; set; }
 
 			///
-			///The list of shipping zones that are applicable for this discount.
+			///Shipping Zones that are applicable for this discount
 			///
 			public List<TargetedShippingZone> ShippingZones { get; set; }
 

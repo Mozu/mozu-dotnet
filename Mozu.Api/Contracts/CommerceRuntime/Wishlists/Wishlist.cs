@@ -54,9 +54,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			///
 			public string CustomerInteractionType { get; set; }
 
-			///
-			///Custom data for a given vendor set within the commerce process.
-			///
 			public JObject Data { get; set; }
 
 			///
@@ -79,9 +76,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			///
 			public DateTime? ExpirationDate { get; set; }
 
-			///
-			///Extra properties (key-value pairs) that extend the primary object. Think of this as a property bag of string keys and string values.
-			///
 			public List<ExtendedProperty> ExtendedProperties { get; set; }
 
 			///

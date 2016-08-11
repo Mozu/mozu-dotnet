@@ -31,9 +31,6 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			///
 			public List<CustomAttribute> CustomAttributes { get; set; }
 
-			///
-			///Mozu.ShippingRuntime.Contracts.RateRequest data ApiTypeMember DOCUMENT_HERE 
-			///
 			public JObject Data { get; set; }
 
 			///
@@ -61,6 +58,8 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			///
 			public List<RateRequestItem> Items { get; set; }
 
+			public decimal? OrderDiscountedSubTotal { get; set; }
+
 			///
 			///The total monetary amount of the order. This amount is used to calculate the shipping rate estimate.
 			///
@@ -70,6 +69,8 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			///The physical address from which the order or shipment will ship.
 			///
 			public Address OriginAddress { get; set; }
+
+			public string RelatedOrderId { get; set; }
 
 			///
 			///The shipping methods associated with this request.
