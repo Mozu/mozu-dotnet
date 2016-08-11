@@ -147,14 +147,14 @@ namespace Mozu.Api.Test.Factories
 		/// Adds a new category to the site's category hierarchy. Specify a ParentCategoryID to determine where to place the category in the hierarchy. If no ParentCategoryID is specified, the new category is a top-level category.
 		/// <example> 
 		///  <code> 
-		/// var result = CategoryFactory.AddCategory(handler : handler,  category :  category,  incrementSequence :  incrementSequence,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CategoryFactory.AddCategory(handler : handler,  category :  category,  incrementSequence :  incrementSequence,  useProvidedId :  useProvidedId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Category/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductAdmin.Category AddCategory(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ProductAdmin.Category category, bool? incrementSequence = null, string responseFields = null, 
+ 		 Mozu.Api.Contracts.ProductAdmin.Category category, bool? incrementSequence = null, bool? useProvidedId = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -162,7 +162,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.AddCategoryClient(
-				 category :  category,  incrementSequence :  incrementSequence,  responseFields :  responseFields		);
+				 category :  category,  incrementSequence :  incrementSequence,  useProvidedId :  useProvidedId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

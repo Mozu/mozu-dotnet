@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Platform.Entitylists
 {
 	/// <summary>
-	/// 
+	/// Provides settings and options for displaying associated content within a context level of site, tenant, catalog, or master catalog. ListViews can be associated with entity lists and entities.
 	/// </summary>
 	public partial class ListViewResource  	{
 		///
@@ -38,12 +38,12 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 
 				
 		/// <summary>
-		/// 
+		/// Retrieves a view for associated entities. A view provides display context levels (site, tenant, catalog, master catalog) and settings.
 		/// </summary>
-		/// <param name="entityId"></param>
-		/// <param name="entityListFullName"></param>
+		/// <param name="entityId">Unique identifier for an entity, which defines the schema, rules, and formats for JSON entities within the MZDB (Mozu Mongo DB).</param>
+		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="viewName"></param>
+		/// <param name="viewName">The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
 		/// <returns>
 		/// JObject
 		/// </returns>
@@ -65,12 +65,12 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves a view for associated entities. A view provides display context levels (site, tenant, catalog, master catalog) and settings.
 		/// </summary>
-		/// <param name="entityId"></param>
-		/// <param name="entityListFullName"></param>
+		/// <param name="entityId">Unique identifier for an entity, which defines the schema, rules, and formats for JSON entities within the MZDB (Mozu Mongo DB).</param>
+		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="viewName"></param>
+		/// <param name="viewName">The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
 		/// <returns>
 		/// JObject
 		/// </returns>
@@ -91,14 +91,14 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves a collection of views for associated entities. Each view provides display context levels (site, tenant, catalog, master catalog) and settings.
 		/// </summary>
-		/// <param name="entityListFullName"></param>
+		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-		/// <param name="pageSize"></param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="startIndex"></param>
-		/// <param name="viewName"></param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=3`.</param>
+		/// <param name="viewName">The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.MZDB.EntityCollection"/>
 		/// </returns>
@@ -120,14 +120,14 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves a collection of views for associated entities. Each view provides display context levels (site, tenant, catalog, master catalog) and settings.
 		/// </summary>
-		/// <param name="entityListFullName"></param>
+		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-		/// <param name="pageSize"></param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="startIndex"></param>
-		/// <param name="viewName"></param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=3`.</param>
+		/// <param name="viewName">The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.MZDB.EntityCollection"/>
 		/// </returns>
@@ -148,12 +148,12 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves a collection of container data for creating and displaying a view of entities. 
 		/// </summary>
-		/// <param name="entityId"></param>
-		/// <param name="entityListFullName"></param>
+		/// <param name="entityId">Unique identifier for an entity, which defines the schema, rules, and formats for JSON entities within the MZDB (Mozu Mongo DB).</param>
+		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="viewName"></param>
+		/// <param name="viewName">The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.MZDB.EntityContainer"/>
 		/// </returns>
@@ -175,12 +175,12 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves a collection of container data for creating and displaying a view of entities. 
 		/// </summary>
-		/// <param name="entityId"></param>
-		/// <param name="entityListFullName"></param>
+		/// <param name="entityId">Unique identifier for an entity, which defines the schema, rules, and formats for JSON entities within the MZDB (Mozu Mongo DB).</param>
+		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="viewName"></param>
+		/// <param name="viewName">The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.MZDB.EntityContainer"/>
 		/// </returns>
@@ -201,14 +201,14 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves a collection of container data for creating and displaying a view of entities. 
 		/// </summary>
-		/// <param name="entityListFullName"></param>
+		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-		/// <param name="pageSize"></param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="startIndex"></param>
-		/// <param name="viewName"></param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=3`.</param>
+		/// <param name="viewName">The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.MZDB.EntityContainerCollection"/>
 		/// </returns>
@@ -230,14 +230,14 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves a collection of container data for creating and displaying a view of entities. 
 		/// </summary>
-		/// <param name="entityListFullName"></param>
+		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-		/// <param name="pageSize"></param>
+		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="startIndex"></param>
-		/// <param name="viewName"></param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=3`.</param>
+		/// <param name="viewName">The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.MZDB.EntityContainerCollection"/>
 		/// </returns>
@@ -258,11 +258,11 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves a specific `EntityListView`. These views provide schema, rules, and formatting for all associated entities. 
 		/// </summary>
-		/// <param name="entityListFullName"></param>
+		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="viewName"></param>
+		/// <param name="viewName">The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.MZDB.ListView"/>
 		/// </returns>
@@ -284,11 +284,11 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves a specific `EntityListView`. These views provide schema, rules, and formatting for all associated entities. 
 		/// </summary>
-		/// <param name="entityListFullName"></param>
+		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="viewName"></param>
+		/// <param name="viewName">The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.MZDB.ListView"/>
 		/// </returns>
@@ -309,9 +309,9 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves a collection of `EntityListViews`. These views provide schema, rules, and formatting for all associated entities. 
 		/// </summary>
-		/// <param name="entityListFullName"></param>
+		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.MZDB.ListViewCollection"/>
@@ -334,9 +334,9 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves a collection of `EntityListViews`. These views provide schema, rules, and formatting for all associated entities. 
 		/// </summary>
-		/// <param name="entityListFullName"></param>
+		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.MZDB.ListViewCollection"/>
@@ -358,11 +358,11 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		}
 
 		/// <summary>
-		/// 
+		/// Creates an entity list view. Each view provides display context levels (site, tenant, catalog, master catalog) and settings for the list of entities.
 		/// </summary>
-		/// <param name="entityListFullName"></param>
+		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="listView"></param>
+		/// <param name="listView">Properties for the list view that specifies what fields and content display per page load. All associated fields in the list view correspond with object data.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.MZDB.ListView"/>
 		/// </returns>
@@ -384,11 +384,11 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		}
 
 		/// <summary>
-		/// 
+		/// Creates an entity list view. Each view provides display context levels (site, tenant, catalog, master catalog) and settings for the list of entities.
 		/// </summary>
-		/// <param name="entityListFullName"></param>
+		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="listView"></param>
+		/// <param name="listView">Properties for the list view that specifies what fields and content display per page load. All associated fields in the list view correspond with object data.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.MZDB.ListView"/>
 		/// </returns>
@@ -409,12 +409,12 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		}
 
 		/// <summary>
-		/// 
+		/// Updates an existing entity list view. Each view provides display context levels (site, tenant, catalog, master catalog) and settings for the list of entities.
 		/// </summary>
-		/// <param name="entityListFullName"></param>
+		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="viewName"></param>
-		/// <param name="listView"></param>
+		/// <param name="viewName">The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
+		/// <param name="listView">Properties for the list view that specifies what fields and content display per page load. All associated fields in the list view correspond with object data.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.MZDB.ListView"/>
 		/// </returns>
@@ -436,12 +436,12 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		}
 
 		/// <summary>
-		/// 
+		/// Updates an existing entity list view. Each view provides display context levels (site, tenant, catalog, master catalog) and settings for the list of entities.
 		/// </summary>
-		/// <param name="entityListFullName"></param>
+		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="viewName"></param>
-		/// <param name="listView"></param>
+		/// <param name="viewName">The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
+		/// <param name="listView">Properties for the list view that specifies what fields and content display per page load. All associated fields in the list view correspond with object data.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.MZDB.ListView"/>
 		/// </returns>
@@ -462,10 +462,10 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		}
 
 		/// <summary>
-		/// 
+		/// Deletes an entity list view. Any associated entities have the association removed.
 		/// </summary>
-		/// <param name="entityListFullName"></param>
-		/// <param name="viewName"></param>
+		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
+		/// <param name="viewName">The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -486,10 +486,10 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		}
 
 		/// <summary>
-		/// 
+		/// Deletes an entity list view. Any associated entities have the association removed.
 		/// </summary>
-		/// <param name="entityListFullName"></param>
-		/// <param name="viewName"></param>
+		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
+		/// <param name="viewName">The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
 		/// <returns>
 		/// 
 		/// </returns>

@@ -14,10 +14,21 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.ProductAdmin.Search
 {
+		///
+		///	Properties of synonyms and their relations via keys and lists to determine search results.
+		///
 		public class SynonymDefinition
 		{
+			///
+			///Key used for metadata defined for objects, including extensible attributes, custom attributes associated with a shipping provider, and search synonyms definitions. This content may be user-defined depending on the object and usage.
+			///
 			public string Key { get; set; }
 
+			public int? SynonymId { get; set; }
+
+			///
+			///List of synonyms.  If no key is defined the matches are bidirectional
+			///
 			public List<string> Synonyms { get; set; }
 
 		}

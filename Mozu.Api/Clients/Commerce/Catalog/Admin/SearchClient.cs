@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 {
 	/// <summary>
-	/// 
+	/// The Search resource manages all settings and options for providing product search on your site.
 	/// </summary>
 	public partial class SearchClient 	{
 		
@@ -99,9 +99,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Get site search settings
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.SearchSettings"/>}
 		/// </returns>
@@ -123,10 +123,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Retrieves a collection of synonyms definitions for product searches. Synonyms aid with determining matches for entered searches.
 		/// </summary>
-		/// <param name="localeCode"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="localeCode">The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.</param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection"/>}
 		/// </returns>
@@ -141,6 +141,59 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.SearchUrl.GetSynonymDefinitionCollectionUrl(localeCode, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionPagedCollection"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetSynonymDefinitions( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		///   var synonymDefinitionPagedCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionPagedCollection> GetSynonymDefinitionsClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.SearchUrl.GetSynonymDefinitionsUrl(startIndex, pageSize, sortBy, filter, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionPagedCollection>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="synonymId"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetSynonymDefinition( synonymId,  responseFields);
+		///   var synonymDefinitionClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition> GetSynonymDefinitionClient(int synonymId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.SearchUrl.GetSynonymDefinitionUrl(synonymId, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -198,11 +251,11 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Updates synonym definitions for product searches. Synonyms aid with determining matches for entered searches.
 		/// </summary>
-		/// <param name="localeCode"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="collection"></param>
+		/// <param name="localeCode">The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.</param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="collection">Collection of synonym definitions used for determining search results.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection"/>}
 		/// </returns>
@@ -219,6 +272,31 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinitionCollection>(collection);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="synonymDefinition"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=AddSynonymDefinition( synonymDefinition,  responseFields);
+		///   var synonymDefinitionClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition> AddSynonymDefinitionClient(Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition synonymDefinition, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.SearchUrl.AddSynonymDefinitionUrl(responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition>(synonymDefinition);
 			return mozuClient;
 
 		}
@@ -250,10 +328,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// 
+		/// Adds or Updates (Upsert) the Search Settings for a specific site
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="settings"></param>
+		/// <param name="responseFields">A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.</param>
+		/// <param name="settings">The settings to control product search and indexing behavior.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.SearchSettings"/>}
 		/// </returns>
@@ -277,6 +355,32 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="synonymId"></param>
+		/// <param name="synonymDefinition"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=UpdateSynonymDefinition( synonymDefinition,  synonymId,  responseFields);
+		///   var synonymDefinitionClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition> UpdateSynonymDefinitionClient(Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition synonymDefinition, int synonymId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.SearchUrl.UpdateSynonymDefinitionUrl(synonymId, responseFields);
+			const string verb = "PUT";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.ProductAdmin.Search.SynonymDefinition>(synonymDefinition);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="searchTuningRuleCode"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
@@ -290,6 +394,30 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		public static MozuClient DeleteSearchTuningRuleClient(string searchTuningRuleCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.SearchUrl.DeleteSearchTuningRuleUrl(searchTuningRuleCode);
+			const string verb = "DELETE";
+			var mozuClient = new MozuClient()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="synonymId"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=DeleteSynonymDefinition( synonymId);
+		///mozuClient.WithBaseAddress(url).Execute();
+		/// </code>
+		/// </example>
+		public static MozuClient DeleteSynonymDefinitionClient(int synonymId)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.SearchUrl.DeleteSynonymDefinitionUrl(synonymId);
 			const string verb = "DELETE";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
