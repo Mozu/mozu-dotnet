@@ -15,7 +15,7 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	Properties of an individual vocabulary value for an attribute. For example, a "color" attribute might have the following vocabulary values: Red, Blue, Green.
+		///	Properties of a vocabulary value defined for an extensible attribute.
 		///
 		public class AttributeVocabularyValue
 		{
@@ -24,10 +24,15 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public AttributeVocabularyValueLocalizedContent Content { get; set; }
 
+			public int? DisplayOrder { get; set; }
+
+			///
+			///The localized content of an attribute determined by the `localeCode`. This content is always in the default language of the MasterCatalog.
+			///
 			public List<AttributeVocabularyValueLocalizedContent> LocalizedContent { get; set; }
 
 			///
-			///The actual vocabulary value.
+			///The value of a property, used by numerous objects within Mozu including facets, attributes, products, localized content, metadata, capabilities (Mozu and third-party), location inventory adjustment, and more. The value may be a string, integer, or double. Validation may be run against the entered and saved values depending on the object type.
 			///
 			public object Value { get; set; }
 

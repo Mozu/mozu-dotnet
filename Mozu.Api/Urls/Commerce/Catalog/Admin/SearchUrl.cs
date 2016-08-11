@@ -103,6 +103,46 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for GetSynonymDefinitions
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="sortBy"></param>
+        /// <param name="startIndex"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetSynonymDefinitionsUrl(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/search/synonyms/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "filter", filter);
+			mozuUrl.FormatUrl( "pageSize", pageSize);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "sortBy", sortBy);
+			mozuUrl.FormatUrl( "startIndex", startIndex);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for GetSynonymDefinition
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <param name="synonymId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetSynonymDefinitionUrl(int synonymId, string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/search/synonyms/{synonymId}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "synonymId", synonymId);
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for AddSearchTuningRule
         /// </summary>
@@ -150,6 +190,21 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for AddSynonymDefinition
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl AddSynonymDefinitionUrl(string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/search/synonyms?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for UpdateSearchTuningRule
         /// </summary>
@@ -182,6 +237,23 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for UpdateSynonymDefinition
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <param name="synonymId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl UpdateSynonymDefinitionUrl(int synonymId, string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/admin/search/synonyms/{synonymId}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "synonymId", synonymId);
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for DeleteSearchTuningRule
         /// </summary>
@@ -194,6 +266,21 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 			var url = "/api/commerce/catalog/admin/search/searchtuningrules/{searchTuningRuleCode}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "searchTuningRuleCode", searchTuningRuleCode);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for DeleteSynonymDefinition
+        /// </summary>
+        /// <param name="synonymId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl DeleteSynonymDefinitionUrl(int synonymId)
+		{
+			var url = "/api/commerce/catalog/admin/search/synonyms/{synonymId}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "synonymId", synonymId);
 			return mozuUrl;
 		}
 

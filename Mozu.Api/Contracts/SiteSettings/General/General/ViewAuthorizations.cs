@@ -15,6 +15,8 @@ namespace Mozu.Api.Contracts.SiteSettings.General.General
 {
 		public class ViewAuthorizations
 		{
+			public bool? EnforceSitewideSSL { get; set; }
+
 			public bool RequireAuthForLive { get; set; }
 
 			public bool RequireAuthForPending { get; set; }

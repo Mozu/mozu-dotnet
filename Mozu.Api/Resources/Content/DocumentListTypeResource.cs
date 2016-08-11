@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Content
 {
 	/// <summary>
-	/// 
+	/// Use the Document List Types resource to manage the types of document lists in your site's document hierarchy. The type denotes a content type for that list of folders, sub-folders, and documents such as `web_pages`.
 	/// </summary>
 	public partial class DocumentListTypeResource  	{
 		///
@@ -145,10 +145,10 @@ namespace Mozu.Api.Resources.Content
 		}
 
 		/// <summary>
-		/// 
+		/// Creates a new documentListType
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="list"></param>
+		/// <param name="list">Properties for the document list type. Document lists contain documents with an associated document type, such as web pages.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentListType"/>
 		/// </returns>
@@ -170,10 +170,10 @@ namespace Mozu.Api.Resources.Content
 		}
 
 		/// <summary>
-		/// 
+		/// Creates a new documentListType
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="list"></param>
+		/// <param name="list">Properties for the document list type. Document lists contain documents with an associated document type, such as web pages.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentListType"/>
 		/// </returns>
@@ -194,11 +194,11 @@ namespace Mozu.Api.Resources.Content
 		}
 
 		/// <summary>
-		/// 
+		/// Updates a DocumentListType
 		/// </summary>
 		/// <param name="documentListTypeFQN"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="list"></param>
+		/// <param name="list">Properties for the document list type. Document lists contain documents with an associated document type, such as web pages.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentListType"/>
 		/// </returns>
@@ -220,11 +220,11 @@ namespace Mozu.Api.Resources.Content
 		}
 
 		/// <summary>
-		/// 
+		/// Updates a DocumentListType
 		/// </summary>
 		/// <param name="documentListTypeFQN"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="list"></param>
+		/// <param name="list">Properties for the document list type. Document lists contain documents with an associated document type, such as web pages.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentListType"/>
 		/// </returns>
