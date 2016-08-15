@@ -195,6 +195,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="incrementSequence">If true, when adding a new product category, set the sequence number of the new category to an increment of one integer greater than the maximum available sequence number across all product categories. If false, set the sequence number to zero.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="useProvidedId"></param>
 		/// <param name="category">A descriptive container that groups products. A category is merchant defined with associated products and discounts as configured. GThe storefront displays products in a hierarchy of categories. As such, categories can include a nesting of sub-categories to organize products and product options per set guidelines such as color, brand, material, and size.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Category"/>
@@ -202,14 +203,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var category = new Category();
-		///   var category = category.AddCategory( category,  incrementSequence,  responseFields);
+		///   var category = category.AddCategory( category,  incrementSequence,  useProvidedId,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.Category AddCategory(Mozu.Api.Contracts.ProductAdmin.Category category, bool? incrementSequence =  null, string responseFields =  null)
+		public virtual Mozu.Api.Contracts.ProductAdmin.Category AddCategory(Mozu.Api.Contracts.ProductAdmin.Category category, bool? incrementSequence =  null, bool? useProvidedId =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.Category> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.AddCategoryClient( category,  incrementSequence,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.AddCategoryClient( category,  incrementSequence,  useProvidedId,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -221,6 +222,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="incrementSequence">If true, when adding a new product category, set the sequence number of the new category to an increment of one integer greater than the maximum available sequence number across all product categories. If false, set the sequence number to zero.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="useProvidedId"></param>
 		/// <param name="category">A descriptive container that groups products. A category is merchant defined with associated products and discounts as configured. GThe storefront displays products in a hierarchy of categories. As such, categories can include a nesting of sub-categories to organize products and product options per set guidelines such as color, brand, material, and size.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Category"/>
@@ -228,13 +230,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var category = new Category();
-		///   var category = await category.AddCategoryAsync( category,  incrementSequence,  responseFields);
+		///   var category = await category.AddCategoryAsync( category,  incrementSequence,  useProvidedId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Category> AddCategoryAsync(Mozu.Api.Contracts.ProductAdmin.Category category, bool? incrementSequence =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Category> AddCategoryAsync(Mozu.Api.Contracts.ProductAdmin.Category category, bool? incrementSequence =  null, bool? useProvidedId =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.Category> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.AddCategoryClient( category,  incrementSequence,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.AddCategoryClient( category,  incrementSequence,  useProvidedId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

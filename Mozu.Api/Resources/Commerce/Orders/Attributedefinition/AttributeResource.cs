@@ -188,6 +188,106 @@ namespace Mozu.Api.Resources.Commerce.Orders.Attributedefinition
 
 		}
 
+		/// <summary>
+		/// Create and save a new attribute. These attributes are used in products and product options.
+		/// </summary>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="attribute">Properties of an attribute used to describe customers or orders.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Core.Extensible.Attribute"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var attribute = new Attribute();
+		///   var attribute = attribute.CreateAttribute( attribute,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Core.Extensible.Attribute CreateAttribute(Mozu.Api.Contracts.Core.Extensible.Attribute attribute, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.Attributedefinition.AttributeClient.CreateAttributeClient( attribute,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// Create and save a new attribute. These attributes are used in products and product options.
+		/// </summary>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="attribute">Properties of an attribute used to describe customers or orders.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Core.Extensible.Attribute"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var attribute = new Attribute();
+		///   var attribute = await attribute.CreateAttributeAsync( attribute,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.Core.Extensible.Attribute> CreateAttributeAsync(Mozu.Api.Contracts.Core.Extensible.Attribute attribute, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.Attributedefinition.AttributeClient.CreateAttributeClient( attribute,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// Updates an existing attribute with attribute properties to set.
+		/// </summary>
+		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="attribute">Properties of an attribute used to describe customers or orders.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Core.Extensible.Attribute"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var attribute = new Attribute();
+		///   var attribute = attribute.UpdateAttribute( attribute,  attributeFQN,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.Core.Extensible.Attribute UpdateAttribute(Mozu.Api.Contracts.Core.Extensible.Attribute attribute, string attributeFQN, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.Attributedefinition.AttributeClient.UpdateAttributeClient( attribute,  attributeFQN,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// Updates an existing attribute with attribute properties to set.
+		/// </summary>
+		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="attribute">Properties of an attribute used to describe customers or orders.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Core.Extensible.Attribute"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var attribute = new Attribute();
+		///   var attribute = await attribute.UpdateAttributeAsync( attribute,  attributeFQN,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.Core.Extensible.Attribute> UpdateAttributeAsync(Mozu.Api.Contracts.Core.Extensible.Attribute attribute, string attributeFQN, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.Attributedefinition.AttributeClient.UpdateAttributeClient( attribute,  attributeFQN,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
 
 	}
 

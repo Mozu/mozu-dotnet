@@ -50,6 +50,8 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public List<CustomerContact> Contacts { get; set; }
 
+			public string CustomerSet { get; set; }
+
 			///
 			///Mozu.Customer.Contracts.CustomerAccount customerSinceDate ApiTypeMember DOCUMENT_HERE 
 			///

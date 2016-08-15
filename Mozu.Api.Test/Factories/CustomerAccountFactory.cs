@@ -485,14 +485,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves the current login state of a customer account by providing the customer's email address.
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAccountFactory.GetLoginStateByEmailAddress(handler : handler,  emailAddress :  emailAddress,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CustomerAccountFactory.GetLoginStateByEmailAddress(handler : handler,  emailAddress :  emailAddress,  customerSetCode :  customerSetCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<LoginState/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.LoginState GetLoginStateByEmailAddress(ServiceClientMessageHandler handler, 
- 		 string emailAddress, string responseFields = null, 
+ 		 string emailAddress, string customerSetCode = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -500,7 +500,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetLoginStateByEmailAddressClient(
-				 emailAddress :  emailAddress,  responseFields :  responseFields		);
+				 emailAddress :  emailAddress,  customerSetCode :  customerSetCode,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -523,14 +523,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves the current login state of a customer account by providing the user name associated with the customer account.
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAccountFactory.GetLoginStateByUserName(handler : handler,  userName :  userName,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CustomerAccountFactory.GetLoginStateByUserName(handler : handler,  userName :  userName,  customerSetCode :  customerSetCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<LoginState/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.LoginState GetLoginStateByUserName(ServiceClientMessageHandler handler, 
- 		 string userName, string responseFields = null, 
+ 		 string userName, string customerSetCode = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -538,7 +538,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetLoginStateByUserNameClient(
-				 userName :  userName,  responseFields :  responseFields		);
+				 userName :  userName,  customerSetCode :  customerSetCode,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

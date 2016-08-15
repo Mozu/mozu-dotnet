@@ -24,6 +24,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public List<Product> Items { get; set; }
 
+			public string NextCursorMark { get; set; }
+
 			///
 			///The number of pages returned based on the startIndex and pageSize values specified. This value is system-supplied and read-only.
 			///

@@ -636,6 +636,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Retrieves the current login state of a customer account by providing the customer's email address.
 		/// </summary>
+		/// <param name="customerSetCode"></param>
 		/// <param name="emailAddress">The email address associated with the customer account.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
@@ -644,14 +645,14 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <example>
 		/// <code>
 		///   var customeraccount = new CustomerAccount();
-		///   var loginState = customeraccount.GetLoginStateByEmailAddress( emailAddress,  responseFields);
+		///   var loginState = customeraccount.GetLoginStateByEmailAddress( emailAddress,  customerSetCode,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Customer.LoginState GetLoginStateByEmailAddress(string emailAddress, string responseFields =  null)
+		public virtual Mozu.Api.Contracts.Customer.LoginState GetLoginStateByEmailAddress(string emailAddress, string customerSetCode =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.LoginState> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetLoginStateByEmailAddressClient( emailAddress,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetLoginStateByEmailAddressClient( emailAddress,  customerSetCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -661,6 +662,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Retrieves the current login state of a customer account by providing the customer's email address.
 		/// </summary>
+		/// <param name="customerSetCode"></param>
 		/// <param name="emailAddress">The email address associated with the customer account.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
@@ -669,13 +671,13 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <example>
 		/// <code>
 		///   var customeraccount = new CustomerAccount();
-		///   var loginState = await customeraccount.GetLoginStateByEmailAddressAsync( emailAddress,  responseFields);
+		///   var loginState = await customeraccount.GetLoginStateByEmailAddressAsync( emailAddress,  customerSetCode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateByEmailAddressAsync(string emailAddress, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateByEmailAddressAsync(string emailAddress, string customerSetCode =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.LoginState> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetLoginStateByEmailAddressClient( emailAddress,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetLoginStateByEmailAddressClient( emailAddress,  customerSetCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -685,6 +687,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Retrieves the current login state of a customer account by providing the user name associated with the customer account.
 		/// </summary>
+		/// <param name="customerSetCode"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="userName">The user name associated with the customer account.</param>
 		/// <returns>
@@ -693,14 +696,14 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <example>
 		/// <code>
 		///   var customeraccount = new CustomerAccount();
-		///   var loginState = customeraccount.GetLoginStateByUserName( userName,  responseFields);
+		///   var loginState = customeraccount.GetLoginStateByUserName( userName,  customerSetCode,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Customer.LoginState GetLoginStateByUserName(string userName, string responseFields =  null)
+		public virtual Mozu.Api.Contracts.Customer.LoginState GetLoginStateByUserName(string userName, string customerSetCode =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.LoginState> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetLoginStateByUserNameClient( userName,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetLoginStateByUserNameClient( userName,  customerSetCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -710,6 +713,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Retrieves the current login state of a customer account by providing the user name associated with the customer account.
 		/// </summary>
+		/// <param name="customerSetCode"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="userName">The user name associated with the customer account.</param>
 		/// <returns>
@@ -718,13 +722,13 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <example>
 		/// <code>
 		///   var customeraccount = new CustomerAccount();
-		///   var loginState = await customeraccount.GetLoginStateByUserNameAsync( userName,  responseFields);
+		///   var loginState = await customeraccount.GetLoginStateByUserNameAsync( userName,  customerSetCode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateByUserNameAsync(string userName, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateByUserNameAsync(string userName, string customerSetCode =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.LoginState> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetLoginStateByUserNameClient( userName,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetLoginStateByUserNameClient( userName,  customerSetCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

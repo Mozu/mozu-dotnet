@@ -56,6 +56,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public int? Id { get; set; }
 
+			public bool? IsActive { get; set; }
+
 			///
 			///Indicates if the object is displayed on the storefront. If true, the admin product category is displayed in the store. If true, the category is not displayed.
 			///

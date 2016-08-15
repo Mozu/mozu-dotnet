@@ -332,6 +332,7 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <summary>
 		/// Retrieves the current login state of a customer account by providing the customer's email address.
 		/// </summary>
+		/// <param name="customerSetCode"></param>
 		/// <param name="emailAddress">The email address associated with the customer account.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
@@ -339,13 +340,13 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetLoginStateByEmailAddress( emailAddress,  responseFields);
+		///   var mozuClient=GetLoginStateByEmailAddress( emailAddress,  customerSetCode,  responseFields);
 		///   var loginStateClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateByEmailAddressClient(string emailAddress, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateByEmailAddressClient(string emailAddress, string customerSetCode =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetLoginStateByEmailAddressUrl(emailAddress, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetLoginStateByEmailAddressUrl(emailAddress, customerSetCode, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.LoginState>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -357,6 +358,7 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <summary>
 		/// Retrieves the current login state of a customer account by providing the user name associated with the customer account.
 		/// </summary>
+		/// <param name="customerSetCode"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="userName">The user name associated with the customer account.</param>
 		/// <returns>
@@ -364,13 +366,13 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetLoginStateByUserName( userName,  responseFields);
+		///   var mozuClient=GetLoginStateByUserName( userName,  customerSetCode,  responseFields);
 		///   var loginStateClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateByUserNameClient(string userName, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateByUserNameClient(string userName, string customerSetCode =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetLoginStateByUserNameUrl(userName, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetLoginStateByUserNameUrl(userName, customerSetCode, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.LoginState>()
 									.WithVerb(verb).WithResourceUrl(url)

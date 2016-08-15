@@ -137,6 +137,7 @@
     <Compile Include="Factories\CustomerPurchaseOrderAccountFactory.cs" />
     <Compile Include="Factories\CustomerSegmentAccountsFactory.cs" />
     <Compile Include="Factories\CustomerSegmentFactory.cs" />
+    <Compile Include="Factories\CustomerSetFactory.cs" />
     <Compile Include="Factories\CustomRouteSettingsFactory.cs" />
     <Compile Include="Factories\DeveloperAdminUserAuthTicketFactory.cs" />
     <Compile Include="Factories\DigitalPackageFactory.cs" />
