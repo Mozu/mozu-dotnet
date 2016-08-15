@@ -38,6 +38,11 @@ namespace Mozu.Api.Events
 		Task FulfilledAsync(IApiContext apiContext, Event eventPayLoad);
 
 		[Obsolete("This method is obsolete; use the async method instead")]
+		void Imported(IApiContext apiContext, Event eventPayLoad);
+
+		Task ImportedAsync(IApiContext apiContext, Event eventPayLoad);
+
+		[Obsolete("This method is obsolete; use the async method instead")]
 		void Opened(IApiContext apiContext, Event eventPayLoad);
 
 		Task OpenedAsync(IApiContext apiContext, Event eventPayLoad);

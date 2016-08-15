@@ -13,22 +13,13 @@ using System;
 
 namespace Mozu.Api.Contracts.Customer
 {
-		///
-		///	Information required to reset the password for a customer account.
-		///
-		public class ResetPasswordInfo
+		public class CustomerSetSite
 		{
 			public string CustomerSetCode { get; set; }
 
-			///
-			///The email address of the specified user or the email address associated with the specified entity.
-			///
-			public string EmailAddress { get; set; }
+			public string Name { get; set; }
 
-			///
-			///The user name associated with the user profile. The customer uses the user name to access the account.
-			///
-			public string UserName { get; set; }
+			public int SiteId { get; set; }
 
 		}
 

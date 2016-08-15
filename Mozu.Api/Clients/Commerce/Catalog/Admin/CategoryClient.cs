@@ -104,19 +104,20 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="incrementSequence">If true, when adding a new product category, set the sequence number of the new category to an increment of one integer greater than the maximum available sequence number across all product categories. If false, set the sequence number to zero.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="useProvidedId"></param>
 		/// <param name="category">A descriptive container that groups products. A category is merchant defined with associated products and discounts as configured. GThe storefront displays products in a hierarchy of categories. As such, categories can include a nesting of sub-categories to organize products and product options per set guidelines such as color, brand, material, and size.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Category"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddCategory( category,  incrementSequence,  responseFields);
+		///   var mozuClient=AddCategory( category,  incrementSequence,  useProvidedId,  responseFields);
 		///   var categoryClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Category> AddCategoryClient(Mozu.Api.Contracts.ProductAdmin.Category category, bool? incrementSequence =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Category> AddCategoryClient(Mozu.Api.Contracts.ProductAdmin.Category category, bool? incrementSequence =  null, bool? useProvidedId =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.CategoryUrl.AddCategoryUrl(incrementSequence, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.CategoryUrl.AddCategoryUrl(incrementSequence, useProvidedId, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Category>()
 									.WithVerb(verb).WithResourceUrl(url)

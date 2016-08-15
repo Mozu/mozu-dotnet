@@ -223,15 +223,17 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for GetLoginStateByEmailAddress
         /// </summary>
+        /// <param name="customerSetCode"></param>
         /// <param name="emailAddress">The email address associated with the customer account.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetLoginStateByEmailAddressUrl(string emailAddress, string responseFields =  null)
+        public static MozuUrl GetLoginStateByEmailAddressUrl(string emailAddress, string customerSetCode =  null, string responseFields =  null)
 		{
 			var url = "/api/commerce/customer/accounts/loginstatebyemailaddress?emailAddress={emailAddress}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "customerSetCode", customerSetCode);
 			mozuUrl.FormatUrl( "emailAddress", emailAddress);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
@@ -240,15 +242,17 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for GetLoginStateByUserName
         /// </summary>
+        /// <param name="customerSetCode"></param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="userName">The user name associated with the customer account.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetLoginStateByUserNameUrl(string userName, string responseFields =  null)
+        public static MozuUrl GetLoginStateByUserNameUrl(string userName, string customerSetCode =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/loginstatebyusername?userName={userName}&responseFields={responseFields}";
+			var url = "/api/commerce/customer/accounts/loginstatebyusername?userName={userName}&customerSetCode={customerSetCode}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "customerSetCode", customerSetCode);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "userName", userName);
 			return mozuUrl;

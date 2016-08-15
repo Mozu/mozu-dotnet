@@ -78,15 +78,17 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// </summary>
         /// <param name="incrementSequence">If true, when adding a new product category, set the sequence number of the new category to an increment of one integer greater than the maximum available sequence number across all product categories. If false, set the sequence number to zero.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="useProvidedId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl AddCategoryUrl(bool? incrementSequence =  null, string responseFields =  null)
+        public static MozuUrl AddCategoryUrl(bool? incrementSequence =  null, bool? useProvidedId =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/admin/categories/?incrementSequence={incrementSequence}&responseFields={responseFields}";
+			var url = "/api/commerce/catalog/admin/categories/?incrementSequence={incrementSequence}&useProvidedId={useProvidedId}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "incrementSequence", incrementSequence);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "useProvidedId", useProvidedId);
 			return mozuUrl;
 		}
 

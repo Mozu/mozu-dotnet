@@ -18,6 +18,8 @@ namespace Mozu.Api.Contracts.SiteSettings.General.General
 		///
 		public class ViewAuthorizations
 		{
+			public bool? EnforceSitewideSSL { get; set; }
+
 			///
 			///Mozu.SiteSettings.General.Contracts.General.ViewAuthorizations requireAuthForLive ApiTypeMember DOCUMENT_HERE 
 			///

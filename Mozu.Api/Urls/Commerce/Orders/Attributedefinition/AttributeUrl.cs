@@ -71,7 +71,39 @@ namespace Mozu.Api.Urls.Commerce.Orders.Attributedefinition
 			return mozuUrl;
 		}
 
-								
+				/// <summary>
+        /// Get Resource Url for CreateAttribute
+        /// </summary>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl CreateAttributeUrl(string responseFields =  null)
+		{
+			var url = "/api/commerce/orders/attributedefinition/attributes/?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+				/// <summary>
+        /// Get Resource Url for UpdateAttribute
+        /// </summary>
+        /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl UpdateAttributeUrl(string attributeFQN, string responseFields =  null)
+		{
+			var url = "/api/commerce/orders/attributedefinition/attributes/{attributeFQN}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "attributeFQN", attributeFQN);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+				
 	}
 }
 

@@ -85,6 +85,8 @@ namespace Mozu.Api.Events
 
 		public const string ORDERFULFILLED = "order.fulfilled";
 
+		public const string ORDERIMPORTED = "order.imported";
+
 		public const string ORDEROPENED = "order.opened";
 
 		public const string ORDERPENDINGREVIEW = "order.pendingreview";
