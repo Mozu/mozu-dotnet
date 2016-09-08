@@ -82,7 +82,7 @@ namespace Mozu.Api
 
             try
             {
-                AdditionalErrorData = (List<AdditionalErrorData>) info.GetValue("additionalErroData", typeof (List<AdditionalErrorData>));
+                AdditionalErrorData = (List<AdditionalErrorData>) info.GetValue("additionalErrorData", typeof (List<AdditionalErrorData>));
             }
             catch (Exception){}
 
