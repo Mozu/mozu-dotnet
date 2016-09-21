@@ -27,7 +27,7 @@ namespace Mozu.Api.Contracts.SiteSettings.General.General.Routing
 			///
 			///Mozu.SiteSettings.General.Contracts.General.Routing.Route defaults ApiTypeMember DOCUMENT_HERE 
 			///
-			public List<string> Defaults { get; set; }
+			public Dictionary<String,Object> Defaults { get; set; }
 
 			///
 			///Mozu.SiteSettings.General.Contracts.General.Routing.Route functionId ApiTypeMember DOCUMENT_HERE 
@@ -42,7 +42,7 @@ namespace Mozu.Api.Contracts.SiteSettings.General.General.Routing
 			///
 			///Mozu.SiteSettings.General.Contracts.General.Routing.Route mappings ApiTypeMember DOCUMENT_HERE 
 			///
-			public List<string> Mappings { get; set; }
+			public Dictionary<String,String[]> Mappings { get; set; }
 
 			///
 			///Mozu.SiteSettings.General.Contracts.General.Routing.Route template ApiTypeMember DOCUMENT_HERE 
@@ -57,7 +57,7 @@ namespace Mozu.Api.Contracts.SiteSettings.General.General.Routing
 			///
 			///Mozu.SiteSettings.General.Contracts.General.Routing.Route validators ApiTypeMember DOCUMENT_HERE 
 			///
-			public List<string> Validators { get; set; }
+			public Dictionary<String,String[]> Validators { get; set; }
 
 		}
 
