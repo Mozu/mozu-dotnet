@@ -313,6 +313,7 @@
     <Compile Include="Contracts\CommerceRuntime\Payments\PaymentCard.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PaymentCollection.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PaymentGatewayInteraction.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Payments\PaymentGatewayResponseData.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PaymentInteraction.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PurchaseOrderCustomField.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PurchaseOrderPayment.cs" />
@@ -713,7 +714,9 @@
     <Compile Include="Contracts\SiteSettings\General\EmailTransactionSettings.cs" />
     <Compile Include="Contracts\SiteSettings\General\EmailTypeSetting.cs" />
     <Compile Include="Contracts\SiteSettings\General\General\Routing\CustomRouteSettings.cs" />
+    <Compile Include="Contracts\SiteSettings\General\General\Routing\Mapping.cs" />
     <Compile Include="Contracts\SiteSettings\General\General\Routing\Route.cs" />
+    <Compile Include="Contracts\SiteSettings\General\General\Routing\Validator.cs" />
     <Compile Include="Contracts\SiteSettings\General\General\ViewAuthorizations.cs" />
     <Compile Include="Contracts\SiteSettings\General\GeneralSettings.cs" />
     <Compile Include="Contracts\SiteSettings\General\TaxableTerritory.cs" />

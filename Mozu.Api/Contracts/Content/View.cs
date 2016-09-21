@@ -31,6 +31,10 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public string Filter { get; set; }
 
+			public string IncludeInactiveMode { get; set; }
+
+			public bool? IsAdminDefault { get; set; }
+
 			///
 			///The isVisibleInStorefront field indicates whether documents in the view can be accessed from the Mozu storefront application. If true, the storefront application and storefront client application (javascript tier) can GET documents from the view.
 			///

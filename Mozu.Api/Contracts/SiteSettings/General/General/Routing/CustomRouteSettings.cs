@@ -22,7 +22,7 @@ namespace Mozu.Api.Contracts.SiteSettings.General.General.Routing
 			///
 			///Mozu.SiteSettings.General.Contracts.General.Routing.CustomRouteSettings mappings ApiTypeMember DOCUMENT_HERE 
 			///
-			public List<string> Mappings { get; set; }
+			public Dictionary<String,Mapping> Mappings { get; set; }
 
 			///
 			///Mozu.SiteSettings.General.Contracts.General.Routing.CustomRouteSettings routes ApiTypeMember DOCUMENT_HERE 
@@ -32,7 +32,7 @@ namespace Mozu.Api.Contracts.SiteSettings.General.General.Routing
 			///
 			///Mozu.SiteSettings.General.Contracts.General.Routing.CustomRouteSettings validators ApiTypeMember DOCUMENT_HERE 
 			///
-			public List<string> Validators { get; set; }
+			public Dictionary<String,Validator> Validators { get; set; }
 
 		}
 

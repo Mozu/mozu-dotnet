@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 
 using Mozu.Api.Contracts.Core;
 
@@ -63,6 +64,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///Response code from the gateway associated with the payment interaction. For example, if the gateway returns "Not Authorized," an interaction for voiding the payment transaction would result.
 			///
 			public string GatewayResponseCode { get; set; }
+
+			public List<PaymentGatewayResponseData> GatewayResponseData { get; set; }
 
 			///
 			///Textual message returned by the payment gateway for the associated success or failure code.

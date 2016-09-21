@@ -82,6 +82,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// <summary>
 		/// Retrieves information about a single product given its product code.
 		/// </summary>
+		/// <param name="acceptVariantProductCode"></param>
 		/// <param name="allowInactive">If true, allow inactive categories to be retrieved in the category list response. If false, the categories retrieved will not include ones marked inactive.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
@@ -94,13 +95,13 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetProduct(dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  supressOutOfStock404,  quantity,  responseFields);
+		///   var mozuClient=GetProduct(dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  supressOutOfStock404,  quantity,  acceptVariantProductCode,  responseFields);
 		///   var productClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.Product> GetProductClient(DataViewMode dataViewMode, string productCode, string variationProductCode =  null, bool? allowInactive =  null, bool? skipInventoryCheck =  null, bool? supressOutOfStock404 =  null, int? quantity =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.Product> GetProductClient(DataViewMode dataViewMode, string productCode, string variationProductCode =  null, bool? allowInactive =  null, bool? skipInventoryCheck =  null, bool? supressOutOfStock404 =  null, int? quantity =  null, bool? acceptVariantProductCode =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductUrl.GetProductUrl(productCode, variationProductCode, allowInactive, skipInventoryCheck, supressOutOfStock404, quantity, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductUrl.GetProductUrl(productCode, variationProductCode, allowInactive, skipInventoryCheck, supressOutOfStock404, quantity, acceptVariantProductCode, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductRuntime.Product>()
 									.WithVerb(verb).WithResourceUrl(url)
