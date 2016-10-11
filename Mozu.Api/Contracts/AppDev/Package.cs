@@ -119,6 +119,8 @@ namespace Mozu.Api.Contracts.AppDev
 			///
 			public string ApplicationTypeName { get; set; }
 
+			public DateTime? ApplicationUpdateDate { get; set; }
+
 			///
 			///Mozu.AppDev.Contracts.Package appSchemeVersion ApiTypeMember DOCUMENT_HERE 
 			///
@@ -248,6 +250,8 @@ namespace Mozu.Api.Contracts.AppDev
 			///Whether or not there's a theme update.
 			///
 			public bool UpdateAvailable { get; set; }
+
+			public DateTime UpdateDate { get; set; }
 
 			///
 			///The AppKey is a runtime type. This only applies for themes that inherit from another theme. It shows the most current update available.

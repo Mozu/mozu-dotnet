@@ -124,6 +124,7 @@
     <Compile Include="Factories\CheckoutSettingsFactory.cs" />
     <Compile Include="Factories\CouponFactory.cs" />
     <Compile Include="Factories\CouponSetFactory.cs" />
+    <Compile Include="Factories\CredentialStoreEntryFactory.cs" />
     <Compile Include="Factories\CreditAuditEntryFactory.cs" />
     <Compile Include="Factories\CreditFactory.cs" />
     <Compile Include="Factories\CreditTransactionFactory.cs" />
@@ -212,6 +213,7 @@
     <Compile Include="Factories\SiteShippingSettingsFactory.cs" />
     <Compile Include="Factories\SoftAllocationFactory.cs" />
     <Compile Include="Factories\StorefrontCategoryFactory.cs" />
+    <Compile Include="Factories\StorefrontOrderTaxContextFactory.cs" />
     <Compile Include="Factories\StorefrontPackageFactory.cs" />
     <Compile Include="Factories\StorefrontPriceListFactory.cs" />
     <Compile Include="Factories\StorefrontProductFactory.cs" />

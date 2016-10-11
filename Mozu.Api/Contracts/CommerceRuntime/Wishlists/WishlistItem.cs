@@ -24,6 +24,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 		///
 		public class WishlistItem
 		{
+			public decimal? AdjustedLineItemSubtotal { get; set; }
+
 			///
 			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 			///
@@ -124,6 +126,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			///
 			public int Quantity { get; set; }
 
+			public decimal? ShippingAmountBeforeDiscountsAndAdjustments { get; set; }
+
 			///
 			///List of shipping discounts projected to apply to carts, orders, and wish lists and items at checkout.
 			///
@@ -154,10 +158,36 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			///
 			public decimal? Total { get; set; }
 
+			public decimal? TotalWithoutWeightedShippingAndHandling { get; set; }
+
+			public decimal? TotalWithWeightedShippingAndHandling { get; set; }
+
 			///
 			///Properties of the price per unit of a product, associated with cart and order items. This price is not used for wish lists at this time.
 			///
 			public CommerceUnitPrice UnitPrice { get; set; }
+
+			public decimal? WeightedOrderAdjustment { get; set; }
+
+			public decimal? WeightedOrderDiscount { get; set; }
+
+			public decimal? WeightedOrderDuty { get; set; }
+
+			public decimal? WeightedOrderHandlingFee { get; set; }
+
+			public decimal? WeightedOrderHandlingFeeDiscount { get; set; }
+
+			public decimal? WeightedOrderHandlingFeeTax { get; set; }
+
+			public decimal? WeightedOrderShipping { get; set; }
+
+			public decimal? WeightedOrderShippingDiscount { get; set; }
+
+			public decimal? WeightedOrderShippingManualAdjustment { get; set; }
+
+			public decimal? WeightedOrderShippingTax { get; set; }
+
+			public decimal? WeightedOrderTax { get; set; }
 
 		}
 

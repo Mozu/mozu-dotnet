@@ -101,6 +101,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// Retrieves a list of all product inventory definitions for the location code specified in the request.
 		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
+		/// <param name="filterFunctions"></param>
 		/// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
@@ -113,14 +114,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var locationinventory = new LocationInventory();
-		///   var locationInventoryCollection = locationinventory.GetLocationInventories(_dataViewMode,  locationCode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		///   var locationInventoryCollection = locationinventory.GetLocationInventories(_dataViewMode,  locationCode,  startIndex,  pageSize,  sortBy,  filter,  filterFunctions,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.LocationInventoryCollection GetLocationInventories(string locationCode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		public virtual Mozu.Api.Contracts.ProductAdmin.LocationInventoryCollection GetLocationInventories(string locationCode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string filterFunctions =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.LocationInventoryCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.LocationInventoryClient.GetLocationInventoriesClient(_dataViewMode,  locationCode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.LocationInventoryClient.GetLocationInventoriesClient(_dataViewMode,  locationCode,  startIndex,  pageSize,  sortBy,  filter,  filterFunctions,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -131,6 +132,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// Retrieves a list of all product inventory definitions for the location code specified in the request.
 		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
+		/// <param name="filterFunctions"></param>
 		/// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
@@ -143,13 +145,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var locationinventory = new LocationInventory();
-		///   var locationInventoryCollection = await locationinventory.GetLocationInventoriesAsync(_dataViewMode,  locationCode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		///   var locationInventoryCollection = await locationinventory.GetLocationInventoriesAsync(_dataViewMode,  locationCode,  startIndex,  pageSize,  sortBy,  filter,  filterFunctions,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.LocationInventoryCollection> GetLocationInventoriesAsync(string locationCode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.LocationInventoryCollection> GetLocationInventoriesAsync(string locationCode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string filterFunctions =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.LocationInventoryCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.LocationInventoryClient.GetLocationInventoriesClient(_dataViewMode,  locationCode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.LocationInventoryClient.GetLocationInventoriesClient(_dataViewMode,  locationCode,  startIndex,  pageSize,  sortBy,  filter,  filterFunctions,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

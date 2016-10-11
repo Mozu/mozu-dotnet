@@ -10,7 +10,9 @@
 
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.PricingRuntime
 {
@@ -19,6 +21,8 @@ namespace Mozu.Api.Contracts.PricingRuntime
 		///
 		public class TaxableLineItem
 		{
+			public JObject Data { get; set; }
+
 			///
 			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
 			///

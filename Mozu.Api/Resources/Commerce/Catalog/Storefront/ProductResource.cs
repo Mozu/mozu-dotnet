@@ -438,6 +438,55 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="query"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductRuntime.ProductCostCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var product = new Product();
+		///   var productCostCollection = product.GetProductCosts(_dataViewMode,  query,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductRuntime.ProductCostCollection GetProductCosts(Mozu.Api.Contracts.ProductRuntime.ProductCostQuery query, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductCostCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductCostsClient(_dataViewMode,  query,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="query"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductRuntime.ProductCostCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var product = new Product();
+		///   var productCostCollection = await product.GetProductCostsAsync(_dataViewMode,  query,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.ProductCostCollection> GetProductCostsAsync(Mozu.Api.Contracts.ProductRuntime.ProductCostQuery query, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductCostCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductCostsClient(_dataViewMode,  query,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
 		/// Retrieves product inventories for the storefront displayed products.
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>

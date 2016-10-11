@@ -296,6 +296,44 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = ProductFactory.GetProductCosts(handler : handler,  query :  query,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<ProductCostCollection/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.ProductRuntime.ProductCostCollection GetProductCosts(ServiceClientMessageHandler handler, 
+ 		 Mozu.Api.Contracts.ProductRuntime.ProductCostQuery query, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductCostsClient(
+				 query :  query,  responseFields :  responseFields, dataViewMode: dataViewMode		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
 		/// Retrieves product inventories for the storefront displayed products.
 		/// <example> 
 		///  <code> 

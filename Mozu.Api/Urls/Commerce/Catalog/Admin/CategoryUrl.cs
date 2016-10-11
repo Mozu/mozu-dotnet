@@ -93,19 +93,6 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-        /// Get Resource Url for UpdateCategoryTree
-        /// </summary>
-        /// <returns>
-        /// String - Resource Url
-        /// </returns>
-        public static MozuUrl UpdateCategoryTreeUrl()
-		{
-			var url = "/api/commerce/catalog/admin/categories/category-tree";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			return mozuUrl;
-		}
-
-		/// <summary>
         /// Get Resource Url for ValidateDynamicExpression
         /// </summary>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>

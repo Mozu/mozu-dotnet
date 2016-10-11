@@ -180,6 +180,21 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
 		}
 
 		/// <summary>
+        /// Get Resource Url for GetProductCosts
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetProductCostsUrl(string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/storefront/products/costs?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+		/// <summary>
         /// Get Resource Url for GetProductInventories
         /// </summary>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>

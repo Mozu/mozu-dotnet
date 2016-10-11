@@ -251,51 +251,6 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Modifies the sequence and hierarchy of multiple categories in a category tree in one operation. This is better for moving a category to a different location in the tree and adjusting the order of multiple categories than doing individual category updates.
-		/// </summary>
-		/// <param name="categorySequencies">Mozu.ProductAdmin.Contracts.CategorySequenceCollection ApiType DOCUMENT_HERE </param>
-		/// <returns>
-		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var category = new Category();
-		///   category.UpdateCategoryTree( categorySequencies);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void UpdateCategoryTree(Mozu.Api.Contracts.ProductAdmin.CategorySequenceCollection categorySequencies)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.UpdateCategoryTreeClient( categorySequencies);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// Modifies the sequence and hierarchy of multiple categories in a category tree in one operation. This is better for moving a category to a different location in the tree and adjusting the order of multiple categories than doing individual category updates.
-		/// </summary>
-		/// <param name="categorySequencies">Mozu.ProductAdmin.Contracts.CategorySequenceCollection ApiType DOCUMENT_HERE </param>
-		/// <returns>
-		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var category = new Category();
-		///   await category.UpdateCategoryTreeAsync( categorySequencies);
-		/// </code>
-		/// </example>
-		public virtual async Task UpdateCategoryTreeAsync(Mozu.Api.Contracts.ProductAdmin.CategorySequenceCollection categorySequencies)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.UpdateCategoryTreeClient( categorySequencies);
-			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
-
-		}
-
-		/// <summary>
 		/// Validates the precomputed dynamic category expression.
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>

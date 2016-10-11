@@ -10,7 +10,9 @@
 
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.PricingRuntime
 {
@@ -19,10 +21,14 @@ namespace Mozu.Api.Contracts.PricingRuntime
 		///
 		public class TaxableOrder
 		{
+			public List<TaxAttribute> Attributes { get; set; }
+
 			///
 			///3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
 			///
 			public string CurrencyCode { get; set; }
+
+			public JObject Data { get; set; }
 
 			///
 			///The combined price for all handling costs calculated together for shipped orders, not for digital or in-store pickup. This includes all handling costs per the product line items and options, excluding taxes and discounts. 
@@ -38,6 +44,8 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///The date and time the order was submitted for purchase. 
 			///
 			public DateTime OrderDate { get; set; }
+
+			public int? OrderNumber { get; set; }
 
 			///
 			///The unique identifier of the original order, used to track order changes for tax purposes.

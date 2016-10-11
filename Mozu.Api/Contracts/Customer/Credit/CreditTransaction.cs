@@ -39,6 +39,8 @@ namespace Mozu.Api.Contracts.Customer.Credit
 			///
 			public decimal? ImpactAmount { get; set; }
 
+			public string OrderId { get; set; }
+
 			///
 			///The type of transaction, pertaining to the transaction a customer performed or the type of customer credit. For customer credit, you will set the data to Debit to decrease or Credit to update. For the type of transaction, the type includes Order, Return, OrderPickup, or Wishlist.
 			///
