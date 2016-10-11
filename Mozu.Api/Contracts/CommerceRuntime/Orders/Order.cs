@@ -276,6 +276,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public DateTime? LastValidationDate { get; set; }
 
+			public decimal? LineItemSubtotalWithOrderAdjustments { get; set; }
+
 			///
 			///The unique, user-defined code that identifies a location. This location can be the location where the order was entered, location for newly in-stock products, and where products are returned.
 			///
@@ -355,6 +357,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///Properties of an ad-hoc price adjustment made for an order.
 			///
 			public Adjustment ShippingAdjustment { get; set; }
+
+			public decimal? ShippingAmountBeforeDiscountsAndAdjustments { get; set; }
 
 			///
 			///List of shipping discounts projected to apply to carts, orders, and wish lists and items at checkout.

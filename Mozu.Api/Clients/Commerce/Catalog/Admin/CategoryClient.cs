@@ -129,30 +129,6 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Modifies the sequence and hierarchy of multiple categories in a category tree in one operation. This is better for moving a category to a different location in the tree and adjusting the order of multiple categories than doing individual category updates.
-		/// </summary>
-		/// <param name="categorySequencies">Mozu.ProductAdmin.Contracts.CategorySequenceCollection ApiType DOCUMENT_HERE </param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=UpdateCategoryTree( categorySequencies);
-		///mozuClient.WithBaseAddress(url).Execute();
-		/// </code>
-		/// </example>
-		public static MozuClient UpdateCategoryTreeClient(Mozu.Api.Contracts.ProductAdmin.CategorySequenceCollection categorySequencies)
-		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.CategoryUrl.UpdateCategoryTreeUrl();
-			const string verb = "POST";
-			var mozuClient = new MozuClient()
-									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.CategorySequenceCollection>(categorySequencies);
-			return mozuClient;
-
-		}
-
-		/// <summary>
 		/// Validates the precomputed dynamic category expression.
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>

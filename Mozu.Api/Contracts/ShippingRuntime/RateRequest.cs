@@ -21,6 +21,8 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 		///
 		public class RateRequest
 		{
+			public List<RateRequestAttribute> Attributes { get; set; }
+
 			///
 			///List of shipping carriers for which to retrieve shipping rate information.
 			///
@@ -80,6 +82,8 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			///The Order ID to be used in rate calculation Information al only
 			///
 			public string RelatedOrderId { get; set; }
+
+			public int? RelatedOrderNumber { get; set; }
 
 			///
 			///The shipping methods associated with this request.
