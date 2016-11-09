@@ -93,7 +93,7 @@ namespace Mozu.Api
 		}
 		public virtual async Task<MozuClient<TResult>> ExecuteAsync()
 		{
-			await base.ExecuteRequestAsync();
+			await base.ExecuteRequestAsync().ConfigureAwait(false);
 			return this;
 		}
        
@@ -168,7 +168,7 @@ namespace Mozu.Api
 
 		public virtual async Task<MozuClient> ExecuteAsync()
 		{
-			await base.ExecuteRequestAsync();
+			await base.ExecuteRequestAsync().ConfigureAwait(false);
 			return this;
 		}
 
@@ -268,7 +268,7 @@ namespace Mozu.Api
 
 			var stringContent = HttpResponse.Content.ReadAsStringAsync().Result;
 
-			if (_log.IsDebugEnabled)
+			if (_log.IsDebugEnabled && MozuConfig.EnableRequestResponseLogging)
 				_log.Debug(string.Format("{0} {1}", GetCorrelationId(), stringContent));
 
 			return JsonConvert.DeserializeObject<TResult>(stringContent, new JsonSerializerSettings { DateTimeZoneHandling = DateTimeZoneHandling.Utc });
@@ -280,11 +280,11 @@ namespace Mozu.Api
 		      return default(TResult);
 
 			if (typeof(TResult) == typeof(Stream))
-				return (TResult)(object)(await HttpResponse.Content.ReadAsStreamAsync());
+				return (TResult)(object)(await HttpResponse.Content.ReadAsStreamAsync().ConfigureAwait(false));
 
-			var stringContent = await HttpResponse.Content.ReadAsStringAsync();
+			var stringContent = await HttpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
 
-			if (_log.IsDebugEnabled)
+			if (_log.IsDebugEnabled && MozuConfig.EnableRequestResponseLogging)
 				 _log.Debug(string.Format("{0} {1}", GetCorrelationId(), stringContent));
 
 			return await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<TResult>(stringContent, new JsonSerializerSettings { DateTimeZoneHandling = DateTimeZoneHandling.Utc }));
@@ -357,7 +357,7 @@ namespace Mozu.Api
             _httpContent = new StringContent(body, Encoding.UTF8, "application/json");
         }
 
-        protected void ValidateContext()
+        protected async Task ValidateContext()
 		{
 
             if (AppAuthenticator.Instance == null)
@@ -383,7 +383,7 @@ namespace Mozu.Api
 
 				if (string.IsNullOrEmpty(_apiContext.TenantUrl))
 				{
-				    var tenant = GetTenant(_apiContext.TenantId);
+				    var tenant = await GetTenant(_apiContext.TenantId).ConfigureAwait(false);
 					/*var tenantResource = new TenantResource();
 					var tenant = tenantResource.GetTenant(_apiContext.TenantId);
 
@@ -420,17 +420,17 @@ namespace Mozu.Api
 					_log.Info("TenantId is missing", new ApiException("TenantId is missing") { ApiContext = _apiContext });
 					throw new ApiException("TenantId is missing");
 				}
-                var tenant = GetTenant(_apiContext.TenantId);
+                var tenant = await GetTenant(_apiContext.TenantId).ConfigureAwait(false);
                 _baseAddress = tenant.IsDevTenant? MozuConfig.BaseDevPciUrl : MozuConfig.BasePciUrl;
 			}
 
 
 		}
 
-        private Tenant GetTenant(int tenantId)
+        private async Task<Tenant> GetTenant(int tenantId)
         {
             var tenantResource = new TenantResource();
-            var tenant = tenantResource.GetTenant(_apiContext.TenantId);
+            var tenant = await tenantResource.GetTenantAsync(_apiContext.TenantId).ConfigureAwait(false);
 
             if (tenant == null)
             {
@@ -444,7 +444,7 @@ namespace Mozu.Api
 
 		protected void ExecuteRequest()
 		{
-			ValidateContext();
+			ValidateContext().Wait();
 			var client = GetHttpClient();
 		    var request = GetRequestMessage();
 		    _httpResponseMessage = client.SendAsync(request, HttpCompletionOption.ResponseContentRead).Result;
@@ -454,10 +454,10 @@ namespace Mozu.Api
 		}
 		protected async Task ExecuteRequestAsync()
 		{
-			ValidateContext();
+			await ValidateContext().ConfigureAwait(false);
 			var client = GetHttpClient();
             var request = GetRequestMessage();
-			_httpResponseMessage = await client.SendAsync(request, HttpCompletionOption.ResponseContentRead);
+			_httpResponseMessage = await client.SendAsync(request, HttpCompletionOption.ResponseContentRead).ConfigureAwait(false);
             ResponseHelper.EnsureSuccess(_httpResponseMessage,request, _apiContext);
             SetCache(request);
 		}

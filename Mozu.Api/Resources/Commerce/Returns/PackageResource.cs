@@ -41,6 +41,7 @@ namespace Mozu.Api.Resources.Commerce.Returns
 		/// Retrieves the package label image supplied by the carrier for a return replacement.
 		/// </summary>
 		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
+		/// <param name="returnAsBase64"></param>
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
 		/// <returns>
 		/// <see cref="System.IO.Stream"/>
@@ -48,14 +49,14 @@ namespace Mozu.Api.Resources.Commerce.Returns
 		/// <example>
 		/// <code>
 		///   var package = new Package();
-		///   var stream = package.GetPackageLabel( returnId,  packageId);
+		///   var stream = package.GetPackageLabel( returnId,  packageId,  returnAsBase64);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual System.IO.Stream GetPackageLabel(string returnId, string packageId)
+		public virtual System.IO.Stream GetPackageLabel(string returnId, string packageId, bool? returnAsBase64 =  null)
 		{
 			MozuClient<System.IO.Stream> response;
-			var client = Mozu.Api.Clients.Commerce.Returns.PackageClient.GetPackageLabelClient( returnId,  packageId);
+			var client = Mozu.Api.Clients.Commerce.Returns.PackageClient.GetPackageLabelClient( returnId,  packageId,  returnAsBase64);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -66,6 +67,7 @@ namespace Mozu.Api.Resources.Commerce.Returns
 		/// Retrieves the package label image supplied by the carrier for a return replacement.
 		/// </summary>
 		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
+		/// <param name="returnAsBase64"></param>
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
 		/// <returns>
 		/// <see cref="System.IO.Stream"/>
@@ -73,13 +75,13 @@ namespace Mozu.Api.Resources.Commerce.Returns
 		/// <example>
 		/// <code>
 		///   var package = new Package();
-		///   var stream = await package.GetPackageLabelAsync( returnId,  packageId);
+		///   var stream = await package.GetPackageLabelAsync( returnId,  packageId,  returnAsBase64);
 		/// </code>
 		/// </example>
-		public virtual async Task<System.IO.Stream> GetPackageLabelAsync(string returnId, string packageId)
+		public virtual async Task<System.IO.Stream> GetPackageLabelAsync(string returnId, string packageId, bool? returnAsBase64 =  null)
 		{
 			MozuClient<System.IO.Stream> response;
-			var client = Mozu.Api.Clients.Commerce.Returns.PackageClient.GetPackageLabelClient( returnId,  packageId);
+			var client = Mozu.Api.Clients.Commerce.Returns.PackageClient.GetPackageLabelClient( returnId,  packageId,  returnAsBase64);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

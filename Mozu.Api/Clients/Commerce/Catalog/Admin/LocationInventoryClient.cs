@@ -53,6 +53,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// Retrieves a list of all product inventory definitions for the location code specified in the request.
 		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
+		/// <param name="filterFunctions"></param>
 		/// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
@@ -64,13 +65,13 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetLocationInventories(dataViewMode,  locationCode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		///   var mozuClient=GetLocationInventories(dataViewMode,  locationCode,  startIndex,  pageSize,  sortBy,  filter,  filterFunctions,  responseFields);
 		///   var locationInventoryCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.LocationInventoryCollection> GetLocationInventoriesClient(DataViewMode dataViewMode, string locationCode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.LocationInventoryCollection> GetLocationInventoriesClient(DataViewMode dataViewMode, string locationCode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string filterFunctions =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.LocationInventoryUrl.GetLocationInventoriesUrl(locationCode, startIndex, pageSize, sortBy, filter, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.LocationInventoryUrl.GetLocationInventoriesUrl(locationCode, startIndex, pageSize, sortBy, filter, filterFunctions, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.LocationInventoryCollection>()
 									.WithVerb(verb).WithResourceUrl(url)

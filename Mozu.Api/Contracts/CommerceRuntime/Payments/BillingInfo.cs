@@ -35,6 +35,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///
 			public PaymentCard Card { get; set; }
 
+			public CheckPayment Check { get; set; }
+
 			///
 			///Custom data from payment providers
 			///

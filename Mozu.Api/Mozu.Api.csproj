@@ -138,6 +138,7 @@
     <Compile Include="Clients\Commerce\Catalog\Admin\SearchClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\SoftAllocationClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Storefront\CategoryClient.cs" />
+    <Compile Include="Clients\Commerce\Catalog\Storefront\OrderTaxContextClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Storefront\PriceListClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Storefront\ProductClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Storefront\ProductSearchResultClient.cs" />
@@ -185,6 +186,7 @@
     <Compile Include="Clients\Commerce\Payments\FraudScreenClient.cs" />
     <Compile Include="Clients\Commerce\Payments\PublicCardClient.cs" />
     <Compile Include="Clients\Commerce\ReturnClient.cs" />
+    <Compile Include="Clients\Commerce\Returns\OrderNoteClient.cs" />
     <Compile Include="Clients\Commerce\Returns\PackageClient.cs" />
     <Compile Include="Clients\Commerce\Returns\ShipmentClient.cs" />
     <Compile Include="Clients\Commerce\Settings\ApplicationClient.cs" />
@@ -228,6 +230,7 @@
     <Compile Include="Clients\Platform\Entitylists\EntityClient.cs" />
     <Compile Include="Clients\Platform\Entitylists\EntityContainerClient.cs" />
     <Compile Include="Clients\Platform\Entitylists\ListViewClient.cs" />
+    <Compile Include="Clients\Platform\Extensions\CredentialStoreEntryClient.cs" />
     <Compile Include="Clients\Platform\ReferenceDataClient.cs" />
     <Compile Include="Clients\Platform\SecureAppDataClient.cs" />
     <Compile Include="Clients\Platform\SiteDataClient.cs" />
@@ -308,11 +311,13 @@
     <Compile Include="Contracts\CommerceRuntime\Orders\OrderValidationResult.cs" />
     <Compile Include="Contracts\CommerceRuntime\Orders\ShopperNotes.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\BillingInfo.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Payments\CheckPayment.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\Payment.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PaymentAction.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PaymentCard.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PaymentCollection.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PaymentGatewayInteraction.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Payments\PaymentGatewayResponseData.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PaymentInteraction.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PurchaseOrderCustomField.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PurchaseOrderPayment.cs" />
@@ -448,6 +453,7 @@
     <Compile Include="Contracts\Event\SubscriptionCollection.cs" />
     <Compile Include="Contracts\InstalledApplications\Application.cs" />
     <Compile Include="Contracts\InstalledApplications\Capability.cs" />
+    <Compile Include="Contracts\InstalledApplications\CredentialStoreEntry.cs" />
     <Compile Include="Contracts\InstalledApplications\CustomFunction.cs" />
     <Compile Include="Contracts\InstalledApplications\CustomFunctionsForAction.cs" />
     <Compile Include="Contracts\InstalledApplications\CustomFunctionsForContext.cs" />
@@ -489,11 +495,14 @@
     <Compile Include="Contracts\PaymentService\Response\FraudScreen.cs" />
     <Compile Include="Contracts\PaymentService\Response\SyncResponse.cs" />
     <Compile Include="Contracts\PaymentService\SupportedCard.cs" />
+    <Compile Include="Contracts\PricingRuntime\ItemTaxContext.cs" />
+    <Compile Include="Contracts\PricingRuntime\OrderTaxContext.cs" />
     <Compile Include="Contracts\PricingRuntime\ProductAttribute.cs" />
     <Compile Include="Contracts\PricingRuntime\ProductProperty.cs" />
     <Compile Include="Contracts\PricingRuntime\ProductPropertyValue.cs" />
     <Compile Include="Contracts\PricingRuntime\TaxableLineItem.cs" />
     <Compile Include="Contracts\PricingRuntime\TaxableOrder.cs" />
+    <Compile Include="Contracts\PricingRuntime\TaxAttribute.cs" />
     <Compile Include="Contracts\PricingRuntime\TaxContext.cs" />
     <Compile Include="Contracts\PricingRuntime\ThirdParty\ItemTaxContext.cs" />
     <Compile Include="Contracts\PricingRuntime\ThirdParty\OrderTaxContext.cs" />
@@ -522,8 +531,6 @@
     <Compile Include="Contracts\ProductAdmin\CategoryLocalizedContent.cs" />
     <Compile Include="Contracts\ProductAdmin\CategoryLocalizedImage.cs" />
     <Compile Include="Contracts\ProductAdmin\CategoryPagedCollection.cs" />
-    <Compile Include="Contracts\ProductAdmin\CategorySequence.cs" />
-    <Compile Include="Contracts\ProductAdmin\CategorySequenceCollection.cs" />
     <Compile Include="Contracts\ProductAdmin\Coupon.cs" />
     <Compile Include="Contracts\ProductAdmin\CouponCollection.cs" />
     <Compile Include="Contracts\ProductAdmin\CouponSet.cs" />
@@ -634,6 +641,9 @@
     <Compile Include="Contracts\ProductRuntime\Product.cs" />
     <Compile Include="Contracts\ProductRuntime\ProductCollection.cs" />
     <Compile Include="Contracts\ProductRuntime\ProductContent.cs" />
+    <Compile Include="Contracts\ProductRuntime\ProductCost.cs" />
+    <Compile Include="Contracts\ProductRuntime\ProductCostCollection.cs" />
+    <Compile Include="Contracts\ProductRuntime\ProductCostQuery.cs" />
     <Compile Include="Contracts\ProductRuntime\ProductImage.cs" />
     <Compile Include="Contracts\ProductRuntime\ProductInventoryInfo.cs" />
     <Compile Include="Contracts\ProductRuntime\ProductOption.cs" />
@@ -646,6 +656,7 @@
     <Compile Include="Contracts\ProductRuntime\ProductProperty.cs" />
     <Compile Include="Contracts\ProductRuntime\ProductPropertyValue.cs" />
     <Compile Include="Contracts\ProductRuntime\ProductPurchasableState.cs" />
+    <Compile Include="Contracts\ProductRuntime\ProductSearchRandomAccessCursor.cs" />
     <Compile Include="Contracts\ProductRuntime\ProductSearchResult.cs" />
     <Compile Include="Contracts\ProductRuntime\ProductValidationSummary.cs" />
     <Compile Include="Contracts\ProductRuntime\ProductVolumePrice.cs" />
@@ -701,6 +712,7 @@
     <Compile Include="Contracts\ShippingRuntime\ProductProperty.cs" />
     <Compile Include="Contracts\ShippingRuntime\ProductSummary.cs" />
     <Compile Include="Contracts\ShippingRuntime\RateRequest.cs" />
+    <Compile Include="Contracts\ShippingRuntime\RateRequestAttribute.cs" />
     <Compile Include="Contracts\ShippingRuntime\RateRequestItem.cs" />
     <Compile Include="Contracts\ShippingRuntime\RatesResponse.cs" />
     <Compile Include="Contracts\ShippingRuntime\ShippingItemRate.cs" />
@@ -713,7 +725,9 @@
     <Compile Include="Contracts\SiteSettings\General\EmailTransactionSettings.cs" />
     <Compile Include="Contracts\SiteSettings\General\EmailTypeSetting.cs" />
     <Compile Include="Contracts\SiteSettings\General\General\Routing\CustomRouteSettings.cs" />
+    <Compile Include="Contracts\SiteSettings\General\General\Routing\Mapping.cs" />
     <Compile Include="Contracts\SiteSettings\General\General\Routing\Route.cs" />
+    <Compile Include="Contracts\SiteSettings\General\General\Routing\Validator.cs" />
     <Compile Include="Contracts\SiteSettings\General\General\ViewAuthorizations.cs" />
     <Compile Include="Contracts\SiteSettings\General\GeneralSettings.cs" />
     <Compile Include="Contracts\SiteSettings\General\TaxableTerritory.cs" />
@@ -800,6 +814,7 @@
     <Compile Include="Resources\Commerce\Catalog\Admin\SearchResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\SoftAllocationResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Storefront\CategoryResource.cs" />
+    <Compile Include="Resources\Commerce\Catalog\Storefront\OrderTaxContextResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Storefront\PriceListResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Storefront\ProductResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Storefront\ProductSearchResultResource.cs" />
@@ -847,6 +862,7 @@
     <Compile Include="Resources\Commerce\Payments\FraudScreenResource.cs" />
     <Compile Include="Resources\Commerce\Payments\PublicCardResource.cs" />
     <Compile Include="Resources\Commerce\ReturnResource.cs" />
+    <Compile Include="Resources\Commerce\Returns\OrderNoteResource.cs" />
     <Compile Include="Resources\Commerce\Returns\PackageResource.cs" />
     <Compile Include="Resources\Commerce\Returns\ShipmentResource.cs" />
     <Compile Include="Resources\Commerce\Settings\ApplicationResource.cs" />
@@ -890,6 +906,7 @@
     <Compile Include="Resources\Platform\Entitylists\EntityContainerResource.cs" />
     <Compile Include="Resources\Platform\Entitylists\EntityResource.cs" />
     <Compile Include="Resources\Platform\Entitylists\ListViewResource.cs" />
+    <Compile Include="Resources\Platform\Extensions\CredentialStoreEntryResource.cs" />
     <Compile Include="Resources\Platform\ReferenceDataResource.cs" />
     <Compile Include="Resources\Platform\SecureAppDataResource.cs" />
     <Compile Include="Resources\Platform\SiteDataResource.cs" />
@@ -935,6 +952,7 @@
     <Compile Include="Urls\Commerce\Catalog\Admin\SearchUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\SoftAllocationUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Storefront\CategoryUrl.cs" />
+    <Compile Include="Urls\Commerce\Catalog\Storefront\OrderTaxContextUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Storefront\PriceListUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Storefront\ProductSearchResultUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Storefront\ProductUrl.cs" />
@@ -981,6 +999,7 @@
     <Compile Include="Urls\Commerce\OrderUrl.cs" />
     <Compile Include="Urls\Commerce\Payments\FraudScreenUrl.cs" />
     <Compile Include="Urls\Commerce\Payments\PublicCardUrl.cs" />
+    <Compile Include="Urls\Commerce\Returns\OrderNoteUrl.cs" />
     <Compile Include="Urls\Commerce\Returns\PackageUrl.cs" />
     <Compile Include="Urls\Commerce\Returns\ShipmentUrl.cs" />
     <Compile Include="Urls\Commerce\ReturnUrl.cs" />
@@ -1025,6 +1044,7 @@
     <Compile Include="Urls\Platform\Entitylists\EntityUrl.cs" />
     <Compile Include="Urls\Platform\Entitylists\ListViewUrl.cs" />
     <Compile Include="Urls\Platform\EntityListUrl.cs" />
+    <Compile Include="Urls\Platform\Extensions\CredentialStoreEntryUrl.cs" />
     <Compile Include="Urls\Platform\ReferenceDataUrl.cs" />
     <Compile Include="Urls\Platform\SecureAppDataUrl.cs" />
     <Compile Include="Urls\Platform\SiteDataUrl.cs" />

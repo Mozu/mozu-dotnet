@@ -44,6 +44,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///
 			public string ChannelCode { get; set; }
 
+			public Contact Contact { get; set; }
+
 			///
 			///3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
 			///
@@ -89,6 +91,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///
 			public string OriginalOrderId { get; set; }
 
+			public int? OriginalOrderNumber { get; set; }
+
 			///
 			///Array list of physical packages shipped for a specified order.
 			///
@@ -109,10 +113,16 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///
 			public decimal? ProductLossTotal { get; set; }
 
+			public string ReceiveStatus { get; set; }
+
 			///
 			///If a refund action was performed for this return, the total amount refunded to the shopper. The refund amount can differ from the sum of the price of the returned items.
 			///
 			public decimal? RefundAmount { get; set; }
+
+			public string RefundStatus { get; set; }
+
+			public string ReplaceStatus { get; set; }
 
 			///
 			///A merchant-specific identifier used to sequentially order returns.

@@ -14,10 +14,10 @@ namespace Mozu.Api.Logging
         bool IsErrorEnabled { get; }
         bool IsFatalEnabled { get; }
 
-        Task Info(object message, Exception ex = null, object properties = null);
-        Task Warn(object message, Exception ex = null, object properties = null);
-        Task Debug(object message, Exception ex = null, object properties = null);
-        Task Error(object message, Exception ex = null, object properties = null);
-        Task Fatal(object message, Exception ex = null, object properties = null);
+        void Info(object message, Exception ex = null, object properties = null);
+        void Warn(object message, Exception ex = null, object properties = null);
+        void Debug(object message, Exception ex = null, object properties = null);
+        void Error(object message, Exception ex = null, object properties = null);
+        void Fatal(object message, Exception ex = null, object properties = null);
     }
 }

@@ -17,6 +17,27 @@ namespace Mozu.Api.Urls.Commerce.Orders
 	{
 
 						/// <summary>
+        /// Get Resource Url for ApplyHandlingAdjustment
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="updateMode"></param>
+        /// <param name="version"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl ApplyHandlingAdjustmentUrl(string orderId, string updateMode =  null, string version =  null, string responseFields =  null)
+		{
+			var url = "/api/commerce/orders/{orderId}/adjustment/handling?updatemode={updateMode}&version={version}&responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "orderId", orderId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "updateMode", updateMode);
+			mozuUrl.FormatUrl( "version", version);
+			return mozuUrl;
+		}
+
+		/// <summary>
         /// Get Resource Url for ApplyShippingAdjustment
         /// </summary>
         /// <param name="orderId">Unique identifier of the order.</param>
@@ -59,6 +80,25 @@ namespace Mozu.Api.Urls.Commerce.Orders
 		}
 
 				/// <summary>
+        /// Get Resource Url for RemoveHandlingAdjustment
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <param name="updateMode"></param>
+        /// <param name="version"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl RemoveHandlingAdjustmentUrl(string orderId, string updateMode =  null, string version =  null)
+		{
+			var url = "/api/commerce/orders/{orderId}/adjustment/handling?updatemode={updateMode}&version={version}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "orderId", orderId);
+			mozuUrl.FormatUrl( "updateMode", updateMode);
+			mozuUrl.FormatUrl( "version", version);
+			return mozuUrl;
+		}
+
+		/// <summary>
         /// Get Resource Url for RemoveShippingAdjustment
         /// </summary>
         /// <param name="orderId">Unique identifier of the order.</param>

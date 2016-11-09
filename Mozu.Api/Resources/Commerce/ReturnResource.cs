@@ -42,6 +42,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="q"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
@@ -51,14 +52,14 @@ namespace Mozu.Api.Resources.Commerce
 		/// <example>
 		/// <code>
 		///   var return = new Return();
-		///   var returnCollection = return.GetReturns( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		///   var returnCollection = return.GetReturns( startIndex,  pageSize,  sortBy,  filter,  q,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection GetReturns(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection GetReturns(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string q =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection> response;
-			var client = Mozu.Api.Clients.Commerce.ReturnClient.GetReturnsClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.ReturnClient.GetReturnsClient( startIndex,  pageSize,  sortBy,  filter,  q,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -70,6 +71,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="q"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
@@ -79,13 +81,13 @@ namespace Mozu.Api.Resources.Commerce
 		/// <example>
 		/// <code>
 		///   var return = new Return();
-		///   var returnCollection = await return.GetReturnsAsync( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		///   var returnCollection = await return.GetReturnsAsync( startIndex,  pageSize,  sortBy,  filter,  q,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection> GetReturnsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection> GetReturnsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string q =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection> response;
-			var client = Mozu.Api.Clients.Commerce.ReturnClient.GetReturnsClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.ReturnClient.GetReturnsClient( startIndex,  pageSize,  sortBy,  filter,  q,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -682,6 +684,55 @@ namespace Mozu.Api.Resources.Commerce
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> response;
 			var client = Mozu.Api.Clients.Commerce.ReturnClient.CreatePaymentActionForReturnClient( action,  returnId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="returnId"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var return = new Return();
+		///   var order = return.CreateReturnShippingOrder( returnId,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.Order CreateReturnShippingOrder(string returnId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
+			var client = Mozu.Api.Clients.Commerce.ReturnClient.CreateReturnShippingOrderClient( returnId,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="returnId"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var return = new Return();
+		///   var order = await return.CreateReturnShippingOrderAsync( returnId,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> CreateReturnShippingOrderAsync(string returnId, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
+			var client = Mozu.Api.Clients.Commerce.ReturnClient.CreateReturnShippingOrderClient( returnId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

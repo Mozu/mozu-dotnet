@@ -91,6 +91,8 @@ namespace Mozu.Api.Events
 
 		public const string ORDERPENDINGREVIEW = "order.pendingreview";
 
+		public const string ORDERSAVED = "order.saved";
+
 		public const string ORDERUPDATED = "order.updated";
 
 		public const string PRICELISTCREATED = "pricelist.created";
@@ -136,6 +138,8 @@ namespace Mozu.Api.Events
 		public const string PRODUCTTYPEDELETED = "producttype.deleted";
 
 		public const string PRODUCTTYPEUPDATED = "producttype.updated";
+
+		public const string RETURNAUTHORIZED = "return.authorized";
 
 		public const string RETURNCANCELLED = "return.cancelled";
 

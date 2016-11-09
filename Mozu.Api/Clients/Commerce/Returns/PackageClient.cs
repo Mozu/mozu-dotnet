@@ -25,19 +25,20 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		/// Retrieves the package label image supplied by the carrier for a return replacement.
 		/// </summary>
 		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
+		/// <param name="returnAsBase64"></param>
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetPackageLabel( returnId,  packageId);
+		///   var mozuClient=GetPackageLabel( returnId,  packageId,  returnAsBase64);
 		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<System.IO.Stream> GetPackageLabelClient(string returnId, string packageId)
+		public static MozuClient<System.IO.Stream> GetPackageLabelClient(string returnId, string packageId, bool? returnAsBase64 =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Returns.PackageUrl.GetPackageLabelUrl(returnId, packageId);
+			var url = Mozu.Api.Urls.Commerce.Returns.PackageUrl.GetPackageLabelUrl(returnId, packageId, returnAsBase64);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)

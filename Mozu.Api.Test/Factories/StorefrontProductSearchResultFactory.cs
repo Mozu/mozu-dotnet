@@ -30,6 +30,44 @@ namespace Mozu.Api.Test.Factories
 	{
 
 		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = ProductSearchResultFactory.GetRandomAccessCursor(handler : handler,  query :  query,  filter :  filter,  pageSize :  pageSize,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<ProductSearchRandomAccessCursor/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.ProductRuntime.ProductSearchRandomAccessCursor GetRandomAccessCursor(ServiceClientMessageHandler handler, 
+ 		 string query = null, string filter = null, int? pageSize = null, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductSearchResultClient.GetRandomAccessCursorClient(
+				 query :  query,  filter :  filter,  pageSize :  pageSize,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
 		/// Searches the categories displayed on the web storefront for products or product options that the shopper types in a search query.
 		/// <example> 
 		///  <code> 

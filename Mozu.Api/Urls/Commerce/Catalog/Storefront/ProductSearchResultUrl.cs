@@ -17,6 +17,27 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
 	{
 
 		/// <summary>
+        /// Get Resource Url for GetRandomAccessCursor
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="query"></param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetRandomAccessCursorUrl(string query =  null, string filter =  null, int? pageSize =  null, string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/storefront/productsearch/randomAccessCursor/?query={query}&filter={filter}&pageSize={pageSize}&responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "filter", filter);
+			mozuUrl.FormatUrl( "pageSize", pageSize);
+			mozuUrl.FormatUrl( "query", query);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+		/// <summary>
         /// Get Resource Url for Search
         /// </summary>
         /// <param name="cursorMark"></param>

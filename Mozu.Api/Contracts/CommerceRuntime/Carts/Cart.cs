@@ -131,6 +131,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///
 			public DateTime? LastValidationDate { get; set; }
 
+			public decimal? LineItemSubtotalWithOrderAdjustments { get; set; }
+
 			///
 			///List of order-level discounts projected to apply to the cart at checkout or order.
 			///
@@ -140,6 +142,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///Pricelist code
 			///
 			public string PriceListCode { get; set; }
+
+			public decimal? ShippingAmountBeforeDiscountsAndAdjustments { get; set; }
 
 			///
 			///The shipping subtotal amount calculated without any applied discounts for line item and entire amounts of carts and orders. This property is not calculated for wish lists at this time.

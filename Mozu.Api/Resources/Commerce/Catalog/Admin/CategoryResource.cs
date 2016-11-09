@@ -25,17 +25,24 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///
 		private readonly IApiContext _apiContext;
 
+		private readonly DataViewMode _dataViewMode;
 		
 		public CategoryResource(IApiContext apiContext) 
 		{
 			_apiContext = apiContext;
+			_dataViewMode = DataViewMode.Live;
 		}
 
 		public CategoryResource CloneWithApiContext(Action<IApiContext> contextModification) 
 		{
-			return new CategoryResource(_apiContext.CloneWith(contextModification));
+			return new CategoryResource(_apiContext.CloneWith(contextModification), _dataViewMode);
 		}
 
+		public CategoryResource(IApiContext apiContext, DataViewMode dataViewMode) 
+		{
+			_apiContext = apiContext;
+			_dataViewMode = dataViewMode;
+		}
 				
 		/// <summary>
 		/// Retrieves a list of categories according to any specified filter criteria and sort options.
@@ -51,14 +58,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var category = new Category();
-		///   var categoryPagedCollection = category.GetCategories( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		///   var categoryPagedCollection = category.GetCategories(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.CategoryPagedCollection GetCategories(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.CategoryPagedCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.GetCategoriesClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.GetCategoriesClient(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -79,13 +86,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var category = new Category();
-		///   var categoryPagedCollection = await category.GetCategoriesAsync( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		///   var categoryPagedCollection = await category.GetCategoriesAsync(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		/// </code>
 		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.CategoryPagedCollection> GetCategoriesAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.CategoryPagedCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.GetCategoriesClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.GetCategoriesClient(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -152,14 +159,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var category = new Category();
-		///   var category = category.GetCategory( categoryId,  responseFields);
+		///   var category = category.GetCategory(_dataViewMode,  categoryId,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
 		public virtual Mozu.Api.Contracts.ProductAdmin.Category GetCategory(int categoryId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.Category> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.GetCategoryClient( categoryId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.GetCategoryClient(_dataViewMode,  categoryId,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -177,13 +184,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <example>
 		/// <code>
 		///   var category = new Category();
-		///   var category = await category.GetCategoryAsync( categoryId,  responseFields);
+		///   var category = await category.GetCategoryAsync(_dataViewMode,  categoryId,  responseFields);
 		/// </code>
 		/// </example>
 		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Category> GetCategoryAsync(int categoryId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.Category> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.GetCategoryClient( categoryId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.GetCategoryClient(_dataViewMode,  categoryId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -240,51 +247,6 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
-
-		}
-
-		/// <summary>
-		/// Modifies the sequence and hierarchy of multiple categories in a category tree in one operation. This is better for moving a category to a different location in the tree and adjusting the order of multiple categories than doing individual category updates.
-		/// </summary>
-		/// <param name="categorySequencies">Mozu.ProductAdmin.Contracts.CategorySequenceCollection ApiType DOCUMENT_HERE </param>
-		/// <returns>
-		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var category = new Category();
-		///   category.UpdateCategoryTree( categorySequencies);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void UpdateCategoryTree(Mozu.Api.Contracts.ProductAdmin.CategorySequenceCollection categorySequencies)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.UpdateCategoryTreeClient( categorySequencies);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// Modifies the sequence and hierarchy of multiple categories in a category tree in one operation. This is better for moving a category to a different location in the tree and adjusting the order of multiple categories than doing individual category updates.
-		/// </summary>
-		/// <param name="categorySequencies">Mozu.ProductAdmin.Contracts.CategorySequenceCollection ApiType DOCUMENT_HERE </param>
-		/// <returns>
-		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var category = new Category();
-		///   await category.UpdateCategoryTreeAsync( categorySequencies);
-		/// </code>
-		/// </example>
-		public virtual async Task UpdateCategoryTreeAsync(Mozu.Api.Contracts.ProductAdmin.CategorySequenceCollection categorySequencies)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.UpdateCategoryTreeClient( categorySequencies);
-			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
 
 		}
 

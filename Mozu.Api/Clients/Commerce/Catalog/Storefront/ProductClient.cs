@@ -82,6 +82,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// <summary>
 		/// Retrieves information about a single product given its product code.
 		/// </summary>
+		/// <param name="acceptVariantProductCode"></param>
 		/// <param name="allowInactive">If true, allow inactive categories to be retrieved in the category list response. If false, the categories retrieved will not include ones marked inactive.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
@@ -94,13 +95,13 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetProduct(dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  supressOutOfStock404,  quantity,  responseFields);
+		///   var mozuClient=GetProduct(dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  supressOutOfStock404,  quantity,  acceptVariantProductCode,  responseFields);
 		///   var productClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.Product> GetProductClient(DataViewMode dataViewMode, string productCode, string variationProductCode =  null, bool? allowInactive =  null, bool? skipInventoryCheck =  null, bool? supressOutOfStock404 =  null, int? quantity =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.Product> GetProductClient(DataViewMode dataViewMode, string productCode, string variationProductCode =  null, bool? allowInactive =  null, bool? skipInventoryCheck =  null, bool? supressOutOfStock404 =  null, int? quantity =  null, bool? acceptVariantProductCode =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductUrl.GetProductUrl(productCode, variationProductCode, allowInactive, skipInventoryCheck, supressOutOfStock404, quantity, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductUrl.GetProductUrl(productCode, variationProductCode, allowInactive, skipInventoryCheck, supressOutOfStock404, quantity, acceptVariantProductCode, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductRuntime.Product>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -113,6 +114,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// <summary>
 		/// Retrieves information about a single product given its product code for Mozu to index in the search engine
 		/// </summary>
+		/// <param name="lastModifiedDate"></param>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
 		/// <param name="productVersion"></param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -121,13 +123,13 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetProductForIndexing(dataViewMode,  productCode,  productVersion,  responseFields);
+		///   var mozuClient=GetProductForIndexing(dataViewMode,  productCode,  productVersion,  lastModifiedDate,  responseFields);
 		///   var productClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.Product> GetProductForIndexingClient(DataViewMode dataViewMode, string productCode, long? productVersion =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.Product> GetProductForIndexingClient(DataViewMode dataViewMode, string productCode, long? productVersion =  null, DateTime? lastModifiedDate =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductUrl.GetProductForIndexingUrl(productCode, productVersion, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductUrl.GetProductForIndexingUrl(productCode, productVersion, lastModifiedDate, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductRuntime.Product>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -220,6 +222,32 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductRuntime.DiscountValidationSummary>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.ProductRuntime.DiscountSelections>(discountSelections);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="query"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductRuntime.ProductCostCollection"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetProductCosts(dataViewMode,  query,  responseFields);
+		///   var productCostCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductCostCollection> GetProductCostsClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductRuntime.ProductCostQuery query, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductUrl.GetProductCostsUrl(responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductCostCollection>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.ProductRuntime.ProductCostQuery>(query)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
 			return mozuClient;
 
 		}

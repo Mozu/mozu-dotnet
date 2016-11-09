@@ -22,6 +22,33 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 	public partial class ProductSearchResultClient 	{
 		
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="query"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductRuntime.ProductSearchRandomAccessCursor"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetRandomAccessCursor( query,  filter,  pageSize,  responseFields);
+		///   var productSearchRandomAccessCursorClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductSearchRandomAccessCursor> GetRandomAccessCursorClient(string query =  null, string filter =  null, int? pageSize =  null, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductSearchResultUrl.GetRandomAccessCursorUrl(query, filter, pageSize, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductSearchRandomAccessCursor>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Searches the categories displayed on the web storefront for products or product options that the shopper types in a search query.
 		/// </summary>
 		/// <param name="cursorMark"></param>

@@ -34,16 +34,17 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetCategories( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		///   var mozuClient=GetCategories(dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		///   var categoryPagedCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.CategoryPagedCollection> GetCategoriesClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.CategoryPagedCollection> GetCategoriesClient(DataViewMode dataViewMode, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.CategoryUrl.GetCategoriesUrl(startIndex, pageSize, sortBy, filter, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.CategoryPagedCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
+									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
@@ -84,16 +85,17 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetCategory( categoryId,  responseFields);
+		///   var mozuClient=GetCategory(dataViewMode,  categoryId,  responseFields);
 		///   var categoryClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Category> GetCategoryClient(int categoryId, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductAdmin.Category> GetCategoryClient(DataViewMode dataViewMode, int categoryId, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.CategoryUrl.GetCategoryUrl(categoryId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Category>()
 									.WithVerb(verb).WithResourceUrl(url)
+									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
 			return mozuClient;
 
@@ -122,30 +124,6 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductAdmin.Category>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.ProductAdmin.Category>(category);
-			return mozuClient;
-
-		}
-
-		/// <summary>
-		/// Modifies the sequence and hierarchy of multiple categories in a category tree in one operation. This is better for moving a category to a different location in the tree and adjusting the order of multiple categories than doing individual category updates.
-		/// </summary>
-		/// <param name="categorySequencies">Mozu.ProductAdmin.Contracts.CategorySequenceCollection ApiType DOCUMENT_HERE </param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=UpdateCategoryTree( categorySequencies);
-		///mozuClient.WithBaseAddress(url).Execute();
-		/// </code>
-		/// </example>
-		public static MozuClient UpdateCategoryTreeClient(Mozu.Api.Contracts.ProductAdmin.CategorySequenceCollection categorySequencies)
-		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.CategoryUrl.UpdateCategoryTreeUrl();
-			const string verb = "POST";
-			var mozuClient = new MozuClient()
-									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.ProductAdmin.CategorySequenceCollection>(categorySequencies);
 			return mozuClient;
 
 		}

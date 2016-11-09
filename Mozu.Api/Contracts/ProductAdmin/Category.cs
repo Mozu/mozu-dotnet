@@ -63,10 +63,16 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool? IsDisplayed { get; set; }
 
+			public string ParentCategoryCode { get; set; }
+
 			///
 			///Identifier of the parent or top-level category.
 			///
 			public int? ParentCategoryId { get; set; }
+
+			public string ParentCategoryName { get; set; }
+
+			public bool? ParentIsActive { get; set; }
 
 			///
 			///The total number of products. This total may indicate the total products associate with a product type or number of products in a list.

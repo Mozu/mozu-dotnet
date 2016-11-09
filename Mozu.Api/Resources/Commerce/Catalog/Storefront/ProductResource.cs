@@ -157,6 +157,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <summary>
 		/// Retrieves information about a single product given its product code.
 		/// </summary>
+		/// <param name="acceptVariantProductCode"></param>
 		/// <param name="allowInactive">If true, allow inactive categories to be retrieved in the category list response. If false, the categories retrieved will not include ones marked inactive.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
@@ -170,14 +171,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var product = product.GetProduct(_dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  supressOutOfStock404,  quantity,  responseFields);
+		///   var product = product.GetProduct(_dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  supressOutOfStock404,  quantity,  acceptVariantProductCode,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductRuntime.Product GetProduct(string productCode, string variationProductCode =  null, bool? allowInactive =  null, bool? skipInventoryCheck =  null, bool? supressOutOfStock404 =  null, int? quantity =  null, string responseFields =  null)
+		public virtual Mozu.Api.Contracts.ProductRuntime.Product GetProduct(string productCode, string variationProductCode =  null, bool? allowInactive =  null, bool? skipInventoryCheck =  null, bool? supressOutOfStock404 =  null, int? quantity =  null, bool? acceptVariantProductCode =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.Product> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductClient(_dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  supressOutOfStock404,  quantity,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductClient(_dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  supressOutOfStock404,  quantity,  acceptVariantProductCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -187,6 +188,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <summary>
 		/// Retrieves information about a single product given its product code.
 		/// </summary>
+		/// <param name="acceptVariantProductCode"></param>
 		/// <param name="allowInactive">If true, allow inactive categories to be retrieved in the category list response. If false, the categories retrieved will not include ones marked inactive.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
@@ -200,13 +202,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var product = await product.GetProductAsync(_dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  supressOutOfStock404,  quantity,  responseFields);
+		///   var product = await product.GetProductAsync(_dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  supressOutOfStock404,  quantity,  acceptVariantProductCode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.Product> GetProductAsync(string productCode, string variationProductCode =  null, bool? allowInactive =  null, bool? skipInventoryCheck =  null, bool? supressOutOfStock404 =  null, int? quantity =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.Product> GetProductAsync(string productCode, string variationProductCode =  null, bool? allowInactive =  null, bool? skipInventoryCheck =  null, bool? supressOutOfStock404 =  null, int? quantity =  null, bool? acceptVariantProductCode =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.Product> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductClient(_dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  supressOutOfStock404,  quantity,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductClient(_dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  supressOutOfStock404,  quantity,  acceptVariantProductCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -216,6 +218,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <summary>
 		/// Retrieves information about a single product given its product code for Mozu to index in the search engine
 		/// </summary>
+		/// <param name="lastModifiedDate"></param>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
 		/// <param name="productVersion"></param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -225,14 +228,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var product = product.GetProductForIndexing(_dataViewMode,  productCode,  productVersion,  responseFields);
+		///   var product = product.GetProductForIndexing(_dataViewMode,  productCode,  productVersion,  lastModifiedDate,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductRuntime.Product GetProductForIndexing(string productCode, long? productVersion =  null, string responseFields =  null)
+		public virtual Mozu.Api.Contracts.ProductRuntime.Product GetProductForIndexing(string productCode, long? productVersion =  null, DateTime? lastModifiedDate =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.Product> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductForIndexingClient(_dataViewMode,  productCode,  productVersion,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductForIndexingClient(_dataViewMode,  productCode,  productVersion,  lastModifiedDate,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -242,6 +245,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <summary>
 		/// Retrieves information about a single product given its product code for Mozu to index in the search engine
 		/// </summary>
+		/// <param name="lastModifiedDate"></param>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
 		/// <param name="productVersion"></param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -251,13 +255,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var product = await product.GetProductForIndexingAsync(_dataViewMode,  productCode,  productVersion,  responseFields);
+		///   var product = await product.GetProductForIndexingAsync(_dataViewMode,  productCode,  productVersion,  lastModifiedDate,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.Product> GetProductForIndexingAsync(string productCode, long? productVersion =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.Product> GetProductForIndexingAsync(string productCode, long? productVersion =  null, DateTime? lastModifiedDate =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.Product> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductForIndexingClient(_dataViewMode,  productCode,  productVersion,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductForIndexingClient(_dataViewMode,  productCode,  productVersion,  lastModifiedDate,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -429,6 +433,55 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.DiscountValidationSummary> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.ValidateDiscountsClient( discountSelections,  productCode,  variationProductCode,  customerAccountId,  allowInactive,  skipInventoryCheck,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="query"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductRuntime.ProductCostCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var product = new Product();
+		///   var productCostCollection = product.GetProductCosts(_dataViewMode,  query,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductRuntime.ProductCostCollection GetProductCosts(Mozu.Api.Contracts.ProductRuntime.ProductCostQuery query, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductCostCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductCostsClient(_dataViewMode,  query,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="query"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductRuntime.ProductCostCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var product = new Product();
+		///   var productCostCollection = await product.GetProductCostsAsync(_dataViewMode,  query,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.ProductCostCollection> GetProductCostsAsync(Mozu.Api.Contracts.ProductRuntime.ProductCostQuery query, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductCostCollection> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductCostsClient(_dataViewMode,  query,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

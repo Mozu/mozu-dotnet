@@ -53,6 +53,11 @@ namespace Mozu.Api.Events
 		Task PendingReviewAsync(IApiContext apiContext, Event eventPayLoad);
 
 		[Obsolete("This method is obsolete; use the async method instead")]
+		void Saved(IApiContext apiContext, Event eventPayLoad);
+
+		Task SavedAsync(IApiContext apiContext, Event eventPayLoad);
+
+		[Obsolete("This method is obsolete; use the async method instead")]
 		void Updated(IApiContext apiContext, Event eventPayLoad);
 
 		Task UpdatedAsync(IApiContext apiContext, Event eventPayLoad);

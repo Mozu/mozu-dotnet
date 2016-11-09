@@ -14,29 +14,29 @@ namespace Mozu.Api.Logging
         public bool IsErrorEnabled { get { return true; } }
         public bool IsFatalEnabled { get { return true; } }
 
-        public Task Info(object message, Exception ex = null, object properties = null)
+        public void Info(object message, Exception ex = null, object properties = null)
         {
-            return Task.Run( () => Console.WriteLine(message));
+            Console.WriteLine(message);
 		}
 
-        public Task Warn(object message, Exception ex = null, object properties = null)
+        public void Warn(object message, Exception ex = null, object properties = null)
         {
-			return Task.Run(() => Console.WriteLine(message));
+			Console.WriteLine(message);
 		}
 
-        public Task Debug(object message, Exception ex = null, object properties = null)
+        public void Debug(object message, Exception ex = null, object properties = null)
         {
-			return Task.Run(() => Console.WriteLine(message));
+			Console.WriteLine(message);
 		}
 
-        public Task Error(object message, Exception ex = null, object properties = null)
+        public void Error(object message, Exception ex = null, object properties = null)
         {
-			return Task.Run(() => Console.WriteLine(message));
+			Console.WriteLine(message);
 		}
 
-        public Task Fatal(object message, Exception ex = null, object properties = null)
+        public void Fatal(object message, Exception ex = null, object properties = null)
         {
-			return Task.Run(() => Console.WriteLine(message));
+			Console.WriteLine(message);
 		}
     }
 }

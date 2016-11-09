@@ -38,6 +38,61 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 				
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="updateMode"></param>
+		/// <param name="version"></param>
+		/// <param name="adjustment"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var adjustment = new Adjustment();
+		///   var order = adjustment.ApplyHandlingAdjustment( adjustment,  orderId,  updateMode,  version,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.Order ApplyHandlingAdjustment(Mozu.Api.Contracts.CommerceRuntime.Commerce.Adjustment adjustment, string orderId, string updateMode =  null, string version =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.AdjustmentClient.ApplyHandlingAdjustmentClient( adjustment,  orderId,  updateMode,  version,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="updateMode"></param>
+		/// <param name="version"></param>
+		/// <param name="adjustment"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var adjustment = new Adjustment();
+		///   var order = await adjustment.ApplyHandlingAdjustmentAsync( adjustment,  orderId,  updateMode,  version,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> ApplyHandlingAdjustmentAsync(Mozu.Api.Contracts.CommerceRuntime.Commerce.Adjustment adjustment, string orderId, string updateMode =  null, string version =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.AdjustmentClient.ApplyHandlingAdjustmentClient( adjustment,  orderId,  updateMode,  version,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
 		/// Applies a shipping adjustment to the specified order.
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
@@ -141,6 +196,57 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.AdjustmentClient.ApplyAdjustmentClient( adjustment,  orderId,  updateMode,  version,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="orderId"></param>
+		/// <param name="updateMode"></param>
+		/// <param name="version"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var adjustment = new Adjustment();
+		///   var order = adjustment.RemoveHandlingAdjustment( orderId,  updateMode,  version);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.Order RemoveHandlingAdjustment(string orderId, string updateMode =  null, string version =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.AdjustmentClient.RemoveHandlingAdjustmentClient( orderId,  updateMode,  version);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="orderId"></param>
+		/// <param name="updateMode"></param>
+		/// <param name="version"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var adjustment = new Adjustment();
+		///   var order = await adjustment.RemoveHandlingAdjustmentAsync( orderId,  updateMode,  version);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> RemoveHandlingAdjustmentAsync(string orderId, string updateMode =  null, string version =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.AdjustmentClient.RemoveHandlingAdjustmentClient( orderId,  updateMode,  version);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

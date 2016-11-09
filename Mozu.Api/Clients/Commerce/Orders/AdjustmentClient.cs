@@ -22,6 +22,34 @@ namespace Mozu.Api.Clients.Commerce.Orders
 	public partial class AdjustmentClient 	{
 		
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="updateMode"></param>
+		/// <param name="version"></param>
+		/// <param name="adjustment"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=ApplyHandlingAdjustment( adjustment,  orderId,  updateMode,  version,  responseFields);
+		///   var orderClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> ApplyHandlingAdjustmentClient(Mozu.Api.Contracts.CommerceRuntime.Commerce.Adjustment adjustment, string orderId, string updateMode =  null, string version =  null, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Orders.AdjustmentUrl.ApplyHandlingAdjustmentUrl(orderId, updateMode, version, responseFields);
+			const string verb = "PUT";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.CommerceRuntime.Commerce.Adjustment>(adjustment);
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Applies a shipping adjustment to the specified order.
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
@@ -73,6 +101,32 @@ namespace Mozu.Api.Clients.Commerce.Orders
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.CommerceRuntime.Commerce.Adjustment>(adjustment);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="orderId"></param>
+		/// <param name="updateMode"></param>
+		/// <param name="version"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=RemoveHandlingAdjustment( orderId,  updateMode,  version);
+		///   var orderClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> RemoveHandlingAdjustmentClient(string orderId, string updateMode =  null, string version =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Orders.AdjustmentUrl.RemoveHandlingAdjustmentUrl(orderId, updateMode, version);
+			const string verb = "DELETE";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
 			return mozuClient;
 
 		}

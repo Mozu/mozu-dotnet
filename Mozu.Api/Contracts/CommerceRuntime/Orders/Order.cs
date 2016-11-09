@@ -191,6 +191,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public string FulfillmentStatus { get; set; }
 
+			public Adjustment HandlingAdjustment { get; set; }
+
 			///
 			///The combined price for all handling costs calculated together for shipped orders, not for digital or in-store pickup. This includes all handling costs per the product line items and options, excluding taxes and discounts. 
 			///
@@ -276,6 +278,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public DateTime? LastValidationDate { get; set; }
 
+			public decimal? LineItemSubtotalWithOrderAdjustments { get; set; }
+
 			///
 			///The unique, user-defined code that identifies a location. This location can be the location where the order was entered, location for newly in-stock products, and where products are returned.
 			///
@@ -311,10 +315,14 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public string ParentOrderId { get; set; }
 
+			public int? ParentOrderNumber { get; set; }
+
 			///
 			///If this order was created to fulfill an item replacement as part of a return merchandise authorization (RMA), the unique identifier of the return.
 			///
 			public string ParentReturnId { get; set; }
+
+			public int? ParentReturnNumber { get; set; }
 
 			///
 			///Wrapper for a collection of payments associated with an order or return. An order can include a number of payments until the full total is covered. 
@@ -355,6 +363,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///Properties of an ad-hoc price adjustment made for an order.
 			///
 			public Adjustment ShippingAdjustment { get; set; }
+
+			public decimal? ShippingAmountBeforeDiscountsAndAdjustments { get; set; }
 
 			///
 			///List of shipping discounts projected to apply to carts, orders, and wish lists and items at checkout.

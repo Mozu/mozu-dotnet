@@ -38,6 +38,59 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 
 				
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="query"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductRuntime.ProductSearchRandomAccessCursor"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productsearchresult = new ProductSearchResult();
+		///   var productSearchRandomAccessCursor = productsearchresult.GetRandomAccessCursor( query,  filter,  pageSize,  responseFields);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual Mozu.Api.Contracts.ProductRuntime.ProductSearchRandomAccessCursor GetRandomAccessCursor(string query =  null, string filter =  null, int? pageSize =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductSearchRandomAccessCursor> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductSearchResultClient.GetRandomAccessCursorClient( query,  filter,  pageSize,  responseFields);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+			return response.Result();
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="query"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductRuntime.ProductSearchRandomAccessCursor"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var productsearchresult = new ProductSearchResult();
+		///   var productSearchRandomAccessCursor = await productsearchresult.GetRandomAccessCursorAsync( query,  filter,  pageSize,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.ProductSearchRandomAccessCursor> GetRandomAccessCursorAsync(string query =  null, string filter =  null, int? pageSize =  null, string responseFields =  null)
+		{
+			MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductSearchRandomAccessCursor> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductSearchResultClient.GetRandomAccessCursorClient( query,  filter,  pageSize,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+			return await response.ResultAsync();
+
+		}
+
+		/// <summary>
 		/// Searches the categories displayed on the web storefront for products or product options that the shopper types in a search query.
 		/// </summary>
 		/// <param name="cursorMark"></param>

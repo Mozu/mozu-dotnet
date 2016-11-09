@@ -26,6 +26,7 @@ namespace Mozu.Api.Clients.Commerce
 		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="q"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
@@ -34,13 +35,13 @@ namespace Mozu.Api.Clients.Commerce
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetReturns( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		///   var mozuClient=GetReturns( startIndex,  pageSize,  sortBy,  filter,  q,  responseFields);
 		///   var returnCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection> GetReturnsClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection> GetReturnsClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string q =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.ReturnUrl.GetReturnsUrl(startIndex, pageSize, sortBy, filter, responseFields);
+			var url = Mozu.Api.Urls.Commerce.ReturnUrl.GetReturnsUrl(startIndex, pageSize, sortBy, filter, q, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -349,6 +350,31 @@ namespace Mozu.Api.Clients.Commerce
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentAction>(action);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="returnId"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=CreateReturnShippingOrder( returnId,  responseFields);
+		///   var orderClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> CreateReturnShippingOrderClient(string returnId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.ReturnUrl.CreateReturnShippingOrderUrl(returnId, responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
 			return mozuClient;
 
 		}

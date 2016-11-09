@@ -67,5 +67,7 @@ namespace Mozu.Api
             get { return _throwExceptionOn404; }
             set { _throwExceptionOn404 = value; }
         }
+
+        public static bool EnableRequestResponseLogging { get; set;}
     }
 }

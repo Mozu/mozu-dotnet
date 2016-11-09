@@ -71,6 +71,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///
 			public int QuantityReceived { get; set; }
 
+			public int? QuantityReplaced { get; set; }
+
 			///
 			///The quantity of returned items that can be returned to active product stock.
 			///
@@ -86,6 +88,18 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///
 			public List<ReturnReason> Reasons { get; set; }
 
+			public string ReceiveStatus { get; set; }
+
+			public decimal? RefundAmount { get; set; }
+
+			public string RefundStatus { get; set; }
+
+			public string ReplaceStatus { get; set; }
+
+			public bool ReturnNotRequired { get; set; }
+
+			public string ReturnType { get; set; }
+
 			///
 			///The total value of shipping the returned product to the merchant for accounting purposes, calculated by multiplying the shipping cost of the item by its quantity returned.
 			///
@@ -95,6 +109,10 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///The total tax amount levied on the shipping loss amount.
 			///
 			public decimal? ShippingLossTaxAmount { get; set; }
+
+			public decimal? TotalWithoutWeightedShippingAndHandling { get; set; }
+
+			public decimal? TotalWithWeightedShippingAndHandling { get; set; }
 
 		}
 
