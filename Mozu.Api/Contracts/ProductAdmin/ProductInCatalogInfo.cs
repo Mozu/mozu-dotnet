@@ -70,6 +70,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public ProductPrice Price { get; set; }
 
+			public ProductCategory PrimaryProductCategory { get; set; }
+
 			///
 			///The product categories to define for the product associated with the specified catalog.
 			///
