@@ -17,10 +17,13 @@ using Mozu.Api.Contracts.Core;
 namespace Mozu.Api.Contracts.PricingRuntime
 {
 		///
-		///	Properties of an order to calculate tax against. When a tax capability is enabled for a tenant, Mozu sends the `TaxableOrder `properties to the capability as read-only, system-supplied information.
+		///	Properties of an order to calculate tax against. When a tax capability is enabled for a tenant,  sends the `TaxableOrder `properties to the capability as read-only, system-supplied information.
 		///
 		public class TaxableOrder
 		{
+			///
+			///Collection of attributes that may be paged list or a list, depending on the usage per object and API type.
+			///
 			public List<TaxAttribute> Attributes { get; set; }
 
 			///
@@ -28,6 +31,9 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///
 			public string CurrencyCode { get; set; }
 
+			///
+			///Custom data for a given vendor set within the commerce process.
+			///
 			public JObject Data { get; set; }
 
 			///
@@ -45,6 +51,9 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///
 			public DateTime OrderDate { get; set; }
 
+			///
+			///The order number that the customer sees on the storefront when they place the order.
+			///
 			public int? OrderNumber { get; set; }
 
 			///

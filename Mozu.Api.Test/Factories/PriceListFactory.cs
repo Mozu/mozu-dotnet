@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Allows you to create and manage products that you will offer on your storefront. You can create products with options that a shopper configures (such as a T-shirt color and size). You can set discounts and sale prices for your products, manage product inventory, and more.
+	/// Use the Price Lists resource to view and create price lists. You can use price lists to override the catalog pricing of products for specific customer segments and/or sites. You can override products' list price, sale price, advanced pricing information such as MSRP, cost, MAP, and the catalog price of any extras associated with the product in a price list. You can also restrict discounts from applying to the overridden product pricing in a price list. Refer to [Price Lists](../../../guides/catalog/price-lists.htm) in the Guides section for more information about price lists.
 	/// </summary>
 	public partial class PriceListFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// admin-pricelists Get GetPriceLists description DOCUMENT_HERE 
+		/// Retrieves a list of price lists according to any specified facets, filter criteria, and sort options.
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListFactory.GetPriceLists(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// admin-pricelists Get GetPriceList description DOCUMENT_HERE 
+		/// Retrieves the details of the specified price list.
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListFactory.GetPriceList(handler : handler,  priceListCode :  priceListCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// admin-pricelists Post AddPriceList description DOCUMENT_HERE 
+		/// Adds a new price list to the tenant.
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListFactory.AddPriceList(handler : handler,  priceList :  priceList,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// admin-pricelists Put UpdatePriceList description DOCUMENT_HERE 
+		/// Updates the details of the specified price list.
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListFactory.UpdatePriceList(handler : handler,  priceList :  priceList,  priceListCode :  priceListCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// admin-pricelists Delete DeletePriceList description DOCUMENT_HERE 
+		/// Deletes the specified price list from the tenant.
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListFactory.DeletePriceList(handler : handler,  priceListCode :  priceListCode,  cascadeDeleteEntries :  cascadeDeleteEntries,  expectedCode: expectedCode, successCode: successCode); 

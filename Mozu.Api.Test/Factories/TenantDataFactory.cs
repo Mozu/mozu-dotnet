@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the tenant data resource to store tenant-level information required for a third-party application in the Mozu database.
+	/// Use the tenant data resource to store tenant-level information required for a third-party application in the  database.
 	/// </summary>
 	public partial class TenantDataFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves the value of a record in the Mozu database.
+		/// Retrieves the value of a record in the  database.
 		/// <example> 
 		///  <code> 
 		/// var result = TenantDataFactory.GetDBValue(handler : handler,  dbEntryQuery :  dbEntryQuery,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Creates a new record in the Mozu database based on the information supplied in the request.
+		/// Creates a new record in the  database based on the information supplied in the request.
 		/// <example> 
 		///  <code> 
 		/// var result = TenantDataFactory.CreateDBValue(handler : handler,  value :  value,  dbEntryQuery :  dbEntryQuery,  expectedCode: expectedCode, successCode: successCode); 
@@ -105,7 +105,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates a record in the Mozu database based on the information supplied in the request.
+		/// Updates a record in the  database based on the information supplied in the request.
 		/// <example> 
 		///  <code> 
 		/// var result = TenantDataFactory.UpdateDBValue(handler : handler,  value :  value,  dbEntryQuery :  dbEntryQuery,  expectedCode: expectedCode, successCode: successCode); 
@@ -142,7 +142,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Removes a previously defined record in the Mozu database.
+		/// Removes a previously defined record in the  database.
 		/// <example> 
 		///  <code> 
 		/// var result = TenantDataFactory.DeleteDBValue(handler : handler,  dbEntryQuery :  dbEntryQuery,  expectedCode: expectedCode, successCode: successCode); 

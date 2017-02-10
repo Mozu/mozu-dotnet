@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce
 {
 	/// <summary>
-	/// commerce/targetrules related resources. DOCUMENT_HERE 
+	/// Use the TargetRules resource to manage your target rules for products and zones. For example, you can set specific rules that dictate shipping options for specific products.
 	/// </summary>
 	public partial class TargetRuleResource  	{
 		///
@@ -38,12 +38,12 @@ namespace Mozu.Api.Resources.Commerce
 
 				
 		/// <summary>
-		/// Retrieves a list of TargetRules according to any specified filter criteria and sort options.
+		/// Retrieves a list of target rules and their details according to any specified facets, filter criteria, and sort options.
 		/// </summary>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/applications/sorting-filtering.htm) for a list of supported filters.</param>
+		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
 		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/applications/sorting-filtering.htm) for more information.</param>
+		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
@@ -67,12 +67,12 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// Retrieves a list of TargetRules according to any specified filter criteria and sort options.
+		/// Retrieves a list of target rules and their details according to any specified facets, filter criteria, and sort options.
 		/// </summary>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/applications/sorting-filtering.htm) for a list of supported filters.</param>
+		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
 		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/applications/sorting-filtering.htm) for more information.</param>
+		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
@@ -95,7 +95,7 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// Get Target Rule
+		/// Retrieves the details of the specified target rule.
 		/// </summary>
 		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -121,7 +121,7 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// Get Target Rule
+		/// Retrieves the details of the specified target rule.
 		/// </summary>
 		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -146,11 +146,11 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// commerce-targetrules Post CreateTargetRule description DOCUMENT_HERE 
+		/// Creates a new target rule.
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="targetRule">Mozu.ShippingAdmin.Contracts.TargetRule ApiType DOCUMENT_HERE </param>
+		/// <param name="targetRule">The details of the new target rule.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ShippingAdmin.TargetRule"/>
 		/// </returns>
@@ -172,11 +172,11 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// commerce-targetrules Post CreateTargetRule description DOCUMENT_HERE 
+		/// Creates a new target rule.
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="targetRule">Mozu.ShippingAdmin.Contracts.TargetRule ApiType DOCUMENT_HERE </param>
+		/// <param name="targetRule">The details of the new target rule.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ShippingAdmin.TargetRule"/>
 		/// </returns>
@@ -197,10 +197,10 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// commerce-targetrules Post ValidateTargetRule description DOCUMENT_HERE 
+		/// Validates the details of a target rule.
 		/// </summary>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="targetRule">Mozu.ShippingAdmin.Contracts.TargetRule ApiType DOCUMENT_HERE </param>
+		/// <param name="targetRule">The details of the target rule you want to validate.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -221,10 +221,10 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// commerce-targetrules Post ValidateTargetRule description DOCUMENT_HERE 
+		/// Validates the details of a target rule.
 		/// </summary>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="targetRule">Mozu.ShippingAdmin.Contracts.TargetRule ApiType DOCUMENT_HERE </param>
+		/// <param name="targetRule">The details of the target rule you want to validate.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -244,12 +244,12 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// commerce-targetrules Put UpdateTargetRule description DOCUMENT_HERE 
+		/// Updates the details of the specified target rule.
 		/// </summary>
 		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="targetRule">Mozu.ShippingAdmin.Contracts.TargetRule ApiType DOCUMENT_HERE </param>
+		/// <param name="targetRule">The details of the updated target rule.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ShippingAdmin.TargetRule"/>
 		/// </returns>
@@ -271,12 +271,12 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// commerce-targetrules Put UpdateTargetRule description DOCUMENT_HERE 
+		/// Updates the details of the specified target rule.
 		/// </summary>
 		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="targetRule">Mozu.ShippingAdmin.Contracts.TargetRule ApiType DOCUMENT_HERE </param>
+		/// <param name="targetRule">The details of the updated target rule.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ShippingAdmin.TargetRule"/>
 		/// </returns>
@@ -297,7 +297,7 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// commerce-targetrules Delete DeleteTargetRule description DOCUMENT_HERE 
+		/// Deletes the specified target rule.
 		/// </summary>
 		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
@@ -321,7 +321,7 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// commerce-targetrules Delete DeleteTargetRule description DOCUMENT_HERE 
+		/// Deletes the specified target rule.
 		/// </summary>
 		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>

@@ -24,7 +24,7 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// Retrieves a list of orders according to any specified filter criteria and sort options.
 		/// </summary>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/applications/sorting-filtering.htm) for a list of supported filters.</param>
+		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
 		/// <param name="q">A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.</param>
 		/// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
@@ -202,12 +202,12 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// commerce-orders Put ProcessDigitalWallet description DOCUMENT_HERE 
+		/// Processes a digital wallet (used to hold 3rd party payment and shipping information).
 		/// </summary>
 		/// <param name="digitalWalletType">The type of digital wallet to be processed.</param>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="digitalWallet">Mozu.CommerceRuntime.Contracts.Orders.DigitalWallet ApiType DOCUMENT_HERE </param>
+		/// <param name="digitalWallet">The details of the digitial wallet.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>}
 		/// </returns>
@@ -283,7 +283,7 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// commerce-orders Put ResendOrderConfirmationEmail description DOCUMENT_HERE 
+		/// Triggers an order confirmation email to be resent.
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="action">The action to perform for the order.</param>
@@ -308,7 +308,7 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// Changes the pricelist associated with an order. The desired price list code should be specified on the ApiContext.
+		/// Changes the price list associated with an order. The desired price list code should be specified in the ApiContext.
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>

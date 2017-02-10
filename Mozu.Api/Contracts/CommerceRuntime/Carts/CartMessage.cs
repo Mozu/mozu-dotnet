@@ -26,12 +26,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			public string Message { get; set; }
 
 			///
-			///Mozu.CommerceRuntime.Contracts.Carts.CartMessage messageType ApiTypeMember DOCUMENT_HERE 
+			///Specifies the cart message type.
 			///
 			public string MessageType { get; set; }
 
 			///
-			///Mozu.CommerceRuntime.Contracts.Carts.CartMessage productsRemoved ApiTypeMember DOCUMENT_HERE 
+			///An array of product details for any products that have been removed from the cart.
 			///
 			public List<Product> ProductsRemoved { get; set; }
 

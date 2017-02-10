@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// commerce/targetrules related resources. DOCUMENT_HERE 
+	/// Use the TargetRules resource to manage your target rules for products and zones. For example, you can set specific rules that dictate shipping options for specific products.
 	/// </summary>
 	public partial class TargetRuleFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves a list of TargetRules according to any specified filter criteria and sort options.
+		/// Retrieves a list of target rules and their details according to any specified facets, filter criteria, and sort options.
 		/// <example> 
 		///  <code> 
 		/// var result = TargetRuleFactory.GetTargetRules(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Get Target Rule
+		/// Retrieves the details of the specified target rule.
 		/// <example> 
 		///  <code> 
 		/// var result = TargetRuleFactory.GetTargetRule(handler : handler,  code :  code,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// commerce-targetrules Post CreateTargetRule description DOCUMENT_HERE 
+		/// Creates a new target rule.
 		/// <example> 
 		///  <code> 
 		/// var result = TargetRuleFactory.CreateTargetRule(handler : handler,  targetRule :  targetRule,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// commerce-targetrules Post ValidateTargetRule description DOCUMENT_HERE 
+		/// Validates the details of a target rule.
 		/// <example> 
 		///  <code> 
 		/// var result = TargetRuleFactory.ValidateTargetRule(handler : handler,  targetRule :  targetRule,  expectedCode: expectedCode, successCode: successCode); 
@@ -181,7 +181,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// commerce-targetrules Put UpdateTargetRule description DOCUMENT_HERE 
+		/// Updates the details of the specified target rule.
 		/// <example> 
 		///  <code> 
 		/// var result = TargetRuleFactory.UpdateTargetRule(handler : handler,  targetRule :  targetRule,  code :  code,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -219,7 +219,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// commerce-targetrules Delete DeleteTargetRule description DOCUMENT_HERE 
+		/// Deletes the specified target rule.
 		/// <example> 
 		///  <code> 
 		/// var result = TargetRuleFactory.DeleteTargetRule(handler : handler,  code :  code,  expectedCode: expectedCode, successCode: successCode); 

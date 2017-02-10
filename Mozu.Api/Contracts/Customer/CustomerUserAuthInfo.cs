@@ -19,7 +19,7 @@ namespace Mozu.Api.Contracts.Customer
 		public class CustomerUserAuthInfo
 		{
 			///
-			///The saved password for the customer account. 
+			///The write-only password for the customer account.
 			///
 			public string Password { get; set; }
 

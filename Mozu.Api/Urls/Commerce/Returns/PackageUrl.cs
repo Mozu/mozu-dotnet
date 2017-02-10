@@ -20,17 +20,17 @@ namespace Mozu.Api.Urls.Commerce.Returns
         /// Get Resource Url for GetPackageLabel
         /// </summary>
         /// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
-        /// <param name="returnAsBase64"></param>
+        /// <param name="returnAsBase64Png">Specifies whether to return the RMA label image as Base64-encoded PNG image instead of as a byte array encoded in the original image format. The default is .</param>
         /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetPackageLabelUrl(string returnId, string packageId, bool? returnAsBase64 =  null)
+        public static MozuUrl GetPackageLabelUrl(string returnId, string packageId, bool? returnAsBase64Png =  null)
 		{
-			var url = "/api/commerce/returns/{returnId}/packages/{packageId}/label?returnAsBase64={returnAsBase64}";
+			var url = "/api/commerce/returns/{returnId}/packages/{packageId}/label?returnAsBase64Png={returnAsBase64Png}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "packageId", packageId);
-			mozuUrl.FormatUrl( "returnAsBase64", returnAsBase64);
+			mozuUrl.FormatUrl( "returnAsBase64Png", returnAsBase64Png);
 			mozuUrl.FormatUrl( "returnId", returnId);
 			return mozuUrl;
 		}

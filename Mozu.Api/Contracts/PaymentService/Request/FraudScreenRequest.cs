@@ -66,7 +66,7 @@ namespace Mozu.Api.Contracts.PaymentService.Request
 			public List<CustomData> CustomData { get; set; }
 
 			///
-			///Unique identifier of the customer in Mozu, used to associate customers with data, orders, returns, and in-store credit.
+			///Unique identifier of the customer in , used to associate customers with data, orders, returns, and in-store credit.
 			///
 			public string CustomerId { get; set; }
 

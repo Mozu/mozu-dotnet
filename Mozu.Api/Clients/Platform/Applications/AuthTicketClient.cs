@@ -25,7 +25,7 @@ namespace Mozu.Api.Clients.Platform.Applications
 		/// Generate an authentication ticket for an application.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="appAuthInfo">The information required to authenticate third party applications against the Mozu API.</param>
+		/// <param name="appAuthInfo">The information required to authenticate third party applications against the  API.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.AppDev.AuthTicket"/>}
 		/// </returns>

@@ -206,7 +206,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// Updates the current level of stock at each location associated with the product code specified in the request.
 		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="locationInventoryAdjustments">Properties of an adjustment to the active product inventory of a specific location.</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.LocationInventory"/>}
@@ -231,7 +231,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// Updates the current level of stock at each location associated with the product code specified in the request.
 		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="locationInventoryAdjustments">Properties of an adjustment to the active product inventory of a specific location.</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.LocationInventory"/>}
@@ -256,7 +256,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// Deletes the location inventory definition for the product code specified in the request.
 		/// </summary>
 		/// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -280,7 +280,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// Deletes the location inventory definition for the product code specified in the request.
 		/// </summary>
 		/// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <returns>
 		/// 
 		/// </returns>

@@ -24,7 +24,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public ProductPrice Lower { get; set; }
 
 			///
-			///Thw highest possible price value for a product with options that vary the cost of the product.
+			///The highest possible price value for a product with options that vary the cost of the product.
 			///
 			public ProductPrice Upper { get; set; }
 

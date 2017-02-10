@@ -47,12 +47,12 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		}
 
 		/// <summary>
-		/// Create an extended property for the order.
+		/// Creates an extended property for the order.
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
 		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
-		/// <param name="extendedProperties">Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE </param>
+		/// <param name="extendedProperties">The details of the extended property.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty"/>}}
 		/// </returns>
@@ -82,7 +82,7 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
 		/// <param name="upsert">Inserts and updates an extended property.        </param>
 		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
-		/// <param name="extendedProperty">Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE </param>
+		/// <param name="extendedProperty">The details of the updated extended property.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty"/>}
 		/// </returns>
@@ -110,7 +110,7 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
 		/// <param name="upsert">Inserts and updates the extended property.        </param>
 		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
-		/// <param name="extendedProperties">Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE </param>
+		/// <param name="extendedProperties">The details of the updated extended properties.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty"/>}}
 		/// </returns>
@@ -134,7 +134,7 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <summary>
 		/// Deletes one or more extended properties.
 		/// </summary>
-		/// <param name="key"></param>
+		/// <param name="key">The extended property key.</param>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
 		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
@@ -164,7 +164,7 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
 		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
-		/// <param name="keys"></param>
+		/// <param name="keys">The extended property keys.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

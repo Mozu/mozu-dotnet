@@ -16,7 +16,7 @@ using Mozu.Api.Contracts.PricingRuntime;
 namespace Mozu.Api.Contracts.PricingRuntime.ThirdParty
 {
 		///
-		///	Properties of an order for which to calculate tax. When a tax capability is enabled for a tenant, Mozu sends the `TaxableOrder `properties to the capability as read-only, system-supplied information.
+		///	Properties of an order for which to calculate tax. When a tax capability is enabled for a tenant,  sends the `TaxableOrder `properties to the capability as read-only, system-supplied information.
 		///
 		public class TaxableOrder
 		{

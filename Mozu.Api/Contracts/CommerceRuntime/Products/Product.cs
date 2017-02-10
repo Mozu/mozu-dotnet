@@ -46,7 +46,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			public string Description { get; set; }
 
 			///
-			///Indicates if the discount is restricted. If true, the system cannot apply any discounts to this product. Discount restrictions are defined at the master catalog level. Client administrators cannot override discount restrictions at the catalog level, but they can limit the restriction to a defined time interval.
+			///Indicates if the discount is restricted. If true, the system cannot apply any discounts to this product. Discount restrictions are defined at the master catalog level. Client administrators cannot override discount restrictions at the catalog level, but they can limit the restriction to a defined time interval.For price list entries, specifies whether discounts are restricted for the specific entry if  is set to .Refer to [Discount Restriction](../../../guides/catalog/price-lists.htm#discountrestriction) in the Price Lists guides topic for more information.
 			///
 			public bool? DiscountsRestricted { get; set; }
 
@@ -66,7 +66,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			public string FulfillmentStatus { get; set; }
 
 			///
-			///List of supported types of fulfillment  for the product or variation. The types include direct ship, in-store pickup, or both. 
+			///List of supported types of fulfillment for the product or variation. The types include direct ship, in-store pickup, or both.
 			///
 			public List<string> FulfillmentTypesSupported { get; set; }
 
@@ -111,7 +111,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			public string MfgPartNumber { get; set; }
 
 			///
-			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
+			///The user supplied name that appears in . You can use this field for identification purposes.
 			///
 			public string Name { get; set; }
 
@@ -136,7 +136,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			public int? ProductReservationId { get; set; }
 
 			///
-			///The product type template associated with the product on the storefront.
+			///A product type is like a product template.
 			///
 			public string ProductType { get; set; }
 
@@ -146,7 +146,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			public string ProductUsage { get; set; }
 
 			///
-			///Collection of property attributes defined for the object. Properties are associated to all objects within Mozu, including documents, products, and product types.
+			///Collection of property attributes defined for the object. Properties are associated to all objects within , including documents, products, and product types.
 			///
 			public List<ProductProperty> Properties { get; set; }
 

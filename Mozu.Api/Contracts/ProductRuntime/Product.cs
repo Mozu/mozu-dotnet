@@ -30,12 +30,12 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public List<BundledProduct> BundledProducts { get; set; }
 
 			///
-			///Mozu.ProductRuntime.Contracts.Product catalogEndDate ApiTypeMember DOCUMENT_HERE 
+			///The date and time in UTC when the product is no longer active in the catalog.
 			///
 			public DateTime? CatalogEndDate { get; set; }
 
 			///
-			///Mozu.ProductRuntime.Contracts.Product catalogStartDate ApiTypeMember DOCUMENT_HERE 
+			///The date and time in UTC format when the product is active in the catalog.
 			///
 			public DateTime? CatalogStartDate { get; set; }
 
@@ -55,17 +55,17 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public DateTime CreateDate { get; set; }
 
 			///
-			///Mozu.ProductRuntime.Contracts.Product dateFirstAvailableInCatalog ApiTypeMember DOCUMENT_HERE 
+			///The date and time in UTC format when the product first became available in the catalog. This field is used to calculate the number of days the product has been available in the catalog for a dynamic expression.
 			///
 			public DateTime? DateFirstAvailableInCatalog { get; set; }
 
 			///
-			///Mozu.ProductRuntime.Contracts.Product daysAvailableInCatalog ApiTypeMember DOCUMENT_HERE 
+			///The total number of days the product has been available in the catalog. This field is related to the DaysAvailableInCatalog field in a dynamic expression.
 			///
 			public int? DaysAvailableInCatalog { get; set; }
 
 			///
-			///List of supported types of fulfillment  for the product or variation. The types include direct ship, in-store pickup, or both. 
+			///List of supported types of fulfillment for the product or variation. The types include direct ship, in-store pickup, or both.
 			///
 			public List<string> FulfillmentTypesSupported { get; set; }
 
@@ -80,7 +80,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public ProductInventoryInfo InventoryInfo { get; set; }
 
 			///
-			///Indicates if the object or feature is active. This indicator is used for subscriptions (at the site or tenant level), customer accounts, products and variations.
+			///Indicates if the object or feature is active.
 			///
 			public bool? IsActive { get; set; }
 
@@ -145,12 +145,12 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public int? ProductSequence { get; set; }
 
 			///
-			///The product type template associated with the product on the storefront.
+			///A product type is like a product template.
 			///
 			public string ProductType { get; set; }
 
 			///
-			///Mozu.ProductRuntime.Contracts.Product productTypeId ApiTypeMember DOCUMENT_HERE 
+			///The unique identifier of the product type of the product.
 			///
 			public int? ProductTypeId { get; set; }
 
@@ -160,7 +160,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string ProductUsage { get; set; }
 
 			///
-			///Collection of property attributes defined for the object. Properties are associated to all objects within Mozu, including documents, products, and product types.
+			///Collection of property attributes defined for the object. Properties are associated to all objects within , including documents, products, and product types.
 			///
 			public List<ProductProperty> Properties { get; set; }
 
@@ -184,10 +184,13 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public List<string> UpCs { get; set; }
 
+			///
+			///The date and time in UTC format the object was updated most recently.
+			///
 			public DateTime UpdateDate { get; set; }
 
 			///
-			///Mozu.ProductRuntime.Contracts.Product validPriceLists ApiTypeMember DOCUMENT_HERE 
+			///A list of price lists for which the product is valid.
 			///
 			public List<string> ValidPriceLists { get; set; }
 
@@ -201,8 +204,14 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public List<VariationSummary> Variations { get; set; }
 
+			///
+			///The details of any volume price bands associated with the product.Refer to [Volume Pricing](https://www.mozu.com/docs/guides/catalog/price-lists.htm#volume_pricing) for more information.
+			///
 			public List<ProductVolumePrice> VolumePriceBands { get; set; }
 
+			///
+			///The details of the volume price range associated with the product. Volume price ranges consist of a lower price and an upper price, and either lower or upper prices can be affected by discounts.You can display the volume price range on product listing pages, such as category and search result pages, and product detail pages.Refer to [Volume Pricing Storefront Behavior](https://www.mozu.com/docs/guides/catalog/price-lists.htm#volume_pricing_storefront_behavior) for more information.
+			///
 			public ProductPriceRange VolumePriceRange { get; set; }
 
 		}

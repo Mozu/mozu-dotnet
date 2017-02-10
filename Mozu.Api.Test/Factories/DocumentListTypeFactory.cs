@@ -30,7 +30,7 @@ namespace Mozu.Api.Test.Factories
 	{
 
 		/// <summary> 
-		/// content-documentlistTypes Get GetDocumentListTypes description DOCUMENT_HERE 
+		/// Gets all the available documentListTypes.
 		/// <example> 
 		///  <code> 
 		/// var result = DocumentListTypeFactory.GetDocumentListTypes(handler : handler,  pageSize :  pageSize,  startIndex :  startIndex,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// content-documentlistTypes Get GetDocumentListType description DOCUMENT_HERE 
+		/// Gets a documentListType.
 		/// <example> 
 		///  <code> 
 		/// var result = DocumentListTypeFactory.GetDocumentListType(handler : handler,  documentListTypeFQN :  documentListTypeFQN,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Creates a new documentListType
+		/// Creates a new documentListType.
 		/// <example> 
 		///  <code> 
 		/// var result = DocumentListTypeFactory.CreateDocumentListType(handler : handler,  list :  list,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 

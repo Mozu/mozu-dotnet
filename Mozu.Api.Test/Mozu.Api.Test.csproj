@@ -117,6 +117,7 @@
     <Compile Include="Factories\CarrierConfigurationFactory.cs" />
     <Compile Include="Factories\CartFactory.cs" />
     <Compile Include="Factories\CartItemFactory.cs" />
+    <Compile Include="Factories\CartSettingsFactory.cs" />
     <Compile Include="Factories\CategoryFactory.cs" />
     <Compile Include="Factories\ChangeMessageFactory.cs" />
     <Compile Include="Factories\ChannelFactory.cs" />

@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 {
 	/// <summary>
-	/// Define and manage discounts to apply to products, product categories, or orders. The discounts can be a specified amount off the price, percentage off the price, or for free shipping. Create a coupon code that shoppers can use to redeem the discount.
+	/// Use the Discounts resource to define and manage discounts to apply to products, product categories, or orders. The discounts can be a specified amount off the price, percentage off the price, or for free shipping. You can create a coupon code that shoppers can use to redeem the discount.
 	/// </summary>
 	public partial class DiscountResource  	{
 		///
@@ -294,7 +294,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Updates the localizable content for the specified discount or rename the discount without modifying its other properties.
+		/// Updates the localizable content for the specified discount or renames the discount without modifying its other properties.
 		/// </summary>
 		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
@@ -320,7 +320,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Updates the localizable content for the specified discount or rename the discount without modifying its other properties.
+		/// Updates the localizable content for the specified discount or renames the discount without modifying its other properties.
 		/// </summary>
 		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
@@ -345,7 +345,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Updates one or more properties of a defined discount.
+		/// Updates one or more properties of the specified discount.
 		/// </summary>
 		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
@@ -371,7 +371,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Updates one or more properties of a defined discount.
+		/// Updates one or more properties of the specified discount.
 		/// </summary>
 		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>

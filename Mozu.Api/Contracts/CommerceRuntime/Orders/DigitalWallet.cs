@@ -19,12 +19,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 		public class DigitalWallet
 		{
 			///
-			///Cart ID Note: This property should only be set if the order is not created and user opted to create the order from cart using digital wallet.
+			///ID of the cart being used to create the order.
 			///
 			public string CartId { get; set; }
 
 			///
-			///Digital wallet data. Note: Transform the Json data to a string.
+			///Digital wallet data.
 			///
 			public string DigitalWalletData { get; set; }
 

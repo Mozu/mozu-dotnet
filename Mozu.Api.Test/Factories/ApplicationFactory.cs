@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// platform/developer related resources. DOCUMENT_HERE 
+	/// Use the Developer resource to view and update information and files related to application packages.
 	/// </summary>
 	public partial class ApplicationFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// platform-developer Get GetAppPackageNames description DOCUMENT_HERE 
+		/// Returns a collection of package names for the application specified in the request.
 		/// <example> 
 		///  <code> 
 		/// var result = ApplicationFactory.GetAppPackageNames(handler : handler,  applicationKey :  applicationKey,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// platform-developer Get GetAppVersions description DOCUMENT_HERE 
+		/// Retrieves the available versions for the application specified in the request.
 		/// <example> 
 		///  <code> 
 		/// var result = ApplicationFactory.GetAppVersions(handler : handler,  nsAndAppId :  nsAndAppId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// platform-developer Get GetPackageFileMetadata description DOCUMENT_HERE 
+		/// Retrieves the metadata for a file in an application package.
 		/// <example> 
 		///  <code> 
 		/// var result = ApplicationFactory.GetPackageFileMetadata(handler : handler,  applicationKey :  applicationKey,  filepath :  filepath,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// platform-developer Get GetPackageMetadata description DOCUMENT_HERE 
+		/// Retrieves the metadata for a folder in an application package.
 		/// <example> 
 		///  <code> 
 		/// var result = ApplicationFactory.GetPackageMetadata(handler : handler,  applicationKey :  applicationKey,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// platform-developer Post UpsertPackageFile description DOCUMENT_HERE 
+		/// Insert or update the specified file into the specified application package.
 		/// <example> 
 		///  <code> 
 		/// var result = ApplicationFactory.UpsertPackageFile(handler : handler,  stream :  stream,  applicationKey :  applicationKey,  filepath :  filepath,  lastModifiedTime :  lastModifiedTime,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -220,7 +220,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// platform-developer Post RenamePackageFile description DOCUMENT_HERE 
+		/// Renames a file in an application package.
 		/// <example> 
 		///  <code> 
 		/// var result = ApplicationFactory.RenamePackageFile(handler : handler,  renameInfo :  renameInfo,  applicationKey :  applicationKey,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -258,7 +258,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// platform-developer Delete DeletePackageFile description DOCUMENT_HERE 
+		/// Deletes the specified file from the specified application package.
 		/// <example> 
 		///  <code> 
 		/// var result = ApplicationFactory.DeletePackageFile(handler : handler,  applicationKey :  applicationKey,  filepath :  filepath,  expectedCode: expectedCode, successCode: successCode); 

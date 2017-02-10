@@ -19,37 +19,37 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 		public class EmailTransactionSettings
 		{
 			///
-			///Mozu.SiteSettings.General.Contracts.EmailTransactionSettings backInStock ApiTypeMember DOCUMENT_HERE 
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
 			///
 			public bool? BackInStock { get; set; }
 
 			///
-			///Mozu.SiteSettings.General.Contracts.EmailTransactionSettings giftCardCreated ApiTypeMember DOCUMENT_HERE 
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
 			///
 			public bool? GiftCardCreated { get; set; }
 
 			///
-			///Mozu.SiteSettings.General.Contracts.EmailTransactionSettings orderChanged ApiTypeMember DOCUMENT_HERE 
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
 			///
 			public bool? OrderChanged { get; set; }
 
 			///
-			///Mozu.SiteSettings.General.Contracts.EmailTransactionSettings orderFulfillmentDetailsChanged ApiTypeMember DOCUMENT_HERE 
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
 			///
 			public bool? OrderFulfillmentDetailsChanged { get; set; }
 
 			///
-			///Mozu.SiteSettings.General.Contracts.EmailTransactionSettings orderShipped ApiTypeMember DOCUMENT_HERE 
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
 			///
 			public bool? OrderShipped { get; set; }
 
 			///
-			///Mozu.SiteSettings.General.Contracts.EmailTransactionSettings refundCreated ApiTypeMember DOCUMENT_HERE 
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
 			///
 			public bool? RefundCreated { get; set; }
 
 			///
-			///Mozu.SiteSettings.General.Contracts.EmailTransactionSettings returnAuthorized ApiTypeMember DOCUMENT_HERE 
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
 			///
 			public bool? ReturnAuthorized { get; set; }
 
@@ -64,37 +64,37 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			public bool? ReturnClosed { get; set; }
 
 			///
-			///Mozu.SiteSettings.General.Contracts.EmailTransactionSettings returnCreated ApiTypeMember DOCUMENT_HERE 
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
 			///
 			public bool? ReturnCreated { get; set; }
 
 			///
-			///Mozu.SiteSettings.General.Contracts.EmailTransactionSettings returnRejected ApiTypeMember DOCUMENT_HERE 
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
 			///
 			public bool? ReturnRejected { get; set; }
 
 			///
-			///Mozu.SiteSettings.General.Contracts.EmailTransactionSettings returnUpdated ApiTypeMember DOCUMENT_HERE 
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
 			///
 			public bool? ReturnUpdated { get; set; }
 
 			///
-			///Mozu.SiteSettings.General.Contracts.EmailTransactionSettings shopperLoginCreated ApiTypeMember DOCUMENT_HERE 
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
 			///
 			public bool? ShopperLoginCreated { get; set; }
 
 			///
-			///Mozu.SiteSettings.General.Contracts.EmailTransactionSettings shopperPasswordReset ApiTypeMember DOCUMENT_HERE 
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
 			///
 			public bool? ShopperPasswordReset { get; set; }
 
 			///
-			///Mozu.SiteSettings.General.Contracts.EmailTransactionSettings storeCreditCreated ApiTypeMember DOCUMENT_HERE 
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
 			///
 			public bool? StoreCreditCreated { get; set; }
 
 			///
-			///The corresponding topic is not currently used by Mozu.
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
 			///
 			public bool? StoreCreditUpdated { get; set; }
 

@@ -19,7 +19,7 @@ namespace Mozu.Api.Contracts.Core
 		public class UserRole
 		{
 			///
-			///Properties of the developer account or Mozu tenant associated with the user role.
+			///Properties of the developer account or  tenant associated with the user role.
 			///
 			public UserScope AssignedInScope { get; set; }
 

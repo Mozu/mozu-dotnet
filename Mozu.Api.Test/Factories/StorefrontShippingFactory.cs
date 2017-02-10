@@ -33,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves the shipping rates applicable for the site.
 		/// <example> 
 		///  <code> 
-		/// var result = ShippingFactory.GetRates(handler : handler,  rateRequest :  rateRequest,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ShippingFactory.GetRates(handler : handler,  rateRequest :  rateRequest,  includeRawResponse :  includeRawResponse,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<RatesResponse/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ShippingRuntime.RatesResponse GetRates(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ShippingRuntime.RateRequest rateRequest, string responseFields = null, 
+ 		 Mozu.Api.Contracts.ShippingRuntime.RateRequest rateRequest, bool? includeRawResponse = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -48,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Storefront.ShippingClient.GetRatesClient(
-				 rateRequest :  rateRequest,  responseFields :  responseFields		);
+				 rateRequest :  rateRequest,  includeRawResponse :  includeRawResponse,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

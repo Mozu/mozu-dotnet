@@ -33,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// Retrieves the package label image supplied by the carrier for a return replacement.
 		/// <example> 
 		///  <code> 
-		/// var result = PackageFactory.GetPackageLabel(handler : handler,  returnId :  returnId,  packageId :  packageId,  returnAsBase64 :  returnAsBase64,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = PackageFactory.GetPackageLabel(handler : handler,  returnId :  returnId,  packageId :  packageId,  returnAsBase64Png :  returnAsBase64Png,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static System.IO.Stream GetPackageLabel(ServiceClientMessageHandler handler, 
- 		 string returnId, string packageId, bool? returnAsBase64 = null, 
+ 		 string returnId, string packageId, bool? returnAsBase64Png = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -48,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Returns.PackageClient.GetPackageLabelClient(
-				 returnId :  returnId,  packageId :  packageId,  returnAsBase64 :  returnAsBase64		);
+				 returnId :  returnId,  packageId :  packageId,  returnAsBase64Png :  returnAsBase64Png		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

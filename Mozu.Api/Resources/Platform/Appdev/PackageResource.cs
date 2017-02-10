@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Platform.Appdev
 {
 	/// <summary>
-	/// platform/appdev/filebasedpackage related resources. DOCUMENT_HERE 
+	/// This resource is not public.
 	/// </summary>
 	public partial class PackageResource  	{
 		///
@@ -42,7 +42,7 @@ namespace Mozu.Api.Resources.Platform.Appdev
 
 				
 		/// <summary>
-		/// appdev-filebasedpackage Get GetFile description DOCUMENT_HERE 
+		/// This operation is not public.
 		/// </summary>
 		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}. </param>
 		/// <param name="fileName"></param>
@@ -67,7 +67,7 @@ namespace Mozu.Api.Resources.Platform.Appdev
 		}
 
 		/// <summary>
-		/// appdev-filebasedpackage Get GetFile description DOCUMENT_HERE 
+		/// This operation is not public.
 		/// </summary>
 		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}. </param>
 		/// <param name="fileName"></param>

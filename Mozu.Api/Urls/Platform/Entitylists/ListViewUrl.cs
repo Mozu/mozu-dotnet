@@ -19,10 +19,10 @@ namespace Mozu.Api.Urls.Platform.Entitylists
 		/// <summary>
         /// Get Resource Url for GetViewEntity
         /// </summary>
-        /// <param name="entityId">Unique identifier for an entity, which defines the schema, rules, and formats for JSON entities within the MZDB (Mozu Mongo DB).</param>
+        /// <param name="entityId">Unique identifier for an entity, which defines the schema, rules, and formats for JSON entities within the MZDB ( Mongo DB).</param>
         /// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="viewName">The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
+        /// <param name="viewName">The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -45,7 +45,7 @@ namespace Mozu.Api.Urls.Platform.Entitylists
         /// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
-        /// <param name="viewName">The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
+        /// <param name="viewName">The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -65,10 +65,10 @@ namespace Mozu.Api.Urls.Platform.Entitylists
 		/// <summary>
         /// Get Resource Url for GetViewEntityContainer
         /// </summary>
-        /// <param name="entityId">Unique identifier for an entity, which defines the schema, rules, and formats for JSON entities within the MZDB (Mozu Mongo DB).</param>
+        /// <param name="entityId">Unique identifier for an entity, which defines the schema, rules, and formats for JSON entities within the MZDB ( Mongo DB).</param>
         /// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="viewName">The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
+        /// <param name="viewName">The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -91,7 +91,7 @@ namespace Mozu.Api.Urls.Platform.Entitylists
         /// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
-        /// <param name="viewName">The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
+        /// <param name="viewName">The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -113,7 +113,7 @@ namespace Mozu.Api.Urls.Platform.Entitylists
         /// </summary>
         /// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="viewName">The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
+        /// <param name="viewName">The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -166,7 +166,7 @@ namespace Mozu.Api.Urls.Platform.Entitylists
         /// </summary>
         /// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="viewName">The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
+        /// <param name="viewName">The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -184,7 +184,7 @@ namespace Mozu.Api.Urls.Platform.Entitylists
         /// Get Resource Url for DeleteEntityListView
         /// </summary>
         /// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
-        /// <param name="viewName">The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
+        /// <param name="viewName">The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

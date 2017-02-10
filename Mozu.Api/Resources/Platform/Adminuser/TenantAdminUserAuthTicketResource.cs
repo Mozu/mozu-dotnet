@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Platform.Adminuser
 {
 	/// <summary>
-	/// Use the Admin User authentication tickets resource to generate and refresh authentication tickets that enable Mozu administrator or developer account users to access development or production tenants.
+	/// Use the Admin User authentication tickets resource to generate and refresh authentication tickets that enable  administrator or developer account users to access development or production tenants.
 	/// </summary>
 	public partial class TenantAdminUserAuthTicketResource  	{
 		///
@@ -97,7 +97,7 @@ namespace Mozu.Api.Resources.Platform.Adminuser
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="tenantId"></param>
-		/// <param name="existingAuthTicket">Properties of the authentication ticket to be used in user claims with the Mozu API.</param>
+		/// <param name="existingAuthTicket">Properties of the authentication ticket to be used in user claims with the  API.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket"/>
 		/// </returns>
@@ -123,7 +123,7 @@ namespace Mozu.Api.Resources.Platform.Adminuser
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="tenantId"></param>
-		/// <param name="existingAuthTicket">Properties of the authentication ticket to be used in user claims with the Mozu API.</param>
+		/// <param name="existingAuthTicket">Properties of the authentication ticket to be used in user claims with the  API.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket"/>
 		/// </returns>

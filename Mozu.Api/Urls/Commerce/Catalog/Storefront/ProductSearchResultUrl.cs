@@ -19,10 +19,10 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
 		/// <summary>
         /// Get Resource Url for GetRandomAccessCursor
         /// </summary>
-        /// <param name="filter"></param>
-        /// <param name="pageSize"></param>
-        /// <param name="query"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
+        /// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
+        /// <param name="query">Properties for the product location inventory provided for queries to locate products by their location.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -40,7 +40,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
 		/// <summary>
         /// Get Resource Url for Search
         /// </summary>
-        /// <param name="cursorMark"></param>
+        /// <param name="cursorMark">In your first deep paged request, set this parameter to . Then, in all subsequent requests, set this parameter to the subsequent values of  that's returned in each response to continue paging through the results. Continue this pattern until  is null, which signifies the end of the paged results.</param>
         /// <param name="enableSearchTuningRules">Enables search tuning rules on your site.</param>
         /// <param name="facet">Individually list the facet fields you want to display in a web storefront product search.</param>
         /// <param name="facetFieldRangeQuery">Display a range facet not specified in a template in a web storefront product search by listing the facet field and the range to display.</param>
@@ -55,11 +55,11 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
         /// <param name="facetTemplateExclude">A comma-separated list of the facets to exclude from the facetTemplate.        </param>
         /// <param name="facetTemplateSubset">Display a subset of the facets defined in the template specified in facetTemplate parameter.</param>
         /// <param name="facetValueFilter">The facet values to apply to the filter.</param>
-        /// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/applications/sorting-filtering.htm) for a list of supported filters.</param>
+        /// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
         /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
         /// <param name="query">Properties for the product location inventory provided for queries to locate products by their location.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="responseOptions"></param>
+        /// <param name="responseOptions">Options you can specify for the response. This parameter is null by default.You can primarily use this parameter to return volume price band information in product details, which you can then display on category pages and search results depanding on your theme configuration. To return volume price band information, set this parameter to .</param>
         /// <param name="searchSettings">The settings to control product search and indexing behavior.</param>
         /// <param name="searchTuningRuleCode">The unique identifier of the search tuning rule.</param>
         /// <param name="searchTuningRuleContext">The category ID that the search tuning rule applies to.</param>
@@ -103,7 +103,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
 		/// <summary>
         /// Get Resource Url for Suggest
         /// </summary>
-        /// <param name="groups"></param>
+        /// <param name="groups">Specifies the group that you want this operation to return in the response. This parameter accepts one or more values, separated by comma.For example, if you set this parameter to , then this operation returns a  object that contains suggestions for products that match the user entered characters in the search field.The valid values for this parameter are the following:*  — Indicates that products should be matched against and returned in the response. The search  value is compared against product name and code. The response contains a  with a name of  and a collection of . Each collection item has a  of Product and contains a  equal to a complete product object.*  — Indicates that categories should be matched against and returned in the response. The search  value is compared to category name.  The response contains a  with a name of  and a collection of . Each collection item has a  of Category and contains a  equal to a complete category object.*  — Indicates that previously used search terms (keywords) should be matched against and returned in the response, sorted by frequency of use. Keep in mind that it is not currently possible to edit or remove search terms that may be considered undesirable via the  API. The response contains a  with a name of  and a collection of . Each collection item has a  of Term and contains a  equal to a string value of the matched search term.The default value is ; however, the  Core Theme only integrates  and ignores the  group.This operation only returns data that is then made available to your theme. If you set this paramter to multiple values,  returns multiple  in the response. Depending on your requirements, you can then customize your theme to display the groups together or as separate lists in the displayed search suggestions.</param>
         /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
         /// <param name="query">Properties for the product location inventory provided for queries to locate products by their location.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>

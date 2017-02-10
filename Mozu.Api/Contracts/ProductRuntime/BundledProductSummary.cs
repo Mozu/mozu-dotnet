@@ -69,7 +69,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string ProductShortDescription { get; set; }
 
 			///
-			///The product type template associated with the product on the storefront.
+			///A product type is like a product template.
 			///
 			public string ProductType { get; set; }
 

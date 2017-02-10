@@ -35,7 +35,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public List<TargetedCategory> ExcludedCategories { get; set; }
 
 			///
-			///Applies to Included categories Defaults to Any
+			///The operator to use on the excludedCategories field. Valid values are: "All" and "Any".
 			///
 			public string ExcludedCategoriesOperator { get; set; }
 
@@ -60,7 +60,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public bool? IncludeAllProducts { get; set; }
 
 			///
-			///Applies to Included categories Defaults to Any
+			///The operator of the includedCategories field.Valid values are: "All" and "Any".
 			///
 			public string IncludedCategoriesOperator { get; set; }
 
@@ -70,7 +70,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public int? MaximumQuantityPerRedemption { get; set; }
 
 			///
-			///List of  product codes that represent the products to which the discount can apply.
+			///List of product codes that represent the products to which the discount can apply.
 			///
 			public List<TargetedProduct> Products { get; set; }
 

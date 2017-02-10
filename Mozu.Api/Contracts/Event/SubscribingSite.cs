@@ -25,7 +25,7 @@ namespace Mozu.Api.Contracts.Event
 			public AuditInfo AuditInfo { get; set; }
 
 			///
-			///Indicates if the object or feature is active. This indicator is used for subscriptions (at the site or tenant level), customer accounts, products and variations.
+			///Indicates if the object or feature is active.
 			///
 			public bool? IsActive { get; set; }
 

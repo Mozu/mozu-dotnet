@@ -49,7 +49,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets
 		/// Assigns or associates an existing discount to a specified coupon set. Use the couponSetCode parameter to specify the coupon set.
 		/// </summary>
 		/// <param name="couponSetCode">The unique identifier of the coupon set.</param>
-		/// <param name="assignedDiscount">Mozu.ProductAdmin.Contracts.AssignedDiscount ApiType DOCUMENT_HERE </param>
+		/// <param name="assignedDiscount">The details of the discount assigned to the coupon set.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

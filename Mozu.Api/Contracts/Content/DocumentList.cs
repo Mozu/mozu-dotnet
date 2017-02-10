@@ -52,22 +52,22 @@ namespace Mozu.Api.Contracts.Content
 			public JObject Metadata { get; set; }
 
 			///
-			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
+			///The user supplied name that appears in . You can use this field for identification purposes.
 			///
 			public string Name { get; set; }
 
 			///
-			///If applicable, the registered namespace associated with objects, used to generate the fully qualified name. If no namespace is defined, the namespace associated with the tenant is automatically assigned.
+			///The namespace for the accessible APIs and source capabilities in the core of  APIs.
 			///
 			public string Namespace { get; set; }
 
 			///
-			///The ID of the specific scope for the object. 
+			///The unique identifier of the scope. For example, if your scope type is site, then this value would be the site id.
 			///
 			public int? ScopeId { get; set; }
 
 			///
-			///The scope at which the object exists, such as "Tenant", "MasterCatalog", or "Site". Scope delineates the level and area of Mozu the object exists within or affects.
+			///The type of scope associated with the documentList. For example, if the documentList is pageTemplateContent, the scopeType is Site.Valid values are: "Tenant", "MasterCatalog", and "Site".
 			///
 			public string ScopeType { get; set; }
 
@@ -87,7 +87,7 @@ namespace Mozu.Api.Contracts.Content
 			public bool? SupportsPublishing { get; set; }
 
 			///
-			///List description of usages for content within a view and scope.
+			///A string array that determines where the document or entity list displays. The options are , for displaying content in the Custom Schema page in  , and , for displaying content in the site tree in Site Builder (applies only to document lists). The following example demonstrates how to display content across both options:
 			///
 			public List<string> Usages { get; set; }
 

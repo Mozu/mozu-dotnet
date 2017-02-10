@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Allows you to get a price list. This may contain a hierarchy of price lists dependent on setup.
+	/// Retrieves the details of a price list. The details may contain a hierarchy of ancestor and/or descendant price lists dependening on your configuration.
 	/// </summary>
 	public partial class StorefrontPriceListFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves the price list for the given priceListCode
+		/// Retrieves the details of the specified price list.
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListFactory.GetPriceList(handler : handler,  priceListCode :  priceListCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// storefront-pricelists Get GetResolvedPriceList description DOCUMENT_HERE 
+		/// Retrieves the details of a price list to which the specified customer resolves. This is primarly used when creating an offline order for a shopper.You can use this operation alongside custom Arc.js actions to alter the price list to which a shopper resolves.
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListFactory.GetResolvedPriceList(handler : handler,  customerAccountId :  customerAccountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

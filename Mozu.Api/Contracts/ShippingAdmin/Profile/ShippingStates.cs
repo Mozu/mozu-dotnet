@@ -25,7 +25,7 @@ namespace Mozu.Api.Contracts.ShippingAdmin.Profile
 			public string CountryCode { get; set; }
 
 			///
-			///Mozu.ShippingAdmin.Contracts.Profile.ShippingStates states ApiTypeMember DOCUMENT_HERE 
+			///The states of the shipping profile.
 			///
 			public List<State> States { get; set; }
 

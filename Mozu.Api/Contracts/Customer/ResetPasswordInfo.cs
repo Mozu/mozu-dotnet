@@ -18,6 +18,9 @@ namespace Mozu.Api.Contracts.Customer
 		///
 		public class ResetPasswordInfo
 		{
+			///
+			///The unique code of the customer set.
+			///
 			public string CustomerSetCode { get; set; }
 
 			///

@@ -240,7 +240,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		}
 
 		/// <summary>
-		/// customer-credits Put ResendCreditCreatedEmail description DOCUMENT_HERE 
+		/// Resend the notification email that informs a shopper that a credit has been created.
 		/// </summary>
 		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <returns>
@@ -263,7 +263,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		}
 
 		/// <summary>
-		/// customer-credits Put ResendCreditCreatedEmail description DOCUMENT_HERE 
+		/// Resend the notification email that informs a shopper that a credit has been created.
 		/// </summary>
 		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <returns>

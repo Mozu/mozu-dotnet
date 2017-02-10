@@ -24,7 +24,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Returns resource to manage returned items that were previously fufilled. Returns can include any number of items associated with an original Mozu order. Each return must either be associated with an original order or a product definition to represent each returned item.
+	/// Use the Returns resource to manage returned items that were previously fufilled. Returns can include any number of items associated with an original  order. Each return must either be associated with an original order or a product definition to represent each returned item.
 	/// </summary>
 	public partial class ReturnFactory : BaseDataFactory
 	{
@@ -334,7 +334,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// commerce-returns Get GetReasons description DOCUMENT_HERE 
+		/// Returns a list of reasons for a return.
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.GetReasons(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -524,7 +524,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Creates a replacement order for the return.
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.CreateReturnShippingOrder(handler : handler,  returnId :  returnId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -638,7 +638,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// commerce-returns Put ResendReturnEmail description DOCUMENT_HERE 
+		/// Resend the email notification to a shopper that a return has been created.
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.ResendReturnEmail(handler : handler,  action :  action,  expectedCode: expectedCode, successCode: successCode); 

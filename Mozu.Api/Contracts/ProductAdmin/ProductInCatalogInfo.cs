@@ -46,7 +46,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public DateTime? DateFirstAvailableInCatalog { get; set; }
 
 			///
-			///Indicates if the object or feature is active. This indicator is used for subscriptions (at the site or tenant level), customer accounts, products and variations.
+			///Indicates if the object or feature is active.
 			///
 			public bool? IsActive { get; set; }
 
@@ -70,6 +70,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public ProductPrice Price { get; set; }
 
+			///
+			///Specifies which static category to use in the navigation breadcrumb, regardless of how shoppers navigate to the product. If not set, or if the product belongs only to dynamic categories, the default is to use the category with the smallest ID.
+			///
 			public ProductCategory PrimaryProductCategory { get; set; }
 
 			///

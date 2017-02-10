@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Platform
 {
 	/// <summary>
-	/// Use the user data subresource to store user-level data required for a third-party application in the Mozu database.
+	/// Use the user data subresource to store user-level data required for a third-party application in the  database.
 	/// </summary>
 	public partial class UserDataResource  	{
 		///
@@ -38,7 +38,7 @@ namespace Mozu.Api.Resources.Platform
 
 				
 		/// <summary>
-		/// Retrieves the value of a record in the Mozu database.
+		/// Retrieves the value of a record in the  database.
 		/// </summary>
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
@@ -63,7 +63,7 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
-		/// Retrieves the value of a record in the Mozu database.
+		/// Retrieves the value of a record in the  database.
 		/// </summary>
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
@@ -87,7 +87,7 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
-		/// Creates a new record in the Mozu database based on the information supplied in the request.
+		/// Creates a new record in the  database based on the information supplied in the request.
 		/// </summary>
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
 		/// <param name="value">The value string to create.</param>
@@ -111,7 +111,7 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
-		/// Creates a new record in the Mozu database based on the information supplied in the request.
+		/// Creates a new record in the  database based on the information supplied in the request.
 		/// </summary>
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
 		/// <param name="value">The value string to create.</param>
@@ -134,7 +134,7 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
-		/// Updates a record in the Mozu database based on the information supplied in the request.
+		/// Updates a record in the  database based on the information supplied in the request.
 		/// </summary>
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
 		/// <param name="value">The value string to create.</param>
@@ -158,7 +158,7 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
-		/// Updates a record in the Mozu database based on the information supplied in the request.
+		/// Updates a record in the  database based on the information supplied in the request.
 		/// </summary>
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
 		/// <param name="value">The value string to create.</param>
@@ -181,7 +181,7 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
-		/// Removes a previously defined record in the Mozu database.
+		/// Removes a previously defined record in the  database.
 		/// </summary>
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
 		/// <returns>
@@ -204,7 +204,7 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
-		/// Removes a previously defined record in the Mozu database.
+		/// Removes a previously defined record in the  database.
 		/// </summary>
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
 		/// <returns>

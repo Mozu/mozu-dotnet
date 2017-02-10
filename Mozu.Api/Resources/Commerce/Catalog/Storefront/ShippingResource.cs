@@ -40,6 +40,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <summary>
 		/// Retrieves the shipping rates applicable for the site.
 		/// </summary>
+		/// <param name="includeRawResponse">Set this parameter to  to retrieve the full raw JSON response from a shipping carrier (instead of just the shipping rate).</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="rateRequest">Properties required to request a shipping rate calculation.</param>
 		/// <returns>
@@ -48,14 +49,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var shipping = new Shipping();
-		///   var ratesResponse = shipping.GetRates( rateRequest,  responseFields);
+		///   var ratesResponse = shipping.GetRates( rateRequest,  includeRawResponse,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ShippingRuntime.RatesResponse GetRates(Mozu.Api.Contracts.ShippingRuntime.RateRequest rateRequest, string responseFields =  null)
+		public virtual Mozu.Api.Contracts.ShippingRuntime.RatesResponse GetRates(Mozu.Api.Contracts.ShippingRuntime.RateRequest rateRequest, bool? includeRawResponse =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ShippingRuntime.RatesResponse> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ShippingClient.GetRatesClient( rateRequest,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ShippingClient.GetRatesClient( rateRequest,  includeRawResponse,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -65,6 +66,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <summary>
 		/// Retrieves the shipping rates applicable for the site.
 		/// </summary>
+		/// <param name="includeRawResponse">Set this parameter to  to retrieve the full raw JSON response from a shipping carrier (instead of just the shipping rate).</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="rateRequest">Properties required to request a shipping rate calculation.</param>
 		/// <returns>
@@ -73,13 +75,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var shipping = new Shipping();
-		///   var ratesResponse = await shipping.GetRatesAsync( rateRequest,  responseFields);
+		///   var ratesResponse = await shipping.GetRatesAsync( rateRequest,  includeRawResponse,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ShippingRuntime.RatesResponse> GetRatesAsync(Mozu.Api.Contracts.ShippingRuntime.RateRequest rateRequest, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ShippingRuntime.RatesResponse> GetRatesAsync(Mozu.Api.Contracts.ShippingRuntime.RateRequest rateRequest, bool? includeRawResponse =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ShippingRuntime.RatesResponse> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ShippingClient.GetRatesClient( rateRequest,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ShippingClient.GetRatesClient( rateRequest,  includeRawResponse,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

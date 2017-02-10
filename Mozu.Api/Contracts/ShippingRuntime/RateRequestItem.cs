@@ -22,7 +22,7 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 		public class RateRequestItem
 		{
 			///
-			///Mozu.ShippingRuntime.Contracts.RateRequestItem data ApiTypeMember DOCUMENT_HERE 
+			///Data unique to the shipping rate for the item.
 			///
 			public JObject Data { get; set; }
 
@@ -47,7 +47,7 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			public bool? ShipsByItself { get; set; }
 
 			///
-			///Product specific dimensions used for shipping, used by product summary and rate request items.  The dimensions can differ between the two uses as a `RateRequestItem `package may contain one or more products.
+			///Product specific dimensions used for shipping, used by product summary and rate request items. The dimensions can differ between the two uses as a `RateRequestItem `package may contain one or more products.
 			///
 			public ItemMeasurements UnitMeasurements { get; set; }
 

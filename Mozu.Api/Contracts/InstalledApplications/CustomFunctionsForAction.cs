@@ -20,12 +20,12 @@ namespace Mozu.Api.Contracts.InstalledApplications
 		public class CustomFunctionsForAction
 		{
 			///
-			///Mozu.InstalledApplications.Contracts.CustomFunctionsForAction actionId ApiTypeMember DOCUMENT_HERE 
+			///The full action ID for a specific action.
 			///
 			public string ActionId { get; set; }
 
 			///
-			///Mozu.InstalledApplications.Contracts.CustomFunctionsForAction contexts ApiTypeMember DOCUMENT_HERE 
+			///An array of settings for a particular action.
 			///
 			public List<CustomFunctionsForContext> Contexts { get; set; }
 

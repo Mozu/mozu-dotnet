@@ -25,20 +25,20 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		/// Retrieves the package label image supplied by the carrier for a return replacement.
 		/// </summary>
 		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
-		/// <param name="returnAsBase64"></param>
+		/// <param name="returnAsBase64Png">Specifies whether to return the RMA label image as Base64-encoded PNG image instead of as a byte array encoded in the original image format. The default is .</param>
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetPackageLabel( returnId,  packageId,  returnAsBase64);
+		///   var mozuClient=GetPackageLabel( returnId,  packageId,  returnAsBase64Png);
 		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<System.IO.Stream> GetPackageLabelClient(string returnId, string packageId, bool? returnAsBase64 =  null)
+		public static MozuClient<System.IO.Stream> GetPackageLabelClient(string returnId, string packageId, bool? returnAsBase64Png =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Returns.PackageUrl.GetPackageLabelUrl(returnId, packageId, returnAsBase64);
+			var url = Mozu.Api.Urls.Commerce.Returns.PackageUrl.GetPackageLabelUrl(returnId, packageId, returnAsBase64Png);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)

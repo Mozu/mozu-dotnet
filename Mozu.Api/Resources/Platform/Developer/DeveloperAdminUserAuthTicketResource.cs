@@ -97,7 +97,7 @@ namespace Mozu.Api.Resources.Platform.Developer
 		/// </summary>
 		/// <param name="developerAccountId">Unique identifier of the developer account.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="existingAuthTicket">Properties of the authentication ticket to be used in developer account claims with the Mozu API.</param>
+		/// <param name="existingAuthTicket">Properties of the authentication ticket to be used in developer account claims with the  API.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket"/>
 		/// </returns>
@@ -123,7 +123,7 @@ namespace Mozu.Api.Resources.Platform.Developer
 		/// </summary>
 		/// <param name="developerAccountId">Unique identifier of the developer account.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="existingAuthTicket">Properties of the authentication ticket to be used in developer account claims with the Mozu API.</param>
+		/// <param name="existingAuthTicket">Properties of the authentication ticket to be used in developer account claims with the  API.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket"/>
 		/// </returns>

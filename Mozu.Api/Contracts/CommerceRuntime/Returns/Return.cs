@@ -44,6 +44,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///
 			public string ChannelCode { get; set; }
 
+			///
+			///contact ApiType DOCUMENT_HERE 
+			///
 			public Contact Contact { get; set; }
 
 			///
@@ -62,7 +65,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			public string CustomerInteractionType { get; set; }
 
 			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///Unique identifier of the source property, such as a catalog, discount, order, or email template.For a product field it will be the name of the field.For a category ID, must be a positive integer not greater than 2000000. By default,  auto-generates a category ID when categories are created. If you want to specify an ID during creation (which preserves category link relationships when migrating tenant data from one sandbox to another), you must also include the  query string in the endpoint. For example, . Then, use the  property to specify the desired category ID.For a product attribute it will be the Attribute FQN.For a document, the ID must be specified as a 32 character, case-insensitive, alphanumeric string. You can specify the ID as 32 sequential characters or as groups separated by dashes in the format 8-4-4-4-12. For example, or.For email templates, the ID must be one of the following values:			
 			///
 			public string Id { get; set; }
 
@@ -91,6 +94,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///
 			public string OriginalOrderId { get; set; }
 
+			///
+			///The order number of the original order where the return was created.
+			///
 			public int? OriginalOrderNumber { get; set; }
 
 			///
@@ -113,6 +119,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///
 			public decimal? ProductLossTotal { get; set; }
 
+			///
+			///The status that indicates whether you have received the return item from the shopper. The accepted values are , , or .
+			///
 			public string ReceiveStatus { get; set; }
 
 			///
@@ -120,8 +129,14 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///
 			public decimal? RefundAmount { get; set; }
 
+			///
+			///The status of the refund. The accepted values are  if the shopper only wants a replacement or  if either a partial or full refund is applied to the return.
+			///
 			public string RefundStatus { get; set; }
 
+			///
+			///The status of the replacement order. The accepted values are  if there is no replacement order or  if a replacement order exits.
+			///
 			public string ReplaceStatus { get; set; }
 
 			///
@@ -160,7 +175,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			public int? SiteId { get; set; }
 
 			///
-			///The current status of an object. This status is specific to the object including payment (New, Authorized, Captured, Declined, Failed, Voided, Credited, CheckRequested, or RolledBack), discount (Active, Scheduled, or Expired), returns (ReturnAuthorized), tenant, package (Fulfilled or NotFulfilled), application, master and product catalogs, orders (Pending, Submitted, Processing, Pending Review, Closed, or Canceled), and order validation results (Pass, Fail, Error, or Review).
+			///The current status of the object.This value is read only. Valid values for this field are: "Active", "Expired", and "Inactive".
 			///
 			public string Status { get; set; }
 

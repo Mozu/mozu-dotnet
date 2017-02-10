@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// customer-credits Put ResendCreditCreatedEmail description DOCUMENT_HERE 
+		/// Resend the notification email that informs a shopper that a credit has been created.
 		/// <example> 
 		///  <code> 
 		/// var result = CreditFactory.ResendCreditCreatedEmail(handler : handler,  code :  code,  expectedCode: expectedCode, successCode: successCode); 

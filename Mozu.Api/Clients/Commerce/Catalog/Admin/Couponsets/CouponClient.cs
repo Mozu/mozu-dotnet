@@ -52,11 +52,11 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets
 		/// Retrieves a list of coupons in a specified coupon set according to any specified filter criteria and sort options.
 		/// </summary>
 		/// <param name="couponSetCode">The unique identifier of the coupon set that the coupons belongs to.</param>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/applications/sorting-filtering.htm) for a list of supported filters.</param>
+		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
 		/// <param name="includeCounts">Specifies whether to include the redemptionCount property in the response body object.</param>
 		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/applications/sorting-filtering.htm) for more information.</param>
+		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.CouponCollection"/>}
@@ -82,7 +82,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets
 		/// Adds coupons  to a specified manual coupon set. Use the couponSetCode parameter to specify the manual coupon set.
 		/// </summary>
 		/// <param name="couponSetCode">The unique identifier of the coupon set.</param>
-		/// <param name="coupons">Mozu.ProductAdmin.Contracts.Coupon ApiType DOCUMENT_HERE </param>
+		/// <param name="coupons">The details necessary to assign the discount to a coupon set, including .</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

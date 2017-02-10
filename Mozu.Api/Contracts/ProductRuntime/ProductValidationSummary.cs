@@ -30,7 +30,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public List<Category> Categories { get; set; }
 
 			///
-			///List of supported types of fulfillment  for the product or variation. The types include direct ship, in-store pickup, or both. 
+			///List of supported types of fulfillment for the product or variation. The types include direct ship, in-store pickup, or both.
 			///
 			public List<string> FulfillmentTypesSupported { get; set; }
 
@@ -95,7 +95,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string ProductShortDescription { get; set; }
 
 			///
-			///The product type template associated with the product on the storefront.
+			///A product type is like a product template.
 			///
 			public string ProductType { get; set; }
 
@@ -105,7 +105,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string ProductUsage { get; set; }
 
 			///
-			///Collection of property attributes defined for the object. Properties are associated to all objects within Mozu, including documents, products, and product types.
+			///Collection of property attributes defined for the object. Properties are associated to all objects within , including documents, products, and product types.
 			///
 			public List<ProductProperty> Properties { get; set; }
 

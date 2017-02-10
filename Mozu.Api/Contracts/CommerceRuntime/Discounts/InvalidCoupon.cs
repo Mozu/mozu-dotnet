@@ -26,7 +26,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Discounts
 			public DateTime CreateDate { get; set; }
 
 			///
-			///Unique identifier for the discount in the storefront.
+			///The unique identifier of the discount.
 			///
 			public int DiscountId { get; set; }
 

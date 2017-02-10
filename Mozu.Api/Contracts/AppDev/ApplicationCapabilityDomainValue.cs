@@ -14,7 +14,7 @@ using System;
 namespace Mozu.Api.Contracts.AppDev
 {
 		///
-		///	Mozu.AppDev.Contracts.ApplicationCapabilityDomainValue ApiType DOCUMENT_HERE 
+		///	This property is not exposed in documentation.
 		///
 		public class ApplicationCapabilityDomainValue
 		{

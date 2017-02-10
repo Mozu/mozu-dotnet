@@ -17,17 +17,17 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Commerce.Shipping.Admin
 {
 	/// <summary>
-	/// Carrier Configuration for managing credentials and some settings for the various carriers installed with the default mozu application
+	/// Use the Carriers resource to configure and manage your supported shipping carrier configurations.
 	/// </summary>
 	public partial class CarrierConfigurationClient 	{
 		
 		/// <summary>
-		/// Retrieves a list of Carrier Configurations according to any specified filter criteria and sort options.
+		/// Retrieves a list of carrier configurations and their details according to any specified facets, filter criteria, and sort options.
 		/// </summary>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/applications/sorting-filtering.htm) for a list of supported filters.</param>
+		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
 		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/applications/sorting-filtering.htm) for more information.</param>
+		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ShippingAdmin.CarrierConfigurationCollection"/>}
@@ -50,7 +50,7 @@ namespace Mozu.Api.Clients.Commerce.Shipping.Admin
 		}
 
 		/// <summary>
-		/// Get Carrier Configuration (for this particular site)
+		/// Retrieves the details of the specified carrier configuration.
 		/// </summary>
 		/// <param name="carrierId">The unique identifier of the carrier.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -75,7 +75,7 @@ namespace Mozu.Api.Clients.Commerce.Shipping.Admin
 		}
 
 		/// <summary>
-		/// Create Carrier Configuration
+		/// Creates a new carrier configuration.
 		/// </summary>
 		/// <param name="carrierId">The unique identifier of the carrier.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -101,7 +101,7 @@ namespace Mozu.Api.Clients.Commerce.Shipping.Admin
 		}
 
 		/// <summary>
-		/// Update an existing Carrier Configuration
+		/// Updates the details of the specified carrier configuration.
 		/// </summary>
 		/// <param name="carrierId">The unique identifier of the carrier.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -127,7 +127,7 @@ namespace Mozu.Api.Clients.Commerce.Shipping.Admin
 		}
 
 		/// <summary>
-		/// Delete an existing Carrier Configuration
+		/// Deletes the specified carrier configuration.
 		/// </summary>
 		/// <param name="carrierId">The unique identifier of the carrier configuration.</param>
 		/// <returns>

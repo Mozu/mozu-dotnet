@@ -16,7 +16,7 @@ using Mozu.Api.Contracts.Core;
 namespace Mozu.Api.Contracts.Customer
 {
 		///
-		///	Mozu.Customer.Contracts.CustomerPurchaseOrderAccount ApiType DOCUMENT_HERE 
+		///	The details of a customer's purchase order account.
 		///
 		public class CustomerPurchaseOrderAccount
 		{
@@ -26,27 +26,27 @@ namespace Mozu.Api.Contracts.Customer
 			public int AccountId { get; set; }
 
 			///
-			///Basic audit info about the object, including date, time, and user account. Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///Basic audit info about the object, including date, time, and user account. This data may be captured when creating, updating, and removing data.
 			///
 			public AuditInfo AuditInfo { get; set; }
 
 			///
-			///Mozu.Customer.Contracts.CustomerPurchaseOrderAccount availableBalance ApiTypeMember DOCUMENT_HERE 
+			///The available balance the customer has on their purchase order account. This balance is the result of the  minus the customer's total amount due.
 			///
 			public decimal AvailableBalance { get; set; }
 
 			///
-			///Mozu.Customer.Contracts.CustomerPurchaseOrderAccount creditLimit ApiTypeMember DOCUMENT_HERE 
+			///The total credit limit the customer can spend using purchase orders.
 			///
 			public decimal CreditLimit { get; set; }
 
 			///
-			///Mozu.Customer.Contracts.CustomerPurchaseOrderAccount customerPurchaseOrderPaymentTerms ApiTypeMember DOCUMENT_HERE 
+			///The specific payment terms for the customer's purchase order account. Each payment term is associated with a specific site, and you can specify more than one payment term for each site.
 			///
 			public List<CustomerPurchaseOrderPaymentTerm> CustomerPurchaseOrderPaymentTerms { get; set; }
 
 			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///Unique identifier of the source property, such as a catalog, discount, order, or email template.For a product field it will be the name of the field.For a category ID, must be a positive integer not greater than 2000000. By default,  auto-generates a category ID when categories are created. If you want to specify an ID during creation (which preserves category link relationships when migrating tenant data from one sandbox to another), you must also include the  query string in the endpoint. For example, . Then, use the  property to specify the desired category ID.For a product attribute it will be the Attribute FQN.For a document, the ID must be specified as a 32 character, case-insensitive, alphanumeric string. You can specify the ID as 32 sequential characters or as groups separated by dashes in the format 8-4-4-4-12. For example, or.For email templates, the ID must be one of the following values:			
 			///
 			public int Id { get; set; }
 
@@ -56,17 +56,17 @@ namespace Mozu.Api.Contracts.Customer
 			public bool IsEnabled { get; set; }
 
 			///
-			///Mozu.Customer.Contracts.CustomerPurchaseOrderAccount overdraftAllowance ApiTypeMember DOCUMENT_HERE 
+			///The total monetary amount the customer can spend over their purchase order . The  controls the units of this amount.
 			///
 			public decimal? OverdraftAllowance { get; set; }
 
 			///
-			///Indicates type of overdraft. Possible values are "Percent" and "Amount"
+			///Specifies the type and units of the  amount.The valid values are:*  — specifies that the  amount is a decimal amount.*  — specifies that the  amount is a percentage amount.
 			///
 			public string OverdraftAllowanceType { get; set; }
 
 			///
-			///Mozu.Customer.Contracts.CustomerPurchaseOrderAccount totalAvailableBalance ApiTypeMember DOCUMENT_HERE 
+			///The total available balance the customer has on their purchase order account. This balance is the result of the  minus the .
 			///
 			public decimal TotalAvailableBalance { get; set; }
 

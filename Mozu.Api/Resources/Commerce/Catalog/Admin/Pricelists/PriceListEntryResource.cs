@@ -42,7 +42,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Pricelists
 		/// </summary>
 		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
 		/// <param name="priceListCode">The unique code of the price list associated with the price list entry.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="startDate">The start date of the price list entry.</param>
 		/// <returns>
@@ -70,7 +70,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Pricelists
 		/// </summary>
 		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
 		/// <param name="priceListCode">The unique code of the price list associated with the price list entry.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="startDate">The start date of the price list entry.</param>
 		/// <returns>
@@ -95,11 +95,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Pricelists
 		/// <summary>
 		/// Retrieves a list of price list entries associated with the specified price list according to any specified facets, filter criteria, and sort options.
 		/// </summary>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/applications/sorting-filtering.htm) for a list of supported filters.</param>
+		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
 		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
 		/// <param name="priceListCode">The unique code of the price list associated with the price list entry.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/applications/sorting-filtering.htm) for more information.</param>
+		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PriceListEntryCollection"/>
@@ -124,11 +124,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Pricelists
 		/// <summary>
 		/// Retrieves a list of price list entries associated with the specified price list according to any specified facets, filter criteria, and sort options.
 		/// </summary>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/applications/sorting-filtering.htm) for a list of supported filters.</param>
+		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
 		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
 		/// <param name="priceListCode">The unique code of the price list associated with the price list entry.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/applications/sorting-filtering.htm) for more information.</param>
+		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PriceListEntryCollection"/>
@@ -154,7 +154,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Pricelists
 		/// </summary>
 		/// <param name="priceListCode">The specified price list to which you want to add the price list entry.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="priceListEntryIn">Mozu.ProductAdmin.Contracts.PriceListEntry ApiType DOCUMENT_HERE </param>
+		/// <param name="priceListEntryIn">The details of the new price list entry.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PriceListEntry"/>
 		/// </returns>
@@ -180,7 +180,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Pricelists
 		/// </summary>
 		/// <param name="priceListCode">The specified price list to which you want to add the price list entry.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="priceListEntryIn">Mozu.ProductAdmin.Contracts.PriceListEntry ApiType DOCUMENT_HERE </param>
+		/// <param name="priceListEntryIn">The details of the new price list entry.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PriceListEntry"/>
 		/// </returns>
@@ -205,10 +205,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Pricelists
 		/// </summary>
 		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
 		/// <param name="priceListCode">The unique code of the price list associated with the price list entry.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="startDate">The start date of the price list entry.</param>
-		/// <param name="priceListEntryIn">Mozu.ProductAdmin.Contracts.PriceListEntry ApiType DOCUMENT_HERE </param>
+		/// <param name="priceListEntryIn">The updated details of the price list entry.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PriceListEntry"/>
 		/// </returns>
@@ -234,10 +234,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Pricelists
 		/// </summary>
 		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
 		/// <param name="priceListCode">The unique code of the price list associated with the price list entry.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="startDate">The start date of the price list entry.</param>
-		/// <param name="priceListEntryIn">Mozu.ProductAdmin.Contracts.PriceListEntry ApiType DOCUMENT_HERE </param>
+		/// <param name="priceListEntryIn">The updated details of the price list entry.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PriceListEntry"/>
 		/// </returns>
@@ -262,7 +262,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Pricelists
 		/// </summary>
 		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
 		/// <param name="priceListCode">The code of the specified price list associated with the price list entry.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="startDate">The start date of the price list entry.</param>
 		/// <returns>
 		/// 
@@ -288,7 +288,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Pricelists
 		/// </summary>
 		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
 		/// <param name="priceListCode">The code of the specified price list associated with the price list entry.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="startDate">The start date of the price list entry.</param>
 		/// <returns>
 		/// 

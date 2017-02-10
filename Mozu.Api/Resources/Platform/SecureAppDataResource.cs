@@ -93,7 +93,7 @@ namespace Mozu.Api.Resources.Platform
 		/// </summary>
 		/// <param name="appKeyId"></param>
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="value">JSON code for objects.</param>
+		/// <param name="value">The value string to create.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -118,7 +118,7 @@ namespace Mozu.Api.Resources.Platform
 		/// </summary>
 		/// <param name="appKeyId"></param>
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="value">JSON code for objects.</param>
+		/// <param name="value">The value string to create.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -142,7 +142,7 @@ namespace Mozu.Api.Resources.Platform
 		/// </summary>
 		/// <param name="appKeyId"></param>
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="value">JSON code for objects.</param>
+		/// <param name="value">The value string to create.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -167,7 +167,7 @@ namespace Mozu.Api.Resources.Platform
 		/// </summary>
 		/// <param name="appKeyId"></param>
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="value">JSON code for objects.</param>
+		/// <param name="value">The value string to create.</param>
 		/// <returns>
 		/// 
 		/// </returns>

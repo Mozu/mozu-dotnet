@@ -52,7 +52,7 @@ namespace Mozu.Api.Clients.Platform
 		/// </summary>
 		/// <param name="appKeyId"></param>
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="value">JSON code for objects.</param>
+		/// <param name="value">The value string to create.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
@@ -78,7 +78,7 @@ namespace Mozu.Api.Clients.Platform
 		/// </summary>
 		/// <param name="appKeyId"></param>
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="value">JSON code for objects.</param>
+		/// <param name="value">The value string to create.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
