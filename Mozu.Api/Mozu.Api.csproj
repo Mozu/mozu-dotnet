@@ -190,7 +190,6 @@
     <Compile Include="Clients\Commerce\Returns\PackageClient.cs" />
     <Compile Include="Clients\Commerce\Returns\ShipmentClient.cs" />
     <Compile Include="Clients\Commerce\Settings\ApplicationClient.cs" />
-    <Compile Include="Clients\Commerce\Settings\CartSettingsClient.cs" />
     <Compile Include="Clients\Commerce\Settings\Checkout\CustomerCheckoutSettingsClient.cs" />
     <Compile Include="Clients\Commerce\Settings\Checkout\PaymentSettingsClient.cs" />
     <Compile Include="Clients\Commerce\Settings\CheckoutSettingsClient.cs" />
@@ -726,13 +725,10 @@
     <Compile Include="Contracts\SiteSettings\General\EmailTransactionSettings.cs" />
     <Compile Include="Contracts\SiteSettings\General\EmailTypeSetting.cs" />
     <Compile Include="Contracts\SiteSettings\General\General\Routing\CustomRouteSettings.cs" />
-    <Compile Include="Contracts\SiteSettings\General\General\Routing\Mapping.cs" />
     <Compile Include="Contracts\SiteSettings\General\General\Routing\Route.cs" />
-    <Compile Include="Contracts\SiteSettings\General\General\Routing\Validator.cs" />
     <Compile Include="Contracts\SiteSettings\General\General\ViewAuthorizations.cs" />
     <Compile Include="Contracts\SiteSettings\General\GeneralSettings.cs" />
     <Compile Include="Contracts\SiteSettings\General\TaxableTerritory.cs" />
-    <Compile Include="Contracts\SiteSettings\Order\CartSettings.cs" />
     <Compile Include="Contracts\SiteSettings\Order\CheckoutSettings.cs" />
     <Compile Include="Contracts\SiteSettings\Order\CustomerCheckoutSettings.cs" />
     <Compile Include="Contracts\SiteSettings\Order\ExternalPaymentWorkflowDefinition.cs" />
@@ -868,7 +864,6 @@
     <Compile Include="Resources\Commerce\Returns\PackageResource.cs" />
     <Compile Include="Resources\Commerce\Returns\ShipmentResource.cs" />
     <Compile Include="Resources\Commerce\Settings\ApplicationResource.cs" />
-    <Compile Include="Resources\Commerce\Settings\CartSettingsResource.cs" />
     <Compile Include="Resources\Commerce\Settings\Checkout\CustomerCheckoutSettingsResource.cs" />
     <Compile Include="Resources\Commerce\Settings\Checkout\PaymentSettingsResource.cs" />
     <Compile Include="Resources\Commerce\Settings\CheckoutSettingsResource.cs" />
@@ -1007,7 +1002,6 @@
     <Compile Include="Urls\Commerce\Returns\ShipmentUrl.cs" />
     <Compile Include="Urls\Commerce\ReturnUrl.cs" />
     <Compile Include="Urls\Commerce\Settings\ApplicationUrl.cs" />
-    <Compile Include="Urls\Commerce\Settings\CartSettingsUrl.cs" />
     <Compile Include="Urls\Commerce\Settings\Checkout\CustomerCheckoutSettingsUrl.cs" />
     <Compile Include="Urls\Commerce\Settings\Checkout\PaymentSettingsUrl.cs" />
     <Compile Include="Urls\Commerce\Settings\CheckoutSettingsUrl.cs" />

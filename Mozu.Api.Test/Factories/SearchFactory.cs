@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Search resource to manage all settings and options for providing product search on your site, as well as search tuning rules.
+	/// 
 	/// </summary>
 	public partial class SearchFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves the details of the specified search tuning rule.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.GetSearchTuningRule(handler : handler,  searchTuningRuleCode :  searchTuningRuleCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves a list of search tuning rules and their properties.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.GetSearchTuningRules(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves the details of the specified search tuning rule sort fields. Sort fields allow you to control the product relevance whenver shoppers sort products on a page. For more information about sort relevance, refer to [Search Tuning Rules and Sorting](../../../developer/api-guides/search-tuning-rules.htm#search_tuning_rules_and_sorting).
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.GetSearchTuningRuleSortFields(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves the search settings for the specified site.Refer to [Search Settings API Overview](../../../../developer/api-guides/search-settings.htm) for more information about 's search settings.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.GetSettings(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves a collection of synonyms definitions for product searches.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.GetSynonymDefinitionCollection(handler : handler,  localeCode :  localeCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -220,7 +220,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves a list of synonym definitions according to any specified filter criteria and sort options.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.GetSynonymDefinitions(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -258,7 +258,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves the details of the specified synonym defintion.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.GetSynonymDefinition(handler : handler,  synonymId :  synonymId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -296,7 +296,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Creates a search tuning rule for your site. You can use search tuning rules to fine tune the product search results that appear when a shopper searches for a specific keyword, or navigates to a category page.For more information on search tuning rules, refer to [Search Tuning Rules](../../../../developer/api-guides/search-tuning-rules.htm).
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.AddSearchTuningRule(handler : handler,  searchTuningRuleIn :  searchTuningRuleIn,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -334,7 +334,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates the details of the search tuning rule sort fields.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.UpdateSearchTuningRuleSortFields(handler : handler,  searchTuningRuleSortFieldsIn :  searchTuningRuleSortFieldsIn,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -372,7 +372,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates a collection of synonym definitions.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.UpdateSynonymDefinitionCollection(handler : handler,  collection :  collection,  localeCode :  localeCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -410,7 +410,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Creates a new synonym definition.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.AddSynonymDefinition(handler : handler,  synonymDefinition :  synonymDefinition,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -448,7 +448,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates the details of the specified search tuning rule.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.UpdateSearchTuningRule(handler : handler,  searchTuningRuleIn :  searchTuningRuleIn,  searchTuningRuleCode :  searchTuningRuleCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -486,7 +486,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates the search setting properties for a specific site.Refer to [Search Settings API Overview](../../../../developer/api-guides/search-settings.htm) for more information about 's search settings.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.UpdateSettings(handler : handler,  settings :  settings,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -524,7 +524,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates the details of a synonym definition.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.UpdateSynonymDefinition(handler : handler,  synonymDefinition :  synonymDefinition,  synonymId :  synonymId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -562,7 +562,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Deletes the specified search tuning rule from the site.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.DeleteSearchTuningRule(handler : handler,  searchTuningRuleCode :  searchTuningRuleCode,  expectedCode: expectedCode, successCode: successCode); 
@@ -599,7 +599,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Deletes the specified synonym definition.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.DeleteSynonymDefinition(handler : handler,  synonymId :  synonymId,  expectedCode: expectedCode, successCode: successCode); 

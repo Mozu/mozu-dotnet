@@ -14,59 +14,26 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.Event
 {
-		///
-		///	Data for event deliveries. Returned content details a summary of actions, events, and results for a delivery event.
-		///
 		public class EventDeliverySummary
 		{
-			///
-			///The date and time in UTC format set when the object was created.
-			///
 			public DateTime? CreateDate { get; set; }
 
-			///
-			///Details about each attempted delivery of the event to the endpoint
-			///
 			public List<EventDeliveryAttempt> DeliveryAttempts { get; set; }
 
-			///
-			///Status of the delivery process `EventDeliveryStatusType`. System-supplied and read-only.
-			///
 			public string DeliveryStatus { get; set; }
 
-			///
-			///Event Summary
-			///
 			public EventSummary EventSummary { get; set; }
 
-			///
-			///Unique identifier of the source property, such as a catalog, discount, order, or email template.For a product field it will be the name of the field.For a category ID, must be a positive integer not greater than 2000000. By default,  auto-generates a category ID when categories are created. If you want to specify an ID during creation (which preserves category link relationships when migrating tenant data from one sandbox to another), you must also include the  query string in the endpoint. For example, . Then, use the  property to specify the desired category ID.For a product attribute it will be the Attribute FQN.For a document, the ID must be specified as a 32 character, case-insensitive, alphanumeric string. You can specify the ID as 32 sequential characters or as groups separated by dashes in the format 8-4-4-4-12. For example, or.For email templates, the ID must be one of the following values:			
-			///
 			public int? Id { get; set; }
 
-			///
-			///Indicates whether delivery of the event is currently being attempted at this moment in time
-			///
 			public bool IsRunning { get; set; }
 
-			///
-			///The date that the delivery was last attempted (either successfully or not)
-			///
 			public DateTime LastExecutionDate { get; set; }
 
-			///
-			///The date that the delivery will next be attempted, if the event has not been successfully delivered yet and there are still retries remaining
-			///
 			public DateTime NextExecutionDate { get; set; }
 
-			///
-			///Number of delivery attempts remaining
-			///
 			public int? RetriesRemaining { get; set; }
 
-			///
-			///The date and time in UTC format the object was updated most recently.
-			///
 			public DateTime? UpdateDate { get; set; }
 
 		}

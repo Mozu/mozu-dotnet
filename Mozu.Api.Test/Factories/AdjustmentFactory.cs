@@ -30,7 +30,7 @@ namespace Mozu.Api.Test.Factories
 	{
 
 		/// <summary> 
-		/// Updates the order handling adjustment.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = AdjustmentFactory.ApplyHandlingAdjustment(handler : handler,  adjustment :  adjustment,  orderId :  orderId,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Removes an adjustment to the order handling fee.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = AdjustmentFactory.RemoveHandlingAdjustment(handler : handler,  orderId :  orderId,  updateMode :  updateMode,  version :  version,  expectedCode: expectedCode, successCode: successCode); 

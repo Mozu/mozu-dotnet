@@ -17,12 +17,12 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Platform.Extensions
 {
 	/// <summary>
-	/// The CredentialStore resource allows you to encrypt and store sensitive data on your tenant. You can then decrypt and access that data using an Arc.js application, as described in the Arc.js [Programming Patterns](https://www.mozu.com/docs/developer/arcjs-guides/programming-patterns.htm#securely_store_and_access_sensitive_data) topic.
+	/// 
 	/// </summary>
 	public partial class CredentialStoreEntryClient 	{
 		
 		/// <summary>
-		/// Encrypts and stores data contained in the  JSON object. You can decrypt and access the secured data using an Arc.js application, as described in the Arc.js [Programming Patterns](https://www.mozu.com/docs/developer/arcjs-guides/programming-patterns.htm#securely_store_and_access_sensitive_data) topic.
+		/// 
 		/// </summary>
 		/// <param name="credentials"></param>
 		/// <returns>

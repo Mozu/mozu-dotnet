@@ -24,7 +24,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string Code { get; set; }
 
 			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
+			///Name of the shipping method service type associated with the targeted discount.
 			///
 			public string Name { get; set; }
 

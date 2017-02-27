@@ -17,14 +17,14 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Commerce
 {
 	/// <summary>
-	/// Use the Location resource to retrieve details about a location from a  hosted storefront.
+	/// Use the Location resource to retrieve details about a location from a Mozu hosted storefront.
 	/// </summary>
 	public partial class LocationClient 	{
 		
 		/// <summary>
 		/// Retrieves the details of the location specified in the request.
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="code">User-defined code that identifies the location.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Location.Location"/>}
@@ -102,7 +102,7 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// Retrieves the details of the location configured for the in-store pickup (SP) location usage type for the site specified in the request. If the location is not associated with a location type configured for the in-store pickup location usage type (SP), the operation returns an error.
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="code">The user-defined code that identifies the location to retrieve.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Location.Location"/>}

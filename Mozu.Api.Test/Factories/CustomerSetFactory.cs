@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Customer Sets resource to manage your customer sets. You can use customer sets to control the specific sites your customers can access using the same login credentials, as well as what customer My Account information is shared between sites.Refer to [Customer Sets](../../../guides/settings/customer-sets.htm) in the Guides section for more information.
+	/// 
 	/// </summary>
 	public partial class CustomerSetFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves a collection of customer sets according to any specified filter criteria.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerSetFactory.GetCustomerSets(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves the details of the specified customer set.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerSetFactory.GetCustomerSet(handler : handler,  code :  code,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

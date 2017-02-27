@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// The Entity Lists resource manages all dynamic entities in your  document store of the  cloud. The content is JSON and can have up to five indexed properties (integer, decimal, string, date, and boolean) with support for additional customized elements as needed. Every document in the entity list has a validated unique ID.
+	/// 
 	/// </summary>
 	public partial class EntityListFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Get a filtered list of EntityLists for a specific tenant.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = EntityListFactory.GetEntityLists(handler : handler,  pageSize :  pageSize,  startIndex :  startIndex,  filter :  filter,  sortBy :  sortBy,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Get an existing EntityList definition for a specific tenant
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = EntityListFactory.GetEntityList(handler : handler,  entityListFullName :  entityListFullName,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Create a new EntityList for a specific tenant.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = EntityListFactory.CreateEntityList(handler : handler,  entityList :  entityList,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Update an existing Entitylist for a specific tenant.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = EntityListFactory.UpdateEntityList(handler : handler,  entityList :  entityList,  entityListFullName :  entityListFullName,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Delete an existing EntityList for a specific tenant. This will also delete all Entities in all instances of this EntityList for the tenant.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = EntityListFactory.DeleteEntityList(handler : handler,  entityListFullName :  entityListFullName,  expectedCode: expectedCode, successCode: successCode); 

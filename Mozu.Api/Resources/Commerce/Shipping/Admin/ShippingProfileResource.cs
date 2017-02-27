@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Shipping.Admin
 {
 	/// <summary>
-	/// Use the Profiles resource to manage your shipping profiles.
+	/// 
 	/// </summary>
 	public partial class ShippingProfileResource  	{
 		///
@@ -38,9 +38,9 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin
 
 				
 		/// <summary>
-		/// Retrieves a list of shipping profiles.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingProfileCollection"/>
@@ -63,9 +63,9 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin
 		}
 
 		/// <summary>
-		/// Retrieves a list of shipping profiles.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingProfileCollection"/>

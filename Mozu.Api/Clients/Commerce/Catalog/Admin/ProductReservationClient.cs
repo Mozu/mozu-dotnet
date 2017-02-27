@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 {
 	/// <summary>
-	/// Use the Product Reservations resource to temporarily hold a product from inventory while a shopper is filling out payment information. You can create a product reservation when a shopper proceeds to check out and then release the reservation when the order process is complete.
+	/// Temporarily hold a product from inventory while a shopper is filling out payment information. Create a product reservation when a shopper proceeds to check out and then release the reservation when the order process is complete.
 	/// </summary>
 	public partial class ProductReservationClient 	{
 		
@@ -83,7 +83,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="productReservations">A hold placed on product inventory for a particular product so that the quantity specified is set aside and available for purchase during the ordering process.</param>
+		/// <param name="productReservations">Details of the product reservations to add.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductReservation"/>}}
 		/// </returns>
@@ -109,7 +109,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// Commits a product reservation to decrement the product's inventory by the quantity specified then release the reservation once the order process completed successfully.
 		/// </summary>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="productReservations">A hold placed on product inventory for a particular product so that the quantity specified is set aside and available for purchase during the ordering process.</param>
+		/// <param name="productReservations">List of unique identifiers of the reservations to commit.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
@@ -134,9 +134,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// Updates an existing product reservation for a product.
 		/// </summary>
-		/// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
+		/// <param name="skipInventoryCheck">If true, skip the inventory validation process when updating this product reservation.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="productReservations">A hold placed on product inventory for a particular product so that the quantity specified is set aside and available for purchase during the ordering process.</param>
+		/// <param name="productReservations">Properties of the product reservations to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductReservation"/>}}
 		/// </returns>
@@ -161,7 +161,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// Deletes a product reservation. For example, delete a reservation when an order is not processed to return the product quantity back to inventory.
 		/// </summary>
-		/// <param name="productReservationId">Unique identifier of the product reservation.</param>
+		/// <param name="productReservationId">Unique identifier of the reservation.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />

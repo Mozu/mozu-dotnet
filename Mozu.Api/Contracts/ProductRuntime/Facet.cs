@@ -15,12 +15,12 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
-		///	Properties of the facet used to retrieve documents.
+		///	Properties of the facet used to index product searches on a storefront.
 		///
 		public class Facet
 		{
 			///
-			///The type of facet. Valid values are "range" (enables creation of a range of values) or "value" (populates the facet values based on the associated attribute or category).
+			///The type of facet. Valid values are "range," which enables creation of a range of values, or "value," which populates the facet values based on the associated attribute or category.
 			///
 			public string FacetType { get; set; }
 
@@ -30,12 +30,12 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string Field { get; set; }
 
 			///
-			///Descriptive text used as a label for objects, such as field names, facets, date ranges, contact information, and package information.
+			///The descriptive label for the facet.
 			///
 			public string Label { get; set; }
 
 			///
-			///List of value data for objects.
+			///The values associated with the facet.
 			///
 			public List<FacetValue> Values { get; set; }
 

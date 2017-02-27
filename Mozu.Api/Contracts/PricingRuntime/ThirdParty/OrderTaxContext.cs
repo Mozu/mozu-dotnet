@@ -35,7 +35,7 @@ namespace Mozu.Api.Contracts.PricingRuntime.ThirdParty
 			public decimal OrderTax { get; set; }
 
 			///
-			///Amount of tax applied to shipping costs for line items in and entire orders.
+			///Tax amount applied to the shipping costs on the order.
 			///
 			public decimal ShippingTax { get; set; }
 

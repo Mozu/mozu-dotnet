@@ -19,12 +19,12 @@ namespace Mozu.Api.Contracts.Content
 		public class Facet
 		{
 			///
-			///The total number of associated items.
+			///The number of facet results.
 			///
 			public int Count { get; set; }
 
 			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
+			///The name of the facet.
 			///
 			public string Name { get; set; }
 

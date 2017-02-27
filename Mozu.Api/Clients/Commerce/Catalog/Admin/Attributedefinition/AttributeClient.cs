@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition
 {
 	/// <summary>
-	/// Attributes are used to add custom definitions and characteristics to the following objects:
+	/// Use the Attribute Definition resource to manage the properties, options, and extras that uniquely describe products of a specific type. Attributes can be associated with a product type, assigned values by a client or shopper, and added as faceted search filters for a product category. Options are product attributes that describe unique configurations made by the shopper, such as size or color, and generate a new product variation (or unique SKU). Properties are product attributes that describe aspects of the product that do not represent an option configurable by the shopper, such as screen resolution or brand. Extras are product attributes that describe add-on configurations made by the shopper that do not represent a product variation, such as a monogram.
 	/// </summary>
 	public partial class AttributeClient 	{
 		
@@ -81,7 +81,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="attribute">Properties of an attribute used to describe customers or orders.</param>
+		/// <param name="attribute">Properties of the new product attribute to create.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Attribute"/>}
 		/// </returns>
@@ -108,7 +108,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="attribute">Properties of an attribute used to describe customers or orders.</param>
+		/// <param name="attribute">Any properties of the attribute that to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Attribute"/>}
 		/// </returns>

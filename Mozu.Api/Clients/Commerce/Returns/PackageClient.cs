@@ -24,9 +24,9 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		/// <summary>
 		/// Retrieves the package label image supplied by the carrier for a return replacement.
 		/// </summary>
-		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
-		/// <param name="returnAsBase64Png">Specifies whether to return the RMA label image as Base64-encoded PNG image instead of as a byte array encoded in the original image format. The default is .</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="packageId">Unique identifier of the return replacement package for which to retrieve the label.</param>
+		/// <param name="returnAsBase64Png"></param>
+		/// <param name="returnId">Unique identifier of the return associated with the replacement package label to retrieve.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
@@ -50,9 +50,9 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		/// <summary>
 		/// Retrieves the details of a package of return replacement items.
 		/// </summary>
-		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
+		/// <param name="packageId">Unique identifier of the return replacement package to retrieve.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="returnId">Unique identifier of the return associated with the replacement package to retrieve.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>}
 		/// </returns>
@@ -77,8 +77,8 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		/// Creates a new physical package of return replacement items.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
-		/// <param name="package">Properties of a physical package shipped for an order.</param>
+		/// <param name="returnId">Unique identifier of the return for which to create a replacement package.</param>
+		/// <param name="package">Properties of the physical package for a return replacement.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>}
 		/// </returns>
@@ -102,10 +102,10 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		/// <summary>
 		/// Updates one or more properties of a package associated with a return replacement.
 		/// </summary>
-		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
+		/// <param name="packageId">Unique identifier of the return replacement package to update.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
-		/// <param name="package">Properties of a physical package shipped for an order.</param>
+		/// <param name="returnId">Unique identifier of the return associated with the replacement package to update.</param>
+		/// <param name="package">Properties of the return replacement package to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>}
 		/// </returns>
@@ -129,8 +129,8 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		/// <summary>
 		/// Deletes a package associated with a return replacement.
 		/// </summary>
-		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="packageId">Unique identifier of the return replacement package to delete.</param>
+		/// <param name="returnId">Unique identifier of the return associated with the replacement package to delete.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

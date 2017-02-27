@@ -29,9 +29,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public List<Product> Items { get; set; }
 
-			///
-			///This parameter is associated with deep paging. If you started a deep paged request by specifying ,  returns an encoded value for the . In your most immediate subsequent request, set  to the same value you received for  to continue paging. When  is null, you've reached the end of paged results.
-			///
 			public string NextCursorMark { get; set; }
 
 			///
@@ -44,9 +41,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public int PageSize { get; set; }
 
-			///
-			///Mozu.ProductRuntime.Contracts.ProductSearchResult solrDebugInfo ApiTypeMember DOCUMENT_HERE 
-			///
 			public SolrDebugInfo SolrDebugInfo { get; set; }
 
 			public int StartIndex { get; set; }

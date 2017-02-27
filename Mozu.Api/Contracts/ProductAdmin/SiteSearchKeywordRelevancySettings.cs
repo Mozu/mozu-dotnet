@@ -13,54 +13,24 @@ using System;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
-		///
-		///	Properties for the site search keyword relevancy settings. Relevancy determines the calculated matched of entered search strings against keywords. The relevancy weight can determine the order of importance for matching a search term such as categories before or after product names.
-		///
 		public class SiteSearchKeywordRelevancySettings
 		{
-			///
-			///The considered relevancy weight for the attributes.
-			///
 			public int AttributesWeight { get; set; }
 
-			///
-			///The considered relevancy weight for category names.
-			///
 			public int CategoryNamesWeight { get; set; }
 
-			///
-			///The considered relevancy weight for descriptions.
-			///
 			public int DescriptionWeight { get; set; }
 
-			///
-			///The considered relevancy weight for keywords.
-			///
 			public int KeywordsWeight { get; set; }
 
-			///
-			///The considered relevancy weight for mpn provider.
-			///
 			public int MpnWeight { get; set; }
 
-			///
-			///The weight for the name used in ranking search results.
-			///
 			public int NameWeight { get; set; }
 
-			///
-			///The considered relevancy weight for product code, as loose.
-			///
 			public int ProductCodeLooseWeight { get; set; }
 
-			///
-			///The considered relevancy weight for product code.
-			///
 			public int ProductCodeWeight { get; set; }
 
-			///
-			///The considered relevancy weight for UPCs.
-			///
 			public int UpcWeight { get; set; }
 
 		}

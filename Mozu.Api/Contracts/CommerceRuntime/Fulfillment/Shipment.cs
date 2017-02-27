@@ -36,27 +36,27 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			public string CurrencyCode { get; set; }
 
 			///
-			///The physical address orders are sent to as a shipping destination. This address may contain multiple lines, city, state/province, country, and zip/postal code. The destination is used to calculate shipping costs.
+			///The address to which to shipment will ship.
 			///
 			public Contact DestinationAddress { get; set; }
 
 			///
-			///Unique identifier of the source property, such as a catalog, discount, order, or email template.For a product field it will be the name of the field.For a category ID, must be a positive integer not greater than 2000000. By default,  auto-generates a category ID when categories are created. If you want to specify an ID during creation (which preserves category link relationships when migrating tenant data from one sandbox to another), you must also include the  query string in the endpoint. For example, . Then, use the  property to specify the desired category ID.For a product attribute it will be the Attribute FQN.For a document, the ID must be specified as a 32 character, case-insensitive, alphanumeric string. You can specify the ID as 32 sequential characters or as groups separated by dashes in the format 8-4-4-4-12. For example, or.For email templates, the ID must be one of the following values:			
+			///Unique identifier of the shipment.
 			///
 			public string Id { get; set; }
 
 			///
-			///The physical address from which the order or shipment will ship.
+			///The address from which the shipment will ship.
 			///
 			public Contact OriginAddress { get; set; }
 
 			///
-			///Array list of unique IDs of packages in a shipment planned for or finished a shipping fulfillment action. 
+			///Array list of identifiers that represent the packages in this shipment.
 			///
 			public List<string> PackageIds { get; set; }
 
 			///
-			///The code associated with a carrier's shipping method service type, used during fulfillment of packages and shipments. Service type codes include a prefix that indicates the carrier. For example: FEDEX_INTERNATIONAL_STANDARD and UPS_GROUND.If using a custom rate, this property corresponds to the  field in  when you navigate to  &gt;  &gt; , and then click on an existing rate or on .
+			///Code that identifies the service type method used to perform the shipment, such as UPS_GROUND.
 			///
 			public string ShippingMethodCode { get; set; }
 
@@ -66,7 +66,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			public bool? SignatureRequired { get; set; }
 
 			///
-			///Tracking number for the package or shipment, supplied by the shipping carrier to track the shipment until fulfillment completes. The tracking number format may differ between carriers.
+			///The shipping tracking number supplied by the shipping provider to track the shipment.
 			///
 			public string TrackingNumber { get; set; }
 

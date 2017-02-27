@@ -23,24 +23,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
 			///
 			public decimal? Amount { get; set; }
 
-			///
-			///Unique identifier of an app available in your  tenant or within  Dev Center. This ID is unique across all apps installed, initialized, and enabled in the  and those in development through the Dev Center Console.
-			///
 			public string AppId { get; set; }
 
-			///
-			///The application's key.
-			///
 			public string AppKey { get; set; }
 
-			///
-			///The application's name.
-			///
 			public string AppName { get; set; }
 
-			///
-			///The unique identifier of the API request associated with the event action, which might contain multiple actions.
-			///
 			public string CorrelationId { get; set; }
 
 			///
@@ -49,7 +37,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
 			public DateTime? CreateDate { get; set; }
 
 			///
-			///Unique identifier of the source property, such as a catalog, discount, order, or email template.For a product field it will be the name of the field.For a category ID, must be a positive integer not greater than 2000000. By default,  auto-generates a category ID when categories are created. If you want to specify an ID during creation (which preserves category link relationships when migrating tenant data from one sandbox to another), you must also include the  query string in the endpoint. For example, . Then, use the  property to specify the desired category ID.For a product attribute it will be the Attribute FQN.For a document, the ID must be specified as a 32 character, case-insensitive, alphanumeric string. You can specify the ID as 32 sequential characters or as groups separated by dashes in the format 8-4-4-4-12. For example, or.For email templates, the ID must be one of the following values:			
+			///Unique identifier of the change message. System-supplied and read-only.
 			///
 			public string Id { get; set; }
 
@@ -59,13 +47,10 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
 			public string Identifier { get; set; }
 
 			///
-			///The text of the change message, such as "This product is no longer available." System-supplied and read-only.
+			///The text of the change message, such as "This product is no longer available". System-supplied and read-only.
 			///
 			public string Message { get; set; }
 
-			///
-			///Metadata content for entities, used by document lists, document type lists, document type, views, entity lists, and list views.
-			///
 			public object Metadata { get; set; }
 
 			///
@@ -93,24 +78,15 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
 			///
 			public bool? Success { get; set; }
 
-			///
-			///The user's first name.
-			///
 			public string UserFirstName { get; set; }
 
 			///
-			///Unique identifier of the customer account (shopper or system user). System-supplied and read-only. If the shopper user is anonymous, the user ID represents a system-generated user ID string.
+			///The unique identifier of the user who initiated the change.
 			///
 			public string UserId { get; set; }
 
-			///
-			///The user's last name.
-			///
 			public string UserLastName { get; set; }
 
-			///
-			///The user type (e.g. Shopper, Admin, etc.).
-			///
 			public string UserScopeType { get; set; }
 
 			///

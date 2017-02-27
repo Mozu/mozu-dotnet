@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Extensions resource to manage Arc.js configuration settings. These are the same settings you can configure through  in the Action Management JSON Editor.
+	/// 
 	/// </summary>
 	public partial class TenantExtensionsFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves the Arc.js configuration settings for a site.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = TenantExtensionsFactory.GetExtensions(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates the Arc.js configuration settings for a site.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = TenantExtensionsFactory.UpdateExtensions(handler : handler,  extensions :  extensions,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

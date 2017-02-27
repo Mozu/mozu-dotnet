@@ -24,29 +24,20 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 			///
 			public List<ThirdPartyCredentialField> Credentials { get; set; }
 
-			///
-			///The localized description in text for the object, displayed per the locale code. For example, descriptions are used for product descriptions, attributes, and pre-authorization transaction types.
-			///
 			public string Description { get; set; }
 
-			///
-			///Fully qualified name of the attribute for the order or customer. 
-			///
 			public string FullyQualifiedName { get; set; }
 
 			///
-			///Indicates if the object or process is enabled. This indicator is used on external payment workflows and product option values. For product options, if true, the product option value is available for a shopper to choose. During configuration, this property will be false if the option value is invalid with other selected options. For external payment workflows, if true, the workflow is enabled and available for routing payments for the submitted order.
+			///If true, the associated external payment workflow definition is enabled for the site.
 			///
 			public bool IsEnabled { get; set; }
 
 			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
+			///The name of the external payment workflow definition.
 			///
 			public string Name { get; set; }
 
-			///
-			///The namespace for the accessible APIs and source capabilities in the core of  APIs.
-			///
 			public string Namespace { get; set; }
 
 		}

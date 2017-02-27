@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Price Lists resource to view and create price lists. You can use price lists to override the catalog pricing of products for specific customer segments and/or sites. You can override products' list price, sale price, advanced pricing information such as MSRP, cost, MAP, and the catalog price of any extras associated with the product in a price list. You can also restrict discounts from applying to the overridden product pricing in a price list. Refer to [Price Lists](../../../guides/catalog/price-lists.htm) in the Guides section for more information about price lists.
+	/// 
 	/// </summary>
 	public partial class PriceListFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves a list of price lists according to any specified facets, filter criteria, and sort options.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListFactory.GetPriceLists(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves the details of the specified price list.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListFactory.GetPriceList(handler : handler,  priceListCode :  priceListCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Adds a new price list to the tenant.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListFactory.AddPriceList(handler : handler,  priceList :  priceList,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -144,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates the details of the specified price list.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListFactory.UpdatePriceList(handler : handler,  priceList :  priceList,  priceListCode :  priceListCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -182,7 +182,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Deletes the specified price list from the tenant.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListFactory.DeletePriceList(handler : handler,  priceListCode :  priceListCode,  cascadeDeleteEntries :  cascadeDeleteEntries,  expectedCode: expectedCode, successCode: successCode); 

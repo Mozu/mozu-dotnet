@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Platform
 {
 	/// <summary>
-	/// The Reference resource retrieves collections of standards the  system currently supports. This includes content locales, top-level domains, units of measure, countries, currencies, time zones, and shipping or billing address schemas.
+	/// The Reference resource retrieves collections of standards the Mozu system currently supports. This includes content locales, top-level domains, units of measure, countries, currencies, time zones, and shipping or billing address schemas.
 	/// </summary>
 	public partial class ReferenceDataResource  	{
 		///
@@ -189,7 +189,7 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// Retrieves the details of the behavior category specified in the request.
 		/// </summary>
-		/// <param name="categoryId">Unique identifier of the category to modify.</param>
+		/// <param name="categoryId">Unique identifier of the behavior category.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Core.BehaviorCategory"/>
@@ -214,7 +214,7 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// Retrieves the details of the behavior category specified in the request.
 		/// </summary>
-		/// <param name="categoryId">Unique identifier of the category to modify.</param>
+		/// <param name="categoryId">Unique identifier of the behavior category.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Core.BehaviorCategory"/>
@@ -426,9 +426,9 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
-		/// Retrieves the entire list of countries that the system supports.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Reference.CountryWithStatesCollection"/>
 		/// </returns>
@@ -450,9 +450,9 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
-		/// Retrieves the entire list of countries that the system supports.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Reference.CountryWithStatesCollection"/>
 		/// </returns>

@@ -30,7 +30,7 @@ namespace Mozu.Api.Test.Factories
 	{
 
 		/// <summary> 
-		/// Random access paging computes a set of , which can each then be provided to the  operation in the  resource or the  operation in the  resource. You can provide the computed groups in any order to the operations, and can therefore parallelize calls to retrieve products more quickly. To generate the set of , call this () operation, in which you can optionally provide query and/or filter parameters to limit the products matched by the cursor. After executing this operation, pass one of the returned  to the  parameter of the  or  operations.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ProductSearchResultFactory.GetRandomAccessCursor(handler : handler,  query :  query,  filter :  filter,  pageSize :  pageSize,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

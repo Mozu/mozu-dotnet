@@ -21,7 +21,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 		public class PaymentAction
 		{
 			///
-			///The name of the action to perform for the payment, fulfillment, order, or return.
+			///The name of the payment action, such as "AuthorizeAndCapture".
 			///
 			public string ActionName { get; set; }
 
@@ -36,7 +36,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			public string CancelUrl { get; set; }
 
 			///
-			///If applicable, the check number associated with the payment action or interaction.
+			///If applicable, the check number associated with the payment action.
 			///
 			public string CheckNumber { get; set; }
 
@@ -45,18 +45,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///
 			public string CurrencyCode { get; set; }
 
-			///
-			///A general field for data to be communicated from an external payment service. 
-			///
 			public JObject Data { get; set; }
 
-			///
-			///An ID provided by a third party external payment service to identify a transaction.
-			///
 			public string ExternalTransactionId { get; set; }
 
 			///
-			///Date and time of a payment interaction, including handling and processing a payment and validating and completing a payment with a payment gateway.
+			///Date and time the payment gateway interaction was performed.
 			///
 			public DateTime? InteractionDate { get; set; }
 

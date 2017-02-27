@@ -24,7 +24,7 @@ namespace Mozu.Api.Contracts.Location
 			public string Code { get; set; }
 
 			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
+			///The system-supplied name of the fulfillment type, which is "Direct Ship" or "In Store Pickup".
 			///
 			public string Name { get; set; }
 

@@ -25,7 +25,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string AttributeFQN { get; set; }
 
 			///
-			///List of value data for objects.
+			///List of values for the product option. Each value includes an attribute vocabulary value detail and value object.
 			///
 			public List<ProductOptionValue> Values { get; set; }
 

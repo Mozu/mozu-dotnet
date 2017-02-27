@@ -24,43 +24,37 @@ namespace Mozu.Api.Contracts.Tenant
 			///
 			public List<Catalog> Catalogs { get; set; }
 
-			///
-			///The date and time in UTC format set when the object was created.
-			///
 			public DateTime CreateDate { get; set; }
 
 			///
-			///The default three-letter ISO currency code for monetary amounts. Currently, only "USD" is supported for U.S. Dollar.
+			///The default three-letter ISO currency code associated with this master catalog. At this time, only "USD" is supported.
 			///
 			public string DefaultCurrencyCode { get; set; }
 
 			///
-			///The two-letter default locale code for setting the localized text content. Currently, only "en-US" is supported for U.S. English.
+			///The default locale code associated with this master catalog. At this time, only "en-US" is supported.
 			///
 			public string DefaultLocaleCode { get; set; }
 
 			///
-			///The date and time the object was deleted. 
+			///The date and time the master catalog was deleted.
 			///
 			public DateTime DeleteDate { get; set; }
 
-			///
-			///Unique identifier of the source property, such as a catalog, discount, order, or email template.For a product field it will be the name of the field.For a category ID, must be a positive integer not greater than 2000000. By default,  auto-generates a category ID when categories are created. If you want to specify an ID during creation (which preserves category link relationships when migrating tenant data from one sandbox to another), you must also include the  query string in the endpoint. For example, . Then, use the  property to specify the desired category ID.For a product attribute it will be the Attribute FQN.For a document, the ID must be specified as a 32 character, case-insensitive, alphanumeric string. You can specify the ID as 32 sequential characters or as groups separated by dashes in the format 8-4-4-4-12. For example, or.For email templates, the ID must be one of the following values:			
-			///
 			public int Id { get; set; }
 
 			///
-			///Indicates if the object is deleted. If true, the object has been deleted. This may affect associated child members and objects. For example, a deleted master catalog affects all associated catalogs. 
+			///If true, this master catalog and its associated catalogs have been deleted from the tenant.
 			///
 			public bool IsDeleted { get; set; }
 
 			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
+			///User-defined name of the master catalog.
 			///
 			public string Name { get; set; }
 
 			///
-			///The current status of the object.This value is read only. Valid values for this field are: "Active", "Expired", and "Inactive".
+			///The current status of the master catalog.
 			///
 			public string Status { get; set; }
 
@@ -69,9 +63,6 @@ namespace Mozu.Api.Contracts.Tenant
 			///
 			public int TenantId { get; set; }
 
-			///
-			///The date and time in UTC format the object was updated most recently.
-			///
 			public DateTime UpdateDate { get; set; }
 
 		}

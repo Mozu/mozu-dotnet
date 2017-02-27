@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Platform
 {
 	/// <summary>
-	/// Use the Extensions resource to manage Arc.js configuration settings. These are the same settings you can configure through  in the Action Management JSON Editor.
+	/// 
 	/// </summary>
 	public partial class TenantExtensionsResource  	{
 		///
@@ -38,9 +38,9 @@ namespace Mozu.Api.Resources.Platform
 
 				
 		/// <summary>
-		/// Retrieves the Arc.js configuration settings for a site.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.InstalledApplications.TenantExtensions"/>
 		/// </returns>
@@ -62,9 +62,9 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
-		/// Retrieves the Arc.js configuration settings for a site.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.InstalledApplications.TenantExtensions"/>
 		/// </returns>
@@ -85,10 +85,10 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
-		/// Updates the Arc.js configuration settings for a site.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="extensions">The updated details of the Arc.js configuration settings.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="extensions"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.InstalledApplications.TenantExtensions"/>
 		/// </returns>
@@ -110,10 +110,10 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
-		/// Updates the Arc.js configuration settings for a site.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="extensions">The updated details of the Arc.js configuration settings.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="extensions"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.InstalledApplications.TenantExtensions"/>
 		/// </returns>

@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Content
 {
 	/// <summary>
-	/// Use the Content Publish Set resource to manage content publish sets and the pending content drafts.You can use content publish sets to group pending content changes together and publish them all at the same time.
+	/// 
 	/// </summary>
 	public partial class PublishSetSummaryResource  	{
 		///
@@ -38,11 +38,11 @@ namespace Mozu.Api.Resources.Content
 
 				
 		/// <summary>
-		/// Returns a list of content publish sets.
+		/// 
 		/// </summary>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.PublishSetSummaryPagedCollection"/>
 		/// </returns>
@@ -64,11 +64,11 @@ namespace Mozu.Api.Resources.Content
 		}
 
 		/// <summary>
-		/// Returns a list of content publish sets.
+		/// 
 		/// </summary>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.PublishSetSummaryPagedCollection"/>
 		/// </returns>
@@ -89,14 +89,14 @@ namespace Mozu.Api.Resources.Content
 		}
 
 		/// <summary>
-		/// Retrieves a list of content publish sets and their properties.
+		/// 
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+		/// <param name="code"></param>
+		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection"/>
 		/// </returns>
@@ -118,14 +118,14 @@ namespace Mozu.Api.Resources.Content
 		}
 
 		/// <summary>
-		/// Retrieves a list of content publish sets and their properties.
+		/// 
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+		/// <param name="code"></param>
+		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection"/>
 		/// </returns>
@@ -146,11 +146,11 @@ namespace Mozu.Api.Resources.Content
 		}
 
 		/// <summary>
-		/// Deletes the specified content publish set. You can use the shouldDiscard parameter to specify whether to discard the content drafts assigned to the content publish set.
+		/// 
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="shouldDiscard">Specifies whether to discard the pending content changes assigned to the content publish set when the publish set is deleted.</param>
+		/// <param name="code"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="shouldDiscard"></param>
 		/// <returns>
 		/// object
 		/// </returns>
@@ -172,11 +172,11 @@ namespace Mozu.Api.Resources.Content
 		}
 
 		/// <summary>
-		/// Deletes the specified content publish set. You can use the shouldDiscard parameter to specify whether to discard the content drafts assigned to the content publish set.
+		/// 
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="shouldDiscard">Specifies whether to discard the pending content changes assigned to the content publish set when the publish set is deleted.</param>
+		/// <param name="code"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="shouldDiscard"></param>
 		/// <returns>
 		/// object
 		/// </returns>
@@ -197,11 +197,11 @@ namespace Mozu.Api.Resources.Content
 		}
 
 		/// <summary>
-		/// Adds a set of documents by id to a specified publish set.
+		/// 
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="itemsToPublish">The details of the items that you want to add to a specified publish set.</param>
+		/// <param name="code"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="itemsToPublish"></param>
 		/// <returns>
 		/// object
 		/// </returns>
@@ -223,11 +223,11 @@ namespace Mozu.Api.Resources.Content
 		}
 
 		/// <summary>
-		/// Adds a set of documents by id to a specified publish set.
+		/// 
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="itemsToPublish">The details of the items that you want to add to a specified publish set.</param>
+		/// <param name="code"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="itemsToPublish"></param>
 		/// <returns>
 		/// object
 		/// </returns>

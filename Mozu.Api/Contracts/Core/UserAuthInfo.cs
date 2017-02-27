@@ -24,7 +24,7 @@ namespace Mozu.Api.Contracts.Core
 			public string EmailAddress { get; set; }
 
 			///
-			///The write-only password for the customer account.
+			///Password of the user.
 			///
 			public string Password { get; set; }
 

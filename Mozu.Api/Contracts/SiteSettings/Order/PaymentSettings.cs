@@ -31,7 +31,7 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 			public List<ExternalPaymentWorkflowDefinition> ExternalPaymentWorkflowDefinitions { get; set; }
 
 			///
-			///List of name and account information for a payment gateway.
+			///List of name and account information for a payment gateway. Additional payment gateway providers will be supported in future releases.
 			///
 			public List<Gateway> Gateways { get; set; }
 
@@ -40,9 +40,6 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 			///
 			public bool PayByMail { get; set; }
 
-			///
-			///The purchase order payment type settings associated with a site.Refer to [Enable the Purchase Order Payment Type](https://www.mozu.com/docs/guides/orders/purchase-order.htm#enable_the_purchase_order_payment_type) in the Purchase Orders guides topic for more information.
-			///
 			public PurchaseOrderPaymentDefinition PurchaseOrder { get; set; }
 
 		}

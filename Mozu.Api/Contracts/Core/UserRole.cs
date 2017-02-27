@@ -19,7 +19,7 @@ namespace Mozu.Api.Contracts.Core
 		public class UserRole
 		{
 			///
-			///Properties of the developer account or  tenant associated with the user role.
+			///Properties of the developer account or Mozu tenant associated with the user role.
 			///
 			public UserScope AssignedInScope { get; set; }
 
@@ -39,7 +39,7 @@ namespace Mozu.Api.Contracts.Core
 			public string RoleName { get; set; }
 
 			///
-			///Unique identifier of the customer account (shopper or system user). System-supplied and read-only. If the shopper user is anonymous, the user ID represents a system-generated user ID string.
+			///Unique identifier of the user the role is assigned to.
 			///
 			public string UserId { get; set; }
 

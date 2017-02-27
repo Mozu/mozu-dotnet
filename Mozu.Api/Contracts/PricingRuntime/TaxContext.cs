@@ -20,17 +20,17 @@ namespace Mozu.Api.Contracts.PricingRuntime
 		public class TaxContext
 		{
 			///
-			///Unique identifier of the customer in , used to associate customers with data, orders, returns, and in-store credit.
+			///Unique identifier of the customer.
 			///
 			public string CustomerId { get; set; }
 
 			///
-			///The physical address orders are sent to as a shipping destination. This address may contain multiple lines, city, state/province, country, and zip/postal code. The destination is used to calculate shipping costs.
+			///The address to which the order ships.
 			///
 			public Address DestinationAddress { get; set; }
 
 			///
-			///The physical address from which the order or shipment will ship.
+			///The address from which the order ships.
 			///
 			public Address OriginAddress { get; set; }
 

@@ -24,7 +24,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the tenants resource to manage information about a  tenant.
+	/// Use the tenants resource to manage information about a Mozu tenant.
 	/// </summary>
 	public partial class TenantFactory : BaseDataFactory
 	{

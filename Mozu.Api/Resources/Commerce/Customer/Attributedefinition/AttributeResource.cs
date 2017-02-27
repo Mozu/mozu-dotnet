@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Customer.Attributedefinition
 {
 	/// <summary>
-	/// Attributes are used to add custom definitions and characteristics to the following objects:
+	/// Use the Customer Attribute Definition resource to manage the attributes to define for your shoppers.
 	/// </summary>
 	public partial class AttributeResource  	{
 		///
@@ -38,7 +38,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Attributedefinition
 
 				
 		/// <summary>
-		/// Retrieves a paged list of attributes according to any specified filter criteria and sort options.
+		/// Retrieves a list of customer attributes according to any filter and sort criteria specified in the request.
 		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
@@ -66,7 +66,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Attributedefinition
 		}
 
 		/// <summary>
-		/// Retrieves a paged list of attributes according to any specified filter criteria and sort options.
+		/// Retrieves a list of customer attributes according to any filter and sort criteria specified in the request.
 		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
@@ -140,7 +140,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Attributedefinition
 		}
 
 		/// <summary>
-		/// Retrieves the details of the specified product attribute.
+		/// Retrieve a customer attribute definition by supplying its fully qualified name.
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
@@ -165,7 +165,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Attributedefinition
 		}
 
 		/// <summary>
-		/// Retrieves the details of the specified product attribute.
+		/// Retrieve a customer attribute definition by supplying its fully qualified name.
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>

@@ -27,7 +27,7 @@ namespace Mozu.Api.Contracts.Location
 			public string Code { get; set; }
 
 			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
+			///The name of the location type.
 			///
 			public string Name { get; set; }
 

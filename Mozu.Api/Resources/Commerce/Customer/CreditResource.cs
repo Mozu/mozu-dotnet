@@ -95,7 +95,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Retrieves the details of a store credit applied to a customer account.
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="code">User-defined code that identifies the store credit to retrieve.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Credit.Credit"/>
@@ -120,7 +120,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Retrieves the details of a store credit applied to a customer account.
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="code">User-defined code that identifies the store credit to retrieve.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Credit.Credit"/>
@@ -145,7 +145,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// Creates a new store credit for the customer account specified in the request.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="credit">Properties of the store credit of gift card applied to a customer account. At this time, gift card functionality is reserved for future use.</param>
+		/// <param name="credit">Properties of the store credit to create.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Credit.Credit"/>
 		/// </returns>
@@ -170,7 +170,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// Creates a new store credit for the customer account specified in the request.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="credit">Properties of the store credit of gift card applied to a customer account. At this time, gift card functionality is reserved for future use.</param>
+		/// <param name="credit">Properties of the store credit to create.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Credit.Credit"/>
 		/// </returns>
@@ -193,7 +193,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Associates an unclaimed customer credit with the shopper user authenticated in the request header.
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="code">The code that represents the credit to claim for the shopper.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Credit.Credit"/>
@@ -218,7 +218,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Associates an unclaimed customer credit with the shopper user authenticated in the request header.
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="code">The code that represents the credit to claim for the shopper.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Credit.Credit"/>
@@ -240,9 +240,9 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		}
 
 		/// <summary>
-		/// Resend the notification email that informs a shopper that a credit has been created.
+		/// 
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="code"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -263,9 +263,9 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		}
 
 		/// <summary>
-		/// Resend the notification email that informs a shopper that a credit has been created.
+		/// 
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="code"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -287,9 +287,9 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Updates one or more properties of a defined store credit applied to a customer account.
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="code">User-defined code of the store credit to update.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="credit">Properties of the store credit of gift card applied to a customer account. At this time, gift card functionality is reserved for future use.</param>
+		/// <param name="credit">Properties of the store credit to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Credit.Credit"/>
 		/// </returns>
@@ -313,9 +313,9 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Updates one or more properties of a defined store credit applied to a customer account.
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="code">User-defined code of the store credit to update.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="credit">Properties of the store credit of gift card applied to a customer account. At this time, gift card functionality is reserved for future use.</param>
+		/// <param name="credit">Properties of the store credit to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Credit.Credit"/>
 		/// </returns>
@@ -338,7 +338,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Deletes a store credit previously applied to a customer account.
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="code">User-defined code of the store credit to delete.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -361,7 +361,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// Deletes a store credit previously applied to a customer account.
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="code">User-defined code of the store credit to delete.</param>
 		/// <returns>
 		/// 
 		/// </returns>

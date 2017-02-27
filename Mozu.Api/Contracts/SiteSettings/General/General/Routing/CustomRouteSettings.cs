@@ -14,25 +14,9 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.SiteSettings.General.General.Routing
 {
-		///
-		///	Mozu.SiteSettings.General.Contracts.General.Routing.CustomRouteSettings ApiType DOCUMENT_HERE 
-		///
 		public class CustomRouteSettings
 		{
-			///
-			///The mappings configured for the site. Mappings allow you to map the values of URL parameters to other JSON variables or to  objects such as facet values. 
-			///
-			public Dictionary<String,Mapping> Mappings { get; set; }
-
-			///
-			///The routes configured for the site. Routes contain all the information necessary to match incoming URLs to a specific page in .
-			///
 			public List<Route> Routes { get; set; }
-
-			///
-			///The validators configured for a site. Validators require that URL parameters meet certain conditions before  considers the template a match. 
-			///
-			public Dictionary<String,Validator> Validators { get; set; }
 
 		}
 

@@ -21,7 +21,7 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 		public class Gateway
 		{
 			///
-			///If true, the credential fields for the gateway are configured with valid values. For security purposes,  does not return the credential fields for the gateway subresource.
+			///If true, the credential fields for the gateway are configured with valid values. For security purposes, Mozu does not return the credential fields for the gateway subresource.
 			///
 			public bool AreGatewayCredentialFieldsSet { get; set; }
 
@@ -36,7 +36,7 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 			public GatewayDefinition GatewayDefinition { get; set; }
 
 			///
-			///The types of credit cards supported by the payment gateway.
+			///The types of credit cards the merchant supports using this payment gateway.
 			///
 			public List<string> SupportedCards { get; set; }
 

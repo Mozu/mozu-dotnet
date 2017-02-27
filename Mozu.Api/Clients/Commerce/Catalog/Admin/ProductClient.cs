@@ -27,7 +27,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="noCount">If true, the operation does not return the TotalCount number of results.</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-		/// <param name="q">A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.</param>
+		/// <param name="q">A list of product search terms to use in the query when searching across product code and product name. Separate multiple search terms with a space character.</param>
 		/// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy"></param>
@@ -135,7 +135,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// Creates a new product definition in the specified master catalog.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="product">The properties of a product, referenced and used by carts, orders, wish lists, and returns.</param>
+		/// <param name="product">Properties of the new product. You must supply values for the product code, product name, and price.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Product"/>}
 		/// </returns>
@@ -162,7 +162,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="productInCatalogInfoIn">Properties of a product associated with a specific catalog.</param>
+		/// <param name="productInCatalogInfoIn">Properties of the product to define for the specific catalog association.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo"/>}
 		/// </returns>
@@ -185,9 +185,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Performs an update to a product code by renaming or replacing the current product code with a new one.
+		/// 
 		/// </summary>
-		/// <param name="productCodeRenames">Properties for a product code current and changed content.</param>
+		/// <param name="productCodeRenames"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
@@ -212,7 +212,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// Updates the properties of a product specific to each catalog associated with the product.
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="productInCatalogsIn">Properties of a product associated with a specific catalog.</param>
+		/// <param name="productInCatalogsIn">Properties of the product to update for each associated catalog.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo"/>}}
 		/// </returns>
@@ -240,7 +240,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <param name="catalogId">The unique identifier of the catalog of products used by a site.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="productInCatalogInfoIn">Properties of a product associated with a specific catalog.</param>
+		/// <param name="productInCatalogInfoIn">Properties of the product associated with the catalog specified in the request.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo"/>}
 		/// </returns>
@@ -267,7 +267,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="product">The properties of a product, referenced and used by carts, orders, wish lists, and returns.</param>
+		/// <param name="product">Properties of the product definition to update in the master catalog.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Product"/>}
 		/// </returns>
@@ -292,7 +292,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// Deletes the specified product from a master catalog.
 		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
+		/// <param name="productCode"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

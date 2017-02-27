@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Platform
 {
 	/// <summary>
-	/// Manage Secure App Settings. Expose via arc.js so that arc apps can securely access secrets. Third-party extensions can also access their data. Secured via AppKey.AppId
+	/// 
 	/// </summary>
 	public partial class SecureAppDataResource  	{
 		///
@@ -38,11 +38,11 @@ namespace Mozu.Api.Resources.Platform
 
 				
 		/// <summary>
-		/// platform-secureappdata Get GetDBValue description DOCUMENT_HERE 
+		/// 
 		/// </summary>
 		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="dbEntryQuery"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// JObject
 		/// </returns>
@@ -64,11 +64,11 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
-		/// platform-secureappdata Get GetDBValue description DOCUMENT_HERE 
+		/// 
 		/// </summary>
 		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="dbEntryQuery"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// JObject
 		/// </returns>
@@ -89,11 +89,11 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
-		/// platform-secureappdata Post CreateDBValue description DOCUMENT_HERE 
+		/// 
 		/// </summary>
 		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="dbEntryQuery"></param>
+		/// <param name="value"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -114,11 +114,11 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
-		/// platform-secureappdata Post CreateDBValue description DOCUMENT_HERE 
+		/// 
 		/// </summary>
 		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="dbEntryQuery"></param>
+		/// <param name="value"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -138,11 +138,11 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
-		/// platform-secureappdata Put UpdateDBValue description DOCUMENT_HERE 
+		/// 
 		/// </summary>
 		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="dbEntryQuery"></param>
+		/// <param name="value"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -163,11 +163,11 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
-		/// platform-secureappdata Put UpdateDBValue description DOCUMENT_HERE 
+		/// 
 		/// </summary>
 		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="dbEntryQuery"></param>
+		/// <param name="value"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -187,10 +187,10 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
-		/// platform-secureappdata Delete DeleteDBValue description DOCUMENT_HERE 
+		/// 
 		/// </summary>
 		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
+		/// <param name="dbEntryQuery"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -211,10 +211,10 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 		/// <summary>
-		/// platform-secureappdata Delete DeleteDBValue description DOCUMENT_HERE 
+		/// 
 		/// </summary>
 		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
+		/// <param name="dbEntryQuery"></param>
 		/// <returns>
 		/// 
 		/// </returns>

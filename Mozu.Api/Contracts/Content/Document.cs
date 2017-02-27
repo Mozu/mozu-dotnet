@@ -20,13 +20,10 @@ namespace Mozu.Api.Contracts.Content
 		///
 		public class Document
 		{
-			///
-			///Mozu.Content.Contracts.Document activeDateRange ApiTypeMember DOCUMENT_HERE 
-			///
 			public ActiveDateRange ActiveDateRange { get; set; }
 
 			///
-			///The character length allowed for the content text.
+			///The character length associated with the document content.
 			///
 			public long ContentLength { get; set; }
 
@@ -40,48 +37,39 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public DateTime? ContentUpdateDate { get; set; }
 
-			///
-			///Fully qualified name of the document type. 
-			///
 			public string DocumentTypeFQN { get; set; }
 
 			///
-			///If applicable, the file extension associated with the document content. For example, the extension may be .html for an HTML web page.
+			///If applicable, the file extension associated with the document content.
 			///
 			public string Extension { get; set; }
 
 			///
-			///Unique identifier of the source property, such as a catalog, discount, order, or email template.For a product field it will be the name of the field.For a category ID, must be a positive integer not greater than 2000000. By default,  auto-generates a category ID when categories are created. If you want to specify an ID during creation (which preserves category link relationships when migrating tenant data from one sandbox to another), you must also include the  query string in the endpoint. For example, . Then, use the  property to specify the desired category ID.For a product attribute it will be the Attribute FQN.For a document, the ID must be specified as a 32 character, case-insensitive, alphanumeric string. You can specify the ID as 32 sequential characters or as groups separated by dashes in the format 8-4-4-4-12. For example, or.For email templates, the ID must be one of the following values:			
+			///Unique identifier of the document.
 			///
 			public string Id { get; set; }
 
 			///
-			///The date and time when a document was added to the document list. System-supplied and read-only.
+			///When the document was added to the document list. System-supplied and read-only.
 			///
 			public DateTime? InsertDate { get; set; }
 
-			///
-			///The fully qualified name of the document list.
-			///
 			public string ListFQN { get; set; }
 
 			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
+			///The name of the document, which is unique within its folder.
 			///
 			public string Name { get; set; }
 
 			///
-			///Collection of property attributes defined for the object. Properties are associated to all objects within , including documents, products, and product types.
+			///List of properties for the given property value.
 			///
 			public JObject Properties { get; set; }
 
-			///
-			///The name of the publish set that this document belongs to, if any.
-			///
 			public string PublishSetCode { get; set; }
 
 			///
-			///The current state of the document or product definition. States for documents include Active, Draft, or Latest. Active documents are published and cannot be deleted. Querying Latest returns the most recent version of the document, regardless of whether it is published or a draft. States for product include New, Draft, or Live.
+			///The current state of the document, which is Active, Draft, or Latest. Active documents are published and cannot be deleted. Querying Latest returns the most recent version of the document, regardless of whether it is published or a draft.
 			///
 			public string PublishState { get; set; }
 

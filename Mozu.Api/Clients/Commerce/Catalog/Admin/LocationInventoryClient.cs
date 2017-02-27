@@ -24,7 +24,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// Retrieves the details of a product's active inventory at the location specified in the request.
 		/// </summary>
-		/// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
+		/// <param name="locationCode">User-defined code that uniquely identifies the location.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
@@ -53,8 +53,8 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// Retrieves a list of all product inventory definitions for the location code specified in the request.
 		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-		/// <param name="filterFunctions">Functions that optimize commonly used filters for efficiency.For the  operation, you have access to the  filter function. For example, use  to filter only for product inventory that is currently active.</param>
-		/// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
+		/// <param name="filterFunctions"></param>
+		/// <param name="locationCode">User-defined code that uniquely identifies the location.</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
@@ -84,10 +84,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// Creates an array of product inventory definitions for the location specified in the request. When adding a new inventory definition, you must specify the productCode and stockOnHand value in each array you define. All other properties are system-supplied and read only.
 		/// </summary>
-		/// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
-		/// <param name="performUpserts">Query string parameter lets the service perform an update for a new or existing record. When run, the update occurs without throwing a conflict exception that the record exists. If true, the updates completes regardless of the record currently existing. By default, if no value is specified, the service assumes this value is false.</param>
+		/// <param name="locationCode">User-defined code that uniquely identifies the location.</param>
+		/// <param name="performUpserts"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="locationInventoryList">Properties of an inventory definition that defines the level of inventory for a specific product at a given location.</param>
+		/// <param name="locationInventoryList">Array list of product inventory definitions for all associated locations. For each location inventory in the list, define the productCode and stockOnHand values.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ProductAdmin.LocationInventory"/>}}
 		/// </returns>
@@ -112,9 +112,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// Updates the active stock on hand inventory of products for the location code specified in the request.
 		/// </summary>
-		/// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
+		/// <param name="locationCode">User-defined code that uniquely identifies the location.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="locationInventoryAdjustments">Properties of an adjustment to the active product inventory of a specific location.</param>
+		/// <param name="locationInventoryAdjustments">Properties of the inventory adjustments to perform for the specified location.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ProductAdmin.LocationInventory"/>}}
 		/// </returns>
@@ -139,7 +139,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// Deletes the product code inventory definition for the location specified in the request.
 		/// </summary>
-		/// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
+		/// <param name="locationCode">User-defined code that uniquely identifies the location.</param>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>

@@ -17,21 +17,21 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Content.Documentlists
 {
 	/// <summary>
-	/// Properties and content for views within a site/tenant. Views provide the schema, formatting, and associated content and entities for displaying content within a site/tenant.
+	/// 
 	/// </summary>
 	public partial class ViewClient 	{
 		
 		/// <summary>
-		/// Retrieves a collection of documents associated with a view.
+		/// 
 		/// </summary>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="documentListName"></param>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-		/// <param name="includeInactive">Include inactive content.</param>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
+		/// <param name="includeInactive"></param>
+		/// <param name="pageSize"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
-		/// <param name="viewName">The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
+		/// <param name="viewName"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.DocumentCollection"/>}
 		/// </returns>
