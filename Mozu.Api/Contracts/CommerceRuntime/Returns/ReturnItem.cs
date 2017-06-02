@@ -27,6 +27,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			public List<ReturnBundle> BundledProducts { get; set; }
 
 			///
+			///Specifies whether to exclude product extras when you return a product or bundle. For example, assume the following order items:* Product A (bundle item)* Product B (bundle item)* Product C (bundle item)* Product D (extra on bundle)* Product F (extra on product)If this property is , Products D or F are included when the bundle or Product E are added to a return. If this property is , Products D or F are not included unless added individually.
+			///
+			public bool? ExcludeProductExtras { get; set; }
+
+			///
 			///Unique identifier of the source property, such as a catalog, discount, order, or email template.For a product field it will be the name of the field.For a category ID, must be a positive integer not greater than 2000000. By default,  auto-generates a category ID when categories are created. If you want to specify an ID during creation (which preserves category link relationships when migrating tenant data from one sandbox to another), you must also include the  query string in the endpoint. For example, . Then, use the  property to specify the desired category ID.For a product attribute it will be the Attribute FQN.For a document, the ID must be specified as a 32 character, case-insensitive, alphanumeric string. You can specify the ID as 32 sequential characters or as groups separated by dashes in the format 8-4-4-4-12. For example, or.For email templates, the ID must be one of the following values:			
 			///
 			public string Id { get; set; }

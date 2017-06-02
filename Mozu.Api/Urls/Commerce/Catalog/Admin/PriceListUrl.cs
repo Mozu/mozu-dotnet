@@ -71,6 +71,57 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for BulkAddPriceListEntries
+        /// </summary>
+        /// <param name="invalidateCache">Disable this property if you expect to encounter unacceptable performance hits related to clearing the cache for each product in the price list entries. Otherwise, leave this property enabled.</param>
+        /// <param name="publishEvents">Disable this property to prevent publishing the event related to adding price list entries to the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.</param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl BulkAddPriceListEntriesUrl(bool? publishEvents =  null, bool? invalidateCache =  null)
+		{
+			var url = "/api/commerce/catalog/admin/pricelists/bulkaddentries?publishEvents={publishEvents}&invalidateCache={invalidateCache}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "invalidateCache", invalidateCache);
+			mozuUrl.FormatUrl( "publishEvents", publishEvents);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for BulkDeletePriceListEntries
+        /// </summary>
+        /// <param name="invalidateCache">Disable this property if you expect to encounter unacceptable performance hits related to clearing the cache for each product in the price list entries. Otherwise, leave this property enabled.</param>
+        /// <param name="publishEvents">Disable this property to prevent publishing the event related to deleting price list entries from the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.</param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl BulkDeletePriceListEntriesUrl(bool? publishEvents =  null, bool? invalidateCache =  null)
+		{
+			var url = "/api/commerce/catalog/admin/pricelists/bulkdeleteentries?publishEvents={publishEvents}&invalidateCache={invalidateCache}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "invalidateCache", invalidateCache);
+			mozuUrl.FormatUrl( "publishEvents", publishEvents);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for BulkUpdatePriceListEntries
+        /// </summary>
+        /// <param name="invalidateCache">Disable this property if you expect to encounter unacceptable performance hits related to clearing the cache for each product in the price list entries. Otherwise, leave this property enabled.</param>
+        /// <param name="publishEvents">Disable this property to prevent publishing the event related to updating price list entries in the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.</param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl BulkUpdatePriceListEntriesUrl(bool? publishEvents =  null, bool? invalidateCache =  null)
+		{
+			var url = "/api/commerce/catalog/admin/pricelists/bulkupdateentries?publishEvents={publishEvents}&invalidateCache={invalidateCache}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "invalidateCache", invalidateCache);
+			mozuUrl.FormatUrl( "publishEvents", publishEvents);
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for UpdatePriceList
         /// </summary>

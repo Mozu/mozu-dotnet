@@ -24,19 +24,20 @@ namespace Mozu.Api.Clients.Commerce.Payments
 		/// <summary>
 		/// payments-cards Post Create description DOCUMENT_HERE 
 		/// </summary>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="request">Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.PaymentService.Response.SyncResponse"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=Create( request);
+		///   var mozuClient=Create( request,  responseFields);
 		///   var syncResponseClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.PaymentService.Response.SyncResponse> CreateClient(Mozu.Api.Contracts.PaymentService.PublicCard request)
+		public static MozuClient<Mozu.Api.Contracts.PaymentService.Response.SyncResponse> CreateClient(Mozu.Api.Contracts.PaymentService.PublicCard request, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Payments.PublicCardUrl.CreateUrl();
+			var url = Mozu.Api.Urls.Commerce.Payments.PublicCardUrl.CreateUrl(responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.PaymentService.Response.SyncResponse>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -49,19 +50,20 @@ namespace Mozu.Api.Clients.Commerce.Payments
 		/// payments-cards Put Update description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="request">Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.PaymentService.Response.SyncResponse"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=Update( request,  cardId);
+		///   var mozuClient=Update( request,  cardId,  responseFields);
 		///   var syncResponseClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.PaymentService.Response.SyncResponse> UpdateClient(Mozu.Api.Contracts.PaymentService.PublicCard request, string cardId)
+		public static MozuClient<Mozu.Api.Contracts.PaymentService.Response.SyncResponse> UpdateClient(Mozu.Api.Contracts.PaymentService.PublicCard request, string cardId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Payments.PublicCardUrl.UpdateUrl(cardId);
+			var url = Mozu.Api.Urls.Commerce.Payments.PublicCardUrl.UpdateUrl(cardId, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.PaymentService.Response.SyncResponse>()
 									.WithVerb(verb).WithResourceUrl(url)

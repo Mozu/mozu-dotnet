@@ -24,31 +24,34 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// commerce/payments/fraudscreen related resources. DOCUMENT_HERE 
+	/// Use this subresource to view which order items are eligible for return.
 	/// </summary>
-	public partial class FraudScreenFactory : BaseDataFactory
+	public partial class OrderReturnableItemFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// payments-fraudscreen Post Screen description DOCUMENT_HERE 
+		/// Retrieves information about which items are eligible for return on an order.Each item displays the following information:
+
+
+
 		/// <example> 
 		///  <code> 
-		/// var result = FraudScreenFactory.Screen(handler : handler,  request :  request,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<FraudScreen/>(result); 
+		/// var result = OrderReturnableItemFactory.GetOrderReturnableItems(handler : handler,  orderId :  orderId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<OrderReturnableItemCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.PaymentService.Response.FraudScreen Screen(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.PaymentService.Request.FraudScreenRequest request, string responseFields = null, 
+		public static Mozu.Api.Contracts.CommerceRuntime.Orders.OrderReturnableItemCollection GetOrderReturnableItems(ServiceClientMessageHandler handler, 
+ 		 string orderId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Payments.FraudScreenClient.ScreenClient(
-				 request :  request,  responseFields :  responseFields		);
+			var apiClient = Mozu.Api.Clients.Commerce.Orders.OrderReturnableItemClient.GetOrderReturnableItemsClient(
+				 orderId :  orderId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

@@ -21,6 +21,11 @@ namespace Mozu.Api.Contracts.PricingRuntime.ThirdParty
 		public class TaxableOrder
 		{
 			///
+			///Collection of attributes that may be paged list or a list, depending on the usage per object and API type.
+			///
+			public List<TaxAttribute> Attributes { get; set; }
+
+			///
 			///3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
 			///
 			public string CurrencyCode { get; set; }

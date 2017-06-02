@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce.Settings
 {
 	/// <summary>
-	/// commerce/settings/cart related resources. DOCUMENT_HERE 
+	/// Use the cart subresource to manage settings for the cart, such as whether to include handling fees in the cost calculations.
 	/// </summary>
 	public partial class CartSettingsResource  	{
 		///
@@ -38,7 +38,7 @@ namespace Mozu.Api.Resources.Commerce.Settings
 
 				
 		/// <summary>
-		/// settings-cart Get GetCartSettings description DOCUMENT_HERE 
+		/// Retrieves cart settings.
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
@@ -62,7 +62,7 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		}
 
 		/// <summary>
-		/// settings-cart Get GetCartSettings description DOCUMENT_HERE 
+		/// Retrieves cart settings.
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
@@ -85,7 +85,7 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		}
 
 		/// <summary>
-		/// settings-cart Post CreateCartSettings description DOCUMENT_HERE 
+		/// Creates cart settings.
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="cartSettings"></param>
@@ -110,7 +110,7 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		}
 
 		/// <summary>
-		/// settings-cart Post CreateCartSettings description DOCUMENT_HERE 
+		/// Creates cart settings.
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="cartSettings"></param>
@@ -134,7 +134,7 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		}
 
 		/// <summary>
-		/// settings-cart Put UpdateCartSettings description DOCUMENT_HERE 
+		/// Updates cart settings.
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="cartSettings"></param>
@@ -159,7 +159,7 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		}
 
 		/// <summary>
-		/// settings-cart Put UpdateCartSettings description DOCUMENT_HERE 
+		/// Updates cart settings.
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="cartSettings"></param>

@@ -25,7 +25,7 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 			public AuditInfo AuditInfo { get; set; }
 
 			///
-			///enableHandlingFee ApiType DOCUMENT_HERE 
+			///Set this property to  if you want to include handling fees in the calculation of the cart cost.
 			///
 			public bool EnableHandlingFee { get; set; }
 

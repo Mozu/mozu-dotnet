@@ -18,6 +18,8 @@ namespace Mozu.Api.Clients.Commerce.Orders.Attributedefinition
 {
 	/// <summary>
 	/// Attributes are used to add custom definitions and characteristics to the following objects:
+
+
 	/// </summary>
 	public partial class AttributeClient 	{
 		

@@ -145,12 +145,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			public int? ReturnNumber { get; set; }
 
 			///
-			///Unique identifier for the order created as a result of the return. If the return results in shipping a replacement item, the order includes shipment information for the replaced items. If the return results in a refund, the order includes payment transactions to credit the shopper.
+			///Unique identifier for the last order created as a result of the return. If the return results in shipping a replacement item, the order includes shipment information for the replaced items. If the return results in a refund, the order includes payment transactions to credit the shopper.
 			///
 			public string ReturnOrderId { get; set; }
 
 			///
-			///The type of return, which is "Refund" or "Replace".
+			///The type of return, which is  or .At the top-level return level, this field is DEPRECATED because Refund and Replace items can now be mixed within a single return. For backwards-compatibility with older applications, the field defaults to .
 			///
 			public string ReturnType { get; set; }
 

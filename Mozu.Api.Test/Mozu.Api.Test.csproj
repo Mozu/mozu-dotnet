@@ -177,6 +177,7 @@
     <Compile Include="Factories\OrderFactory.cs" />
     <Compile Include="Factories\OrderItemFactory.cs" />
     <Compile Include="Factories\OrderNoteFactory.cs" />
+    <Compile Include="Factories\OrderReturnableItemFactory.cs" />
     <Compile Include="Factories\OrderValidationResultFactory.cs" />
     <Compile Include="Factories\PackageFactory.cs" />
     <Compile Include="Factories\PaymentFactory.cs" />

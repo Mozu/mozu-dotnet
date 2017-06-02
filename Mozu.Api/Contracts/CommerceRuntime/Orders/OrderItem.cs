@@ -165,6 +165,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public decimal? TaxableTotal { get; set; }
 
 			///
+			///Leverage this property within a [tax Arc.js action](https://www.mozu.com/docs/arcjs/commerce-catalog-storefront-tax/commerce-catalog-storefront-tax.htm) to supplement the tax information for this item or object with custom JSON data.
+			///
+			public JObject TaxData { get; set; }
+
+			///
 			///Total is used to indicate the monetary, estimated total amount of the cart or order, including items, sales tax, shipping costs, and other fees. Totals are not estimated for wish lists at this time.
 			///
 			public decimal? Total { get; set; }

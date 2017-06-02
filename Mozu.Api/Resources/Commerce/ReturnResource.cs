@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Resources.Commerce
 {
 	/// <summary>
-	/// Use the Returns resource to manage returned items that were previously fufilled. Returns can include any number of items associated with an original  order. Each return must either be associated with an original order or a product definition to represent each returned item.
+	/// Use the Returns resource to manage returned items that were previously fufilled. Returns can include any number of items associated with an original  order. Each return must either be associated with an original order or a product definition to represent each returned item.Refer to the [Returns API](https://www.mozu.com/docs/developer/api-guides/returns.htm) topic for more information about creating and processing returns using the API.
 	/// </summary>
 	public partial class ReturnResource  	{
 		///
@@ -487,7 +487,10 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// Creates a return for previously fulfilled items. Each return must either be associated with an original order or a product definition to represent each returned item.
+		/// Creates a return for previously fulfilled items. Each return must either be associated with an original order or a product definition to represent each returned item.When you create a return, you must specify the following fields:
+
+
+
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="ret">Properties of a return of one or more previously fulfilled items.</param>
@@ -512,7 +515,10 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 		/// <summary>
-		/// Creates a return for previously fulfilled items. Each return must either be associated with an original order or a product definition to represent each returned item.
+		/// Creates a return for previously fulfilled items. Each return must either be associated with an original order or a product definition to represent each returned item.When you create a return, you must specify the following fields:
+
+
+
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="ret">Properties of a return of one or more previously fulfilled items.</param>
@@ -695,20 +701,21 @@ namespace Mozu.Api.Resources.Commerce
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="itemQuantities"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var return = new Return();
-		///   var order = return.CreateReturnShippingOrder( returnId,  responseFields);
+		///   var order = return.CreateReturnShippingOrder( itemQuantities,  returnId,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.Order CreateReturnShippingOrder(string returnId, string responseFields =  null)
+		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.Order CreateReturnShippingOrder(List<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnItemSpecifier> itemQuantities, string returnId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
-			var client = Mozu.Api.Clients.Commerce.ReturnClient.CreateReturnShippingOrderClient( returnId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.ReturnClient.CreateReturnShippingOrderClient( itemQuantities,  returnId,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -720,19 +727,20 @@ namespace Mozu.Api.Resources.Commerce
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="itemQuantities"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var return = new Return();
-		///   var order = await return.CreateReturnShippingOrderAsync( returnId,  responseFields);
+		///   var order = await return.CreateReturnShippingOrderAsync( itemQuantities,  returnId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> CreateReturnShippingOrderAsync(string returnId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> CreateReturnShippingOrderAsync(List<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnItemSpecifier> itemQuantities, string returnId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
-			var client = Mozu.Api.Clients.Commerce.ReturnClient.CreateReturnShippingOrderClient( returnId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.ReturnClient.CreateReturnShippingOrderClient( itemQuantities,  returnId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

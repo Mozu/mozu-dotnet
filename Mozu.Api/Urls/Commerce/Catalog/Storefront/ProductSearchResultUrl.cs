@@ -55,6 +55,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
         /// <param name="facetTemplateExclude">A comma-separated list of the facets to exclude from the facetTemplate.        </param>
         /// <param name="facetTemplateSubset">Display a subset of the facets defined in the template specified in facetTemplate parameter.</param>
         /// <param name="facetValueFilter">The facet values to apply to the filter.</param>
+        /// <param name="facetValueSort">Use this parameter to specify facet sorting outside the predefined facet definitions (which require a category). The most common options are:*  (default)—Sorts by product count (highest count first).* —Sorts by lexicographic order. In most cases, this means alphabetical order.The following code demonstrates an example of  sort:</param>
         /// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
         /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
         /// <param name="query">Properties for the product location inventory provided for queries to locate products by their location.</param>
@@ -68,9 +69,9 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl SearchUrl(string query =  null, string filter =  null, string facetTemplate =  null, string facetTemplateSubset =  null, string facet =  null, string facetFieldRangeQuery =  null, string facetHierPrefix =  null, string facetHierValue =  null, string facetHierDepth =  null, string facetStartIndex =  null, string facetPageSize =  null, string facetSettings =  null, string facetValueFilter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, string searchSettings =  null, bool? enableSearchTuningRules =  null, string searchTuningRuleContext =  null, string searchTuningRuleCode =  null, string facetTemplateExclude =  null, string facetPrefix =  null, string responseOptions =  null, string cursorMark =  null, string responseFields =  null)
+        public static MozuUrl SearchUrl(string query =  null, string filter =  null, string facetTemplate =  null, string facetTemplateSubset =  null, string facet =  null, string facetFieldRangeQuery =  null, string facetHierPrefix =  null, string facetHierValue =  null, string facetHierDepth =  null, string facetStartIndex =  null, string facetPageSize =  null, string facetSettings =  null, string facetValueFilter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, string searchSettings =  null, bool? enableSearchTuningRules =  null, string searchTuningRuleContext =  null, string searchTuningRuleCode =  null, string facetTemplateExclude =  null, string facetPrefix =  null, string responseOptions =  null, string cursorMark =  null, string facetValueSort =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/storefront/productsearch/search/?query={query}&filter={filter}&facetTemplate={facetTemplate}&facetTemplateSubset={facetTemplateSubset}&facet={facet}&facetFieldRangeQuery={facetFieldRangeQuery}&facetHierPrefix={facetHierPrefix}&facetHierValue={facetHierValue}&facetHierDepth={facetHierDepth}&facetStartIndex={facetStartIndex}&facetPageSize={facetPageSize}&facetSettings={facetSettings}&facetValueFilter={facetValueFilter}&sortBy={sortBy}&pageSize={pageSize}&startIndex={startIndex}&searchSettings={searchSettings}&enableSearchTuningRules={enableSearchTuningRules}&searchTuningRuleContext={searchTuningRuleContext}&searchTuningRuleCode={searchTuningRuleCode}&facetTemplateExclude={facetTemplateExclude}&facetPrefix={facetPrefix}&responseOptions={responseOptions}&cursorMark={cursorMark}&responseFields={responseFields}";
+			var url = "/api/commerce/catalog/storefront/productsearch/search/?query={query}&filter={filter}&facetTemplate={facetTemplate}&facetTemplateSubset={facetTemplateSubset}&facet={facet}&facetFieldRangeQuery={facetFieldRangeQuery}&facetHierPrefix={facetHierPrefix}&facetHierValue={facetHierValue}&facetHierDepth={facetHierDepth}&facetStartIndex={facetStartIndex}&facetPageSize={facetPageSize}&facetSettings={facetSettings}&facetValueFilter={facetValueFilter}&sortBy={sortBy}&pageSize={pageSize}&startIndex={startIndex}&searchSettings={searchSettings}&enableSearchTuningRules={enableSearchTuningRules}&searchTuningRuleContext={searchTuningRuleContext}&searchTuningRuleCode={searchTuningRuleCode}&facetTemplateExclude={facetTemplateExclude}&facetPrefix={facetPrefix}&responseOptions={responseOptions}&cursorMark={cursorMark}&facetValueSort={facetValueSort}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "cursorMark", cursorMark);
 			mozuUrl.FormatUrl( "enableSearchTuningRules", enableSearchTuningRules);
@@ -87,6 +88,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
 			mozuUrl.FormatUrl( "facetTemplateExclude", facetTemplateExclude);
 			mozuUrl.FormatUrl( "facetTemplateSubset", facetTemplateSubset);
 			mozuUrl.FormatUrl( "facetValueFilter", facetValueFilter);
+			mozuUrl.FormatUrl( "facetValueSort", facetValueSort);
 			mozuUrl.FormatUrl( "filter", filter);
 			mozuUrl.FormatUrl( "pageSize", pageSize);
 			mozuUrl.FormatUrl( "query", query);

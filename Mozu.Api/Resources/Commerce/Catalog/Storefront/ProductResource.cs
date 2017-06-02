@@ -331,6 +331,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="skipDefaults">Normally, product validation applies default extras to products that do not have options specified. If , product validation does not apply default extras to products.</param>
 		/// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
 		/// <param name="productOptionSelections">For a product with shopper-configurable options, the properties of the product options selected by the shopper.</param>
 		/// <returns>
@@ -339,14 +340,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var productValidationSummary = product.ValidateProduct( productOptionSelections,  productCode,  skipInventoryCheck,  quantity,  responseFields);
+		///   var productValidationSummary = product.ValidateProduct( productOptionSelections,  productCode,  skipInventoryCheck,  quantity,  skipDefaults,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductRuntime.ProductValidationSummary ValidateProduct(Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode, bool? skipInventoryCheck =  null, int? quantity =  null, string responseFields =  null)
+		public virtual Mozu.Api.Contracts.ProductRuntime.ProductValidationSummary ValidateProduct(Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode, bool? skipInventoryCheck =  null, int? quantity =  null, bool? skipDefaults =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductValidationSummary> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.ValidateProductClient( productOptionSelections,  productCode,  skipInventoryCheck,  quantity,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.ValidateProductClient( productOptionSelections,  productCode,  skipInventoryCheck,  quantity,  skipDefaults,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -359,6 +360,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="skipDefaults">Normally, product validation applies default extras to products that do not have options specified. If , product validation does not apply default extras to products.</param>
 		/// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
 		/// <param name="productOptionSelections">For a product with shopper-configurable options, the properties of the product options selected by the shopper.</param>
 		/// <returns>
@@ -367,13 +369,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var productValidationSummary = await product.ValidateProductAsync( productOptionSelections,  productCode,  skipInventoryCheck,  quantity,  responseFields);
+		///   var productValidationSummary = await product.ValidateProductAsync( productOptionSelections,  productCode,  skipInventoryCheck,  quantity,  skipDefaults,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.ProductValidationSummary> ValidateProductAsync(Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode, bool? skipInventoryCheck =  null, int? quantity =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.ProductValidationSummary> ValidateProductAsync(Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode, bool? skipInventoryCheck =  null, int? quantity =  null, bool? skipDefaults =  null, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductValidationSummary> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.ValidateProductClient( productOptionSelections,  productCode,  skipInventoryCheck,  quantity,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.ValidateProductClient( productOptionSelections,  productCode,  skipInventoryCheck,  quantity,  skipDefaults,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

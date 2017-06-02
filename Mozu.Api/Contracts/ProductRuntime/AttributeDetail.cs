@@ -44,6 +44,11 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string DisplayIntention { get; set; }
 
 			///
+			///Specifies whether to create a case-sensitive Solr search index. The default is .
+			///
+			public bool? IndexValueWithCase { get; set; }
+
+			///
 			///The type of input selection used to define a value for the attribute, including Yes/No, Date, DateTime, List, TextBox, or TextArea.
 			///
 			public string InputType { get; set; }

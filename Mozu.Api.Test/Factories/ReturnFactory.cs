@@ -24,7 +24,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Returns resource to manage returned items that were previously fufilled. Returns can include any number of items associated with an original  order. Each return must either be associated with an original order or a product definition to represent each returned item.
+	/// Use the Returns resource to manage returned items that were previously fufilled. Returns can include any number of items associated with an original  order. Each return must either be associated with an original order or a product definition to represent each returned item.Refer to the [Returns API](https://www.mozu.com/docs/developer/api-guides/returns.htm) topic for more information about creating and processing returns using the API.
 	/// </summary>
 	public partial class ReturnFactory : BaseDataFactory
 	{
@@ -372,7 +372,10 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Creates a return for previously fulfilled items. Each return must either be associated with an original order or a product definition to represent each returned item.
+		/// Creates a return for previously fulfilled items. Each return must either be associated with an original order or a product definition to represent each returned item.When you create a return, you must specify the following fields:
+
+
+
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.CreateReturn(handler : handler,  ret :  ret,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -527,14 +530,14 @@ namespace Mozu.Api.Test.Factories
 		/// Creates a replacement order for the return.
 		/// <example> 
 		///  <code> 
-		/// var result = ReturnFactory.CreateReturnShippingOrder(handler : handler,  returnId :  returnId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ReturnFactory.CreateReturnShippingOrder(handler : handler,  itemQuantities :  itemQuantities,  returnId :  returnId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Order/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order CreateReturnShippingOrder(ServiceClientMessageHandler handler, 
- 		 string returnId, string responseFields = null, 
+ 		 List<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnItemSpecifier> itemQuantities, string returnId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -542,7 +545,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.ReturnClient.CreateReturnShippingOrderClient(
-				 returnId :  returnId,  responseFields :  responseFields		);
+				 itemQuantities :  itemQuantities,  returnId :  returnId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

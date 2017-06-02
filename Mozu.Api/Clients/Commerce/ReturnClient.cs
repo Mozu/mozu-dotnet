@@ -17,7 +17,7 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Clients.Commerce
 {
 	/// <summary>
-	/// Use the Returns resource to manage returned items that were previously fufilled. Returns can include any number of items associated with an original  order. Each return must either be associated with an original order or a product definition to represent each returned item.
+	/// Use the Returns resource to manage returned items that were previously fufilled. Returns can include any number of items associated with an original  order. Each return must either be associated with an original order or a product definition to represent each returned item.Refer to the [Returns API](https://www.mozu.com/docs/developer/api-guides/returns.htm) topic for more information about creating and processing returns using the API.
 	/// </summary>
 	public partial class ReturnClient 	{
 		
@@ -251,7 +251,10 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// Creates a return for previously fulfilled items. Each return must either be associated with an original order or a product definition to represent each returned item.
+		/// Creates a return for previously fulfilled items. Each return must either be associated with an original order or a product definition to represent each returned item.When you create a return, you must specify the following fields:
+
+
+
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="ret">Properties of a return of one or more previously fulfilled items.</param>
@@ -359,22 +362,23 @@ namespace Mozu.Api.Clients.Commerce
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="itemQuantities"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=CreateReturnShippingOrder( returnId,  responseFields);
+		///   var mozuClient=CreateReturnShippingOrder( itemQuantities,  returnId,  responseFields);
 		///   var orderClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> CreateReturnShippingOrderClient(string returnId, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> CreateReturnShippingOrderClient(List<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnItemSpecifier> itemQuantities, string returnId, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.ReturnUrl.CreateReturnShippingOrderUrl(returnId, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order>()
 									.WithVerb(verb).WithResourceUrl(url)
-;
+									.WithBody<List<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnItemSpecifier>>(itemQuantities);
 			return mozuClient;
 
 		}

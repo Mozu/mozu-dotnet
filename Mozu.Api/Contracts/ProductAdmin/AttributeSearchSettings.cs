@@ -24,6 +24,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public bool? AllowFilteringAndSortingInStorefront { get; set; }
 
 			///
+			///Specifies whether to create a case-sensitive Solr search index. The default is .
+			///
+			public bool? IndexValueWithCase { get; set; }
+
+			///
 			///Indicates whether the attribute value is searchable in the merchant catalog admin.
 			///
 			public bool SearchableInAdmin { get; set; }

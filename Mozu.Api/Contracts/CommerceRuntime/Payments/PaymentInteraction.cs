@@ -131,6 +131,16 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			public int? PaymentTransactionInteractionIdReference { get; set; }
 
 			///
+			///The unique identifier of the refund for a given interaction.
+			///
+			public string RefundId { get; set; }
+
+			///
+			///The unique identifier of the return associated with a given interaction.
+			///
+			public string ReturnId { get; set; }
+
+			///
 			///The current status of the object.This value is read only. Valid values for this field are: "Active", "Expired", and "Inactive".
 			///
 			public string Status { get; set; }

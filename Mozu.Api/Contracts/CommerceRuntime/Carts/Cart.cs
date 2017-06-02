@@ -110,7 +110,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			public decimal? HandlingAmount { get; set; }
 
 			///
-			///handlingSubTotal ApiType DOCUMENT_HERE 
+			///The handling fee subtotal included in the cart calculation.
 			///
 			public decimal? HandlingSubTotal { get; set; }
 
@@ -120,7 +120,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			public decimal? HandlingTaxTotal { get; set; }
 
 			///
-			///handlingTotal ApiType DOCUMENT_HERE 
+			///The handling fee total included in the cart calculation.
 			///
 			public decimal? HandlingTotal { get; set; }
 
@@ -193,6 +193,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///Estimated amount of the cart or order without sales tax, shipping costs, and other fees. This amount is not calculated for wish lists at this time.
 			///
 			public decimal? Subtotal { get; set; }
+
+			///
+			///Leverage this property within a [tax Arc.js action](https://www.mozu.com/docs/arcjs/commerce-catalog-storefront-tax/commerce-catalog-storefront-tax.htm) to supplement the tax information for this item or object with custom JSON data.
+			///
+			public JObject TaxData { get; set; }
 
 			///
 			///The total monetary sum of sales tax estimated for a cart or order.

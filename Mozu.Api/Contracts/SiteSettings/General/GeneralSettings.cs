@@ -53,6 +53,11 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			public CustomRouteSettings CustomRoutes { get; set; }
 
 			///
+			///Set this property to  to disable automatically sending order confirmation emails after an order is submitted. If you enable this property, order confirmation emails are triggered only by the  API operation or a Resend Order Confirmation Email event (which can be triggered by an  user).
+			///
+			public EmailTransactionSettings EmailTransactionsOnlyOnRequest { get; set; }
+
+			///
 			///A collection of overrides that allow you to apply unique email settings to the email template(s) of your choice.
 			///
 			public List<EmailTypeSetting> EmailTypes { get; set; }

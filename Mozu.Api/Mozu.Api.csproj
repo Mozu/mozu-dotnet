@@ -177,6 +177,7 @@
     <Compile Include="Clients\Commerce\Orders\OrderAttributeClient.cs" />
     <Compile Include="Clients\Commerce\Orders\OrderItemClient.cs" />
     <Compile Include="Clients\Commerce\Orders\OrderNoteClient.cs" />
+    <Compile Include="Clients\Commerce\Orders\OrderReturnableItemClient.cs" />
     <Compile Include="Clients\Commerce\Orders\OrderValidationResultClient.cs" />
     <Compile Include="Clients\Commerce\Orders\PackageClient.cs" />
     <Compile Include="Clients\Commerce\Orders\PaymentClient.cs" />
@@ -308,6 +309,8 @@
     <Compile Include="Contracts\CommerceRuntime\Orders\OrderItem.cs" />
     <Compile Include="Contracts\CommerceRuntime\Orders\OrderItemCollection.cs" />
     <Compile Include="Contracts\CommerceRuntime\Orders\OrderNote.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Orders\OrderReturnableItem.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Orders\OrderReturnableItemCollection.cs" />
     <Compile Include="Contracts\CommerceRuntime\Orders\OrderValidationMessage.cs" />
     <Compile Include="Contracts\CommerceRuntime\Orders\OrderValidationResult.cs" />
     <Compile Include="Contracts\CommerceRuntime\Orders\ShopperNotes.cs" />
@@ -338,6 +341,7 @@
     <Compile Include="Contracts\CommerceRuntime\Returns\ReturnCollection.cs" />
     <Compile Include="Contracts\CommerceRuntime\Returns\ReturnItem.cs" />
     <Compile Include="Contracts\CommerceRuntime\Returns\ReturnItemCollection.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Returns\ReturnItemSpecifier.cs" />
     <Compile Include="Contracts\CommerceRuntime\Returns\ReturnReason.cs" />
     <Compile Include="Contracts\CommerceRuntime\Wishlists\Wishlist.cs" />
     <Compile Include="Contracts\CommerceRuntime\Wishlists\WishlistCollection.cs" />
@@ -855,6 +859,7 @@
     <Compile Include="Resources\Commerce\Orders\OrderAttributeResource.cs" />
     <Compile Include="Resources\Commerce\Orders\OrderItemResource.cs" />
     <Compile Include="Resources\Commerce\Orders\OrderNoteResource.cs" />
+    <Compile Include="Resources\Commerce\Orders\OrderReturnableItemResource.cs" />
     <Compile Include="Resources\Commerce\Orders\OrderValidationResultResource.cs" />
     <Compile Include="Resources\Commerce\Orders\PackageResource.cs" />
     <Compile Include="Resources\Commerce\Orders\PaymentResource.cs" />
@@ -993,6 +998,7 @@
     <Compile Include="Urls\Commerce\Orders\OrderAttributeUrl.cs" />
     <Compile Include="Urls\Commerce\Orders\OrderItemUrl.cs" />
     <Compile Include="Urls\Commerce\Orders\OrderNoteUrl.cs" />
+    <Compile Include="Urls\Commerce\Orders\OrderReturnableItemUrl.cs" />
     <Compile Include="Urls\Commerce\Orders\OrderValidationResultUrl.cs" />
     <Compile Include="Urls\Commerce\Orders\PackageUrl.cs" />
     <Compile Include="Urls\Commerce\Orders\PaymentUrl.cs" />

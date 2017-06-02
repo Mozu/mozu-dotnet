@@ -33,14 +33,14 @@ namespace Mozu.Api.Test.Factories
 		/// payments-cards Post Create description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
-		/// var result = PublicCardFactory.Create(handler : handler,  request :  request,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = PublicCardFactory.Create(handler : handler,  request :  request,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<SyncResponse/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.PaymentService.Response.SyncResponse Create(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.PaymentService.PublicCard request, 
+ 		 Mozu.Api.Contracts.PaymentService.PublicCard request, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -48,7 +48,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Payments.PublicCardClient.CreateClient(
-				 request :  request		);
+				 request :  request,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();
@@ -71,14 +71,14 @@ namespace Mozu.Api.Test.Factories
 		/// payments-cards Put Update description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
-		/// var result = PublicCardFactory.Update(handler : handler,  request :  request,  cardId :  cardId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = PublicCardFactory.Update(handler : handler,  request :  request,  cardId :  cardId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<SyncResponse/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.PaymentService.Response.SyncResponse Update(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.PaymentService.PublicCard request, string cardId, 
+ 		 Mozu.Api.Contracts.PaymentService.PublicCard request, string cardId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -86,7 +86,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Payments.PublicCardClient.UpdateClient(
-				 request :  request,  cardId :  cardId		);
+				 request :  request,  cardId :  cardId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

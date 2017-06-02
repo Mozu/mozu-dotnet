@@ -24,13 +24,13 @@ using Newtonsoft.Json.Linq;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// commerce/settings/cart related resources. DOCUMENT_HERE 
+	/// Use the cart subresource to manage settings for the cart, such as whether to include handling fees in the cost calculations.
 	/// </summary>
 	public partial class CartSettingsFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// settings-cart Get GetCartSettings description DOCUMENT_HERE 
+		/// Retrieves cart settings.
 		/// <example> 
 		///  <code> 
 		/// var result = CartSettingsFactory.GetCartSettings(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// settings-cart Post CreateCartSettings description DOCUMENT_HERE 
+		/// Creates cart settings.
 		/// <example> 
 		///  <code> 
 		/// var result = CartSettingsFactory.CreateCartSettings(handler : handler,  cartSettings :  cartSettings,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// settings-cart Put UpdateCartSettings description DOCUMENT_HERE 
+		/// Updates cart settings.
 		/// <example> 
 		///  <code> 
 		/// var result = CartSettingsFactory.UpdateCartSettings(handler : handler,  cartSettings :  cartSettings,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

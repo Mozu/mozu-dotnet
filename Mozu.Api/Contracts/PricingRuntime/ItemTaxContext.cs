@@ -9,7 +9,9 @@
 //------------------------------------------------------------------------------
 
 using System;
+using Newtonsoft.Json.Linq;
 
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.PricingRuntime
 {
@@ -42,6 +44,11 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///The total tax amount applied to the line item in the order, minus any shipping taxes.
 			///
 			public decimal Tax { get; set; }
+
+			///
+			///Leverage this property within a [tax Arc.js action](https://www.mozu.com/docs/arcjs/commerce-catalog-storefront-tax/commerce-catalog-storefront-tax.htm) to supplement the tax information for this item or object with custom JSON data.
+			///
+			public JObject TaxData { get; set; }
 
 		}
 

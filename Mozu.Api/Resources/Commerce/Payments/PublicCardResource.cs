@@ -44,6 +44,7 @@ namespace Mozu.Api.Resources.Commerce.Payments
 		/// <summary>
 		/// payments-cards Post Create description DOCUMENT_HERE 
 		/// </summary>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="request">Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.PaymentService.Response.SyncResponse"/>
@@ -51,14 +52,14 @@ namespace Mozu.Api.Resources.Commerce.Payments
 		/// <example>
 		/// <code>
 		///   var publiccard = new PublicCard();
-		///   var syncResponse = publiccard.Create( request);
+		///   var syncResponse = publiccard.Create( request,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.PaymentService.Response.SyncResponse Create(Mozu.Api.Contracts.PaymentService.PublicCard request)
+		public virtual Mozu.Api.Contracts.PaymentService.Response.SyncResponse Create(Mozu.Api.Contracts.PaymentService.PublicCard request, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.PaymentService.Response.SyncResponse> response;
-			var client = Mozu.Api.Clients.Commerce.Payments.PublicCardClient.CreateClient( request);
+			var client = Mozu.Api.Clients.Commerce.Payments.PublicCardClient.CreateClient( request,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -68,6 +69,7 @@ namespace Mozu.Api.Resources.Commerce.Payments
 		/// <summary>
 		/// payments-cards Post Create description DOCUMENT_HERE 
 		/// </summary>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="request">Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.PaymentService.Response.SyncResponse"/>
@@ -75,13 +77,13 @@ namespace Mozu.Api.Resources.Commerce.Payments
 		/// <example>
 		/// <code>
 		///   var publiccard = new PublicCard();
-		///   var syncResponse = await publiccard.CreateAsync( request);
+		///   var syncResponse = await publiccard.CreateAsync( request,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.PaymentService.Response.SyncResponse> CreateAsync(Mozu.Api.Contracts.PaymentService.PublicCard request)
+		public virtual async Task<Mozu.Api.Contracts.PaymentService.Response.SyncResponse> CreateAsync(Mozu.Api.Contracts.PaymentService.PublicCard request, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.PaymentService.Response.SyncResponse> response;
-			var client = Mozu.Api.Clients.Commerce.Payments.PublicCardClient.CreateClient( request);
+			var client = Mozu.Api.Clients.Commerce.Payments.PublicCardClient.CreateClient( request,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();
@@ -92,6 +94,7 @@ namespace Mozu.Api.Resources.Commerce.Payments
 		/// payments-cards Put Update description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="request">Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.PaymentService.Response.SyncResponse"/>
@@ -99,14 +102,14 @@ namespace Mozu.Api.Resources.Commerce.Payments
 		/// <example>
 		/// <code>
 		///   var publiccard = new PublicCard();
-		///   var syncResponse = publiccard.Update( request,  cardId);
+		///   var syncResponse = publiccard.Update( request,  cardId,  responseFields);
 		/// </code>
 		/// </example>
 		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.PaymentService.Response.SyncResponse Update(Mozu.Api.Contracts.PaymentService.PublicCard request, string cardId)
+		public virtual Mozu.Api.Contracts.PaymentService.Response.SyncResponse Update(Mozu.Api.Contracts.PaymentService.PublicCard request, string cardId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.PaymentService.Response.SyncResponse> response;
-			var client = Mozu.Api.Clients.Commerce.Payments.PublicCardClient.UpdateClient( request,  cardId);
+			var client = Mozu.Api.Clients.Commerce.Payments.PublicCardClient.UpdateClient( request,  cardId,  responseFields);
 			client.WithContext(_apiContext);
 			response = client.Execute();
 			return response.Result();
@@ -117,6 +120,7 @@ namespace Mozu.Api.Resources.Commerce.Payments
 		/// payments-cards Put Update description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="request">Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.PaymentService.Response.SyncResponse"/>
@@ -124,13 +128,13 @@ namespace Mozu.Api.Resources.Commerce.Payments
 		/// <example>
 		/// <code>
 		///   var publiccard = new PublicCard();
-		///   var syncResponse = await publiccard.UpdateAsync( request,  cardId);
+		///   var syncResponse = await publiccard.UpdateAsync( request,  cardId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.PaymentService.Response.SyncResponse> UpdateAsync(Mozu.Api.Contracts.PaymentService.PublicCard request, string cardId)
+		public virtual async Task<Mozu.Api.Contracts.PaymentService.Response.SyncResponse> UpdateAsync(Mozu.Api.Contracts.PaymentService.PublicCard request, string cardId, string responseFields =  null)
 		{
 			MozuClient<Mozu.Api.Contracts.PaymentService.Response.SyncResponse> response;
-			var client = Mozu.Api.Clients.Commerce.Payments.PublicCardClient.UpdateClient( request,  cardId);
+			var client = Mozu.Api.Clients.Commerce.Payments.PublicCardClient.UpdateClient( request,  cardId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync();
 			return await response.ResultAsync();

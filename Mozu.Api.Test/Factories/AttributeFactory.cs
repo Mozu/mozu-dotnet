@@ -26,6 +26,7 @@ namespace Mozu.Api.Test.Factories
 	/// <summary>
 	/// Attributes are used to add custom definitions and characteristics to the following objects:
 
+
 	/// </summary>
 	public partial class AttributeFactory : BaseDataFactory
 	{

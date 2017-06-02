@@ -30,7 +30,10 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string LogicalOperator { get; set; }
 
 			///
-			///The node or container of the self-contained dynamic expression. The node contains the following expression fields in order: "type", "left", "operator", and "right".For example, a dynamic expression that specifies to include all products that are in the apparel category  would have the following node:`"type": "predicate","left": "Categories.CategoryCode","operator": "eq","right": "apparel".`
+			///The node or container of the self-contained dynamic expression. The node contains the following expression fields in order: "type", "left", "operator", and "right".For example, a dynamic expression that specifies to include all products that are in the apparel category  would have the following node:`"type": "predicate",
+			///"left": "Categories.CategoryCode",
+			///"operator": "eq",
+			///"right": "apparel".`
 			///
 			public List<Expression> Nodes { get; set; }
 
@@ -40,7 +43,10 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string Operator { get; set; }
 
 			///
-			///The literal values of the predicate that is validated against the combined values of the left and operator fields. For example, you wish to validate on products that have a product code of "shoe". You would write the following expression:`"type": "predicate","left": "productCode","operator": "eq","right": "shoe".`
+			///The literal values of the predicate that is validated against the combined values of the left and operator fields. For example, you wish to validate on products that have a product code of "shoe". You would write the following expression:`"type": "predicate",
+			///"left": "productCode",
+			///"operator": "eq",
+			///"right": "shoe".`
 			///
 			public object Right { get; set; }
 

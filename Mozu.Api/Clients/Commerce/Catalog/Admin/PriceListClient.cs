@@ -100,6 +100,84 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
+		/// Adds up to 5000 new price list entries in bulk.
+		/// </summary>
+		/// <param name="invalidateCache">Disable this property if you expect to encounter unacceptable performance hits related to clearing the cache for each product in the price list entries. Otherwise, leave this property enabled.</param>
+		/// <param name="publishEvents">Disable this property to prevent publishing the event related to adding price list entries to the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.</param>
+		/// <param name="priceListEntriesIn"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=BulkAddPriceListEntries( priceListEntriesIn,  publishEvents,  invalidateCache);
+		///mozuClient.WithBaseAddress(url).Execute();
+		/// </code>
+		/// </example>
+		public static MozuClient BulkAddPriceListEntriesClient(List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents =  null, bool? invalidateCache =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.PriceListUrl.BulkAddPriceListEntriesUrl(publishEvents, invalidateCache);
+			const string verb = "POST";
+			var mozuClient = new MozuClient()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry>>(priceListEntriesIn);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// Deletes up to 5000 price list entries in bulk.
+		/// </summary>
+		/// <param name="invalidateCache">Disable this property if you expect to encounter unacceptable performance hits related to clearing the cache for each product in the price list entries. Otherwise, leave this property enabled.</param>
+		/// <param name="publishEvents">Disable this property to prevent publishing the event related to deleting price list entries from the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.</param>
+		/// <param name="priceListEntriesIn"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=BulkDeletePriceListEntries( priceListEntriesIn,  publishEvents,  invalidateCache);
+		///mozuClient.WithBaseAddress(url).Execute();
+		/// </code>
+		/// </example>
+		public static MozuClient BulkDeletePriceListEntriesClient(List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents =  null, bool? invalidateCache =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.PriceListUrl.BulkDeletePriceListEntriesUrl(publishEvents, invalidateCache);
+			const string verb = "POST";
+			var mozuClient = new MozuClient()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry>>(priceListEntriesIn);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// Updates up to 5000 price list entries in bulk.
+		/// </summary>
+		/// <param name="invalidateCache">Disable this property if you expect to encounter unacceptable performance hits related to clearing the cache for each product in the price list entries. Otherwise, leave this property enabled.</param>
+		/// <param name="publishEvents">Disable this property to prevent publishing the event related to updating price list entries in the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.</param>
+		/// <param name="priceListEntriesIn"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=BulkUpdatePriceListEntries( priceListEntriesIn,  publishEvents,  invalidateCache);
+		///mozuClient.WithBaseAddress(url).Execute();
+		/// </code>
+		/// </example>
+		public static MozuClient BulkUpdatePriceListEntriesClient(List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents =  null, bool? invalidateCache =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.PriceListUrl.BulkUpdatePriceListEntriesUrl(publishEvents, invalidateCache);
+			const string verb = "POST";
+			var mozuClient = new MozuClient()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry>>(priceListEntriesIn);
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Updates the details of the specified price list.
 		/// </summary>
 		/// <param name="priceListCode">The unique, user-defined code of the price list.</param>

@@ -141,17 +141,19 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
         /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
         /// <param name="quantity">The number of cart items in the shopper's active cart.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="skipDefaults">Normally, product validation applies default extras to products that do not have options specified. If , product validation does not apply default extras to products.</param>
         /// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl ValidateProductUrl(string productCode, bool? skipInventoryCheck =  null, int? quantity =  null, string responseFields =  null)
+        public static MozuUrl ValidateProductUrl(string productCode, bool? skipInventoryCheck =  null, int? quantity =  null, bool? skipDefaults =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/storefront/products/{productCode}/validate?skipInventoryCheck={skipInventoryCheck}&quantity={quantity}&responseFields={responseFields}";
+			var url = "/api/commerce/catalog/storefront/products/{productCode}/validate?skipInventoryCheck={skipInventoryCheck}&quantity={quantity}&skipDefaults={skipDefaults}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "productCode", productCode);
 			mozuUrl.FormatUrl( "quantity", quantity);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "skipDefaults", skipDefaults);
 			mozuUrl.FormatUrl( "skipInventoryCheck", skipInventoryCheck);
 			return mozuUrl;
 		}

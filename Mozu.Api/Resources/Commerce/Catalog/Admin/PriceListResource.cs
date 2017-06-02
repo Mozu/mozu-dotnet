@@ -191,6 +191,153 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
+		/// Adds up to 5000 new price list entries in bulk.
+		/// </summary>
+		/// <param name="invalidateCache">Disable this property if you expect to encounter unacceptable performance hits related to clearing the cache for each product in the price list entries. Otherwise, leave this property enabled.</param>
+		/// <param name="publishEvents">Disable this property to prevent publishing the event related to adding price list entries to the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.</param>
+		/// <param name="priceListEntriesIn"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var pricelist = new PriceList();
+		///   pricelist.BulkAddPriceListEntries( priceListEntriesIn,  publishEvents,  invalidateCache);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void BulkAddPriceListEntries(List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents =  null, bool? invalidateCache =  null)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.BulkAddPriceListEntriesClient( priceListEntriesIn,  publishEvents,  invalidateCache);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+
+		}
+
+		/// <summary>
+		/// Adds up to 5000 new price list entries in bulk.
+		/// </summary>
+		/// <param name="invalidateCache">Disable this property if you expect to encounter unacceptable performance hits related to clearing the cache for each product in the price list entries. Otherwise, leave this property enabled.</param>
+		/// <param name="publishEvents">Disable this property to prevent publishing the event related to adding price list entries to the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.</param>
+		/// <param name="priceListEntriesIn"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var pricelist = new PriceList();
+		///   await pricelist.BulkAddPriceListEntriesAsync( priceListEntriesIn,  publishEvents,  invalidateCache);
+		/// </code>
+		/// </example>
+		public virtual async Task BulkAddPriceListEntriesAsync(List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents =  null, bool? invalidateCache =  null)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.BulkAddPriceListEntriesClient( priceListEntriesIn,  publishEvents,  invalidateCache);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+
+		}
+
+		/// <summary>
+		/// Deletes up to 5000 price list entries in bulk.
+		/// </summary>
+		/// <param name="invalidateCache">Disable this property if you expect to encounter unacceptable performance hits related to clearing the cache for each product in the price list entries. Otherwise, leave this property enabled.</param>
+		/// <param name="publishEvents">Disable this property to prevent publishing the event related to deleting price list entries from the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.</param>
+		/// <param name="priceListEntriesIn"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var pricelist = new PriceList();
+		///   pricelist.BulkDeletePriceListEntries( priceListEntriesIn,  publishEvents,  invalidateCache);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void BulkDeletePriceListEntries(List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents =  null, bool? invalidateCache =  null)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.BulkDeletePriceListEntriesClient( priceListEntriesIn,  publishEvents,  invalidateCache);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+
+		}
+
+		/// <summary>
+		/// Deletes up to 5000 price list entries in bulk.
+		/// </summary>
+		/// <param name="invalidateCache">Disable this property if you expect to encounter unacceptable performance hits related to clearing the cache for each product in the price list entries. Otherwise, leave this property enabled.</param>
+		/// <param name="publishEvents">Disable this property to prevent publishing the event related to deleting price list entries from the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.</param>
+		/// <param name="priceListEntriesIn"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var pricelist = new PriceList();
+		///   await pricelist.BulkDeletePriceListEntriesAsync( priceListEntriesIn,  publishEvents,  invalidateCache);
+		/// </code>
+		/// </example>
+		public virtual async Task BulkDeletePriceListEntriesAsync(List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents =  null, bool? invalidateCache =  null)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.BulkDeletePriceListEntriesClient( priceListEntriesIn,  publishEvents,  invalidateCache);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+
+		}
+
+		/// <summary>
+		/// Updates up to 5000 price list entries in bulk.
+		/// </summary>
+		/// <param name="invalidateCache">Disable this property if you expect to encounter unacceptable performance hits related to clearing the cache for each product in the price list entries. Otherwise, leave this property enabled.</param>
+		/// <param name="publishEvents">Disable this property to prevent publishing the event related to updating price list entries in the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.</param>
+		/// <param name="priceListEntriesIn"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var pricelist = new PriceList();
+		///   pricelist.BulkUpdatePriceListEntries( priceListEntriesIn,  publishEvents,  invalidateCache);
+		/// </code>
+		/// </example>
+		[Obsolete("This method is obsolete; use the async method instead")]
+		public virtual void BulkUpdatePriceListEntries(List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents =  null, bool? invalidateCache =  null)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.BulkUpdatePriceListEntriesClient( priceListEntriesIn,  publishEvents,  invalidateCache);
+			client.WithContext(_apiContext);
+			response = client.Execute();
+
+		}
+
+		/// <summary>
+		/// Updates up to 5000 price list entries in bulk.
+		/// </summary>
+		/// <param name="invalidateCache">Disable this property if you expect to encounter unacceptable performance hits related to clearing the cache for each product in the price list entries. Otherwise, leave this property enabled.</param>
+		/// <param name="publishEvents">Disable this property to prevent publishing the event related to updating price list entries in the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.</param>
+		/// <param name="priceListEntriesIn"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var pricelist = new PriceList();
+		///   await pricelist.BulkUpdatePriceListEntriesAsync( priceListEntriesIn,  publishEvents,  invalidateCache);
+		/// </code>
+		/// </example>
+		public virtual async Task BulkUpdatePriceListEntriesAsync(List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents =  null, bool? invalidateCache =  null)
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.BulkUpdatePriceListEntriesClient( priceListEntriesIn,  publishEvents,  invalidateCache);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync();
+
+		}
+
+		/// <summary>
 		/// Updates the details of the specified price list.
 		/// </summary>
 		/// <param name="priceListCode">The unique, user-defined code of the price list.</param>

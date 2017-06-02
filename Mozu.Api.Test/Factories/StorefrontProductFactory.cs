@@ -223,14 +223,14 @@ namespace Mozu.Api.Test.Factories
 		/// Validate the final state of shopper-selected options.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductFactory.ValidateProduct(handler : handler,  productOptionSelections :  productOptionSelections,  productCode :  productCode,  skipInventoryCheck :  skipInventoryCheck,  quantity :  quantity,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductFactory.ValidateProduct(handler : handler,  productOptionSelections :  productOptionSelections,  productCode :  productCode,  skipInventoryCheck :  skipInventoryCheck,  quantity :  quantity,  skipDefaults :  skipDefaults,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<ProductValidationSummary/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductRuntime.ProductValidationSummary ValidateProduct(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode, bool? skipInventoryCheck = null, int? quantity = null, string responseFields = null, 
+ 		 Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode, bool? skipInventoryCheck = null, int? quantity = null, bool? skipDefaults = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -238,7 +238,7 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.ValidateProductClient(
-				 productOptionSelections :  productOptionSelections,  productCode :  productCode,  skipInventoryCheck :  skipInventoryCheck,  quantity :  quantity,  responseFields :  responseFields		);
+				 productOptionSelections :  productOptionSelections,  productCode :  productCode,  skipInventoryCheck :  skipInventoryCheck,  quantity :  quantity,  skipDefaults :  skipDefaults,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).Execute();

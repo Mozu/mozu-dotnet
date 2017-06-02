@@ -144,6 +144,117 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
+		/// Adds up to 5000 new price list entries in bulk.
+		/// <example> 
+		///  <code> 
+		/// var result = PriceListFactory.BulkAddPriceListEntries(handler : handler,  priceListEntriesIn :  priceListEntriesIn,  publishEvents :  publishEvents,  invalidateCache :  invalidateCache,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static void BulkAddPriceListEntries(ServiceClientMessageHandler handler, 
+ 		List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents = null, bool? invalidateCache = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.BulkAddPriceListEntriesClient(
+				 priceListEntriesIn :  priceListEntriesIn,  publishEvents :  publishEvents,  invalidateCache :  invalidateCache		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+			}
+			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// Deletes up to 5000 price list entries in bulk.
+		/// <example> 
+		///  <code> 
+		/// var result = PriceListFactory.BulkDeletePriceListEntries(handler : handler,  priceListEntriesIn :  priceListEntriesIn,  publishEvents :  publishEvents,  invalidateCache :  invalidateCache,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static void BulkDeletePriceListEntries(ServiceClientMessageHandler handler, 
+ 		List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents = null, bool? invalidateCache = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.BulkDeletePriceListEntriesClient(
+				 priceListEntriesIn :  priceListEntriesIn,  publishEvents :  publishEvents,  invalidateCache :  invalidateCache		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+			}
+			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// Updates up to 5000 price list entries in bulk.
+		/// <example> 
+		///  <code> 
+		/// var result = PriceListFactory.BulkUpdatePriceListEntries(handler : handler,  priceListEntriesIn :  priceListEntriesIn,  publishEvents :  publishEvents,  invalidateCache :  invalidateCache,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static void BulkUpdatePriceListEntries(ServiceClientMessageHandler handler, 
+ 		List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents = null, bool? invalidateCache = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.BulkUpdatePriceListEntriesClient(
+				 priceListEntriesIn :  priceListEntriesIn,  publishEvents :  publishEvents,  invalidateCache :  invalidateCache		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).Execute();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+			}
+			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
 		/// Updates the details of the specified price list.
 		/// <example> 
 		///  <code> 

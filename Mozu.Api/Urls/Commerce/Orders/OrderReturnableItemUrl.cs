@@ -11,27 +11,29 @@
 using System;
 using System.Collections.Generic;
 
-namespace Mozu.Api.Urls.Commerce.Payments
+namespace Mozu.Api.Urls.Commerce.Orders
 {
-	public partial class FraudScreenUrl 
+	public partial class OrderReturnableItemUrl 
 	{
 
-				/// <summary>
-        /// Get Resource Url for Screen
+		/// <summary>
+        /// Get Resource Url for GetOrderReturnableItems
         /// </summary>
+        /// <param name="orderId">Unique identifier of the order.</param>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl ScreenUrl(string responseFields =  null)
+        public static MozuUrl GetOrderReturnableItemsUrl(string orderId, string responseFields =  null)
 		{
-			var url = "/payments/commerce/payments/fraudscreen/screen?responseFields={responseFields}";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.PCI_POD, false) ;
+			var url = "/api/commerce/orders/{orderId}/returnableitems?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "orderId", orderId);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
-						
+								
 	}
 }
 
