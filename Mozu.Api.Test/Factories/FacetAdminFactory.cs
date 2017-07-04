@@ -18,6 +18,7 @@ using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 #endregion
 
@@ -51,7 +52,7 @@ namespace Mozu.Api.Test.Factories
 				 facetId :  facetId,  validate :  validate,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -89,7 +90,7 @@ namespace Mozu.Api.Test.Factories
 				 categoryId :  categoryId,  includeAvailable :  includeAvailable,  validate :  validate,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -127,7 +128,7 @@ namespace Mozu.Api.Test.Factories
 				 facet :  facet,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -165,7 +166,7 @@ namespace Mozu.Api.Test.Factories
 				 facet :  facet,  facetId :  facetId,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -203,7 +204,7 @@ namespace Mozu.Api.Test.Factories
 				 facetId :  facetId		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{

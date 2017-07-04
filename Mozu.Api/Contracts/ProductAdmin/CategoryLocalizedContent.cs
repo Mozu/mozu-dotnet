@@ -40,17 +40,17 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string MetaTagDescription { get; set; }
 
 			///
-			///Keywords defined for  metadata, used to internally manage data, in the language specified by the `localeCode`. Keywords are used by content for categories, products, localized content, and SEO content.
+			///Keywords defined for metadata, used to internally manage data, in the language specified by the `localeCode`. Keywords are used by content for categories, products, localized content, and SEO content.
 			///
 			public string MetaTagKeywords { get; set; }
 
 			///
-			///Title defined for  metadata, used to internally manage data, in the language specified by the `localeCode`. Titles are used by content for categories, products, localized content, and SEO content.
+			///Title defined for metadata, used to internally manage data, in the language specified by the `localeCode`. Titles are used by content for categories, products, localized content, and SEO content.
 			///
 			public string MetaTagTitle { get; set; }
 
 			///
-			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
+			///The user supplied name that appears in . You can use this field for identification purposes.
 			///
 			public string Name { get; set; }
 

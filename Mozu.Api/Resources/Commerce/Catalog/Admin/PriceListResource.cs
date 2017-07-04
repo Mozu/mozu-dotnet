@@ -13,11 +13,12 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 {
 	/// <summary>
-	/// Allows you to create and manage products that you will offer on your storefront. You can create products with options that a shopper configures (such as a T-shirt color and size). You can set discounts and sale prices for your products, manage product inventory, and more.
+	/// Use the Price Lists resource to view and create price lists. You can use price lists to override the catalog pricing of products for specific customer segments and/or sites. You can override products' list price, sale price, advanced pricing information such as MSRP, cost, MAP, and the catalog price of any extras associated with the product in a price list. You can also restrict discounts from applying to the overridden product pricing in a price list. Refer to [Price Lists](../../../guides/catalog/price-lists.htm) in the Guides section for more information about price lists.
 	/// </summary>
 	public partial class PriceListResource  	{
 		///
@@ -37,41 +38,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 				
-		/// <summary>
-		/// admin-pricelists Get GetPriceLists description DOCUMENT_HERE 
-		/// </summary>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/applications/sorting-filtering.htm) for a list of supported filters.</param>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/applications/sorting-filtering.htm) for more information.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PriceListCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var pricelist = new PriceList();
-		///   var priceListCollection = pricelist.GetPriceLists( startIndex,  pageSize,  sortBy,  filter,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.PriceListCollection GetPriceLists(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.PriceListCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.GetPriceListsClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// admin-pricelists Get GetPriceLists description DOCUMENT_HERE 
+		/// Retrieves a list of price lists according to any specified facets, filter criteria, and sort options.
 		/// </summary>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/applications/sorting-filtering.htm) for a list of supported filters.</param>
+		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
 		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/applications/sorting-filtering.htm) for more information.</param>
+		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PriceListCollection"/>
@@ -82,43 +56,19 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   var priceListCollection = await pricelist.GetPriceListsAsync( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.PriceListCollection> GetPriceListsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.PriceListCollection> GetPriceListsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.PriceListCollection> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.GetPriceListsClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// admin-pricelists Get GetPriceList description DOCUMENT_HERE 
-		/// </summary>
-		/// <param name="priceListCode">The unique, user-defined code of the price list.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PriceList"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var pricelist = new PriceList();
-		///   var priceList = pricelist.GetPriceList( priceListCode,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.PriceList GetPriceList(string priceListCode, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.PriceList> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.GetPriceListClient( priceListCode,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// admin-pricelists Get GetPriceList description DOCUMENT_HERE 
+		/// Retrieves the details of the specified price list.
 		/// </summary>
 		/// <param name="priceListCode">The unique, user-defined code of the price list.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -131,46 +81,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   var priceList = await pricelist.GetPriceListAsync( priceListCode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.PriceList> GetPriceListAsync(string priceListCode, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.PriceList> GetPriceListAsync(string priceListCode, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.PriceList> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.GetPriceListClient( priceListCode,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// admin-pricelists Post AddPriceList description DOCUMENT_HERE 
-		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="priceList">Mozu.ProductAdmin.Contracts.PriceList ApiType DOCUMENT_HERE </param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PriceList"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var pricelist = new PriceList();
-		///   var priceList = pricelist.AddPriceList( priceList,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.PriceList AddPriceList(Mozu.Api.Contracts.ProductAdmin.PriceList priceList, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.PriceList> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.AddPriceListClient( priceList,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// admin-pricelists Post AddPriceList description DOCUMENT_HERE 
+		/// Adds a new price list to the tenant.
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="priceList">Mozu.ProductAdmin.Contracts.PriceList ApiType DOCUMENT_HERE </param>
+		/// <param name="priceList">The details of the new price list.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PriceList"/>
 		/// </returns>
@@ -180,48 +106,98 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   var priceList = await pricelist.AddPriceListAsync( priceList,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.PriceList> AddPriceListAsync(Mozu.Api.Contracts.ProductAdmin.PriceList priceList, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.PriceList> AddPriceListAsync(Mozu.Api.Contracts.ProductAdmin.PriceList priceList, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.PriceList> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.AddPriceListClient( priceList,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
+
 		/// <summary>
-		/// admin-pricelists Put UpdatePriceList description DOCUMENT_HERE 
+		/// Adds up to 5000 new price list entries in bulk.
 		/// </summary>
-		/// <param name="priceListCode">The unique, user-defined code of the price list.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="priceList">Mozu.ProductAdmin.Contracts.PriceList ApiType DOCUMENT_HERE </param>
+		/// <param name="invalidateCache">Disable this property if you expect to encounter unacceptable performance hits related to clearing the cache for each product in the price list entries. Otherwise, leave this property enabled.</param>
+		/// <param name="publishEvents">Disable this property to prevent publishing the event related to adding price list entries to the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.</param>
+		/// <param name="priceListEntriesIn"></param>
 		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PriceList"/>
+		/// 
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var pricelist = new PriceList();
-		///   var priceList = pricelist.UpdatePriceList( priceList,  priceListCode,  responseFields);
+		///   await pricelist.BulkAddPriceListEntriesAsync( priceListEntriesIn,  publishEvents,  invalidateCache);
 		/// </code>
 		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.PriceList UpdatePriceList(Mozu.Api.Contracts.ProductAdmin.PriceList priceList, string priceListCode, string responseFields =  null)
+		public virtual async Task BulkAddPriceListEntriesAsync(List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents =  null, bool? invalidateCache =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.PriceList> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.UpdatePriceListClient( priceList,  priceListCode,  responseFields);
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.BulkAddPriceListEntriesClient( priceListEntriesIn,  publishEvents,  invalidateCache);
 			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 
+
 		/// <summary>
-		/// admin-pricelists Put UpdatePriceList description DOCUMENT_HERE 
+		/// Deletes up to 5000 price list entries in bulk.
+		/// </summary>
+		/// <param name="invalidateCache">Disable this property if you expect to encounter unacceptable performance hits related to clearing the cache for each product in the price list entries. Otherwise, leave this property enabled.</param>
+		/// <param name="publishEvents">Disable this property to prevent publishing the event related to deleting price list entries from the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.</param>
+		/// <param name="priceListEntriesIn"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var pricelist = new PriceList();
+		///   await pricelist.BulkDeletePriceListEntriesAsync( priceListEntriesIn,  publishEvents,  invalidateCache);
+		/// </code>
+		/// </example>
+		public virtual async Task BulkDeletePriceListEntriesAsync(List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents =  null, bool? invalidateCache =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.BulkDeletePriceListEntriesClient( priceListEntriesIn,  publishEvents,  invalidateCache);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+
+		}
+
+
+		/// <summary>
+		/// Updates up to 5000 price list entries in bulk.
+		/// </summary>
+		/// <param name="invalidateCache">Disable this property if you expect to encounter unacceptable performance hits related to clearing the cache for each product in the price list entries. Otherwise, leave this property enabled.</param>
+		/// <param name="publishEvents">Disable this property to prevent publishing the event related to updating price list entries in the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.</param>
+		/// <param name="priceListEntriesIn"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var pricelist = new PriceList();
+		///   await pricelist.BulkUpdatePriceListEntriesAsync( priceListEntriesIn,  publishEvents,  invalidateCache);
+		/// </code>
+		/// </example>
+		public virtual async Task BulkUpdatePriceListEntriesAsync(List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents =  null, bool? invalidateCache =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.BulkUpdatePriceListEntriesClient( priceListEntriesIn,  publishEvents,  invalidateCache);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+
+		}
+
+
+		/// <summary>
+		/// Updates the details of the specified price list.
 		/// </summary>
 		/// <param name="priceListCode">The unique, user-defined code of the price list.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="priceList">Mozu.ProductAdmin.Contracts.PriceList ApiType DOCUMENT_HERE </param>
+		/// <param name="priceList">The details of the updated price list.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PriceList"/>
 		/// </returns>
@@ -231,42 +207,19 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   var priceList = await pricelist.UpdatePriceListAsync( priceList,  priceListCode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.PriceList> UpdatePriceListAsync(Mozu.Api.Contracts.ProductAdmin.PriceList priceList, string priceListCode, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.PriceList> UpdatePriceListAsync(Mozu.Api.Contracts.ProductAdmin.PriceList priceList, string priceListCode, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.PriceList> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.UpdatePriceListClient( priceList,  priceListCode,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// admin-pricelists Delete DeletePriceList description DOCUMENT_HERE 
-		/// </summary>
-		/// <param name="cascadeDeleteEntries">Specifies whether to deletes all price list entries associated with the price list.</param>
-		/// <param name="priceListCode">The unique, user-defined code of the price list.</param>
-		/// <returns>
-		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var pricelist = new PriceList();
-		///   pricelist.DeletePriceList( priceListCode,  cascadeDeleteEntries);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeletePriceList(string priceListCode, bool? cascadeDeleteEntries =  null)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.DeletePriceListClient( priceListCode,  cascadeDeleteEntries);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
 
 		/// <summary>
-		/// admin-pricelists Delete DeletePriceList description DOCUMENT_HERE 
+		/// Deletes the specified price list from the tenant.
 		/// </summary>
 		/// <param name="cascadeDeleteEntries">Specifies whether to deletes all price list entries associated with the price list.</param>
 		/// <param name="priceListCode">The unique, user-defined code of the price list.</param>
@@ -279,12 +232,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   await pricelist.DeletePriceListAsync( priceListCode,  cascadeDeleteEntries);
 		/// </code>
 		/// </example>
-		public virtual async Task DeletePriceListAsync(string priceListCode, bool? cascadeDeleteEntries =  null)
+		public virtual async Task DeletePriceListAsync(string priceListCode, bool? cascadeDeleteEntries =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.DeletePriceListClient( priceListCode,  cascadeDeleteEntries);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 

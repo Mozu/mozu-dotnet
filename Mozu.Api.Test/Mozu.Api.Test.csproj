@@ -117,6 +117,7 @@
     <Compile Include="Factories\CarrierConfigurationFactory.cs" />
     <Compile Include="Factories\CartFactory.cs" />
     <Compile Include="Factories\CartItemFactory.cs" />
+    <Compile Include="Factories\CartSettingsFactory.cs" />
     <Compile Include="Factories\CategoryFactory.cs" />
     <Compile Include="Factories\ChangeMessageFactory.cs" />
     <Compile Include="Factories\ChannelFactory.cs" />
@@ -124,6 +125,7 @@
     <Compile Include="Factories\CheckoutSettingsFactory.cs" />
     <Compile Include="Factories\CouponFactory.cs" />
     <Compile Include="Factories\CouponSetFactory.cs" />
+    <Compile Include="Factories\CredentialStoreEntryFactory.cs" />
     <Compile Include="Factories\CreditAuditEntryFactory.cs" />
     <Compile Include="Factories\CreditFactory.cs" />
     <Compile Include="Factories\CreditTransactionFactory.cs" />
@@ -137,6 +139,7 @@
     <Compile Include="Factories\CustomerPurchaseOrderAccountFactory.cs" />
     <Compile Include="Factories\CustomerSegmentAccountsFactory.cs" />
     <Compile Include="Factories\CustomerSegmentFactory.cs" />
+    <Compile Include="Factories\CustomerSetFactory.cs" />
     <Compile Include="Factories\CustomRouteSettingsFactory.cs" />
     <Compile Include="Factories\DeveloperAdminUserAuthTicketFactory.cs" />
     <Compile Include="Factories\DigitalPackageFactory.cs" />
@@ -174,6 +177,7 @@
     <Compile Include="Factories\OrderFactory.cs" />
     <Compile Include="Factories\OrderItemFactory.cs" />
     <Compile Include="Factories\OrderNoteFactory.cs" />
+    <Compile Include="Factories\OrderReturnableItemFactory.cs" />
     <Compile Include="Factories\OrderValidationResultFactory.cs" />
     <Compile Include="Factories\PackageFactory.cs" />
     <Compile Include="Factories\PaymentFactory.cs" />
@@ -211,6 +215,7 @@
     <Compile Include="Factories\SiteShippingSettingsFactory.cs" />
     <Compile Include="Factories\SoftAllocationFactory.cs" />
     <Compile Include="Factories\StorefrontCategoryFactory.cs" />
+    <Compile Include="Factories\StorefrontOrderTaxContextFactory.cs" />
     <Compile Include="Factories\StorefrontPackageFactory.cs" />
     <Compile Include="Factories\StorefrontPriceListFactory.cs" />
     <Compile Include="Factories\StorefrontProductFactory.cs" />

@@ -19,6 +19,11 @@ namespace Mozu.Api.Contracts.Customer
 		public class ResetPasswordInfo
 		{
 			///
+			///The unique code of the customer set.
+			///
+			public string CustomerSetCode { get; set; }
+
+			///
 			///The email address of the specified user or the email address associated with the specified entity.
 			///
 			public string EmailAddress { get; set; }

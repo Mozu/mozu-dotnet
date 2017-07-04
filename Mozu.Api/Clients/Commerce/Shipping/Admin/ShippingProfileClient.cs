@@ -13,16 +13,17 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Clients.Commerce.Shipping.Admin
 {
 	/// <summary>
-	/// commerce/shipping/admin/profiles related resources. DOCUMENT_HERE 
+	/// Use the Profiles resource to manage your shipping profiles.
 	/// </summary>
 	public partial class ShippingProfileClient 	{
 		
 		/// <summary>
-		/// Get Shipping Profiles for the Tenant/Master Catalog
+		/// Retrieves a list of shipping profiles.
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>

@@ -18,6 +18,7 @@ using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 #endregion
 
@@ -51,7 +52,7 @@ namespace Mozu.Api.Test.Factories
 				 startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  q :  q,  qLimit :  qLimit,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -89,7 +90,7 @@ namespace Mozu.Api.Test.Factories
 				 orderId :  orderId		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -127,7 +128,7 @@ namespace Mozu.Api.Test.Factories
 				 orderId :  orderId		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -165,7 +166,7 @@ namespace Mozu.Api.Test.Factories
 				 orderId :  orderId,  draft :  draft,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -203,7 +204,7 @@ namespace Mozu.Api.Test.Factories
 				 cartId :  cartId,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -241,7 +242,7 @@ namespace Mozu.Api.Test.Factories
 				 order :  order,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -279,7 +280,7 @@ namespace Mozu.Api.Test.Factories
 				 action :  action,  orderId :  orderId,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -296,7 +297,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// commerce-orders Put ProcessDigitalWallet description DOCUMENT_HERE 
+		/// Processes a digital wallet (used to hold 3rd party payment and shipping information).
 		/// <example> 
 		///  <code> 
 		/// var result = OrderFactory.ProcessDigitalWallet(handler : handler,  digitalWallet :  digitalWallet,  orderId :  orderId,  digitalWalletType :  digitalWalletType,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -317,7 +318,7 @@ namespace Mozu.Api.Test.Factories
 				 digitalWallet :  digitalWallet,  orderId :  orderId,  digitalWalletType :  digitalWalletType,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -355,7 +356,7 @@ namespace Mozu.Api.Test.Factories
 				 discount :  discount,  orderId :  orderId,  discountId :  discountId,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -393,7 +394,7 @@ namespace Mozu.Api.Test.Factories
 				 orderId :  orderId,  version :  version		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -409,7 +410,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// commerce-orders Put ResendOrderConfirmationEmail description DOCUMENT_HERE 
+		/// Triggers an order confirmation email to be resent.
 		/// <example> 
 		///  <code> 
 		/// var result = OrderFactory.ResendOrderConfirmationEmail(handler : handler,  action :  action,  orderId :  orderId,  expectedCode: expectedCode, successCode: successCode); 
@@ -430,7 +431,7 @@ namespace Mozu.Api.Test.Factories
 				 action :  action,  orderId :  orderId		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -446,7 +447,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Changes the pricelist associated with an order. The desired price list code should be specified on the ApiContext.
+		/// Changes the price list associated with an order. The desired price list code should be specified in the ApiContext.
 		/// <example> 
 		///  <code> 
 		/// var result = OrderFactory.ChangeOrderPriceList(handler : handler,  priceListCode :  priceListCode,  orderId :  orderId,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -467,7 +468,7 @@ namespace Mozu.Api.Test.Factories
 				 priceListCode :  priceListCode,  orderId :  orderId,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -505,7 +506,7 @@ namespace Mozu.Api.Test.Factories
 				 orderId :  orderId,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -543,7 +544,7 @@ namespace Mozu.Api.Test.Factories
 				 order :  order,  orderId :  orderId,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{

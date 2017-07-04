@@ -18,6 +18,7 @@ using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 #endregion
 
@@ -51,7 +52,7 @@ namespace Mozu.Api.Test.Factories
 				 wishlistId :  wishlistId,  wishlistItemId :  wishlistItemId,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -89,7 +90,7 @@ namespace Mozu.Api.Test.Factories
 				 wishlistId :  wishlistId,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -127,7 +128,7 @@ namespace Mozu.Api.Test.Factories
 				 customerAccountId :  customerAccountId,  wishlistName :  wishlistName,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -165,7 +166,7 @@ namespace Mozu.Api.Test.Factories
 				 wishlistItem :  wishlistItem,  wishlistId :  wishlistId,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -203,7 +204,7 @@ namespace Mozu.Api.Test.Factories
 				 wishlistId :  wishlistId,  wishlistItemId :  wishlistItemId,  quantity :  quantity,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -241,7 +242,7 @@ namespace Mozu.Api.Test.Factories
 				 wishlistItem :  wishlistItem,  wishlistId :  wishlistId,  wishlistItemId :  wishlistItemId,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -279,7 +280,7 @@ namespace Mozu.Api.Test.Factories
 				 wishlistId :  wishlistId		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -317,7 +318,7 @@ namespace Mozu.Api.Test.Factories
 				 wishlistId :  wishlistId,  wishlistItemId :  wishlistItemId		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{

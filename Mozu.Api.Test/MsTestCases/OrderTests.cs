@@ -218,7 +218,7 @@ namespace Mozu.Api.Test.MsTestCases
             var ShopperAuth =
                 Mozu.Api.Security.CustomerAuthenticator.Authenticate(customerUserAuthInfo: shopperUserAuthInfo,
                                                                      tenantId: TestBaseTenant.Id,
-                                                                     siteId: TestBaseTenant.Sites.FirstOrDefault().Id);
+                                                                     siteId: TestBaseTenant.Sites.FirstOrDefault().Id).Result;
 
             ShopperMsgHandler.ApiContext.UserAuthTicket = ShopperAuth.AuthTicket;
             var createdCart = CartFactory.GetOrCreateCart(ShopperMsgHandler);
@@ -465,7 +465,7 @@ namespace Mozu.Api.Test.MsTestCases
                 ShopperAuth =
                     Mozu.Api.Security.CustomerAuthenticator.Authenticate(customerUserAuthInfo: shopperUserAuthInfo,
                         tenantId: TestBaseTenant.Id,
-                        siteId: TestBaseTenant.Sites.FirstOrDefault().Id);
+                        siteId: TestBaseTenant.Sites.FirstOrDefault().Id).Result;
             }
             catch (Exception ex)
             {

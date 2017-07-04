@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Content
 {
@@ -44,31 +45,6 @@ namespace Mozu.Api.Resources.Content
 			_dataViewMode = dataViewMode;
 		}
 				
-		/// <summary>
-		/// Retrieves a list of the content property types.
-		/// </summary>
-		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Content.PropertyTypeCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var propertytype = new PropertyType();
-		///   var propertyTypeCollection = propertytype.GetPropertyTypes(_dataViewMode,  pageSize,  startIndex,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Content.PropertyTypeCollection GetPropertyTypes(int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Content.PropertyTypeCollection> response;
-			var client = Mozu.Api.Clients.Content.PropertyTypeClient.GetPropertyTypesClient(_dataViewMode,  pageSize,  startIndex,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves a list of the content property types.
@@ -85,40 +61,16 @@ namespace Mozu.Api.Resources.Content
 		///   var propertyTypeCollection = await propertytype.GetPropertyTypesAsync(_dataViewMode,  pageSize,  startIndex,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Content.PropertyTypeCollection> GetPropertyTypesAsync(int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Content.PropertyTypeCollection> GetPropertyTypesAsync(int? pageSize =  null, int? startIndex =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Content.PropertyTypeCollection> response;
 			var client = Mozu.Api.Clients.Content.PropertyTypeClient.GetPropertyTypesClient(_dataViewMode,  pageSize,  startIndex,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves the details of the content property type.
-		/// </summary>
-		/// <param name="propertyTypeName">The name of the property type.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Content.PropertyType"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var propertytype = new PropertyType();
-		///   var propertyType = propertytype.GetPropertyType(_dataViewMode,  propertyTypeName,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Content.PropertyType GetPropertyType(string propertyTypeName, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Content.PropertyType> response;
-			var client = Mozu.Api.Clients.Content.PropertyTypeClient.GetPropertyTypeClient(_dataViewMode,  propertyTypeName,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves the details of the content property type.
@@ -134,40 +86,16 @@ namespace Mozu.Api.Resources.Content
 		///   var propertyType = await propertytype.GetPropertyTypeAsync(_dataViewMode,  propertyTypeName,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Content.PropertyType> GetPropertyTypeAsync(string propertyTypeName, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Content.PropertyType> GetPropertyTypeAsync(string propertyTypeName, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Content.PropertyType> response;
 			var client = Mozu.Api.Clients.Content.PropertyTypeClient.GetPropertyTypeClient(_dataViewMode,  propertyTypeName,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Creates a new
-		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="propertyType">Property type available for content. Property types are like templates that can be reused.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Content.PropertyType"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var propertytype = new PropertyType();
-		///   var propertyType = propertytype.CreatePropertyType( propertyType,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Content.PropertyType CreatePropertyType(Mozu.Api.Contracts.Content.PropertyType propertyType, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Content.PropertyType> response;
-			var client = Mozu.Api.Clients.Content.PropertyTypeClient.CreatePropertyTypeClient( propertyType,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Creates a new
@@ -183,41 +111,16 @@ namespace Mozu.Api.Resources.Content
 		///   var propertyType = await propertytype.CreatePropertyTypeAsync( propertyType,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Content.PropertyType> CreatePropertyTypeAsync(Mozu.Api.Contracts.Content.PropertyType propertyType, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Content.PropertyType> CreatePropertyTypeAsync(Mozu.Api.Contracts.Content.PropertyType propertyType, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Content.PropertyType> response;
 			var client = Mozu.Api.Clients.Content.PropertyTypeClient.CreatePropertyTypeClient( propertyType,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates a
-		/// </summary>
-		/// <param name="propertyTypeName">The name of the property type.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="propertyType">Property type available for content. Property types are like templates that can be reused.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Content.PropertyType"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var propertytype = new PropertyType();
-		///   var propertyType = propertytype.UpdatePropertyType(_dataViewMode,  propertyType,  propertyTypeName,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Content.PropertyType UpdatePropertyType(Mozu.Api.Contracts.Content.PropertyType propertyType, string propertyTypeName, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Content.PropertyType> response;
-			var client = Mozu.Api.Clients.Content.PropertyTypeClient.UpdatePropertyTypeClient(_dataViewMode,  propertyType,  propertyTypeName,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Updates a
@@ -234,38 +137,16 @@ namespace Mozu.Api.Resources.Content
 		///   var propertyType = await propertytype.UpdatePropertyTypeAsync(_dataViewMode,  propertyType,  propertyTypeName,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Content.PropertyType> UpdatePropertyTypeAsync(Mozu.Api.Contracts.Content.PropertyType propertyType, string propertyTypeName, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Content.PropertyType> UpdatePropertyTypeAsync(Mozu.Api.Contracts.Content.PropertyType propertyType, string propertyTypeName, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Content.PropertyType> response;
 			var client = Mozu.Api.Clients.Content.PropertyTypeClient.UpdatePropertyTypeClient(_dataViewMode,  propertyType,  propertyTypeName,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Delete a specific
-		/// </summary>
-		/// <param name="propertyTypeName">The name of the property type.</param>
-		/// <returns>
-		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var propertytype = new PropertyType();
-		///   propertytype.DeletePropertyType(_dataViewMode,  propertyTypeName);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeletePropertyType(string propertyTypeName)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Content.PropertyTypeClient.DeletePropertyTypeClient(_dataViewMode,  propertyTypeName);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
 
 		/// <summary>
 		/// Delete a specific
@@ -280,12 +161,12 @@ namespace Mozu.Api.Resources.Content
 		///   await propertytype.DeletePropertyTypeAsync(_dataViewMode,  propertyTypeName);
 		/// </code>
 		/// </example>
-		public virtual async Task DeletePropertyTypeAsync(string propertyTypeName)
+		public virtual async Task DeletePropertyTypeAsync(string propertyTypeName, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Content.PropertyTypeClient.DeletePropertyTypeClient(_dataViewMode,  propertyTypeName);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 

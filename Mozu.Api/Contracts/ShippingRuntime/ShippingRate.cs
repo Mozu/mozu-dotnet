@@ -42,7 +42,7 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			public List<CustomAttribute> CustomAttributes { get; set; }
 
 			///
-			///Mozu.ShippingRuntime.Contracts.ShippingRate data ApiTypeMember DOCUMENT_HERE 
+			///Shipping rate data.
 			///
 			public JObject Data { get; set; }
 

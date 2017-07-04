@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Settings
 {
@@ -37,29 +38,6 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		}
 
 				
-		/// <summary>
-		/// Retrieves the configured site location usages for the location usage code specified in the request.
-		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Location.LocationUsageCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var locationusage = new LocationUsage();
-		///   var locationUsageCollection = locationusage.GetLocationUsages( responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Location.LocationUsageCollection GetLocationUsages(string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Location.LocationUsageCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Settings.LocationUsageClient.GetLocationUsagesClient( responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves the configured site location usages for the location usage code specified in the request.
@@ -74,40 +52,16 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		///   var locationUsageCollection = await locationusage.GetLocationUsagesAsync( responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Location.LocationUsageCollection> GetLocationUsagesAsync(string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Location.LocationUsageCollection> GetLocationUsagesAsync(string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Location.LocationUsageCollection> response;
 			var client = Mozu.Api.Clients.Commerce.Settings.LocationUsageClient.GetLocationUsagesClient( responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves the location usages for the site specified in the request header.
-		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Location.LocationUsage"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var locationusage = new LocationUsage();
-		///   var locationUsage = locationusage.GetLocationUsage( code,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Location.LocationUsage GetLocationUsage(string code, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Location.LocationUsage> response;
-			var client = Mozu.Api.Clients.Commerce.Settings.LocationUsageClient.GetLocationUsageClient( code,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves the location usages for the site specified in the request header.
@@ -123,41 +77,16 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		///   var locationUsage = await locationusage.GetLocationUsageAsync( code,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Location.LocationUsage> GetLocationUsageAsync(string code, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Location.LocationUsage> GetLocationUsageAsync(string code, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Location.LocationUsage> response;
 			var client = Mozu.Api.Clients.Commerce.Settings.LocationUsageClient.GetLocationUsageClient( code,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates the location usage for the site based on the location usage code specified in the request.
-		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="usage">Configuration properties of a location usage type for a specified site. The direct ship location usage type consists of a single location that represents location that supports direct ship (DS) fulfillment. The in-store pickup location usage type consists of a list of location types that represent locations that support in-store pickup (SP) fulfillment. The store finder location usage type consists of a list of location codes, location types, or both.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Location.LocationUsage"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var locationusage = new LocationUsage();
-		///   var locationUsage = locationusage.UpdateLocationUsage( usage,  code,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Location.LocationUsage UpdateLocationUsage(Mozu.Api.Contracts.Location.LocationUsage usage, string code, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Location.LocationUsage> response;
-			var client = Mozu.Api.Clients.Commerce.Settings.LocationUsageClient.UpdateLocationUsageClient( usage,  code,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Updates the location usage for the site based on the location usage code specified in the request.
@@ -174,12 +103,12 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		///   var locationUsage = await locationusage.UpdateLocationUsageAsync( usage,  code,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Location.LocationUsage> UpdateLocationUsageAsync(Mozu.Api.Contracts.Location.LocationUsage usage, string code, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Location.LocationUsage> UpdateLocationUsageAsync(Mozu.Api.Contracts.Location.LocationUsage usage, string code, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Location.LocationUsage> response;
 			var client = Mozu.Api.Clients.Commerce.Settings.LocationUsageClient.UpdateLocationUsageClient( usage,  code,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}

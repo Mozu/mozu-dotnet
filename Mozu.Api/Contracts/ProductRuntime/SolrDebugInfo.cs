@@ -15,32 +15,32 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
-		///	Mozu.ProductRuntime.Contracts.SolrDebugInfo ApiType DOCUMENT_HERE 
+		///	A container of debugging information from Solr.
 		///
 		public class SolrDebugInfo
 		{
 			///
-			///Mozu.ProductRuntime.Contracts.SolrDebugInfo blockedProductCodes ApiTypeMember DOCUMENT_HERE 
+			///A list of products that have been blocked in Solr by search tuning rules.
 			///
 			public List<string> BlockedProductCodes { get; set; }
 
 			///
-			///Mozu.ProductRuntime.Contracts.SolrDebugInfo boostedProductCodes ApiTypeMember DOCUMENT_HERE 
+			///A list of products that have been boosted in Solr by search tuning rules.
 			///
 			public List<string> BoostedProductCodes { get; set; }
 
 			///
-			///Mozu.ProductRuntime.Contracts.SolrDebugInfo boostFunctions ApiTypeMember DOCUMENT_HERE 
+			///A list of boost functions sent to Solr by search tuning rules.
 			///
 			public List<string> BoostFunctions { get; set; }
 
 			///
-			///Mozu.ProductRuntime.Contracts.SolrDebugInfo boostQueries ApiTypeMember DOCUMENT_HERE 
+			///A list of boost queries sent to Solr by search tuning rules.
 			///
 			public List<string> BoostQueries { get; set; }
 
 			///
-			///Mozu.ProductRuntime.Contracts.SolrDebugInfo searchTuningRuleCode ApiTypeMember DOCUMENT_HERE 
+			///A list of search tuning rule codes sent to Solr.
 			///
 			public string SearchTuningRuleCode { get; set; }
 

@@ -18,13 +18,14 @@ using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 #endregion
 
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Events are notifications Mozu publishes to the application when a create, read, update, or delete operation is performed. If the application subscribes to the event, you can use the Events resource to query for recent events Mozu published to your application or events that were not published successfully.
+	/// Events are notifications  publishes to the application when a create, read, update, or delete operation is performed. If the application subscribes to the event, you can use the Events resource to query for recent events  published to your application or events that were not published successfully.
 	/// </summary>
 	public partial class EventNotificationFactory : BaseDataFactory
 	{
@@ -51,7 +52,7 @@ namespace Mozu.Api.Test.Factories
 				 startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -89,7 +90,7 @@ namespace Mozu.Api.Test.Factories
 				 eventId :  eventId,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{

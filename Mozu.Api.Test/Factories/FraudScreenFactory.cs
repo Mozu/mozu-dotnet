@@ -18,6 +18,7 @@ using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 #endregion
 
@@ -33,14 +34,14 @@ namespace Mozu.Api.Test.Factories
 		/// payments-fraudscreen Post Screen description DOCUMENT_HERE 
 		/// <example> 
 		///  <code> 
-		/// var result = FraudScreenFactory.Screen(handler : handler,  request :  request,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = FraudScreenFactory.Screen(handler : handler,  request :  request,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<FraudScreen/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.PaymentService.Response.FraudScreen Screen(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.PaymentService.Request.FraudScreenRequest request, 
+ 		 Mozu.Api.Contracts.PaymentService.Request.FraudScreenRequest request, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -48,10 +49,10 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Payments.FraudScreenClient.ScreenClient(
-				 request :  request		);
+				 request :  request,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{

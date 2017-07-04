@@ -18,6 +18,7 @@ using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 #endregion
 
@@ -51,7 +52,7 @@ namespace Mozu.Api.Test.Factories
 				 pageSize :  pageSize,  startIndex :  startIndex,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -89,7 +90,7 @@ namespace Mozu.Api.Test.Factories
 				 documentTypeName :  documentTypeName,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -127,7 +128,7 @@ namespace Mozu.Api.Test.Factories
 				 documentType :  documentType,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -165,7 +166,7 @@ namespace Mozu.Api.Test.Factories
 				 documentType :  documentType,  documentTypeName :  documentTypeName,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{

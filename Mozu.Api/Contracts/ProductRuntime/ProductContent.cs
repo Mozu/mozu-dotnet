@@ -25,12 +25,12 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string MetaTagDescription { get; set; }
 
 			///
-			///Keywords defined for  metadata, used to internally manage data, in the language specified by the `localeCode`. Keywords are used by content for categories, products, localized content, and SEO content.
+			///Keywords defined for metadata, used to internally manage data, in the language specified by the `localeCode`. Keywords are used by content for categories, products, localized content, and SEO content.
 			///
 			public string MetaTagKeywords { get; set; }
 
 			///
-			///Title defined for  metadata, used to internally manage data, in the language specified by the `localeCode`. Titles are used by content for categories, products, localized content, and SEO content.
+			///Title defined for metadata, used to internally manage data, in the language specified by the `localeCode`. Titles are used by content for categories, products, localized content, and SEO content.
 			///
 			public string MetaTagTitle { get; set; }
 

@@ -18,6 +18,7 @@ using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 #endregion
 
@@ -30,17 +31,55 @@ namespace Mozu.Api.Test.Factories
 	{
 
 		/// <summary> 
+		/// Random access paging computes a set of , which can each then be provided to the  operation in the  resource or the  operation in the  resource. You can provide the computed groups in any order to the operations, and can therefore parallelize calls to retrieve products more quickly. To generate the set of , call this () operation, in which you can optionally provide query and/or filter parameters to limit the products matched by the cursor. After executing this operation, pass one of the returned  to the  parameter of the  or  operations.
+		/// <example> 
+		///  <code> 
+		/// var result = ProductSearchResultFactory.GetRandomAccessCursor(handler : handler,  query :  query,  filter :  filter,  pageSize :  pageSize,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<ProductSearchRandomAccessCursor/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.ProductRuntime.ProductSearchRandomAccessCursor GetRandomAccessCursor(ServiceClientMessageHandler handler, 
+ 		 string query = null, string filter = null, int? pageSize = null, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductSearchResultClient.GetRandomAccessCursorClient(
+				 query :  query,  filter :  filter,  pageSize :  pageSize,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
 		/// Searches the categories displayed on the web storefront for products or product options that the shopper types in a search query.
 		/// <example> 
 		///  <code> 
-		/// var result = ProductSearchResultFactory.Search(handler : handler,  query :  query,  filter :  filter,  facetTemplate :  facetTemplate,  facetTemplateSubset :  facetTemplateSubset,  facet :  facet,  facetFieldRangeQuery :  facetFieldRangeQuery,  facetHierPrefix :  facetHierPrefix,  facetHierValue :  facetHierValue,  facetHierDepth :  facetHierDepth,  facetStartIndex :  facetStartIndex,  facetPageSize :  facetPageSize,  facetSettings :  facetSettings,  facetValueFilter :  facetValueFilter,  sortBy :  sortBy,  pageSize :  pageSize,  startIndex :  startIndex,  searchSettings :  searchSettings,  enableSearchTuningRules :  enableSearchTuningRules,  searchTuningRuleContext :  searchTuningRuleContext,  searchTuningRuleCode :  searchTuningRuleCode,  facetTemplateExclude :  facetTemplateExclude,  facetPrefix :  facetPrefix,  responseOptions :  responseOptions,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductSearchResultFactory.Search(handler : handler,  query :  query,  filter :  filter,  facetTemplate :  facetTemplate,  facetTemplateSubset :  facetTemplateSubset,  facet :  facet,  facetFieldRangeQuery :  facetFieldRangeQuery,  facetHierPrefix :  facetHierPrefix,  facetHierValue :  facetHierValue,  facetHierDepth :  facetHierDepth,  facetStartIndex :  facetStartIndex,  facetPageSize :  facetPageSize,  facetSettings :  facetSettings,  facetValueFilter :  facetValueFilter,  sortBy :  sortBy,  pageSize :  pageSize,  startIndex :  startIndex,  searchSettings :  searchSettings,  enableSearchTuningRules :  enableSearchTuningRules,  searchTuningRuleContext :  searchTuningRuleContext,  searchTuningRuleCode :  searchTuningRuleCode,  facetTemplateExclude :  facetTemplateExclude,  facetPrefix :  facetPrefix,  responseOptions :  responseOptions,  cursorMark :  cursorMark,  facetValueSort :  facetValueSort,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<ProductSearchResult/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductRuntime.ProductSearchResult Search(ServiceClientMessageHandler handler, 
- 		 string query = null, string filter = null, string facetTemplate = null, string facetTemplateSubset = null, string facet = null, string facetFieldRangeQuery = null, string facetHierPrefix = null, string facetHierValue = null, string facetHierDepth = null, string facetStartIndex = null, string facetPageSize = null, string facetSettings = null, string facetValueFilter = null, string sortBy = null, int? pageSize = null, int? startIndex = null, string searchSettings = null, bool? enableSearchTuningRules = null, string searchTuningRuleContext = null, string searchTuningRuleCode = null, string facetTemplateExclude = null, string facetPrefix = null, string responseOptions = null, string responseFields = null, 
+ 		 string query = null, string filter = null, string facetTemplate = null, string facetTemplateSubset = null, string facet = null, string facetFieldRangeQuery = null, string facetHierPrefix = null, string facetHierValue = null, string facetHierDepth = null, string facetStartIndex = null, string facetPageSize = null, string facetSettings = null, string facetValueFilter = null, string sortBy = null, int? pageSize = null, int? startIndex = null, string searchSettings = null, bool? enableSearchTuningRules = null, string searchTuningRuleContext = null, string searchTuningRuleCode = null, string facetTemplateExclude = null, string facetPrefix = null, string responseOptions = null, string cursorMark = null, string facetValueSort = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -48,10 +87,10 @@ namespace Mozu.Api.Test.Factories
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductSearchResultClient.SearchClient(
-				 query :  query,  filter :  filter,  facetTemplate :  facetTemplate,  facetTemplateSubset :  facetTemplateSubset,  facet :  facet,  facetFieldRangeQuery :  facetFieldRangeQuery,  facetHierPrefix :  facetHierPrefix,  facetHierValue :  facetHierValue,  facetHierDepth :  facetHierDepth,  facetStartIndex :  facetStartIndex,  facetPageSize :  facetPageSize,  facetSettings :  facetSettings,  facetValueFilter :  facetValueFilter,  sortBy :  sortBy,  pageSize :  pageSize,  startIndex :  startIndex,  searchSettings :  searchSettings,  enableSearchTuningRules :  enableSearchTuningRules,  searchTuningRuleContext :  searchTuningRuleContext,  searchTuningRuleCode :  searchTuningRuleCode,  facetTemplateExclude :  facetTemplateExclude,  facetPrefix :  facetPrefix,  responseOptions :  responseOptions,  responseFields :  responseFields		);
+				 query :  query,  filter :  filter,  facetTemplate :  facetTemplate,  facetTemplateSubset :  facetTemplateSubset,  facet :  facet,  facetFieldRangeQuery :  facetFieldRangeQuery,  facetHierPrefix :  facetHierPrefix,  facetHierValue :  facetHierValue,  facetHierDepth :  facetHierDepth,  facetStartIndex :  facetStartIndex,  facetPageSize :  facetPageSize,  facetSettings :  facetSettings,  facetValueFilter :  facetValueFilter,  sortBy :  sortBy,  pageSize :  pageSize,  startIndex :  startIndex,  searchSettings :  searchSettings,  enableSearchTuningRules :  enableSearchTuningRules,  searchTuningRuleContext :  searchTuningRuleContext,  searchTuningRuleCode :  searchTuningRuleCode,  facetTemplateExclude :  facetTemplateExclude,  facetPrefix :  facetPrefix,  responseOptions :  responseOptions,  cursorMark :  cursorMark,  facetValueSort :  facetValueSort,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -89,7 +128,7 @@ namespace Mozu.Api.Test.Factories
 				 query :  query,  groups :  groups,  pageSize :  pageSize,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{

@@ -30,7 +30,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public List<OrderValidationMessage> Messages { get; set; }
 
 			///
-			///The current status of an object. This status is specific to the object including payment (New, Authorized, Captured, Declined, Failed, Voided, Credited, CheckRequested, or RolledBack), discount (Active, Scheduled, or Expired), returns (ReturnAuthorized), tenant, package (Fulfilled or NotFulfilled), application, master and product catalogs, orders (Pending, Submitted, Processing, Pending Review, Closed, or Canceled), and order validation results (Pass, Fail, Error, or Review).
+			///The current status of the object.This value is read only. Valid values for this field are: "Active", "Expired", and "Inactive".
 			///
 			public string Status { get; set; }
 

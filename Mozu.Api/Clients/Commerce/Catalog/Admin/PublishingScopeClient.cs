@@ -13,16 +13,17 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 {
 	/// <summary>
-	/// Use the Product Publishing resource to publish or discard pending changes to product definitions in the master catalog.
+	/// Use the Product Publishing resource to publish or discard pending changes to products in a master catalog, or to add or remove pending changes to and from product publish sets.You can use product publish sets to group pending product changes together and publish them all at the same time.
 	/// </summary>
 	public partial class PublishingScopeClient 	{
 		
 		/// <summary>
-		/// Retrieves the details of a single PublishSet.
+		/// Retrieves the details of the specified product publish set.
 		/// </summary>
 		/// <param name="publishSetCode">The unique identifier of the publish set.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -48,7 +49,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Retrieves a list of PublishSets including the product counts.
+		/// Retrieves a list of product publish sets and their properties, including the amount of pending product changes that are included in each one.
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
@@ -73,7 +74,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Deletes the draft version of product changes for each product code specified in the request.
+		/// Deletes the draft version of product changes (pending product changes) for each product code specified in the request.
 		/// </summary>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="publishScope">Describes the scope of the product publishing update, which can include individual product codes or all pending changes.</param>
@@ -99,7 +100,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Publishes the draft version of product changes for each product code specified in the request, and changes the product publish state to "live".
+		/// Publishes the draft version of product changes (pending product changes) for each product code specified in the request, and changes the product publish state to "live".
 		/// </summary>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="publishScope">Describes the scope of the product publishing update, which can include individual product codes or all pending changes.</param>
@@ -125,11 +126,11 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Assigns a product draft to a specified publish set.
+		/// Assigns pending product changes to a specified product publish set. Use the code field to specify the product publish set.
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="publishSet">Mozu.ProductAdmin.Contracts.PublishSet ApiType DOCUMENT_HERE </param>
+		/// <param name="publishSet">The details of the publish to which you want to assign products.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.PublishSet"/>}
 		/// </returns>
@@ -151,7 +152,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Removes all details about a PublishSet from the product service. If the discardDrafts param is true, it also deletes the product drafts.
+		/// Deletes the specified product publish set. If you set the discardDrafts parameter to true, this operation also deletes the product drafts assigned to the publish set.
 		/// </summary>
 		/// <param name="discardDrafts">Specifies whether to discard all the drafts assigned to the publish set when the publish set is deleted.</param>
 		/// <param name="publishSetCode">The unique identifier of the publish set.</param>

@@ -13,11 +13,12 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Clients.Commerce
 {
 	/// <summary>
-	/// Use the Returns resource to manage returned items that were previously fufilled. Returns can include any number of items associated with an original Mozu order. Each return must either be associated with an original order or a product definition to represent each returned item.
+	/// Use the Returns resource to manage returned items that were previously fufilled. Returns can include any number of items associated with an original  order. Each return must either be associated with an original order or a product definition to represent each returned item.Refer to the [Returns API](https://www.mozu.com/docs/developer/api-guides/returns.htm) topic for more information about creating and processing returns using the API.
 	/// </summary>
 	public partial class ReturnClient 	{
 		
@@ -26,6 +27,7 @@ namespace Mozu.Api.Clients.Commerce
 		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
+		/// <param name="q">A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
@@ -34,13 +36,13 @@ namespace Mozu.Api.Clients.Commerce
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetReturns( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		///   var mozuClient=GetReturns( startIndex,  pageSize,  sortBy,  filter,  q,  responseFields);
 		///   var returnCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection> GetReturnsClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection> GetReturnsClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string q =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.ReturnUrl.GetReturnsUrl(startIndex, pageSize, sortBy, filter, responseFields);
+			var url = Mozu.Api.Urls.Commerce.ReturnUrl.GetReturnsUrl(startIndex, pageSize, sortBy, filter, q, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -226,7 +228,7 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// commerce-returns Get GetReasons description DOCUMENT_HERE 
+		/// Returns a list of reasons for a return.
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
@@ -250,7 +252,31 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// Creates a return for previously fulfilled items. Each return must either be associated with an original order or a product definition to represent each returned item.
+		/// Creates a return for previously fulfilled items. Each return must either be associated with an original order or a product definition to represent each returned item.When you create a return, you must specify the following fields:
+/// - 
+
+/// - 
+/// - 
+
+/// -  (Optional, but recommended)
+
+/// - 
+/// - 
+
+/// - 
+
+
+/// -  (required for bundle items or product extras, but null for parent product or bundles)
+/// - 
+
+/// - 
+
+
+/// -  (required for product extras, but otherwise null)
+
+/// -  (set to  to target parent products or bundles without extras)
+
+
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="ret">Properties of a return of one or more previously fulfilled items.</param>
@@ -354,6 +380,32 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
+		/// Creates a replacement order for the return.
+		/// </summary>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="itemQuantities"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=CreateReturnShippingOrder( itemQuantities,  returnId,  responseFields);
+		///   var orderClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> CreateReturnShippingOrderClient(List<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnItemSpecifier> itemQuantities, string returnId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.ReturnUrl.CreateReturnShippingOrderUrl(returnId, responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<List<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnItemSpecifier>>(itemQuantities);
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Updates the return by performing the action specified in the request.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
@@ -405,7 +457,7 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// commerce-returns Put ResendReturnEmail description DOCUMENT_HERE 
+		/// Resend the email notification to a shopper that a return has been created.
 		/// </summary>
 		/// <param name="action">Properties of an action a user can perform for a return.</param>
 		/// <returns>

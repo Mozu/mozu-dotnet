@@ -26,7 +26,7 @@ namespace Mozu.Api.Security
         private RefreshInterval _refreshInterval = null;
 
         private static ILogger _log = LogManager.GetLogger(typeof(AppAuthenticator));
-        private static SemaphoreSlim _semaphoreWaiter = new SemaphoreSlim(10);
+        private static SemaphoreSlim _semaphoreWaiter = new SemaphoreSlim(1);
 
         /// <summary>
 		/// The application auth ticket

@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Orders
 {
@@ -37,30 +38,6 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		}
 
 				
-		/// <summary>
-		/// Retrieves a list of the actions available to perform for the pickup specified in the request.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="pickupId">Unique identifier of the pickup to remove.</param>
-		/// <returns>
-		/// List{string}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var pickup = new Pickup();
-		///   var string = pickup.GetAvailablePickupFulfillmentActions( orderId,  pickupId);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual List<string> GetAvailablePickupFulfillmentActions(string orderId, string pickupId)
-		{
-			MozuClient<List<string>> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.PickupClient.GetAvailablePickupFulfillmentActionsClient( orderId,  pickupId);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves a list of the actions available to perform for the pickup specified in the request.
@@ -76,41 +53,16 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var string = await pickup.GetAvailablePickupFulfillmentActionsAsync( orderId,  pickupId);
 		/// </code>
 		/// </example>
-		public virtual async Task<List<string>> GetAvailablePickupFulfillmentActionsAsync(string orderId, string pickupId)
+		public virtual async Task<List<string>> GetAvailablePickupFulfillmentActionsAsync(string orderId, string pickupId, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<List<string>> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.PickupClient.GetAvailablePickupFulfillmentActionsClient( orderId,  pickupId);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves the details of the in-store pickup specified in the request.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="pickupId">Unique identifier of the pickup to remove.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var pickup = new Pickup();
-		///   var pickup = pickup.GetPickup( orderId,  pickupId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup GetPickup(string orderId, string pickupId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.PickupClient.GetPickupClient( orderId,  pickupId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves the details of the in-store pickup specified in the request.
@@ -127,41 +79,16 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var pickup = await pickup.GetPickupAsync( orderId,  pickupId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup> GetPickupAsync(string orderId, string pickupId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup> GetPickupAsync(string orderId, string pickupId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.PickupClient.GetPickupClient( orderId,  pickupId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Create a new pickup for the order specified in the request for in-store fufillment.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="pickup">Properties of an in-store pickup defined to fulfill items in an order.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var pickup = new Pickup();
-		///   var pickup = pickup.CreatePickup( pickup,  orderId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup CreatePickup(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup pickup, string orderId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.PickupClient.CreatePickupClient( pickup,  orderId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Create a new pickup for the order specified in the request for in-store fufillment.
@@ -178,42 +105,16 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var pickup = await pickup.CreatePickupAsync( pickup,  orderId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup> CreatePickupAsync(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup pickup, string orderId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup> CreatePickupAsync(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup pickup, string orderId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.PickupClient.CreatePickupClient( pickup,  orderId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates one or more details of a defined in-store pickup.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="pickupId">Unique identifier of the pickup to remove.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="pickup">Properties of an in-store pickup defined to fulfill items in an order.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var pickup = new Pickup();
-		///   var pickup = pickup.UpdatePickup( pickup,  orderId,  pickupId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup UpdatePickup(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup pickup, string orderId, string pickupId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.PickupClient.UpdatePickupClient( pickup,  orderId,  pickupId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Updates one or more details of a defined in-store pickup.
@@ -231,39 +132,16 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var pickup = await pickup.UpdatePickupAsync( pickup,  orderId,  pickupId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup> UpdatePickupAsync(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup pickup, string orderId, string pickupId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup> UpdatePickupAsync(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup pickup, string orderId, string pickupId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.PickupClient.UpdatePickupClient( pickup,  orderId,  pickupId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Removes a pickup previously defined for order item in-store pickup fulfillment.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="pickupId">Unique identifier of the pickup to remove.</param>
-		/// <returns>
-		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var pickup = new Pickup();
-		///   pickup.DeletePickup( orderId,  pickupId);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeletePickup(string orderId, string pickupId)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Orders.PickupClient.DeletePickupClient( orderId,  pickupId);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
 
 		/// <summary>
 		/// Removes a pickup previously defined for order item in-store pickup fulfillment.
@@ -279,12 +157,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   await pickup.DeletePickupAsync( orderId,  pickupId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeletePickupAsync(string orderId, string pickupId)
+		public virtual async Task DeletePickupAsync(string orderId, string pickupId, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Orders.PickupClient.DeletePickupClient( orderId,  pickupId);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 

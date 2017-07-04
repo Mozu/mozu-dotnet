@@ -18,19 +18,20 @@ using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 #endregion
 
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Allows you to create and manage products that you will offer on your storefront. You can create products with options that a shopper configures (such as a T-shirt color and size). You can set discounts and sale prices for your products, manage product inventory, and more.
+	/// Use the Price Lists resource to view and create price lists. You can use price lists to override the catalog pricing of products for specific customer segments and/or sites. You can override products' list price, sale price, advanced pricing information such as MSRP, cost, MAP, and the catalog price of any extras associated with the product in a price list. You can also restrict discounts from applying to the overridden product pricing in a price list. Refer to [Price Lists](../../../guides/catalog/price-lists.htm) in the Guides section for more information about price lists.
 	/// </summary>
 	public partial class PriceListFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// admin-pricelists Get GetPriceLists description DOCUMENT_HERE 
+		/// Retrieves a list of price lists according to any specified facets, filter criteria, and sort options.
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListFactory.GetPriceLists(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -51,7 +52,7 @@ namespace Mozu.Api.Test.Factories
 				 startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -68,7 +69,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// admin-pricelists Get GetPriceList description DOCUMENT_HERE 
+		/// Retrieves the details of the specified price list.
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListFactory.GetPriceList(handler : handler,  priceListCode :  priceListCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -89,7 +90,7 @@ namespace Mozu.Api.Test.Factories
 				 priceListCode :  priceListCode,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -106,7 +107,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// admin-pricelists Post AddPriceList description DOCUMENT_HERE 
+		/// Adds a new price list to the tenant.
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListFactory.AddPriceList(handler : handler,  priceList :  priceList,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -127,7 +128,7 @@ namespace Mozu.Api.Test.Factories
 				 priceList :  priceList,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -144,7 +145,118 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// admin-pricelists Put UpdatePriceList description DOCUMENT_HERE 
+		/// Adds up to 5000 new price list entries in bulk.
+		/// <example> 
+		///  <code> 
+		/// var result = PriceListFactory.BulkAddPriceListEntries(handler : handler,  priceListEntriesIn :  priceListEntriesIn,  publishEvents :  publishEvents,  invalidateCache :  invalidateCache,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static void BulkAddPriceListEntries(ServiceClientMessageHandler handler, 
+ 		List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents = null, bool? invalidateCache = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.BulkAddPriceListEntriesClient(
+				 priceListEntriesIn :  priceListEntriesIn,  publishEvents :  publishEvents,  invalidateCache :  invalidateCache		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+			}
+			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// Deletes up to 5000 price list entries in bulk.
+		/// <example> 
+		///  <code> 
+		/// var result = PriceListFactory.BulkDeletePriceListEntries(handler : handler,  priceListEntriesIn :  priceListEntriesIn,  publishEvents :  publishEvents,  invalidateCache :  invalidateCache,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static void BulkDeletePriceListEntries(ServiceClientMessageHandler handler, 
+ 		List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents = null, bool? invalidateCache = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.BulkDeletePriceListEntriesClient(
+				 priceListEntriesIn :  priceListEntriesIn,  publishEvents :  publishEvents,  invalidateCache :  invalidateCache		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+			}
+			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// Updates up to 5000 price list entries in bulk.
+		/// <example> 
+		///  <code> 
+		/// var result = PriceListFactory.BulkUpdatePriceListEntries(handler : handler,  priceListEntriesIn :  priceListEntriesIn,  publishEvents :  publishEvents,  invalidateCache :  invalidateCache,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static void BulkUpdatePriceListEntries(ServiceClientMessageHandler handler, 
+ 		List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents = null, bool? invalidateCache = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.BulkUpdatePriceListEntriesClient(
+				 priceListEntriesIn :  priceListEntriesIn,  publishEvents :  publishEvents,  invalidateCache :  invalidateCache		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+			}
+			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// Updates the details of the specified price list.
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListFactory.UpdatePriceList(handler : handler,  priceList :  priceList,  priceListCode :  priceListCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -165,7 +277,7 @@ namespace Mozu.Api.Test.Factories
 				 priceList :  priceList,  priceListCode :  priceListCode,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -182,7 +294,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// admin-pricelists Delete DeletePriceList description DOCUMENT_HERE 
+		/// Deletes the specified price list from the tenant.
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListFactory.DeletePriceList(handler : handler,  priceListCode :  priceListCode,  cascadeDeleteEntries :  cascadeDeleteEntries,  expectedCode: expectedCode, successCode: successCode); 
@@ -203,7 +315,7 @@ namespace Mozu.Api.Test.Factories
 				 priceListCode :  priceListCode,  cascadeDeleteEntries :  cascadeDeleteEntries		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{

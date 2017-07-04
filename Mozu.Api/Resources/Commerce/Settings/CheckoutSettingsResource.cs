@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Settings
 {
@@ -37,29 +38,6 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		}
 
 				
-		/// <summary>
-		/// Retrieves all checkout settings defined for the site including payment settings (payment gateway ID and credentials), shopper checkout settings (login requirement or guest mode and custom attributes), and order processing settings (when payment is authorized and captured plus any custom attributes).
-		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.SiteSettings.Order.CheckoutSettings"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var checkoutsettings = new CheckoutSettings();
-		///   var checkoutSettings = checkoutsettings.GetCheckoutSettings( responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.SiteSettings.Order.CheckoutSettings GetCheckoutSettings(string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.SiteSettings.Order.CheckoutSettings> response;
-			var client = Mozu.Api.Clients.Commerce.Settings.CheckoutSettingsClient.GetCheckoutSettingsClient( responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves all checkout settings defined for the site including payment settings (payment gateway ID and credentials), shopper checkout settings (login requirement or guest mode and custom attributes), and order processing settings (when payment is authorized and captured plus any custom attributes).
@@ -74,12 +52,12 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		///   var checkoutSettings = await checkoutsettings.GetCheckoutSettingsAsync( responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Order.CheckoutSettings> GetCheckoutSettingsAsync(string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Order.CheckoutSettings> GetCheckoutSettingsAsync(string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.SiteSettings.Order.CheckoutSettings> response;
 			var client = Mozu.Api.Clients.Commerce.Settings.CheckoutSettingsClient.GetCheckoutSettingsClient( responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}

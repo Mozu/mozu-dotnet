@@ -24,12 +24,12 @@ namespace Mozu.Api.Contracts.Customer
 			public int AccountId { get; set; }
 
 			///
-			///Mozu.Customer.Contracts.ChangePasswordResult errorMessage ApiTypeMember DOCUMENT_HERE 
+			///A message describing why the operation failed.
 			///
 			public string ErrorMessage { get; set; }
 
 			///
-			///Mozu.Customer.Contracts.ChangePasswordResult succeeded ApiTypeMember DOCUMENT_HERE 
+			///TRUE if the operation completes without error.
 			///
 			public bool Succeeded { get; set; }
 

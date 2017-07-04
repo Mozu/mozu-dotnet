@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Content
 {
@@ -44,34 +45,9 @@ namespace Mozu.Api.Resources.Content
 			_dataViewMode = dataViewMode;
 		}
 				
-		/// <summary>
-		/// content-documentlistTypes Get GetDocumentListTypes description DOCUMENT_HERE 
-		/// </summary>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Content.DocumentListTypeCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var documentlisttype = new DocumentListType();
-		///   var documentListTypeCollection = documentlisttype.GetDocumentListTypes(_dataViewMode,  pageSize,  startIndex,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Content.DocumentListTypeCollection GetDocumentListTypes(int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Content.DocumentListTypeCollection> response;
-			var client = Mozu.Api.Clients.Content.DocumentListTypeClient.GetDocumentListTypesClient(_dataViewMode,  pageSize,  startIndex,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// content-documentlistTypes Get GetDocumentListTypes description DOCUMENT_HERE 
+		/// Gets all the available documentListTypes.
 		/// </summary>
 		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -85,43 +61,19 @@ namespace Mozu.Api.Resources.Content
 		///   var documentListTypeCollection = await documentlisttype.GetDocumentListTypesAsync(_dataViewMode,  pageSize,  startIndex,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Content.DocumentListTypeCollection> GetDocumentListTypesAsync(int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Content.DocumentListTypeCollection> GetDocumentListTypesAsync(int? pageSize =  null, int? startIndex =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentListTypeCollection> response;
 			var client = Mozu.Api.Clients.Content.DocumentListTypeClient.GetDocumentListTypesClient(_dataViewMode,  pageSize,  startIndex,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// content-documentlistTypes Get GetDocumentListType description DOCUMENT_HERE 
-		/// </summary>
-		/// <param name="documentListTypeFQN"></param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Content.DocumentListType"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var documentlisttype = new DocumentListType();
-		///   var documentListType = documentlisttype.GetDocumentListType(_dataViewMode,  documentListTypeFQN,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Content.DocumentListType GetDocumentListType(string documentListTypeFQN, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Content.DocumentListType> response;
-			var client = Mozu.Api.Clients.Content.DocumentListTypeClient.GetDocumentListTypeClient(_dataViewMode,  documentListTypeFQN,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// content-documentlistTypes Get GetDocumentListType description DOCUMENT_HERE 
+		/// Gets a documentListType.
 		/// </summary>
 		/// <param name="documentListTypeFQN"></param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -134,43 +86,19 @@ namespace Mozu.Api.Resources.Content
 		///   var documentListType = await documentlisttype.GetDocumentListTypeAsync(_dataViewMode,  documentListTypeFQN,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Content.DocumentListType> GetDocumentListTypeAsync(string documentListTypeFQN, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Content.DocumentListType> GetDocumentListTypeAsync(string documentListTypeFQN, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentListType> response;
 			var client = Mozu.Api.Clients.Content.DocumentListTypeClient.GetDocumentListTypeClient(_dataViewMode,  documentListTypeFQN,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Creates a new documentListType
-		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="list">Properties for the document list type. Document lists contain documents with an associated document type, such as web pages.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Content.DocumentListType"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var documentlisttype = new DocumentListType();
-		///   var documentListType = documentlisttype.CreateDocumentListType(_dataViewMode,  list,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Content.DocumentListType CreateDocumentListType(Mozu.Api.Contracts.Content.DocumentListType list, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Content.DocumentListType> response;
-			var client = Mozu.Api.Clients.Content.DocumentListTypeClient.CreateDocumentListTypeClient(_dataViewMode,  list,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Creates a new documentListType
+		/// Creates a new documentListType.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="list">Properties for the document list type. Document lists contain documents with an associated document type, such as web pages.</param>
@@ -183,41 +111,16 @@ namespace Mozu.Api.Resources.Content
 		///   var documentListType = await documentlisttype.CreateDocumentListTypeAsync(_dataViewMode,  list,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Content.DocumentListType> CreateDocumentListTypeAsync(Mozu.Api.Contracts.Content.DocumentListType list, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Content.DocumentListType> CreateDocumentListTypeAsync(Mozu.Api.Contracts.Content.DocumentListType list, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentListType> response;
 			var client = Mozu.Api.Clients.Content.DocumentListTypeClient.CreateDocumentListTypeClient(_dataViewMode,  list,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates a DocumentListType
-		/// </summary>
-		/// <param name="documentListTypeFQN"></param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="list">Properties for the document list type. Document lists contain documents with an associated document type, such as web pages.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Content.DocumentListType"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var documentlisttype = new DocumentListType();
-		///   var documentListType = documentlisttype.UpdateDocumentListType( list,  documentListTypeFQN,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Content.DocumentListType UpdateDocumentListType(Mozu.Api.Contracts.Content.DocumentListType list, string documentListTypeFQN, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Content.DocumentListType> response;
-			var client = Mozu.Api.Clients.Content.DocumentListTypeClient.UpdateDocumentListTypeClient( list,  documentListTypeFQN,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Updates a DocumentListType
@@ -234,12 +137,12 @@ namespace Mozu.Api.Resources.Content
 		///   var documentListType = await documentlisttype.UpdateDocumentListTypeAsync( list,  documentListTypeFQN,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Content.DocumentListType> UpdateDocumentListTypeAsync(Mozu.Api.Contracts.Content.DocumentListType list, string documentListTypeFQN, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Content.DocumentListType> UpdateDocumentListTypeAsync(Mozu.Api.Contracts.Content.DocumentListType list, string documentListTypeFQN, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentListType> response;
 			var client = Mozu.Api.Clients.Content.DocumentListTypeClient.UpdateDocumentListTypeClient( list,  documentListTypeFQN,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}

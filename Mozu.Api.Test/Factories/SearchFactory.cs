@@ -18,13 +18,14 @@ using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 #endregion
 
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// The Search resource manages all settings and options for providing product search on your site.
+	/// Use the Search resource to manage all settings and options for providing product search on your site, as well as search tuning rules.
 	/// </summary>
 	public partial class SearchFactory : BaseDataFactory
 	{
@@ -51,7 +52,7 @@ namespace Mozu.Api.Test.Factories
 				 searchTuningRuleCode :  searchTuningRuleCode,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -68,7 +69,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// admin-search Get GetSearchTuningRules description DOCUMENT_HERE 
+		/// Retrieves a list of search tuning rules and their properties.
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.GetSearchTuningRules(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -89,7 +90,7 @@ namespace Mozu.Api.Test.Factories
 				 startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -106,7 +107,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// admin-search Get GetSearchTuningRuleSortFields description DOCUMENT_HERE 
+		/// Retrieves the details of the specified search tuning rule sort fields. Sort fields allow you to control the product relevance whenver shoppers sort products on a page. For more information about sort relevance, refer to [Search Tuning Rules and Sorting](../../../developer/api-guides/search-tuning-rules.htm#search_tuning_rules_and_sorting).
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.GetSearchTuningRuleSortFields(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -127,7 +128,7 @@ namespace Mozu.Api.Test.Factories
 				 responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -144,7 +145,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Get site search settings
+		/// Retrieves the search settings for the specified site.Refer to [Search Settings API Overview](../../../../developer/api-guides/search-settings.htm) for more information about 's search settings.
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.GetSettings(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -165,7 +166,7 @@ namespace Mozu.Api.Test.Factories
 				 responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -182,7 +183,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves a collection of synonyms definitions for product searches. Synonyms aid with determining matches for entered searches.
+		/// Retrieves a collection of synonyms definitions for product searches.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.GetSynonymDefinitionCollection(handler : handler,  localeCode :  localeCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -203,7 +204,7 @@ namespace Mozu.Api.Test.Factories
 				 localeCode :  localeCode,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -220,7 +221,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves a list of synonym definitions according to any specified filter criteria and sort options.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.GetSynonymDefinitions(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -241,7 +242,7 @@ namespace Mozu.Api.Test.Factories
 				 startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -258,7 +259,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Retrieves the details of the specified synonym defintion.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.GetSynonymDefinition(handler : handler,  synonymId :  synonymId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -279,7 +280,7 @@ namespace Mozu.Api.Test.Factories
 				 synonymId :  synonymId,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -296,7 +297,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// admin-search Post AddSearchTuningRule description DOCUMENT_HERE 
+		/// Creates a search tuning rule for your site. You can use search tuning rules to fine tune the product search results that appear when a shopper searches for a specific keyword, or navigates to a category page.For more information on search tuning rules, refer to [Search Tuning Rules](../../../../developer/api-guides/search-tuning-rules.htm).
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.AddSearchTuningRule(handler : handler,  searchTuningRuleIn :  searchTuningRuleIn,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -317,7 +318,7 @@ namespace Mozu.Api.Test.Factories
 				 searchTuningRuleIn :  searchTuningRuleIn,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -334,7 +335,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// admin-search Post UpdateSearchTuningRuleSortFields description DOCUMENT_HERE 
+		/// Updates the details of the search tuning rule sort fields.
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.UpdateSearchTuningRuleSortFields(handler : handler,  searchTuningRuleSortFieldsIn :  searchTuningRuleSortFieldsIn,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -355,7 +356,7 @@ namespace Mozu.Api.Test.Factories
 				 searchTuningRuleSortFieldsIn :  searchTuningRuleSortFieldsIn,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -372,7 +373,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates synonym definitions for product searches. Synonyms aid with determining matches for entered searches.
+		/// Updates a collection of synonym definitions.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.UpdateSynonymDefinitionCollection(handler : handler,  collection :  collection,  localeCode :  localeCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -393,7 +394,7 @@ namespace Mozu.Api.Test.Factories
 				 collection :  collection,  localeCode :  localeCode,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -410,7 +411,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Creates a new synonym definition.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.AddSynonymDefinition(handler : handler,  synonymDefinition :  synonymDefinition,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -431,7 +432,7 @@ namespace Mozu.Api.Test.Factories
 				 synonymDefinition :  synonymDefinition,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -448,7 +449,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// admin-search Put UpdateSearchTuningRule description DOCUMENT_HERE 
+		/// Updates the details of the specified search tuning rule.
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.UpdateSearchTuningRule(handler : handler,  searchTuningRuleIn :  searchTuningRuleIn,  searchTuningRuleCode :  searchTuningRuleCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -469,7 +470,7 @@ namespace Mozu.Api.Test.Factories
 				 searchTuningRuleIn :  searchTuningRuleIn,  searchTuningRuleCode :  searchTuningRuleCode,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -486,7 +487,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Adds or Updates (Upsert) the Search Settings for a specific site
+		/// Updates the search setting properties for a specific site.Refer to [Search Settings API Overview](../../../../developer/api-guides/search-settings.htm) for more information about 's search settings.
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.UpdateSettings(handler : handler,  settings :  settings,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -507,7 +508,7 @@ namespace Mozu.Api.Test.Factories
 				 settings :  settings,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -524,7 +525,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Updates the details of a synonym definition.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.UpdateSynonymDefinition(handler : handler,  synonymDefinition :  synonymDefinition,  synonymId :  synonymId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -545,7 +546,7 @@ namespace Mozu.Api.Test.Factories
 				 synonymDefinition :  synonymDefinition,  synonymId :  synonymId,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -562,7 +563,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Deletes the specified search tuning rule.
+		/// Deletes the specified search tuning rule from the site.
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.DeleteSearchTuningRule(handler : handler,  searchTuningRuleCode :  searchTuningRuleCode,  expectedCode: expectedCode, successCode: successCode); 
@@ -583,7 +584,7 @@ namespace Mozu.Api.Test.Factories
 				 searchTuningRuleCode :  searchTuningRuleCode		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -599,7 +600,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// 
+		/// Deletes the specified synonym definition.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
 		/// <example> 
 		///  <code> 
 		/// var result = SearchFactory.DeleteSynonymDefinition(handler : handler,  synonymId :  synonymId,  expectedCode: expectedCode, successCode: successCode); 
@@ -620,7 +621,7 @@ namespace Mozu.Api.Test.Factories
 				 synonymId :  synonymId		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{

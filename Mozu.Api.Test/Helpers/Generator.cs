@@ -15,6 +15,7 @@ using Mozu.Api.Contracts.CommerceRuntime.Wishlists;
 using Attribute = Mozu.Api.Contracts.ProductAdmin.Attribute;
 using ProductProperty = Mozu.Api.Contracts.ProductAdmin.ProductProperty;
 using ProductPropertyValue = Mozu.Api.Contracts.ProductAdmin.ProductPropertyValue;
+using Discount = Mozu.Api.Contracts.ProductAdmin.Discount;
 
 namespace Mozu.Api.Test.Helpers
 {
@@ -2987,10 +2988,10 @@ namespace Mozu.Api.Test.Helpers
         /// <param name="amt"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static Discount GenerateDiscount(DiscountLocalizedContent content, string scope, DiscountTarget target,
+        public static Contracts.ProductAdmin.Discount GenerateDiscount(DiscountLocalizedContent content, string scope, DiscountTarget target,
             DiscountCondition conditions, int? currentRedemptionCnt, decimal? amt, string type)
         {
-            return new Discount()
+            return new Contracts.ProductAdmin.Discount()
             {
                 Content = content,
                 Scope = scope,

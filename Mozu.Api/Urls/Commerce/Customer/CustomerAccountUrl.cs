@@ -100,7 +100,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
         /// Get Resource Url for ChangePassword
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="unlockAccount"></param>
+        /// <param name="unlockAccount">Specifies whether to unlock the specified customer account.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -223,15 +223,17 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for GetLoginStateByEmailAddress
         /// </summary>
+        /// <param name="customerSetCode">The unique idenfitier of the customer set.</param>
         /// <param name="emailAddress">The email address associated with the customer account.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetLoginStateByEmailAddressUrl(string emailAddress, string responseFields =  null)
+        public static MozuUrl GetLoginStateByEmailAddressUrl(string emailAddress, string customerSetCode =  null, string responseFields =  null)
 		{
 			var url = "/api/commerce/customer/accounts/loginstatebyemailaddress?emailAddress={emailAddress}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "customerSetCode", customerSetCode);
 			mozuUrl.FormatUrl( "emailAddress", emailAddress);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
@@ -240,15 +242,17 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for GetLoginStateByUserName
         /// </summary>
+        /// <param name="customerSetCode">The unique idenfitier of the customer set.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="userName">The user name associated with the customer account.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetLoginStateByUserNameUrl(string userName, string responseFields =  null)
+        public static MozuUrl GetLoginStateByUserNameUrl(string userName, string customerSetCode =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/loginstatebyusername?userName={userName}&responseFields={responseFields}";
+			var url = "/api/commerce/customer/accounts/loginstatebyusername?userName={userName}&customerSetCode={customerSetCode}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "customerSetCode", customerSetCode);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "userName", userName);
 			return mozuUrl;
@@ -259,7 +263,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
         /// </summary>
         /// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-        /// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/applications/sorting-filtering.htm) for more information.</param>
+        /// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
         /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
         /// <returns>
         /// String - Resource Url

@@ -15,17 +15,17 @@ using Mozu.Api.Contracts.Core;
 namespace Mozu.Api.Contracts.Customer
 {
 		///
-		///	Mozu.Customer.Contracts.CustomerPurchaseOrderPaymentTerm ApiType DOCUMENT_HERE 
+		///	The purchase order payment terms that are associated with the specific customer account. Usually the payment terms are an amount of time, such as a certain amount of days the customer has in order to pay the order balance in full.
 		///
 		public class CustomerPurchaseOrderPaymentTerm
 		{
 			///
-			///Basic audit info about the object, including date, time, and user account. Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///Basic audit info about the object, including date, time, and user account. This data may be captured when creating, updating, and removing data.
 			///
 			public AuditInfo AuditInfo { get; set; }
 
 			///
-			///Mozu.Customer.Contracts.CustomerPurchaseOrderPaymentTerm code ApiTypeMember DOCUMENT_HERE 
+			///The code of the payment term associated with the customer purchase order account. This term must match the payment term code specified in the purchase order site settings.Refer to [Payment Terms](https://www.mozu.com/guides/orders/purchase-order.htm#payment_terms) in the Purchase Order guides topic for more information.
 			///
 			public string Code { get; set; }
 

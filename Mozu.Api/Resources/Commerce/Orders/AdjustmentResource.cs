@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Orders
 {
@@ -37,33 +38,34 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		}
 
 				
+
 		/// <summary>
-		/// Applies a shipping adjustment to the specified order.
+		/// Updates the order handling adjustment.
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.</param>
-		/// <param name="adjustment">Properties of an ad-hoc price adjustment for an order.</param>
+		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
+		/// <param name="adjustment"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var adjustment = new Adjustment();
-		///   var order = adjustment.ApplyShippingAdjustment( adjustment,  orderId,  updateMode,  version,  responseFields);
+		///   var order = await adjustment.ApplyHandlingAdjustmentAsync( adjustment,  orderId,  updateMode,  version,  responseFields);
 		/// </code>
 		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.Order ApplyShippingAdjustment(Mozu.Api.Contracts.CommerceRuntime.Commerce.Adjustment adjustment, string orderId, string updateMode =  null, string version =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> ApplyHandlingAdjustmentAsync(Mozu.Api.Contracts.CommerceRuntime.Commerce.Adjustment adjustment, string orderId, string updateMode =  null, string version =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.AdjustmentClient.ApplyShippingAdjustmentClient( adjustment,  orderId,  updateMode,  version,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Orders.AdjustmentClient.ApplyHandlingAdjustmentClient( adjustment,  orderId,  updateMode,  version,  responseFields);
 			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
+
 
 		/// <summary>
 		/// Applies a shipping adjustment to the specified order.
@@ -82,43 +84,16 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var order = await adjustment.ApplyShippingAdjustmentAsync( adjustment,  orderId,  updateMode,  version,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> ApplyShippingAdjustmentAsync(Mozu.Api.Contracts.CommerceRuntime.Commerce.Adjustment adjustment, string orderId, string updateMode =  null, string version =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> ApplyShippingAdjustmentAsync(Mozu.Api.Contracts.CommerceRuntime.Commerce.Adjustment adjustment, string orderId, string updateMode =  null, string version =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.AdjustmentClient.ApplyShippingAdjustmentClient( adjustment,  orderId,  updateMode,  version,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Applies a price adjustment to the specified order.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.</param>
-		/// <param name="adjustment">Properties of an ad-hoc price adjustment for an order.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var adjustment = new Adjustment();
-		///   var order = adjustment.ApplyAdjustment( adjustment,  orderId,  updateMode,  version,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.Order ApplyAdjustment(Mozu.Api.Contracts.CommerceRuntime.Commerce.Adjustment adjustment, string orderId, string updateMode =  null, string version =  null, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.AdjustmentClient.ApplyAdjustmentClient( adjustment,  orderId,  updateMode,  version,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Applies a price adjustment to the specified order.
@@ -137,41 +112,42 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var order = await adjustment.ApplyAdjustmentAsync( adjustment,  orderId,  updateMode,  version,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> ApplyAdjustmentAsync(Mozu.Api.Contracts.CommerceRuntime.Commerce.Adjustment adjustment, string orderId, string updateMode =  null, string version =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> ApplyAdjustmentAsync(Mozu.Api.Contracts.CommerceRuntime.Commerce.Adjustment adjustment, string orderId, string updateMode =  null, string version =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.AdjustmentClient.ApplyAdjustmentClient( adjustment,  orderId,  updateMode,  version,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
+
 		/// <summary>
-		/// Removes a shipping adjustment previously applied to an order or draft.
+		/// Removes an adjustment to the order handling fee.
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.</param>
+		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var adjustment = new Adjustment();
-		///   var order = adjustment.RemoveShippingAdjustment( orderId,  updateMode,  version);
+		///   var order = await adjustment.RemoveHandlingAdjustmentAsync( orderId,  updateMode,  version);
 		/// </code>
 		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.Order RemoveShippingAdjustment(string orderId, string updateMode =  null, string version =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> RemoveHandlingAdjustmentAsync(string orderId, string updateMode =  null, string version =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.AdjustmentClient.RemoveShippingAdjustmentClient( orderId,  updateMode,  version);
+			var client = Mozu.Api.Clients.Commerce.Orders.AdjustmentClient.RemoveHandlingAdjustmentClient( orderId,  updateMode,  version);
 			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
+
 
 		/// <summary>
 		/// Removes a shipping adjustment previously applied to an order or draft.
@@ -188,41 +164,16 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var order = await adjustment.RemoveShippingAdjustmentAsync( orderId,  updateMode,  version);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> RemoveShippingAdjustmentAsync(string orderId, string updateMode =  null, string version =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> RemoveShippingAdjustmentAsync(string orderId, string updateMode =  null, string version =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.AdjustmentClient.RemoveShippingAdjustmentClient( orderId,  updateMode,  version);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Removes a price adjustment from the specified order.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var adjustment = new Adjustment();
-		///   var order = adjustment.RemoveAdjustment( orderId,  updateMode,  version);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.Order RemoveAdjustment(string orderId, string updateMode =  null, string version =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.AdjustmentClient.RemoveAdjustmentClient( orderId,  updateMode,  version);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Removes a price adjustment from the specified order.
@@ -239,12 +190,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var order = await adjustment.RemoveAdjustmentAsync( orderId,  updateMode,  version);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> RemoveAdjustmentAsync(string orderId, string updateMode =  null, string version =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> RemoveAdjustmentAsync(string orderId, string updateMode =  null, string version =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.AdjustmentClient.RemoveAdjustmentClient( orderId,  updateMode,  version);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}

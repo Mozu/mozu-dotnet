@@ -195,7 +195,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for DeleteProduct
         /// </summary>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

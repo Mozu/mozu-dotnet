@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Payments
 {
@@ -37,9 +38,11 @@ namespace Mozu.Api.Resources.Commerce.Payments
 		}
 
 				
+
 		/// <summary>
 		/// payments-fraudscreen Post Screen description DOCUMENT_HERE 
 		/// </summary>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="request">Mozu.PaymentService.Contracts.Request.FraudScreenRequest ApiType DOCUMENT_HERE </param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.PaymentService.Response.FraudScreen"/>
@@ -47,39 +50,15 @@ namespace Mozu.Api.Resources.Commerce.Payments
 		/// <example>
 		/// <code>
 		///   var fraudscreen = new FraudScreen();
-		///   var fraudScreen = fraudscreen.Screen( request);
+		///   var fraudScreen = await fraudscreen.ScreenAsync( request,  responseFields);
 		/// </code>
 		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.PaymentService.Response.FraudScreen Screen(Mozu.Api.Contracts.PaymentService.Request.FraudScreenRequest request)
+		public virtual async Task<Mozu.Api.Contracts.PaymentService.Response.FraudScreen> ScreenAsync(Mozu.Api.Contracts.PaymentService.Request.FraudScreenRequest request, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.PaymentService.Response.FraudScreen> response;
-			var client = Mozu.Api.Clients.Commerce.Payments.FraudScreenClient.ScreenClient( request);
+			var client = Mozu.Api.Clients.Commerce.Payments.FraudScreenClient.ScreenClient( request,  responseFields);
 			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
-
-		/// <summary>
-		/// payments-fraudscreen Post Screen description DOCUMENT_HERE 
-		/// </summary>
-		/// <param name="request">Mozu.PaymentService.Contracts.Request.FraudScreenRequest ApiType DOCUMENT_HERE </param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.PaymentService.Response.FraudScreen"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var fraudscreen = new FraudScreen();
-		///   var fraudScreen = await fraudscreen.ScreenAsync( request);
-		/// </code>
-		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.PaymentService.Response.FraudScreen> ScreenAsync(Mozu.Api.Contracts.PaymentService.Request.FraudScreenRequest request)
-		{
-			MozuClient<Mozu.Api.Contracts.PaymentService.Response.FraudScreen> response;
-			var client = Mozu.Api.Clients.Commerce.Payments.FraudScreenClient.ScreenClient( request);
-			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}

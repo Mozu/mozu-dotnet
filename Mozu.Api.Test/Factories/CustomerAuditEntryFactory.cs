@@ -18,19 +18,20 @@ using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 #endregion
 
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// commerce/customer/accounts/auditLog related resources. DOCUMENT_HERE 
+	/// Use the Audit Log resource to retrieve audit logs for customer accounts.
 	/// </summary>
 	public partial class CustomerAuditEntryFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// accounts-auditLog Get GetAccountAuditLog description DOCUMENT_HERE 
+		/// Retrieves audit log entries for the specified customer account.
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerAuditEntryFactory.GetAccountAuditLog(handler : handler,  accountId :  accountId,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -51,7 +52,7 @@ namespace Mozu.Api.Test.Factories
 				 accountId :  accountId,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{

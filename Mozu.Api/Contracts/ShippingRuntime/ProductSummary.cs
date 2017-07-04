@@ -35,7 +35,7 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			public decimal Price { get; set; }
 
 			///
-			///The unique, user-defined  product code of a product, used throughout Mozu to reference and associate to a product.
+			///The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			///
 			public string ProductCode { get; set; }
 
@@ -45,12 +45,12 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			public string ProductDescription { get; set; }
 
 			///
-			///The product type template associated with the product on the storefront.
+			///A product type is like a product template.
 			///
 			public string ProductType { get; set; }
 
 			///
-			///Collection of property attributes defined for the object. Properties are associated to all objects within Mozu, including documents, products, and product types.
+			///Collection of property attributes defined for the object. Properties are associated to all objects within , including documents, products, and product types.
 			///
 			public List<ProductProperty> Properties { get; set; }
 
@@ -60,7 +60,7 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			public int Quantity { get; set; }
 
 			///
-			///Product specific dimensions used for shipping, used by product summary and rate request items.  The dimensions can differ between the two uses as a `RateRequestItem `package may contain one or more products.
+			///Product specific dimensions used for shipping, used by product summary and rate request items. The dimensions can differ between the two uses as a `RateRequestItem `package may contain one or more products.
 			///
 			public ItemMeasurements UnitMeasurements { get; set; }
 

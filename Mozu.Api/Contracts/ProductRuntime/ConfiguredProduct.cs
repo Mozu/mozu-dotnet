@@ -25,7 +25,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public List<Discount> AvailableShippingDiscounts { get; set; }
 
 			///
-			///List of supported types of fulfillment  for the product or variation. The types include direct ship, in-store pickup, or both. 
+			///List of supported types of fulfillment for the product or variation. The types include direct ship, in-store pickup, or both.
 			///
 			public List<string> FulfillmentTypesSupported { get; set; }
 
@@ -54,6 +54,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public ProductPrice Price { get; set; }
 
+			public ProductProperty PriceListEntryTypeProperty { get; set; }
+
 			///
 			///For products with options that vary the cost of the product, the range between lowest and highest possible price of the product based on the current selection of options.
 			///
@@ -79,8 +81,14 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public string VariationProductCode { get; set; }
 
+			///
+			///The details of any volume price bands associated with the product.Refer to [Volume Pricing](https://www.mozu.com/docs/guides/catalog/price-lists.htm#volume_pricing) for more information.
+			///
 			public List<ProductVolumePrice> VolumePriceBands { get; set; }
 
+			///
+			///The details of the volume price range associated with the product. Volume price ranges consist of a lower price and an upper price, and either lower or upper prices can be affected by discounts.You can display the volume price range on product listing pages, such as category and search result pages, and product detail pages.Refer to [Volume Pricing Storefront Behavior](https://www.mozu.com/docs/guides/catalog/price-lists.htm#volume_pricing_storefront_behavior) for more information.
+			///
 			public ProductPriceRange VolumePriceRange { get; set; }
 
 		}

@@ -13,11 +13,12 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 {
 	/// <summary>
-	/// Allows you to get a price list. This may contain a hierarchy of price lists dependent on setup.
+	/// Retrieves the details of a price list. The details may contain a hierarchy of ancestor and/or descendant price lists dependening on your configuration.
 	/// </summary>
 	public partial class PriceListResource  	{
 		///
@@ -37,33 +38,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		}
 
 				
-		/// <summary>
-		/// Retrieves the price list for the given priceListCode
-		/// </summary>
-		/// <param name="priceListCode">The unique code of the price list for which you want to retrieve the details.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductRuntime.PriceList"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var pricelist = new PriceList();
-		///   var priceList = pricelist.GetPriceList( priceListCode,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductRuntime.PriceList GetPriceList(string priceListCode, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductRuntime.PriceList> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.PriceListClient.GetPriceListClient( priceListCode,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves the price list for the given priceListCode
+		/// Retrieves the details of the specified price list.
 		/// </summary>
 		/// <param name="priceListCode">The unique code of the price list for which you want to retrieve the details.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -76,43 +53,19 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		///   var priceList = await pricelist.GetPriceListAsync( priceListCode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.PriceList> GetPriceListAsync(string priceListCode, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.PriceList> GetPriceListAsync(string priceListCode, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.PriceList> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.PriceListClient.GetPriceListClient( priceListCode,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// storefront-pricelists Get GetResolvedPriceList description DOCUMENT_HERE 
-		/// </summary>
-		/// <param name="customerAccountId">The unique identifier of the customer account for which to retrieve wish lists.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var pricelist = new PriceList();
-		///   var resolvedPriceList = pricelist.GetResolvedPriceList( customerAccountId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList GetResolvedPriceList(int? customerAccountId =  null, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.PriceListClient.GetResolvedPriceListClient( customerAccountId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// storefront-pricelists Get GetResolvedPriceList description DOCUMENT_HERE 
+		/// Retrieves the details of a price list to which the specified customer resolves. This is primarly used when creating an offline order for a shopper.You can use this operation alongside custom Arc.js actions to alter the price list to which a shopper resolves.
 		/// </summary>
 		/// <param name="customerAccountId">The unique identifier of the customer account for which to retrieve wish lists.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -125,12 +78,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		///   var resolvedPriceList = await pricelist.GetResolvedPriceListAsync( customerAccountId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList> GetResolvedPriceListAsync(int? customerAccountId =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList> GetResolvedPriceListAsync(int? customerAccountId =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.PriceListClient.GetResolvedPriceListClient( customerAccountId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}

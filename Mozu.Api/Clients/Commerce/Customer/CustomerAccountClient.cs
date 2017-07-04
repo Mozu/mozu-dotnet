@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Clients.Commerce.Customer
 {
@@ -129,10 +130,10 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// Modify the password associated with a customer account.
+		/// Modifies the password associated with a customer account.
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="unlockAccount"></param>
+		/// <param name="unlockAccount">Specifies whether to unlock the specified customer account.</param>
 		/// <param name="passwordInfo">The information required to modify a shopper account password.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
@@ -305,10 +306,10 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// Changes a collection of shopper passwords
+		/// Changes a collection of customer account passwords.
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="accountPasswordInfos">Mozu.Customer.Contracts.AccountPasswordInfoCollection ApiType DOCUMENT_HERE </param>
+		/// <param name="accountPasswordInfos">The details of the changed customer account passwords.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.ChangePasswordResultCollection"/>}
 		/// </returns>
@@ -332,6 +333,7 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <summary>
 		/// Retrieves the current login state of a customer account by providing the customer's email address.
 		/// </summary>
+		/// <param name="customerSetCode">The unique idenfitier of the customer set.</param>
 		/// <param name="emailAddress">The email address associated with the customer account.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
@@ -339,13 +341,13 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetLoginStateByEmailAddress( emailAddress,  responseFields);
+		///   var mozuClient=GetLoginStateByEmailAddress( emailAddress,  customerSetCode,  responseFields);
 		///   var loginStateClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateByEmailAddressClient(string emailAddress, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateByEmailAddressClient(string emailAddress, string customerSetCode =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetLoginStateByEmailAddressUrl(emailAddress, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetLoginStateByEmailAddressUrl(emailAddress, customerSetCode, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.LoginState>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -357,6 +359,7 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <summary>
 		/// Retrieves the current login state of a customer account by providing the user name associated with the customer account.
 		/// </summary>
+		/// <param name="customerSetCode">The unique idenfitier of the customer set.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="userName">The user name associated with the customer account.</param>
 		/// <returns>
@@ -364,13 +367,13 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetLoginStateByUserName( userName,  responseFields);
+		///   var mozuClient=GetLoginStateByUserName( userName,  customerSetCode,  responseFields);
 		///   var loginStateClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateByUserNameClient(string userName, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateByUserNameClient(string userName, string customerSetCode =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetLoginStateByUserNameUrl(userName, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetLoginStateByUserNameUrl(userName, customerSetCode, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.LoginState>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -380,11 +383,11 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		}
 
 		/// <summary>
-		/// customer-accounts Post GetCustomersPurchaseOrderAccounts description DOCUMENT_HERE 
+		/// Retrieves a list of customer purchase order accounts according to according to any specified sort options.
 		/// </summary>
 		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/applications/sorting-filtering.htm) for more information.</param>
+		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccountCollection"/>}

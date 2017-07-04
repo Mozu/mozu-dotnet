@@ -15,22 +15,22 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 {
 		///
-		///	Mozu.CommerceRuntime.Contracts.Payments.PurchaseOrderPayment ApiType DOCUMENT_HERE 
+		///	The details of the purchase order payment.
 		///
 		public class PurchaseOrderPayment
 		{
 			///
-			///Memo/custom fields
+			///Details of the custom text fields associated with the purchase order.Refer to [Custom Text Fields](https://www.mozu.com/docs/guides/orders/purchase-order.htm#custom_text_fields) in the Purchase Order guides topic for more information.
 			///
 			public List<PurchaseOrderCustomField> CustomFields { get; set; }
 
 			///
-			///Net term / Payment term
+			///The details of the payment terms. The payment terms are made up of a  and a .Refer to [Payment Terms](https://www.mozu.com/docs/guides/orders/purchase-order.htm#payment_terms) in the Purchase Order guides topic for more information.
 			///
 			public PurchaseOrderPaymentTerm PaymentTerm { get; set; }
 
 			///
-			///Purchase order number
+			///The purchase order number.
 			///
 			public string PurchaseOrderNumber { get; set; }
 

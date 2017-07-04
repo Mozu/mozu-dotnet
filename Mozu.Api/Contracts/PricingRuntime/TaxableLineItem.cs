@@ -10,7 +10,9 @@
 
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.PricingRuntime
 {
@@ -20,7 +22,20 @@ namespace Mozu.Api.Contracts.PricingRuntime
 		public class TaxableLineItem
 		{
 			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///Custom data for a given vendor set within the commerce process.
+			///
+			public JObject Data { get; set; }
+
+			public decimal? DiscountedTotal { get; set; }
+
+			public decimal? DiscountTotal { get; set; }
+
+			public decimal? FeeTotal { get; set; }
+
+			public decimal? HandlingAmount { get; set; }
+
+			///
+			///Unique identifier of the source property, such as a catalog, discount, order, or email template.For a product field it will be the name of the field.For a category ID, must be a positive integer not greater than 2000000. By default,  auto-generates a category ID when categories are created. If you want to specify an ID during creation (which preserves category link relationships when migrating tenant data from one sandbox to another), you must also include the  query string in the endpoint. For example, . Then, use the  property to specify the desired category ID.For a product attribute it will be the Attribute FQN.For a document, the ID must be specified as a 32 character, case-insensitive, alphanumeric string. You can specify the ID as 32 sequential characters or as groups separated by dashes in the format 8-4-4-4-12. For example, or.For email templates, the ID must be one of the following values:///
 			///
 			public string Id { get; set; }
 
@@ -38,6 +53,10 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 			///
 			public string ProductCode { get; set; }
+
+			public AppliedLineItemProductDiscount ProductDiscount { get; set; }
+
+			public List<AppliedLineItemProductDiscount> ProductDiscounts { get; set; }
 
 			///
 			///The name of the product that represents a line item in a taxable order or product bundle.
@@ -63,6 +82,10 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///The calculated monetary amount of shipping for a line items within and an entire order.
 			///
 			public decimal ShippingAmount { get; set; }
+
+			public AppliedLineItemShippingDiscount ShippingDiscount { get; set; }
+
+			public List<AppliedLineItemShippingDiscount> ShippingDiscounts { get; set; }
 
 			///
 			///For configurable products, the unique identifier of the product variation that has been selected.

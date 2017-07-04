@@ -13,16 +13,23 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Clients.Commerce.Orders.Attributedefinition
 {
 	/// <summary>
-	/// Use the Order Attribute Definition resource to manage the attributes that uniquely describe orders, such as the associated shopping season or "How did you hear about us?" information. Merchants can display order attributes on the order summary, the order confirmation page, invoices, or packing slips.
+	/// Attributes are used to add custom definitions and characteristics to the following objects:
+/// -  — are attributes that define the characteristics of products, enabling you to uniquely describe a product. They consist of options, properties, and extras. Refer to [Product Attributes](https://www.mozu.com/docs/guides/catalog/product-attributes.htm) in the Guides section for more information.
+
+/// -  — are custom attributes that you can apply to customer accounts to add further definition for special uses, such as marketing campaigns, or discounts. Refer to [Customer Attributes](https://www.mozu.com/docs/guides/customers/customers.htm#customer_attributes) in the Guides section for more information.
+
+/// -  — are custom attributes that enable you to uniquely describe an aspect of an order. Depending on the attribute definition, either you or a shopper can enter values for the order attribute. Refer to [Order Attributes](https://www.mozu.com/docs/guides/orders/order-attributes.htm) in the Guides section for more information.
+
 	/// </summary>
 	public partial class AttributeClient 	{
 		
 		/// <summary>
-		/// Retrieves a list of order attributes according to any filter criteria or sort options.
+		/// Retrieves a paged list of attributes according to any specified filter criteria and sort options.
 		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
@@ -50,7 +57,7 @@ namespace Mozu.Api.Clients.Commerce.Orders.Attributedefinition
 		}
 
 		/// <summary>
-		/// Returns the list of vocabulary values defined for the order attribute specified in the request.
+		/// Retrieve a list of the vocabulary values defined for the customer attribute specified in the request.
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <returns>
@@ -74,7 +81,7 @@ namespace Mozu.Api.Clients.Commerce.Orders.Attributedefinition
 		}
 
 		/// <summary>
-		/// Retrieves the details of the order attribute specified in the request.
+		/// Retrieves the details of the specified product attribute.
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
@@ -94,6 +101,57 @@ namespace Mozu.Api.Clients.Commerce.Orders.Attributedefinition
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// Create and save a new attribute. These attributes are used in products and product options.
+		/// </summary>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="attribute">Properties of an attribute used to describe customers or orders.</param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.Extensible.Attribute"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=CreateAttribute( attribute,  responseFields);
+		///   var attributeClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> CreateAttributeClient(Mozu.Api.Contracts.Core.Extensible.Attribute attribute, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Orders.Attributedefinition.AttributeUrl.CreateAttributeUrl(responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.Core.Extensible.Attribute>(attribute);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// Updates an existing attribute with attribute properties to set.
+		/// </summary>
+		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="attribute">Properties of an attribute used to describe customers or orders.</param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.Extensible.Attribute"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=UpdateAttribute( attribute,  attributeFQN,  responseFields);
+		///   var attributeClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> UpdateAttributeClient(Mozu.Api.Contracts.Core.Extensible.Attribute attribute, string attributeFQN, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Orders.Attributedefinition.AttributeUrl.UpdateAttributeUrl(attributeFQN, responseFields);
+			const string verb = "PUT";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.Core.Extensible.Attribute>(attribute);
 			return mozuClient;
 
 		}

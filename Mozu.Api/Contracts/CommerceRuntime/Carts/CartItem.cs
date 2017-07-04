@@ -25,6 +25,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 		public class CartItem
 		{
 			///
+			///The adjusted subtotal of the line item, including all manual adjustments, discounts, shipping charges and discounts, and duty or any other additional line item fees.
+			///
+			public decimal? AdjustedLineItemSubtotal { get; set; }
+
+			///
 			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 			///
 			public AuditInfo AuditInfo { get; set; }
@@ -70,7 +75,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			public decimal? HandlingAmount { get; set; }
 
 			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///Unique identifier of the source property, such as a catalog, discount, order, or email template.For a product field it will be the name of the field.For a category ID, must be a positive integer not greater than 2000000. By default,  auto-generates a category ID when categories are created. If you want to specify an ID during creation (which preserves category link relationships when migrating tenant data from one sandbox to another), you must also include the  query string in the endpoint. For example, . Then, use the  property to specify the desired category ID.For a product attribute it will be the Attribute FQN.For a document, the ID must be specified as a 32 character, case-insensitive, alphanumeric string. You can specify the ID as 32 sequential characters or as groups separated by dashes in the format 8-4-4-4-12. For example, or.For email templates, the ID must be one of the following values:///
 			///
 			public string Id { get; set; }
 
@@ -120,6 +125,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			public int Quantity { get; set; }
 
 			///
+			///The total shipping amount for the line item before discounts and adjustments.
+			///
+			public decimal? ShippingAmountBeforeDiscountsAndAdjustments { get; set; }
+
+			///
 			///List of shipping discounts projected to apply to carts, orders, and wish lists and items at checkout.
 			///
 			public List<AppliedLineItemShippingDiscount> ShippingDiscounts { get; set; }
@@ -145,14 +155,89 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			public decimal? TaxableTotal { get; set; }
 
 			///
+			///Leverage this property within a [tax Arc.js action](https://www.mozu.com/docs/arcjs/commerce-catalog-storefront-tax/commerce-catalog-storefront-tax.htm) to supplement the tax information for this item or object with custom JSON data.
+			///
+			public JObject TaxData { get; set; }
+
+			///
 			///Total is used to indicate the monetary, estimated total amount of the cart or order, including items, sales tax, shipping costs, and other fees. Totals are not estimated for wish lists at this time.
 			///
 			public decimal? Total { get; set; }
 
 			///
+			///The total charge for the line item without any weighted order level shipping and handling charges.
+			///
+			public decimal? TotalWithoutWeightedShippingAndHandling { get; set; }
+
+			///
+			///The total charge for the line item with all weighted order level shipping and handling charges.
+			///
+			public decimal? TotalWithWeightedShippingAndHandling { get; set; }
+
+			///
 			///Properties of the price per unit of a product, associated with cart and order items. This price is not used for wish lists at this time.
 			///
 			public CommerceUnitPrice UnitPrice { get; set; }
+
+			///
+			///The total weighted order level manual adjustment amount.
+			///
+			public decimal? WeightedOrderAdjustment { get; set; }
+
+			///
+			///The total weighted order level discount amount.
+			///
+			public decimal? WeightedOrderDiscount { get; set; }
+
+			///
+			///The total weighted order level duty charges.
+			///
+			public decimal? WeightedOrderDuty { get; set; }
+
+			///
+			///The amount to adjust the order handling fee.
+			///
+			public decimal? WeightedOrderHandlingAdjustment { get; set; }
+
+			///
+			///The total weighted order level handling fee amount.
+			///
+			public decimal? WeightedOrderHandlingFee { get; set; }
+
+			///
+			///The total weighted order handling fee discount amount.
+			///
+			public decimal? WeightedOrderHandlingFeeDiscount { get; set; }
+
+			///
+			///The total weighted order level handling fee tax amount.
+			///
+			public decimal? WeightedOrderHandlingFeeTax { get; set; }
+
+			///
+			///The total weighted order level shipping charge.
+			///
+			public decimal? WeightedOrderShipping { get; set; }
+
+			///
+			///The total weighted order level shipping discount amount.
+			///
+			public decimal? WeightedOrderShippingDiscount { get; set; }
+
+			///
+			///The total weighted order level shipping manual adjustment amount.
+			///
+			public decimal? WeightedOrderShippingManualAdjustment { get; set; }
+
+			///
+			///The total weighted order level shipping tax amount.
+			///
+			public decimal? WeightedOrderShippingTax { get; set; }
+
+			///
+			///The total weighted order level tax amount.
+			///
+			public decimal? WeightedOrderTax { get; set; }
 
 		}
 

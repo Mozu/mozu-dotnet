@@ -24,12 +24,12 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string LocationCode { get; set; }
 
 			///
-			///The unique, user-defined  product code of a product, used throughout Mozu to reference and associate to a product.
+			///The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			///
 			public string ProductCode { get; set; }
 
 			///
-			///Mozu.ProductRuntime.Contracts.LocationInventory softStockAvailable ApiTypeMember DOCUMENT_HERE 
+			///The soft stock level for the associated product currently available, at specified locations, and based on the number of pending soft product allocations as applicable. This value is associated with the  resource and operations.
 			///
 			public int? SoftStockAvailable { get; set; }
 

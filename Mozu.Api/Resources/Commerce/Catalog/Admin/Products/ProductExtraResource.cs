@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 {
@@ -44,29 +45,6 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 			_dataViewMode = dataViewMode;
 		}
 				
-		/// <summary>
-		/// Retrieves a list of extras configured for the product according to any defined filter and sort criteria.
-		/// </summary>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <returns>
-		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtra"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productextra = new ProductExtra();
-		///   var productExtra = productextra.GetExtras(_dataViewMode,  productCode);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductExtra> GetExtras(string productCode)
-		{
-			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductExtra>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.GetExtrasClient(_dataViewMode,  productCode);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves a list of extras configured for the product according to any defined filter and sort criteria.
@@ -81,47 +59,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   var productExtra = await productextra.GetExtrasAsync(_dataViewMode,  productCode);
 		/// </code>
 		/// </example>
-		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductExtra>> GetExtrasAsync(string productCode)
+		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductExtra>> GetExtrasAsync(string productCode, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductExtra>> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.GetExtrasClient(_dataViewMode,  productCode);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves a collection of all localized delta price values for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
-		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <returns>
-		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productextra = new ProductExtra();
-		///   var productExtraValueDeltaPrice = productextra.GetExtraValueLocalizedDeltaPrices(_dataViewMode,  productCode,  attributeFQN,  value);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> GetExtraValueLocalizedDeltaPrices(string productCode, string attributeFQN, string value)
-		{
-			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.GetExtraValueLocalizedDeltaPricesClient(_dataViewMode,  productCode,  attributeFQN,  value);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves a collection of all localized delta price values for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
 		/// </summary>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="value">The value string to create.</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>}
@@ -132,50 +85,23 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   var productExtraValueDeltaPrice = await productextra.GetExtraValueLocalizedDeltaPricesAsync(_dataViewMode,  productCode,  attributeFQN,  value);
 		/// </code>
 		/// </example>
-		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice>> GetExtraValueLocalizedDeltaPricesAsync(string productCode, string attributeFQN, string value)
+		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice>> GetExtraValueLocalizedDeltaPricesAsync(string productCode, string attributeFQN, string value, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice>> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.GetExtraValueLocalizedDeltaPricesClient(_dataViewMode,  productCode,  attributeFQN,  value);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves the localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
-		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productextra = new ProductExtra();
-		///   var productExtraValueDeltaPrice = productextra.GetExtraValueLocalizedDeltaPrice(_dataViewMode,  productCode,  attributeFQN,  value,  currencyCode,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice GetExtraValueLocalizedDeltaPrice(string productCode, string attributeFQN, string value, string currencyCode, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.GetExtraValueLocalizedDeltaPriceClient(_dataViewMode,  productCode,  attributeFQN,  value,  currencyCode,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves the localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
 		/// </summary>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="value">The value string to create.</param>
 		/// <returns>
@@ -187,41 +113,16 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   var productExtraValueDeltaPrice = await productextra.GetExtraValueLocalizedDeltaPriceAsync(_dataViewMode,  productCode,  attributeFQN,  value,  currencyCode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> GetExtraValueLocalizedDeltaPriceAsync(string productCode, string attributeFQN, string value, string currencyCode, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> GetExtraValueLocalizedDeltaPriceAsync(string productCode, string attributeFQN, string value, string currencyCode, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.GetExtraValueLocalizedDeltaPriceClient(_dataViewMode,  productCode,  attributeFQN,  value,  currencyCode,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves the details of an extra attribute configuration for the product specified in the request.
-		/// </summary>
-		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtra"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productextra = new ProductExtra();
-		///   var productExtra = productextra.GetExtra(_dataViewMode,  productCode,  attributeFQN,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductExtra GetExtra(string productCode, string attributeFQN, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtra> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.GetExtraClient(_dataViewMode,  productCode,  attributeFQN,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves the details of an extra attribute configuration for the product specified in the request.
@@ -238,49 +139,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   var productExtra = await productextra.GetExtraAsync(_dataViewMode,  productCode,  attributeFQN,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductExtra> GetExtraAsync(string productCode, string attributeFQN, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductExtra> GetExtraAsync(string productCode, string attributeFQN, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtra> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.GetExtraClient(_dataViewMode,  productCode,  attributeFQN,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Adds a localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
-		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <param name="localizedDeltaPrice">The properties of the price difference between the product extra and the base product.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productextra = new ProductExtra();
-		///   var productExtraValueDeltaPrice = productextra.AddExtraValueLocalizedDeltaPrice(_dataViewMode,  localizedDeltaPrice,  productCode,  attributeFQN,  value,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice AddExtraValueLocalizedDeltaPrice(Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice localizedDeltaPrice, string productCode, string attributeFQN, string value, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.AddExtraValueLocalizedDeltaPriceClient(_dataViewMode,  localizedDeltaPrice,  productCode,  attributeFQN,  value,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Adds a localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
 		/// </summary>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="value">The value string to create.</param>
 		/// <param name="localizedDeltaPrice">The properties of the price difference between the product extra and the base product.</param>
@@ -293,41 +167,16 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   var productExtraValueDeltaPrice = await productextra.AddExtraValueLocalizedDeltaPriceAsync(_dataViewMode,  localizedDeltaPrice,  productCode,  attributeFQN,  value,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> AddExtraValueLocalizedDeltaPriceAsync(Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice localizedDeltaPrice, string productCode, string attributeFQN, string value, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> AddExtraValueLocalizedDeltaPriceAsync(Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice localizedDeltaPrice, string productCode, string attributeFQN, string value, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.AddExtraValueLocalizedDeltaPriceClient(_dataViewMode,  localizedDeltaPrice,  productCode,  attributeFQN,  value,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Configure an extra attribute for the product specified in the request.
-		/// </summary>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="productExtra">Properties of an extra attribute to defined for a product that is associated with a product type that uses the extra. Setting up extras for a product enables shopper-entered information, such as initials for a monogram.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtra"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productextra = new ProductExtra();
-		///   var productExtra = productextra.AddExtra(_dataViewMode,  productExtra,  productCode,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductExtra AddExtra(Mozu.Api.Contracts.ProductAdmin.ProductExtra productExtra, string productCode, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtra> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.AddExtraClient(_dataViewMode,  productExtra,  productCode,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Configure an extra attribute for the product specified in the request.
@@ -344,48 +193,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   var productExtra = await productextra.AddExtraAsync(_dataViewMode,  productExtra,  productCode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductExtra> AddExtraAsync(Mozu.Api.Contracts.ProductAdmin.ProductExtra productExtra, string productCode, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductExtra> AddExtraAsync(Mozu.Api.Contracts.ProductAdmin.ProductExtra productExtra, string productCode, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtra> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.AddExtraClient(_dataViewMode,  productExtra,  productCode,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates all localized delta price values for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
-		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <param name="localizedDeltaPrice">The properties of the price difference between the product extra and the base product.</param>
-		/// <returns>
-		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productextra = new ProductExtra();
-		///   var productExtraValueDeltaPrice = productextra.UpdateExtraValueLocalizedDeltaPrices(_dataViewMode,  localizedDeltaPrice,  productCode,  attributeFQN,  value);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> UpdateExtraValueLocalizedDeltaPrices(List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> localizedDeltaPrice, string productCode, string attributeFQN, string value)
-		{
-			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.UpdateExtraValueLocalizedDeltaPricesClient(_dataViewMode,  localizedDeltaPrice,  productCode,  attributeFQN,  value);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Updates all localized delta price values for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
 		/// </summary>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="value">The value string to create.</param>
 		/// <param name="localizedDeltaPrice">The properties of the price difference between the product extra and the base product.</param>
 		/// <returns>
@@ -397,51 +220,23 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   var productExtraValueDeltaPrice = await productextra.UpdateExtraValueLocalizedDeltaPricesAsync(_dataViewMode,  localizedDeltaPrice,  productCode,  attributeFQN,  value);
 		/// </code>
 		/// </example>
-		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice>> UpdateExtraValueLocalizedDeltaPricesAsync(List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> localizedDeltaPrice, string productCode, string attributeFQN, string value)
+		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice>> UpdateExtraValueLocalizedDeltaPricesAsync(List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> localizedDeltaPrice, string productCode, string attributeFQN, string value, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice>> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.UpdateExtraValueLocalizedDeltaPricesClient(_dataViewMode,  localizedDeltaPrice,  productCode,  attributeFQN,  value);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates the localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
-		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <param name="localizedDeltaPrice">The properties of the price difference between the product extra and the base product.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productextra = new ProductExtra();
-		///   var productExtraValueDeltaPrice = productextra.UpdateExtraValueLocalizedDeltaPrice(_dataViewMode,  localizedDeltaPrice,  productCode,  attributeFQN,  value,  currencyCode,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice UpdateExtraValueLocalizedDeltaPrice(Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice localizedDeltaPrice, string productCode, string attributeFQN, string value, string currencyCode, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.UpdateExtraValueLocalizedDeltaPriceClient(_dataViewMode,  localizedDeltaPrice,  productCode,  attributeFQN,  value,  currencyCode,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Updates the localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
 		/// </summary>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="value">The value string to create.</param>
 		/// <param name="localizedDeltaPrice">The properties of the price difference between the product extra and the base product.</param>
@@ -454,42 +249,16 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   var productExtraValueDeltaPrice = await productextra.UpdateExtraValueLocalizedDeltaPriceAsync(_dataViewMode,  localizedDeltaPrice,  productCode,  attributeFQN,  value,  currencyCode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> UpdateExtraValueLocalizedDeltaPriceAsync(Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice localizedDeltaPrice, string productCode, string attributeFQN, string value, string currencyCode, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> UpdateExtraValueLocalizedDeltaPriceAsync(Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice localizedDeltaPrice, string productCode, string attributeFQN, string value, string currencyCode, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.UpdateExtraValueLocalizedDeltaPriceClient(_dataViewMode,  localizedDeltaPrice,  productCode,  attributeFQN,  value,  currencyCode,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates the configuration of an extra attribute for the product specified in the request.
-		/// </summary>
-		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="productExtra">Properties of an extra attribute to defined for a product that is associated with a product type that uses the extra. Setting up extras for a product enables shopper-entered information, such as initials for a monogram.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtra"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productextra = new ProductExtra();
-		///   var productExtra = productextra.UpdateExtra(_dataViewMode,  productExtra,  productCode,  attributeFQN,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductExtra UpdateExtra(Mozu.Api.Contracts.ProductAdmin.ProductExtra productExtra, string productCode, string attributeFQN, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtra> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.UpdateExtraClient(_dataViewMode,  productExtra,  productCode,  attributeFQN,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Updates the configuration of an extra attribute for the product specified in the request.
@@ -507,39 +276,16 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   var productExtra = await productextra.UpdateExtraAsync(_dataViewMode,  productExtra,  productCode,  attributeFQN,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductExtra> UpdateExtraAsync(Mozu.Api.Contracts.ProductAdmin.ProductExtra productExtra, string productCode, string attributeFQN, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductExtra> UpdateExtraAsync(Mozu.Api.Contracts.ProductAdmin.ProductExtra productExtra, string productCode, string attributeFQN, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductExtra> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.UpdateExtraClient(_dataViewMode,  productExtra,  productCode,  attributeFQN,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Delete a product extra configuration for the product specified in the request.
-		/// </summary>
-		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <returns>
-		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productextra = new ProductExtra();
-		///   productextra.DeleteExtra(_dataViewMode,  productCode,  attributeFQN);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeleteExtra(string productCode, string attributeFQN)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.DeleteExtraClient(_dataViewMode,  productCode,  attributeFQN);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
 
 		/// <summary>
 		/// Delete a product extra configuration for the product specified in the request.
@@ -555,47 +301,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   await productextra.DeleteExtraAsync(_dataViewMode,  productCode,  attributeFQN);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteExtraAsync(string productCode, string attributeFQN)
+		public virtual async Task DeleteExtraAsync(string productCode, string attributeFQN, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.DeleteExtraClient(_dataViewMode,  productCode,  attributeFQN);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
+
 
 		/// <summary>
 		/// Deletes the localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
 		/// </summary>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
-		/// <param name="value">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productextra = new ProductExtra();
-		///   productextra.DeleteExtraValueLocalizedDeltaPrice(_dataViewMode,  productCode,  attributeFQN,  value,  currencyCode);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeleteExtraValueLocalizedDeltaPrice(string productCode, string attributeFQN, string value, string currencyCode)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.DeleteExtraValueLocalizedDeltaPriceClient(_dataViewMode,  productCode,  attributeFQN,  value,  currencyCode);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// Deletes the localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
-		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="value">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// 
@@ -606,12 +327,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   await productextra.DeleteExtraValueLocalizedDeltaPriceAsync(_dataViewMode,  productCode,  attributeFQN,  value,  currencyCode);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteExtraValueLocalizedDeltaPriceAsync(string productCode, string attributeFQN, string value, string currencyCode)
+		public virtual async Task DeleteExtraValueLocalizedDeltaPriceAsync(string productCode, string attributeFQN, string value, string currencyCode, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.DeleteExtraValueLocalizedDeltaPriceClient(_dataViewMode,  productCode,  attributeFQN,  value,  currencyCode);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 

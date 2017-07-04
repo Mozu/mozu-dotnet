@@ -14,7 +14,7 @@ using System;
 namespace Mozu.Api.Contracts.Customer
 {
 		///
-		///	Mozu.Customer.Contracts.CustomerAuditEntry ApiType DOCUMENT_HERE 
+		///	A list of audit details associated with a specific customer account.
 		///
 		public class CustomerAuditEntry
 		{
@@ -29,7 +29,7 @@ namespace Mozu.Api.Contracts.Customer
 			public int CustomerAccountId { get; set; }
 
 			///
-			///Id of this entry
+			///The unique identifier of the audit entry associated with the customer account.
 			///
 			public int CustomerAuditEntryId { get; set; }
 
@@ -39,32 +39,32 @@ namespace Mozu.Api.Contracts.Customer
 			public string Description { get; set; }
 
 			///
-			///Date of the Entry
+			///The date the audit entries was created.
 			///
 			public DateTime EntryDate { get; set; }
 
 			///
-			///User ID associated with this Entry
+			///The unique identifier of the user who created the audit entry.
 			///
 			public string EntryUser { get; set; }
 
 			///
-			///Path of the field value being changed (e.g. /Customer/Contacts/1/FirstName)
+			///The path of the field value that was changed, for example 
 			///
 			public string FieldPath { get; set; }
 
 			///
-			///New Value after this event
+			///The field's new value after the audit entry event.
 			///
 			public string NewValue { get; set; }
 
 			///
-			///Original value before this event
+			///The field's original value before the audit entry event.
 			///
 			public string OldValue { get; set; }
 
 			///
-			///Site associated wit this entry
+			///The site identifier associated with this audit entry.
 			///
 			public string Site { get; set; }
 

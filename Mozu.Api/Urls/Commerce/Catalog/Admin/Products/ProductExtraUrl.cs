@@ -35,7 +35,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         /// Get Resource Url for GetExtraValueLocalizedDeltaPrices
         /// </summary>
         /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
         /// <param name="value">The value string to create.</param>
         /// <returns>
         /// String - Resource Url
@@ -55,7 +55,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         /// </summary>
         /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
         /// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="value">The value string to create.</param>
         /// <returns>
@@ -96,7 +96,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         /// Get Resource Url for AddExtraValueLocalizedDeltaPrice
         /// </summary>
         /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="value">The value string to create.</param>
         /// <returns>
@@ -134,7 +134,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         /// Get Resource Url for UpdateExtraValueLocalizedDeltaPrices
         /// </summary>
         /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
         /// <param name="value">The value string to create.</param>
         /// <returns>
         /// String - Resource Url
@@ -154,7 +154,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         /// </summary>
         /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
         /// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="value">The value string to create.</param>
         /// <returns>
@@ -213,7 +213,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         /// </summary>
         /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
         /// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
         /// <param name="value">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url

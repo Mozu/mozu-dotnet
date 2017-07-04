@@ -18,19 +18,20 @@ using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 #endregion
 
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Carrier Configuration for managing credentials and some settings for the various carriers installed with the default mozu application
+	/// Use the Carriers resource to configure and manage your supported shipping carrier configurations.
 	/// </summary>
 	public partial class CarrierConfigurationFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves a list of Carrier Configurations according to any specified filter criteria and sort options.
+		/// Retrieves a list of carrier configurations and their details according to any specified facets, filter criteria, and sort options.
 		/// <example> 
 		///  <code> 
 		/// var result = CarrierConfigurationFactory.GetConfigurations(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -51,7 +52,7 @@ namespace Mozu.Api.Test.Factories
 				 startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -68,7 +69,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Get Carrier Configuration (for this particular site)
+		/// Retrieves the details of the specified carrier configuration.
 		/// <example> 
 		///  <code> 
 		/// var result = CarrierConfigurationFactory.GetConfiguration(handler : handler,  carrierId :  carrierId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -89,7 +90,7 @@ namespace Mozu.Api.Test.Factories
 				 carrierId :  carrierId,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -106,7 +107,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Create Carrier Configuration
+		/// Creates a new carrier configuration.
 		/// <example> 
 		///  <code> 
 		/// var result = CarrierConfigurationFactory.CreateConfiguration(handler : handler,  carrierConfiguration :  carrierConfiguration,  carrierId :  carrierId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -127,7 +128,7 @@ namespace Mozu.Api.Test.Factories
 				 carrierConfiguration :  carrierConfiguration,  carrierId :  carrierId,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -144,7 +145,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Update an existing Carrier Configuration
+		/// Updates the details of the specified carrier configuration.
 		/// <example> 
 		///  <code> 
 		/// var result = CarrierConfigurationFactory.UpdateConfiguration(handler : handler,  carrierConfiguration :  carrierConfiguration,  carrierId :  carrierId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -165,7 +166,7 @@ namespace Mozu.Api.Test.Factories
 				 carrierConfiguration :  carrierConfiguration,  carrierId :  carrierId,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -182,7 +183,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Delete an existing Carrier Configuration
+		/// Deletes the specified carrier configuration.
 		/// <example> 
 		///  <code> 
 		/// var result = CarrierConfigurationFactory.DeleteConfiguration(handler : handler,  carrierId :  carrierId,  expectedCode: expectedCode, successCode: successCode); 
@@ -203,7 +204,7 @@ namespace Mozu.Api.Test.Factories
 				 carrierId :  carrierId		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{

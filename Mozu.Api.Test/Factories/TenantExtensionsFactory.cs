@@ -18,19 +18,20 @@ using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 #endregion
 
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// platform/extensions related resources. DOCUMENT_HERE 
+	/// Use the Extensions resource to manage Arc.js configuration settings. These are the same settings you can configure through  in the Action Management JSON Editor.
 	/// </summary>
 	public partial class TenantExtensionsFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// platform-extensions Get GetExtensions description DOCUMENT_HERE 
+		/// Retrieves the Arc.js configuration settings for a site.
 		/// <example> 
 		///  <code> 
 		/// var result = TenantExtensionsFactory.GetExtensions(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -51,7 +52,7 @@ namespace Mozu.Api.Test.Factories
 				 responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -68,7 +69,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// platform-extensions Put UpdateExtensions description DOCUMENT_HERE 
+		/// Updates the Arc.js configuration settings for a site.
 		/// <example> 
 		///  <code> 
 		/// var result = TenantExtensionsFactory.UpdateExtensions(handler : handler,  extensions :  extensions,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -89,7 +90,7 @@ namespace Mozu.Api.Test.Factories
 				 extensions :  extensions,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{

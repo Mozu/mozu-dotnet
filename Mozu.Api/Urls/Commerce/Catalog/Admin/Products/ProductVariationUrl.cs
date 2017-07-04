@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 		/// <summary>
         /// Get Resource Url for GetProductVariationLocalizedDeltaPrices
         /// </summary>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
         /// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
         /// <returns>
         /// String - Resource Url
@@ -37,7 +37,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         /// Get Resource Url for GetProductVariationLocalizedDeltaPrice
         /// </summary>
         /// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
         /// <returns>
@@ -57,7 +57,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 		/// <summary>
         /// Get Resource Url for GetProductVariationLocalizedPrices
         /// </summary>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
         /// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
         /// <returns>
         /// String - Resource Url
@@ -75,7 +75,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         /// Get Resource Url for GetProductVariationLocalizedPrice
         /// </summary>
         /// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
         /// <returns>
@@ -139,7 +139,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 				/// <summary>
         /// Get Resource Url for AddProductVariationLocalizedDeltaPrice
         /// </summary>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
         /// <returns>
@@ -158,7 +158,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 		/// <summary>
         /// Get Resource Url for AddProductVariationLocalizedPrice
         /// </summary>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
         /// <returns>
@@ -177,7 +177,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 				/// <summary>
         /// Get Resource Url for UpdateProductVariationLocalizedDeltaPrices
         /// </summary>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
         /// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
         /// <returns>
         /// String - Resource Url
@@ -195,7 +195,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         /// Get Resource Url for UpdateProductVariationLocalizedDeltaPrice
         /// </summary>
         /// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
         /// <returns>
@@ -215,7 +215,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 		/// <summary>
         /// Get Resource Url for UpdateProductVariationLocalizedPrices
         /// </summary>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
         /// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
         /// <returns>
         /// String - Resource Url
@@ -233,7 +233,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         /// Get Resource Url for UpdateProductVariationLocalizedPrice
         /// </summary>
         /// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
         /// <returns>
@@ -307,7 +307,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         /// Get Resource Url for DeleteProductVariationLocalizedDeltaPrice
         /// </summary>
         /// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
         /// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
         /// <returns>
         /// String - Resource Url
@@ -326,7 +326,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
         /// Get Resource Url for DeleteProductVariationLocalizedPrice
         /// </summary>
         /// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
         /// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
         /// <returns>
         /// String - Resource Url

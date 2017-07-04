@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce
 {
@@ -37,33 +38,6 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 				
-		/// <summary>
-		/// Retrieves a list of in-stock notification subscriptions.
-		/// </summary>
-		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Customer.InStockNotificationSubscriptionCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var instocknotificationsubscription = new InStockNotificationSubscription();
-		///   var inStockNotificationSubscriptionCollection = instocknotificationsubscription.GetInStockNotificationSubscriptions( startIndex,  pageSize,  sortBy,  filter,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Customer.InStockNotificationSubscriptionCollection GetInStockNotificationSubscriptions(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Customer.InStockNotificationSubscriptionCollection> response;
-			var client = Mozu.Api.Clients.Commerce.InStockNotificationSubscriptionClient.GetInStockNotificationSubscriptionsClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves a list of in-stock notification subscriptions.
@@ -82,40 +56,16 @@ namespace Mozu.Api.Resources.Commerce
 		///   var inStockNotificationSubscriptionCollection = await instocknotificationsubscription.GetInStockNotificationSubscriptionsAsync( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.InStockNotificationSubscriptionCollection> GetInStockNotificationSubscriptionsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Customer.InStockNotificationSubscriptionCollection> GetInStockNotificationSubscriptionsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.InStockNotificationSubscriptionCollection> response;
 			var client = Mozu.Api.Clients.Commerce.InStockNotificationSubscriptionClient.GetInStockNotificationSubscriptionsClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves the details of a subscription that sends a push notification when a product is available in a site's active stock.
-		/// </summary>
-		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Customer.InStockNotificationSubscription"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var instocknotificationsubscription = new InStockNotificationSubscription();
-		///   var inStockNotificationSubscription = instocknotificationsubscription.GetInStockNotificationSubscription( id,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Customer.InStockNotificationSubscription GetInStockNotificationSubscription(int id, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Customer.InStockNotificationSubscription> response;
-			var client = Mozu.Api.Clients.Commerce.InStockNotificationSubscriptionClient.GetInStockNotificationSubscriptionClient( id,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves the details of a subscription that sends a push notification when a product is available in a site's active stock.
@@ -131,40 +81,16 @@ namespace Mozu.Api.Resources.Commerce
 		///   var inStockNotificationSubscription = await instocknotificationsubscription.GetInStockNotificationSubscriptionAsync( id,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.InStockNotificationSubscription> GetInStockNotificationSubscriptionAsync(int id, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Customer.InStockNotificationSubscription> GetInStockNotificationSubscriptionAsync(int id, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.InStockNotificationSubscription> response;
 			var client = Mozu.Api.Clients.Commerce.InStockNotificationSubscriptionClient.GetInStockNotificationSubscriptionClient( id,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Creates a new subscription that notifies the customer when the product specified in the request is available in the active inventory of the defined location.
-		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="inStockNotificationSubscription">Properties of a push notification to which the shopper subscribes. This notification sends the shopper an alert when a new product or a product previously out of stock becomes available in the specified location's active product inventory.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Customer.InStockNotificationSubscription"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var instocknotificationsubscription = new InStockNotificationSubscription();
-		///   var inStockNotificationSubscription = instocknotificationsubscription.AddInStockNotificationSubscription( inStockNotificationSubscription,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Customer.InStockNotificationSubscription AddInStockNotificationSubscription(Mozu.Api.Contracts.Customer.InStockNotificationSubscription inStockNotificationSubscription, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Customer.InStockNotificationSubscription> response;
-			var client = Mozu.Api.Clients.Commerce.InStockNotificationSubscriptionClient.AddInStockNotificationSubscriptionClient( inStockNotificationSubscription,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Creates a new subscription that notifies the customer when the product specified in the request is available in the active inventory of the defined location.
@@ -180,38 +106,16 @@ namespace Mozu.Api.Resources.Commerce
 		///   var inStockNotificationSubscription = await instocknotificationsubscription.AddInStockNotificationSubscriptionAsync( inStockNotificationSubscription,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.InStockNotificationSubscription> AddInStockNotificationSubscriptionAsync(Mozu.Api.Contracts.Customer.InStockNotificationSubscription inStockNotificationSubscription, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Customer.InStockNotificationSubscription> AddInStockNotificationSubscriptionAsync(Mozu.Api.Contracts.Customer.InStockNotificationSubscription inStockNotificationSubscription, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.InStockNotificationSubscription> response;
 			var client = Mozu.Api.Clients.Commerce.InStockNotificationSubscriptionClient.AddInStockNotificationSubscriptionClient( inStockNotificationSubscription,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Deletes a subscription for a customer in-stock notification.
-		/// </summary>
-		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
-		/// <returns>
-		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var instocknotificationsubscription = new InStockNotificationSubscription();
-		///   instocknotificationsubscription.DeleteInStockNotificationSubscription( id);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeleteInStockNotificationSubscription(int id)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.InStockNotificationSubscriptionClient.DeleteInStockNotificationSubscriptionClient( id);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
 
 		/// <summary>
 		/// Deletes a subscription for a customer in-stock notification.
@@ -226,12 +130,12 @@ namespace Mozu.Api.Resources.Commerce
 		///   await instocknotificationsubscription.DeleteInStockNotificationSubscriptionAsync( id);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteInStockNotificationSubscriptionAsync(int id)
+		public virtual async Task DeleteInStockNotificationSubscriptionAsync(int id, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.InStockNotificationSubscriptionClient.DeleteInStockNotificationSubscriptionClient( id);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 

@@ -13,11 +13,12 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 {
 	/// <summary>
-	/// Define and manage discounts to apply to products, product categories, or orders. The discounts can be a specified amount off the price, percentage off the price, or for free shipping. Create a coupon code that shoppers can use to redeem the discount.
+	/// Use the Discounts resource to define and manage discounts to apply to products, product categories, or orders. The discounts can be a specified amount off the price, percentage off the price, or for free shipping. You can create a coupon code that shoppers can use to redeem the discount.
 	/// </summary>
 	public partial class DiscountResource  	{
 		///
@@ -44,33 +45,6 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 			_dataViewMode = dataViewMode;
 		}
 				
-		/// <summary>
-		/// Retrieves a list of discounts according to any specified filter criteria and sort options.
-		/// </summary>
-		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="sortBy"></param>
-		/// <param name="startIndex"></param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.DiscountCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var discount = new Discount();
-		///   var discountCollection = discount.GetDiscounts(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.DiscountCollection GetDiscounts(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountsClient(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves a list of discounts according to any specified filter criteria and sort options.
@@ -89,40 +63,16 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   var discountCollection = await discount.GetDiscountsAsync(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.DiscountCollection> GetDiscountsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.DiscountCollection> GetDiscountsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountCollection> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountsClient(_dataViewMode,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves the localized content specified for the specified discount.
-		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var discount = new Discount();
-		///   var discountLocalizedContent = discount.GetDiscountContent(_dataViewMode,  discountId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent GetDiscountContent(int discountId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountContentClient(_dataViewMode,  discountId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves the localized content specified for the specified discount.
@@ -138,40 +88,16 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   var discountLocalizedContent = await discount.GetDiscountContentAsync(_dataViewMode,  discountId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent> GetDiscountContentAsync(int discountId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent> GetDiscountContentAsync(int discountId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountContentClient(_dataViewMode,  discountId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves the details of a single discount.
-		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Discount"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var discount = new Discount();
-		///   var discount = discount.GetDiscount(_dataViewMode,  discountId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.Discount GetDiscount(int discountId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.Discount> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountClient(_dataViewMode,  discountId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves the details of a single discount.
@@ -187,39 +113,16 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   var discount = await discount.GetDiscountAsync(_dataViewMode,  discountId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Discount> GetDiscountAsync(int discountId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Discount> GetDiscountAsync(int discountId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.Discount> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GetDiscountClient(_dataViewMode,  discountId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Generates a random code for a coupon.
-		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// string
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var discount = new Discount();
-		///   var string = discount.GenerateRandomCoupon( responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual string GenerateRandomCoupon(string responseFields =  null)
-		{
-			MozuClient<string> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GenerateRandomCouponClient( responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Generates a random code for a coupon.
@@ -234,40 +137,16 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   var string = await discount.GenerateRandomCouponAsync( responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<string> GenerateRandomCouponAsync(string responseFields =  null)
+		public virtual async Task<string> GenerateRandomCouponAsync(string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<string> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.GenerateRandomCouponClient( responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Creates a new discount or coupon to apply to a product, category, order, or shipping.
-		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="discount">Name of the discount added and applied to a shopping cart and order for a shopper's purchase. </param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Discount"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var discount = new Discount();
-		///   var discount = discount.CreateDiscount( discount,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.Discount CreateDiscount(Mozu.Api.Contracts.ProductAdmin.Discount discount, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.Discount> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.CreateDiscountClient( discount,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Creates a new discount or coupon to apply to a product, category, order, or shipping.
@@ -283,44 +162,19 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   var discount = await discount.CreateDiscountAsync( discount,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Discount> CreateDiscountAsync(Mozu.Api.Contracts.ProductAdmin.Discount discount, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Discount> CreateDiscountAsync(Mozu.Api.Contracts.ProductAdmin.Discount discount, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.Discount> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.CreateDiscountClient( discount,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates the localizable content for the specified discount or rename the discount without modifying its other properties.
-		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="content">The container for the language-specific name of the discount. A container exists for each supported language (LocaleCode). This parameter enables you to display the discount name in multiple languages yet manage it as a single discount internally.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var discount = new Discount();
-		///   var discountLocalizedContent = discount.UpdateDiscountContent( content,  discountId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent UpdateDiscountContent(Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent content, int discountId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.UpdateDiscountContentClient( content,  discountId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Updates the localizable content for the specified discount or rename the discount without modifying its other properties.
+		/// Updates the localizable content for the specified discount or renames the discount without modifying its other properties.
 		/// </summary>
 		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
@@ -334,44 +188,19 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   var discountLocalizedContent = await discount.UpdateDiscountContentAsync( content,  discountId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent> UpdateDiscountContentAsync(Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent content, int discountId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent> UpdateDiscountContentAsync(Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent content, int discountId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.UpdateDiscountContentClient( content,  discountId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates one or more properties of a defined discount.
-		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="discount">Name of the discount added and applied to a shopping cart and order for a shopper's purchase. </param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Discount"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var discount = new Discount();
-		///   var discount = discount.UpdateDiscount( discount,  discountId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.Discount UpdateDiscount(Mozu.Api.Contracts.ProductAdmin.Discount discount, int discountId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.Discount> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.UpdateDiscountClient( discount,  discountId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Updates one or more properties of a defined discount.
+		/// Updates one or more properties of the specified discount.
 		/// </summary>
 		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
@@ -385,38 +214,16 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   var discount = await discount.UpdateDiscountAsync( discount,  discountId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Discount> UpdateDiscountAsync(Mozu.Api.Contracts.ProductAdmin.Discount discount, int discountId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Discount> UpdateDiscountAsync(Mozu.Api.Contracts.ProductAdmin.Discount discount, int discountId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.Discount> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.UpdateDiscountClient( discount,  discountId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Deletes a discount specified by its discount ID.
-		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
-		/// <returns>
-		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var discount = new Discount();
-		///   discount.DeleteDiscount( discountId);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeleteDiscount(int discountId)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.DeleteDiscountClient( discountId);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
 
 		/// <summary>
 		/// Deletes a discount specified by its discount ID.
@@ -431,12 +238,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   await discount.DeleteDiscountAsync( discountId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteDiscountAsync(int discountId)
+		public virtual async Task DeleteDiscountAsync(int discountId, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.DeleteDiscountClient( discountId);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 

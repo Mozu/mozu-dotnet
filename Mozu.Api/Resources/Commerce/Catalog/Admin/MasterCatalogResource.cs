@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 {
@@ -37,29 +38,6 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 				
-		/// <summary>
-		/// Retrieve the details of all master catalog associated with a tenant.
-		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.MasterCatalogCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mastercatalog = new MasterCatalog();
-		///   var masterCatalogCollection = mastercatalog.GetMasterCatalogs( responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.MasterCatalogCollection GetMasterCatalogs(string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.MasterCatalogCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.MasterCatalogClient.GetMasterCatalogsClient( responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieve the details of all master catalog associated with a tenant.
@@ -74,40 +52,16 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   var masterCatalogCollection = await mastercatalog.GetMasterCatalogsAsync( responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.MasterCatalogCollection> GetMasterCatalogsAsync(string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.MasterCatalogCollection> GetMasterCatalogsAsync(string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.MasterCatalogCollection> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.MasterCatalogClient.GetMasterCatalogsClient( responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieve the details of the master catalog specified in the request.
-		/// </summary>
-		/// <param name="masterCatalogId">The unique identifier of the master catalog associated with the entity.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.MasterCatalog"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mastercatalog = new MasterCatalog();
-		///   var masterCatalog = mastercatalog.GetMasterCatalog( masterCatalogId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.MasterCatalog GetMasterCatalog(int masterCatalogId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.MasterCatalog> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.MasterCatalogClient.GetMasterCatalogClient( masterCatalogId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieve the details of the master catalog specified in the request.
@@ -123,41 +77,16 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   var masterCatalog = await mastercatalog.GetMasterCatalogAsync( masterCatalogId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.MasterCatalog> GetMasterCatalogAsync(int masterCatalogId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.MasterCatalog> GetMasterCatalogAsync(int masterCatalogId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.MasterCatalog> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.MasterCatalogClient.GetMasterCatalogClient( masterCatalogId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates the product publishing mode for the master catalog specified in the request.
-		/// </summary>
-		/// <param name="masterCatalogId"></param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="masterCatalog">Properties of a master product catalog defined for a tenant. All catalogs and sites associated with a master catalog share product definitions.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.MasterCatalog"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mastercatalog = new MasterCatalog();
-		///   var masterCatalog = mastercatalog.UpdateMasterCatalog( masterCatalog,  masterCatalogId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.MasterCatalog UpdateMasterCatalog(Mozu.Api.Contracts.ProductAdmin.MasterCatalog masterCatalog, int masterCatalogId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.MasterCatalog> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.MasterCatalogClient.UpdateMasterCatalogClient( masterCatalog,  masterCatalogId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Updates the product publishing mode for the master catalog specified in the request.
@@ -174,12 +103,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   var masterCatalog = await mastercatalog.UpdateMasterCatalogAsync( masterCatalog,  masterCatalogId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.MasterCatalog> UpdateMasterCatalogAsync(Mozu.Api.Contracts.ProductAdmin.MasterCatalog masterCatalog, int masterCatalogId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.MasterCatalog> UpdateMasterCatalogAsync(Mozu.Api.Contracts.ProductAdmin.MasterCatalog masterCatalog, int masterCatalogId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.MasterCatalog> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.MasterCatalogClient.UpdateMasterCatalogClient( masterCatalog,  masterCatalogId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}

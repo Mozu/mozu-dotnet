@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Customer
 {
@@ -37,33 +38,6 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		}
 
 				
-		/// <summary>
-		/// Retrieves a list of customer visits according to any filter or sort criteria specified in the request.
-		/// </summary>
-		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Customer.VisitCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var visit = new Visit();
-		///   var visitCollection = visit.GetVisits( startIndex,  pageSize,  sortBy,  filter,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Customer.VisitCollection GetVisits(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Customer.VisitCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.VisitClient.GetVisitsClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves a list of customer visits according to any filter or sort criteria specified in the request.
@@ -82,40 +56,16 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		///   var visitCollection = await visit.GetVisitsAsync( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.VisitCollection> GetVisitsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Customer.VisitCollection> GetVisitsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.VisitCollection> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.VisitClient.GetVisitsClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves the details of the customer visit specified in the request.
-		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="visitId">Unique identifier of the customer visit to update.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Customer.Visit"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var visit = new Visit();
-		///   var visit = visit.GetVisit( visitId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Customer.Visit GetVisit(string visitId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Customer.Visit> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.VisitClient.GetVisitClient( visitId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves the details of the customer visit specified in the request.
@@ -131,40 +81,16 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		///   var visit = await visit.GetVisitAsync( visitId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.Visit> GetVisitAsync(string visitId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Customer.Visit> GetVisitAsync(string visitId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.Visit> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.VisitClient.GetVisitClient( visitId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Creates a new visit for the customer account specified in the request.
-		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="visit">Properties of a customer visit to one of a company's sites.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Customer.Visit"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var visit = new Visit();
-		///   var visit = visit.AddVisit( visit,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Customer.Visit AddVisit(Mozu.Api.Contracts.Customer.Visit visit, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Customer.Visit> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.VisitClient.AddVisitClient( visit,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Creates a new visit for the customer account specified in the request.
@@ -180,41 +106,16 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		///   var visit = await visit.AddVisitAsync( visit,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.Visit> AddVisitAsync(Mozu.Api.Contracts.Customer.Visit visit, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Customer.Visit> AddVisitAsync(Mozu.Api.Contracts.Customer.Visit visit, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.Visit> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.VisitClient.AddVisitClient( visit,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates one or more properties of a defined customer visit.
-		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="visitId">Unique identifier of the customer visit to update.</param>
-		/// <param name="visit">Properties of a customer visit to one of a company's sites.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Customer.Visit"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var visit = new Visit();
-		///   var visit = visit.UpdateVisit( visit,  visitId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Customer.Visit UpdateVisit(Mozu.Api.Contracts.Customer.Visit visit, string visitId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Customer.Visit> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.VisitClient.UpdateVisitClient( visit,  visitId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Updates one or more properties of a defined customer visit.
@@ -231,12 +132,12 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		///   var visit = await visit.UpdateVisitAsync( visit,  visitId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.Visit> UpdateVisitAsync(Mozu.Api.Contracts.Customer.Visit visit, string visitId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Customer.Visit> UpdateVisitAsync(Mozu.Api.Contracts.Customer.Visit visit, string visitId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.Visit> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.VisitClient.UpdateVisitClient( visit,  visitId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}

@@ -24,17 +24,17 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string Description { get; set; }
 
 			///
-			///The display name of the source product property. For a product field it will be the display name of the field. For a product attribute it will be the Attribute Name.
+			///The user supplied name that appears in . You can use this field for identification purposes.
 			///
 			public string Name { get; set; }
 
 			///
-			///Mozu.ProductRuntime.Contracts.ResolvedPriceList priceListCode ApiTypeMember DOCUMENT_HERE 
+			///The code of the price list to which the customer resolves.
 			///
 			public string PriceListCode { get; set; }
 
 			///
-			///Mozu.ProductRuntime.Contracts.ResolvedPriceList priceListId ApiTypeMember DOCUMENT_HERE 
+			///The internal id of the price list to which the customer resolves.
 			///
 			public int PriceListId { get; set; }
 

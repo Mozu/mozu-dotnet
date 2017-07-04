@@ -13,11 +13,12 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Content
 {
 	/// <summary>
-	/// content/publishsets related resources. DOCUMENT_HERE 
+	/// Use the Content Publish Set resource to manage content publish sets and the pending content drafts.You can use content publish sets to group pending content changes together and publish them all at the same time.
 	/// </summary>
 	public partial class PublishSetSummaryResource  	{
 		///
@@ -37,34 +38,9 @@ namespace Mozu.Api.Resources.Content
 		}
 
 				
-		/// <summary>
-		/// Returns a List of current Publishing sets with counts of drafts in each
-		/// </summary>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Content.PublishSetSummaryPagedCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var publishsetsummary = new PublishSetSummary();
-		///   var publishSetSummaryPagedCollection = publishsetsummary.GetPublishSets( pageSize,  startIndex,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Content.PublishSetSummaryPagedCollection GetPublishSets(int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Content.PublishSetSummaryPagedCollection> response;
-			var client = Mozu.Api.Clients.Content.PublishSetSummaryClient.GetPublishSetsClient( pageSize,  startIndex,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Returns a List of current Publishing sets with counts of drafts in each
+		/// Returns a list of content publish sets.
 		/// </summary>
 		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -78,53 +54,25 @@ namespace Mozu.Api.Resources.Content
 		///   var publishSetSummaryPagedCollection = await publishsetsummary.GetPublishSetsAsync( pageSize,  startIndex,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Content.PublishSetSummaryPagedCollection> GetPublishSetsAsync(int? pageSize =  null, int? startIndex =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Content.PublishSetSummaryPagedCollection> GetPublishSetsAsync(int? pageSize =  null, int? startIndex =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Content.PublishSetSummaryPagedCollection> response;
 			var client = Mozu.Api.Clients.Content.PublishSetSummaryClient.GetPublishSetsClient( pageSize,  startIndex,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieve a paged collection of publish set Items.
-		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/applications/sorting-filtering.htm) for a list of supported filters.</param>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/applications/sorting-filtering.htm) for more information.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var publishsetsummary = new PublishSetSummary();
-		///   var documentDraftSummaryPagedCollection = publishsetsummary.GetPublishSetItems( code,  pageSize,  startIndex,  sortBy,  filter,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection GetPublishSetItems(string code, int? pageSize =  null, int? startIndex =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection> response;
-			var client = Mozu.Api.Clients.Content.PublishSetSummaryClient.GetPublishSetItemsClient( code,  pageSize,  startIndex,  sortBy,  filter,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieve a paged collection of publish set Items.
+		/// Retrieves a list of content publish sets and their properties.
 		/// </summary>
 		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/applications/sorting-filtering.htm) for a list of supported filters.</param>
+		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
 		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/applications/sorting-filtering.htm) for more information.</param>
+		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection"/>
@@ -135,44 +83,19 @@ namespace Mozu.Api.Resources.Content
 		///   var documentDraftSummaryPagedCollection = await publishsetsummary.GetPublishSetItemsAsync( code,  pageSize,  startIndex,  sortBy,  filter,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection> GetPublishSetItemsAsync(string code, int? pageSize =  null, int? startIndex =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection> GetPublishSetItemsAsync(string code, int? pageSize =  null, int? startIndex =  null, string sortBy =  null, string filter =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection> response;
 			var client = Mozu.Api.Clients.Content.PublishSetSummaryClient.GetPublishSetItemsClient( code,  pageSize,  startIndex,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Adds a set of documents by id to a publish set
-		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="shouldDiscard">Specifies whether to discard the pending content changes assigned to the content publish set when the publish set is deleted.</param>
-		/// <returns>
-		/// object
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var publishsetsummary = new PublishSetSummary();
-		///   var object = publishsetsummary.DeletePublishSet( code,  shouldDiscard,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual object DeletePublishSet(string code, bool? shouldDiscard =  null, string responseFields =  null)
-		{
-			MozuClient<object> response;
-			var client = Mozu.Api.Clients.Content.PublishSetSummaryClient.DeletePublishSetClient( code,  shouldDiscard,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Adds a set of documents by id to a publish set
+		/// Deletes the specified content publish set. You can use the shouldDiscard parameter to specify whether to discard the content drafts assigned to the content publish set.
 		/// </summary>
 		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -186,48 +109,23 @@ namespace Mozu.Api.Resources.Content
 		///   var object = await publishsetsummary.DeletePublishSetAsync( code,  shouldDiscard,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<object> DeletePublishSetAsync(string code, bool? shouldDiscard =  null, string responseFields =  null)
+		public virtual async Task<object> DeletePublishSetAsync(string code, bool? shouldDiscard =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<object> response;
 			var client = Mozu.Api.Clients.Content.PublishSetSummaryClient.DeletePublishSetClient( code,  shouldDiscard,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
+
 		/// <summary>
-		/// Adds a set of documents by id to a publish set
+		/// Adds a set of documents by id to a specified publish set.
 		/// </summary>
 		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="itemsToPublish">Mozu.Content.Contracts.AddOrDeletePublishItem ApiType DOCUMENT_HERE </param>
-		/// <returns>
-		/// object
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var publishsetsummary = new PublishSetSummary();
-		///   var object = publishsetsummary.AddPublishSetItems( itemsToPublish,  code,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual object AddPublishSetItems(List<Mozu.Api.Contracts.Content.AddOrDeletePublishItem> itemsToPublish, string code, string responseFields =  null)
-		{
-			MozuClient<object> response;
-			var client = Mozu.Api.Clients.Content.PublishSetSummaryClient.AddPublishSetItemsClient( itemsToPublish,  code,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
-
-		/// <summary>
-		/// Adds a set of documents by id to a publish set
-		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="itemsToPublish">Mozu.Content.Contracts.AddOrDeletePublishItem ApiType DOCUMENT_HERE </param>
+		/// <param name="itemsToPublish">The details of the items that you want to add to a specified publish set.</param>
 		/// <returns>
 		/// object
 		/// </returns>
@@ -237,12 +135,12 @@ namespace Mozu.Api.Resources.Content
 		///   var object = await publishsetsummary.AddPublishSetItemsAsync( itemsToPublish,  code,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<object> AddPublishSetItemsAsync(List<Mozu.Api.Contracts.Content.AddOrDeletePublishItem> itemsToPublish, string code, string responseFields =  null)
+		public virtual async Task<object> AddPublishSetItemsAsync(List<Mozu.Api.Contracts.Content.AddOrDeletePublishItem> itemsToPublish, string code, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<object> response;
 			var client = Mozu.Api.Clients.Content.PublishSetSummaryClient.AddPublishSetItemsClient( itemsToPublish,  code,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}

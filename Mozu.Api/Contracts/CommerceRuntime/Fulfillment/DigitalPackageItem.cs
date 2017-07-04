@@ -36,7 +36,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			public string OptionAttributeFQN { get; set; }
 
 			///
-			///The unique, user-defined  product code of a product, used throughout Mozu to reference and associate to a product.
+			///The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			///
 			public string ProductCode { get; set; }
 

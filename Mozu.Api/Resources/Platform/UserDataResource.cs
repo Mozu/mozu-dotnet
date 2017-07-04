@@ -13,11 +13,12 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Platform
 {
 	/// <summary>
-	/// Use the user data subresource to store user-level data required for a third-party application in the Mozu database.
+	/// Use the user data subresource to store user-level data required for a third-party application in the  database.
 	/// </summary>
 	public partial class UserDataResource  	{
 		///
@@ -37,33 +38,9 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 				
-		/// <summary>
-		/// Retrieves the value of a record in the Mozu database.
-		/// </summary>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// string
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var userdata = new UserData();
-		///   var string = userdata.GetDBValue( dbEntryQuery,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual string GetDBValue(string dbEntryQuery, string responseFields =  null)
-		{
-			MozuClient<string> response;
-			var client = Mozu.Api.Clients.Platform.UserDataClient.GetDBValueClient( dbEntryQuery,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves the value of a record in the Mozu database.
+		/// Retrieves the value of a record in the  database.
 		/// </summary>
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
@@ -76,42 +53,19 @@ namespace Mozu.Api.Resources.Platform
 		///   var string = await userdata.GetDBValueAsync( dbEntryQuery,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<string> GetDBValueAsync(string dbEntryQuery, string responseFields =  null)
+		public virtual async Task<string> GetDBValueAsync(string dbEntryQuery, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<string> response;
 			var client = Mozu.Api.Clients.Platform.UserDataClient.GetDBValueClient( dbEntryQuery,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Creates a new record in the Mozu database based on the information supplied in the request.
-		/// </summary>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <returns>
-		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var userdata = new UserData();
-		///   userdata.CreateDBValue( value,  dbEntryQuery);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void CreateDBValue(string value, string dbEntryQuery)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Platform.UserDataClient.CreateDBValueClient( value,  dbEntryQuery);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
 
 		/// <summary>
-		/// Creates a new record in the Mozu database based on the information supplied in the request.
+		/// Creates a new record in the  database based on the information supplied in the request.
 		/// </summary>
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
 		/// <param name="value">The value string to create.</param>
@@ -124,41 +78,18 @@ namespace Mozu.Api.Resources.Platform
 		///   await userdata.CreateDBValueAsync( value,  dbEntryQuery);
 		/// </code>
 		/// </example>
-		public virtual async Task CreateDBValueAsync(string value, string dbEntryQuery)
+		public virtual async Task CreateDBValueAsync(string value, string dbEntryQuery, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Platform.UserDataClient.CreateDBValueClient( value,  dbEntryQuery);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 
-		/// <summary>
-		/// Updates a record in the Mozu database based on the information supplied in the request.
-		/// </summary>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <returns>
-		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var userdata = new UserData();
-		///   userdata.UpdateDBValue( value,  dbEntryQuery);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void UpdateDBValue(string value, string dbEntryQuery)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Platform.UserDataClient.UpdateDBValueClient( value,  dbEntryQuery);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
 
 		/// <summary>
-		/// Updates a record in the Mozu database based on the information supplied in the request.
+		/// Updates a record in the  database based on the information supplied in the request.
 		/// </summary>
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
 		/// <param name="value">The value string to create.</param>
@@ -171,40 +102,18 @@ namespace Mozu.Api.Resources.Platform
 		///   await userdata.UpdateDBValueAsync( value,  dbEntryQuery);
 		/// </code>
 		/// </example>
-		public virtual async Task UpdateDBValueAsync(string value, string dbEntryQuery)
+		public virtual async Task UpdateDBValueAsync(string value, string dbEntryQuery, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Platform.UserDataClient.UpdateDBValueClient( value,  dbEntryQuery);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 
-		/// <summary>
-		/// Removes a previously defined record in the Mozu database.
-		/// </summary>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <returns>
-		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var userdata = new UserData();
-		///   userdata.DeleteDBValue( dbEntryQuery);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeleteDBValue(string dbEntryQuery)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Platform.UserDataClient.DeleteDBValueClient( dbEntryQuery);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
 
 		/// <summary>
-		/// Removes a previously defined record in the Mozu database.
+		/// Removes a previously defined record in the  database.
 		/// </summary>
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
 		/// <returns>
@@ -216,12 +125,12 @@ namespace Mozu.Api.Resources.Platform
 		///   await userdata.DeleteDBValueAsync( dbEntryQuery);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteDBValueAsync(string dbEntryQuery)
+		public virtual async Task DeleteDBValueAsync(string dbEntryQuery, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Platform.UserDataClient.DeleteDBValueClient( dbEntryQuery);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 

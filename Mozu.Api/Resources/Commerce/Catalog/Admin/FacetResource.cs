@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 {
@@ -37,31 +38,6 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 				
-		/// <summary>
-		/// Retrieves a facet specified by its unique identifier and displays its properties.
-		/// </summary>
-		/// <param name="facetId">Unique identifier of the facet to retrieve.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="validate">Validates that the product category associated with a facet is active. System-supplied and read only.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Facet"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var facet = new Facet();
-		///   var facet = facet.GetFacet( facetId,  validate,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.Facet GetFacet(int facetId, bool? validate =  null, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.Facet> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.FacetClient.GetFacetClient( facetId,  validate,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves a facet specified by its unique identifier and displays its properties.
@@ -78,42 +54,16 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   var facet = await facet.GetFacetAsync( facetId,  validate,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Facet> GetFacetAsync(int facetId, bool? validate =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Facet> GetFacetAsync(int facetId, bool? validate =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.Facet> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.FacetClient.GetFacetClient( facetId,  validate,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves a list of the facets defined for the specified category.
-		/// </summary>
-		/// <param name="categoryId">Unique identifier of the category to modify.</param>
-		/// <param name="includeAvailable">If true, returns a list of the attributes and categories associated with a product type that have not been defined as a facet for the category.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="validate">Validates that the product category associated with a facet is active. System-supplied and read only.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.FacetSet"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var facet = new Facet();
-		///   var facetSet = facet.GetFacetCategoryList( categoryId,  includeAvailable,  validate,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.FacetSet GetFacetCategoryList(int categoryId, bool? includeAvailable =  null, bool? validate =  null, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.FacetSet> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.FacetClient.GetFacetCategoryListClient( categoryId,  includeAvailable,  validate,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves a list of the facets defined for the specified category.
@@ -131,40 +81,16 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   var facetSet = await facet.GetFacetCategoryListAsync( categoryId,  includeAvailable,  validate,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.FacetSet> GetFacetCategoryListAsync(int categoryId, bool? includeAvailable =  null, bool? validate =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.FacetSet> GetFacetCategoryListAsync(int categoryId, bool? includeAvailable =  null, bool? validate =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.FacetSet> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.FacetClient.GetFacetCategoryListClient( categoryId,  includeAvailable,  validate,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Creates a new category, price, or attribute facet. Define the category or attribute source to use for the facet values.
-		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="facet">Properties of the facet used to retrieve documents.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Facet"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var facet = new Facet();
-		///   var facet = facet.AddFacet( facet,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.Facet AddFacet(Mozu.Api.Contracts.ProductAdmin.Facet facet, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.Facet> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.FacetClient.AddFacetClient( facet,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Creates a new category, price, or attribute facet. Define the category or attribute source to use for the facet values.
@@ -180,41 +106,16 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   var facet = await facet.AddFacetAsync( facet,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Facet> AddFacetAsync(Mozu.Api.Contracts.ProductAdmin.Facet facet, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Facet> AddFacetAsync(Mozu.Api.Contracts.ProductAdmin.Facet facet, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.Facet> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.FacetClient.AddFacetClient( facet,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Modifies one or more properties of a defined facet.
-		/// </summary>
-		/// <param name="facetId">Unique identifier of the facet to retrieve.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="facet">Properties of the facet used to retrieve documents.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Facet"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var facet = new Facet();
-		///   var facet = facet.UpdateFacet( facet,  facetId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.Facet UpdateFacet(Mozu.Api.Contracts.ProductAdmin.Facet facet, int facetId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.Facet> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.FacetClient.UpdateFacetClient( facet,  facetId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Modifies one or more properties of a defined facet.
@@ -231,38 +132,16 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   var facet = await facet.UpdateFacetAsync( facet,  facetId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Facet> UpdateFacetAsync(Mozu.Api.Contracts.ProductAdmin.Facet facet, int facetId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.Facet> UpdateFacetAsync(Mozu.Api.Contracts.ProductAdmin.Facet facet, int facetId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.Facet> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.FacetClient.UpdateFacetClient( facet,  facetId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Deletes the facet specified by its unique identifier.
-		/// </summary>
-		/// <param name="facetId">Unique identifier of the facet to retrieve.</param>
-		/// <returns>
-		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var facet = new Facet();
-		///   facet.DeleteFacetById( facetId);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeleteFacetById(int facetId)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.FacetClient.DeleteFacetByIdClient( facetId);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
 
 		/// <summary>
 		/// Deletes the facet specified by its unique identifier.
@@ -277,12 +156,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   await facet.DeleteFacetByIdAsync( facetId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteFacetByIdAsync(int facetId)
+		public virtual async Task DeleteFacetByIdAsync(int facetId, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.FacetClient.DeleteFacetByIdClient( facetId);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 

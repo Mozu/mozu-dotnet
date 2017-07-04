@@ -48,7 +48,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public List<ProductExtra> Extras { get; set; }
 
 			///
-			///List of supported types of fulfillment  for the product or variation. The types include direct ship, in-store pickup, or both. 
+			///List of supported types of fulfillment for the product or variation. The types include direct ship, in-store pickup, or both.
 			///
 			public List<string> FulfillmentTypesSupported { get; set; }
 
@@ -158,7 +158,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string ProductUsage { get; set; }
 
 			///
-			///Collection of property attributes defined for the object. Properties are associated to all objects within Mozu, including documents, products, and product types.
+			///Collection of property attributes defined for the object. Properties are associated to all objects within , including documents, products, and product types.
 			///
 			public List<ProductProperty> Properties { get; set; }
 

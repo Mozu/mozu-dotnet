@@ -20,14 +20,17 @@ namespace Mozu.Api.Contracts.ProductAdmin.Search
 		public class SynonymDefinition
 		{
 			///
-			///Key used for metadata defined for objects, including extensible attributes, custom attributes associated with a shipping provider, and search synonyms definitions. This content may be user-defined depending on the object and usage.
+			///Key used for metadata defined for objects, including extensible attributes, custom attributes associated with a shipping provider, and search synonyms definitions. This content may be user-defined depending on the object and usage.For search synonym definitions, refer to [Synonym Expansion Types](https://www.mozu.com/docs/Developer/api-guides/search-settings.htm#synonym_expansion_types) for more information about the key usage.
 			///
 			public string Key { get; set; }
 
+			///
+			///The unique identifier of the synonym.
+			///
 			public int? SynonymId { get; set; }
 
 			///
-			///List of synonyms.  If no key is defined the matches are bidirectional
+			///A list of comma seperated synonyms. If you do not specify a ,  uses a two way expansion. Refer to [Synonym Expansion Types](https://www.mozu.com/docs/Developer/api-guides/search-settings.htm#synonym_expansion_types) for more information.
 			///
 			public List<string> Synonyms { get; set; }
 

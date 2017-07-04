@@ -15,12 +15,12 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.MZDB
 {
 		///
-		///	Paged collection of EntityLists.  EntityLists are created at the tenant level, but instances of the EntityLists are implicitly created at the appropriate context level as entities are added or removed from the EntityList.
+		///	Paged collection of EntityLists. EntityLists are created at the tenant level, but instances of the EntityLists are implicitly created at the appropriate context level as entities are added or removed from the EntityList.
 		///
 		public class EntityListCollection
 		{
 			///
-			///Collection list of items. All returned data is provided in an items array. For a failed request, the returned response may be success with an empty item collection. Items are used throughout APIs for carts, wish lists, documents, payments, returns, properties, and more.
+			///A list of requested items. All returned data is provided in an items array.For a failed request, the returned response may be success with an empty item array.
 			///
 			public List<EntityList> Items { get; set; }
 
@@ -35,12 +35,12 @@ namespace Mozu.Api.Contracts.MZDB
 			public int PageSize { get; set; }
 
 			///
-			///When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=3`.
+			///When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=50`.
 			///
 			public int StartIndex { get; set; }
 
 			///
-			///Total number of objects in am item collection. Total counts are calculated for numerous objects in Mozu, including location inventory, products, options, product types, product reservations, categories, addresses, carriers, tax rates, time zones, and much more.
+			///The total number of items in the list.
 			///
 			public int TotalCount { get; set; }
 

@@ -18,13 +18,14 @@ using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 #endregion
 
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Allows you to temporarily hold a product from inventory while a shopper is filling out payment information. You create a product reservation when a shopper proceeds to check out and then release the reservation when the order process is complete.
+	/// The Soft Allocations resource allows you to temporarily hold a product from inventory while a shopper is filling out payment information. You create a product reservation when a shopper proceeds to check out and then release the reservation when the order process is complete.
 	/// </summary>
 	public partial class SoftAllocationFactory : BaseDataFactory
 	{
@@ -51,7 +52,7 @@ namespace Mozu.Api.Test.Factories
 				 startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -89,7 +90,7 @@ namespace Mozu.Api.Test.Factories
 				 softAllocationId :  softAllocationId,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -106,7 +107,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Creates a new product reservation for a product. This places a hold on the product inventory for the quantity specified during the ordering process.
+		/// Creates a new soft allocation for a product. This places a hold on the product inventory for the quantity specified during the ordering process.
 		/// <example> 
 		///  <code> 
 		/// var result = SoftAllocationFactory.AddSoftAllocations(handler : handler,  softAllocationsIn :  softAllocationsIn,  expectedCode: expectedCode, successCode: successCode); 
@@ -127,7 +128,7 @@ namespace Mozu.Api.Test.Factories
 				 softAllocationsIn :  softAllocationsIn		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -144,7 +145,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Converts a set of existing softAllocations into productReservations
+		/// Converts a set of existing soft product allocations into product reservations.
 		/// <example> 
 		///  <code> 
 		/// var result = SoftAllocationFactory.ConvertToProductReservation(handler : handler,  softAllocations :  softAllocations,  expectedCode: expectedCode, successCode: successCode); 
@@ -165,7 +166,7 @@ namespace Mozu.Api.Test.Factories
 				 softAllocations :  softAllocations		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -182,7 +183,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates a set of softAllocations expiration time in a non trassactional batch
+		/// Updates the expiration time for a set of soft allocations in a non-transactional batch.
 		/// <example> 
 		///  <code> 
 		/// var result = SoftAllocationFactory.RenewSoftAllocations(handler : handler,  softAllocationRenew :  softAllocationRenew,  expectedCode: expectedCode, successCode: successCode); 
@@ -203,7 +204,7 @@ namespace Mozu.Api.Test.Factories
 				 softAllocationRenew :  softAllocationRenew		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -220,7 +221,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates a soft allocationt. This updates a hold on the product inventory for the quantity specified during the ordering process.
+		/// Updates a soft allocation. This updates a hold on the product inventory for the quantity specified during the ordering process.
 		/// <example> 
 		///  <code> 
 		/// var result = SoftAllocationFactory.UpdateSoftAllocations(handler : handler,  softAllocations :  softAllocations,  expectedCode: expectedCode, successCode: successCode); 
@@ -241,7 +242,7 @@ namespace Mozu.Api.Test.Factories
 				 softAllocations :  softAllocations		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -258,7 +259,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Deletes a soft allocation. You might delete a allocation when an order or cart is not processed to return the product quantity back to inventory.
+		/// Deletes a soft allocation. You might delete a soft allocation when an order or cart is not processed in order to return the product quantity back to inventory.
 		/// <example> 
 		///  <code> 
 		/// var result = SoftAllocationFactory.DeleteSoftAllocation(handler : handler,  softAllocationId :  softAllocationId,  expectedCode: expectedCode, successCode: successCode); 
@@ -279,7 +280,7 @@ namespace Mozu.Api.Test.Factories
 				 softAllocationId :  softAllocationId		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{

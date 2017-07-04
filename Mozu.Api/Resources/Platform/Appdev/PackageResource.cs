@@ -13,11 +13,12 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Platform.Appdev
 {
 	/// <summary>
-	/// platform/appdev/filebasedpackage related resources. DOCUMENT_HERE 
+	/// This resource is not public.
 	/// </summary>
 	public partial class PackageResource  	{
 		///
@@ -41,33 +42,9 @@ namespace Mozu.Api.Resources.Platform.Appdev
 		}
 
 				
-		/// <summary>
-		/// appdev-filebasedpackage Get GetFile description DOCUMENT_HERE 
-		/// </summary>
-		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}. </param>
-		/// <param name="fileName"></param>
-		/// <returns>
-		/// <see cref="System.IO.Stream"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var package = new Package();
-		///   var stream = package.GetFile( applicationKey,  fileName);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual System.IO.Stream GetFile(string applicationKey, string fileName)
-		{
-			MozuClient<System.IO.Stream> response;
-			var client = Mozu.Api.Clients.Platform.Appdev.PackageClient.GetFileClient( applicationKey,  fileName);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// appdev-filebasedpackage Get GetFile description DOCUMENT_HERE 
+		/// This operation is not public.
 		/// </summary>
 		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}. </param>
 		/// <param name="fileName"></param>
@@ -80,12 +57,12 @@ namespace Mozu.Api.Resources.Platform.Appdev
 		///   var stream = await package.GetFileAsync( applicationKey,  fileName);
 		/// </code>
 		/// </example>
-		public virtual async Task<System.IO.Stream> GetFileAsync(string applicationKey, string fileName)
+		public virtual async Task<System.IO.Stream> GetFileAsync(string applicationKey, string fileName, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Platform.Appdev.PackageClient.GetFileClient( applicationKey,  fileName);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}

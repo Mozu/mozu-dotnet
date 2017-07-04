@@ -16,12 +16,12 @@ using Mozu.Api.Contracts.Core;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	Mozu.ProductAdmin.Contracts.PriceListEntry ApiType DOCUMENT_HERE 
+		///	The details of the price list entry.
 		///
 		public class PriceListEntry
 		{
 			///
-			///Basic audit info about the object, including date, time, and user account. Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///Basic audit info about the object, including date, time, and user account. This data may be captured when creating, updating, and removing data.
 			///
 			public AuditInfo AuditInfo { get; set; }
 
@@ -31,7 +31,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public decimal? Cost { get; set; }
 
 			///
-			///Mozu.ProductAdmin.Contracts.PriceListEntry costMode ApiTypeMember DOCUMENT_HERE 
+			///Specifies whether the product's cost is the default catalog cost or is overridden. If this property is set to ,  cannot not be null.This property has the following valid values:* * 
 			///
 			public string CostMode { get; set; }
 
@@ -41,7 +41,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string CurrencyCode { get; set; }
 
 			///
-			///Indicates if the discount is restricted. If true, the system cannot apply any discounts to this product. Discount restrictions are defined at the master catalog level. Client administrators cannot override discount restrictions at the catalog level, but they can limit the restriction to a defined time interval.
+			///Indicates if the discount is restricted. If true, the system cannot apply any discounts to this product. Discount restrictions are defined at the master catalog level. Client administrators cannot override discount restrictions at the catalog level, but they can limit the restriction to a defined time interval.For price list entries, specifies whether discounts are restricted for the specific entry if  is set to .Refer to [Discount Restriction](../../../guides/catalog/price-lists.htm#discountrestriction) in the Price Lists guides topic for more information.
 			///
 			public bool? DiscountsRestricted { get; set; }
 
@@ -51,7 +51,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public DateTime? DiscountsRestrictedEndDate { get; set; }
 
 			///
-			///Mozu.ProductAdmin.Contracts.PriceListEntry discountsRestrictedMode ApiTypeMember DOCUMENT_HERE 
+			///Specifies whether to use the default catalog setting for discount restriction, or to override the default catalog setting.Refer to [Discount Restriction](https://www.mozu.com/docs/guides/catalog/price-lists.htm#discountrestriction) in the Price Lists guides topic for more information.This property has the following valid values:* * 
 			///
 			public string DiscountsRestrictedMode { get; set; }
 
@@ -61,47 +61,47 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public DateTime? DiscountsRestrictedStartDate { get; set; }
 
 			///
-			///Mozu.ProductAdmin.Contracts.PriceListEntry endDate ApiTypeMember DOCUMENT_HERE 
+			///Specifies the date in UTC format when the price list entry is no longer in effect. This property is optional.
 			///
 			public DateTime? EndDate { get; set; }
 
 			///
-			///Mozu.ProductAdmin.Contracts.PriceListEntry extraEntries ApiTypeMember DOCUMENT_HERE 
+			///A list of product extras associated with the price list entry.Refer to [Extras](https://www.mozu.com/docs/guides/catalog/price-lists.htm#extras) in the Price Lists guides topic for more information.
 			///
 			public List<PriceListEntryExtra> ExtraEntries { get; set; }
 
 			///
-			///Mozu.ProductAdmin.Contracts.PriceListEntry isVariation ApiTypeMember DOCUMENT_HERE 
+			///Specifies whether the product in the price list entry is a product variant.Refer to [Configurable Products with Options](https://www.mozu.com/docs/guides/catalog/price-lists.htm#product_variants) in the Price Lists guides topic for more information.
 			///
 			public bool IsVariation { get; set; }
 
 			///
-			///Mozu.ProductAdmin.Contracts.PriceListEntry map ApiTypeMember DOCUMENT_HERE 
+			///The minimum advertised price (MAP) of the product, if  is set to .
 			///
 			public decimal? Map { get; set; }
 
 			///
-			///Mozu.ProductAdmin.Contracts.PriceListEntry mapEndDate ApiTypeMember DOCUMENT_HERE 
+			///The date the price list entry's map is no longer in effect.
 			///
 			public DateTime? MapEndDate { get; set; }
 
 			///
-			///Mozu.ProductAdmin.Contracts.PriceListEntry mapMode ApiTypeMember DOCUMENT_HERE 
+			///Specifies whether to use the product's default catalog map, or to override the product's default catalog map.This property has the following valid values:* * 
 			///
 			public string MapMode { get; set; }
 
 			///
-			///Mozu.ProductAdmin.Contracts.PriceListEntry mapStartDate ApiTypeMember DOCUMENT_HERE 
+			///The date the price list entry's map takes effect.
 			///
 			public DateTime? MapStartDate { get; set; }
 
 			///
-			///The manufacturer's suggested retail price for the product. This content may be defined by the supplier.
+			///The manufacturer's suggested retail price (MSRP) for the product. This content may be defined by the supplier.
 			///
 			public decimal? Msrp { get; set; }
 
 			///
-			///Mozu.ProductAdmin.Contracts.PriceListEntry msrpMode ApiTypeMember DOCUMENT_HERE 
+			///Specifies whether to use the product's default catalog msrp, or to override the product's default catalog msrp.
 			///
 			public string MsrpMode { get; set; }
 
@@ -111,27 +111,29 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public List<ProductOption> Options { get; set; }
 
 			///
-			///Mozu.ProductAdmin.Contracts.PriceListEntry priceEntries ApiTypeMember DOCUMENT_HERE 
+			///A list of product pricing information associated with the price list entry.
 			///
 			public List<PriceListEntryPrice> PriceEntries { get; set; }
 
 			///
-			///External unique identifier of the PriceList. Must be unique an only contain url sanitized characters. Max length is 50
+			///External unique identifier of the Price List. Must be unique an only contain url sanitized characters. The max length is 50.
 			///
 			public string PriceListCode { get; set; }
 
 			///
-			///Mozu.ProductAdmin.Contracts.PriceListEntry priceListEntryMode ApiTypeMember DOCUMENT_HERE 
+			///This property is for future price list functionality and currently should always be .
 			///
 			public string PriceListEntryMode { get; set; }
 
 			///
-			///Mozu.ProductAdmin.Contracts.PriceListEntry priceListEntrySequence ApiTypeMember DOCUMENT_HERE 
+			///This property is used for referencing the price list entry. Read-only.
 			///
 			public int PriceListEntrySequence { get; set; }
 
+			public string PriceListEntryTypeCode { get; set; }
+
 			///
-			///The unique, user-defined  product code of a product, used throughout Mozu to reference and associate to a product.
+			///The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			///
 			public string ProductCode { get; set; }
 
@@ -141,7 +143,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string ProductName { get; set; }
 
 			///
-			///Mozu.ProductAdmin.Contracts.PriceListEntry startDate ApiTypeMember DOCUMENT_HERE 
+			///Specifies the date and time in UTC format when the price list entry is in effect.
 			///
 			public DateTime? StartDate { get; set; }
 

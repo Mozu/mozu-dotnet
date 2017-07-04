@@ -15,7 +15,7 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.AppDev
 {
 		///
-		///	Mozu.AppDev.Contracts.ApplicationEntitlement ApiType DOCUMENT_HERE 
+		///	This property is not exposed in documentation.
 		///
 		public class ApplicationEntitlement
 		{

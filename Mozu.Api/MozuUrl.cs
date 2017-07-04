@@ -58,9 +58,9 @@ namespace Mozu.Api
             if (Url.EndsWith("?")) Url = Url.Replace("?", "");
 		}
 
-	    public static string GetProductUrl(int tenantId, int siteId, string productCode)
+	    public static async Task<string> GetProductUrl(int tenantId, int siteId, string productCode)
 	    {
-	        var site = GetSite(tenantId, siteId);
+	        var site = await GetSite(tenantId, siteId).ConfigureAwait(false);
 	        return GetProductUrl(site, productCode);
 	    }
 
@@ -79,9 +79,9 @@ namespace Mozu.Api
                 string.Format("https://{0}/{1}/c/{2}", domain,category.Content.Slug, category.Id);
 	    }
 
-        public static string GetCategoryUrl(int tenantId, int siteId, Category category)
+        public static async Task<string> GetCategoryUrl(int tenantId, int siteId, Category category)
         {
-            var site = GetSite(tenantId, siteId);
+            var site = await GetSite(tenantId, siteId).ConfigureAwait(false);
             return GetCategoryUrl(site, category);
         }
 
@@ -90,10 +90,10 @@ namespace Mozu.Api
             return !String.IsNullOrEmpty(site.PrimaryCustomDomain) ? site.PrimaryCustomDomain : site.Domain;
 	    }
 
-	    private static Site GetSite(int tenantId, int siteId)
+	    private static async Task<Site> GetSite(int tenantId, int siteId)
 	    {
             var tenantResource = new TenantResource();
-            var tenant = tenantResource.GetTenant(tenantId);
+            var tenant = await tenantResource.GetTenantAsync(tenantId).ConfigureAwait(false);
             var site = tenant.Sites.SingleOrDefault(x => x.Id.Equals(siteId));
 
             if (site == null) throw new Exception(string.Format("{0} not found for tenant {1}", siteId, tenantId));

@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Returns
 {
@@ -37,31 +38,6 @@ namespace Mozu.Api.Resources.Commerce.Returns
 		}
 
 				
-		/// <summary>
-		/// Retrieves the details of the specified return replacement shipment.
-		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
-		/// <param name="shipmentId">Unique identifier of the shipment to retrieve.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var shipment = new Shipment();
-		///   var shipment = shipment.GetShipment( returnId,  shipmentId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment GetShipment(string returnId, string shipmentId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment> response;
-			var client = Mozu.Api.Clients.Commerce.Returns.ShipmentClient.GetShipmentClient( returnId,  shipmentId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves the details of the specified return replacement shipment.
@@ -78,40 +54,16 @@ namespace Mozu.Api.Resources.Commerce.Returns
 		///   var shipment = await shipment.GetShipmentAsync( returnId,  shipmentId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment> GetShipmentAsync(string returnId, string shipmentId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment> GetShipmentAsync(string returnId, string shipmentId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment> response;
 			var client = Mozu.Api.Clients.Commerce.Returns.ShipmentClient.GetShipmentClient( returnId,  shipmentId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Creates a shipment from one or more packages associated with a return replacement.
-		/// </summary>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
-		/// <param name="packageIds">List of unique identifiers for each package associated with this shipment. Not all packages must belong to the same shipment.</param>
-		/// <returns>
-		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var shipment = new Shipment();
-		///   var package = shipment.CreatePackageShipments( packageIds,  returnId);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual List<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> CreatePackageShipments(List<string> packageIds, string returnId)
-		{
-			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package>> response;
-			var client = Mozu.Api.Clients.Commerce.Returns.ShipmentClient.CreatePackageShipmentsClient( packageIds,  returnId);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Creates a shipment from one or more packages associated with a return replacement.
@@ -127,39 +79,16 @@ namespace Mozu.Api.Resources.Commerce.Returns
 		///   var package = await shipment.CreatePackageShipmentsAsync( packageIds,  returnId);
 		/// </code>
 		/// </example>
-		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package>> CreatePackageShipmentsAsync(List<string> packageIds, string returnId)
+		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package>> CreatePackageShipmentsAsync(List<string> packageIds, string returnId, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package>> response;
 			var client = Mozu.Api.Clients.Commerce.Returns.ShipmentClient.CreatePackageShipmentsClient( packageIds,  returnId);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Deletes a shipment for a return replacement.
-		/// </summary>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
-		/// <param name="shipmentId">Unique identifier of the shipment to retrieve.</param>
-		/// <returns>
-		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var shipment = new Shipment();
-		///   shipment.DeleteShipment( returnId,  shipmentId);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeleteShipment(string returnId, string shipmentId)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Returns.ShipmentClient.DeleteShipmentClient( returnId,  shipmentId);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
 
 		/// <summary>
 		/// Deletes a shipment for a return replacement.
@@ -175,12 +104,12 @@ namespace Mozu.Api.Resources.Commerce.Returns
 		///   await shipment.DeleteShipmentAsync( returnId,  shipmentId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteShipmentAsync(string returnId, string shipmentId)
+		public virtual async Task DeleteShipmentAsync(string returnId, string shipmentId, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Returns.ShipmentClient.DeleteShipmentClient( returnId,  shipmentId);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 

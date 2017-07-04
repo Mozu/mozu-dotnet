@@ -14,7 +14,7 @@ using System;
 namespace Mozu.Api.Contracts.AppDev
 {
 		///
-		///	The information required to authenticate third party applications against the Mozu API.
+		///	The information required to authenticate third party applications against the  API.
 		///
 		public class AppAuthInfo
 		{
@@ -24,7 +24,7 @@ namespace Mozu.Api.Contracts.AppDev
 			public string ApplicationId { get; set; }
 
 			///
-			///System-supplied alphanumeric code used to authenticate applications. This string is only available for viewing in Mozu Dev Center.
+			///System-supplied alphanumeric code used to authenticate applications. This string is only available for viewing in  Dev Center.
 			///
 			public string SharedSecret { get; set; }
 

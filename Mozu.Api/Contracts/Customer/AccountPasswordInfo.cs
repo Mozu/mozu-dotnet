@@ -14,7 +14,7 @@ using System;
 namespace Mozu.Api.Contracts.Customer
 {
 		///
-		///	Mozu.Customer.Contracts.AccountPasswordInfo ApiType DOCUMENT_HERE 
+		///	The details of the account password.
 		///
 		public class AccountPasswordInfo
 		{

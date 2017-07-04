@@ -18,19 +18,20 @@ using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 #endregion
 
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Product Publishing resource to publish or discard pending changes to product definitions in the master catalog.
+	/// Use the Product Publishing resource to publish or discard pending changes to products in a master catalog, or to add or remove pending changes to and from product publish sets.You can use product publish sets to group pending product changes together and publish them all at the same time.
 	/// </summary>
 	public partial class PublishingScopeFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves the details of a single PublishSet.
+		/// Retrieves the details of the specified product publish set.
 		/// <example> 
 		///  <code> 
 		/// var result = PublishingScopeFactory.GetPublishSet(handler : handler,  publishSetCode :  publishSetCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -51,7 +52,7 @@ namespace Mozu.Api.Test.Factories
 				 publishSetCode :  publishSetCode,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -68,7 +69,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves a list of PublishSets including the product counts.
+		/// Retrieves a list of product publish sets and their properties, including the amount of pending product changes that are included in each one.
 		/// <example> 
 		///  <code> 
 		/// var result = PublishingScopeFactory.GetPublishSets(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -89,7 +90,7 @@ namespace Mozu.Api.Test.Factories
 				 responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -106,7 +107,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Deletes the draft version of product changes for each product code specified in the request.
+		/// Deletes the draft version of product changes (pending product changes) for each product code specified in the request.
 		/// <example> 
 		///  <code> 
 		/// var result = PublishingScopeFactory.DiscardDrafts(handler : handler,  publishScope :  publishScope, dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -127,7 +128,7 @@ namespace Mozu.Api.Test.Factories
 				 publishScope :  publishScope, dataViewMode: dataViewMode		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -143,7 +144,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Publishes the draft version of product changes for each product code specified in the request, and changes the product publish state to "live".
+		/// Publishes the draft version of product changes (pending product changes) for each product code specified in the request, and changes the product publish state to "live".
 		/// <example> 
 		///  <code> 
 		/// var result = PublishingScopeFactory.PublishDrafts(handler : handler,  publishScope :  publishScope, dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -164,7 +165,7 @@ namespace Mozu.Api.Test.Factories
 				 publishScope :  publishScope, dataViewMode: dataViewMode		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -180,7 +181,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Assigns a product draft to a specified publish set.
+		/// Assigns pending product changes to a specified product publish set. Use the code field to specify the product publish set.
 		/// <example> 
 		///  <code> 
 		/// var result = PublishingScopeFactory.AssignProductsToPublishSet(handler : handler,  publishSet :  publishSet,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -201,7 +202,7 @@ namespace Mozu.Api.Test.Factories
 				 publishSet :  publishSet,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -218,7 +219,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Removes all details about a PublishSet from the product service. If the discardDrafts param is true, it also deletes the product drafts.
+		/// Deletes the specified product publish set. If you set the discardDrafts parameter to true, this operation also deletes the product drafts assigned to the publish set.
 		/// <example> 
 		///  <code> 
 		/// var result = PublishingScopeFactory.DeletePublishSet(handler : handler,  publishSetCode :  publishSetCode,  discardDrafts :  discardDrafts,  expectedCode: expectedCode, successCode: successCode); 
@@ -239,7 +240,7 @@ namespace Mozu.Api.Test.Factories
 				 publishSetCode :  publishSetCode,  discardDrafts :  discardDrafts		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{

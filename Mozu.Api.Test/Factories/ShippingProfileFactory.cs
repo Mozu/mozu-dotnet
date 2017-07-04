@@ -18,19 +18,20 @@ using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
 using System.Diagnostics;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 #endregion
 
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// commerce/shipping/admin/profiles related resources. DOCUMENT_HERE 
+	/// Use the Profiles resource to manage your shipping profiles.
 	/// </summary>
 	public partial class ShippingProfileFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Get Shipping Profiles for the Tenant/Master Catalog
+		/// Retrieves a list of shipping profiles.
 		/// <example> 
 		///  <code> 
 		/// var result = ShippingProfileFactory.GetProfiles(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -51,7 +52,7 @@ namespace Mozu.Api.Test.Factories
 				 responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).Execute();
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{

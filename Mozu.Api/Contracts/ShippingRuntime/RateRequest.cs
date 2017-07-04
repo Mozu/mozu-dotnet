@@ -22,6 +22,11 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 		public class RateRequest
 		{
 			///
+			///Collection of attributes that may be paged list or a list, depending on the usage per object and API type.
+			///
+			public List<RateRequestAttribute> Attributes { get; set; }
+
+			///
 			///List of shipping carriers for which to retrieve shipping rate information.
 			///
 			public List<string> CarrierIds { get; set; }
@@ -32,7 +37,7 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			public List<CustomAttribute> CustomAttributes { get; set; }
 
 			///
-			///Mozu.ShippingRuntime.Contracts.RateRequest data ApiTypeMember DOCUMENT_HERE 
+			///Data included in the shipping rate information.
 			///
 			public JObject Data { get; set; }
 
@@ -57,12 +62,12 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			public string IsoCurrencyCode { get; set; }
 
 			///
-			///Collection list of items. All returned data is provided in an items array. For a failed request, the returned response may be success with an empty item collection. Items are used throughout APIs for carts, wish lists, documents, payments, returns, properties, and more.
+			///A list of requested items. All returned data is provided in an items array.For a failed request, the returned response may be success with an empty item array.
 			///
 			public List<RateRequestItem> Items { get; set; }
 
 			///
-			///The Order SubTotal After Discounts to be used in rate calculation
+			///The sub total of the order including all applicable discounts.
 			///
 			public decimal? OrderDiscountedSubTotal { get; set; }
 
@@ -77,9 +82,14 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			public Address OriginAddress { get; set; }
 
 			///
-			///The Order ID to be used in rate calculation Information al only
+			///The unique identifier of the order to which the shipping rate is related.You can use Arc.js in combination with this property to retrieve other properties of the related order.
 			///
 			public string RelatedOrderId { get; set; }
+
+			///
+			///The order number that the customer sees on the storefront when they place the order.
+			///
+			public int? RelatedOrderNumber { get; set; }
 
 			///
 			///The shipping methods associated with this request.

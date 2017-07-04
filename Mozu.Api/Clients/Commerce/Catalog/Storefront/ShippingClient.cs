@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 {
@@ -24,6 +25,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// <summary>
 		/// Retrieves the shipping rates applicable for the site.
 		/// </summary>
+		/// <param name="includeRawResponse">Set this parameter to  to retrieve the full raw JSON response from a shipping carrier (instead of just the shipping rate).</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="rateRequest">Properties required to request a shipping rate calculation.</param>
 		/// <returns>
@@ -31,13 +33,13 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetRates( rateRequest,  responseFields);
+		///   var mozuClient=GetRates( rateRequest,  includeRawResponse,  responseFields);
 		///   var ratesResponseClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ShippingRuntime.RatesResponse> GetRatesClient(Mozu.Api.Contracts.ShippingRuntime.RateRequest rateRequest, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ShippingRuntime.RatesResponse> GetRatesClient(Mozu.Api.Contracts.ShippingRuntime.RateRequest rateRequest, bool? includeRawResponse =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ShippingUrl.GetRatesUrl(responseFields);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ShippingUrl.GetRatesUrl(includeRawResponse, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ShippingRuntime.RatesResponse>()
 									.WithVerb(verb).WithResourceUrl(url)

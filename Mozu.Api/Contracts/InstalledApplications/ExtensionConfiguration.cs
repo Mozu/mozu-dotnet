@@ -21,12 +21,12 @@ namespace Mozu.Api.Contracts.InstalledApplications
 		public class ExtensionConfiguration
 		{
 			///
-			///Mozu.InstalledApplications.Contracts.ExtensionConfiguration applicationKey ApiTypeMember DOCUMENT_HERE 
+			///The Arc.js application key.
 			///
 			public string ApplicationKey { get; set; }
 
 			///
-			///Mozu.InstalledApplications.Contracts.ExtensionConfiguration configuration ApiTypeMember DOCUMENT_HERE 
+			///Custom application-level settings specified as key-value pairs.
 			///
 			public JObject Configuration { get; set; }
 

@@ -18,6 +18,11 @@ namespace Mozu.Api.Events
 	public interface IReturnEvents
 	{
 		[Obsolete("This method is obsolete; use the async method instead")]
+		void Authorized(IApiContext apiContext, Event eventPayLoad);
+
+		Task AuthorizedAsync(IApiContext apiContext, Event eventPayLoad);
+
+		[Obsolete("This method is obsolete; use the async method instead")]
 		void Cancelled(IApiContext apiContext, Event eventPayLoad);
 
 		Task CancelledAsync(IApiContext apiContext, Event eventPayLoad);

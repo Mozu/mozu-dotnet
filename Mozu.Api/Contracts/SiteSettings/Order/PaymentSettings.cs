@@ -41,7 +41,7 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 			public bool PayByMail { get; set; }
 
 			///
-			///Mozu.SiteSettings.Order.Contracts.PaymentSettings purchaseOrder ApiTypeMember DOCUMENT_HERE 
+			///The purchase order payment type settings associated with a site.Refer to [Enable the Purchase Order Payment Type](https://www.mozu.com/docs/guides/orders/purchase-order.htm#enable_the_purchase_order_payment_type) in the Purchase Orders guides topic for more information.
 			///
 			public PurchaseOrderPaymentDefinition PurchaseOrder { get; set; }
 

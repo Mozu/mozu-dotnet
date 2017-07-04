@@ -14,6 +14,8 @@ using TestContext = Microsoft.VisualStudio.TestTools.UnitTesting.TestContext;
 
 namespace Mozu.Api.Test.MsTestCases
 {
+    using System.Threading;
+
     /// <summary>
     /// Summary description for TenantDataTest
     /// </summary>
@@ -106,6 +108,17 @@ namespace Mozu.Api.Test.MsTestCases
             var data = SiteDataFactory.GetDBValue(handler: ApiMsgHandler, dbEntryQuery: "test", expectedCode: HttpStatusCode.NotFound, successCode: HttpStatusCode.NotFound);
 
         }
+
+        [TestMethod]
+        public void GetTenantAsyncTest()
+        {
+            var tenantResource = new TenantResource();
+            CancellationTokenSource cts = new CancellationTokenSource();
+            cts.CancelAfter(TimeSpan.FromSeconds(3));
+
+            var tenant = tenantResource.GetTenantAsync(8088, ct: cts.Token).Result;
+        }
+
 
         [TestMethod]
         public void GetEntityList()

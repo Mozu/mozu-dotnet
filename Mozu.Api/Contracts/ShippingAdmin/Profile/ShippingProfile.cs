@@ -21,32 +21,32 @@ namespace Mozu.Api.Contracts.ShippingAdmin.Profile
 		public class ShippingProfile
 		{
 			///
-			///Basic audit info about the object, including date, time, and user account. Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+			///Basic audit info about the object, including date, time, and user account. This data may be captured when creating, updating, and removing data.
 			///
 			public AuditInfo AuditInfo { get; set; }
 
 			///
-			///Merchant entered unique identifier for a ShippingProfile
+			///The unique code of the shipping profile.
 			///
 			public string Code { get; set; }
 
 			///
-			///Mozu.ShippingAdmin.Contracts.Profile.ShippingProfile orderHandlingFeeRules ApiTypeMember DOCUMENT_HERE 
+			///A list of order handling fee rules and their details.
 			///
 			public List<HandlingFeeRule> OrderHandlingFeeRules { get; set; }
 
 			///
-			///Mozu.ShippingAdmin.Contracts.Profile.ShippingProfile productHandlingFeeRules ApiTypeMember DOCUMENT_HERE 
+			///A list of product handling fee rules and their details.
 			///
 			public List<HandlingFeeRule> ProductHandlingFeeRules { get; set; }
 
 			///
-			///Mozu.ShippingAdmin.Contracts.Profile.ShippingProfile shippingInclusionRules ApiTypeMember DOCUMENT_HERE 
+			///A list of shipping inclusion rules and their details.
 			///
 			public List<ShippingInclusionRule> ShippingInclusionRules { get; set; }
 
 			///
-			///The siteid's for which this profile applies for now there is a 1-1 relationship between this profile and site so only 1 siteid should be in this list
+			///A list of unique site identifiers that the shipping profile targets.
 			///
 			public List<int> TargetedSiteIds { get; set; }
 

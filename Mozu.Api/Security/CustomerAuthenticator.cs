@@ -20,29 +20,31 @@ namespace Mozu.Api.Security
 
     public class CustomerAuthenticator
     {
-        public static AuthTicket EnsureAuthTicket(AuthTicket authTicket)
+        public static async Task<AuthTicket> EnsureAuthTicket(AuthTicket authTicket)
         {
+
             if (DateTime.UtcNow >= authTicket.AccessTokenExpiration.AddSeconds(-180))
-                return RefreshUserAuthTicket(authTicket).AuthTicket;
+                return (await RefreshUserAuthTicket(authTicket).ConfigureAwait(false)).AuthTicket;
 
             return null;
         }
 
-        private static string GetAuthUrl(int tenantId)
+        private static async Task<string> GetAuthUrl(int tenantId)
         {
             var tenantResource = new TenantResource();
-            var tenant = tenantResource.GetTenant(tenantId);
+            var tenant = await tenantResource.GetTenantAsync(tenantId).ConfigureAwait(false);
             return HttpHelper.GetUrl(tenant.Domain);
 
            
         }
 
-        public static CustomerAuthenticationProfile RefreshUserAuthTicket(AuthTicket authTicket)
+        public static async Task<CustomerAuthenticationProfile> RefreshUserAuthTicket(AuthTicket authTicket)
         {
 
             var resourceUrl = CustomerAuthTicketUrl.RefreshUserAuthTicketUrl(authTicket.RefreshToken).Url;
 
-            var client = new HttpClient { BaseAddress = new Uri(GetAuthUrl(authTicket.TenantId.Value)) };
+            var authUrl = await GetAuthUrl(authTicket.TenantId.Value).ConfigureAwait(false);
+            var client = new HttpClient { BaseAddress = new Uri(authUrl) };
             AppAuthenticator.AddHeader(client);
 
             if (authTicket.SiteId.HasValue)
@@ -59,13 +61,13 @@ namespace Mozu.Api.Security
 
 
 
-        public static CustomerAuthenticationProfile Authenticate(CustomerUserAuthInfo customerUserAuthInfo,
+        public static async Task<CustomerAuthenticationProfile> Authenticate(CustomerUserAuthInfo customerUserAuthInfo,
                                                                 int tenantId, int siteId)
         {
             var resourceUrl = CustomerAuthTicketUrl.CreateUserAuthTicketUrl().Url;
 
-
-            var client = new HttpClient { BaseAddress = new Uri(GetAuthUrl(tenantId)) };
+            var authUrl = await GetAuthUrl(tenantId).ConfigureAwait(false);
+            var client = new HttpClient { BaseAddress = new Uri(authUrl) };
 
             client.DefaultRequestHeaders.Add(Headers.X_VOL_SITE, siteId.ToString());
 

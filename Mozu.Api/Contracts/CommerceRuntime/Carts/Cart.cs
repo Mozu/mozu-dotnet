@@ -30,10 +30,13 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			public AuditInfo AuditInfo { get; set; }
 
 			///
-			///Mozu.CommerceRuntime.Contracts.Carts.Cart cartMessage ApiTypeMember DOCUMENT_HERE 
+			///An array of message details associated with the cart.
 			///
 			public CartMessage CartMessage { get; set; }
 
+			///
+			///A list of cart messages associated with the cart.
+			///
 			public List<CartMessage> CartMessages { get; set; }
 
 			///
@@ -102,12 +105,27 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			public FulfillmentInfo FulfillmentInfo { get; set; }
 
 			///
+			///The combined price for all handling costs calculated together for shipped orders, not for digital or in-store pickup. This includes all handling costs per the product line items and options, excluding taxes and discounts.
+			///
+			public decimal? HandlingAmount { get; set; }
+
+			///
+			///The handling fee subtotal included in the cart calculation.
+			///
+			public decimal? HandlingSubTotal { get; set; }
+
+			///
 			///Calculated total tax amount for handling costs if the cart/order is subject to sales tax. 
 			///
 			public decimal? HandlingTaxTotal { get; set; }
 
 			///
-			///Unique identifier of the source product property. For a product field it will be the name of the field. For a product attribute it will be the Attribute FQN. 
+			///The handling fee total included in the cart calculation.
+			///
+			public decimal? HandlingTotal { get; set; }
+
+			///
+			///Unique identifier of the source property, such as a catalog, discount, order, or email template.For a product field it will be the name of the field.For a category ID, must be a positive integer not greater than 2000000. By default,  auto-generates a category ID when categories are created. If you want to specify an ID during creation (which preserves category link relationships when migrating tenant data from one sandbox to another), you must also include the  query string in the endpoint. For example, . Then, use the  property to specify the desired category ID.For a product attribute it will be the Attribute FQN.For a document, the ID must be specified as a 32 character, case-insensitive, alphanumeric string. You can specify the ID as 32 sequential characters or as groups separated by dashes in the format 8-4-4-4-12. For example, or.For email templates, the ID must be one of the following values:///
 			///
 			public string Id { get; set; }
 
@@ -132,6 +150,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			public DateTime? LastValidationDate { get; set; }
 
 			///
+			///The total charge for the line item with all weighted order level manual adjustments.
+			///
+			public decimal? LineItemSubtotalWithOrderAdjustments { get; set; }
+
+			///
 			///List of order-level discounts projected to apply to the cart at checkout or order.
 			///
 			public List<AppliedDiscount> OrderDiscounts { get; set; }
@@ -140,6 +163,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///Pricelist code
 			///
 			public string PriceListCode { get; set; }
+
+			///
+			///The total shipping amount for the cart before discounts and adjustments.
+			///
+			public decimal? ShippingAmountBeforeDiscountsAndAdjustments { get; set; }
 
 			///
 			///The shipping subtotal amount calculated without any applied discounts for line item and entire amounts of carts and orders. This property is not calculated for wish lists at this time.
@@ -165,6 +193,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///Estimated amount of the cart or order without sales tax, shipping costs, and other fees. This amount is not calculated for wish lists at this time.
 			///
 			public decimal? Subtotal { get; set; }
+
+			///
+			///Leverage this property within a [tax Arc.js action](https://www.mozu.com/docs/arcjs/commerce-catalog-storefront-tax/commerce-catalog-storefront-tax.htm) to supplement the tax information for this item or object with custom JSON data.
+			///
+			public JObject TaxData { get; set; }
 
 			///
 			///The total monetary sum of sales tax estimated for a cart or order.

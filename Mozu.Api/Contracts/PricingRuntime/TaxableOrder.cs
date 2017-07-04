@@ -10,19 +10,35 @@
 
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.PricingRuntime
 {
 		///
-		///	Properties of an order to calculate tax against. When a tax capability is enabled for a tenant, Mozu sends the `TaxableOrder `properties to the capability as read-only, system-supplied information.
+		///	Properties of an order to calculate tax against. When a tax capability is enabled for a tenant,  sends the `TaxableOrder `properties to the capability as read-only, system-supplied information.
 		///
 		public class TaxableOrder
 		{
 			///
+			///Collection of attributes that may be paged list or a list, depending on the usage per object and API type.
+			///
+			public List<TaxAttribute> Attributes { get; set; }
+
+			///
 			///3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
 			///
 			public string CurrencyCode { get; set; }
+
+			///
+			///Custom data for a given vendor set within the commerce process.
+			///
+			public JObject Data { get; set; }
+
+			public AppliedDiscount HandlingDiscount { get; set; }
+
+			public List<AppliedDiscount> HandlingDiscounts { get; set; }
 
 			///
 			///The combined price for all handling costs calculated together for shipped orders, not for digital or in-store pickup. This includes all handling costs per the product line items and options, excluding taxes and discounts. 
@@ -39,6 +55,17 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///
 			public DateTime OrderDate { get; set; }
 
+			public AppliedDiscount OrderDiscount { get; set; }
+
+			public List<AppliedDiscount> OrderDiscounts { get; set; }
+
+			public string OrderId { get; set; }
+
+			///
+			///The order number that the customer sees on the storefront when they place the order.
+			///
+			public int? OrderNumber { get; set; }
+
 			///
 			///The unique identifier of the original order, used to track order changes for tax purposes.
 			///
@@ -53,6 +80,14 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///The calculated monetary amount of shipping for a line items within and an entire order.
 			///
 			public decimal ShippingAmount { get; set; }
+
+			public AppliedOrderShippingDiscount ShippingDiscount { get; set; }
+
+			public List<AppliedOrderShippingDiscount> ShippingDiscounts { get; set; }
+
+			public string ShippingMethodCode { get; set; }
+
+			public string ShippingMethodName { get; set; }
 
 			///
 			///The tax properties associated with the order.

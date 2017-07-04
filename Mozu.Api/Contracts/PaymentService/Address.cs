@@ -14,7 +14,7 @@ using System;
 namespace Mozu.Api.Contracts.PaymentService
 {
 		///
-		///	Mozu.PaymentService.Contracts.Address ApiType DOCUMENT_HERE 
+		///	Address information to supply for a contact.
 		///
 		public class Address
 		{

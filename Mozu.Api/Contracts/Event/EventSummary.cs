@@ -30,7 +30,7 @@ namespace Mozu.Api.Contracts.Event
 			public string CorrelationId { get; set; }
 
 			///
-			///The date time in UTC format set when the object was created. 
+			///The date and time in UTC format set when the object was created.
 			///
 			public DateTime? CreateDate { get; set; }
 

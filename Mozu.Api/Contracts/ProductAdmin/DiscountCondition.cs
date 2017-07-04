@@ -20,7 +20,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class DiscountCondition
 		{
 			///
-			///Code of a discount coupon. This code can be used by a shopper when a coupon code is required to earn the associated discount on a purchase.
+			///The coupon code that a shopper uses to redeem an associated discount  on a purchase. This is also the unique identifier of the coupon itself.
 			///
 			public string CouponCode { get; set; }
 
@@ -65,7 +65,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public int? MaxRedemptionCount { get; set; }
 
 			///
-			///This pecifies the minimum amount that must be purchased in the combined categories defined in IncludedCategories. This amount is calculated before discounting and it is not used if IncludedCategories is empty.
+			///This specifies the minimum amount that must be purchased in the combined categories defined in IncludedCategories. This amount is calculated before discounting and it is not used if IncludedCategories is empty.
 			///
 			public decimal? MinimumCategorySubtotalBeforeDiscounts { get; set; }
 
@@ -80,12 +80,12 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public decimal? MinimumOrderAmount { get; set; }
 
 			///
-			///This specifies the minimum quantity of products in the categories specified in IncludedCategories, which must be purchased to qualify for the associated discount. This defaults to 1 if  null, and IncludedCategories has values.
+			///This specifies the minimum quantity of products in the categories specified in IncludedCategories, which must be purchased to qualify for the associated discount. This defaults to 1 if null, and IncludedCategories has values.
 			///
 			public int? MinimumQuantityProductsRequiredInCategories { get; set; }
 
 			///
-			///This specifies the minimum quantity of products in the specified IncludedProducts that must be purchased to qualify for the associated discount. This defaults to 1 if  null, and IncludedProducts has values.
+			///This specifies the minimum quantity of products in the specified IncludedProducts that must be purchased to qualify for the associated discount. This defaults to 1 if null, and IncludedProducts has values.
 			///
 			public int? MinimumQuantityRequiredProducts { get; set; }
 

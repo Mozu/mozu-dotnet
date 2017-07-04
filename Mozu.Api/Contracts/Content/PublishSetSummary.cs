@@ -19,12 +19,12 @@ namespace Mozu.Api.Contracts.Content
 		public class PublishSetSummary
 		{
 			///
-			///The number of facet results for a product search.
+			///The total number of associated items.
 			///
 			public int Count { get; set; }
 
 			///
-			///the code of the associated publish set
+			///The unique identifier of the content publish set.
 			///
 			public string PublishSetCode { get; set; }
 

@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 {
@@ -44,34 +45,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 			_dataViewMode = dataViewMode;
 		}
 				
-		/// <summary>
-		/// Retrieves a list of the property attributes configured for the product specified in the request.
-		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
-		/// <returns>
-		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductProperty"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productproperty = new ProductProperty();
-		///   var productProperty = productproperty.GetProperties(_dataViewMode,  productCode);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductProperty> GetProperties(string productCode)
-		{
-			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductProperty>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.GetPropertiesClient(_dataViewMode,  productCode);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves a list of the property attributes configured for the product specified in the request.
 		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductProperty"/>}
 		/// </returns>
@@ -81,47 +59,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   var productProperty = await productproperty.GetPropertiesAsync(_dataViewMode,  productCode);
 		/// </code>
 		/// </example>
-		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductProperty>> GetPropertiesAsync(string productCode)
+		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductProperty>> GetPropertiesAsync(string productCode, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductProperty>> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.GetPropertiesClient(_dataViewMode,  productCode);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves a collection of property values for localized content. This content is set by the locale code. 
-		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <returns>
-		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productproperty = new ProductProperty();
-		///   var productPropertyValueLocalizedContent = productproperty.GetPropertyValueLocalizedContents(_dataViewMode,  productCode,  attributeFQN,  value);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> GetPropertyValueLocalizedContents(string productCode, string attributeFQN, string value)
-		{
-			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.GetPropertyValueLocalizedContentsClient(_dataViewMode,  productCode,  attributeFQN,  value);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves a collection of property values for localized content. This content is set by the locale code. 
 		/// </summary>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="value">The value string to create.</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent"/>}
@@ -132,50 +85,23 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   var productPropertyValueLocalizedContent = await productproperty.GetPropertyValueLocalizedContentsAsync(_dataViewMode,  productCode,  attributeFQN,  value);
 		/// </code>
 		/// </example>
-		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent>> GetPropertyValueLocalizedContentsAsync(string productCode, string attributeFQN, string value)
+		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent>> GetPropertyValueLocalizedContentsAsync(string productCode, string attributeFQN, string value, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent>> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.GetPropertyValueLocalizedContentsClient(_dataViewMode,  productCode,  attributeFQN,  value);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves the property value for localized content. This content is set by the locale code. 
-		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productproperty = new ProductProperty();
-		///   var productPropertyValueLocalizedContent = productproperty.GetPropertyValueLocalizedContent(_dataViewMode,  productCode,  attributeFQN,  value,  localeCode,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent GetPropertyValueLocalizedContent(string productCode, string attributeFQN, string value, string localeCode, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.GetPropertyValueLocalizedContentClient(_dataViewMode,  productCode,  attributeFQN,  value,  localeCode,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves the property value for localized content. This content is set by the locale code. 
 		/// </summary>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="value">The value string to create.</param>
 		/// <returns>
@@ -187,41 +113,16 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   var productPropertyValueLocalizedContent = await productproperty.GetPropertyValueLocalizedContentAsync(_dataViewMode,  productCode,  attributeFQN,  value,  localeCode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> GetPropertyValueLocalizedContentAsync(string productCode, string attributeFQN, string value, string localeCode, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> GetPropertyValueLocalizedContentAsync(string productCode, string attributeFQN, string value, string localeCode, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.GetPropertyValueLocalizedContentClient(_dataViewMode,  productCode,  attributeFQN,  value,  localeCode,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves the details of a property attribute configuration for the product specified in the request.
-		/// </summary>
-		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductProperty"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productproperty = new ProductProperty();
-		///   var productProperty = productproperty.GetProperty(_dataViewMode,  productCode,  attributeFQN,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductProperty GetProperty(string productCode, string attributeFQN, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductProperty> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.GetPropertyClient(_dataViewMode,  productCode,  attributeFQN,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves the details of a property attribute configuration for the product specified in the request.
@@ -238,49 +139,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   var productProperty = await productproperty.GetPropertyAsync(_dataViewMode,  productCode,  attributeFQN,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductProperty> GetPropertyAsync(string productCode, string attributeFQN, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductProperty> GetPropertyAsync(string productCode, string attributeFQN, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductProperty> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.GetPropertyClient(_dataViewMode,  productCode,  attributeFQN,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Adds a property value for localized content. This content is set by the locale code. 
-		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <param name="localizedContent">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productproperty = new ProductProperty();
-		///   var productPropertyValueLocalizedContent = productproperty.AddPropertyValueLocalizedContent(_dataViewMode,  localizedContent,  productCode,  attributeFQN,  value,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent AddPropertyValueLocalizedContent(Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent localizedContent, string productCode, string attributeFQN, string value, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.AddPropertyValueLocalizedContentClient(_dataViewMode,  localizedContent,  productCode,  attributeFQN,  value,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Adds a property value for localized content. This content is set by the locale code. 
 		/// </summary>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="value">The value string to create.</param>
 		/// <param name="localizedContent">Use this field to include those fields which are not included by default.</param>
@@ -293,46 +167,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   var productPropertyValueLocalizedContent = await productproperty.AddPropertyValueLocalizedContentAsync(_dataViewMode,  localizedContent,  productCode,  attributeFQN,  value,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> AddPropertyValueLocalizedContentAsync(Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent localizedContent, string productCode, string attributeFQN, string value, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> AddPropertyValueLocalizedContentAsync(Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent localizedContent, string productCode, string attributeFQN, string value, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.AddPropertyValueLocalizedContentClient(_dataViewMode,  localizedContent,  productCode,  attributeFQN,  value,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Configures a property attribute for the product specified in the request.
-		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="productProperty">Details of a property defined for a product.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductProperty"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productproperty = new ProductProperty();
-		///   var productProperty = productproperty.AddProperty(_dataViewMode,  productProperty,  productCode,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductProperty AddProperty(Mozu.Api.Contracts.ProductAdmin.ProductProperty productProperty, string productCode, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductProperty> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.AddPropertyClient(_dataViewMode,  productProperty,  productCode,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Configures a property attribute for the product specified in the request.
 		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="productProperty">Details of a property defined for a product.</param>
 		/// <returns>
@@ -344,48 +193,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   var productProperty = await productproperty.AddPropertyAsync(_dataViewMode,  productProperty,  productCode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductProperty> AddPropertyAsync(Mozu.Api.Contracts.ProductAdmin.ProductProperty productProperty, string productCode, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductProperty> AddPropertyAsync(Mozu.Api.Contracts.ProductAdmin.ProductProperty productProperty, string productCode, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductProperty> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.AddPropertyClient(_dataViewMode,  productProperty,  productCode,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates all property values for localized content. This content is set by the locale code. 
-		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <param name="localizedContent">Content of the product property value in the language defined for the locale code.</param>
-		/// <returns>
-		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productproperty = new ProductProperty();
-		///   var productPropertyValueLocalizedContent = productproperty.UpdatePropertyValueLocalizedContents(_dataViewMode,  localizedContent,  productCode,  attributeFQN,  value);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> UpdatePropertyValueLocalizedContents(List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> localizedContent, string productCode, string attributeFQN, string value)
-		{
-			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.UpdatePropertyValueLocalizedContentsClient(_dataViewMode,  localizedContent,  productCode,  attributeFQN,  value);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Updates all property values for localized content. This content is set by the locale code. 
 		/// </summary>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="value">The value string to create.</param>
 		/// <param name="localizedContent">Content of the product property value in the language defined for the locale code.</param>
 		/// <returns>
@@ -397,51 +220,23 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   var productPropertyValueLocalizedContent = await productproperty.UpdatePropertyValueLocalizedContentsAsync(_dataViewMode,  localizedContent,  productCode,  attributeFQN,  value);
 		/// </code>
 		/// </example>
-		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent>> UpdatePropertyValueLocalizedContentsAsync(List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> localizedContent, string productCode, string attributeFQN, string value)
+		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent>> UpdatePropertyValueLocalizedContentsAsync(List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> localizedContent, string productCode, string attributeFQN, string value, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent>> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.UpdatePropertyValueLocalizedContentsClient(_dataViewMode,  localizedContent,  productCode,  attributeFQN,  value);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates the property value for localized content. This content is set by the locale code. 
-		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <param name="localizedContent">Content of the product property value in the language defined for the locale code.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productproperty = new ProductProperty();
-		///   var productPropertyValueLocalizedContent = productproperty.UpdatePropertyValueLocalizedContent(_dataViewMode,  localizedContent,  productCode,  attributeFQN,  value,  localeCode,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent UpdatePropertyValueLocalizedContent(Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent localizedContent, string productCode, string attributeFQN, string value, string localeCode, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.UpdatePropertyValueLocalizedContentClient(_dataViewMode,  localizedContent,  productCode,  attributeFQN,  value,  localeCode,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Updates the property value for localized content. This content is set by the locale code. 
 		/// </summary>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="value">The value string to create.</param>
 		/// <param name="localizedContent">Content of the product property value in the language defined for the locale code.</param>
@@ -454,48 +249,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   var productPropertyValueLocalizedContent = await productproperty.UpdatePropertyValueLocalizedContentAsync(_dataViewMode,  localizedContent,  productCode,  attributeFQN,  value,  localeCode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> UpdatePropertyValueLocalizedContentAsync(Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent localizedContent, string productCode, string attributeFQN, string value, string localeCode, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> UpdatePropertyValueLocalizedContentAsync(Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent localizedContent, string productCode, string attributeFQN, string value, string localeCode, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.UpdatePropertyValueLocalizedContentClient(_dataViewMode,  localizedContent,  productCode,  attributeFQN,  value,  localeCode,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Update one or more details of a property attribute configuration for the product specified in the request.
-		/// </summary>
-		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="productProperty">Details of a property defined for a product.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductProperty"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productproperty = new ProductProperty();
-		///   var productProperty = productproperty.UpdateProperty(_dataViewMode,  productProperty,  productCode,  attributeFQN,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductProperty UpdateProperty(Mozu.Api.Contracts.ProductAdmin.ProductProperty productProperty, string productCode, string attributeFQN, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductProperty> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.UpdatePropertyClient(_dataViewMode,  productProperty,  productCode,  attributeFQN,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Update one or more details of a property attribute configuration for the product specified in the request.
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="productProperty">Details of a property defined for a product.</param>
 		/// <returns>
@@ -507,45 +276,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   var productProperty = await productproperty.UpdatePropertyAsync(_dataViewMode,  productProperty,  productCode,  attributeFQN,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductProperty> UpdatePropertyAsync(Mozu.Api.Contracts.ProductAdmin.ProductProperty productProperty, string productCode, string attributeFQN, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductProperty> UpdatePropertyAsync(Mozu.Api.Contracts.ProductAdmin.ProductProperty productProperty, string productCode, string attributeFQN, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductProperty> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.UpdatePropertyClient(_dataViewMode,  productProperty,  productCode,  attributeFQN,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Deletes the configuration of a property attribute for the product specified in the request.
-		/// </summary>
-		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
-		/// <returns>
-		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productproperty = new ProductProperty();
-		///   productproperty.DeleteProperty(_dataViewMode,  productCode,  attributeFQN);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeleteProperty(string productCode, string attributeFQN)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.DeletePropertyClient(_dataViewMode,  productCode,  attributeFQN);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
 
 		/// <summary>
 		/// Deletes the configuration of a property attribute for the product specified in the request.
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -555,47 +301,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   await productproperty.DeletePropertyAsync(_dataViewMode,  productCode,  attributeFQN);
 		/// </code>
 		/// </example>
-		public virtual async Task DeletePropertyAsync(string productCode, string attributeFQN)
+		public virtual async Task DeletePropertyAsync(string productCode, string attributeFQN, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.DeletePropertyClient(_dataViewMode,  productCode,  attributeFQN);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
+
 
 		/// <summary>
 		/// Deletes the property value for localized content. This content is set by the locale code. 
 		/// </summary>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <returns>
-		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productproperty = new ProductProperty();
-		///   productproperty.DeletePropertyValueLocalizedContent(_dataViewMode,  productCode,  attributeFQN,  value,  localeCode);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeletePropertyValueLocalizedContent(string productCode, string attributeFQN, string value, string localeCode)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.DeletePropertyValueLocalizedContentClient(_dataViewMode,  productCode,  attributeFQN,  value,  localeCode);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// Deletes the property value for localized content. This content is set by the locale code. 
-		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="value">The value string to create.</param>
 		/// <returns>
 		/// 
@@ -606,12 +327,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   await productproperty.DeletePropertyValueLocalizedContentAsync(_dataViewMode,  productCode,  attributeFQN,  value,  localeCode);
 		/// </code>
 		/// </example>
-		public virtual async Task DeletePropertyValueLocalizedContentAsync(string productCode, string attributeFQN, string value, string localeCode)
+		public virtual async Task DeletePropertyValueLocalizedContentAsync(string productCode, string attributeFQN, string value, string localeCode, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductPropertyClient.DeletePropertyValueLocalizedContentClient(_dataViewMode,  productCode,  attributeFQN,  value,  localeCode);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 

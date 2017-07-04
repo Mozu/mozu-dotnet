@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Shipping.Admin.Profiles
 {
@@ -44,32 +45,6 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin.Profiles
 			_dataViewMode = dataViewMode;
 		}
 				
-		/// <summary>
-		/// Retrieves the details of the specified product handling fee rule.
-		/// </summary>
-		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
-		/// <param name="profilecode">The unique, user-defined code of the profile with which the product handling fee rule is associated.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRule"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var handlingfeerule = new HandlingFeeRule();
-		///   var handlingFeeRule = handlingfeerule.GetProductHandlingFeeRule(_dataViewMode,  profilecode,  id,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRule GetProductHandlingFeeRule(string profilecode, string id, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRule> response;
-			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles.HandlingFeeRuleClient.GetProductHandlingFeeRuleClient(_dataViewMode,  profilecode,  id,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves the details of the specified product handling fee rule.
@@ -87,41 +62,16 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin.Profiles
 		///   var handlingFeeRule = await handlingfeerule.GetProductHandlingFeeRuleAsync(_dataViewMode,  profilecode,  id,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRule> GetProductHandlingFeeRuleAsync(string profilecode, string id, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRule> GetProductHandlingFeeRuleAsync(string profilecode, string id, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRule> response;
 			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles.HandlingFeeRuleClient.GetProductHandlingFeeRuleClient(_dataViewMode,  profilecode,  id,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves a list of product handling fee rules and their details.
-		/// </summary>
-		/// <param name="profilecode">The unique, user-defined code of the profile with which the product handling fee rule is associated.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRuleCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var handlingfeerule = new HandlingFeeRule();
-		///   var handlingFeeRuleCollection = handlingfeerule.GetProductHandlingFeeRules(_dataViewMode,  profilecode,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRuleCollection GetProductHandlingFeeRules(string profilecode, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRuleCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles.HandlingFeeRuleClient.GetProductHandlingFeeRulesClient(_dataViewMode,  profilecode,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves a list of product handling fee rules and their details.
@@ -138,42 +88,16 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin.Profiles
 		///   var handlingFeeRuleCollection = await handlingfeerule.GetProductHandlingFeeRulesAsync(_dataViewMode,  profilecode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRuleCollection> GetProductHandlingFeeRulesAsync(string profilecode, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRuleCollection> GetProductHandlingFeeRulesAsync(string profilecode, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRuleCollection> response;
 			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles.HandlingFeeRuleClient.GetProductHandlingFeeRulesClient(_dataViewMode,  profilecode,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Creates a new product handling fee rule.
-		/// </summary>
-		/// <param name="profilecode">The unique, user-defined code of the profile with which the product handling fee rule is associated.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="rule">Mozu.ShippingAdmin.Contracts.Profile.HandlingFeeRule ApiType DOCUMENT_HERE </param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRule"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var handlingfeerule = new HandlingFeeRule();
-		///   var handlingFeeRule = handlingfeerule.CreateProductHandlingFeeRule( rule,  profilecode,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRule CreateProductHandlingFeeRule(Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRule rule, string profilecode, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRule> response;
-			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles.HandlingFeeRuleClient.CreateProductHandlingFeeRuleClient( rule,  profilecode,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Creates a new product handling fee rule.
@@ -181,7 +105,7 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin.Profiles
 		/// <param name="profilecode">The unique, user-defined code of the profile with which the product handling fee rule is associated.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="rule">Mozu.ShippingAdmin.Contracts.Profile.HandlingFeeRule ApiType DOCUMENT_HERE </param>
+		/// <param name="rule">The details of the new product handling fee rule.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRule"/>
 		/// </returns>
@@ -191,43 +115,16 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin.Profiles
 		///   var handlingFeeRule = await handlingfeerule.CreateProductHandlingFeeRuleAsync( rule,  profilecode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRule> CreateProductHandlingFeeRuleAsync(Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRule rule, string profilecode, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRule> CreateProductHandlingFeeRuleAsync(Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRule rule, string profilecode, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRule> response;
 			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles.HandlingFeeRuleClient.CreateProductHandlingFeeRuleClient( rule,  profilecode,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates the details of the specified product handling fee rule.
-		/// </summary>
-		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
-		/// <param name="profilecode">The unique, user-defined code of the profile with which the product handling fee rule is associated.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="rule">Mozu.ShippingAdmin.Contracts.Profile.HandlingFeeRule ApiType DOCUMENT_HERE </param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRule"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var handlingfeerule = new HandlingFeeRule();
-		///   var handlingFeeRule = handlingfeerule.UpdateProductHandlingFeeRule(_dataViewMode,  rule,  profilecode,  id,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRule UpdateProductHandlingFeeRule(Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRule rule, string profilecode, string id, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRule> response;
-			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles.HandlingFeeRuleClient.UpdateProductHandlingFeeRuleClient(_dataViewMode,  rule,  profilecode,  id,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Updates the details of the specified product handling fee rule.
@@ -236,7 +133,7 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin.Profiles
 		/// <param name="profilecode">The unique, user-defined code of the profile with which the product handling fee rule is associated.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="rule">Mozu.ShippingAdmin.Contracts.Profile.HandlingFeeRule ApiType DOCUMENT_HERE </param>
+		/// <param name="rule">The updated details of the product handling fee rule.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRule"/>
 		/// </returns>
@@ -246,40 +143,16 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin.Profiles
 		///   var handlingFeeRule = await handlingfeerule.UpdateProductHandlingFeeRuleAsync(_dataViewMode,  rule,  profilecode,  id,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRule> UpdateProductHandlingFeeRuleAsync(Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRule rule, string profilecode, string id, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRule> UpdateProductHandlingFeeRuleAsync(Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRule rule, string profilecode, string id, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ShippingAdmin.Profile.HandlingFeeRule> response;
 			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles.HandlingFeeRuleClient.UpdateProductHandlingFeeRuleClient(_dataViewMode,  rule,  profilecode,  id,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Deletes the specified product handling fee rule.
-		/// </summary>
-		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
-		/// <param name="profilecode">The unique, user-defined code of the profile with which the product handling fee rule is associated.</param>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <returns>
-		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var handlingfeerule = new HandlingFeeRule();
-		///   handlingfeerule.DeleteProductHandlingFeeRule(_dataViewMode,  profilecode,  id);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeleteProductHandlingFeeRule(string profilecode, string id)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles.HandlingFeeRuleClient.DeleteProductHandlingFeeRuleClient(_dataViewMode,  profilecode,  id);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
 
 		/// <summary>
 		/// Deletes the specified product handling fee rule.
@@ -296,12 +169,12 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin.Profiles
 		///   await handlingfeerule.DeleteProductHandlingFeeRuleAsync(_dataViewMode,  profilecode,  id);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteProductHandlingFeeRuleAsync(string profilecode, string id)
+		public virtual async Task DeleteProductHandlingFeeRuleAsync(string profilecode, string id, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles.HandlingFeeRuleClient.DeleteProductHandlingFeeRuleClient(_dataViewMode,  profilecode,  id);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 

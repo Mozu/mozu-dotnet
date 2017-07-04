@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Discounts
 {
@@ -44,30 +45,6 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Discounts
 			_dataViewMode = dataViewMode;
 		}
 				
-		/// <summary>
-		/// Retrieves the discount target, that is which products, categories, or shipping methods are eligible for the discount.
-		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.DiscountTarget"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var discounttarget = new DiscountTarget();
-		///   var discountTarget = discounttarget.GetDiscountTarget(_dataViewMode,  discountId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.DiscountTarget GetDiscountTarget(int discountId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountTarget> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Discounts.DiscountTargetClient.GetDiscountTargetClient(_dataViewMode,  discountId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Retrieves the discount target, that is which products, categories, or shipping methods are eligible for the discount.
@@ -83,41 +60,16 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Discounts
 		///   var discountTarget = await discounttarget.GetDiscountTargetAsync(_dataViewMode,  discountId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.DiscountTarget> GetDiscountTargetAsync(int discountId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.DiscountTarget> GetDiscountTargetAsync(int discountId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountTarget> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Discounts.DiscountTargetClient.GetDiscountTargetClient(_dataViewMode,  discountId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Modifies properties of the discount target, for example, the dollar amount, or precentage off the price.
-		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="discountTarget">Properties of the target to which the discount applies, such as the type of discount and which products, categories, or shipping methods are eligible for the discount and the properties of this discount target.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.DiscountTarget"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var discounttarget = new DiscountTarget();
-		///   var discountTarget = discounttarget.UpdateDiscountTarget( discountTarget,  discountId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.DiscountTarget UpdateDiscountTarget(Mozu.Api.Contracts.ProductAdmin.DiscountTarget discountTarget, int discountId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountTarget> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Discounts.DiscountTargetClient.UpdateDiscountTargetClient( discountTarget,  discountId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
 		/// Modifies properties of the discount target, for example, the dollar amount, or precentage off the price.
@@ -134,12 +86,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Discounts
 		///   var discountTarget = await discounttarget.UpdateDiscountTargetAsync( discountTarget,  discountId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.DiscountTarget> UpdateDiscountTargetAsync(Mozu.Api.Contracts.ProductAdmin.DiscountTarget discountTarget, int discountId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.DiscountTarget> UpdateDiscountTargetAsync(Mozu.Api.Contracts.ProductAdmin.DiscountTarget discountTarget, int discountId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.DiscountTarget> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Discounts.DiscountTargetClient.UpdateDiscountTargetClient( discountTarget,  discountId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}

@@ -14,12 +14,12 @@ using System;
 namespace Mozu.Api.Contracts.SiteSettings.Order
 {
 		///
-		///	Mozu.SiteSettings.Order.Contracts.PurchaseOrderCustomField ApiType DOCUMENT_HERE 
+		///	The details of the custom fields associated with the purchase order payment.Refer to [Custom Text Fields](https://www.mozu.com/docs/guides/orders/purchase-order.htm#custom_text_fields) in the Purchase Orders guides topic for more information.
 		///
 		public class PurchaseOrderCustomField
 		{
 			///
-			///Unique code/name for memo field
+			///The unique code of the custom field associated with the purchase order payment type.Refer to [Custom Text Fields](https://www.mozu.com/docs/guides/orders/purchase-order.htm#custom_text_fields) in the Purchase Orders guides topic for more information.
 			///
 			public string Code { get; set; }
 
@@ -39,7 +39,7 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 			public string Label { get; set; }
 
 			///
-			///Sequence Number
+			///The order/sequence position in which  displays the custom field.
 			///
 			public int SequenceNumber { get; set; }
 

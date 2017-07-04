@@ -20,12 +20,12 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class PublishSet
 		{
 			///
-			///The PublishSet unique identifier
+			///The unique identifier of the product publish set.
 			///
 			public string Code { get; set; }
 
 			///
-			///List of product codes of associated products, used for pending product changes to publish or delete and returned in a product inventory location query.
+			///A list of product codes of associated products. When this field is in the Product Publishing resource, you can use this field  to publish or delete individual pending product changes, or assign individual pending product changes to a publish set.
 			///
 			public List<string> ProductCodes { get; set; }
 
