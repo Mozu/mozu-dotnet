@@ -63,6 +63,8 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 		}
 
 
+
+
 		/// <summary>
 		/// Create new custom route settings.
 		/// </summary>
@@ -88,6 +90,7 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 		}
 
 
+
 		/// <summary>
 		/// Updates custom route settings.
 		/// </summary>
@@ -111,6 +114,7 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 			return await response.ResultAsync();
 
 		}
+
 
 
 		/// <summary>

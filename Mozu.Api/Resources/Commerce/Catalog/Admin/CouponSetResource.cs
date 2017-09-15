@@ -39,6 +39,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 
 				
 
+
 		/// <summary>
 		/// Retrieves a list of coupon sets in the catalog according to any specified filter criteria and sort options.
 		/// </summary>
@@ -68,6 +69,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 
+
 		/// <summary>
 		/// Retrieves the details of a single coupon set. Use the couponSetCode parameter to specify the coupon set. Use the includeCounts parameter to specify whether to include the number of redeemed coupons, existing coupon codes, and assigned discounts.
 		/// </summary>
@@ -94,6 +96,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 
+
 		/// <summary>
 		/// Returns a unique, random four character code to use for the couponSetCode.
 		/// </summary>
@@ -116,6 +119,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 			return await response.ResultAsync();
 
 		}
+
 
 
 		/// <summary>
@@ -143,6 +147,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 
+
 		/// <summary>
 		/// Validates the couponSetCode and tests it for uniqueness.
 		/// </summary>
@@ -164,6 +169,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
+
 
 
 		/// <summary>

@@ -90,7 +90,7 @@ namespace Mozu.Api
 		
 		public virtual async Task<MozuClient<TResult>> ExecuteAsync(CancellationToken ct)
 		{
-			await base.ExecuteRequestAsync(ct);
+			await base.ExecuteRequestAsync(ct).ConfigureAwait(false);
 			return this;
 		}
        
@@ -161,7 +161,7 @@ namespace Mozu.Api
 
 		public virtual async Task<MozuClient> ExecuteAsync(CancellationToken ct)
 		{
-			await base.ExecuteRequestAsync(ct);
+			await base.ExecuteRequestAsync(ct).ConfigureAwait(false);
 			return this;
 		}
 
@@ -261,7 +261,7 @@ namespace Mozu.Api
 
 			var stringContent = HttpResponse.Content.ReadAsStringAsync().Result;
 
-			if (_log.IsDebugEnabled)
+			if (_log.IsDebugEnabled && MozuConfig.EnableRequestResponseLogging)
 				_log.Debug(string.Format("{0} {1}", GetCorrelationId(), stringContent));
 
 			return JsonConvert.DeserializeObject<TResult>(stringContent, new JsonSerializerSettings { DateTimeZoneHandling = DateTimeZoneHandling.Utc });
@@ -273,11 +273,11 @@ namespace Mozu.Api
 		      return default(TResult);
 
 			if (typeof(TResult) == typeof(Stream))
-				return (TResult)(object)(await HttpResponse.Content.ReadAsStreamAsync());
+				return (TResult)(object)(await HttpResponse.Content.ReadAsStreamAsync().ConfigureAwait(false));
 
-			var stringContent = await HttpResponse.Content.ReadAsStringAsync();
+			var stringContent = await HttpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
 
-			if (_log.IsDebugEnabled)
+			if (_log.IsDebugEnabled && MozuConfig.EnableRequestResponseLogging)
 				 _log.Debug(string.Format("{0} {1}", GetCorrelationId(), stringContent));
 
 			return await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<TResult>(stringContent, new JsonSerializerSettings { DateTimeZoneHandling = DateTimeZoneHandling.Utc }));
@@ -377,7 +377,7 @@ namespace Mozu.Api
 
 				if (string.IsNullOrEmpty(_apiContext.TenantUrl))
 				{
-				    var tenant = await GetTenantAsync(_apiContext.TenantId,ct);
+				    var tenant = await GetTenantAsync(_apiContext.TenantId,ct).ConfigureAwait(false);
 						
                     _baseAddress = HttpHelper.GetUrl(tenant.Domain);
 				}
@@ -405,7 +405,7 @@ namespace Mozu.Api
 					_log.Info("TenantId is missing", new ApiException("TenantId is missing") { ApiContext = _apiContext });
 					throw new ApiException("TenantId is missing");
 				}
-                var tenant = await GetTenantAsync(_apiContext.TenantId, ct);
+                var tenant = await GetTenantAsync(_apiContext.TenantId, ct).ConfigureAwait(false);
                 _baseAddress = tenant.IsDevTenant? MozuConfig.BaseDevPciUrl : MozuConfig.BasePciUrl;
 			}
 
@@ -415,7 +415,7 @@ namespace Mozu.Api
         private async Task<Tenant> GetTenantAsync(int tenantId, CancellationToken ct)
         {
             var tenantResource = new TenantResource();
-            var tenant = await tenantResource.GetTenantAsync(_apiContext.TenantId, ct: ct);
+            var tenant = await tenantResource.GetTenantAsync(_apiContext.TenantId, ct: ct).ConfigureAwait(false);
 
             if (tenant == null)
             {
@@ -426,14 +426,13 @@ namespace Mozu.Api
 
             return tenant;
         }
-
 		
 		protected async Task ExecuteRequestAsync(CancellationToken ct)
 		{
-			await ValidateContext(ct);
+			await ValidateContext(ct).ConfigureAwait(false);
 			var client = GetHttpClient();            
             var request = GetRequestMessage();
-			_httpResponseMessage = await client.SendAsync(request, HttpCompletionOption.ResponseContentRead,ct).ConfigureAwait(false);
+			_httpResponseMessage = await client.SendAsync(request, HttpCompletionOption.ResponseContentRead);
             ResponseHelper.EnsureSuccess(_httpResponseMessage,request, _apiContext);
             SetCache(request);
 		}

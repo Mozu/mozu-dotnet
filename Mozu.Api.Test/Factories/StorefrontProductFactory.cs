@@ -333,6 +333,7 @@ namespace Mozu.Api.Test.Factories
 					 : null;
 
 		}
+		
   
 		/// <summary> 
 		/// Retrieves product inventories for the storefront displayed products.

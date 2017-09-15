@@ -13,7 +13,6 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
-using System.Threading;
 
 namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 {

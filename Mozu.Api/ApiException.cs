@@ -64,6 +64,12 @@ namespace Mozu.Api
             }
             catch (Exception) { }
 
+            try
+            {
+                SubErrorCode = (string)info.GetValue("subErrorCode", typeof(string));
+            }
+            catch (Exception) { }
+
 
             try
             {
@@ -82,7 +88,7 @@ namespace Mozu.Api
 
             try
             {
-                AdditionalErrorData = (List<AdditionalErrorData>) info.GetValue("additionalErroData", typeof (List<AdditionalErrorData>));
+                AdditionalErrorData = (List<AdditionalErrorData>) info.GetValue("additionalErrorData", typeof (List<AdditionalErrorData>));
             }
             catch (Exception){}
 
@@ -95,6 +101,7 @@ namespace Mozu.Api
         }
         public string ApplicationName { get; private set; }
         public string ErrorCode { get; private set; }
+        public string SubErrorCode { get; private set; }
         public IApiContext ApiContext { get; set; }
         public String CorrelationId { get; set; }
         public ExceptionDetail ExceptionDetail;

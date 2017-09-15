@@ -52,7 +52,7 @@ namespace Mozu.Api.Test.Factories
 				 adjustment :  adjustment,  orderId :  orderId,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields		);
 			try
 			{
-				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
+                apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
 			}
 			catch (ApiException ex)
 			{
@@ -181,6 +181,7 @@ namespace Mozu.Api.Test.Factories
 					 : null;
 
 		}
+
   
 		/// <summary> 
 		/// Removes a shipping adjustment previously applied to an order or draft.
