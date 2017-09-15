@@ -25,8 +25,8 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// <summary>
 		/// Retrieves the specified contact for a customer account such as a billing or shipping contact.
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="contactId">Unique identifer of the customer account contact being updated.</param>
+		/// <param name="accountId">Unique identifier of the customer account whose contact information is being retrieved.</param>
+		/// <param name="contactId">Unique identifier of the customer account contact to retrieve.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerContact"/>}
@@ -51,7 +51,7 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// <summary>
 		/// Retrieves a list of contacts for a customer according to any specified filter criteria and sort options.
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="accountId">Unique identifier of the customer account associated with the contact information to retrieve.</param>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
@@ -80,9 +80,9 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// <summary>
 		/// Creates a new contact for a customer account such as a new shipping address.
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="accountId">Unique identifier of the customer account containing the new contact.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="contact">Contact information, including the contact's name, address, phone numbers, email addresses, and company (if supplied). Also indicates whether this is a billing, shipping, or billing and shipping contact.</param>
+		/// <param name="contact">Properties of the new contact. Required properties: Contact.Email, ContactType.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerContact"/>}
 		/// </returns>
@@ -106,10 +106,10 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// <summary>
 		/// Updates a contact for a specified customer account such as to update addresses or change which contact is the primary contact for billing.
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="accountId">Unique identifier of the customer account whose contact information is being updated.</param>
 		/// <param name="contactId">Unique identifer of the customer account contact being updated.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="contact">Contact information, including the contact's name, address, phone numbers, email addresses, and company (if supplied). Also indicates whether this is a billing, shipping, or billing and shipping contact.</param>
+		/// <param name="contact">All properties the updated contact will have. Required properties: Name and email address.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerContact"/>}
 		/// </returns>
@@ -131,10 +131,36 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="accountId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="contactList"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerContactCollection"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=AddAccountContactList( contactList,  accountId,  responseFields);
+		///   var customerContactCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerContactCollection> AddAccountContactListClient(List<Mozu.Api.Contracts.Customer.CustomerContact> contactList, int accountId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerContactUrl.AddAccountContactListUrl(accountId, responseFields);
+			const string verb = "PUT";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerContactCollection>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<List<Mozu.Api.Contracts.Customer.CustomerContact>>(contactList);
+			return mozuClient;
+
+		}
+
+		/// <summary>
 		/// Deletes a contact for the specified customer account.
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="contactId">Unique identifer of the customer account contact being updated.</param>
+		/// <param name="contactId">Unique identifier of the customer account contact to delete.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

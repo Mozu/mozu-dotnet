@@ -47,10 +47,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 				
 
 		/// <summary>
-		/// Retrieves a collection of the localized delta price values for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		/// 
 		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
+		/// <param name="productCode"></param>
+		/// <param name="variationKey"></param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice"/>}
 		/// </returns>
@@ -72,12 +72,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 
 		/// <summary>
-		/// Retrieves the localized delta price value for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		/// 
 		/// </summary>
-		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
+		/// <param name="variationKey"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice"/>
 		/// </returns>
@@ -99,10 +99,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 
 		/// <summary>
-		/// Retrieves a list of details of the localized price values for a product variation.
+		/// 
 		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
+		/// <param name="productCode"></param>
+		/// <param name="variationKey"></param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice"/>}
 		/// </returns>
@@ -124,12 +124,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 
 		/// <summary>
-		/// Retrieves the details of the localized price value for a product variation and a specific localized currency.
+		/// 
 		/// </summary>
-		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="variationKey"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice"/>
 		/// </returns>
@@ -206,12 +206,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 
 		/// <summary>
-		/// Adds the localized delta price value for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		/// 
 		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
+		/// <param name="productCode"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
-		/// <param name="localizedDeltaPrice">The difference between the base price for the product and this variation of the product, which can be a positive or negative decimal value. For example, if the base price for a t-shirt product is $10, but the XL variation should cost $12, the DeltaPrice value should be "2". However, if the XS variation should only cost $8, the DeltaPrice value should be "-2".</param>
+		/// <param name="variationKey"></param>
+		/// <param name="localizedDeltaPrice"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice"/>
 		/// </returns>
@@ -233,12 +233,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 
 		/// <summary>
-		/// Adds the localized price value for a product variation and a specific localized currency.
+		/// 
 		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
-		/// <param name="localizedPrice">The details of the product variation localized price.</param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="variationKey"></param>
+		/// <param name="localizedPrice"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice"/>
 		/// </returns>
@@ -260,11 +260,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 
 		/// <summary>
-		/// Updates all localized delta price values for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		/// 
 		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
-		/// <param name="localizedDeltaPrice">The difference between the base price for the product and this variation of the product, which can be a positive or negative decimal value. For example, if the base price for a t-shirt product is $10, but the XL variation should cost $12, the DeltaPrice value should be "2". However, if the XS variation should only cost $8, the DeltaPrice value should be "-2".</param>
+		/// <param name="productCode"></param>
+		/// <param name="variationKey"></param>
+		/// <param name="localizedDeltaPrice"></param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice"/>}
 		/// </returns>
@@ -286,13 +286,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 
 		/// <summary>
-		/// Updates the localized delta price value for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		/// 
 		/// </summary>
-		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
-		/// <param name="localizedDeltaPrice">The difference between the base price for the product and this variation of the product, which can be a positive or negative decimal value. For example, if the base price for a t-shirt product is $10, but the XL variation should cost $12, the DeltaPrice value should be "2". However, if the XS variation should only cost $8, the DeltaPrice value should be "-2".</param>
+		/// <param name="variationKey"></param>
+		/// <param name="localizedDeltaPrice"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationDeltaPrice"/>
 		/// </returns>
@@ -314,11 +314,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 
 		/// <summary>
-		/// Updates a list of localized price values for a product variation.
+		/// 
 		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
-		/// <param name="localizedPrice">The details of the product variation localized price.</param>
+		/// <param name="productCode"></param>
+		/// <param name="variationKey"></param>
+		/// <param name="localizedPrice"></param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice"/>}
 		/// </returns>
@@ -340,13 +340,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 
 		/// <summary>
-		/// Updates the localized price value for a product variation and a specific localized currency.
+		/// 
 		/// </summary>
-		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
-		/// <param name="localizedPrice">The details of the product variation localized price.</param>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="variationKey"></param>
+		/// <param name="localizedPrice"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationFixedPrice"/>
 		/// </returns>
@@ -373,7 +373,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
-		/// <param name="productVariation">Properties of a specific product variation.</param>
+		/// <param name="productVariation">Wrapper for the properties of the specified product variation.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariation"/>
 		/// </returns>
@@ -398,8 +398,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// Modifies the collection of variations for the specified product code. Because this PUT replaces the existing resource, supply all information necessary to maintain for the product variation.
 		/// </summary>
 		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="productVariations">Collection of variations configured for a product.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="productVariations">Wrapper for the collection of variations configured for the specified product code.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductVariationCollection"/>
 		/// </returns>
@@ -445,11 +445,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 
 		/// <summary>
-		/// Deletes the localized delta price value for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		/// 
 		/// </summary>
-		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="variationKey"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -470,11 +470,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 
 		/// <summary>
-		/// Deletes the localized price value for a product variation and a specific localized currency.
+		/// 
 		/// </summary>
-		/// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="variationKey"></param>
 		/// <returns>
 		/// 
 		/// </returns>

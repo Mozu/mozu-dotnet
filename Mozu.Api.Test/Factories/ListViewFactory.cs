@@ -25,13 +25,13 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Provides settings and options for displaying associated content within a context level of site, tenant, catalog, or master catalog. ListViews can be associated with entity lists and entities.
+	/// 
 	/// </summary>
 	public partial class ListViewFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves a view for associated entities. A view provides display context levels (site, tenant, catalog, master catalog) and settings.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ListViewFactory.GetViewEntity(handler : handler,  entityListFullName :  entityListFullName,  viewName :  viewName,  entityId :  entityId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -69,7 +69,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves a collection of views for associated entities. Each view provides display context levels (site, tenant, catalog, master catalog) and settings.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ListViewFactory.GetViewEntities(handler : handler,  entityListFullName :  entityListFullName,  viewName :  viewName,  pageSize :  pageSize,  startIndex :  startIndex,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -107,7 +107,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves a collection of container data for creating and displaying a view of entities. 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ListViewFactory.GetViewEntityContainer(handler : handler,  entityListFullName :  entityListFullName,  viewName :  viewName,  entityId :  entityId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -145,7 +145,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves a collection of container data for creating and displaying a view of entities. 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ListViewFactory.GetViewEntityContainers(handler : handler,  entityListFullName :  entityListFullName,  viewName :  viewName,  pageSize :  pageSize,  startIndex :  startIndex,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -183,7 +183,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves a specific `EntityListView`. These views provide schema, rules, and formatting for all associated entities. 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ListViewFactory.GetEntityListView(handler : handler,  entityListFullName :  entityListFullName,  viewName :  viewName,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -221,7 +221,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves a collection of `EntityListViews`. These views provide schema, rules, and formatting for all associated entities. 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ListViewFactory.GetEntityListViews(handler : handler,  entityListFullName :  entityListFullName,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -259,7 +259,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Creates an entity list view. Each view provides display context levels (site, tenant, catalog, master catalog) and settings for the list of entities.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ListViewFactory.CreateEntityListView(handler : handler,  listView :  listView,  entityListFullName :  entityListFullName,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -297,7 +297,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates an existing entity list view. Each view provides display context levels (site, tenant, catalog, master catalog) and settings for the list of entities.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ListViewFactory.UpdateEntityListView(handler : handler,  listView :  listView,  entityListFullName :  entityListFullName,  viewName :  viewName,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -335,7 +335,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Deletes an entity list view. Any associated entities have the association removed.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ListViewFactory.DeleteEntityListView(handler : handler,  entityListFullName :  entityListFullName,  viewName :  viewName,  expectedCode: expectedCode, successCode: successCode); 

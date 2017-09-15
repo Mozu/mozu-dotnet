@@ -69,7 +69,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves a collection of property values for localized content. This content is set by the locale code. 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ProductPropertyFactory.GetPropertyValueLocalizedContents(handler : handler,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -107,7 +107,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves the property value for localized content. This content is set by the locale code. 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ProductPropertyFactory.GetPropertyValueLocalizedContent(handler : handler,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  localeCode :  localeCode,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -183,7 +183,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Adds a property value for localized content. This content is set by the locale code. 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ProductPropertyFactory.AddPropertyValueLocalizedContent(handler : handler,  localizedContent :  localizedContent,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -259,7 +259,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates all property values for localized content. This content is set by the locale code. 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ProductPropertyFactory.UpdatePropertyValueLocalizedContents(handler : handler,  localizedContent :  localizedContent,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -297,7 +297,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates the property value for localized content. This content is set by the locale code. 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ProductPropertyFactory.UpdatePropertyValueLocalizedContent(handler : handler,  localizedContent :  localizedContent,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  localeCode :  localeCode,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -410,7 +410,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Deletes the property value for localized content. This content is set by the locale code. 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ProductPropertyFactory.DeletePropertyValueLocalizedContent(handler : handler,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  localeCode :  localeCode,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 

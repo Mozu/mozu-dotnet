@@ -25,13 +25,13 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the AssignedDiscounts resource to manage the discounts assigned to coupon sets.
+	/// 
 	/// </summary>
 	public partial class AssignedDiscountFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves the discountIds of any assigned discounts for the specified coupon set.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = AssignedDiscountFactory.GetAssignedDiscounts(handler : handler,  couponSetCode :  couponSetCode,  expectedCode: expectedCode, successCode: successCode); 
@@ -69,7 +69,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Assigns or associates an existing discount to a specified coupon set. Use the couponSetCode parameter to specify the coupon set.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = AssignedDiscountFactory.AssignDiscount(handler : handler,  assignedDiscount :  assignedDiscount,  couponSetCode :  couponSetCode,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Unassigns or disassociates the specified discount with the specified coupon set.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = AssignedDiscountFactory.UnAssignDiscount(handler : handler,  couponSetCode :  couponSetCode,  discountId :  discountId,  expectedCode: expectedCode, successCode: successCode); 

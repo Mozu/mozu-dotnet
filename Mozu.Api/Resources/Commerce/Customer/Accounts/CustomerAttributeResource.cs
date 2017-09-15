@@ -42,7 +42,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <summary>
 		/// Retrieves the contents of an attribute associated with the specified customer account.
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="accountId">Identifier of the customer account associated with the attribute to retrieve.</param>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
@@ -68,7 +68,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <summary>
 		/// Retrieves the list of customer account attributes.
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="accountId">Identifier of the customer account associated with the attributes to retrieve.</param>
 		/// <param name="filter"></param>
 		/// <param name="pageSize"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
@@ -99,7 +99,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="attribute">Properties of an attribute associated with a customer account.</param>
+		/// <param name="attribute">The attribute to add to the customer account.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAttribute"/>
 		/// </returns>
@@ -123,10 +123,10 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <summary>
 		/// Updates one or more details of a customer account attribute.
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="accountId">Identifier of the customer account associated with the attribute.</param>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="attribute">Properties of an attribute associated with a customer account.</param>
+		/// <param name="attribute">Properties of the customer account attribute to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAttribute"/>
 		/// </returns>

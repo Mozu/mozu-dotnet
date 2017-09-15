@@ -25,31 +25,31 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use this subresource to apply coupons to or remove coupons from an order based on a supplied coupon code.
+	/// 
 	/// </summary>
 	public partial class AppliedDiscountOrdersFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Apply a coupon to the order.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = AppliedDiscountFactory.ApplyCoupon(handler : handler,  orderId :  orderId,  couponCode :  couponCode,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Order/>(result); 
+		/// var result = AppliedDiscountFactory.ApplyCoupon(handler : handler,  checkoutId :  checkoutId,  couponCode :  couponCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Checkout/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order ApplyCoupon(ServiceClientMessageHandler handler, 
- 		 string orderId, string couponCode, string updateMode = null, string version = null, string responseFields = null, 
+		public static Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout ApplyCoupon(ServiceClientMessageHandler handler, 
+ 		 string checkoutId, string couponCode, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Orders.AppliedDiscountClient.ApplyCouponClient(
-				 orderId :  orderId,  couponCode :  couponCode,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields		);
+			var apiClient = Mozu.Api.Clients.Commerce.Checkouts.AppliedDiscountClient.ApplyCouponClient(
+				 checkoutId :  checkoutId,  couponCode :  couponCode,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -69,25 +69,25 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Removes a coupon previously applied to the order.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = AppliedDiscountFactory.RemoveCoupon(handler : handler,  orderId :  orderId,  couponCode :  couponCode,  updateMode :  updateMode,  version :  version,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Order/>(result); 
+		/// var result = AppliedDiscountFactory.RemoveCoupons(handler : handler,  checkoutId :  checkoutId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Checkout/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order RemoveCoupon(ServiceClientMessageHandler handler, 
- 		 string orderId, string couponCode, string updateMode = null, string version = null, 
+		public static Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout RemoveCoupons(ServiceClientMessageHandler handler, 
+ 		 string checkoutId, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Orders.AppliedDiscountClient.RemoveCouponClient(
-				 orderId :  orderId,  couponCode :  couponCode,  updateMode :  updateMode,  version :  version		);
+			var apiClient = Mozu.Api.Clients.Commerce.Checkouts.AppliedDiscountClient.RemoveCouponsClient(
+				 checkoutId :  checkoutId		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -107,25 +107,25 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Removes all coupons previously applied to the order.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = AppliedDiscountFactory.RemoveCoupons(handler : handler,  orderId :  orderId,  updateMode :  updateMode,  version :  version,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Order/>(result); 
+		/// var result = AppliedDiscountFactory.RemoveCoupon(handler : handler,  checkoutId :  checkoutId,  couponCode :  couponCode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Checkout/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order RemoveCoupons(ServiceClientMessageHandler handler, 
- 		 string orderId, string updateMode = null, string version = null, 
+		public static Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout RemoveCoupon(ServiceClientMessageHandler handler, 
+ 		 string checkoutId, string couponCode, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Orders.AppliedDiscountClient.RemoveCouponsClient(
-				 orderId :  orderId,  updateMode :  updateMode,  version :  version		);
+			var apiClient = Mozu.Api.Clients.Commerce.Checkouts.AppliedDiscountClient.RemoveCouponClient(
+				 checkoutId :  checkoutId,  couponCode :  couponCode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();

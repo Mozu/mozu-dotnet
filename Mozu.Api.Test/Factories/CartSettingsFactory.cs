@@ -25,13 +25,13 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the cart subresource to manage settings for the cart, such as whether to include handling fees in the cost calculations.
+	/// 
 	/// </summary>
 	public partial class CartSettingsFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves cart settings.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CartSettingsFactory.GetCartSettings(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -69,7 +69,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Creates cart settings.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CartSettingsFactory.CreateCartSettings(handler : handler,  cartSettings :  cartSettings,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -107,7 +107,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates cart settings.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CartSettingsFactory.UpdateCartSettings(handler : handler,  cartSettings :  cartSettings,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

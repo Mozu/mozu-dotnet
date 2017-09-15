@@ -24,7 +24,7 @@ namespace Mozu.Api.Contracts.ShippingAdmin
 			public string LocaleCode { get; set; }
 
 			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
+			///The localized name of this shipping service type.
 			///
 			public string Name { get; set; }
 

@@ -18,13 +18,10 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		///
 		public class AttributeDetail
 		{
-			///
-			///Indicates whether the attribute should be able to be used in filters, facets, and sorting on the public storefront.
-			///
 			public bool AllowFilteringAndSortingInStorefront { get; set; }
 
 			///
-			///The data type of the source product property, typically of type Bool, DateTime, Number, or String.
+			///The data type (such as datetime or string) associated with the attribute.
 			///
 			public string DataType { get; set; }
 
@@ -34,37 +31,31 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public int DataTypeSequence { get; set; }
 
 			///
-			///The localized description in text for the object, displayed per the locale code. For example, descriptions are used for product descriptions, attributes, and pre-authorization transaction types.
+			///Description of the attribute in the language specified by the locale code.
 			///
 			public string Description { get; set; }
 
-			///
-			///Defines the intended display of this attribute in the storefront. Options include Drop Down, Image Picker, and Radio Buttons.
-			///
 			public string DisplayIntention { get; set; }
 
-			///
-			///Specifies whether to create a case-sensitive Solr search index. The default is .
-			///
 			public bool? IndexValueWithCase { get; set; }
 
 			///
-			///The type of input selection used to define a value for the attribute, including Yes/No, Date, DateTime, List, TextBox, or TextArea.
+			///The input type (such as date or text area) accepted for the attribute's data type.
 			///
 			public string InputType { get; set; }
 
 			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
+			///Name of the atrribute in the language specified by the locale code.
 			///
 			public string Name { get; set; }
 
 			///
-			///Indicates if the attribute value is searchable on the public storefront.
+			///Indicates whether the attribute value is searchable in the storefont by a shopper.
 			///
 			public bool SearchableInStorefront { get; set; }
 
 			///
-			///Indicates what kind of values search queries and returns. If true, the system indexes the display value of string attributes instead of the canonical value for searching. Always use the canonical value for filtering. This does not apply for non-string attributes.
+			///If true, the system indexes the display value of string attributes instead of the canonical value for searching. The canonical value is always used for filtering. This does not apply for for non-string attributes.
 			///
 			public bool SearchDisplayValue { get; set; }
 
@@ -74,12 +65,12 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string UsageType { get; set; }
 
 			///
-			///Properties used when validating a value entered for an object, including extensible attributes, products attributes, and database entries.
+			///Validation rules of an attribute that determine which values are valid for ShopperEntered and AdminEntered ValueTypes.
 			///
 			public AttributeValidation Validation { get; set; }
 
 			///
-			///An attribute value type is either predefined vocabulary by the admin during attribute set up or user-defined with an appropriate type (AdminEntered or ShopperEntered depending on the user). These types are used by products and attributes. The difference between predefined values versus manually entered values is such that the first choice is a set of options to choose from. AdminEntered and ShopperEntered are values that are entered rather than system-supplied and are not stored in the database, but captured during a live commerce operations such as during an order.
+			///The type of value for the attribute, which is either ShopperEntered, AdminEntered, or Predefined.
 			///
 			public string ValueType { get; set; }
 

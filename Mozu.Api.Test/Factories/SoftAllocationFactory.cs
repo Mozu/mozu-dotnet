@@ -25,13 +25,13 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// The Soft Allocations resource allows you to temporarily hold a product from inventory while a shopper is filling out payment information. You create a product reservation when a shopper proceeds to check out and then release the reservation when the order process is complete.
+	/// 
 	/// </summary>
 	public partial class SoftAllocationFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves a list of sof allocations according to any specified filter criteria and sort options.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SoftAllocationFactory.GetSoftAllocations(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -69,7 +69,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves the details of a soft allocation.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SoftAllocationFactory.GetSoftAllocation(handler : handler,  softAllocationId :  softAllocationId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -107,7 +107,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Creates a new soft allocation for a product. This places a hold on the product inventory for the quantity specified during the ordering process.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SoftAllocationFactory.AddSoftAllocations(handler : handler,  softAllocationsIn :  softAllocationsIn,  expectedCode: expectedCode, successCode: successCode); 
@@ -145,7 +145,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Converts a set of existing soft product allocations into product reservations.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SoftAllocationFactory.ConvertToProductReservation(handler : handler,  softAllocations :  softAllocations,  expectedCode: expectedCode, successCode: successCode); 
@@ -183,7 +183,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates the expiration time for a set of soft allocations in a non-transactional batch.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SoftAllocationFactory.RenewSoftAllocations(handler : handler,  softAllocationRenew :  softAllocationRenew,  expectedCode: expectedCode, successCode: successCode); 
@@ -221,7 +221,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates a soft allocation. This updates a hold on the product inventory for the quantity specified during the ordering process.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SoftAllocationFactory.UpdateSoftAllocations(handler : handler,  softAllocations :  softAllocations,  expectedCode: expectedCode, successCode: successCode); 
@@ -259,7 +259,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Deletes a soft allocation. You might delete a soft allocation when an order or cart is not processed in order to return the product quantity back to inventory.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = SoftAllocationFactory.DeleteSoftAllocation(handler : handler,  softAllocationId :  softAllocationId,  expectedCode: expectedCode, successCode: successCode); 

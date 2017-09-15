@@ -14,54 +14,24 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.AppDev
 {
-		///
-		///	This property is not exposed in documentation.
-		///
 		public class ApplicationAttribute
 		{
-			///
-			///Comma delimited list of attribute codes.
-			///
 			public string AttributeCodes { get; set; }
 
-			///
-			///json representation of attribute definitions
-			///
 			public string AttributeJson { get; set; }
 
-			///
-			///Collection of attributes that may be paged list or a list, depending on the usage per object and API type. 
-			///
 			public List<Attribute> Attributes { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationAttribute isAppliedToBase ApiTypeMember DOCUMENT_HERE 
-			///
 			public bool IsAppliedToBase { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationAttribute packageId ApiTypeMember DOCUMENT_HERE 
-			///
 			public int PackageId { get; set; }
 
-			///
-			///Will contain ProductTypeCollection if Product, else AttributeSet
-			///
 			public string ProductTypeJson { get; set; }
 
-			///
-			///Source Tenant Id
-			///
 			public int SourceTenantId { get; set; }
 
-			///
-			///Source Tenant Name
-			///
 			public string SourceTenantName { get; set; }
 
-			///
-			///Customer, Order, or Product
-			///
 			public string Subsystem { get; set; }
 
 		}

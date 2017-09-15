@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		/// <summary>
         /// Get Resource Url for GetAttributeLocalizedContents
         /// </summary>
-        /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+        /// <param name="attributeFQN"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -34,7 +34,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		/// <summary>
         /// Get Resource Url for GetAttributeLocalizedContent
         /// </summary>
-        /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+        /// <param name="attributeFQN"></param>
         /// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
@@ -53,7 +53,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes
 				/// <summary>
         /// Get Resource Url for AddLocalizedContent
         /// </summary>
-        /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+        /// <param name="attributeFQN"></param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
@@ -70,7 +70,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes
 				/// <summary>
         /// Get Resource Url for UpdateLocalizedContents
         /// </summary>
-        /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+        /// <param name="attributeFQN"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -85,7 +85,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		/// <summary>
         /// Get Resource Url for UpdateLocalizedContent
         /// </summary>
-        /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+        /// <param name="attributeFQN"></param>
         /// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
@@ -104,7 +104,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes
 				/// <summary>
         /// Get Resource Url for DeleteLocalizedContent
         /// </summary>
-        /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+        /// <param name="attributeFQN"></param>
         /// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
         /// <returns>
         /// String - Resource Url

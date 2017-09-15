@@ -14,12 +14,12 @@ using System;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	The localized name and description of the attribute, displayed in the locale defined for the master catalog.
+		///	Localized content displayed in the storefront for this attribute.
 		///
 		public class AttributeLocalizedContent
 		{
 			///
-			///The localized description in text for the object, displayed per the locale code. For example, descriptions are used for product descriptions, attributes, and pre-authorization transaction types.
+			///Localized content for the description of this attribute displayed in the storefront.
 			///
 			public string Description { get; set; }
 
@@ -29,7 +29,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string LocaleCode { get; set; }
 
 			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
+			///Localized content for the attribute name displayed in the storefront.
 			///
 			public string Name { get; set; }
 

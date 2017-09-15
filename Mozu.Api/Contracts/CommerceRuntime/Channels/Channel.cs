@@ -38,7 +38,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Channels
 			public string GroupCode { get; set; }
 
 			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
+			///User-defined name of the channel.
 			///
 			public string Name { get; set; }
 

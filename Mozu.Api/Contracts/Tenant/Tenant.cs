@@ -20,7 +20,7 @@ namespace Mozu.Api.Contracts.Tenant
 		public class Tenant
 		{
 			///
-			///Properties of the domain that the tenant is associated with such as the domain name, the zone string, audit information (system-supplied and read-only), assignment data, and whether or not the domain is primary or requires a SSL for authentication.
+			///The domain information associated with the tenant.
 			///
 			public string Domain { get; set; }
 
@@ -30,7 +30,7 @@ namespace Mozu.Api.Contracts.Tenant
 			public int Id { get; set; }
 
 			///
-			///Indicates if the tenant is a development tenant. If true, the tenant represents a collection of master catalogs and catalogs for a development tenant, used by a developer account to test applications and themes.
+			///If true, the tenant represents a collection of master catalogs and catalogs for a development tenant, used by a developer account to test applications and themes.
 			///
 			public bool IsDevTenant { get; set; }
 
@@ -40,7 +40,7 @@ namespace Mozu.Api.Contracts.Tenant
 			public List<MasterCatalog> MasterCatalogs { get; set; }
 
 			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
+			///The name of the tenant.
 			///
 			public string Name { get; set; }
 

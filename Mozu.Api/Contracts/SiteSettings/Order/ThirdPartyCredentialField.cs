@@ -25,28 +25,19 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 			public string ApiName { get; set; }
 
 			///
-			///The name that displays for the payment gateway or third-party credentials field. 
+			///System-supplied name that displays for the third party credential field.
 			///
 			public string DisplayName { get; set; }
 
-			///
-			///The type of input selection used to define a value for the attribute, including Yes/No, Date, DateTime, List, TextBox, or TextArea.
-			///
 			public string InputType { get; set; }
 
-			///
-			///A flag to determine if the field holds sensitive information.
-			///
 			public bool? IsSensitive { get; set; }
 
 			///
-			///The value of a property, used by numerous objects within  including facets, attributes, products, localized content, metadata, capabilities ( and third-party), location inventory adjustment, and more. The value may be a string, integer, or double. Validation may be run against the entered and saved values depending on the object type.
+			///The value supplied for the third party credential.
 			///
 			public string Value { get; set; }
 
-			///
-			///List of valid vocabulary values defined for an attribute.
-			///
 			public List<VocabularyValue> VocabularyValues { get; set; }
 
 		}

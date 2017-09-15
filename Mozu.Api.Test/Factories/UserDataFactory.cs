@@ -25,13 +25,13 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the user data subresource to store user-level data required for a third-party application in the  database.
+	/// Use the user data subresource to store user-level data required for a third-party application in the Mozu database.
 	/// </summary>
 	public partial class UserDataFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves the value of a record in the  database.
+		/// Retrieves the value of a record in the Mozu database.
 		/// <example> 
 		///  <code> 
 		/// var result = UserDataFactory.GetDBValue(handler : handler,  dbEntryQuery :  dbEntryQuery,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -69,7 +69,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Creates a new record in the  database based on the information supplied in the request.
+		/// Creates a new record in the Mozu database based on the information supplied in the request.
 		/// <example> 
 		///  <code> 
 		/// var result = UserDataFactory.CreateDBValue(handler : handler,  value :  value,  dbEntryQuery :  dbEntryQuery,  expectedCode: expectedCode, successCode: successCode); 
@@ -106,7 +106,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates a record in the  database based on the information supplied in the request.
+		/// Updates a record in the Mozu database based on the information supplied in the request.
 		/// <example> 
 		///  <code> 
 		/// var result = UserDataFactory.UpdateDBValue(handler : handler,  value :  value,  dbEntryQuery :  dbEntryQuery,  expectedCode: expectedCode, successCode: successCode); 
@@ -143,7 +143,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Removes a previously defined record in the  database.
+		/// Removes a previously defined record in the Mozu database.
 		/// <example> 
 		///  <code> 
 		/// var result = UserDataFactory.DeleteDBValue(handler : handler,  dbEntryQuery :  dbEntryQuery,  expectedCode: expectedCode, successCode: successCode); 

@@ -107,7 +107,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Creates a new documentList
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = DocumentListFactory.CreateDocumentList(handler : handler,  list :  list,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -145,7 +145,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates a `DocumentListName`.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = DocumentListFactory.UpdateDocumentList(handler : handler,  list :  list,  documentListName :  documentListName,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -183,7 +183,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Deletes the specified `DocumentListName`.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = DocumentListFactory.DeleteDocumentList(handler : handler,  documentListName :  documentListName,  expectedCode: expectedCode, successCode: successCode); 

@@ -18,7 +18,7 @@ using System.Threading;
 namespace Mozu.Api.Resources.Commerce.Payments
 {
 	/// <summary>
-	/// commerce/payments/cards related resources. DOCUMENT_HERE 
+	/// 
 	/// </summary>
 	public partial class PublicCardResource  	{
 		///
@@ -44,10 +44,10 @@ namespace Mozu.Api.Resources.Commerce.Payments
 				
 
 		/// <summary>
-		/// payments-cards Post Create description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="request">Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE </param>
+		/// <param name="responseFields"></param>
+		/// <param name="request"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.PaymentService.Response.SyncResponse"/>
 		/// </returns>
@@ -69,11 +69,11 @@ namespace Mozu.Api.Resources.Commerce.Payments
 
 
 		/// <summary>
-		/// payments-cards Put Update description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="request">Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE </param>
+		/// <param name="cardId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="request"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.PaymentService.Response.SyncResponse"/>
 		/// </returns>
@@ -95,9 +95,9 @@ namespace Mozu.Api.Resources.Commerce.Payments
 
 
 		/// <summary>
-		/// payments-cards Delete Delete description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
+		/// <param name="cardId"></param>
 		/// <returns>
 		/// 
 		/// </returns>

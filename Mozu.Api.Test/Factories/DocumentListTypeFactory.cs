@@ -25,13 +25,13 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Document List Types resource to manage the types of document lists in your site's document hierarchy. The type denotes a content type for that list of folders, sub-folders, and documents such as `web_pages`.
+	/// 
 	/// </summary>
 	public partial class DocumentListTypeFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Gets all the available documentListTypes.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = DocumentListTypeFactory.GetDocumentListTypes(handler : handler,  pageSize :  pageSize,  startIndex :  startIndex,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -69,7 +69,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Gets a documentListType.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = DocumentListTypeFactory.GetDocumentListType(handler : handler,  documentListTypeFQN :  documentListTypeFQN,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -107,7 +107,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Creates a new documentListType.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = DocumentListTypeFactory.CreateDocumentListType(handler : handler,  list :  list,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -145,7 +145,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates a DocumentListType
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = DocumentListTypeFactory.UpdateDocumentListType(handler : handler,  list :  list,  documentListTypeFQN :  documentListTypeFQN,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

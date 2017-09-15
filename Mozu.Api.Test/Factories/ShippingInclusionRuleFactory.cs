@@ -25,13 +25,13 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the ShippingInclusionRules sub-resource to manage your shipping inclusion rules that are associated with a specific shipping profile.
+	/// 
 	/// </summary>
 	public partial class ShippingInclusionRuleFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves the details of the specified shipping inclusion rule.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ShippingInclusionRuleFactory.GetShippingInclusionRule(handler : handler,  profilecode :  profilecode,  id :  id,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -69,7 +69,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves a list of shipping inclusion rules and their details.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ShippingInclusionRuleFactory.GetShippingInclusionRules(handler : handler,  profilecode :  profilecode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -107,7 +107,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Creates a new shipping inclusion rule.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ShippingInclusionRuleFactory.CreateShippingInclusionRule(handler : handler,  rule :  rule,  profilecode :  profilecode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -145,7 +145,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates the details of the specified shipping inclusion rule.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ShippingInclusionRuleFactory.UpdateShippingInclusionRule(handler : handler,  rule :  rule,  profilecode :  profilecode,  id :  id,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -183,7 +183,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Deletes the specified shipping inclusion rule.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ShippingInclusionRuleFactory.DeleteShippingInclusionRule(handler : handler,  profilecode :  profilecode,  id :  id,  expectedCode: expectedCode, successCode: successCode); 

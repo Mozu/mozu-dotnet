@@ -24,7 +24,7 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			public string LocaleCode { get; set; }
 
 			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
+			///The name of the shipping rate in the language specified by the defined locale code.
 			///
 			public string Name { get; set; }
 

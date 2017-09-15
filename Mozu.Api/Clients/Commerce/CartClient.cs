@@ -18,14 +18,14 @@ using System.Threading;
 namespace Mozu.Api.Clients.Commerce
 {
 	/// <summary>
-	/// Use this resource to manage storefront shopping carts as shoppers add and remove items for purchase. Each time a shopper's cart is modified, the Carts resource updates the estimated total with any applicable discounts.
+	/// Use the Carts resource to manage storefront shopping carts as items are added and removed. Each time a shopper's cart is modified, the Carts resource updates the estimated total with any applicable discounts.
 	/// </summary>
 	public partial class CartClient 	{
 		
 		/// <summary>
 		/// Retrieves the cart specified in the request.
 		/// </summary>
-		/// <param name="cartId">Identifier of the cart to delete.</param>
+		/// <param name="cartId">Identifier of the cart to retrieve.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>}
@@ -99,7 +99,7 @@ namespace Mozu.Api.Clients.Commerce
 		/// Retrieves summary information associated with the cart of user specified in the request, including the number of items in the cart, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
+		/// <param name="userId">Unique identifier of the user whose cart details you want to retrieve.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary"/>}
 		/// </returns>
@@ -124,7 +124,7 @@ namespace Mozu.Api.Clients.Commerce
 		/// Retrieves the cart of the user specified in the request.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
+		/// <param name="userId">Unique identifier of the user whose cart you want to retrieve.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>}
 		/// </returns>
@@ -149,7 +149,7 @@ namespace Mozu.Api.Clients.Commerce
 		/// Update the current shopper's cart.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="cart">Properties of a shopping cart.</param>
+		/// <param name="cart">All of the properties of the cart to update. The product code is required.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>}
 		/// </returns>

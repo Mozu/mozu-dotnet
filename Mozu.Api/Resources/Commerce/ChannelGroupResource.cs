@@ -70,7 +70,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// Retrieves the details of a defined channel group.
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="code">The code that uniquely identifies the channel group.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup"/>
@@ -96,7 +96,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// Creates a new group of channels with common information.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="channelGroup">Properties of a group of channels that share common information.</param>
+		/// <param name="channelGroup">Properties of the channel group to create.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup"/>
 		/// </returns>
@@ -120,9 +120,9 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// Updates one or more properties of a defined channel group.
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="code">Code that identifies the channel group.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="channelGroup">Properties of a group of channels that share common information.</param>
+		/// <param name="channelGroup">Properties of the channel group to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Channels.ChannelGroup"/>
 		/// </returns>

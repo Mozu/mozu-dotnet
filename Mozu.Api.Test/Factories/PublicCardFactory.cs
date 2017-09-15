@@ -25,13 +25,13 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// commerce/payments/cards related resources. DOCUMENT_HERE 
+	/// 
 	/// </summary>
 	public partial class PublicCardFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// payments-cards Post Create description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = PublicCardFactory.Create(handler : handler,  request :  request,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -69,7 +69,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// payments-cards Put Update description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = PublicCardFactory.Update(handler : handler,  request :  request,  cardId :  cardId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -107,7 +107,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// payments-cards Delete Delete description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = PublicCardFactory.Delete(handler : handler,  cardId :  cardId,  expectedCode: expectedCode, successCode: successCode); 

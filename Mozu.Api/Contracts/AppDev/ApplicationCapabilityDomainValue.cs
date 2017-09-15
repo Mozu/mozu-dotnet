@@ -13,34 +13,16 @@ using System;
 
 namespace Mozu.Api.Contracts.AppDev
 {
-		///
-		///	This property is not exposed in documentation.
-		///
 		public class ApplicationCapabilityDomainValue
 		{
-			///
-			///Mozu.AppDev.Contracts.ApplicationCapabilityDomainValue applicationCapabilityDomainId1 ApiTypeMember DOCUMENT_HERE 
-			///
 			public int? ApplicationCapabilityDomainId1 { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationCapabilityDomainValue applicationCapabilityDomainId2 ApiTypeMember DOCUMENT_HERE 
-			///
 			public int? ApplicationCapabilityDomainId2 { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationCapabilityDomainValue applicationCapabilityDomainValueId ApiTypeMember DOCUMENT_HERE 
-			///
 			public int ApplicationCapabilityDomainValueId { get; set; }
 
-			///
-			///The name that displays for the payment gateway or third-party credentials field. 
-			///
 			public string DisplayName { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationCapabilityDomainValue valueName ApiTypeMember DOCUMENT_HERE 
-			///
 			public string ValueName { get; set; }
 
 		}

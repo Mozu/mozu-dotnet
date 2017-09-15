@@ -53,7 +53,7 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// Retrieves the details of a subscription that sends a push notification when a product is available in a site's active stock.
 		/// </summary>
-		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
+		/// <param name="id">Unique identifier of the in-stock notification subscription to retrieve.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.InStockNotificationSubscription"/>}
@@ -79,7 +79,7 @@ namespace Mozu.Api.Clients.Commerce
 		/// Creates a new subscription that notifies the customer when the product specified in the request is available in the active inventory of the defined location.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="inStockNotificationSubscription">Properties of a push notification to which the shopper subscribes. This notification sends the shopper an alert when a new product or a product previously out of stock becomes available in the specified location's active product inventory.</param>
+		/// <param name="inStockNotificationSubscription">Properties of a subscription that sends the customer a notification when a product is available in a site's active stock.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.InStockNotificationSubscription"/>}
 		/// </returns>
@@ -103,7 +103,7 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// Deletes a subscription for a customer in-stock notification.
 		/// </summary>
-		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
+		/// <param name="id">Unique identifier of the customer in-stock notification subscription to delete.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

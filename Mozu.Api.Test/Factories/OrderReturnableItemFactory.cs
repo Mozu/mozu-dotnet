@@ -25,25 +25,13 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use this subresource to view which order items are eligible for return.
+	/// 
 	/// </summary>
 	public partial class OrderReturnableItemFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves information about which items are eligible for return on an order.Each item displays the following information:
-/// - One entry that represents the entire order item, whether this is a single product, a bundle, or a product or bundle with extras. (ParentProductCode == null, ExcludeProductExtras == false)
-
-/// - (If the item contains product extras) 
-/// - One entry that represents the parent product without product extras (ParentProductCode == null, ExcludeProductExtras == true)
-
-/// - One entry for each extra (ParentProductCode != null, OrderItemOptionAttributeFQN != null)
-
-
-/// - (If the parent item is a bundle)
-/// - One entry for each item within the bundle (ParentProductCode != null, OrderItemOptionAttributeFQN == null)
-
-
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = OrderReturnableItemFactory.GetOrderReturnableItems(handler : handler,  orderId :  orderId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

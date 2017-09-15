@@ -24,9 +24,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 		///
 		public class WishlistItem
 		{
-			///
-			///The adjusted subtotal of the line item, including all manual adjustments, discounts, shipping charges and discounts, and duty or any other additional line item fees.
-			///
 			public decimal? AdjustedLineItemSubtotal { get; set; }
 
 			///
@@ -35,63 +32,54 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			public AuditInfo AuditInfo { get; set; }
 
 			///
-			///Notes entered and saved with an order. These notes may be entered by a shopper on a wishlist or for an order. Comments may also be entered by  Admins on an order that may be visible only to authorized shoppers and users.
+			///Shopper-entered comments for an item in a wish list.
 			///
 			public string Comments { get; set; }
 
-			///
-			///Custom data for a given vendor set within the commerce process.
-			///
 			public JObject Data { get; set; }
 
 			///
-			///The subtotal of the cart, order, and wishlist items, including any applied discount calculations. Wishlist subtotals may change depending on the length of time, available discounts, and stock amounts of products at the time of review by shoppers.
+			///The subtotal of the wishlist item including any applied discount calculations. This property value is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? DiscountedTotal { get; set; }
 
 			///
-			///Estimated amount of discounts applied to all items in the carts and orders. System-supplied and read-only. This value will be available at the wish list, cart item, order item, and wish list item level at a later time.
+			///Estimated amount of discounts applied to the item in the wish list, which is system-supplied and read-only.  This property value is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? DiscountTotal { get; set; }
 
 			///
-			///Represents the total price of the cart item extended to the shopper. This begins with the Unit Price, then uses any of the following prices if they are defined, in the following order: Override Amount, Sale Amount, List Amount. This value is not calculated for wish lists at this time.
+			///The extended total of an item in a wish list. This property value is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? ExtendedTotal { get; set; }
 
 			///
-			///The monetary sum of all fees incurred in the cart, order, line item in a cart, or line item in an order. This value is not calculated for wish lists at this time.
+			///The fee total of an item in a wish list. This property value is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? FeeTotal { get; set; }
 
-			///
-			///The combined price for all handling costs calculated together for shipped orders, not for digital or in-store pickup. This includes all handling costs per the product line items and options, excluding taxes and discounts. 
-			///
 			public decimal? HandlingAmount { get; set; }
 
 			///
-			///Unique identifier of the source property, such as a catalog, discount, order, or email template.For a product field it will be the name of the field.For a category ID, must be a positive integer not greater than 2000000. By default,  auto-generates a category ID when categories are created. If you want to specify an ID during creation (which preserves category link relationships when migrating tenant data from one sandbox to another), you must also include the  query string in the endpoint. For example, . Then, use the  property to specify the desired category ID.For a product attribute it will be the Attribute FQN.For a document, the ID must be specified as a 32 character, case-insensitive, alphanumeric string. You can specify the ID as 32 sequential characters or as groups separated by dashes in the format 8-4-4-4-12. For example, or.For email templates, the ID must be one of the following values:///
+			///Unique identifier of an item in a shopper wish list.
 			///
 			public string Id { get; set; }
 
 			///
-			///Indicates if the product in a cart, order, or wish list is purchased on a recurring schedule. If true, the item can be purchased or fulfilled at regular intervals, such as a monthly billing cycle. For example, digital or physical product subscriptions are recurring cart items. This property is not used at this time and is reserved for future functionality.
+			///If true, the item in the wish list is a recurring purchase, such as a subscription. This property is reserved for future use and is system-supplied and read only.
 			///
 			public bool? IsRecurring { get; set; }
 
 			///
-			///Indicates if the item is subject to taxation, used by products, options, extras, cart and order items, line items, and wish lists. If true, the entity is subject to tax based on the relevant tax rate and rules.
+			///If true, the item in a wish list is subject to sales tax.
 			///
 			public bool? IsTaxable { get; set; }
 
 			///
-			///The total amount of calculated tax for items, used by carts, orders, and wish lists.
+			///The total sales tax of the item in the wish list. This property value is not calculated at this time, and is reserved for future functionality.
 			///
 			public decimal? ItemTaxTotal { get; set; }
 
-			///
-			///The line id assigned to the order item. Visible only in the Admin, this is set from the Admin or in CommerceRuntime when a cart is converted to an order.
-			///
 			public int? LineId { get; set; }
 
 			///
@@ -105,17 +93,17 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			public string PriorityType { get; set; }
 
 			///
-			///The properties of a product, referenced and used by carts, orders, wish lists, and returns.
+			///The properties of the product associated with an item in a wish list.
 			///
 			public Product Product { get; set; }
 
 			///
-			///The applicable product discount for an associated cart, order, or wish list. 
+			///List of product discounts that apply to the item in the wishlist.
 			///
 			public AppliedLineItemProductDiscount ProductDiscount { get; set; }
 
 			///
-			///List of product-level discounts projected to apply to a cart, order, or wish list.
+			///Array of product discounts applicable to an item in a wish list. This property is not used at this time and is reserved for future functionality.
 			///
 			public List<AppliedLineItemProductDiscount> ProductDiscounts { get; set; }
 
@@ -125,123 +113,75 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			public string PurchasableStatusType { get; set; }
 
 			///
-			///The specified quantity of objects and items. This property is used for numerous object types including products, options, components within a product bundle, cart and order items, returned items, shipping line items, items in a digital product. and items associated with types and reservations.
+			///The quantity of an item in a shopper wish list.
 			///
 			public int Quantity { get; set; }
 
-			///
-			///The total shipping amount for the line item before discounts and adjustments.
-			///
 			public decimal? ShippingAmountBeforeDiscountsAndAdjustments { get; set; }
 
 			///
-			///List of shipping discounts projected to apply to carts, orders, and wish lists and items at checkout.
+			///Array of shipping discounts applicable for an item in a wish list. This property is not used at this time and is reserved for future functionality.
 			///
 			public List<AppliedLineItemShippingDiscount> ShippingDiscounts { get; set; }
 
 			///
-			///The total amount of tax incurred on the shipping charges in the cart and order. This property is not calculated at this time for wish lists.
+			///The total amount of tax levied against shipping charges for an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? ShippingTaxTotal { get; set; }
 
 			///
-			///The calculated total shipping amount estimated for carts or orders, including tax. This amount is not calculated for wish lists at this time.
+			///The total amount of shipping for an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? ShippingTotal { get; set; }
 
 			///
-			///Estimated amount of the cart or order without sales tax, shipping costs, and other fees. This amount is not calculated for wish lists at this time.
+			///The subtotal of an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? Subtotal { get; set; }
 
 			///
-			///The monetary amount of an item in the cart that is subject to tax. This amount typically represents the line item subtotal before applied discounts for an order.
+			///The taxable total of an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? TaxableTotal { get; set; }
 
-			///
-			///Leverage this property within a [tax Arc.js action](https://www.mozu.com/docs/arcjs/commerce-catalog-storefront-tax/commerce-catalog-storefront-tax.htm) to supplement the tax information for this item or object with custom JSON data.
-			///
 			public JObject TaxData { get; set; }
 
 			///
-			///Total is used to indicate the monetary, estimated total amount of the cart or order, including items, sales tax, shipping costs, and other fees. Totals are not estimated for wish lists at this time.
+			///The total of an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? Total { get; set; }
 
-			///
-			///The total charge for the line item without any weighted order level shipping and handling charges.
-			///
 			public decimal? TotalWithoutWeightedShippingAndHandling { get; set; }
 
-			///
-			///The total charge for the line item with all weighted order level shipping and handling charges.
-			///
 			public decimal? TotalWithWeightedShippingAndHandling { get; set; }
 
 			///
-			///Properties of the price per unit of a product, associated with cart and order items. This price is not used for wish lists at this time.
+			///The unit price of an item in a wish list. This property is not calculated at this time and is reserved for future functionality.
 			///
 			public CommerceUnitPrice UnitPrice { get; set; }
 
-			///
-			///The total weighted order level manual adjustment amount.
-			///
 			public decimal? WeightedOrderAdjustment { get; set; }
 
-			///
-			///The total weighted order level discount amount.
-			///
 			public decimal? WeightedOrderDiscount { get; set; }
 
-			///
-			///The total weighted order level duty charges.
-			///
 			public decimal? WeightedOrderDuty { get; set; }
 
-			///
-			///The adjustment to apply to the order handling fee.
-			///
 			public decimal? WeightedOrderHandlingAdjustment { get; set; }
 
-			///
-			///The total weighted order level handling fee amount.
-			///
 			public decimal? WeightedOrderHandlingFee { get; set; }
 
-			///
-			///The total weighted order handling fee discount amount.
-			///
 			public decimal? WeightedOrderHandlingFeeDiscount { get; set; }
 
-			///
-			///The total weighted order level handling fee tax amount.
-			///
 			public decimal? WeightedOrderHandlingFeeTax { get; set; }
 
-			///
-			///The total weighted order level shipping charge.
-			///
 			public decimal? WeightedOrderShipping { get; set; }
 
-			///
-			///The total weighted order level shipping discount amount.
-			///
 			public decimal? WeightedOrderShippingDiscount { get; set; }
 
-			///
-			///The total weighted order level shipping manual adjustment amount.
-			///
 			public decimal? WeightedOrderShippingManualAdjustment { get; set; }
 
-			///
-			///The total weighted order level shipping tax amount.
-			///
 			public decimal? WeightedOrderShippingTax { get; set; }
 
-			///
-			///The total weighted order level tax amount.
-			///
 			public decimal? WeightedOrderTax { get; set; }
 
 		}

@@ -19,19 +19,15 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 		///
 		public class RatesResponse
 		{
+			public string Id { get; set; }
+
 			///
 			///Arrayed list of calculated shipping rates for each assocuated carrier.
 			///
 			public List<CarrierRatesResponse> Rates { get; set; }
 
-			///
-			///Resolved Shipping Zone Code. This value can be null if the tenant/site does not have shipping zones defined or there are no matching shipping zones for the request (e.g. the only zone defined is "UNITED-STATES" and the destination address of the rate request is in Canada)
-			///
 			public string ResolvedShippingZoneCode { get; set; }
 
-			///
-			///A code denoting a zone for shipping rates. Zip and postal codes are associated to these zones, determining set rates and costs for shipping origin and destination points.
-			///
 			public List<string> ShippingZoneCodes { get; set; }
 
 		}

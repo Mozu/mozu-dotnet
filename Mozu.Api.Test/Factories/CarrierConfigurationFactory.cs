@@ -25,13 +25,13 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Carriers resource to configure and manage your supported shipping carrier configurations.
+	/// 
 	/// </summary>
 	public partial class CarrierConfigurationFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves a list of carrier configurations and their details according to any specified facets, filter criteria, and sort options.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CarrierConfigurationFactory.GetConfigurations(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -69,7 +69,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves the details of the specified carrier configuration.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CarrierConfigurationFactory.GetConfiguration(handler : handler,  carrierId :  carrierId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -107,7 +107,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Creates a new carrier configuration.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CarrierConfigurationFactory.CreateConfiguration(handler : handler,  carrierConfiguration :  carrierConfiguration,  carrierId :  carrierId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -145,7 +145,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates the details of the specified carrier configuration.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CarrierConfigurationFactory.UpdateConfiguration(handler : handler,  carrierConfiguration :  carrierConfiguration,  carrierId :  carrierId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -183,7 +183,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Deletes the specified carrier configuration.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CarrierConfigurationFactory.DeleteConfiguration(handler : handler,  carrierId :  carrierId,  expectedCode: expectedCode, successCode: successCode); 

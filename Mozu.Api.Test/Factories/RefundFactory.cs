@@ -25,13 +25,13 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the refunds resource to create a refund.
+	/// 
 	/// </summary>
 	public partial class RefundFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Creates a refund based on the information supplied in the request.  
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = RefundFactory.CreateRefund(handler : handler,  refund :  refund,  orderId :  orderId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -69,7 +69,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Resends the order refund email previously sent to the shopper. 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = RefundFactory.ResendRefundEmail(handler : handler,  orderId :  orderId,  refundId :  refundId,  expectedCode: expectedCode, successCode: successCode); 

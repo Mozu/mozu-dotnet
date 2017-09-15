@@ -35,19 +35,10 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///
 			public PaymentCard Card { get; set; }
 
-			///
-			///Information about the check used in the billing information, if it exists.
-			///
 			public CheckPayment Check { get; set; }
 
-			///
-			///Custom data originated by the billing service.
-			///
 			public JObject Data { get; set; }
 
-			///
-			///Holds the transaction ID for an external payment type service.
-			///
 			public string ExternalTransactionId { get; set; }
 
 			///
@@ -60,14 +51,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///
 			public string PaymentType { get; set; }
 
-			///
-			///Identifies a specific workflow the payment goes through. This is used to define a workflow for external payment services.
-			///
 			public string PaymentWorkflow { get; set; }
 
-			///
-			///The purchase order payment details.
-			///
 			public PurchaseOrderPayment PurchaseOrder { get; set; }
 
 			///

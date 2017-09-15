@@ -15,12 +15,12 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
-		///	Properties of the product option to create such as attribute detail, fully qualified name, and list of product option values.
+		///	Represents configurable options that a shopper can choose when ordering a product, such as a t-shirt color and size.
 		///
 		public class ProductOption
 		{
 			///
-			///The product attribute details common between all attribute types - properties, options, and extras.
+			///Details of the product option attribute.
 			///
 			public AttributeDetail AttributeDetail { get; set; }
 
@@ -30,17 +30,17 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string AttributeFQN { get; set; }
 
 			///
-			///Indicates if the object has or can have multiple properties or values. If true, the object can have more than one value, selectable by shoppers through the storefront or configurable through the catalogs. 
+			///If true, the product attribute or option has multiple values.
 			///
 			public bool? IsMultiValue { get; set; }
 
 			///
-			///Indicates if the property, attribute, product option, or product extra is required. If true, the object must have a defined value.
+			///If true, the entity is required for the request to return a valid response.
 			///
 			public bool? IsRequired { get; set; }
 
 			///
-			///List of value data for objects.
+			///List of possible values for a product option attribute.
 			///
 			public List<ProductOptionValue> Values { get; set; }
 

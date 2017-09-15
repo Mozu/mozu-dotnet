@@ -25,13 +25,13 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Profiles resource to manage your shipping profiles.
+	/// 
 	/// </summary>
 	public partial class ShippingProfileFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves a list of shipping profiles.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ShippingProfileFactory.GetProfiles(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

@@ -31,7 +31,7 @@ namespace Mozu.Api.Contracts.Tenant
 			public string CurrencyCode { get; set; }
 
 			///
-			///Properties of the domain that the tenant is associated with such as the domain name, the zone string, audit information (system-supplied and read-only), assignment data, and whether or not the domain is primary or requires a SSL for authentication.
+			///The domain associated with the site.
 			///
 			public string Domain { get; set; }
 
@@ -43,7 +43,7 @@ namespace Mozu.Api.Contracts.Tenant
 			public string LocaleCode { get; set; }
 
 			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
+			///The name of the site.
 			///
 			public string Name { get; set; }
 

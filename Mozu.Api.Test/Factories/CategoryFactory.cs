@@ -145,7 +145,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Adds a new category to the site's category hierarchy.Specify a  to determine where to place the category in the hierarchy. If no  is specified, the new category is a top-level category.
+		/// Adds a new category to the site's category hierarchy. Specify a ParentCategoryID to determine where to place the category in the hierarchy. If no ParentCategoryID is specified, the new category is a top-level category.
 		/// <example> 
 		///  <code> 
 		/// var result = CategoryFactory.AddCategory(handler : handler,  category :  category,  incrementSequence :  incrementSequence,  useProvidedId :  useProvidedId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -183,7 +183,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Validate the precomputed dynamic category expression for correctness.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CategoryFactory.ValidateDynamicExpression(handler : handler,  dynamicExpressionIn :  dynamicExpressionIn,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -221,7 +221,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Validates the readltime dynamic category expression for correctness.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CategoryFactory.ValidateRealTimeDynamicExpression(handler : handler,  dynamicExpressionIn :  dynamicExpressionIn,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -297,7 +297,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Deletes the specified category. Use the categoryId parameter to specify the category.
+		/// Deletes the category specified by its category ID.
 		/// <example> 
 		///  <code> 
 		/// var result = CategoryFactory.DeleteCategoryById(handler : handler,  categoryId :  categoryId,  cascadeDelete :  cascadeDelete,  forceDelete :  forceDelete,  reassignToParent :  reassignToParent,  expectedCode: expectedCode, successCode: successCode); 

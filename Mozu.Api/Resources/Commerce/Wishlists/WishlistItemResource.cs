@@ -43,8 +43,8 @@ namespace Mozu.Api.Resources.Commerce.Wishlists
 		/// Retrieves the details of an item in a shopper wish list.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="wishlistId">Unique identifier of the wish list.</param>
-		/// <param name="wishlistItemId">Unique identifier of the item to remove from the shopper wish list.</param>
+		/// <param name="wishlistId">Unique identifier of the wish list item to retrieve.</param>
+		/// <param name="wishlistItemId">Unique identifier of the wish list associated with the item to retrieve.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Wishlists.WishlistItem"/>
 		/// </returns>
@@ -73,7 +73,7 @@ namespace Mozu.Api.Resources.Commerce.Wishlists
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
-		/// <param name="wishlistId">Unique identifier of the wish list.</param>
+		/// <param name="wishlistId">Unique identifier of the wish list associated with the items to retrieve.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Wishlists.WishlistItemCollection"/>
 		/// </returns>
@@ -97,13 +97,13 @@ namespace Mozu.Api.Resources.Commerce.Wishlists
 		/// <summary>
 		/// Retrieve a list of items in a customer wish list by supplying the wish list name.
 		/// </summary>
-		/// <param name="customerAccountId">The unique identifier of the customer account for which to retrieve wish lists.</param>
+		/// <param name="customerAccountId">The unique identifier of the customer account associated with the wish list.</param>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
 		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
-		/// <param name="wishlistName">The name of the wish list to retrieve.</param>
+		/// <param name="wishlistName">The name of the wish list that contains the items to retrieve.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Wishlists.WishlistItemCollection"/>
 		/// </returns>
@@ -128,8 +128,8 @@ namespace Mozu.Api.Resources.Commerce.Wishlists
 		/// Adds a product in a site's catalog as an item in a shopper wish list.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="wishlistId">Unique identifier of the wish list.</param>
-		/// <param name="wishlistItem">Properties of an item in a shopper wish list.</param>
+		/// <param name="wishlistId">Unique identifier of the wish list associated with the item to add.</param>
+		/// <param name="wishlistItem">Properties of the item to add to the wish list.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Wishlists.WishlistItem"/>
 		/// </returns>
@@ -153,10 +153,10 @@ namespace Mozu.Api.Resources.Commerce.Wishlists
 		/// <summary>
 		/// Updates the quantity of an item in a shopper wish list.
 		/// </summary>
-		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
+		/// <param name="quantity">The quantity of the item in the wish list.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="wishlistId">Unique identifier of the wish list.</param>
-		/// <param name="wishlistItemId">Unique identifier of the item to remove from the shopper wish list.</param>
+		/// <param name="wishlistId">Unique identifier of the wish list associated with the item quantity to update.</param>
+		/// <param name="wishlistItemId">Unique identifier of the item in the wish list to update quantity.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Wishlists.WishlistItem"/>
 		/// </returns>
@@ -181,9 +181,9 @@ namespace Mozu.Api.Resources.Commerce.Wishlists
 		/// Updates the details of an item in a shopper wish list.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="wishlistId">Unique identifier of the wish list.</param>
-		/// <param name="wishlistItemId">Unique identifier of the item to remove from the shopper wish list.</param>
-		/// <param name="wishlistItem">Properties of an item in a shopper wish list.</param>
+		/// <param name="wishlistId">Unique identifier of the wish list associated with the item to update.</param>
+		/// <param name="wishlistItemId">Unique identifier of the item in the shopper wish list to update.</param>
+		/// <param name="wishlistItem">Properties of the shopper wish list item to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Wishlists.WishlistItem"/>
 		/// </returns>
@@ -207,7 +207,7 @@ namespace Mozu.Api.Resources.Commerce.Wishlists
 		/// <summary>
 		/// Removes all items associated with a shopper wish list.
 		/// </summary>
-		/// <param name="wishlistId">Unique identifier of the wish list.</param>
+		/// <param name="wishlistId">Unique identifier of the wish list associated with the items to remove.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Wishlists.Wishlist"/>
 		/// </returns>
@@ -231,7 +231,7 @@ namespace Mozu.Api.Resources.Commerce.Wishlists
 		/// <summary>
 		/// Removes an item from the wish list specified in the request.
 		/// </summary>
-		/// <param name="wishlistId">Unique identifier of the wish list.</param>
+		/// <param name="wishlistId">Unique identifier of the wish list associated with the item to remove.</param>
 		/// <param name="wishlistItemId">Unique identifier of the item to remove from the shopper wish list.</param>
 		/// <returns>
 		/// 

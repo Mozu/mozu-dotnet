@@ -18,12 +18,12 @@ using System.Threading;
 namespace Mozu.Api.Clients.Platform.Adminuser
 {
 	/// <summary>
-	/// The Accounts resource displays the user accounts and account details associated with a developer or  tenant administrator. Email addresses uniquely identify admin user accounts.
+	/// Displays the user accounts and account details associated with a developer or Mozu tenant administrator. Email addresses uniquely identify admin user accounts.
 	/// </summary>
 	public partial class AdminUserClient 	{
 		
 		/// <summary>
-		/// Retrieves a list of the  tenants or development stores for which the specified user has an assigned role.
+		/// Retrieves a list of the Mozu tenants or development stores for which the specified user has an assigned role.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
@@ -51,7 +51,7 @@ namespace Mozu.Api.Clients.Platform.Adminuser
 		/// Retrieves the details of the specified administrator user account.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
+		/// <param name="userId">Unique identifier of the administrator account to retrieve.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.User"/>}
 		/// </returns>

@@ -25,13 +25,13 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the ShippingStates sub-resource to manage the states your shipping profile supports. For example, you can specify one of your shipping profiles to only support Texas, Oklahoma, Arkansas, Louisiana, and New Mexico.Each shipping state is composed of a user-definied code and name.
+	/// 
 	/// </summary>
 	public partial class ShippingStatesFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves a list of shipping states and their details.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ShippingStatesFactory.GetStates(handler : handler,  profileCode :  profileCode,  expectedCode: expectedCode, successCode: successCode); 
@@ -69,7 +69,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates the details of the shipping states.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ShippingStatesFactory.UpdateStates(handler : handler,  states :  states,  profilecode :  profilecode,  expectedCode: expectedCode, successCode: successCode); 

@@ -25,13 +25,13 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Properties of localized content for attributes, based on a `localeCode` at a site/tenant level. This content supports translated text for product, product options, and additional objects. 
+	/// 
 	/// </summary>
 	public partial class AttributeLocalizedContentFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves a collection of localized content for attributes based on a `localeCode`.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = AttributeLocalizedContentFactory.GetAttributeLocalizedContents(handler : handler,  attributeFQN :  attributeFQN,  expectedCode: expectedCode, successCode: successCode); 
@@ -69,7 +69,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves the localized content for an attribute based on a `localeCode`.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = AttributeLocalizedContentFactory.GetAttributeLocalizedContent(handler : handler,  attributeFQN :  attributeFQN,  localeCode :  localeCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -107,7 +107,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Adds new localized content for an attribute based on a `localeCode`.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = AttributeLocalizedContentFactory.AddLocalizedContent(handler : handler,  localizedContent :  localizedContent,  attributeFQN :  attributeFQN,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -145,7 +145,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates the localized content for a collection of existing attributes based on a `localeCode`.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = AttributeLocalizedContentFactory.UpdateLocalizedContents(handler : handler,  localizedContent :  localizedContent,  attributeFQN :  attributeFQN,  expectedCode: expectedCode, successCode: successCode); 
@@ -183,7 +183,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates the localized content for an existing attribute based on a `localeCode`.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = AttributeLocalizedContentFactory.UpdateLocalizedContent(handler : handler,  localizedContent :  localizedContent,  attributeFQN :  attributeFQN,  localeCode :  localeCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -221,7 +221,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Removes all localized content. Localized content is translated text information and data based on a `localeCode`. 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = AttributeLocalizedContentFactory.DeleteLocalizedContent(handler : handler,  attributeFQN :  attributeFQN,  localeCode :  localeCode,  expectedCode: expectedCode, successCode: successCode); 

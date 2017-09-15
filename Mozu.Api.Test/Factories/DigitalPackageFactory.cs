@@ -31,7 +31,7 @@ namespace Mozu.Api.Test.Factories
 	{
 
 		/// <summary> 
-		/// Retrieves a collection of fulfillment options for digital packages. Options may include emailed files/links or provided links. 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = DigitalPackageFactory.GetAvailableDigitalPackageFulfillmentActions(handler : handler,  orderId :  orderId,  digitalPackageId :  digitalPackageId,  expectedCode: expectedCode, successCode: successCode); 

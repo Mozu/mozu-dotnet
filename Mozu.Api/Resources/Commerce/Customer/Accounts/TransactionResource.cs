@@ -42,7 +42,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <summary>
 		/// Retrieves a list of transactions associated with the customer account specified in the request.
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="accountId">Unique identifier of the customer account for which to retrieve transactions.</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.Customer.Transaction"/>}
 		/// </returns>
@@ -68,7 +68,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="transaction">Properties of a transaction performed by a customer account. The system creates a transaction each time the customer submits an order, returns an item, picks up items for an order, or manages items on a wish list.</param>
+		/// <param name="transaction">Properties of the transaction to create for the customer account.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Transaction"/>
 		/// </returns>
@@ -92,7 +92,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <summary>
 		/// Deletes a transaction from the customer account specified in the request.
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="accountId">Unique identifier of the customer account from which to delete the transaction.</param>
 		/// <param name="transactionId">Unique identifier of the transaction to delete.</param>
 		/// <returns>
 		/// 

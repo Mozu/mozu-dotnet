@@ -25,13 +25,13 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Storefront Tax resource to retrieve tax information from the storefront.
+	/// 
 	/// </summary>
 	public partial class StorefrontOrderTaxContextFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves tax information applicable to the site.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = OrderTaxContextFactory.EstimateTaxes(handler : handler,  taxableOrder :  taxableOrder,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

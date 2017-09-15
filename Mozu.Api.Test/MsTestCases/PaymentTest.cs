@@ -82,12 +82,12 @@ namespace Mozu.Api.Test.MsTestCases
         #endregion
 
 
-        [TestMethod]
+       /* [TestMethod]
         public void GetPaymentsTest()
         {
             var paymentFactory = PaymentFactory.GetPayments(ApiMsgHandler, "032a54b34fdce037d040d67800001e7c");
             Assert.IsTrue(paymentFactory.Items.Count > 0);
-        }
+        }*/
 
         [TestMethod]
         public void AddCard()

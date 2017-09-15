@@ -30,7 +30,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Channels
 			public string Code { get; set; }
 
 			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
+			///User-defined name of the channel group.
 			///
 			public string Name { get; set; }
 

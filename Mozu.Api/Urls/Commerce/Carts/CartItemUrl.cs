@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce.Carts
 		/// <summary>
         /// Get Resource Url for GetCartItem
         /// </summary>
-        /// <param name="cartItemId">Identifier of the cart item to delete.</param>
+        /// <param name="cartItemId">Identifier of the cart item to retrieve.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url
@@ -66,7 +66,7 @@ namespace Mozu.Api.Urls.Commerce.Carts
 				/// <summary>
         /// Get Resource Url for UpdateCartItemQuantity
         /// </summary>
-        /// <param name="cartItemId">Identifier of the cart item to delete.</param>
+        /// <param name="cartItemId">Identifier of the cart item to update quantity.</param>
         /// <param name="quantity">The number of cart items in the shopper's active cart.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
@@ -85,7 +85,7 @@ namespace Mozu.Api.Urls.Commerce.Carts
 		/// <summary>
         /// Get Resource Url for UpdateCartItem
         /// </summary>
-        /// <param name="cartItemId">Identifier of the cart item to delete.</param>
+        /// <param name="cartItemId">Identifier of the cart item to update.</param>
         /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
         /// <returns>
         /// String - Resource Url

@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Storefront Products resource to manage the shopper product selection process during a visit to the web storefront. You can update product options as shoppers pick and choose their product choices. A shopper cannot add a product to a cart until all of its required options have been selected.
+	/// Use the Storefront Products  resource to manage the shopper product selection process during a visit to the web storefront. You can update product options as shoppers pick and choose their product choices. A shopper cannot add a product to a cart until all of its required options have been selected.
 	/// </summary>
 	public partial class StorefrontProductFactory : BaseDataFactory
 	{
@@ -145,7 +145,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves information about a single product given its product code for  to index in the search engine
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ProductFactory.GetProductForIndexing(handler : handler,  productCode :  productCode,  productVersion :  productVersion,  lastModifiedDate :  lastModifiedDate,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -297,7 +297,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves the product cost based on a list of product codes. The product cost is the amount the merchant pays for the product—it is not the price that the shopper sees on the storefront (which is usually higher).
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ProductFactory.GetProductCosts(handler : handler,  query :  query,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -333,10 +333,9 @@ namespace Mozu.Api.Test.Factories
 					 : null;
 
 		}
-		
   
 		/// <summary> 
-		/// Retrieves product inventories for the storefront displayed products.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ProductFactory.GetProductInventories(handler : handler,  query :  query,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 

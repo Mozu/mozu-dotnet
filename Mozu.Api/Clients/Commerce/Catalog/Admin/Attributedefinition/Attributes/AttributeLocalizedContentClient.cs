@@ -18,14 +18,14 @@ using System.Threading;
 namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 {
 	/// <summary>
-	/// Properties of localized content for attributes, based on a `localeCode` at a site/tenant level. This content supports translated text for product, product options, and additional objects. 
+	/// 
 	/// </summary>
 	public partial class AttributeLocalizedContentClient 	{
 		
 		/// <summary>
-		/// Retrieves a collection of localized content for attributes based on a `localeCode`.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+		/// <param name="attributeFQN"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent"/>}}
@@ -48,9 +48,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		}
 
 		/// <summary>
-		/// Retrieves the localized content for an attribute based on a `localeCode`.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+		/// <param name="attributeFQN"></param>
 		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
@@ -75,12 +75,12 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		}
 
 		/// <summary>
-		/// Adds new localized content for an attribute based on a `localeCode`.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+		/// <param name="attributeFQN"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="localizedContent">The localized name and description of the attribute, displayed in the locale defined for the master catalog.</param>
+		/// <param name="localizedContent"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent"/>}
 		/// </returns>
@@ -102,11 +102,11 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		}
 
 		/// <summary>
-		/// Updates the localized content for a collection of existing attributes based on a `localeCode`.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+		/// <param name="attributeFQN"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="localizedContent">The localized name and description of the attribute, displayed in the locale defined for the master catalog.</param>
+		/// <param name="localizedContent"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent"/>}}
 		/// </returns>
@@ -128,13 +128,13 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		}
 
 		/// <summary>
-		/// Updates the localized content for an existing attribute based on a `localeCode`.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+		/// <param name="attributeFQN"></param>
 		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="localizedContent">The localized name and description of the attribute, displayed in the locale defined for the master catalog.</param>
+		/// <param name="localizedContent"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent"/>}
 		/// </returns>
@@ -156,9 +156,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		}
 
 		/// <summary>
-		/// Removes all localized content. Localized content is translated text information and data based on a `localeCode`. 
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+		/// <param name="attributeFQN"></param>
 		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>

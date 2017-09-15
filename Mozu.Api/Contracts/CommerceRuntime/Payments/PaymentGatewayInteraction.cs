@@ -24,12 +24,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			public string GatewayAuthCode { get; set; }
 
 			///
-			///AVS (Address Verification Service) codes supplied by the payment gateway. The codes indicate partial to complete or failed matches against the billing address for the shopper against the financial institute data through the gateway.
+			///AVS codes supplied by the payment gateway.
 			///
 			public string GatewayAVSCodes { get; set; }
 
 			///
-			///CVV2 (Card Verification Value) codes supplied by the payment gateway. The codes indicate a verified or failed match of the encrypted code entered against the financial institution data through the gateway.
+			///CVV2 codes supplied by the payment gateway.
 			///
 			public string GatewayCVV2Codes { get; set; }
 
@@ -39,12 +39,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			public int? GatewayInteractionId { get; set; }
 
 			///
-			///Response code from the gateway associated with the payment interaction. The response code is unique to the gateway.The response code is associated with the , which contains the textual response message.Refer to [Gateway Response Code and Text](https://www.mozu.com/docs/developer/api-guides/payment-gateways.htm#gateway_response_code_and_text) in the API Guides for more information.
+			///Response code from the gateway associated with the payment interaction. For example, if the gateway returns "Not Authorized," an interaction for voiding the payment transaction would result.
 			///
 			public string GatewayResponseCode { get; set; }
 
 			///
-			///Textual message returned by the payment gateway for the associated .Refer to [Gateway Response Code and Text](https://www.mozu.com/docs/developer/api-guides/payment-gateways.htm#gateway_response_code_and_text) in the API Guides for more information.
+			///Textual message returned by the payment gateway.
 			///
 			public string GatewayResponseText { get; set; }
 

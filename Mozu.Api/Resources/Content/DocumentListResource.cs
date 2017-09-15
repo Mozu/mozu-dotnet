@@ -75,7 +75,7 @@ namespace Mozu.Api.Resources.Content
 		/// <summary>
 		/// Retrieve the details of a document list by providing the list name.
 		/// </summary>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="documentListName">The name of the document list.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentList"/>
@@ -98,10 +98,10 @@ namespace Mozu.Api.Resources.Content
 
 
 		/// <summary>
-		/// Creates a new documentList
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="list">The list of document types and related properties that define content used by the content management system (CMS).</param>
+		/// <param name="list"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentList"/>
 		/// </returns>
@@ -123,11 +123,11 @@ namespace Mozu.Api.Resources.Content
 
 
 		/// <summary>
-		/// Updates a `DocumentListName`.
+		/// 
 		/// </summary>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="documentListName"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="list">The list of document types and related properties that define content used by the content management system (CMS).</param>
+		/// <param name="list"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentList"/>
 		/// </returns>
@@ -149,9 +149,9 @@ namespace Mozu.Api.Resources.Content
 
 
 		/// <summary>
-		/// Deletes the specified `DocumentListName`.
+		/// 
 		/// </summary>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="documentListName"></param>
 		/// <returns>
 		/// 
 		/// </returns>

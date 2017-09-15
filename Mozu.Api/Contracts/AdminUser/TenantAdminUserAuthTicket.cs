@@ -17,17 +17,17 @@ using Mozu.Api.Contracts.Tenant;
 namespace Mozu.Api.Contracts.AdminUser
 {
 		///
-		///	Properties of the authentication ticket to be used in user claims with the  API.
+		///	Properties of the authentication ticket to be used in user claims with the Mozu API.
 		///
 		public class TenantAdminUserAuthTicket
 		{
 			///
-			///Alphanumeric string used to authenticate the user in API request headers. The token stores an encrypted list of the application's configured behaviors and authenticates the application.
+			///Alphanumeric string used to authenticate the user in API request headers.
 			///
 			public string AccessToken { get; set; }
 
 			///
-			///The date and time the user access token expires. If the token will expire, a new token will need to be generated and assigned to the account to continue and restore access to the store, data, and account.
+			///The date and time the user access token expires.
 			///
 			public DateTime AccessTokenExpiration { get; set; }
 
@@ -42,27 +42,27 @@ namespace Mozu.Api.Contracts.AdminUser
 			public DateTime CreatedOn { get; set; }
 
 			///
-			///Collection of behaviors encrypted in the developer account authentication ticket. Behaviors are granted to users as part of the role assigned for the given developer account.
+			///Collection of behaviors encrypted in the user authentication ticket. Behaviors are granted to users as part of the role assigned for the given tenant or developer account.
 			///
 			public List<int> GrantedBehaviors { get; set; }
 
 			///
-			///Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.
+			///Alphanumeric string used to generate a new user authentication ticket after the access token expires.
 			///
 			public string RefreshToken { get; set; }
 
 			///
-			///The date and time the developer account or application refresh token expires.
+			///The date and time the user refresh token expires.
 			///
 			public DateTime RefreshTokenExpiration { get; set; }
 
 			///
-			///Tenant information associated with the user authentication ticket or domain lookup service result.
+			///Tenant information associated with the user authentication ticket.
 			///
 			public Tenant.Tenant Tenant { get; set; }
 
 			///
-			///Properties of the user. Users include customers and  users.
+			///User information associated with the authentication ticket.
 			///
 			public UserProfile User { get; set; }
 

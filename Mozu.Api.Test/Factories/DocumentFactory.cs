@@ -69,7 +69,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Performs transformations on a document. For example, resizing an image.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = DocumentFactory.TransformDocumentContent(handler : handler,  documentListName :  documentListName,  documentId :  documentId,  width :  width,  height :  height,  max :  max,  maxWidth :  maxWidth,  maxHeight :  maxHeight,  crop :  crop,  quality :  quality,  expectedCode: expectedCode, successCode: successCode); 
@@ -221,7 +221,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates the binary data or content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
+		/// Updates the content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
 		/// <example> 
 		///  <code> 
 		/// var result = DocumentFactory.UpdateDocumentContent(handler : handler,  stream :  stream,  documentListName :  documentListName,  documentId :  documentId,  expectedCode: expectedCode, successCode: successCode); 

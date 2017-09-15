@@ -16,13 +16,10 @@ using Mozu.Api.Contracts.PricingRuntime;
 namespace Mozu.Api.Contracts.PricingRuntime.ThirdParty
 {
 		///
-		///	Properties of an order for which to calculate tax. When a tax capability is enabled for a tenant,  sends the `TaxableOrder `properties to the capability as read-only, system-supplied information.
+		///	Properties of an order for which to calculate tax. When a tax capability is enabled for a tenant, Mozu sends the TaxableOrder properties to the capability as read-only, system-supplied information.
 		///
 		public class TaxableOrder
 		{
-			///
-			///Collection of attributes that may be paged list or a list, depending on the usage per object and API type.
-			///
 			public List<TaxAttribute> Attributes { get; set; }
 
 			///
@@ -35,17 +32,17 @@ namespace Mozu.Api.Contracts.PricingRuntime.ThirdParty
 			public List<AppliedDiscount> HandlingDiscounts { get; set; }
 
 			///
-			///The combined price for all handling costs calculated together for shipped orders, not for digital or in-store pickup. This includes all handling costs per the product line items and options, excluding taxes and discounts. 
+			///Handling fee associated with the order.
 			///
 			public decimal HandlingFee { get; set; }
 
 			///
-			///List of line items associated with the order.
+			///List of line items in a taxable order object.
 			///
 			public List<TaxableLineItem> LineItems { get; set; }
 
 			///
-			///The date and time the order was submitted for purchase. 
+			///The date and time the order was submitted.
 			///
 			public DateTime OrderDate { get; set; }
 
@@ -63,12 +60,12 @@ namespace Mozu.Api.Contracts.PricingRuntime.ThirdParty
 			public string OriginalDocumentCode { get; set; }
 
 			///
-			///The date and time the original order was placed. This date is set when the order is submitted with payment. 
+			///The date and time the original order was placed.
 			///
 			public DateTime OriginalOrderDate { get; set; }
 
 			///
-			///The calculated monetary amount of shipping for a line items within and an entire order.
+			///The total shipping amount calculated for the order.
 			///
 			public decimal ShippingAmount { get; set; }
 
@@ -86,7 +83,7 @@ namespace Mozu.Api.Contracts.PricingRuntime.ThirdParty
 			public TaxContext TaxContext { get; set; }
 
 			///
-			///The type of request for which to tax this entity, which is Order or Return.
+			///The type of request for which to tax this entity, which is "Order" or "Return."
 			///
 			public string TaxRequestType { get; set; }
 

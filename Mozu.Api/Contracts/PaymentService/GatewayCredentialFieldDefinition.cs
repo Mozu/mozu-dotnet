@@ -19,17 +19,17 @@ namespace Mozu.Api.Contracts.PaymentService
 		public class GatewayCredentialFieldDefinition
 		{
 			///
-			///The sequential display order of the gateway in .
+			///The sequential display order of the gateway in Mozu Admin.
 			///
 			public int AdminDisplayOrder { get; set; }
 
 			///
-			///The name that displays for the payment gateway or third-party credentials field. 
+			///The name that displays for the payment gateway.
 			///
 			public string DisplayName { get; set; }
 
 			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
+			///The localizable name of the payment gateway.
 			///
 			public string Name { get; set; }
 

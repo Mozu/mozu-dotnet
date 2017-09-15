@@ -297,7 +297,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Processes a digital wallet (used to hold 3rd party payment and shipping information).
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = OrderFactory.ProcessDigitalWallet(handler : handler,  digitalWallet :  digitalWallet,  orderId :  orderId,  digitalWalletType :  digitalWalletType,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -410,7 +410,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Triggers an order confirmation email to be resent.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = OrderFactory.ResendOrderConfirmationEmail(handler : handler,  action :  action,  orderId :  orderId,  expectedCode: expectedCode, successCode: successCode); 
@@ -447,7 +447,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Changes the price list associated with an order. The desired price list code should be specified in the ApiContext.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = OrderFactory.ChangeOrderPriceList(handler : handler,  priceListCode :  priceListCode,  orderId :  orderId,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

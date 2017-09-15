@@ -25,7 +25,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// Retrieves a list of the property attributes configured for the product specified in the request.
 		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
+		/// <param name="productCode"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductProperty"/>}}
 		/// </returns>
@@ -48,11 +48,11 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		}
 
 		/// <summary>
-		/// Retrieves a collection of property values for localized content. This content is set by the locale code. 
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
+		/// <param name="value"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent"/>}}
 		/// </returns>
@@ -75,13 +75,13 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		}
 
 		/// <summary>
-		/// Retrieves the property value for localized content. This content is set by the locale code. 
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+		/// <param name="attributeFQN"></param>
 		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
+		/// <param name="productCode"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="value"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent"/>}
 		/// </returns>
@@ -131,12 +131,12 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		}
 
 		/// <summary>
-		/// Adds a property value for localized content. This content is set by the locale code. 
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="value"></param>
 		/// <param name="localizedContent">Use this field to include those fields which are not included by default.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent"/>}
@@ -162,9 +162,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// Configures a property attribute for the product specified in the request.
 		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
+		/// <param name="productCode"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="productProperty">Details of a property defined for a product.</param>
+		/// <param name="productProperty">Properties of the property attribute to configure for a product.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductProperty"/>}
 		/// </returns>
@@ -187,12 +187,12 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		}
 
 		/// <summary>
-		/// Updates all property values for localized content. This content is set by the locale code. 
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <param name="localizedContent">Content of the product property value in the language defined for the locale code.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
+		/// <param name="value"></param>
+		/// <param name="localizedContent"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent"/>}}
 		/// </returns>
@@ -215,14 +215,14 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		}
 
 		/// <summary>
-		/// Updates the property value for localized content. This content is set by the locale code. 
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+		/// <param name="attributeFQN"></param>
 		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
+		/// <param name="productCode"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <param name="localizedContent">Content of the product property value in the language defined for the locale code.</param>
+		/// <param name="value"></param>
+		/// <param name="localizedContent"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent"/>}
 		/// </returns>
@@ -248,9 +248,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// Update one or more details of a property attribute configuration for the product specified in the request.
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
+		/// <param name="productCode"></param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="productProperty">Details of a property defined for a product.</param>
+		/// <param name="productProperty">Details of the property attribute to update for the product configuration.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductProperty"/>}
 		/// </returns>
@@ -276,7 +276,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// Deletes the configuration of a property attribute for the product specified in the request.
 		/// </summary>
 		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
+		/// <param name="productCode"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
@@ -299,12 +299,12 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		}
 
 		/// <summary>
-		/// Deletes the property value for localized content. This content is set by the locale code. 
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+		/// <param name="attributeFQN"></param>
 		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="productCode"></param>
+		/// <param name="value"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

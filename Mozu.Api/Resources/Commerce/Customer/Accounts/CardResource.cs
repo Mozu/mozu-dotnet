@@ -18,7 +18,7 @@ using System.Threading;
 namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 {
 	/// <summary>
-	/// Use the Cards subresource to manage stored credit cards for customer accounts.  stores limited card data in the Customer service for expedited ordering purposes; however, the complete card data is stored in the Payment service.
+	/// Use the Cards subresource to manage stored credit cards for customer accounts. Mozu stores limited card data in the Customer service for expedited ordering purposes; however, the complete card data is stored in the Payment service.
 	/// </summary>
 	public partial class CardResource  	{
 		///
@@ -95,7 +95,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="card">Properties of a credit card used to submit payment for an order.</param>
+		/// <param name="card">Properties of the customer credit card to add to the account.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Card"/>
 		/// </returns>
@@ -120,9 +120,9 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// Update one or more properties of a credit card defined for a customer account.
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
+		/// <param name="cardId">Unique identifier of the credit card.</param>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="card">Properties of a credit card used to submit payment for an order.</param>
+		/// <param name="card">Properties of the customer account credit card to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Card"/>
 		/// </returns>
@@ -147,7 +147,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// Removes a stored credit card from a customer account.
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
+		/// <param name="cardId">Unique identifier of the credit card to delete.</param>
 		/// <returns>
 		/// 
 		/// </returns>

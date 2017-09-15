@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Returns resource to manage returned items that were previously fufilled. Returns can include any number of items associated with an original  order. Each return must either be associated with an original order or a product definition to represent each returned item.Refer to the [Returns API](https://www.mozu.com/docs/developer/api-guides/returns.htm) topic for more information about creating and processing returns using the API.
+	/// Use the Returns resource to manage returned items that were previously fufilled. Returns can include any number of items associated with an original Mozu order. Each return must either be associated with an original order or a product definition to represent each returned item.
 	/// </summary>
 	public partial class ReturnFactory : BaseDataFactory
 	{
@@ -107,7 +107,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves the details of a single return item.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.GetReturnItem(handler : handler,  returnId :  returnId,  returnItemId :  returnItemId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -145,7 +145,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves the details of all return items in an order.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.GetReturnItems(handler : handler,  returnId :  returnId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -335,7 +335,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Returns a list of reasons for a return.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.GetReasons(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -373,31 +373,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Creates a return for previously fulfilled items. Each return must either be associated with an original order or a product definition to represent each returned item.When you create a return, you must specify the following fields:
-/// - 
-
-/// - 
-/// - 
-
-/// -  (Optional, but recommended)
-
-/// - 
-/// - 
-
-/// - 
-
-
-/// -  (required for bundle items or product extras, but null for parent product or bundles)
-/// - 
-
-/// - 
-
-
-/// -  (required for product extras, but otherwise null)
-
-/// -  (set to  to target parent products or bundles without extras)
-
-
+		/// Creates a return for previously fulfilled items. Each return must either be associated with an original order or a product definition to represent each returned item.
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.CreateReturn(handler : handler,  ret :  ret,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -435,7 +411,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Adds a return item to the return.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.CreateReturnItem(handler : handler,  returnItem :  returnItem,  returnId :  returnId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -549,7 +525,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Creates a replacement order for the return.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.CreateReturnShippingOrder(handler : handler,  itemQuantities :  itemQuantities,  returnId :  returnId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -663,7 +639,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Resend the email notification to a shopper that a return has been created.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.ResendReturnEmail(handler : handler,  action :  action,  expectedCode: expectedCode, successCode: successCode); 
@@ -700,7 +676,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Removes a particular order item from the order of the current shopper.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.DeleteOrderItem(handler : handler,  returnId :  returnId,  returnItemId :  returnItemId,  expectedCode: expectedCode, successCode: successCode); 

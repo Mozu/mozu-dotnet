@@ -16,7 +16,7 @@ using Mozu.Api.Contracts.Core;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	Properties of the facet used to retrieve documents.
+		///	Properties of the category, price, or attribute facet shoppers use to filter product display results on a storefront.
 		///
 		public class Facet
 		{
@@ -36,22 +36,22 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public int? FacetId { get; set; }
 
 			///
-			///The type of facet. Valid values are "range" (enables creation of a range of values) or "value" (populates the facet values based on the associated attribute or category).
+			///The type of facet. Valid values are "range," which enables creation of a range of values, or "value," which populates the facet values based on the associated attribute or category.
 			///
 			public string FacetType { get; set; }
 
 			///
-			///Indicates if the object is hidden or breaks inheritance, primarily used by facets, products, and attribute vocabulary values. For example, if true, the attribute vocabulary value does not appear in the list when defining a value for an attribute.
+			///If true, disables a facet inherited from a parent category.
 			///
 			public bool IsHidden { get; set; }
 
 			///
-			///Integer that represents the sequence order of the attribute.
+			///The numeric sequence of the facet for its associated category.
 			///
 			public int Order { get; set; }
 
 			///
-			///Indicates the specific facet inherited from a parent category that is overridden by this facet. System-supplied and read only.
+			///Overrides a facet inherited from a parent category for a specified subcategory. System-supplied and read only.
 			///
 			public int? OverrideFacetId { get; set; }
 
@@ -61,18 +61,15 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public List<FacetRangeQuery> RangeQueries { get; set; }
 
 			///
-			///Source for an action or container for originating content. Source is used as an origin for validation and notification messages based on successful or failed actions. For originating content, source is used for the facet source information, including the category, price, or attribute properties.
+			///Container for the facet source information, which includes the category, price, or attribute properties.
 			///
 			public FacetSource Source { get; set; }
 
 			///
-			///System-supplied and read only indicator of whether a facet is currently valid and if not indicates the reason why. A facet may become invalid if the source data is changed in some ways (for example if the category tree structure is changed).
+			///System-supplied and read only parameter that validates a facet for its associated category.
 			///
 			public FacetValidity Validity { get; set; }
 
-			///
-			///Determines how the facet values will be sorted in the store. Must be a valid value for DataType defined in FacetValueSortTypeConst. Allowable values are:* * * * * * The default is .
-			///
 			public string ValueSortType { get; set; }
 
 		}

@@ -101,6 +101,7 @@
     <Compile Include="Security\SHA256Generator.cs" />
     <Compile Include="Security\RefreshInterval.cs" />
     <Compile Include="Clients\Commerce\Admin\LocationClient.cs" />
+    <Compile Include="Clients\Commerce\Admin\Locations\Attributedefinition\AttributeClient.cs" />
     <Compile Include="Clients\Commerce\Admin\LocationTypeClient.cs" />
     <Compile Include="Clients\Commerce\CartClient.cs" />
     <Compile Include="Clients\Commerce\Carts\AppliedDiscountClient.cs" />
@@ -145,6 +146,13 @@
     <Compile Include="Clients\Commerce\Catalog\Storefront\ShippingClient.cs" />
     <Compile Include="Clients\Commerce\ChannelClient.cs" />
     <Compile Include="Clients\Commerce\ChannelGroupClient.cs" />
+    <Compile Include="Clients\Commerce\CheckoutClient.cs" />
+    <Compile Include="Clients\Commerce\Checkouts\AppliedDiscountClient.cs" />
+    <Compile Include="Clients\Commerce\Checkouts\DestinationClient.cs" />
+    <Compile Include="Clients\Commerce\Checkouts\ExtendedPropertyClient.cs" />
+    <Compile Include="Clients\Commerce\Checkouts\OrderItemClient.cs" />
+    <Compile Include="Clients\Commerce\Checkouts\OrderNoteClient.cs" />
+    <Compile Include="Clients\Commerce\Checkouts\PaymentClient.cs" />
     <Compile Include="Clients\Commerce\Customer\Accounts\CardClient.cs" />
     <Compile Include="Clients\Commerce\Customer\Accounts\CustomerAttributeClient.cs" />
     <Compile Include="Clients\Commerce\Customer\Accounts\CustomerAuditEntryClient.cs" />
@@ -280,6 +288,13 @@
     <Compile Include="Contracts\CommerceRuntime\Channels\ChannelCollection.cs" />
     <Compile Include="Contracts\CommerceRuntime\Channels\ChannelGroup.cs" />
     <Compile Include="Contracts\CommerceRuntime\Channels\ChannelGroupCollection.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Checkouts\Checkout.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Checkouts\CheckoutAction.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Checkouts\CheckoutCollection.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Checkouts\CheckoutGrouping.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Checkouts\CheckoutGroupRates.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Checkouts\CheckoutGroupShippingMethod.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Checkouts\ItemsForDestination.cs" />
     <Compile Include="Contracts\CommerceRuntime\Commerce\Adjustment.cs" />
     <Compile Include="Contracts\CommerceRuntime\Commerce\ChangeMessage.cs" />
     <Compile Include="Contracts\CommerceRuntime\Commerce\CommerceUnitPrice.cs" />
@@ -291,6 +306,7 @@
     <Compile Include="Contracts\CommerceRuntime\Discounts\Discount.cs" />
     <Compile Include="Contracts\CommerceRuntime\Discounts\InvalidCoupon.cs" />
     <Compile Include="Contracts\CommerceRuntime\Discounts\ShippingDiscount.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Fulfillment\Destination.cs" />
     <Compile Include="Contracts\CommerceRuntime\Fulfillment\DigitalPackage.cs" />
     <Compile Include="Contracts\CommerceRuntime\Fulfillment\DigitalPackageItem.cs" />
     <Compile Include="Contracts\CommerceRuntime\Fulfillment\FulfillmentAction.cs" />
@@ -468,6 +484,7 @@
     <Compile Include="Contracts\Location\FulfillmentType.cs" />
     <Compile Include="Contracts\Location\Hours.cs" />
     <Compile Include="Contracts\Location\Location.cs" />
+    <Compile Include="Contracts\Location\LocationAttribute.cs" />
     <Compile Include="Contracts\Location\LocationCollection.cs" />
     <Compile Include="Contracts\Location\LocationType.cs" />
     <Compile Include="Contracts\Location\LocationUsage.cs" />
@@ -723,8 +740,10 @@
     <Compile Include="Contracts\ShippingRuntime\ProductSummary.cs" />
     <Compile Include="Contracts\ShippingRuntime\RateRequest.cs" />
     <Compile Include="Contracts\ShippingRuntime\RateRequestAttribute.cs" />
+    <Compile Include="Contracts\ShippingRuntime\RateRequestGroup.cs" />
     <Compile Include="Contracts\ShippingRuntime\RateRequestItem.cs" />
     <Compile Include="Contracts\ShippingRuntime\RatesResponse.cs" />
+    <Compile Include="Contracts\ShippingRuntime\RatesResponseGroup.cs" />
     <Compile Include="Contracts\ShippingRuntime\ShippingItemRate.cs" />
     <Compile Include="Contracts\ShippingRuntime\ShippingRate.cs" />
     <Compile Include="Contracts\ShippingRuntime\ShippingRateLocalizedContent.cs" />
@@ -788,6 +807,7 @@
     <Compile Include="Events\IWishListEvents.cs" />
     <Compile Include="Events\Topics.cs" />
     <Compile Include="Resources\Commerce\Admin\LocationResource.cs" />
+    <Compile Include="Resources\Commerce\Admin\Locations\Attributedefinition\AttributeResource.cs" />
     <Compile Include="Resources\Commerce\Admin\LocationTypeResource.cs" />
     <Compile Include="Resources\Commerce\CartResource.cs" />
     <Compile Include="Resources\Commerce\Carts\AppliedDiscountResource.cs" />
@@ -832,6 +852,13 @@
     <Compile Include="Resources\Commerce\Catalog\Storefront\ShippingResource.cs" />
     <Compile Include="Resources\Commerce\ChannelGroupResource.cs" />
     <Compile Include="Resources\Commerce\ChannelResource.cs" />
+    <Compile Include="Resources\Commerce\CheckoutResource.cs" />
+    <Compile Include="Resources\Commerce\Checkouts\AppliedDiscountResource.cs" />
+    <Compile Include="Resources\Commerce\Checkouts\DestinationResource.cs" />
+    <Compile Include="Resources\Commerce\Checkouts\ExtendedPropertyResource.cs" />
+    <Compile Include="Resources\Commerce\Checkouts\OrderItemResource.cs" />
+    <Compile Include="Resources\Commerce\Checkouts\OrderNoteResource.cs" />
+    <Compile Include="Resources\Commerce\Checkouts\PaymentResource.cs" />
     <Compile Include="Resources\Commerce\Customer\Accounts\CardResource.cs" />
     <Compile Include="Resources\Commerce\Customer\Accounts\CustomerAttributeResource.cs" />
     <Compile Include="Resources\Commerce\Customer\Accounts\CustomerAuditEntryResource.cs" />
@@ -927,6 +954,7 @@
     <Compile Include="Resources\Platform\TenantExtensionsResource.cs" />
     <Compile Include="Resources\Platform\TenantResource.cs" />
     <Compile Include="Resources\Platform\UserDataResource.cs" />
+    <Compile Include="Urls\Commerce\Admin\Locations\Attributedefinition\AttributeUrl.cs" />
     <Compile Include="Urls\Commerce\Admin\LocationTypeUrl.cs" />
     <Compile Include="Urls\Commerce\Admin\LocationUrl.cs" />
     <Compile Include="Urls\Commerce\Carts\AppliedDiscountUrl.cs" />
@@ -972,6 +1000,13 @@
     <Compile Include="Urls\Commerce\Catalog\Storefront\ShippingUrl.cs" />
     <Compile Include="Urls\Commerce\ChannelGroupUrl.cs" />
     <Compile Include="Urls\Commerce\ChannelUrl.cs" />
+    <Compile Include="Urls\Commerce\Checkouts\AppliedDiscountUrl.cs" />
+    <Compile Include="Urls\Commerce\Checkouts\DestinationUrl.cs" />
+    <Compile Include="Urls\Commerce\Checkouts\ExtendedPropertyUrl.cs" />
+    <Compile Include="Urls\Commerce\Checkouts\OrderItemUrl.cs" />
+    <Compile Include="Urls\Commerce\Checkouts\OrderNoteUrl.cs" />
+    <Compile Include="Urls\Commerce\Checkouts\PaymentUrl.cs" />
+    <Compile Include="Urls\Commerce\CheckoutUrl.cs" />
     <Compile Include="Urls\Commerce\Customer\Accounts\CardUrl.cs" />
     <Compile Include="Urls\Commerce\Customer\Accounts\CustomerAttributeUrl.cs" />
     <Compile Include="Urls\Commerce\Customer\Accounts\CustomerAuditEntryUrl.cs" />

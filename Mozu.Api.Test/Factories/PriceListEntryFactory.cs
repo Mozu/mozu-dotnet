@@ -25,13 +25,13 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Entries sub-resource to interact with price list entries. Price list entries enable you to override product pricing as well as control what products shoppers can view and purchase when the price list is exclusive. Refer to the [Price Lists](../../../guides/catalog/price-lists.htm) guides topic for more information.
+	/// 
 	/// </summary>
 	public partial class PriceListEntryFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves the details of a price list entry.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListEntryFactory.GetPriceListEntry(handler : handler,  priceListCode :  priceListCode,  productCode :  productCode,  currencyCode :  currencyCode,  startDate :  startDate,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -69,7 +69,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves a list of price list entries associated with the specified price list according to any specified facets, filter criteria, and sort options.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListEntryFactory.GetPriceListEntries(handler : handler,  priceListCode :  priceListCode,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -107,7 +107,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Adds a new price list entry to the specified price list.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListEntryFactory.AddPriceListEntry(handler : handler,  priceListEntryIn :  priceListEntryIn,  priceListCode :  priceListCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -145,7 +145,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates the details of a price list entry.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListEntryFactory.UpdatePriceListEntry(handler : handler,  priceListEntryIn :  priceListEntryIn,  priceListCode :  priceListCode,  productCode :  productCode,  currencyCode :  currencyCode,  startDate :  startDate,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -183,7 +183,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Deletes a price list entry.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListEntryFactory.DeletePriceListEntry(handler : handler,  priceListCode :  priceListCode,  productCode :  productCode,  currencyCode :  currencyCode,  startDate :  startDate,  expectedCode: expectedCode, successCode: successCode); 

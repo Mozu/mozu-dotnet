@@ -25,31 +25,31 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use this subresource to retrieve details about items in an active order.
+	/// 
 	/// </summary>
 	public partial class OrderItemFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves an order item with the order line ID.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = OrderItemFactory.GetOrderItemViaLineId(handler : handler,  orderId :  orderId,  lineId :  lineId,  draft :  draft,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = OrderItemFactory.GetItem(handler : handler,  checkoutId :  checkoutId,  itemId :  itemId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<OrderItem/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem GetOrderItemViaLineId(ServiceClientMessageHandler handler, 
- 		 string orderId, int lineId, bool? draft = null, string responseFields = null, 
+		public static Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem GetItem(ServiceClientMessageHandler handler, 
+ 		 string checkoutId, string itemId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Orders.OrderItemClient.GetOrderItemViaLineIdClient(
-				 orderId :  orderId,  lineId :  lineId,  draft :  draft,  responseFields :  responseFields		);
+			var apiClient = Mozu.Api.Clients.Commerce.Checkouts.OrderItemClient.GetItemClient(
+				 checkoutId :  checkoutId,  itemId :  itemId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -69,25 +69,25 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves the details of a single order item.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = OrderItemFactory.GetOrderItem(handler : handler,  orderId :  orderId,  orderItemId :  orderItemId,  draft :  draft,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = OrderItemFactory.GetItemViaLineId(handler : handler,  checkoutId :  checkoutId,  lineId :  lineId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<OrderItem/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem GetOrderItem(ServiceClientMessageHandler handler, 
- 		 string orderId, string orderItemId, bool? draft = null, string responseFields = null, 
+		public static Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem GetItemViaLineId(ServiceClientMessageHandler handler, 
+ 		 string checkoutId, int lineId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Orders.OrderItemClient.GetOrderItemClient(
-				 orderId :  orderId,  orderItemId :  orderItemId,  draft :  draft,  responseFields :  responseFields		);
+			var apiClient = Mozu.Api.Clients.Commerce.Checkouts.OrderItemClient.GetItemViaLineIdClient(
+				 checkoutId :  checkoutId,  lineId :  lineId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -107,25 +107,25 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves the details of all items in an order.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = OrderItemFactory.GetOrderItems(handler : handler,  orderId :  orderId,  draft :  draft,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = OrderItemFactory.GetItems(handler : handler,  checkoutId :  checkoutId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<OrderItemCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItemCollection GetOrderItems(ServiceClientMessageHandler handler, 
- 		 string orderId, bool? draft = null, string responseFields = null, 
+		public static Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItemCollection GetItems(ServiceClientMessageHandler handler, 
+ 		 string checkoutId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Orders.OrderItemClient.GetOrderItemsClient(
-				 orderId :  orderId,  draft :  draft,  responseFields :  responseFields		);
+			var apiClient = Mozu.Api.Clients.Commerce.Checkouts.OrderItemClient.GetItemsClient(
+				 checkoutId :  checkoutId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -145,25 +145,139 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Adds a new item to a defined order.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = OrderItemFactory.CreateOrderItem(handler : handler,  orderItem :  orderItem,  orderId :  orderId,  updateMode :  updateMode,  version :  version,  skipInventoryCheck :  skipInventoryCheck,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Order/>(result); 
+		/// var result = OrderItemFactory.UpdateItemDestination(handler : handler,  checkoutId :  checkoutId,  itemId :  itemId,  destinationId :  destinationId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Checkout/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order CreateOrderItem(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem orderItem, string orderId, string updateMode = null, string version = null, bool? skipInventoryCheck = null, string responseFields = null, 
+		public static Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout UpdateItemDestination(ServiceClientMessageHandler handler, 
+ 		 string checkoutId, string itemId, string destinationId, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Checkouts.OrderItemClient.UpdateItemDestinationClient(
+				 checkoutId :  checkoutId,  itemId :  itemId,  destinationId :  destinationId,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = OrderItemFactory.SplitItem(handler : handler,  checkoutId :  checkoutId,  itemId :  itemId,  quantity :  quantity,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Checkout/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout SplitItem(ServiceClientMessageHandler handler, 
+ 		 string checkoutId, string itemId, int? quantity = null, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Checkouts.OrderItemClient.SplitItemClient(
+				 checkoutId :  checkoutId,  itemId :  itemId,  quantity :  quantity,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = OrderItemFactory.BulkUpdateItemDestinations(handler : handler,  itemsForDestination :  itemsForDestination,  checkoutId :  checkoutId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Checkout/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout BulkUpdateItemDestinations(ServiceClientMessageHandler handler, 
+ 		 List<Mozu.Api.Contracts.CommerceRuntime.Checkouts.ItemsForDestination> itemsForDestination, string checkoutId, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Checkouts.OrderItemClient.BulkUpdateItemDestinationsClient(
+				 itemsForDestination :  itemsForDestination,  checkoutId :  checkoutId,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = OrderItemFactory.CreateItem(handler : handler,  item :  item,  checkoutId :  checkoutId,  skipInventoryCheck :  skipInventoryCheck,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Checkout/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout CreateItem(ServiceClientMessageHandler handler, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem item, string checkoutId, bool? skipInventoryCheck = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Orders.OrderItemClient.CreateOrderItemClient(
-				 orderItem :  orderItem,  orderId :  orderId,  updateMode :  updateMode,  version :  version,  skipInventoryCheck :  skipInventoryCheck,  responseFields :  responseFields		);
+			var apiClient = Mozu.Api.Clients.Commerce.Checkouts.OrderItemClient.CreateItemClient(
+				 item :  item,  checkoutId :  checkoutId,  skipInventoryCheck :  skipInventoryCheck,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -183,25 +297,25 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Update the discount applied to an item in an order.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = OrderItemFactory.UpdateOrderItemDiscount(handler : handler,  discount :  discount,  orderId :  orderId,  orderItemId :  orderItemId,  discountId :  discountId,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Order/>(result); 
+		/// var result = OrderItemFactory.UpdateItemDuty(handler : handler,  checkoutId :  checkoutId,  itemId :  itemId,  dutyAmount :  dutyAmount,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Checkout/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order UpdateOrderItemDiscount(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.CommerceRuntime.Discounts.AppliedDiscount discount, string orderId, string orderItemId, int discountId, string updateMode = null, string version = null, string responseFields = null, 
+		public static Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout UpdateItemDuty(ServiceClientMessageHandler handler, 
+ 		 string checkoutId, string itemId, decimal dutyAmount, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Orders.OrderItemClient.UpdateOrderItemDiscountClient(
-				 discount :  discount,  orderId :  orderId,  orderItemId :  orderItemId,  discountId :  discountId,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields		);
+			var apiClient = Mozu.Api.Clients.Commerce.Checkouts.OrderItemClient.UpdateItemDutyClient(
+				 checkoutId :  checkoutId,  itemId :  itemId,  dutyAmount :  dutyAmount,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -221,25 +335,25 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Update the duty fee information for an order item.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = OrderItemFactory.UpdateItemDuty(handler : handler,  orderId :  orderId,  orderItemId :  orderItemId,  dutyAmount :  dutyAmount,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Order/>(result); 
+		/// var result = OrderItemFactory.UpdateItemFulfillment(handler : handler,  item :  item,  checkoutId :  checkoutId,  itemId :  itemId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Checkout/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order UpdateItemDuty(ServiceClientMessageHandler handler, 
- 		 string orderId, string orderItemId, decimal dutyAmount, string updateMode = null, string version = null, string responseFields = null, 
+		public static Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout UpdateItemFulfillment(ServiceClientMessageHandler handler, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem item, string checkoutId, string itemId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Orders.OrderItemClient.UpdateItemDutyClient(
-				 orderId :  orderId,  orderItemId :  orderItemId,  dutyAmount :  dutyAmount,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields		);
+			var apiClient = Mozu.Api.Clients.Commerce.Checkouts.OrderItemClient.UpdateItemFulfillmentClient(
+				 item :  item,  checkoutId :  checkoutId,  itemId :  itemId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -259,25 +373,25 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates the item fulfillment information for the order specified in the request.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = OrderItemFactory.UpdateItemFulfillment(handler : handler,  orderItem :  orderItem,  orderId :  orderId,  orderItemId :  orderItemId,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Order/>(result); 
+		/// var result = OrderItemFactory.UpdateItemProductPrice(handler : handler,  checkoutId :  checkoutId,  itemId :  itemId,  price :  price,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Checkout/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order UpdateItemFulfillment(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem orderItem, string orderId, string orderItemId, string updateMode = null, string version = null, string responseFields = null, 
+		public static Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout UpdateItemProductPrice(ServiceClientMessageHandler handler, 
+ 		 string checkoutId, string itemId, decimal price, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Orders.OrderItemClient.UpdateItemFulfillmentClient(
-				 orderItem :  orderItem,  orderId :  orderId,  orderItemId :  orderItemId,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields		);
+			var apiClient = Mozu.Api.Clients.Commerce.Checkouts.OrderItemClient.UpdateItemProductPriceClient(
+				 checkoutId :  checkoutId,  itemId :  itemId,  price :  price,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -297,25 +411,25 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Override the price of an individual product on a line item in the specified order.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = OrderItemFactory.UpdateItemProductPrice(handler : handler,  orderId :  orderId,  orderItemId :  orderItemId,  price :  price,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Order/>(result); 
+		/// var result = OrderItemFactory.UpdateQuantity(handler : handler,  checkoutId :  checkoutId,  itemId :  itemId,  quantity :  quantity,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Checkout/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order UpdateItemProductPrice(ServiceClientMessageHandler handler, 
- 		 string orderId, string orderItemId, decimal price, string updateMode = null, string version = null, string responseFields = null, 
+		public static Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout UpdateQuantity(ServiceClientMessageHandler handler, 
+ 		 string checkoutId, string itemId, int quantity, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Orders.OrderItemClient.UpdateItemProductPriceClient(
-				 orderId :  orderId,  orderItemId :  orderItemId,  price :  price,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields		);
+			var apiClient = Mozu.Api.Clients.Commerce.Checkouts.OrderItemClient.UpdateQuantityClient(
+				 checkoutId :  checkoutId,  itemId :  itemId,  quantity :  quantity,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -335,63 +449,25 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Update the quantity of an item in an order.
+		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = OrderItemFactory.UpdateItemQuantity(handler : handler,  orderId :  orderId,  orderItemId :  orderItemId,  quantity :  quantity,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Order/>(result); 
+		/// var result = OrderItemFactory.DeleteItem(handler : handler,  checkoutId :  checkoutId,  itemId :  itemId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Checkout/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order UpdateItemQuantity(ServiceClientMessageHandler handler, 
- 		 string orderId, string orderItemId, int quantity, string updateMode = null, string version = null, string responseFields = null, 
+		public static Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout DeleteItem(ServiceClientMessageHandler handler, 
+ 		 string checkoutId, string itemId, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Orders.OrderItemClient.UpdateItemQuantityClient(
-				 orderId :  orderId,  orderItemId :  orderItemId,  quantity :  quantity,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields		);
-			try
-			{
-				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
-			}
-			catch (ApiException ex)
-			{
-				// Custom error handling for test cases can be placed here
-				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
-				if (customException != null)
-					throw customException;
-				return null;
-			}
-			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
-					 ? (apiClient.Result()) 
-					 : null;
-
-		}
-  
-		/// <summary> 
-		/// Removes a previously added item from a defined order.
-		/// <example> 
-		///  <code> 
-		/// var result = OrderItemFactory.DeleteOrderItem(handler : handler,  orderId :  orderId,  orderItemId :  orderItemId,  updateMode :  updateMode,  version :  version,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Order/>(result); 
-		/// return optionalCasting;
-		///  </code> 
-		/// </example> 
-		/// </summary>
-		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order DeleteOrderItem(ServiceClientMessageHandler handler, 
- 		 string orderId, string orderItemId, string updateMode = null, string version = null, 
-		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
-		{
-			SetSdKparameters();
-			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
-			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
-			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Orders.OrderItemClient.DeleteOrderItemClient(
-				 orderId :  orderId,  orderItemId :  orderItemId,  updateMode :  updateMode,  version :  version		);
+			var apiClient = Mozu.Api.Clients.Commerce.Checkouts.OrderItemClient.DeleteItemClient(
+				 checkoutId :  checkoutId,  itemId :  itemId		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();

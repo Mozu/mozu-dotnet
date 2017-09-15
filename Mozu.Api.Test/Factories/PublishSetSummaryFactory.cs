@@ -25,13 +25,13 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Content Publish Set resource to manage content publish sets and the pending content drafts.You can use content publish sets to group pending content changes together and publish them all at the same time.
+	/// 
 	/// </summary>
 	public partial class PublishSetSummaryFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Returns a list of content publish sets.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = PublishSetSummaryFactory.GetPublishSets(handler : handler,  pageSize :  pageSize,  startIndex :  startIndex,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -69,7 +69,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves a list of content publish sets and their properties.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = PublishSetSummaryFactory.GetPublishSetItems(handler : handler,  code :  code,  pageSize :  pageSize,  startIndex :  startIndex,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -107,7 +107,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Deletes the specified content publish set. You can use the shouldDiscard parameter to specify whether to discard the content drafts assigned to the content publish set.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = PublishSetSummaryFactory.DeletePublishSet(handler : handler,  code :  code,  shouldDiscard :  shouldDiscard,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -145,7 +145,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Adds a set of documents by id to a specified publish set.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = PublishSetSummaryFactory.AddPublishSetItems(handler : handler,  itemsToPublish :  itemsToPublish,  code :  code,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

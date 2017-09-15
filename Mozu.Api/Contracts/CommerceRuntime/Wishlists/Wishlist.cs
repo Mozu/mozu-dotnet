@@ -30,12 +30,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			public AuditInfo AuditInfo { get; set; }
 
 			///
-			///Collection (list or paged) of change messages logged for each modification made by a shopper to their carts, wishlists, orders, package, payment, pickup, and returns. Change log messages are system-supplied based on shopper actions and read only.
+			///Collection of change messages logged for each modification to a shopper wish list. System-supplied and read only.
 			///
 			public List<ChangeMessage> ChangeMessages { get; set; }
 
 			///
-			///Code that identifies the channel associated with the site for the shopper's created shopping cart, order, and return.
+			///Unique identifier of the channel associated with the wish list.
 			///
 			public string ChannelCode { get; set; }
 
@@ -45,77 +45,71 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			public string CurrencyCode { get; set; }
 
 			///
-			///Unique identifer of the customer account. This ID is used to associate numerous types of data and object with the customer account, including orders, returns, wish lists, and in-store credit.
+			///Unique identifier of the customer account associated with the wish list.
 			///
 			public int? CustomerAccountId { get; set; }
 
 			///
-			///The type of customer interaction used to create this shopping cart. Possible values are Website, Call, Store, or Unknown.
+			///The interaction type the shopper uses to create the wish list, which is Website, Store, Call, or Unknown. This property is not used at this time and is reserved for future functionality.
 			///
 			public string CustomerInteractionType { get; set; }
 
-			///
-			///Custom data for a given vendor set within the commerce process.
-			///
 			public JObject Data { get; set; }
 
 			///
-			///The aggregate total for all items in the cart, including costs associated with shopper-defined options or extras and any applied discounts.
+			///The discounted subtotal of items in the wish list. This property value is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? DiscountedSubtotal { get; set; }
 
 			///
-			///The subtotal of the cart, order, and wishlist items, including any applied discount calculations. Wishlist subtotals may change depending on the length of time, available discounts, and stock amounts of products at the time of review by shoppers.
+			///The subtotal of the cart including any applied discount calculations. This property value is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? DiscountedTotal { get; set; }
 
 			///
-			///Estimated amount of discounts applied to all items in the carts and orders. System-supplied and read-only. This value will be available at the wish list, cart item, order item, and wish list item level at a later time.
+			///Estimated amount of discounts applied to all items in the wish list, which is system-supplied and read-only.   This property value is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? DiscountTotal { get; set; }
 
 			///
-			///Date and time in UTC format when a discount, credit, wish list, or cart expires. An expired discount no longer can be redeemed. An expired wish list is no longer available. An expired credit can no longer be redeemed for a purchase. Acart becomes inactive and expired based on a system-calculated interval. For example, if an anonymous shopper has 14 days of inactivity, the cart is considered abandoned after that period of inactivity. System-supplied and read-only.
+			///The date and time this wish list expires. This property value is not calculated at this time and is reserved for future functionality.
 			///
 			public DateTime? ExpirationDate { get; set; }
 
-			///
-			///Extra properties (key-value pairs) that extend the primary object. Think of this as a property bag of string keys and string values.
-			///
 			public List<ExtendedProperty> ExtendedProperties { get; set; }
 
 			///
-			///Unique identifier used by an external program to identify a  order, customer account, or wish list.
+			///The identifier an external program uses to identify the Mozu wish list.
 			///
 			public string ExternalId { get; set; }
 
 			///
-			///The monetary sum of all fees incurred in the cart, order, line item in a cart, or line item in an order. This value is not calculated for wish lists at this time.
+			///The fee total of items in the wish list. This property value is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? FeeTotal { get; set; }
 
 			///
-			///Properties of the information required to fulfill the cart, order, or wish list. Shoppers can fulfill ordered items by using in-store pickup or direct shipping.
+			///Properties that determine how items in the wish list are fulfilled.
 			///
 			public FulfillmentInfo FulfillmentInfo { get; set; }
 
 			///
-			///Calculated total tax amount for handling costs if the cart/order is subject to sales tax. 
+			///The tax amount levied against the handling fee for items in the wish list. This property value is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? HandlingTaxTotal { get; set; }
 
 			///
-			///Unique identifier of the source property, such as a catalog, discount, order, or email template.For a product field it will be the name of the field.For a category ID, must be a positive integer not greater than 2000000. By default,  auto-generates a category ID when categories are created. If you want to specify an ID during creation (which preserves category link relationships when migrating tenant data from one sandbox to another), you must also include the  query string in the endpoint. For example, . Then, use the  property to specify the desired category ID.For a product attribute it will be the Attribute FQN.For a document, the ID must be specified as a 32 character, case-insensitive, alphanumeric string. You can specify the ID as 32 sequential characters or as groups separated by dashes in the format 8-4-4-4-12. For example, or.For email templates, the ID must be one of the following values:///
+			///Unique identifier of this shopper wish list. System-supplied and read only.
 			///
 			public string Id { get; set; }
 
 			///
-			///The date and time an order or wish list is imported into . This is not the date and time it was created in the external application.
+			///If this wish list was imported from an external program, the date and time the wish list was imported.
 			///
 			public DateTime? ImportDate { get; set; }
 
 			///
-			///Indicates if this object/data was imported from an outside source such as a data import or synchronization via an app or service. If true, this data was originally imported into  and accessible through your store database. Examples of imported objects/data include orders and customer accounts.
+			///If true, this wish list was imported from an external program.
 			///
 			public bool? IsImport { get; set; }
 
@@ -125,27 +119,24 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			public List<WishlistItem> Items { get; set; }
 
 			///
-			///The total amount of calculated tax for items, used by carts, orders, and wish lists.
+			///The total amount of tax for items in the wish list. This property value is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? ItemTaxTotal { get; set; }
 
 			///
-			///The date in UTC Date/Time when the items in the cart were last validated against the site's product catalog. System-supplied and read-only.
+			///The date and time the wish list was last validated against the product catalog.
 			///
 			public DateTime? LastValidationDate { get; set; }
 
-			///
-			///The total charge for the line item with all weighted order level manual adjustments.
-			///
 			public decimal? LineItemSubtotalWithOrderAdjustments { get; set; }
 
 			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
+			///The user-defined name of the shopper wish list. The name defined for a wish list does not have to be unique.
 			///
 			public string Name { get; set; }
 
 			///
-			///List of order-level discounts projected to apply to the cart at checkout or order.
+			///Any order discounts that apply to items in the wish list. This property is not used at this time and is reserved for future functionality.
 			///
 			public List<AppliedDiscount> OrderDiscounts { get; set; }
 
@@ -154,23 +145,20 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			///
 			public string PrivacyType { get; set; }
 
-			///
-			///The total shipping amount for the wishlist before discounts and adjustments.
-			///
 			public decimal? ShippingAmountBeforeDiscountsAndAdjustments { get; set; }
 
 			///
-			///The shipping subtotal amount calculated without any applied discounts for line item and entire amounts of carts and orders. This property is not calculated for wish lists at this time.
+			///The subtotaled shipping amount for items in the wish list. This property value is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? ShippingSubTotal { get; set; }
 
 			///
-			///The total amount of tax incurred on the shipping charges in the cart and order. This property is not calculated at this time for wish lists.
+			///The total amount of tax levied against shipping charges for items in the wish list. This property value is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? ShippingTaxTotal { get; set; }
 
 			///
-			///The calculated total shipping amount estimated for carts or orders, including tax. This amount is not calculated for wish lists at this time.
+			///The total shipping costs for items in the wish list. This property value is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? ShippingTotal { get; set; }
 
@@ -185,17 +173,14 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			public int? SortOrder { get; set; }
 
 			///
-			///Estimated amount of the cart or order without sales tax, shipping costs, and other fees. This amount is not calculated for wish lists at this time.
+			///The subtotal of items in the wish list. This property value is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? Subtotal { get; set; }
 
-			///
-			///Leverage this property within a [tax Arc.js action](https://www.mozu.com/docs/arcjs/commerce-catalog-storefront-tax/commerce-catalog-storefront-tax.htm) to supplement the tax information for this item or object with custom JSON data.
-			///
 			public JObject TaxData { get; set; }
 
 			///
-			///The total monetary sum of sales tax estimated for a cart or order.
+			///The total tax amount for items in the wish list. This property value is not calculated at this time and is reserved for future functionality.
 			///
 			public decimal? TaxTotal { get; set; }
 
@@ -205,7 +190,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			public int? TenantId { get; set; }
 
 			///
-			///Total is used to indicate the monetary, estimated total amount of the cart or order, including items, sales tax, shipping costs, and other fees. Totals are not estimated for wish lists at this time.
+			///The total amount of items in the wish list. This property value is not calculated at this time and is reserved for future functionality. If a site's structure distinguishes between wish list types, the site uses the value in this property to categorize the wish lists.
 			///
 			public decimal? Total { get; set; }
 
@@ -220,12 +205,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			public string Version { get; set; }
 
 			///
-			///Unique identifier of the customer visit in which the cart was created or last modified.
+			///Unique identifier of the customer visit in which the wish list was created or last modified. System-supplied and read only.
 			///
 			public string VisitId { get; set; }
 
 			///
-			///Unique identifier of the web session in which the cart, order, return, or wish list was created or last modified.
+			///Unique identifier of the web session in which the wish list was created or last modified. System-supplied and read only.
 			///
 			public string WebSessionId { get; set; }
 

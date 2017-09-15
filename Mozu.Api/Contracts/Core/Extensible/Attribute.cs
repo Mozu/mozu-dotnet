@@ -21,18 +21,15 @@ namespace Mozu.Api.Contracts.Core.Extensible
 		public class Attribute
 		{
 			///
-			///The administrator name associated with the object/data.
+			///Name of this extensible attribute defined in Mozu Admin.
 			///
 			public string AdminName { get; set; }
 
 			///
-			///Merchant-defined code for an extensible attribute. This code may be used to generate an object's fully qualified name, such as for products.
+			///Merchant-defined code for an extensible attribute.
 			///
 			public string AttributeCode { get; set; }
 
-			///
-			///The fully qualified name of the attribute. The attributeDefiniteId may be used to generate this name.
-			///
 			public string AttributeFQN { get; set; }
 
 			///
@@ -40,38 +37,32 @@ namespace Mozu.Api.Contracts.Core.Extensible
 			///
 			public List<AttributeMetadataItem> AttributeMetadata { get; set; }
 
-			///
-			///Basic audit info about the object, including date, time, and user account. This data may be captured when creating, updating, and removing data.
-			///
 			public AuditInfo AuditInfo { get; set; }
 
 			///
-			///Localizable content (such as a name and/or description) for an attribute. The content may be localized when displayed according to the locale code specified by the master catalog. Content can include descriptive text for product extensible attributes, catalog-level descriptions (displayed if isContentOverriden is true), product bundles, and customer account notes.
+			///The localized name and description of the attribute, displayed in the locale code specified for the master catalog.
 			///
 			public AttributeLocalizedContent Content { get; set; }
 
 			///
-			///The data type of the source product property, typically of type Bool, DateTime, Number, or String.
+			///The data type of the customer or order attribute, which is Bool, DateTime, Number, or String.
 			///
 			public string DataType { get; set; }
 
 			///
-			///Whether the customer or order attribute appears in  only, or in both  and the website storefront. Possible values are Admin and AdminAndStorefront.
+			///Whether the customer or order attribute appears in Mozu Admin only, or in both Mozu Admin and the website storefront. Possible values are Admin and AdminAndStorefront.
 			///
 			public string DisplayGroup { get; set; }
 
-			///
-			///Unique identifier of the source property, such as a catalog, discount, order, or email template.For a product field it will be the name of the field.For a category ID, must be a positive integer not greater than 2000000. By default,  auto-generates a category ID when categories are created. If you want to specify an ID during creation (which preserves category link relationships when migrating tenant data from one sandbox to another), you must also include the  query string in the endpoint. For example, . Then, use the  property to specify the desired category ID.For a product attribute it will be the Attribute FQN.For a document, the ID must be specified as a 32 character, case-insensitive, alphanumeric string. You can specify the ID as 32 sequential characters or as groups separated by dashes in the format 8-4-4-4-12. For example, or.For email templates, the ID must be one of the following values:///
-			///
 			public int? Id { get; set; }
 
 			///
-			///The type of input selection used to define a value for the attribute, including Yes/No, Date, DateTime, List, TextBox, or TextArea.
+			///The type of input selection used to define a value for the attribute, which is YesNo, Date, DateTime, List, TextBox, or TextArea.
 			///
 			public string InputType { get; set; }
 
 			///
-			///Indicates if the object or feature is active.
+			///If true, the customer or order attribute is active.
 			///
 			public bool? IsActive { get; set; }
 
@@ -80,13 +71,10 @@ namespace Mozu.Api.Contracts.Core.Extensible
 			///
 			public bool? IsMultiValued { get; set; }
 
-			///
-			///Flag used to indicate if this attribute definition is read-only. Once an attribute definition is set to read-only this action cannot be undone. 
-			///
 			public bool IsReadOnly { get; set; }
 
 			///
-			///Indicates if the property, attribute, product option, or product extra is required. If true, the object must have a defined value.
+			///If true, the attribute must have a defined value.
 			///
 			public bool? IsRequired { get; set; }
 
@@ -96,22 +84,22 @@ namespace Mozu.Api.Contracts.Core.Extensible
 			public bool? IsVisible { get; set; }
 
 			///
-			///The namespace for the accessible APIs and source capabilities in the core of  APIs.
+			///Namespace associated with this extensible attribute.
 			///
 			public string Namespace { get; set; }
 
 			///
-			///Integer that represents the sequence order of the attribute.
+			///Integer that represents the sequence of the attribute.
 			///
 			public int? Order { get; set; }
 
 			///
-			///Properties used when validating a value entered for an object, including extensible attributes, products attributes, and database entries.
+			///Properties used when validating a value entered for an extensible attribute.
 			///
 			public AttributeValidation Validation { get; set; }
 
 			///
-			///An attribute value type is either predefined vocabulary by the admin during attribute set up or user-defined with an appropriate type (AdminEntered or ShopperEntered depending on the user). These types are used by products and attributes. The difference between predefined values versus manually entered values is such that the first choice is a set of options to choose from. AdminEntered and ShopperEntered are values that are entered rather than system-supplied and are not stored in the database, but captured during a live commerce operations such as during an order.
+			///An attribute value type is either predefined vocabulary by the admin during attribute set up or it can be "AdminEntered" or "ShopperEntered". The difference between predefined values versus manually entered values is such that the first choice is a set of options to choose from. AdminEntered and ShopperEntered are values that are entered rather than system-supplied and are not stored in the database, but captured during a live commerce operations such as during an order.
 			///
 			public string ValueType { get; set; }
 

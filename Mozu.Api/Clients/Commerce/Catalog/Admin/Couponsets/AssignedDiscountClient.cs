@@ -18,14 +18,14 @@ using System.Threading;
 namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets
 {
 	/// <summary>
-	/// Use the AssignedDiscounts resource to manage the discounts assigned to coupon sets.
+	/// 
 	/// </summary>
 	public partial class AssignedDiscountClient 	{
 		
 		/// <summary>
-		/// Retrieves the discountIds of any assigned discounts for the specified coupon set.
+		/// 
 		/// </summary>
-		/// <param name="couponSetCode">The unique identifier of the coupon set.</param>
+		/// <param name="couponSetCode"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ProductAdmin.AssignedDiscount"/>}}
 		/// </returns>
@@ -47,10 +47,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets
 		}
 
 		/// <summary>
-		/// Assigns or associates an existing discount to a specified coupon set. Use the couponSetCode parameter to specify the coupon set.
+		/// 
 		/// </summary>
-		/// <param name="couponSetCode">The unique identifier of the coupon set.</param>
-		/// <param name="assignedDiscount">The details of the discount assigned to the coupon set.</param>
+		/// <param name="couponSetCode"></param>
+		/// <param name="assignedDiscount"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
@@ -72,10 +72,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets
 		}
 
 		/// <summary>
-		/// Unassigns or disassociates the specified discount with the specified coupon set.
+		/// 
 		/// </summary>
-		/// <param name="couponSetCode">The unique identifier of the coupon set.</param>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
+		/// <param name="couponSetCode"></param>
+		/// <param name="discountId"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

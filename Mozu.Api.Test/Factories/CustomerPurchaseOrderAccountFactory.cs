@@ -25,13 +25,13 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Customer Account Purchase Order resource to manage purchase order details for specific customer acocunts.
+	/// 
 	/// </summary>
 	public partial class CustomerPurchaseOrderAccountFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves the details of the specified customer purchase order account.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerPurchaseOrderAccountFactory.GetCustomerPurchaseOrderAccount(handler : handler,  accountId :  accountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -69,7 +69,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves a list of purchase order transactions for the specified customer account according to any specified sort options.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerPurchaseOrderAccountFactory.GetCustomerPurchaseOrderTransactions(handler : handler,  accountId :  accountId,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -107,7 +107,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Adds a purchase order account to the specified customer account.This adds the ability for the specified customer account to use the purchase order payment method.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerPurchaseOrderAccountFactory.CreateCustomerPurchaseOrderAccount(handler : handler,  customerPurchaseOrderAccount :  customerPurchaseOrderAccount,  accountId :  accountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -145,7 +145,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Creates a purchase order transaction on the specified customer purchase order account.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerPurchaseOrderAccountFactory.CreatePurchaseOrderTransaction(handler : handler,  purchaseOrderTransaction :  purchaseOrderTransaction,  accountId :  accountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -183,7 +183,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates the details of the purchase order account for the specified customer account.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerPurchaseOrderAccountFactory.UpdateCustomerPurchaseOrderAccount(handler : handler,  customerPurchaseOrderAccount :  customerPurchaseOrderAccount,  accountId :  accountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -221,7 +221,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Deletes the specified customer purchase order account.This removes the ability for the specified customer account to use the purchase order payment method.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerPurchaseOrderAccountFactory.DeleteCustomerPurchaseOrderAccount(handler : handler,  accountId :  accountId,  expectedCode: expectedCode, successCode: successCode); 

@@ -107,7 +107,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Creates a new DocumentType
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = DocumentTypeFactory.CreateDocumentType(handler : handler,  documentType :  documentType,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -145,7 +145,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates a DocumentType
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = DocumentTypeFactory.UpdateDocumentType(handler : handler,  documentType :  documentType,  documentTypeName :  documentTypeName,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

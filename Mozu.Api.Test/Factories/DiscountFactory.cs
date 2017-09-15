@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Discounts resource to define and manage discounts to apply to products, product categories, or orders. The discounts can be a specified amount off the price, percentage off the price, or for free shipping. You can create a coupon code that shoppers can use to redeem the discount.
+	/// Define and manage discounts to apply to products, product categories, or orders. The discounts can be a specified amount off the price, percentage off the price, or for free shipping. Create a coupon code that shoppers can use to redeem the discount.
 	/// </summary>
 	public partial class DiscountFactory : BaseDataFactory
 	{
@@ -221,7 +221,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates the localizable content for the specified discount or renames the discount without modifying its other properties.
+		/// Updates the localizable content for the specified discount or rename the discount without modifying its other properties.
 		/// <example> 
 		///  <code> 
 		/// var result = DiscountFactory.UpdateDiscountContent(handler : handler,  content :  content,  discountId :  discountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -259,7 +259,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates one or more properties of the specified discount.
+		/// Updates one or more properties of a defined discount.
 		/// <example> 
 		///  <code> 
 		/// var result = DiscountFactory.UpdateDiscount(handler : handler,  discount :  discount,  discountId :  discountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

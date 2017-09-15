@@ -122,6 +122,7 @@
     <Compile Include="Factories\ChangeMessageFactory.cs" />
     <Compile Include="Factories\ChannelFactory.cs" />
     <Compile Include="Factories\ChannelGroupFactory.cs" />
+    <Compile Include="Factories\CheckoutFactory.cs" />
     <Compile Include="Factories\CheckoutSettingsFactory.cs" />
     <Compile Include="Factories\CouponFactory.cs" />
     <Compile Include="Factories\CouponSetFactory.cs" />
@@ -141,6 +142,7 @@
     <Compile Include="Factories\CustomerSegmentFactory.cs" />
     <Compile Include="Factories\CustomerSetFactory.cs" />
     <Compile Include="Factories\CustomRouteSettingsFactory.cs" />
+    <Compile Include="Factories\DestinationFactory.cs" />
     <Compile Include="Factories\DeveloperAdminUserAuthTicketFactory.cs" />
     <Compile Include="Factories\DigitalPackageFactory.cs" />
     <Compile Include="Factories\DiscountFactory.cs" />

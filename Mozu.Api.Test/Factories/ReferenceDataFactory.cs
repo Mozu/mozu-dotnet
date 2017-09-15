@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// The Reference resource retrieves collections of standards the  system currently supports. This includes content locales, top-level domains, units of measure, countries, currencies, time zones, and shipping or billing address schemas.
+	/// The Reference resource retrieves collections of standards the Mozu system currently supports. This includes content locales, top-level domains, units of measure, countries, currencies, time zones, and shipping or billing address schemas.
 	/// </summary>
 	public partial class ReferenceDataFactory : BaseDataFactory
 	{
@@ -335,7 +335,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves the entire list of countries that the system supports.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ReferenceDataFactory.GetCountriesWithStates(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

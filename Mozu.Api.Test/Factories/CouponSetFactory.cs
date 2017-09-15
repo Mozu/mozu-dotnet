@@ -25,13 +25,13 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// Use the Coupon Sets resource to view and create coupon sets. You can use coupon sets to group multiple coupon codes together and associate them with one or more discounts. Use the  subresource to manage the coupon codes within manual coupon sets. Use the  subresource to mange the discounts assigned to coupon sets.
+	/// 
 	/// </summary>
 	public partial class CouponSetFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves a list of coupon sets in the catalog according to any specified filter criteria and sort options.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CouponSetFactory.GetCouponSets(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  includeCounts :  includeCounts,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -69,7 +69,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves the details of a single coupon set. Use the couponSetCode parameter to specify the coupon set. Use the includeCounts parameter to specify whether to include the number of redeemed coupons, existing coupon codes, and assigned discounts.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CouponSetFactory.GetCouponSet(handler : handler,  couponSetCode :  couponSetCode,  includeCounts :  includeCounts,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -107,7 +107,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Returns a unique, random four character code to use for the couponSetCode.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CouponSetFactory.GetUniqueCouponSetCode(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -145,7 +145,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Adds a single coupon set to the catalog.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CouponSetFactory.AddCouponSet(handler : handler,  couponSet :  couponSet,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -183,7 +183,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Validates the couponSetCode and tests it for uniqueness.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CouponSetFactory.ValidateUniqueCouponSetCode(handler : handler,  code :  code,  expectedCode: expectedCode, successCode: successCode); 
@@ -220,7 +220,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates one or more properties of a coupon set in the catalog.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CouponSetFactory.UpdateCouponSet(handler : handler,  couponSet :  couponSet,  couponSetCode :  couponSetCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -258,7 +258,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Deletes a specified coupon set from the catalog. Use the couponSetCode parameter to specify the coupon set to delete.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CouponSetFactory.DeleteCouponSet(handler : handler,  couponSetCode :  couponSetCode,  expectedCode: expectedCode, successCode: successCode); 

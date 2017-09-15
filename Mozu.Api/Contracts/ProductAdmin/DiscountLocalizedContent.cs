@@ -25,7 +25,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public AuditInfo AuditInfo { get; set; }
 
 			///
-			///The localizable, shopper-facing description defined for a discount or a storefront message. 
+			///The localizable, shopper-facing description defined for the discount.
 			///
 			public string FriendlyDescription { get; set; }
 
@@ -35,7 +35,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string LocaleCode { get; set; }
 
 			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
+			///The localizable name of the discount.
 			///
 			public string Name { get; set; }
 

@@ -19,9 +19,9 @@ namespace Mozu.Api.Urls.Commerce.Shipping.Admin.Profiles
 		/// <summary>
         /// Get Resource Url for GetProductHandlingFeeRule
         /// </summary>
-        /// <param name="id">Unique identifier of the customer segment to retrieve.</param>
-        /// <param name="profilecode">The unique, user-defined code of the profile with which the product handling fee rule is associated.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="id"></param>
+        /// <param name="profilecode"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -38,8 +38,8 @@ namespace Mozu.Api.Urls.Commerce.Shipping.Admin.Profiles
 		/// <summary>
         /// Get Resource Url for GetProductHandlingFeeRules
         /// </summary>
-        /// <param name="profilecode">The unique, user-defined code of the profile with which the product handling fee rule is associated.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="profilecode"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -55,8 +55,8 @@ namespace Mozu.Api.Urls.Commerce.Shipping.Admin.Profiles
 				/// <summary>
         /// Get Resource Url for CreateProductHandlingFeeRule
         /// </summary>
-        /// <param name="profilecode">The unique, user-defined code of the profile with which the product handling fee rule is associated.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="profilecode"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -72,9 +72,9 @@ namespace Mozu.Api.Urls.Commerce.Shipping.Admin.Profiles
 				/// <summary>
         /// Get Resource Url for UpdateProductHandlingFeeRule
         /// </summary>
-        /// <param name="id">Unique identifier of the customer segment to retrieve.</param>
-        /// <param name="profilecode">The unique, user-defined code of the profile with which the product handling fee rule is associated.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="id"></param>
+        /// <param name="profilecode"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -91,8 +91,8 @@ namespace Mozu.Api.Urls.Commerce.Shipping.Admin.Profiles
 				/// <summary>
         /// Get Resource Url for DeleteProductHandlingFeeRule
         /// </summary>
-        /// <param name="id">Unique identifier of the customer segment to retrieve.</param>
-        /// <param name="profilecode">The unique, user-defined code of the profile with which the product handling fee rule is associated.</param>
+        /// <param name="id"></param>
+        /// <param name="profilecode"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

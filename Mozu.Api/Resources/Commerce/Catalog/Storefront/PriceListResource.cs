@@ -18,7 +18,7 @@ using System.Threading;
 namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 {
 	/// <summary>
-	/// Retrieves the details of a price list. The details may contain a hierarchy of ancestor and/or descendant price lists dependening on your configuration.
+	/// 
 	/// </summary>
 	public partial class PriceListResource  	{
 		///
@@ -40,10 +40,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 				
 
 		/// <summary>
-		/// Retrieves the details of the specified price list.
+		/// 
 		/// </summary>
-		/// <param name="priceListCode">The unique code of the price list for which you want to retrieve the details.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="priceListCode"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.PriceList"/>
 		/// </returns>
@@ -65,10 +65,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 
 
 		/// <summary>
-		/// Retrieves the details of a price list to which the specified customer resolves. This is primarly used when creating an offline order for a shopper.You can use this operation alongside custom Arc.js actions to alter the price list to which a shopper resolves.
+		/// 
 		/// </summary>
-		/// <param name="customerAccountId">The unique identifier of the customer account for which to retrieve wish lists.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="customerAccountId"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList"/>
 		/// </returns>

@@ -18,7 +18,7 @@ using System.Threading;
 namespace Mozu.Api.Resources.Platform
 {
 	/// <summary>
-	/// Use the tenants resource to manage information about a  tenant.
+	/// Use the tenants resource to manage information about a Mozu tenant.
 	/// </summary>
 	public partial class TenantResource  	{
 		///

@@ -19,39 +19,27 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class DiscountTarget
 		{
-			///
-			///Determines which way the discount is optimized. Consumers favor(default - false/null) or tenants favor (when this is set to true) Applies to discounts where target is not a specific product or list of products. May also impact behavior of Buy X Get Y so that X is the most expensive items and Y the least expensive.
-			///
 			public bool? AppliesToLeastExpensiveProductsFirst { get; set; }
 
 			///
-			///The list of all categories associated with the product. These categories contain products, can have discounts associated, and define the grouping of products to display on the storefront.
+			///The product categories to which the discount can apply. When a discount applies to a category, all products in the category are eligible for the discount.
 			///
 			public List<TargetedCategory> Categories { get; set; }
 
 			///
-			///List of the product categories that are not eligible for the discount.
+			///Array list of categories to exclude for this discount.
 			///
 			public List<TargetedCategory> ExcludedCategories { get; set; }
 
-			///
-			///The operator to use on the excludedCategories field. Valid values are: "All" and "Any".
-			///
 			public string ExcludedCategoriesOperator { get; set; }
 
 			///
-			///List of products that are not eligible for the discount.
+			///Array list of products to exclude for this discount.
 			///
 			public List<TargetedProduct> ExcludedProducts { get; set; }
 
-			///
-			///Prevents order scoped discounts from layering over items that already have a product discount with the same type.
-			///
 			public bool? ExcludeItemsWithExistingProductDiscounts { get; set; }
 
-			///
-			///Prevents order scoped discounts from layering over items that already have a shipping discount with the same type.
-			///
 			public bool? ExcludeItemsWithExistingShippingDiscounts { get; set; }
 
 			///
@@ -59,9 +47,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool? IncludeAllProducts { get; set; }
 
-			///
-			///The operator of the includedCategories field.Valid values are: "All" and "Any".
-			///
 			public string IncludedCategoriesOperator { get; set; }
 
 			///
@@ -70,7 +55,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public int? MaximumQuantityPerRedemption { get; set; }
 
 			///
-			///List of product codes that represent the products to which the discount can apply.
+			///List of  product codes that represent the products to which the discount can apply.
 			///
 			public List<TargetedProduct> Products { get; set; }
 
@@ -79,9 +64,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public List<TargetedShippingMethod> ShippingMethods { get; set; }
 
-			///
-			///The list of shipping zones that are applicable for this discount.
-			///
 			public List<TargetedShippingZone> ShippingZones { get; set; }
 
 			///

@@ -18,7 +18,7 @@ using System.Threading;
 namespace Mozu.Api.Resources.Commerce.Orders
 {
 	/// <summary>
-	/// Use this subresource to view which order items are eligible for return.
+	/// 
 	/// </summary>
 	public partial class OrderReturnableItemResource  	{
 		///
@@ -40,22 +40,10 @@ namespace Mozu.Api.Resources.Commerce.Orders
 				
 
 		/// <summary>
-		/// Retrieves information about which items are eligible for return on an order.Each item displays the following information:
-/// - One entry that represents the entire order item, whether this is a single product, a bundle, or a product or bundle with extras. (ParentProductCode == null, ExcludeProductExtras == false)
-
-/// - (If the item contains product extras) 
-/// - One entry that represents the parent product without product extras (ParentProductCode == null, ExcludeProductExtras == true)
-
-/// - One entry for each extra (ParentProductCode != null, OrderItemOptionAttributeFQN != null)
-
-
-/// - (If the parent item is a bundle)
-/// - One entry for each item within the bundle (ParentProductCode != null, OrderItemOptionAttributeFQN == null)
-
-
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderReturnableItemCollection"/>
 		/// </returns>

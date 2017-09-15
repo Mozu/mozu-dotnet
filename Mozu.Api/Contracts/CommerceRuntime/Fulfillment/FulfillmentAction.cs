@@ -20,7 +20,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 		public class FulfillmentAction
 		{
 			///
-			///The name of the action to perform for the payment, fulfillment, order, or return.
+			///The name of the fulfillment action to perform, which is "Ship" or "PickUp".
 			///
 			public string ActionName { get; set; }
 
@@ -30,7 +30,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			public List<string> DigitalPackageIds { get; set; }
 
 			///
-			///Array list of unique IDs of packages in a shipment planned for or finished a shipping fulfillment action. 
+			///Array list of packages for which to perform the fulfillment action.
 			///
 			public List<string> PackageIds { get; set; }
 

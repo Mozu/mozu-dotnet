@@ -69,7 +69,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves a collection of all localized delta price values for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ProductExtraFactory.GetExtraValueLocalizedDeltaPrices(handler : handler,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -107,7 +107,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves the localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ProductExtraFactory.GetExtraValueLocalizedDeltaPrice(handler : handler,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  currencyCode :  currencyCode,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -183,7 +183,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Adds a localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ProductExtraFactory.AddExtraValueLocalizedDeltaPrice(handler : handler,  localizedDeltaPrice :  localizedDeltaPrice,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -259,7 +259,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates all localized delta price values for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ProductExtraFactory.UpdateExtraValueLocalizedDeltaPrices(handler : handler,  localizedDeltaPrice :  localizedDeltaPrice,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -297,7 +297,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Updates the localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ProductExtraFactory.UpdateExtraValueLocalizedDeltaPrice(handler : handler,  localizedDeltaPrice :  localizedDeltaPrice,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  currencyCode :  currencyCode,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
@@ -410,7 +410,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Deletes the localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ProductExtraFactory.DeleteExtraValueLocalizedDeltaPrice(handler : handler,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  currencyCode :  currencyCode,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 

@@ -25,13 +25,13 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// The Accounts resource displays the user accounts and account details associated with a developer or  tenant administrator. Email addresses uniquely identify admin user accounts.
+	/// Displays the user accounts and account details associated with a developer or Mozu tenant administrator. Email addresses uniquely identify admin user accounts.
 	/// </summary>
 	public partial class AdminUserFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// Retrieves a list of the  tenants or development stores for which the specified user has an assigned role.
+		/// Retrieves a list of the Mozu tenants or development stores for which the specified user has an assigned role.
 		/// <example> 
 		///  <code> 
 		/// var result = AdminUserFactory.GetTenantScopesForUser(handler : handler,  userId :  userId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

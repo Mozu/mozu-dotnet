@@ -259,7 +259,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Performs an update to a product code by renaming or replacing the current product code with a new one.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = ProductFactory.RenameProductCodes(handler : handler,  productCodeRenames :  productCodeRenames,  expectedCode: expectedCode, successCode: successCode); 

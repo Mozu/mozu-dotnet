@@ -183,7 +183,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Modifies the password associated with a customer account.
+		/// Modify the password associated with a customer account.
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerAccountFactory.ChangePassword(handler : handler,  passwordInfo :  passwordInfo,  accountId :  accountId,  unlockAccount :  unlockAccount,  expectedCode: expectedCode, successCode: successCode); 
@@ -445,7 +445,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Changes a collection of customer account passwords.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerAccountFactory.ChangePasswords(handler : handler,  accountPasswordInfos :  accountPasswordInfos,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
@@ -559,7 +559,7 @@ namespace Mozu.Api.Test.Factories
 		}
   
 		/// <summary> 
-		/// Retrieves a list of customer purchase order accounts according to according to any specified sort options.
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerAccountFactory.GetCustomersPurchaseOrderAccounts(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

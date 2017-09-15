@@ -14,69 +14,30 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.ProductRuntime
 {
-		///
-		///	The details of the price list.
-		///
 		public class PriceList
 		{
-			///
-			///A list of price lists and their details that describe the ancestor/parent hierarchy of the current price list. Each price list within this list is an ancestor/parent of the current price list. An ancestor/parent price list can have it's own ancestor/parent, which is denoted by .
-			///
 			public List<PriceListNode> Ancestors { get; set; }
 
-			///
-			///A list of price lists and their details that describe the descendant/child hierarchy of the current price list. Each price list within this list is an descendant/child of the current price list. A descendant/child price list can have it's own descendant/child, which is denoted by .
-			///
 			public List<PriceListNode> Descendants { get; set; }
 
-			///
-			///The localized description in text for the object, displayed per the locale code. For example, descriptions are used for product descriptions, attributes, and pre-authorization transaction types.
-			///
 			public string Description { get; set; }
 
-			///
-			///Indicates if a capability, function tied to an Arc.js action, application, or price list is enabled for the tenant/site. If true, the capability/application/function/price list is enabled for the tenant. System-supplied and read-only with the exception of functions tied to an Arc.js action and price lists.
-			///
 			public bool Enabled { get; set; }
 
-			///
-			///Indicates whether the price list is exclusive. When a price list is exclusive, shoppers that resolve to the exclusive price list can only view and purchase products that have price entries in the price list and any of its parents. The default is .
-			///
 			public bool FilteredInStoreFront { get; set; }
 
-			///
-			///Specifies whether the price list is indexed for the site.
-			///
 			public bool? IsIndexed { get; set; }
 
-			///
-			///Specifies whether the price list is the default price list for the site. Refer to [Default](../../../guides/catalog/price-lists.htm#default) in the Price Lists guides topic for more information. 
-			///
 			public bool IsSiteDefault { get; set; }
 
-			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
-			///
 			public string Name { get; set; }
 
-			///
-			///The unique, user-defined code of the price list.
-			///
 			public string PriceListCode { get; set; }
 
-			///
-			///The internal identifier of the price list.
-			///
 			public int PriceListId { get; set; }
 
-			///
-			///Specifies whether the price list is resolvable. When ,  is able to apply the price list and its product pricing directly to a shopper. When ,  is unable to apply the price list and its product pricing directly to a shopper; however  can still apply the price list to a shopper if it is a parent of a resolvable price list. Refer to [Resolution](../../../guides/catalog/price-lists.htm#resolution) in the Price Lists guides topic for more information.
-			///
 			public bool Resolvable { get; set; }
 
-			///
-			///A list of site identifiers for which the price list is valid.
-			///
 			public List<int> ValidSites { get; set; }
 
 		}

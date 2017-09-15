@@ -25,13 +25,13 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories
 {
 	/// <summary>
-	/// commerce/payments/fraudscreen related resources. DOCUMENT_HERE 
+	/// 
 	/// </summary>
 	public partial class FraudScreenFactory : BaseDataFactory
 	{
 
 		/// <summary> 
-		/// payments-fraudscreen Post Screen description DOCUMENT_HERE 
+		/// 
 		/// <example> 
 		///  <code> 
 		/// var result = FraudScreenFactory.Screen(handler : handler,  request :  request,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 

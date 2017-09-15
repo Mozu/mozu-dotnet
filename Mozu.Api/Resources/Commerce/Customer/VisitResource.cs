@@ -71,7 +71,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// Retrieves the details of the customer visit specified in the request.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="visitId">Unique identifier of the customer visit to update.</param>
+		/// <param name="visitId">Unique identifier of the customer visit to retrieve.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Visit"/>
 		/// </returns>
@@ -96,7 +96,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// Creates a new visit for the customer account specified in the request.
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="visit">Properties of a customer visit to one of a company's sites.</param>
+		/// <param name="visit">Properties of the visit to add to the customer account.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Visit"/>
 		/// </returns>
@@ -122,7 +122,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// </summary>
 		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
 		/// <param name="visitId">Unique identifier of the customer visit to update.</param>
-		/// <param name="visit">Properties of a customer visit to one of a company's sites.</param>
+		/// <param name="visit">Properties of the customer visit to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Visit"/>
 		/// </returns>
