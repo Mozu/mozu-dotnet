@@ -40,9 +40,9 @@ namespace Mozu.Api.Resources.Commerce.Settings.Checkout
 				
 
 		/// <summary>
-		/// Retrieves all checkout settings defined for the site: Payment settings, such as the payment gateway ID and credentials, supported credit cards, and more; Customer Checkout settings, such as whether login is required, and any custom attributes; and Order Processing settings, such as when payment is authorized and captured, and any custom attributes.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.Order.CustomerCheckoutSettings"/>
 		/// </returns>
@@ -64,9 +64,9 @@ namespace Mozu.Api.Resources.Commerce.Settings.Checkout
 
 
 		/// <summary>
-		/// Modifies existing site checkout settings. Modify Payment, Customer Checkout, and Order Processing settings in one PUT.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="customerCheckoutSettings">The properties of the customer checkout settings such as whether shoppers must be logged in.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.Order.CustomerCheckoutSettings"/>

@@ -18,14 +18,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class FacetValidity
 		{
-			///
-			///Indicates if the facet is currently valid.
-			///
 			public bool IsValid { get; set; }
 
-			///
-			///A code indicating the reason why a facet is invalid.
-			///
 			public string ReasonCode { get; set; }
 
 		}

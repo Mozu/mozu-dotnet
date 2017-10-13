@@ -24,9 +24,6 @@ namespace Mozu.Api.Contracts.AppDev
 			///
 			public string AppKey { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationEntitlement applicationEntitlementId ApiTypeMember DOCUMENT_HERE 
-			///
 			public int ApplicationEntitlementId { get; set; }
 
 			///
@@ -34,9 +31,6 @@ namespace Mozu.Api.Contracts.AppDev
 			///
 			public int ApplicationId { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationEntitlement applicationLicenseType ApiTypeMember DOCUMENT_HERE 
-			///
 			public string ApplicationLicenseType { get; set; }
 
 			///
@@ -49,9 +43,6 @@ namespace Mozu.Api.Contracts.AppDev
 			///
 			public string ApplicationStatusId { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationEntitlement applicationTransactions ApiTypeMember DOCUMENT_HERE 
-			///
 			public List<ApplicationTransaction> ApplicationTransactions { get; set; }
 
 			///
@@ -69,19 +60,10 @@ namespace Mozu.Api.Contracts.AppDev
 			///
 			public int DevAccountId { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationEntitlement effectiveEndDate ApiTypeMember DOCUMENT_HERE 
-			///
 			public DateTime? EffectiveEndDate { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationEntitlement effectiveStartDate ApiTypeMember DOCUMENT_HERE 
-			///
 			public DateTime? EffectiveStartDate { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationEntitlement entitlementStatus ApiTypeMember DOCUMENT_HERE 
-			///
 			public string EntitlementStatus { get; set; }
 
 			///
@@ -114,14 +96,8 @@ namespace Mozu.Api.Contracts.AppDev
 			///
 			public string PackageName { get; set; }
 
-			///
-			///Unique identifier for the site. This ID is used at all levels of a store, catalog, and tenant to associate objects to a site.
-			///
 			public int? SiteId { get; set; }
 
-			///
-			///Unique identifier of the Mozu tenant.
-			///
 			public int TenantId { get; set; }
 
 			///

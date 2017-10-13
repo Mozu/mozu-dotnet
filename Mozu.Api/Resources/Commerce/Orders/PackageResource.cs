@@ -40,7 +40,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 				
 
 		/// <summary>
-		/// Retrieves a list of the actions available to perform for a package associated with order fulfillment.
+		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
@@ -65,7 +65,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 
 		/// <summary>
-		/// Retrieves the package label image supplied by the carrier.
+		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
@@ -90,11 +90,11 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 
 		/// <summary>
-		/// Retrieves the details of a package of order items.
+		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>
 		/// </returns>
@@ -116,10 +116,10 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 
 		/// <summary>
-		/// Creates a new physical package of order items.
+		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="package">Properties of a physical package shipped for an order.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>
@@ -142,11 +142,11 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 
 		/// <summary>
-		/// Updates one or more properties of a physical package of order items.
+		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="package">Properties of a physical package shipped for an order.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>
@@ -169,7 +169,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 
 		/// <summary>
-		/// Removes a physical package of items from the specified order.
+		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>

@@ -19,14 +19,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class PublishingScope
 		{
-			///
-			///Specifies whether all the pending product drafts are affected by the operation performed. For example, when you perform the PublishDrafts operation and you set this field to true, all pending product changes in the master catalog or in a publish set are published.
-			///
 			public bool? AllPending { get; set; }
 
-			///
-			///A list of product codes of associated products. When this field is in the Product Publishing resource, you can use this field  to publish or delete individual pending product changes, or assign individual pending product changes to a publish set.
-			///
 			public List<string> ProductCodes { get; set; }
 
 			///

@@ -40,10 +40,10 @@ namespace Mozu.Api.Resources.Commerce.Orders
 				
 
 		/// <summary>
-		/// Retrieves information about all payment transactions submitted for the specified order.
+		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentCollection"/>
 		/// </returns>
@@ -65,7 +65,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 
 		/// <summary>
-		/// Retrieves the list of all available payment actions dependent on the order payment status by specifying the order ID.
+		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="paymentId">Unique identifier of the payment for which to perform the action.</param>
@@ -90,11 +90,11 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 
 		/// <summary>
-		/// Retrieves information about a specific payment transaction submitted for the specified order.
+		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="paymentId">Unique identifier of the payment for which to perform the action.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Payments.Payment"/>
 		/// </returns>
@@ -116,11 +116,11 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 
 		/// <summary>
-		/// Performs the specified action for an individual order payment transaction.
+		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="paymentId">Unique identifier of the payment for which to perform the action.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="action">Properties of the payment action performed for an order.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
@@ -143,10 +143,10 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 
 		/// <summary>
-		/// Creates a new payment transaction for the specified order and performs the specified action.
+		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="action">Properties of the payment action performed for an order.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>

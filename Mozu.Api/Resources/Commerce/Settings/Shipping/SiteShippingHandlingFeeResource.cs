@@ -40,9 +40,9 @@ namespace Mozu.Api.Resources.Commerce.Settings.Shipping
 				
 
 		/// <summary>
-		/// Retrieves the details of the order handling fee configured for the site.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee"/>
 		/// </returns>
@@ -64,9 +64,9 @@ namespace Mozu.Api.Resources.Commerce.Settings.Shipping
 
 
 		/// <summary>
-		/// Creates a new order handling fee for the site.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="orderHandlingFee">Properties of the handling fee to apply to order shipments for the site.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee"/>
@@ -89,9 +89,9 @@ namespace Mozu.Api.Resources.Commerce.Settings.Shipping
 
 
 		/// <summary>
-		/// Updates the order handling fee amount for the site.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="orderHandlingFee">Properties of the handling fee to apply to order shipments for the site.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee"/>

@@ -23,7 +23,7 @@ namespace Mozu.Api.Clients.Commerce.Settings
 	public partial class CartSettingsClient 	{
 		
 		/// <summary>
-		/// Retrieves cart settings.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
@@ -47,7 +47,7 @@ namespace Mozu.Api.Clients.Commerce.Settings
 		}
 
 		/// <summary>
-		/// Creates cart settings.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="cartSettings"></param>
@@ -72,7 +72,7 @@ namespace Mozu.Api.Clients.Commerce.Settings
 		}
 
 		/// <summary>
-		/// Updates cart settings.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="cartSettings"></param>

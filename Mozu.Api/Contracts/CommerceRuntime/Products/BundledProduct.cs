@@ -50,7 +50,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			public string FulfillmentStatus { get; set; }
 
 			///
-			///The type of goods in a bundled product. A bundled product is composed of products associated to sell together. Possible values include “Physical” and “DigitalCredit”. This comes from the `productType `of the product. Products are defaulted to a Physical `goodsType`. Gift cards have a `goodsType `of DigitalCredit.
+			///The type of goods in a bundled product. A bundled product is composed of products associated to sell together. Possible values include â€œPhysicalâ€ and â€œDigitalCreditâ€. This comes from the `productType `of the product. Products are defaulted to a Physical `goodsType`. Gift cards have a `goodsType `of DigitalCredit.
 			///
 			public string GoodsType { get; set; }
 

@@ -20,24 +20,12 @@ namespace Mozu.Api.Contracts.Customer
 		///
 		public class CustomerAttribute
 		{
-			///
-			///Unique identifier of the attribute definition.
-			///
 			public int? AttributeDefinitionId { get; set; }
 
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
 			public AuditInfo AuditInfo { get; set; }
 
-			///
-			///The fully qualified name of the attribute, which is a user defined attribute identifier.
-			///
 			public string FullyQualifiedName { get; set; }
 
-			///
-			///List of value data for objects.
-			///
 			public List<object> Values { get; set; }
 
 		}

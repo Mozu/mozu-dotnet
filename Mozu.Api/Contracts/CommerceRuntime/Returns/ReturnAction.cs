@@ -19,14 +19,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 		///
 		public class ReturnAction
 		{
-			///
-			///The name of the action to perform for the payment, fulfillment, order, or return.
-			///
 			public string ActionName { get; set; }
 
-			///
-			///The list of returns for which to perform the action.
-			///
 			public List<string> ReturnIds { get; set; }
 
 		}

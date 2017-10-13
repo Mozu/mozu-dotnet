@@ -40,7 +40,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 				
 
 		/// <summary>
-		/// Retrieves a list of the attributes defined for the order specified in the request.
+		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <returns>
@@ -64,7 +64,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 
 		/// <summary>
-		/// Applies a list of attributes to the order specified in the request and defines a value for each attribute in the request body.
+		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="orderAttributes">Properties of an attribute applied to an order.</param>
@@ -89,7 +89,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 
 		/// <summary>
-		/// Updates one or more properties of an attribute defined for the order specified in the request.
+		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="removeMissing">If true, the operation removes missing properties so that the updated order attributes will not show properties with a null value.</param>

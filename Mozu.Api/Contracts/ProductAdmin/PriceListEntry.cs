@@ -130,6 +130,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public int PriceListEntrySequence { get; set; }
 
+			///
+			///The unique identifier of the price list entry type.
+			///
 			public string PriceListEntryTypeCode { get; set; }
 
 			///

@@ -23,9 +23,9 @@ namespace Mozu.Api.Clients.Commerce.Settings
 	public partial class GeneralSettingsClient 	{
 		
 		/// <summary>
-		/// Retrieve a site's general global settings.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.General.GeneralSettings"/>}
 		/// </returns>
@@ -47,9 +47,9 @@ namespace Mozu.Api.Clients.Commerce.Settings
 		}
 
 		/// <summary>
-		/// Updates a site's general global settings.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="generalSettings">General settings used on the storefront site.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.General.GeneralSettings"/>}

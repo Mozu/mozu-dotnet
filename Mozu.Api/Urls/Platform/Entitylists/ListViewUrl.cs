@@ -21,7 +21,7 @@ namespace Mozu.Api.Urls.Platform.Entitylists
         /// </summary>
         /// <param name="entityId">Unique identifier for an entity, which defines the schema, rules, and formats for JSON entities within the MZDB ( Mongo DB).</param>
         /// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <param name="viewName">The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
         /// <returns>
         /// String - Resource Url
@@ -41,9 +41,9 @@ namespace Mozu.Api.Urls.Platform.Entitylists
         /// Get Resource Url for GetViewEntities
         /// </summary>
         /// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
-        /// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
+        /// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
         /// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
         /// <param name="viewName">The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
         /// <returns>
@@ -67,7 +67,7 @@ namespace Mozu.Api.Urls.Platform.Entitylists
         /// </summary>
         /// <param name="entityId">Unique identifier for an entity, which defines the schema, rules, and formats for JSON entities within the MZDB ( Mongo DB).</param>
         /// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <param name="viewName">The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
         /// <returns>
         /// String - Resource Url
@@ -87,9 +87,9 @@ namespace Mozu.Api.Urls.Platform.Entitylists
         /// Get Resource Url for GetViewEntityContainers
         /// </summary>
         /// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
-        /// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
+        /// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
         /// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
         /// <param name="viewName">The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
         /// <returns>
@@ -112,7 +112,7 @@ namespace Mozu.Api.Urls.Platform.Entitylists
         /// Get Resource Url for GetEntityListView
         /// </summary>
         /// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <param name="viewName">The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
         /// <returns>
         /// String - Resource Url
@@ -131,7 +131,7 @@ namespace Mozu.Api.Urls.Platform.Entitylists
         /// Get Resource Url for GetEntityListViews
         /// </summary>
         /// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -148,7 +148,7 @@ namespace Mozu.Api.Urls.Platform.Entitylists
         /// Get Resource Url for CreateEntityListView
         /// </summary>
         /// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -165,7 +165,7 @@ namespace Mozu.Api.Urls.Platform.Entitylists
         /// Get Resource Url for UpdateEntityListView
         /// </summary>
         /// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <param name="viewName">The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
         /// <returns>
         /// String - Resource Url

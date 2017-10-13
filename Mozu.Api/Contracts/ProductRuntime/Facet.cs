@@ -19,24 +19,12 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		///
 		public class Facet
 		{
-			///
-			///The type of facet. Valid values are "range" (enables creation of a range of values) or "value" (populates the facet values based on the associated attribute or category).
-			///
 			public string FacetType { get; set; }
 
-			///
-			///The field name associated with the facet.
-			///
 			public string Field { get; set; }
 
-			///
-			///Descriptive text used as a label for objects, such as field names, facets, date ranges, contact information, and package information.
-			///
 			public string Label { get; set; }
 
-			///
-			///List of value data for objects.
-			///
 			public List<FacetValue> Values { get; set; }
 
 		}

@@ -23,7 +23,7 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 	public partial class CustomerPurchaseOrderAccountClient 	{
 		
 		/// <summary>
-		/// Retrieves the details of the specified customer purchase order account.
+		/// 
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -48,7 +48,7 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		}
 
 		/// <summary>
-		/// Retrieves a list of purchase order transactions for the specified customer account according to any specified sort options.
+		/// 
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
@@ -77,7 +77,7 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		}
 
 		/// <summary>
-		/// Adds a purchase order account to the specified customer account.This adds the ability for the specified customer account to use the purchase order payment method.
+		/// 
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -103,7 +103,7 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		}
 
 		/// <summary>
-		/// Creates a purchase order transaction on the specified customer purchase order account.
+		/// 
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -129,7 +129,7 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		}
 
 		/// <summary>
-		/// Updates the details of the purchase order account for the specified customer account.
+		/// 
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -155,7 +155,7 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		}
 
 		/// <summary>
-		/// Deletes the specified customer purchase order account.This removes the ability for the specified customer account to use the purchase order payment method.
+		/// 
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <returns>

@@ -40,7 +40,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Couponsets
 				
 
 		/// <summary>
-		/// Retrieves the discountIds of any assigned discounts for the specified coupon set.
+		/// 
 		/// </summary>
 		/// <param name="couponSetCode">The unique identifier of the coupon set.</param>
 		/// <returns>
@@ -64,7 +64,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Couponsets
 
 
 		/// <summary>
-		/// Assigns or associates an existing discount to a specified coupon set. Use the couponSetCode parameter to specify the coupon set.
+		/// 
 		/// </summary>
 		/// <param name="couponSetCode">The unique identifier of the coupon set.</param>
 		/// <param name="assignedDiscount">The details of the discount assigned to the coupon set.</param>
@@ -88,7 +88,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Couponsets
 
 
 		/// <summary>
-		/// Unassigns or disassociates the specified discount with the specified coupon set.
+		/// 
 		/// </summary>
 		/// <param name="couponSetCode">The unique identifier of the coupon set.</param>
 		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>

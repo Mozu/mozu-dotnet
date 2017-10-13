@@ -33,24 +33,12 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public string InstallationPackage { get; set; }
 
-			///
-			///If true, this entity can be grouped.
-			///
 			public bool? IsAggregatable { get; set; }
 
-			///
-			///Indicates if the entity can be located and returned in a search, used for fields and property types. If true, the entity can be searched. 
-			///
 			public bool? IsQueryable { get; set; }
 
-			///
-			///Indicates if the fields or property types are sortable on the page. If true, the property type results are sortable. If false, the property type results cannot be sorted by any options.
-			///
 			public bool? IsSortable { get; set; }
 
-			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
-			///
 			public string Name { get; set; }
 
 			///

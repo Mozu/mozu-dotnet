@@ -18,19 +18,10 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class AttributeLocalizedContent
 		{
-			///
-			///The localized description in text for the object, displayed per the locale code. For example, descriptions are used for product descriptions, attributes, and pre-authorization transaction types.
-			///
 			public string Description { get; set; }
 
-			///
-			///Language used for the entity. Currently, only "en-US" is supported.
-			///
 			public string LocaleCode { get; set; }
 
-			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
-			///
 			public string Name { get; set; }
 
 		}

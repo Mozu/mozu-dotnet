@@ -23,10 +23,10 @@ namespace Mozu.Api.Clients.Platform.Developer
 	public partial class DeveloperAdminUserAuthTicketClient 	{
 		
 		/// <summary>
-		/// Generate an authentication ticket for a developer account.
+		/// 
 		/// </summary>
 		/// <param name="developerAccountId">Unique identifier of the developer account.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="userAuthInfo">Information required to authenticate a user.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket"/>}
@@ -49,10 +49,10 @@ namespace Mozu.Api.Clients.Platform.Developer
 		}
 
 		/// <summary>
-		/// Generates a new developer account authentication ticket for the specified tenant by supplying the defined refresh token information.
+		/// 
 		/// </summary>
 		/// <param name="developerAccountId">Unique identifier of the developer account.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="existingAuthTicket">Properties of the authentication ticket to be used in developer account claims with the  API.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket"/>}
@@ -75,7 +75,7 @@ namespace Mozu.Api.Clients.Platform.Developer
 		}
 
 		/// <summary>
-		/// Deletes the authentication ticket for the developer account by supplying the refresh token.
+		/// 
 		/// </summary>
 		/// <param name="refreshToken">Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.</param>
 		/// <returns>

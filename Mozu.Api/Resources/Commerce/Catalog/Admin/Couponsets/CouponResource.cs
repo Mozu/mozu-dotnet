@@ -40,7 +40,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Couponsets
 				
 
 		/// <summary>
-		/// Retrieves the details of the specified coupon. Use the couponSetCode and the couponCode parameter to specify the coupon within a coupon set. Use the includeCounts paramter to specify whether to return the redemptionCount property in the response body object.
+		/// 
 		/// </summary>
 		/// <param name="couponCode">Code associated with the coupon to remove from the cart.</param>
 		/// <param name="couponSetCode">The unique identifier of the coupon set that the coupon belongs to.</param>
@@ -67,7 +67,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Couponsets
 
 
 		/// <summary>
-		/// Retrieves a list of coupons in a specified coupon set according to any specified filter criteria and sort options.
+		/// 
 		/// </summary>
 		/// <param name="couponSetCode">The unique identifier of the coupon set that the coupons belongs to.</param>
 		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
@@ -97,7 +97,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Couponsets
 
 
 		/// <summary>
-		/// Adds coupons  to a specified manual coupon set. Use the couponSetCode parameter to specify the manual coupon set.
+		/// 
 		/// </summary>
 		/// <param name="couponSetCode">The unique identifier of the coupon set.</param>
 		/// <param name="coupons">The details necessary to assign the discount to a coupon set, including .</param>
@@ -121,7 +121,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Couponsets
 
 
 		/// <summary>
-		/// Deletes the specified coupons and removes them from the coupon set. You can only delete a coupon if it has not been redeemed. Use the canBeDeleted property to determine whether a coupon can be deleted.
+		/// 
 		/// </summary>
 		/// <param name="couponSetCode">The unique identifier of the coupon set that the coupon belongs to.</param>
 		/// <param name="couponCodes">The unique identifiers of the coupons to delete.</param>
@@ -145,7 +145,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Couponsets
 
 
 		/// <summary>
-		/// Deletes the specified coupon and remove it from the coupon set. You can only delete a coupon if it has not been redeemed. Use the canBeDeleted property to determine whether a coupon can be deleted.
+		/// 
 		/// </summary>
 		/// <param name="couponCode">Code associated with the coupon to remove from the cart.</param>
 		/// <param name="couponSetCode">The unique identifier of the coupon set that the coupon belongs to.</param>

@@ -70,7 +70,7 @@ namespace Mozu.Api.Urls.Content.Documentlists
         /// <param name="documentListName">Name of content documentListName to delete</param>
         /// <param name="documentName">The name of the document in the site.</param>
         /// <param name="includeInactive">Include inactive content.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

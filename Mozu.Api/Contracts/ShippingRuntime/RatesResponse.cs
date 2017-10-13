@@ -19,9 +19,8 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 		///
 		public class RatesResponse
 		{
-			///
-			///Arrayed list of calculated shipping rates for each assocuated carrier.
-			///
+			public string Id { get; set; }
+
 			public List<CarrierRatesResponse> Rates { get; set; }
 
 			///

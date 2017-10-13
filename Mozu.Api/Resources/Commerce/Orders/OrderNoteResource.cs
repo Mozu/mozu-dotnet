@@ -40,7 +40,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 				
 
 		/// <summary>
-		/// Retrieves a list of all notes for an order.
+		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <returns>
@@ -64,11 +64,11 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 
 		/// <summary>
-		/// Retrieves the details of a specific order note.
+		/// 
 		/// </summary>
 		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
 		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote"/>
 		/// </returns>
@@ -90,10 +90,10 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 
 		/// <summary>
-		/// Creates a new merchant note for the specified order.
+		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="orderNote">Properties of an order note for a merchant, which is internal only for administrative purposes and not available to the shopper.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote"/>
@@ -116,11 +116,11 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 
 		/// <summary>
-		/// Updates a specific note for an order.
+		/// 
 		/// </summary>
 		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
 		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="orderNote">Properties of an order note for a merchant, which is internal only for administrative purposes and not available to the shopper.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote"/>
@@ -143,7 +143,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 
 		/// <summary>
-		/// Deletes the specified order note.
+		/// 
 		/// </summary>
 		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
 		/// <param name="orderId">Unique identifier of the order.</param>

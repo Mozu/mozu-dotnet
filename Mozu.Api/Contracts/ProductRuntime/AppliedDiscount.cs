@@ -18,19 +18,10 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		///
 		public class AppliedDiscount
 		{
-			///
-			///Alphanumeric code associated with the coupon or promotion that results in a discounted price.
-			///
 			public string CouponCode { get; set; }
 
-			///
-			///Name of the discount added and applied to a shopping cart and order for a shopper's purchase. 
-			///
 			public Discount Discount { get; set; }
 
-			///
-			///The value of the discount applied to the cart or order, represented as a negative currency amount to apply to the original price.
-			///
 			public decimal Impact { get; set; }
 
 		}

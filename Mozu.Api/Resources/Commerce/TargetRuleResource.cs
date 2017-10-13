@@ -40,7 +40,7 @@ namespace Mozu.Api.Resources.Commerce
 				
 
 		/// <summary>
-		/// Retrieves a list of target rules and their details according to any specified facets, filter criteria, and sort options.
+		/// 
 		/// </summary>
 		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
 		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
@@ -69,7 +69,7 @@ namespace Mozu.Api.Resources.Commerce
 
 
 		/// <summary>
-		/// Retrieves the details of the specified target rule.
+		/// 
 		/// </summary>
 		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -95,7 +95,7 @@ namespace Mozu.Api.Resources.Commerce
 
 
 		/// <summary>
-		/// Creates a new target rule.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
@@ -121,7 +121,7 @@ namespace Mozu.Api.Resources.Commerce
 
 
 		/// <summary>
-		/// Validates the details of a target rule.
+		/// 
 		/// </summary>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="targetRule">The details of the target rule you want to validate.</param>
@@ -145,7 +145,7 @@ namespace Mozu.Api.Resources.Commerce
 
 
 		/// <summary>
-		/// Updates the details of the specified target rule.
+		/// 
 		/// </summary>
 		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -172,7 +172,7 @@ namespace Mozu.Api.Resources.Commerce
 
 
 		/// <summary>
-		/// Deletes the specified target rule.
+		/// 
 		/// </summary>
 		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>

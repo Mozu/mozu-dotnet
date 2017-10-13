@@ -41,9 +41,6 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public JObject Metadata { get; set; }
 
-			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
-			///
 			public string Name { get; set; }
 
 			///

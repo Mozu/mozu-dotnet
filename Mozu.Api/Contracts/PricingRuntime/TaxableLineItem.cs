@@ -26,36 +26,46 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///
 			public JObject Data { get; set; }
 
+			public Address DestinationAddress { get; set; }
+
+			///
+			///The subtotal of the cart, order, and wishlist items, including any applied discount calculations. Wishlist subtotals may change depending on the length of time, available discounts, and stock amounts of products at the time of review by shoppers.
+			///
 			public decimal? DiscountedTotal { get; set; }
 
+			///
+			///Estimated amount of discounts applied to all items in the carts and orders. System-supplied and read-only. This value will be available at the wish list, cart item, order item, and wish list item level at a later time.
+			///
 			public decimal? DiscountTotal { get; set; }
 
+			///
+			///The monetary sum of all fees incurred in the cart, order, line item in a cart, or line item in an order. This value is not calculated for wish lists at this time.
+			///
 			public decimal? FeeTotal { get; set; }
 
+			///
+			///The combined price for all handling costs calculated together for shipped orders, not for digital or in-store pickup. This includes all handling costs per the product line items and options, excluding taxes and discounts.
+			///
 			public decimal? HandlingAmount { get; set; }
 
-			///
-			///Unique identifier of the source property, such as a catalog, discount, order, or email template.For a product field it will be the name of the field.For a category ID, must be a positive integer not greater than 2000000. By default,  auto-generates a category ID when categories are created. If you want to specify an ID during creation (which preserves category link relationships when migrating tenant data from one sandbox to another), you must also include the  query string in the endpoint. For example, . Then, use the  property to specify the desired category ID.For a product attribute it will be the Attribute FQN.For a document, the ID must be specified as a 32 character, case-insensitive, alphanumeric string. You can specify the ID as 32 sequential characters or as groups separated by dashes in the format 8-4-4-4-12. For example, or.For email templates, the ID must be one of the following values:///
-			///
 			public string Id { get; set; }
 
-			///
-			///Indicates if the item is subject to taxation, used by products, options, extras, cart and order items, line items, and wish lists. If true, the entity is subject to tax based on the relevant tax rate and rules.
-			///
 			public bool? IsTaxable { get; set; }
 
-			///
-			///The sale price of the line item in the order.
-			///
 			public decimal LineItemPrice { get; set; }
 
-			///
-			///Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-			///
+			public Address OriginAddress { get; set; }
+
 			public string ProductCode { get; set; }
 
+			///
+			///The applicable product discount for an associated cart, order, or wish list.
+			///
 			public AppliedLineItemProductDiscount ProductDiscount { get; set; }
 
+			///
+			///List of product-level discounts projected to apply to a cart, order, or wish list.
+			///
 			public List<AppliedLineItemProductDiscount> ProductDiscounts { get; set; }
 
 			///
@@ -63,14 +73,8 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///
 			public string ProductName { get; set; }
 
-			///
-			///Properties of the product that represents the line item in the order.
-			///
 			public List<ProductProperty> ProductProperties { get; set; }
 
-			///
-			///The specified quantity of objects and items. This property is used for numerous object types including products, options, components within a product bundle, cart and order items, returned items, shipping line items, items in a digital product. and items associated with types and reservations.
-			///
 			public int Quantity { get; set; }
 
 			///
@@ -78,13 +82,16 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///
 			public string Reason { get; set; }
 
-			///
-			///The calculated monetary amount of shipping for a line items within and an entire order.
-			///
 			public decimal ShippingAmount { get; set; }
 
+			///
+			///The shipping discount applied to the taxable line item.
+			///
 			public AppliedLineItemShippingDiscount ShippingDiscount { get; set; }
 
+			///
+			///List of shipping discounts projected to apply to carts, orders, and wish lists and items at checkout.
+			///
 			public List<AppliedLineItemShippingDiscount> ShippingDiscounts { get; set; }
 
 			///

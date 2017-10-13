@@ -24,14 +24,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 		///
 		public class Return
 		{
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
 			public AuditInfo AuditInfo { get; set; }
 
-			///
-			///Available actions you can complete for an order. These actions may differ depending on the status of the order, such as actions required to enter a payment, return of a package, and fulfillment of a shipment.
-			///
 			public List<string> AvailableActions { get; set; }
 
 			///
@@ -39,9 +33,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///
 			public List<ChangeMessage> ChangeMessages { get; set; }
 
-			///
-			///Code that identifies the channel associated with the site for the shopper's created shopping cart, order, and return.
-			///
 			public string ChannelCode { get; set; }
 
 			///
@@ -49,49 +40,22 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///
 			public Contact Contact { get; set; }
 
-			///
-			///3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
-			///
 			public string CurrencyCode { get; set; }
 
-			///
-			///Unique identifer of the customer account. This ID is used to associate numerous types of data and object with the customer account, including orders, returns, wish lists, and in-store credit.
-			///
 			public int? CustomerAccountId { get; set; }
 
-			///
-			///The type of customer interaction used to create this shopping cart. Possible values are Website, Call, Store, or Unknown.
-			///
 			public string CustomerInteractionType { get; set; }
 
-			///
-			///Unique identifier of the source property, such as a catalog, discount, order, or email template.For a product field it will be the name of the field.For a category ID, must be a positive integer not greater than 2000000. By default,  auto-generates a category ID when categories are created. If you want to specify an ID during creation (which preserves category link relationships when migrating tenant data from one sandbox to another), you must also include the  query string in the endpoint. For example, . Then, use the  property to specify the desired category ID.For a product attribute it will be the Attribute FQN.For a document, the ID must be specified as a 32 character, case-insensitive, alphanumeric string. You can specify the ID as 32 sequential characters or as groups separated by dashes in the format 8-4-4-4-12. For example, or.For email templates, the ID must be one of the following values:///
-			///
 			public string Id { get; set; }
 
-			///
-			///An array list of objects in the returned collection.
-			///
 			public List<ReturnItem> Items { get; set; }
 
-			///
-			///The unique, user-defined code that identifies a location. This location can be the location where the order was entered, location for newly in-stock products, and where products are returned.
-			///
 			public string LocationCode { get; set; }
 
-			///
-			///The total value of the return to the merchant for accounting purposes. This total represents the combined product loss and shipping loss associated with the return.
-			///
 			public decimal? LossTotal { get; set; }
 
-			///
-			///Paged list collection of note content for objects including customers, orders, and returns. 
-			///
 			public List<OrderNote> Notes { get; set; }
 
-			///
-			///If this return is associated with a previously completed order, the unique identifier of the original order.
-			///
 			public string OriginalOrderId { get; set; }
 
 			///
@@ -99,24 +63,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///
 			public int? OriginalOrderNumber { get; set; }
 
-			///
-			///Array list of physical packages shipped for a specified order.
-			///
 			public List<Package> Packages { get; set; }
 
-			///
-			///Wrapper for a collection of payments associated with an order or return. An order can include a number of payments until the full total is covered. 
-			///
 			public List<Payment> Payments { get; set; }
 
-			///
-			///The total tax amount levied on the product loss amount.
-			///
 			public decimal? ProductLossTaxTotal { get; set; }
 
-			///
-			///The total value of the product returned to the merchant for accounting purposes, calculated by multiplying the cost of the item by its quantity returned.
-			///
 			public decimal? ProductLossTotal { get; set; }
 
 			///
@@ -124,9 +76,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///
 			public string ReceiveStatus { get; set; }
 
-			///
-			///If a refund action was performed for this return, the total amount refunded to the shopper. The refund amount can differ from the sum of the price of the returned items.
-			///
 			public decimal? RefundAmount { get; set; }
 
 			///
@@ -139,64 +88,28 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///
 			public string ReplaceStatus { get; set; }
 
-			///
-			///A merchant-specific identifier used to sequentially order returns.
-			///
 			public int? ReturnNumber { get; set; }
 
-			///
-			///Unique identifier for the last order created as a result of the return. If the return results in shipping a replacement item, the order includes shipment information for the replaced items. If the return results in a refund, the order includes payment transactions to credit the shopper.
-			///
 			public string ReturnOrderId { get; set; }
 
-			///
-			///The type of return, which is  or .At the top-level return level, this field is DEPRECATED because Refund and Replace items can now be mixed within a single return. For backwards-compatibility with older applications, the field defaults to .
-			///
 			public string ReturnType { get; set; }
 
-			///
-			///The date by which a shopper must ship items associated with a return in an "awaiting items" state to the merchant.
-			///
 			public DateTime? RmaDeadline { get; set; }
 
-			///
-			///The total tax amount levied on the shipping loss amount.
-			///
 			public decimal? ShippingLossTaxTotal { get; set; }
 
-			///
-			///The total value of shipping the returned product to the merchant for accounting purposes, calculated by multiplying the shipping cost of the item by its quantity returned.
-			///
 			public decimal? ShippingLossTotal { get; set; }
 
-			///
-			///Unique identifier of the site.
-			///
 			public int? SiteId { get; set; }
 
-			///
-			///The current status of the object.This value is read only. Valid values for this field are: "Active", "Expired", and "Inactive".
-			///
 			public string Status { get; set; }
 
-			///
-			///Unique identifier of the Mozu tenant.
-			///
 			public int? TenantId { get; set; }
 
-			///
-			///Unique identifier of the customer account (shopper or system user). System-supplied and read-only. If the shopper user is anonymous, the user ID represents a system-generated user ID string.
-			///
 			public string UserId { get; set; }
 
-			///
-			///Unique identifier of the customer visit in which the cart was created or last modified.
-			///
 			public string VisitId { get; set; }
 
-			///
-			///Unique identifier of the web session in which the cart, order, return, or wish list was created or last modified.
-			///
 			public string WebSessionId { get; set; }
 
 		}

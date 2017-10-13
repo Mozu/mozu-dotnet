@@ -27,7 +27,7 @@ namespace Mozu.Api.Contracts.MZDB
 			public string ContextLevel { get; set; }
 
 			///
-			///The date and time in UTC format set when the object was created.
+			///The date and time in UTCÂ format set when the object was created.
 			///
 			public DateTime CreateDate { get; set; }
 

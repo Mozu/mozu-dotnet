@@ -40,7 +40,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 				
 
 		/// <summary>
-		/// Creates an authentication ticket for an anonymous shopper user.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
@@ -64,9 +64,9 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 
 		/// <summary>
-		/// Generates a new authentication ticket for a customer account.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="userAuthInfo">The authentication information required to generate an authentication ticket for a customer account.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>
@@ -89,10 +89,10 @@ namespace Mozu.Api.Resources.Commerce.Customer
 
 
 		/// <summary>
-		/// Refreshes an existing authentication ticket for a customer account by providing the refresh token string.
+		/// 
 		/// </summary>
 		/// <param name="refreshToken">Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>
 		/// </returns>

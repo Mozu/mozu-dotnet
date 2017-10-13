@@ -39,7 +39,7 @@ namespace Mozu.Api.Urls.Commerce.Returns
         /// Get Resource Url for GetPackage
         /// </summary>
         /// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
         /// <returns>
         /// String - Resource Url
@@ -57,7 +57,7 @@ namespace Mozu.Api.Urls.Commerce.Returns
 				/// <summary>
         /// Get Resource Url for CreatePackage
         /// </summary>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
         /// <returns>
         /// String - Resource Url
@@ -75,7 +75,7 @@ namespace Mozu.Api.Urls.Commerce.Returns
         /// Get Resource Url for UpdatePackage
         /// </summary>
         /// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
         /// <returns>
         /// String - Resource Url

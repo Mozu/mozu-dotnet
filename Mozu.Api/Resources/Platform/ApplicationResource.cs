@@ -44,7 +44,7 @@ namespace Mozu.Api.Resources.Platform
 				
 
 		/// <summary>
-		/// Returns a collection of package names for the application specified in the request.
+		/// 
 		/// </summary>
 		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -69,7 +69,7 @@ namespace Mozu.Api.Resources.Platform
 
 
 		/// <summary>
-		/// Retrieves the available versions for the application specified in the request.
+		/// 
 		/// </summary>
 		/// <param name="nsAndAppId">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -94,7 +94,7 @@ namespace Mozu.Api.Resources.Platform
 
 
 		/// <summary>
-		/// Retrieves the metadata for a file in an application package.
+		/// 
 		/// </summary>
 		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
 		/// <param name="filepath">Represents the file name and location.</param>
@@ -120,7 +120,7 @@ namespace Mozu.Api.Resources.Platform
 
 
 		/// <summary>
-		/// Retrieves the metadata for a folder in an application package.
+		/// 
 		/// </summary>
 		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -145,7 +145,7 @@ namespace Mozu.Api.Resources.Platform
 
 
 		/// <summary>
-		/// Insert or update the specified file into the specified application package.
+		/// 
 		/// </summary>
 		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
 		/// <param name="filepath">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
@@ -173,7 +173,7 @@ namespace Mozu.Api.Resources.Platform
 
 
 		/// <summary>
-		/// Renames a file in an application package.
+		/// 
 		/// </summary>
 		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -199,7 +199,7 @@ namespace Mozu.Api.Resources.Platform
 
 
 		/// <summary>
-		/// Deletes the specified file from the specified application package.
+		/// 
 		/// </summary>
 		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
 		/// <param name="filepath">Represents the file name and location.</param>

@@ -23,9 +23,9 @@ namespace Mozu.Api.Clients.Platform.Applications
 	public partial class AuthTicketClient 	{
 		
 		/// <summary>
-		/// Generate an authentication ticket for an application.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="appAuthInfo">The information required to authenticate third party applications against the  API.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.AppDev.AuthTicket"/>}
@@ -48,9 +48,9 @@ namespace Mozu.Api.Clients.Platform.Applications
 		}
 
 		/// <summary>
-		/// Refreshes the application's authentication ticket and generates a new access token by providing the refresh token string.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="authTicketRequest">Properties of the authentication ticket refresh requests, which includes the refresh token string.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.AppDev.AuthTicket"/>}
@@ -73,7 +73,7 @@ namespace Mozu.Api.Clients.Platform.Applications
 		}
 
 		/// <summary>
-		/// Deletes an authentication for an application based on the specified refresh token.
+		/// 
 		/// </summary>
 		/// <param name="refreshToken">Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.</param>
 		/// <returns>

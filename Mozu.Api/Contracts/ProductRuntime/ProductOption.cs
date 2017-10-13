@@ -19,29 +19,14 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		///
 		public class ProductOption
 		{
-			///
-			///The product attribute details common between all attribute types - properties, options, and extras.
-			///
 			public AttributeDetail AttributeDetail { get; set; }
 
-			///
-			///The fully qualified name of the attribute, which is a user defined attribute identifier.
-			///
 			public string AttributeFQN { get; set; }
 
-			///
-			///Indicates if the object has or can have multiple properties or values. If true, the object can have more than one value, selectable by shoppers through the storefront or configurable through the catalogs. 
-			///
 			public bool? IsMultiValue { get; set; }
 
-			///
-			///Indicates if the property, attribute, product option, or product extra is required. If true, the object must have a defined value.
-			///
 			public bool? IsRequired { get; set; }
 
-			///
-			///List of value data for objects.
-			///
 			public List<ProductOptionValue> Values { get; set; }
 
 		}

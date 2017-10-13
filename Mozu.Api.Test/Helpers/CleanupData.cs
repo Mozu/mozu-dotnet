@@ -6,8 +6,10 @@
 // ***********************************************************************
 using System;
 using System.Collections.Generic;
-using Mozu.Api.Test.Factories;
 using System.Net;
+using Mozu.Api.Test.Factories.Commerce.Catalog.Admin;
+using Mozu.Api.Test.Factories.Commerce.Catalog.Admin.Attributedefinition;
+using Mozu.Api.Test.Factories.Platform;
 
 namespace Mozu.Api.Test.Helpers
 {

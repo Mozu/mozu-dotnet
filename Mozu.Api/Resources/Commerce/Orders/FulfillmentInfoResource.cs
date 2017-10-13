@@ -40,11 +40,11 @@ namespace Mozu.Api.Resources.Commerce.Orders
 				
 
 		/// <summary>
-		/// Retrieves a list of the fulfillment information for the specified order.
+		/// 
 		/// </summary>
 		/// <param name="draft">If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.</param>
 		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.FulfillmentInfo"/>
 		/// </returns>
@@ -66,12 +66,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 
 
 		/// <summary>
-		/// Updates one or more properties of fulfillment information for the specified order.
+		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.</param>
+		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
 		/// <param name="fulfillmentInfo">Properties of the information needed to fulfill an order, whether via in-store pickup or direct shipping.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.FulfillmentInfo"/>

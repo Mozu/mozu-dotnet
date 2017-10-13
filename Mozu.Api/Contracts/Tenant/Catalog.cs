@@ -18,44 +18,20 @@ namespace Mozu.Api.Contracts.Tenant
 		///
 		public class Catalog
 		{
-			///
-			///The date and time in UTC format set when the object was created.
-			///
 			public DateTime CreateDate { get; set; }
 
-			///
-			///The default three-letter ISO currency code for monetary amounts. Currently, only "USD" is supported for U.S. Dollar.
-			///
 			public string DefaultCurrencyCode { get; set; }
 
-			///
-			///The two-letter default locale code for setting the localized text content. Currently, only "en-US" is supported for U.S. English.
-			///
 			public string DefaultLocaleCode { get; set; }
 
-			///
-			///The date and time the object was deleted. 
-			///
 			public DateTime DeleteDate { get; set; }
 
-			///
-			///Unique identifier of the source property, such as a catalog, discount, order, or email template.For a product field it will be the name of the field.For a category ID, must be a positive integer not greater than 2000000. By default,  auto-generates a category ID when categories are created. If you want to specify an ID during creation (which preserves category link relationships when migrating tenant data from one sandbox to another), you must also include the  query string in the endpoint. For example, . Then, use the  property to specify the desired category ID.For a product attribute it will be the Attribute FQN.For a document, the ID must be specified as a 32 character, case-insensitive, alphanumeric string. You can specify the ID as 32 sequential characters or as groups separated by dashes in the format 8-4-4-4-12. For example, or.For email templates, the ID must be one of the following values:///
-			///
 			public int Id { get; set; }
 
-			///
-			///Indicates if the object is deleted. If true, the object has been deleted. This may affect associated child members and objects. For example, a deleted master catalog affects all associated catalogs. 
-			///
 			public bool IsDeleted { get; set; }
 
-			///
-			///Unique identifier for the master catalog. 
-			///
 			public int MasterCatalogId { get; set; }
 
-			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
-			///
 			public string Name { get; set; }
 
 			///
@@ -68,9 +44,6 @@ namespace Mozu.Api.Contracts.Tenant
 			///
 			public int TenantId { get; set; }
 
-			///
-			///The date and time in UTC format the object was updated most recently.
-			///
 			public DateTime UpdateDate { get; set; }
 
 		}

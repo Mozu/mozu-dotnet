@@ -33,9 +33,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public decimal? CreditValue { get; set; }
 
-			///
-			///Name of the discount added and applied to a shopping cart and order for a shopper's purchase. 
-			///
 			public AppliedDiscount Discount { get; set; }
 
 			///
@@ -48,9 +45,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public decimal? Msrp { get; set; }
 
-			///
-			///The price the merchant intends to charge for the product.
-			///
 			public decimal? Price { get; set; }
 
 			///
@@ -68,9 +62,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public string PriceType { get; set; }
 
-			///
-			///The set sale price for a product consisting of a price with a discount already applied.For price list entries, this property is the product's sale price if the  is set to .
-			///
 			public decimal? SalePrice { get; set; }
 
 			///

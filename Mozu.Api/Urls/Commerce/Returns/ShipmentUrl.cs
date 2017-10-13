@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce.Returns
 		/// <summary>
         /// Get Resource Url for GetShipment
         /// </summary>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
         /// <param name="shipmentId">Unique identifier of the shipment to retrieve.</param>
         /// <returns>

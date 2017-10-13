@@ -19,9 +19,6 @@ namespace Mozu.Api.Contracts.Core.ThirdParty
 		///
 		public class ActiveShippingCountry
 		{
-			///
-			///Array list of the active shipping carriers for the country.
-			///
 			public List<string> ActiveCarriers { get; set; }
 
 			public string CountryCode { get; set; }

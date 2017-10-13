@@ -23,7 +23,7 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 	public partial class TransactionClient 	{
 		
 		/// <summary>
-		/// Retrieves a list of transactions associated with the customer account specified in the request.
+		/// 
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <returns>
@@ -47,10 +47,10 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		}
 
 		/// <summary>
-		/// Creates a new transaction for the customer account specified in the request.
+		/// 
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="transaction">Properties of a transaction performed by a customer account. The system creates a transaction each time the customer submits an order, returns an item, picks up items for an order, or manages items on a wish list.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.Transaction"/>}
@@ -73,7 +73,7 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		}
 
 		/// <summary>
-		/// Deletes a transaction from the customer account specified in the request.
+		/// 
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="transactionId">Unique identifier of the transaction to delete.</param>

@@ -47,11 +47,11 @@ namespace Mozu.Api.Resources.Content
 				
 
 		/// <summary>
-		/// Retrieves a collection of document lists.
+		/// 
 		/// </summary>
-		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="startIndex"></param>
+		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentListCollection"/>
 		/// </returns>
@@ -73,10 +73,10 @@ namespace Mozu.Api.Resources.Content
 
 
 		/// <summary>
-		/// Retrieve the details of a document list by providing the list name.
+		/// 
 		/// </summary>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentList"/>
 		/// </returns>
@@ -98,9 +98,9 @@ namespace Mozu.Api.Resources.Content
 
 
 		/// <summary>
-		/// Creates a new documentList
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="list">The list of document types and related properties that define content used by the content management system (CMS).</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentList"/>
@@ -123,10 +123,10 @@ namespace Mozu.Api.Resources.Content
 
 
 		/// <summary>
-		/// Updates a `DocumentListName`.
+		/// 
 		/// </summary>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="list">The list of document types and related properties that define content used by the content management system (CMS).</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentList"/>
@@ -149,7 +149,7 @@ namespace Mozu.Api.Resources.Content
 
 
 		/// <summary>
-		/// Deletes the specified `DocumentListName`.
+		/// 
 		/// </summary>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
 		/// <returns>

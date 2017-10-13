@@ -35,8 +35,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes
         /// Get Resource Url for GetAttributeLocalizedContent
         /// </summary>
         /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-        /// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="localeCode">The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -54,7 +54,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes
         /// Get Resource Url for AddLocalizedContent
         /// </summary>
         /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -86,8 +86,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes
         /// Get Resource Url for UpdateLocalizedContent
         /// </summary>
         /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-        /// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="localeCode">The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -105,7 +105,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes
         /// Get Resource Url for DeleteLocalizedContent
         /// </summary>
         /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-        /// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
+        /// <param name="localeCode">The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

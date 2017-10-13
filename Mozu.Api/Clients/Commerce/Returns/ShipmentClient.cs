@@ -23,9 +23,9 @@ namespace Mozu.Api.Clients.Commerce.Returns
 	public partial class ShipmentClient 	{
 		
 		/// <summary>
-		/// Retrieves the details of the specified return replacement shipment.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
 		/// <param name="shipmentId">Unique identifier of the shipment to retrieve.</param>
 		/// <returns>
@@ -49,7 +49,7 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		}
 
 		/// <summary>
-		/// Creates a shipment from one or more packages associated with a return replacement.
+		/// 
 		/// </summary>
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
 		/// <param name="packageIds">List of unique identifiers for each package associated with this shipment. Not all packages must belong to the same shipment.</param>
@@ -74,7 +74,7 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		}
 
 		/// <summary>
-		/// Deletes a shipment for a return replacement.
+		/// 
 		/// </summary>
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
 		/// <param name="shipmentId">Unique identifier of the shipment to retrieve.</param>

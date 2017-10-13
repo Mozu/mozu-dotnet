@@ -19,9 +19,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class DiscountLocalizedContent
 		{
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
 			public AuditInfo AuditInfo { get; set; }
 
 			///
@@ -29,14 +26,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public string FriendlyDescription { get; set; }
 
-			///
-			///Language used for the entity. Currently, only "en-US" is supported.
-			///
 			public string LocaleCode { get; set; }
 
-			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
-			///
 			public string Name { get; set; }
 
 		}

@@ -23,7 +23,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 	public partial class SearchClient 	{
 		
 		/// <summary>
-		/// Retrieves the details of the specified search tuning rule.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="searchTuningRuleCode">The unique identifier of the search tuning rule.</param>
@@ -48,7 +48,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Retrieves a list of search tuning rules and their properties.
+		/// 
 		/// </summary>
 		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
 		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
@@ -76,7 +76,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Retrieves the details of the specified search tuning rule sort fields. Sort fields allow you to control the product relevance whenver shoppers sort products on a page. For more information about sort relevance, refer to [Search Tuning Rules and Sorting](../../../developer/api-guides/search-tuning-rules.htm#search_tuning_rules_and_sorting).
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
@@ -100,7 +100,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Retrieves the search settings for the specified site.Refer to [Search Settings API Overview](../../../../developer/api-guides/search-settings.htm) for more information about 's search settings.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
@@ -124,7 +124,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Retrieves a collection of synonyms definitions for product searches.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
+		/// 
 		/// </summary>
 		/// <param name="localeCode">The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -149,7 +149,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Retrieves a list of synonym definitions according to any specified filter criteria and sort options.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
+		/// 
 		/// </summary>
 		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
 		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
@@ -177,7 +177,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Retrieves the details of the specified synonym defintion.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="synonymId">The unique identifier of the synonym definition.</param>
@@ -202,7 +202,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Creates a search tuning rule for your site. You can use search tuning rules to fine tune the product search results that appear when a shopper searches for a specific keyword, or navigates to a category page.For more information on search tuning rules, refer to [Search Tuning Rules](../../../../developer/api-guides/search-tuning-rules.htm).
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="searchTuningRuleIn">The details of the new search tuning rule.</param>
@@ -227,7 +227,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Updates the details of the search tuning rule sort fields.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="searchTuningRuleSortFieldsIn">The details of the updated search tuning rule sort fields.</param>
@@ -252,7 +252,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Updates a collection of synonym definitions.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
+		/// 
 		/// </summary>
 		/// <param name="localeCode">The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -278,7 +278,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Creates a new synonym definition.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="synonymDefinition">The details of the new synonym definition.</param>
@@ -303,7 +303,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Updates the details of the specified search tuning rule.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="searchTuningRuleCode">The unique identifier of the search tuning rule.</param>
@@ -329,7 +329,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Updates the search setting properties for a specific site.Refer to [Search Settings API Overview](../../../../developer/api-guides/search-settings.htm) for more information about 's search settings.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="settings">The search settings to update.</param>
@@ -354,7 +354,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Updates the details of a synonym definition.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="synonymId">The unique identifier of the synonym definition.</param>
@@ -380,7 +380,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Deletes the specified search tuning rule from the site.
+		/// 
 		/// </summary>
 		/// <param name="searchTuningRuleCode">The unique identifier of the search tuning rule.</param>
 		/// <returns>
@@ -404,7 +404,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Deletes the specified synonym definition.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
+		/// 
 		/// </summary>
 		/// <param name="synonymId">The unique identifier of the synonym definition.</param>
 		/// <returns>

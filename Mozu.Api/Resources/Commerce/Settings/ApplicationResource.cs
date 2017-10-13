@@ -40,9 +40,9 @@ namespace Mozu.Api.Resources.Commerce.Settings
 				
 
 		/// <summary>
-		/// Retrieve the settings of a third-party application.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.Application.Application"/>
 		/// </returns>
@@ -64,9 +64,9 @@ namespace Mozu.Api.Resources.Commerce.Settings
 
 
 		/// <summary>
-		/// Initializes an application with the necessary configured settings.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="application">Properties of an application installed in a tenant.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.Application.Application"/>

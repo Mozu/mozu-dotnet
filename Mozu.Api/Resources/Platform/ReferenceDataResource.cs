@@ -44,10 +44,10 @@ namespace Mozu.Api.Resources.Platform
 				
 
 		/// <summary>
-		/// Retrieves a specific address schema based on the country code provided. This operation allows the creation of custom shipping and billing address fields.
+		/// 
 		/// </summary>
-		/// <param name="countryCode">The 2-letter geographic code representing the country for the physical or mailing address. Currently limited to the US.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="countryCode">The 2-letter country code used to retrieve a specified address schema.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Reference.AddressSchema"/>
 		/// </returns>
@@ -69,9 +69,9 @@ namespace Mozu.Api.Resources.Platform
 
 
 		/// <summary>
-		/// Retrieves the entire list of address schemas that the system supports.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Reference.AddressSchemaCollection"/>
 		/// </returns>
@@ -93,10 +93,10 @@ namespace Mozu.Api.Resources.Platform
 
 
 		/// <summary>
-		/// Retrieves the details of a behavior based on the behavior ID specified in the request.
+		/// 
 		/// </summary>
 		/// <param name="behaviorId">Unique identifier of the behavior.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Core.Behavior"/>
 		/// </returns>
@@ -118,10 +118,10 @@ namespace Mozu.Api.Resources.Platform
 
 
 		/// <summary>
-		/// Retrieves the details of the behavior category specified in the request.
+		/// 
 		/// </summary>
 		/// <param name="categoryId">Unique identifier of the category to modify.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Core.BehaviorCategory"/>
 		/// </returns>
@@ -143,9 +143,9 @@ namespace Mozu.Api.Resources.Platform
 
 
 		/// <summary>
-		/// Retrieves the list of behavior categories.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Core.BehaviorCategoryCollection"/>
 		/// </returns>
@@ -167,9 +167,9 @@ namespace Mozu.Api.Resources.Platform
 
 
 		/// <summary>
-		/// Retrieves a list of application behaviors.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="userType">The user type associated with the behaviors to retrieve.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Core.BehaviorCollection"/>
@@ -192,9 +192,9 @@ namespace Mozu.Api.Resources.Platform
 
 
 		/// <summary>
-		/// Retrieves the list of content locales the system supports. Content locales indicate the language used and the country where the language is used.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Reference.ContentLocaleCollection"/>
 		/// </returns>
@@ -216,9 +216,9 @@ namespace Mozu.Api.Resources.Platform
 
 
 		/// <summary>
-		/// Retrieves the entire list of countries that the system supports.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Reference.CountryCollection"/>
 		/// </returns>
@@ -240,7 +240,7 @@ namespace Mozu.Api.Resources.Platform
 
 
 		/// <summary>
-		/// Retrieves the entire list of countries that the system supports.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
@@ -264,9 +264,9 @@ namespace Mozu.Api.Resources.Platform
 
 
 		/// <summary>
-		/// Retrieves the entire list of currencies that the system supports.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Reference.CurrencyCollection"/>
 		/// </returns>
@@ -288,9 +288,9 @@ namespace Mozu.Api.Resources.Platform
 
 
 		/// <summary>
-		/// Retrieves the entire list of time zones that the system supports.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Reference.TimeZoneCollection"/>
 		/// </returns>
@@ -312,9 +312,9 @@ namespace Mozu.Api.Resources.Platform
 
 
 		/// <summary>
-		/// Retrieves the entire list of top-level internet domains that the system supports.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Reference.TopLevelDomainCollection"/>
 		/// </returns>
@@ -336,10 +336,10 @@ namespace Mozu.Api.Resources.Platform
 
 
 		/// <summary>
-		/// Retrieves an array list of all units of measure the system supports.
+		/// 
 		/// </summary>
-		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Reference.UnitOfMeasureCollection"/>
 		/// </returns>

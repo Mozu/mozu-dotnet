@@ -18,9 +18,6 @@ namespace Mozu.Api.Contracts.Core.Extensible
 		///
 		public class AttributeLocalizedContent
 		{
-			///
-			///Language used for the entity. Currently, only "en-US" is supported.
-			///
 			public string LocaleCode { get; set; }
 
 			///

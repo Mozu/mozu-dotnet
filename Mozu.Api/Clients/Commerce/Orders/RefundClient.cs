@@ -23,7 +23,7 @@ namespace Mozu.Api.Clients.Commerce.Orders
 	public partial class RefundClient 	{
 		
 		/// <summary>
-		/// Creates a refund based on the information supplied in the request.  
+		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -49,7 +49,7 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		}
 
 		/// <summary>
-		/// Resends the order refund email previously sent to the shopper. 
+		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="refundId">Unique ID of the refund.        </param>

@@ -18,14 +18,8 @@ namespace Mozu.Api.Contracts.Location
 		///
 		public class Coordinates
 		{
-			///
-			///The latitude coordinate of the location.
-			///
 			public double Lat { get; set; }
 
-			///
-			///The longitude coordinate of the location.
-			///
 			public double Lng { get; set; }
 
 		}

@@ -18,24 +18,12 @@ namespace Mozu.Api.Contracts.Core
 		///
 		public class UserProfile
 		{
-			///
-			///The email address of the specified user or the email address associated with the specified entity.
-			///
 			public string EmailAddress { get; set; }
 
-			///
-			///The first name of the contact. The maximum character length is 200.
-			///
 			public string FirstName { get; set; }
 
-			///
-			///The last name or surname of the contact. The maximum character length is 200.
-			///
 			public string LastName { get; set; }
 
-			///
-			///Unique identifier of the customer account (shopper or system user). System-supplied and read-only. If the shopper user is anonymous, the user ID represents a system-generated user ID string.
-			///
 			public string UserId { get; set; }
 
 			///

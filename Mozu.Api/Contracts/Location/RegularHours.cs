@@ -18,39 +18,18 @@ namespace Mozu.Api.Contracts.Location
 		///
 		public class RegularHours
 		{
-			///
-			///The Friday label array describes the range of hours this location is normally open on Fridays. For example: {"Label": "10:00 AM - 6:00 PM"}.
-			///
 			public Hours Friday { get; set; }
 
-			///
-			///The Monday label array describes the range of hours this location is normally open on Mondays. For example: {"Label": "10:00 AM - 6:00 PM"}.
-			///
 			public Hours Monday { get; set; }
 
-			///
-			///The Saturday label array describes the range of hours this location is normally open on Saturdays. For example: {"Label": "10:00 AM - 6:00 PM"}.
-			///
 			public Hours Saturday { get; set; }
 
-			///
-			///The Sunday label array describes the range of hours this location is normally open on Sundays. For example: {"Label": "10:00 AM - 6:00 PM"}.
-			///
 			public Hours Sunday { get; set; }
 
-			///
-			///The Thursday label array describes the range of hours this location is normally open on Thursdays. For example: {"Label": "10:00 AM - 6:00 PM"}.
-			///
 			public Hours Thursday { get; set; }
 
-			///
-			///The Tuesday label array describes the range of hours this location is normally open on Tuesdays. For example: {"Label": "10:00 AM - 6:00 PM"}.
-			///
 			public Hours Tuesday { get; set; }
 
-			///
-			///The Wednesday label array describes the range of hours this location is normally open on Wednesdays. For example: {"Label": "10:00 AM - 6:00 PM"}.
-			///
 			public Hours Wednesday { get; set; }
 
 		}

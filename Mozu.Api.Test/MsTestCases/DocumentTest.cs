@@ -1,10 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Mozu.Api.Test.Factories;
+using Mozu.Api.Test.Factories.Content.Documentlists;
+using Mozu.Api.Test.Factories.Platform;
 using Mozu.Api.Test.Helpers;
 
 namespace Mozu.Api.Test.MsTestCases

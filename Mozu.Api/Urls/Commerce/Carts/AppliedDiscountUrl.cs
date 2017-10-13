@@ -21,7 +21,7 @@ namespace Mozu.Api.Urls.Commerce.Carts
         /// </summary>
         /// <param name="cartId">Identifier of the cart to delete.</param>
         /// <param name="couponCode">Code associated with the coupon to remove from the cart.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

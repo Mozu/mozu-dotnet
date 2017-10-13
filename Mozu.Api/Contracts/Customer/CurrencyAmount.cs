@@ -18,14 +18,8 @@ namespace Mozu.Api.Contracts.Customer
 		///
 		public class CurrencyAmount
 		{
-			///
-			///The monetary amount in the specified currency locale code.
-			///
 			public decimal Amount { get; set; }
 
-			///
-			///3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
-			///
 			public string CurrencyCode { get; set; }
 
 		}

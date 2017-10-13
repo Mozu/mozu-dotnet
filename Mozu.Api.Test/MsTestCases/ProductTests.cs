@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Security.Cryptography;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Mozu.Api.Contracts.ProductAdmin;
 using Mozu.Api.Resources.Commerce.Catalog.Admin;
 using Mozu.Api.Test.Helpers;
-using Mozu.Api.Test.Factories;
-using System.Configuration;
 using Attribute = Mozu.Api.Contracts.ProductAdmin.Attribute;
 using System.Threading;
+using Mozu.Api.Test.Factories.Commerce.Catalog.Admin;
+using Mozu.Api.Test.Factories.Commerce.Catalog.Admin.Attributedefinition;
+using Mozu.Api.Test.Factories.Commerce.Catalog.Admin.Products;
+using Mozu.Api.Test.Factories.Platform;
 
 
 namespace Mozu.Api.Test.MsTestCases

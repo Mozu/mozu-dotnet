@@ -23,7 +23,7 @@ namespace Mozu.Api.Clients.Commerce.Carts
 	public partial class ExtendedPropertyClient 	{
 		
 		/// <summary>
-		/// Retrieves a list of cart extended properties specified in the request.
+		/// 
 		/// </summary>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty"/>}}
@@ -46,7 +46,7 @@ namespace Mozu.Api.Clients.Commerce.Carts
 		}
 
 		/// <summary>
-		/// Adds one or more specified extended properties to the carts extended properties collection.
+		/// 
 		/// </summary>
 		/// <param name="extendedProperties">The details of the new extended property.</param>
 		/// <returns>
@@ -70,7 +70,7 @@ namespace Mozu.Api.Clients.Commerce.Carts
 		}
 
 		/// <summary>
-		/// Updates one or more details of the extended property specified in the request.
+		/// 
 		/// </summary>
 		/// <param name="key">Key used for metadata defined for objects, including extensible attributes, custom attributes associated with a shipping provider, and search synonyms definitions. This content may be user-defined depending on the object and usage.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -97,7 +97,7 @@ namespace Mozu.Api.Clients.Commerce.Carts
 		}
 
 		/// <summary>
-		/// Updates one or more details of the extended properties specified in the request.
+		/// 
 		/// </summary>
 		/// <param name="upsert">Any set of key value pairs to be stored in the extended properties of a cart.</param>
 		/// <param name="extendedProperties">The details of the updated extended properties.</param>
@@ -122,7 +122,7 @@ namespace Mozu.Api.Clients.Commerce.Carts
 		}
 
 		/// <summary>
-		/// Deletes the extended properties cart extended properties collection.
+		/// 
 		/// </summary>
 		/// <param name="keys"></param>
 		/// <returns>
@@ -146,7 +146,7 @@ namespace Mozu.Api.Clients.Commerce.Carts
 		}
 
 		/// <summary>
-		/// Deletes a specific extended property from the cart extended property collection.
+		/// 
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns>

@@ -23,7 +23,7 @@ namespace Mozu.Api.Clients.Platform
 	public partial class TenantExtensionsClient 	{
 		
 		/// <summary>
-		/// Retrieves the Arc.js configuration settings for a site.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
@@ -47,7 +47,7 @@ namespace Mozu.Api.Clients.Platform
 		}
 
 		/// <summary>
-		/// Updates the Arc.js configuration settings for a site.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="extensions">The updated details of the Arc.js configuration settings.</param>

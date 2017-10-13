@@ -19,24 +19,12 @@ namespace Mozu.Api.Contracts.AppDev
 		///
 		public class FolderMetadata
 		{
-			///
-			///Array list of files in the folder.
-			///
 			public List<FileMetadata> Files { get; set; }
 
-			///
-			///The directory of the file location of the folder in the package.
-			///
 			public string FullPath { get; set; }
 
-			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
-			///
 			public string Name { get; set; }
 
-			///
-			///Array list of subfolders stored in this folder.
-			///
 			public List<FolderMetadata> SubFolders { get; set; }
 
 		}

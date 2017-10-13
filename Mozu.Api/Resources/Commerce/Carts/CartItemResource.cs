@@ -40,10 +40,10 @@ namespace Mozu.Api.Resources.Commerce.Carts
 				
 
 		/// <summary>
-		/// Retrieves a particular cart item by providing the cart item ID.
+		/// 
 		/// </summary>
 		/// <param name="cartItemId">Identifier of the cart item to delete.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>
 		/// </returns>
@@ -65,9 +65,9 @@ namespace Mozu.Api.Resources.Commerce.Carts
 
 
 		/// <summary>
-		/// Retrieves a list of cart items including the total number of items in the cart.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItemCollection"/>
 		/// </returns>
@@ -89,9 +89,9 @@ namespace Mozu.Api.Resources.Commerce.Carts
 
 
 		/// <summary>
-		/// Adds a product to the current shopper's cart.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="cartItem">Properties of an item added to an active shopping cart.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>
@@ -114,11 +114,11 @@ namespace Mozu.Api.Resources.Commerce.Carts
 
 
 		/// <summary>
-		/// Update the quantity of an individual cart item in the cart of the current shopper.
+		/// 
 		/// </summary>
 		/// <param name="cartItemId">Identifier of the cart item to delete.</param>
 		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>
 		/// </returns>
@@ -140,10 +140,10 @@ namespace Mozu.Api.Resources.Commerce.Carts
 
 
 		/// <summary>
-		/// Update the product or product quantity of an item in the current shopper's cart.
+		/// 
 		/// </summary>
 		/// <param name="cartItemId">Identifier of the cart item to delete.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="cartItem">Properties of an item added to an active shopping cart.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>
@@ -166,7 +166,7 @@ namespace Mozu.Api.Resources.Commerce.Carts
 
 
 		/// <summary>
-		/// Removes all items in the current shopper's active cart.
+		/// 
 		/// </summary>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>
@@ -189,7 +189,7 @@ namespace Mozu.Api.Resources.Commerce.Carts
 
 
 		/// <summary>
-		/// Deletes a specific cart item by providing the cart item ID.
+		/// 
 		/// </summary>
 		/// <param name="cartItemId">Identifier of the cart item to delete.</param>
 		/// <returns>

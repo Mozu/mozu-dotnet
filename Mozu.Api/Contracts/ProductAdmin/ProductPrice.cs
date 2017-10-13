@@ -23,9 +23,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public decimal? CreditValue { get; set; }
 
-			///
-			///3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
-			///
 			public string IsoCurrencyCode { get; set; }
 
 			///
@@ -48,14 +45,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public decimal? Msrp { get; set; }
 
-			///
-			///Price that the merchant intends to sell the product which is not necessarily the list price. This is the price the merchant intends to sell the product if no sale price is present.
-			///
 			public decimal? Price { get; set; }
 
-			///
-			///The set sale price for a product consisting of a price with a discount already applied.For price list entries, this property is the product's sale price if the  is set to .
-			///
 			public decimal? SalePrice { get; set; }
 
 		}

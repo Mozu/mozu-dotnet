@@ -23,9 +23,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public decimal? CreditValue { get; set; }
 
-			///
-			///3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
-			///
 			public string CurrencyCode { get; set; }
 
 			///
@@ -33,9 +30,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public decimal? Msrp { get; set; }
 
-			///
-			///The value of a property, used by numerous objects within  including facets, attributes, products, localized content, metadata, capabilities ( and third-party), location inventory adjustment, and more. The value may be a string, integer, or double. Validation may be run against the entered and saved values depending on the object type.
-			///
 			public decimal? Value { get; set; }
 
 		}

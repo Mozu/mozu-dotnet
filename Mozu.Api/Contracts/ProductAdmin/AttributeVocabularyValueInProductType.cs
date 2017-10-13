@@ -23,19 +23,10 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public AttributeVocabularyValueDisplayInfo DisplayInfo { get; set; }
 
-			///
-			///Integer that represents the sequence order of the attribute.
-			///
 			public int? Order { get; set; }
 
-			///
-			///The value of a property, used by numerous objects within  including facets, attributes, products, localized content, metadata, capabilities ( and third-party), location inventory adjustment, and more. The value may be a string, integer, or double. Validation may be run against the entered and saved values depending on the object type.
-			///
 			public object Value { get; set; }
 
-			///
-			///Navigates vocabulary value details for an attribute defined for a product type.
-			///
 			public AttributeVocabularyValue VocabularyValueDetail { get; set; }
 
 		}

@@ -23,10 +23,10 @@ namespace Mozu.Api.Clients.Platform
 	public partial class TenantClient 	{
 		
 		/// <summary>
-		/// Retrieve details about a specific tenant by providing the tenant ID.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="tenantId">Unique identifier of the Mozu tenant.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="tenantId">Unique identifier of the development or production tenant for which to generate the user authentication ticket.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Tenant.Tenant"/>}
 		/// </returns>

@@ -24,7 +24,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string CmsId { get; set; }
 
 			///
-			///Hex value for a color to display in a color picker. This is an HTML supported code for color.
+			///Hex value for a color to display in a color picker. This is an HTMLÂ supported code for color.
 			///
 			public string ColorValue { get; set; }
 

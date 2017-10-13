@@ -40,7 +40,7 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 				
 
 		/// <summary>
-		/// Retrieves the custom route settings configured for a site. These are the same settings configured through  in the Custom Routing JSON Editor.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
@@ -63,10 +63,8 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 		}
 
 
-
-
 		/// <summary>
-		/// Create new custom route settings.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="settings">The details of the new custom route setting.</param>
@@ -90,9 +88,8 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 		}
 
 
-
 		/// <summary>
-		/// Updates custom route settings.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="settings">The updated details of the custom route settings.</param>
@@ -116,9 +113,8 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 		}
 
 
-
 		/// <summary>
-		/// Deletes all the custom route settings for a site, returning all routes to their  defaults.
+		/// 
 		/// </summary>
 		/// <returns>
 		/// 

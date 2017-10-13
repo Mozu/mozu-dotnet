@@ -18,9 +18,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		///
 		public class ProductInventoryInfo
 		{
-			///
-			///Indicates is the item's stock is managed. If true,  manages inventory levels for this product.
-			///
 			public bool? ManageStock { get; set; }
 
 			///
@@ -33,14 +30,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public int? OnlineSoftStockAvailable { get; set; }
 
-			///
-			///The current number of products that are available for purchase.
-			///
 			public int? OnlineStockAvailable { get; set; }
 
-			///
-			///Determines the method this product uses when active stock is depeleted. Options include "DisplayMessage" to display an out of stock message to the shopper, "HideProduct" to disable the product on the storefront, or "AllowBackOrder" to allow the shopper to back order the product. This property is required only if  manages inventory for this product.
-			///
 			public string OutOfStockBehavior { get; set; }
 
 		}

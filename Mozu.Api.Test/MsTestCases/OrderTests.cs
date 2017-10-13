@@ -7,15 +7,21 @@ using Mozu.Api.Contracts.CommerceRuntime.Fulfillment;
 using Mozu.Api.Contracts.CommerceRuntime.Orders;
 using Mozu.Api.Contracts.CommerceRuntime.Payments;
 using Mozu.Api.Contracts.CommerceRuntime.Returns;
-using Mozu.Api.Resources.Commerce.Customer;
-using Mozu.Api.Resources.Platform;
 using Mozu.Api.Test.Helpers;
 using Mozu.Api.Contracts.CommerceRuntime.Carts;
-using Mozu.Api.Test.Factories;
 using Product = Mozu.Api.Contracts.CommerceRuntime.Products.Product;
 using System.Threading;
 using System.Diagnostics;
 using System.Collections;
+using Mozu.Api.Test.Factories.Commerce;
+using Mozu.Api.Test.Factories.Commerce.Admin;
+using Mozu.Api.Test.Factories.Commerce.Carts;
+using Mozu.Api.Test.Factories.Commerce.Catalog.Admin;
+using Mozu.Api.Test.Factories.Commerce.Catalog.Storefront;
+using Mozu.Api.Test.Factories.Commerce.Customer;
+using Mozu.Api.Test.Factories.Commerce.Customer.Accounts;
+using Mozu.Api.Test.Factories.Commerce.Orders;
+using Mozu.Api.Test.Factories.Platform;
 
 
 namespace Mozu.Api.Test.MsTestCases

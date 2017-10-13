@@ -20,7 +20,7 @@ namespace Mozu.Api.Contracts.Event
 		public class EventDeliverySummary
 		{
 			///
-			///The date and time in UTC format set when the object was created.
+			///The date and time in UTCÂ format set when the object was created.
 			///
 			public DateTime? CreateDate { get; set; }
 

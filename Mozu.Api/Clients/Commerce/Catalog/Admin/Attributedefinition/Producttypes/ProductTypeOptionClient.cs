@@ -23,7 +23,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttyp
 	public partial class ProductTypeOptionClient 	{
 		
 		/// <summary>
-		/// Retrieves a list of option product attributes defined for the specified product type.
+		/// 
 		/// </summary>
 		/// <param name="productTypeId">Identifier of the product type.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
@@ -49,11 +49,11 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttyp
 		}
 
 		/// <summary>
-		/// Retrieves the details of an option attribute defined for the specified product type.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="productTypeId">Identifier of the product type.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.AttributeInProductType"/>}
@@ -77,10 +77,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttyp
 		}
 
 		/// <summary>
-		/// Assigns an option attribute to the product type based on the information supplied in the request.
+		/// 
 		/// </summary>
 		/// <param name="productTypeId">Identifier of the product type.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="attributeInProductType">Properties of an attribute definition associated with a specific product type. When an attribute is applied to a product type, each product of that type maintains the same set of attributes.</param>
 		/// <returns>
@@ -105,11 +105,11 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttyp
 		}
 
 		/// <summary>
-		/// Updates an option attribute definition for the specified product type.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="productTypeId">Identifier of the product type.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="attributeInProductType">Properties of an attribute definition associated with a specific product type. When an attribute is applied to a product type, each product of that type maintains the same set of attributes.</param>
 		/// <returns>
@@ -134,9 +134,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttyp
 		}
 
 		/// <summary>
-		/// Removes an option attribute definition for the specified product type.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="productTypeId">Identifier of the product type.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>

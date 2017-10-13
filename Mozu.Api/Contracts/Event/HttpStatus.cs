@@ -14,7 +14,7 @@ using System;
 namespace Mozu.Api.Contracts.Event
 {
 		///
-		///	Properties for the HTTP status for an event.
+		///	Properties for the HTTPÂ status for an event.
 		///
 		public class HttpStatus
 		{

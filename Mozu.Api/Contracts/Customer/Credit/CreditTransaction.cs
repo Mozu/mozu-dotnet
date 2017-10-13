@@ -45,7 +45,7 @@ namespace Mozu.Api.Contracts.Customer.Credit
 			public string OrderId { get; set; }
 
 			///
-			///Specifies the type of transaction, including customer transactions and credit transactions.Valid values for credit transactions are the following:* —decreases the credit amount* —updates the credit amountValid values for customer transaction types are the following:* * * * 
+			///Specifies the type of transaction, including customer transactions and credit transactions.Valid values for credit transactions are the following:* â€”decreases the credit amount* â€”updates the credit amountValid values for customer transaction types are the following:* * * * 
 			///
 			public string TransactionType { get; set; }
 

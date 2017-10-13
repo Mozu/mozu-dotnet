@@ -21,24 +21,12 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 		///
 		public class ShippingRate
 		{
-			///
-			///The total calculated shipping amount requested for the package or shipment.
-			///
 			public decimal? Amount { get; set; }
 
-			///
-			///The carrier-defined alphanumeric code associated with this shipping rate.
-			///
 			public string Code { get; set; }
 
-			///
-			///Localizable content (such as a name and/or description) for an attribute. The content may be localized when displayed according to the locale code specified by the master catalog. Content can include descriptive text for product extensible attributes, catalog-level descriptions (displayed if isContentOverriden is true), product bundles, and customer account notes.
-			///
 			public ShippingRateLocalizedContent Content { get; set; }
 
-			///
-			///Collection of carrier-specific key-value attribute pairs associated with a shipping carrier. These are required to retrieve a shipping rate request and are returned for the generated shipping label.
-			///
 			public List<CustomAttribute> CustomAttributes { get; set; }
 
 			///
@@ -51,14 +39,8 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			///
 			public int? DaysInTransit { get; set; }
 
-			///
-			///Array list of validation and status messages associated with shipping rates, orders, and product purchasable state.
-			///
 			public List<ShippingRateValidationMessage> Messages { get; set; }
 
-			///
-			///Properties of a calculated shipping rate for individual line items in a shipment.
-			///
 			public List<ShippingItemRate> ShippingItemRates { get; set; }
 
 		}

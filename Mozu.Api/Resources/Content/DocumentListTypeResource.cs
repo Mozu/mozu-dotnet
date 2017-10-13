@@ -47,7 +47,7 @@ namespace Mozu.Api.Resources.Content
 				
 
 		/// <summary>
-		/// Gets all the available documentListTypes.
+		/// 
 		/// </summary>
 		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -73,7 +73,7 @@ namespace Mozu.Api.Resources.Content
 
 
 		/// <summary>
-		/// Gets a documentListType.
+		/// 
 		/// </summary>
 		/// <param name="documentListTypeFQN"></param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -98,9 +98,9 @@ namespace Mozu.Api.Resources.Content
 
 
 		/// <summary>
-		/// Creates a new documentListType.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="list">Properties for the document list type. Document lists contain documents with an associated document type, such as web pages.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentListType"/>
@@ -123,10 +123,10 @@ namespace Mozu.Api.Resources.Content
 
 
 		/// <summary>
-		/// Updates a DocumentListType
+		/// 
 		/// </summary>
 		/// <param name="documentListTypeFQN"></param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="list">Properties for the document list type. Document lists contain documents with an associated document type, such as web pages.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentListType"/>

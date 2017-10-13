@@ -47,7 +47,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 				
 
 		/// <summary>
-		/// Retrieves a list of the property attributes configured for the product specified in the request.
+		/// 
 		/// </summary>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <returns>
@@ -71,7 +71,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 
 		/// <summary>
-		/// Retrieves a collection of property values for localized content. This content is set by the locale code. 
+		/// 
 		/// </summary>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
@@ -97,12 +97,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 
 		/// <summary>
-		/// Retrieves the property value for localized content. This content is set by the locale code. 
+		/// 
 		/// </summary>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
+		/// <param name="localeCode">The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.</param>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="value">The value string to create.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent"/>
@@ -125,11 +125,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 
 		/// <summary>
-		/// Retrieves the details of a property attribute configuration for the product specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductProperty"/>
 		/// </returns>
@@ -151,13 +151,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 
 		/// <summary>
-		/// Adds a property value for localized content. This content is set by the locale code. 
+		/// 
 		/// </summary>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="value">The value string to create.</param>
-		/// <param name="localizedContent">Use this field to include those fields which are not included by default.</param>
+		/// <param name="localizedContent">Content of the product property value in the language defined for the locale code.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductPropertyValueLocalizedContent"/>
 		/// </returns>
@@ -179,10 +179,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 
 		/// <summary>
-		/// Configures a property attribute for the product specified in the request.
+		/// 
 		/// </summary>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="productProperty">Details of a property defined for a product.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductProperty"/>
@@ -205,7 +205,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 
 		/// <summary>
-		/// Updates all property values for localized content. This content is set by the locale code. 
+		/// 
 		/// </summary>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
@@ -232,12 +232,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 
 		/// <summary>
-		/// Updates the property value for localized content. This content is set by the locale code. 
+		/// 
 		/// </summary>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
+		/// <param name="localeCode">The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.</param>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="value">The value string to create.</param>
 		/// <param name="localizedContent">Content of the product property value in the language defined for the locale code.</param>
 		/// <returns>
@@ -261,11 +261,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 
 		/// <summary>
-		/// Update one or more details of a property attribute configuration for the product specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="productProperty">Details of a property defined for a product.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductProperty"/>
@@ -288,9 +288,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 
 		/// <summary>
-		/// Deletes the configuration of a property attribute for the product specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <returns>
 		/// 
@@ -312,10 +312,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 
 
 		/// <summary>
-		/// Deletes the property value for localized content. This content is set by the locale code. 
+		/// 
 		/// </summary>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
+		/// <param name="localeCode">The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.</param>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="value">The value string to create.</param>
 		/// <returns>

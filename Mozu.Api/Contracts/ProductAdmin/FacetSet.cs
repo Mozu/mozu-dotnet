@@ -19,14 +19,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class FacetSet
 		{
-			///
-			///The list of subcategories and attributes that have not been defined as facets for the category.
-			///
 			public List<FacetSource> Available { get; set; }
 
-			///
-			///The list of category, price, and attribute facets defined for the category.
-			///
 			public List<Facet> Configured { get; set; }
 
 		}

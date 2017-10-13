@@ -31,7 +31,7 @@ namespace Mozu.Api.Contracts.MZDB
 			public string CreateBy { get; set; }
 
 			///
-			///The date and time in UTC format set when the object was created.
+			///The date and time in UTCÂ format set when the object was created.
 			///
 			public DateTime CreateDate { get; set; }
 
@@ -61,7 +61,7 @@ namespace Mozu.Api.Contracts.MZDB
 			public int? MasterCatalogId { get; set; }
 
 			///
-			///Unique identifier for the site. This ID is used at all levels of a store, catalog, and tenant to associate objects to a site.
+			///Unique identifier for the site. This IDÂ is used at all levels of a store, catalog, and tenant to associate objects to a site.
 			///
 			public int? SiteId { get; set; }
 

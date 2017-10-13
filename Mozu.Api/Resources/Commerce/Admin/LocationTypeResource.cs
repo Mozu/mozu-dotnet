@@ -40,7 +40,7 @@ namespace Mozu.Api.Resources.Commerce.Admin
 				
 
 		/// <summary>
-		/// Retrieve a list of all location types defined for the tenant.
+		/// 
 		/// </summary>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.Location.LocationType"/>}
@@ -63,10 +63,10 @@ namespace Mozu.Api.Resources.Commerce.Admin
 
 
 		/// <summary>
-		/// Retrieves the details of the location type specified in the request.
+		/// 
 		/// </summary>
 		/// <param name="locationTypeCode">The user-defined code that identifies the location type.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Location.LocationType"/>
 		/// </returns>
@@ -88,9 +88,9 @@ namespace Mozu.Api.Resources.Commerce.Admin
 
 
 		/// <summary>
-		/// Creates a new location type based on the information specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="locationType">Properties of a type of physical location, such as warehouse or kiosk. Location types enable tenants to group similar locations for filtering and location usage type definition.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Location.LocationType"/>
@@ -113,10 +113,10 @@ namespace Mozu.Api.Resources.Commerce.Admin
 
 
 		/// <summary>
-		/// Updates the name of a defined location type.
+		/// 
 		/// </summary>
 		/// <param name="locationTypeCode">The user-defined code that identifies the location type.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="locationType">Properties of a type of physical location, such as warehouse or kiosk. Location types enable tenants to group similar locations for filtering and location usage type definition.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Location.LocationType"/>
@@ -139,7 +139,7 @@ namespace Mozu.Api.Resources.Commerce.Admin
 
 
 		/// <summary>
-		/// Deletes the location type specified in the request.
+		/// 
 		/// </summary>
 		/// <param name="locationTypeCode">The user-defined code that identifies the location type.</param>
 		/// <returns>

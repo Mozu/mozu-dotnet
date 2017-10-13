@@ -18,24 +18,12 @@ namespace Mozu.Api.Contracts.AppDev
 		///
 		public class Event
 		{
-			///
-			///The Api Version Number which defines what events are available for a given API version.
-			///
 			public string ApiVersionNumber { get; set; }
 
-			///
-			///The category the event belongs to.
-			///
 			public string EventCategory { get; set; }
 
-			///
-			///Unique identifier for the event. 
-			///
 			public int EventId { get; set; }
 
-			///
-			///The name of the event.
-			///
 			public string EventName { get; set; }
 
 		}

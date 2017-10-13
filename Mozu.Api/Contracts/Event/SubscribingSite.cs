@@ -29,9 +29,6 @@ namespace Mozu.Api.Contracts.Event
 			///
 			public bool? IsActive { get; set; }
 
-			///
-			///Unique identifier for the site. This ID is used at all levels of a store, catalog, and tenant to associate objects to a site.
-			///
 			public int? SiteId { get; set; }
 
 		}

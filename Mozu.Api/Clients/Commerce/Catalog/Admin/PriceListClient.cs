@@ -23,7 +23,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 	public partial class PriceListClient 	{
 		
 		/// <summary>
-		/// Retrieves a list of price lists according to any specified facets, filter criteria, and sort options.
+		/// 
 		/// </summary>
 		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
 		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
@@ -51,7 +51,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Retrieves the details of the specified price list.
+		/// 
 		/// </summary>
 		/// <param name="priceListCode">The unique, user-defined code of the price list.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -76,7 +76,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Adds a new price list to the tenant.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="priceList">The details of the new price list.</param>
@@ -101,7 +101,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Adds up to 5000 new price list entries in bulk.
+		/// 
 		/// </summary>
 		/// <param name="invalidateCache">Disable this property if you expect to encounter unacceptable performance hits related to clearing the cache for each product in the price list entries. Otherwise, leave this property enabled.</param>
 		/// <param name="publishEvents">Disable this property to prevent publishing the event related to adding price list entries to the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.</param>
@@ -127,7 +127,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Deletes up to 5000 price list entries in bulk.
+		/// 
 		/// </summary>
 		/// <param name="invalidateCache">Disable this property if you expect to encounter unacceptable performance hits related to clearing the cache for each product in the price list entries. Otherwise, leave this property enabled.</param>
 		/// <param name="publishEvents">Disable this property to prevent publishing the event related to deleting price list entries from the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.</param>
@@ -153,7 +153,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Updates up to 5000 price list entries in bulk.
+		/// 
 		/// </summary>
 		/// <param name="invalidateCache">Disable this property if you expect to encounter unacceptable performance hits related to clearing the cache for each product in the price list entries. Otherwise, leave this property enabled.</param>
 		/// <param name="publishEvents">Disable this property to prevent publishing the event related to updating price list entries in the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.</param>
@@ -179,7 +179,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Updates the details of the specified price list.
+		/// 
 		/// </summary>
 		/// <param name="priceListCode">The unique, user-defined code of the price list.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -205,7 +205,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Deletes the specified price list from the tenant.
+		/// 
 		/// </summary>
 		/// <param name="cascadeDeleteEntries">Specifies whether to deletes all price list entries associated with the price list.</param>
 		/// <param name="priceListCode">The unique, user-defined code of the price list.</param>

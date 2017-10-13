@@ -18,9 +18,6 @@ namespace Mozu.Api.Contracts.AppDev
 		///
 		public class AuthTicketRequest
 		{
-			///
-			///Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.
-			///
 			public string RefreshToken { get; set; }
 
 		}

@@ -40,7 +40,7 @@ namespace Mozu.Api.Resources.Commerce.Returns
 				
 
 		/// <summary>
-		/// Retrieves all internal notes associated with a return.
+		/// 
 		/// </summary>
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
 		/// <returns>
@@ -64,7 +64,7 @@ namespace Mozu.Api.Resources.Commerce.Returns
 
 
 		/// <summary>
-		/// Retrieves a specific internal note from a return.
+		/// 
 		/// </summary>
 		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -90,7 +90,7 @@ namespace Mozu.Api.Resources.Commerce.Returns
 
 
 		/// <summary>
-		/// Creates an internal note on a given return. This note is visible in  for customer service representatives to see.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
@@ -116,7 +116,7 @@ namespace Mozu.Api.Resources.Commerce.Returns
 
 
 		/// <summary>
-		/// Updates an internal note on a given return. This note is visible in  for customer service representatives to see.
+		/// 
 		/// </summary>
 		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -143,7 +143,7 @@ namespace Mozu.Api.Resources.Commerce.Returns
 
 
 		/// <summary>
-		/// Deletes an internal note from a given return.
+		/// 
 		/// </summary>
 		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>

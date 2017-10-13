@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Pricelists
 		/// <summary>
         /// Get Resource Url for GetPriceListEntry
         /// </summary>
-        /// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
+        /// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
         /// <param name="priceListCode">The unique code of the price list associated with the price list entry.</param>
         /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -84,7 +84,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Pricelists
 				/// <summary>
         /// Get Resource Url for UpdatePriceListEntry
         /// </summary>
-        /// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
+        /// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
         /// <param name="priceListCode">The unique code of the price list associated with the price list entry.</param>
         /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -107,7 +107,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Pricelists
 				/// <summary>
         /// Get Resource Url for DeletePriceListEntry
         /// </summary>
-        /// <param name="currencyCode">The three character ISO currency code, such as USD for US Dollars.</param>
+        /// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
         /// <param name="priceListCode">The code of the specified price list associated with the price list entry.</param>
         /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
         /// <param name="startDate">The start date of the price list entry.</param>

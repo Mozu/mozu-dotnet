@@ -18,14 +18,8 @@ namespace Mozu.Api.Contracts.AppDev
 		///
 		public class AppAuthInfo
 		{
-			///
-			///Unique identifier of the application. System-supplied and read-only.
-			///
 			public string ApplicationId { get; set; }
 
-			///
-			///System-supplied alphanumeric code used to authenticate applications. This string is only available for viewing in  Dev Center.
-			///
 			public string SharedSecret { get; set; }
 
 		}

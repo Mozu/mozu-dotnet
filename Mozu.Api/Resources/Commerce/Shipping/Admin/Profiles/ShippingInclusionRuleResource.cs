@@ -40,7 +40,7 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin.Profiles
 				
 
 		/// <summary>
-		/// Retrieves the details of the specified shipping inclusion rule.
+		/// 
 		/// </summary>
 		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
 		/// <param name="profilecode">The unique, user-defined code of the profile with which the shipping inclusion rule is associated.</param>
@@ -67,7 +67,7 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin.Profiles
 
 
 		/// <summary>
-		/// Retrieves a list of shipping inclusion rules and their details.
+		/// 
 		/// </summary>
 		/// <param name="profilecode">The unique, user-defined code of the profile with which the shipping inclusion rule is associated.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -93,7 +93,7 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin.Profiles
 
 
 		/// <summary>
-		/// Creates a new shipping inclusion rule.
+		/// 
 		/// </summary>
 		/// <param name="profilecode">The unique, user-defined code of the profile with which the shipping inclusion rule is associated.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -120,7 +120,7 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin.Profiles
 
 
 		/// <summary>
-		/// Updates the details of the specified shipping inclusion rule.
+		/// 
 		/// </summary>
 		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
 		/// <param name="profilecode">The unique, user-defined code of the profile with which the shipping inclusion rule is associated.</param>
@@ -148,7 +148,7 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin.Profiles
 
 
 		/// <summary>
-		/// Deletes the specified shipping inclusion rule.
+		/// 
 		/// </summary>
 		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
 		/// <param name="profilecode">The unique, user-defined code of the profile with which the shipping inclusion rule is associated.</param>

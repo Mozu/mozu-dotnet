@@ -34,9 +34,9 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes
 		/// <summary>
         /// Get Resource Url for GetExtra
         /// </summary>
-        /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+        /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
         /// <param name="productTypeId">Identifier of the product type.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -54,7 +54,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes
         /// Get Resource Url for AddExtra
         /// </summary>
         /// <param name="productTypeId">Identifier of the product type.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -70,9 +70,9 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes
 				/// <summary>
         /// Get Resource Url for UpdateExtra
         /// </summary>
-        /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+        /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
         /// <param name="productTypeId">Identifier of the product type.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -89,7 +89,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes
 				/// <summary>
         /// Get Resource Url for DeleteExtra
         /// </summary>
-        /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+        /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
         /// <param name="productTypeId">Identifier of the product type.</param>
         /// <returns>
         /// String - Resource Url

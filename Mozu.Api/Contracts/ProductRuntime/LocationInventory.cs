@@ -18,9 +18,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		///
 		public class LocationInventory
 		{
-			///
-			///The unique, user-defined code that identifies a location. This location can be the location where the order was entered, location for newly in-stock products, and where products are returned.
-			///
 			public string LocationCode { get; set; }
 
 			///
@@ -33,9 +30,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public int? SoftStockAvailable { get; set; }
 
-			///
-			///The stock level for the associated product currently available, at specified locations, and based on the number of pending product reservations as applicable. System-supplied and read only.
-			///
 			public int? StockAvailable { get; set; }
 
 		}

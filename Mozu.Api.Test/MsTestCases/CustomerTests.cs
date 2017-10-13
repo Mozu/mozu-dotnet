@@ -4,9 +4,11 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Mozu.Api.Contracts.Customer;
 using Mozu.Api.Test.Helpers;
-using Mozu.Api.Test.Factories;
 using System.Net;
 using System.Diagnostics;
+using Mozu.Api.Test.Factories.Commerce.Customer;
+using Mozu.Api.Test.Factories.Commerce.Customer.Accounts;
+using Mozu.Api.Test.Factories.Platform;
 
 
 namespace Mozu.Api.Test.MsTestCases

@@ -20,9 +20,6 @@ namespace Mozu.Api.Contracts.Location
 		///
 		public class Location
 		{
-			///
-			///Address information to supply for a contact.
-			///
 			public Address Address { get; set; }
 
 			///
@@ -30,31 +27,21 @@ namespace Mozu.Api.Contracts.Location
 			///
 			public bool AllowFulfillmentWithNoStock { get; set; }
 
+			///
+			///Collection of attributes that may be paged list or a list, depending on the usage per object and API type.
+			///
+			public List<LocationAttribute> Attributes { get; set; }
+
 			public AuditInfo AuditInfo { get; set; }
 
-			///
-			///User-defined code to assign to this location.
-			///
 			public string Code { get; set; }
 
-			///
-			///The localized description in text for the object, displayed per the locale code. For example, descriptions are used for product descriptions, attributes, and pre-authorization transaction types.
-			///
 			public string Description { get; set; }
 
-			///
-			///The fax number associated with this location.
-			///
 			public string Fax { get; set; }
 
-			///
-			///List of order fulfillment types associated with this location. The location can have fulfillment types of direct ship (DS), in-store pickup (SP), or both.
-			///
 			public List<FulfillmentType> FulfillmentTypes { get; set; }
 
-			///
-			///The geographical coordinates associated with this location.
-			///
 			public Coordinates Geo { get; set; }
 
 			///
@@ -62,29 +49,14 @@ namespace Mozu.Api.Contracts.Location
 			///
 			public bool IsDisabled { get; set; }
 
-			///
-			///List of location types associated with this location. You can associate individual locations with any number of location types.
-			///
 			public List<LocationType> LocationTypes { get; set; }
 
-			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
-			///
 			public string Name { get; set; }
 
-			///
-			///User-entered notation content for an object, used to save information such as payment, return, account, and order notes.
-			///
 			public string Note { get; set; }
 
-			///
-			///The phone number associated with this location.
-			///
 			public string Phone { get; set; }
 
-			///
-			///List of standard operating hours for each day of the week this location is open for shopper business.
-			///
 			public RegularHours RegularHours { get; set; }
 
 			///
@@ -92,14 +64,8 @@ namespace Mozu.Api.Contracts.Location
 			///
 			public ShippingOriginContact ShippingOriginContact { get; set; }
 
-			///
-			///If true, this location maintains its own product inventory. If the location uses the direct ship fulfillment type, it must also support inventory.
-			///
 			public bool SupportsInventory { get; set; }
 
-			///
-			///List of tenant-defined tags associated with this location.
-			///
 			public List<string> Tags { get; set; }
 
 		}

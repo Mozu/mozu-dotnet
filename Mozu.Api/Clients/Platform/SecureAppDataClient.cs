@@ -23,7 +23,7 @@ namespace Mozu.Api.Clients.Platform
 	public partial class SecureAppDataClient 	{
 		
 		/// <summary>
-		/// platform-secureappdata Get GetDBValue description DOCUMENT_HERE 
+		/// 
 		/// </summary>
 		/// <param name="appKeyId"></param>
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
@@ -49,7 +49,7 @@ namespace Mozu.Api.Clients.Platform
 		}
 
 		/// <summary>
-		/// platform-secureappdata Post CreateDBValue description DOCUMENT_HERE 
+		/// 
 		/// </summary>
 		/// <param name="appKeyId"></param>
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
@@ -75,7 +75,7 @@ namespace Mozu.Api.Clients.Platform
 		}
 
 		/// <summary>
-		/// platform-secureappdata Put UpdateDBValue description DOCUMENT_HERE 
+		/// 
 		/// </summary>
 		/// <param name="appKeyId"></param>
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
@@ -101,7 +101,7 @@ namespace Mozu.Api.Clients.Platform
 		}
 
 		/// <summary>
-		/// platform-secureappdata Delete DeleteDBValue description DOCUMENT_HERE 
+		/// 
 		/// </summary>
 		/// <param name="appKeyId"></param>
 		/// <param name="dbEntryQuery">The database entry string to create.</param>

@@ -28,9 +28,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			///
 			public decimal? Msrp { get; set; }
 
-			///
-			///The price the merchant charges for a product on a storefront if no sales price is defined.
-			///
 			public decimal? Price { get; set; }
 
 			///
@@ -43,14 +40,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			///
 			public string PriceListEntryMode { get; set; }
 
-			///
-			///The set sale price for a product consisting of a price with a discount already applied.For price list entries, this property is the product's sale price if the  is set to .
-			///
 			public decimal? SalePrice { get; set; }
 
-			///
-			///The override price defined by the tenant for this cart or order item.
-			///
 			public decimal? TenantOverridePrice { get; set; }
 
 		}

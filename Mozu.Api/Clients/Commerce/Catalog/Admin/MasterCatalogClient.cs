@@ -23,9 +23,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 	public partial class MasterCatalogClient 	{
 		
 		/// <summary>
-		/// Retrieve the details of all master catalog associated with a tenant.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.MasterCatalogCollection"/>}
 		/// </returns>
@@ -47,10 +47,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Retrieve the details of the master catalog specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="masterCatalogId">The unique identifier of the master catalog associated with the entity.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="masterCatalogId">Unique identifier for the master catalog. The master catalog contains all products accessible per catalogs and the site/tenant.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.MasterCatalog"/>}
 		/// </returns>
@@ -72,10 +72,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Updates the product publishing mode for the master catalog specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="masterCatalogId"></param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="masterCatalogId">Unique identifier for the master catalog. The master catalog contains all products accessible per catalogs and the site/tenant.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="masterCatalog">Properties of a master product catalog defined for a tenant. All catalogs and sites associated with a master catalog share product definitions.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.MasterCatalog"/>}

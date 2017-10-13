@@ -23,10 +23,10 @@ namespace Mozu.Api.Clients.Commerce
 	public partial class CartClient 	{
 		
 		/// <summary>
-		/// Retrieves the cart specified in the request.
+		/// 
 		/// </summary>
 		/// <param name="cartId">Identifier of the cart to delete.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>}
 		/// </returns>
@@ -48,9 +48,9 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// Retrieves a cart's contents for the current shopper. If the shopper does not have an active cart on the site, the service creates one.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>}
 		/// </returns>
@@ -72,9 +72,9 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// Retrieves summary information associated with the cart of the current shopper, including the number of items, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary"/>}
 		/// </returns>
@@ -96,9 +96,9 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// Retrieves summary information associated with the cart of user specified in the request, including the number of items in the cart, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary"/>}
@@ -121,9 +121,9 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// Retrieves the cart of the user specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>}
@@ -146,9 +146,9 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// Update the current shopper's cart.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="cart">Properties of a shopping cart.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>}
@@ -171,7 +171,7 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// Deletes the cart specified in the request.
+		/// 
 		/// </summary>
 		/// <param name="cartId">Identifier of the cart to delete.</param>
 		/// <returns>
@@ -195,7 +195,7 @@ namespace Mozu.Api.Clients.Commerce
 		}
 
 		/// <summary>
-		/// Deletes the cart of the currently active shopper.
+		/// 
 		/// </summary>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />

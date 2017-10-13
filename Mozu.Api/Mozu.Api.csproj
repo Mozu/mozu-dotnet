@@ -101,6 +101,7 @@
     <Compile Include="Security\SHA256Generator.cs" />
     <Compile Include="Security\RefreshInterval.cs" />
     <Compile Include="Clients\Commerce\Admin\LocationClient.cs" />
+    <Compile Include="Clients\Commerce\Admin\Locations\Attributedefinition\AttributeClient.cs" />
     <Compile Include="Clients\Commerce\Admin\LocationTypeClient.cs" />
     <Compile Include="Clients\Commerce\CartClient.cs" />
     <Compile Include="Clients\Commerce\Carts\AppliedDiscountClient.cs" />
@@ -145,6 +146,12 @@
     <Compile Include="Clients\Commerce\Catalog\Storefront\ShippingClient.cs" />
     <Compile Include="Clients\Commerce\ChannelClient.cs" />
     <Compile Include="Clients\Commerce\ChannelGroupClient.cs" />
+    <Compile Include="Clients\Commerce\CheckoutClient.cs" />
+    <Compile Include="Clients\Commerce\Checkouts\AppliedDiscountClient.cs" />
+    <Compile Include="Clients\Commerce\Checkouts\DestinationClient.cs" />
+    <Compile Include="Clients\Commerce\Checkouts\OrderAttributeClient.cs" />
+    <Compile Include="Clients\Commerce\Checkouts\OrderItemClient.cs" />
+    <Compile Include="Clients\Commerce\Checkouts\PaymentClient.cs" />
     <Compile Include="Clients\Commerce\Customer\Accounts\CardClient.cs" />
     <Compile Include="Clients\Commerce\Customer\Accounts\CustomerAttributeClient.cs" />
     <Compile Include="Clients\Commerce\Customer\Accounts\CustomerAuditEntryClient.cs" />
@@ -202,7 +209,8 @@
     <Compile Include="Clients\Commerce\Settings\Shipping\SiteShippingHandlingFeeClient.cs" />
     <Compile Include="Clients\Commerce\Settings\SiteShippingSettingsClient.cs" />
     <Compile Include="Clients\Commerce\Shipping\Admin\CarrierConfigurationClient.cs" />
-    <Compile Include="Clients\Commerce\Shipping\Admin\Profiles\HandlingFeeRuleClient.cs" />
+    <Compile Include="Clients\Commerce\Shipping\Admin\Profiles\OrderHandlingFeeRulesClient.cs" />
+    <Compile Include="Clients\Commerce\Shipping\Admin\Profiles\ProductHandlingFeeRulesClient.cs" />
     <Compile Include="Clients\Commerce\Shipping\Admin\Profiles\ShippingInclusionRuleClient.cs" />
     <Compile Include="Clients\Commerce\Shipping\Admin\Profiles\ShippingStatesClient.cs" />
     <Compile Include="Clients\Commerce\Shipping\Admin\ShippingProfileClient.cs" />
@@ -224,6 +232,7 @@
     <Compile Include="Clients\Event\Push\Subscriptions\EventDeliverySummaryClient.cs" />
     <Compile Include="Clients\Platform\Adminuser\AdminUserClient.cs" />
     <Compile Include="Clients\Platform\Adminuser\TenantAdminUserAuthTicketClient.cs" />
+    <Compile Include="Clients\Platform\Appdev\AppPackageClient.cs" />
     <Compile Include="Clients\Platform\Appdev\PackageClient.cs" />
     <Compile Include="Clients\Platform\ApplicationClient.cs" />
     <Compile Include="Clients\Platform\Applications\AuthTicketClient.cs" />
@@ -233,6 +242,7 @@
     <Compile Include="Clients\Platform\Entitylists\EntityContainerClient.cs" />
     <Compile Include="Clients\Platform\Entitylists\ListViewClient.cs" />
     <Compile Include="Clients\Platform\Extensions\CredentialStoreEntryClient.cs" />
+    <Compile Include="Clients\Platform\InstalledApplicationsClient.cs" />
     <Compile Include="Clients\Platform\ReferenceDataClient.cs" />
     <Compile Include="Clients\Platform\SecureAppDataClient.cs" />
     <Compile Include="Clients\Platform\SiteDataClient.cs" />
@@ -280,6 +290,13 @@
     <Compile Include="Contracts\CommerceRuntime\Channels\ChannelCollection.cs" />
     <Compile Include="Contracts\CommerceRuntime\Channels\ChannelGroup.cs" />
     <Compile Include="Contracts\CommerceRuntime\Channels\ChannelGroupCollection.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Checkouts\Checkout.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Checkouts\CheckoutAction.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Checkouts\CheckoutCollection.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Checkouts\CheckoutGrouping.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Checkouts\CheckoutGroupRates.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Checkouts\CheckoutGroupShippingMethod.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Checkouts\ItemsForDestination.cs" />
     <Compile Include="Contracts\CommerceRuntime\Commerce\Adjustment.cs" />
     <Compile Include="Contracts\CommerceRuntime\Commerce\ChangeMessage.cs" />
     <Compile Include="Contracts\CommerceRuntime\Commerce\CommerceUnitPrice.cs" />
@@ -291,6 +308,7 @@
     <Compile Include="Contracts\CommerceRuntime\Discounts\Discount.cs" />
     <Compile Include="Contracts\CommerceRuntime\Discounts\InvalidCoupon.cs" />
     <Compile Include="Contracts\CommerceRuntime\Discounts\ShippingDiscount.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Fulfillment\Destination.cs" />
     <Compile Include="Contracts\CommerceRuntime\Fulfillment\DigitalPackage.cs" />
     <Compile Include="Contracts\CommerceRuntime\Fulfillment\DigitalPackageItem.cs" />
     <Compile Include="Contracts\CommerceRuntime\Fulfillment\FulfillmentAction.cs" />
@@ -468,6 +486,7 @@
     <Compile Include="Contracts\Location\FulfillmentType.cs" />
     <Compile Include="Contracts\Location\Hours.cs" />
     <Compile Include="Contracts\Location\Location.cs" />
+    <Compile Include="Contracts\Location\LocationAttribute.cs" />
     <Compile Include="Contracts\Location\LocationCollection.cs" />
     <Compile Include="Contracts\Location\LocationType.cs" />
     <Compile Include="Contracts\Location\LocationUsage.cs" />
@@ -723,8 +742,10 @@
     <Compile Include="Contracts\ShippingRuntime\ProductSummary.cs" />
     <Compile Include="Contracts\ShippingRuntime\RateRequest.cs" />
     <Compile Include="Contracts\ShippingRuntime\RateRequestAttribute.cs" />
+    <Compile Include="Contracts\ShippingRuntime\RateRequestGroup.cs" />
     <Compile Include="Contracts\ShippingRuntime\RateRequestItem.cs" />
     <Compile Include="Contracts\ShippingRuntime\RatesResponse.cs" />
+    <Compile Include="Contracts\ShippingRuntime\RatesResponseGroup.cs" />
     <Compile Include="Contracts\ShippingRuntime\ShippingItemRate.cs" />
     <Compile Include="Contracts\ShippingRuntime\ShippingRate.cs" />
     <Compile Include="Contracts\ShippingRuntime\ShippingRateLocalizedContent.cs" />
@@ -788,6 +809,7 @@
     <Compile Include="Events\IWishListEvents.cs" />
     <Compile Include="Events\Topics.cs" />
     <Compile Include="Resources\Commerce\Admin\LocationResource.cs" />
+    <Compile Include="Resources\Commerce\Admin\Locations\Attributedefinition\AttributeResource.cs" />
     <Compile Include="Resources\Commerce\Admin\LocationTypeResource.cs" />
     <Compile Include="Resources\Commerce\CartResource.cs" />
     <Compile Include="Resources\Commerce\Carts\AppliedDiscountResource.cs" />
@@ -832,6 +854,12 @@
     <Compile Include="Resources\Commerce\Catalog\Storefront\ShippingResource.cs" />
     <Compile Include="Resources\Commerce\ChannelGroupResource.cs" />
     <Compile Include="Resources\Commerce\ChannelResource.cs" />
+    <Compile Include="Resources\Commerce\CheckoutResource.cs" />
+    <Compile Include="Resources\Commerce\Checkouts\AppliedDiscountResource.cs" />
+    <Compile Include="Resources\Commerce\Checkouts\DestinationResource.cs" />
+    <Compile Include="Resources\Commerce\Checkouts\OrderAttributeResource.cs" />
+    <Compile Include="Resources\Commerce\Checkouts\OrderItemResource.cs" />
+    <Compile Include="Resources\Commerce\Checkouts\PaymentResource.cs" />
     <Compile Include="Resources\Commerce\Customer\Accounts\CardResource.cs" />
     <Compile Include="Resources\Commerce\Customer\Accounts\CustomerAttributeResource.cs" />
     <Compile Include="Resources\Commerce\Customer\Accounts\CustomerAuditEntryResource.cs" />
@@ -889,7 +917,8 @@
     <Compile Include="Resources\Commerce\Settings\Shipping\SiteShippingHandlingFeeResource.cs" />
     <Compile Include="Resources\Commerce\Settings\SiteShippingSettingsResource.cs" />
     <Compile Include="Resources\Commerce\Shipping\Admin\CarrierConfigurationResource.cs" />
-    <Compile Include="Resources\Commerce\Shipping\Admin\Profiles\HandlingFeeRuleResource.cs" />
+    <Compile Include="Resources\Commerce\Shipping\Admin\Profiles\OrderHandlingFeeRulesResource.cs" />
+    <Compile Include="Resources\Commerce\Shipping\Admin\Profiles\ProductHandlingFeeRulesResource.cs" />
     <Compile Include="Resources\Commerce\Shipping\Admin\Profiles\ShippingInclusionRuleResource.cs" />
     <Compile Include="Resources\Commerce\Shipping\Admin\Profiles\ShippingStatesResource.cs" />
     <Compile Include="Resources\Commerce\Shipping\Admin\ShippingProfileResource.cs" />
@@ -911,6 +940,7 @@
     <Compile Include="Resources\Event\Push\Subscriptions\EventDeliverySummaryResource.cs" />
     <Compile Include="Resources\Platform\Adminuser\AdminUserResource.cs" />
     <Compile Include="Resources\Platform\Adminuser\TenantAdminUserAuthTicketResource.cs" />
+    <Compile Include="Resources\Platform\Appdev\AppPackageResource.cs" />
     <Compile Include="Resources\Platform\Appdev\PackageResource.cs" />
     <Compile Include="Resources\Platform\ApplicationResource.cs" />
     <Compile Include="Resources\Platform\Applications\AuthTicketResource.cs" />
@@ -920,6 +950,7 @@
     <Compile Include="Resources\Platform\Entitylists\EntityResource.cs" />
     <Compile Include="Resources\Platform\Entitylists\ListViewResource.cs" />
     <Compile Include="Resources\Platform\Extensions\CredentialStoreEntryResource.cs" />
+    <Compile Include="Resources\Platform\InstalledApplicationsResource.cs" />
     <Compile Include="Resources\Platform\ReferenceDataResource.cs" />
     <Compile Include="Resources\Platform\SecureAppDataResource.cs" />
     <Compile Include="Resources\Platform\SiteDataResource.cs" />
@@ -927,6 +958,7 @@
     <Compile Include="Resources\Platform\TenantExtensionsResource.cs" />
     <Compile Include="Resources\Platform\TenantResource.cs" />
     <Compile Include="Resources\Platform\UserDataResource.cs" />
+    <Compile Include="Urls\Commerce\Admin\Locations\Attributedefinition\AttributeUrl.cs" />
     <Compile Include="Urls\Commerce\Admin\LocationTypeUrl.cs" />
     <Compile Include="Urls\Commerce\Admin\LocationUrl.cs" />
     <Compile Include="Urls\Commerce\Carts\AppliedDiscountUrl.cs" />
@@ -972,6 +1004,12 @@
     <Compile Include="Urls\Commerce\Catalog\Storefront\ShippingUrl.cs" />
     <Compile Include="Urls\Commerce\ChannelGroupUrl.cs" />
     <Compile Include="Urls\Commerce\ChannelUrl.cs" />
+    <Compile Include="Urls\Commerce\Checkouts\AppliedDiscountUrl.cs" />
+    <Compile Include="Urls\Commerce\Checkouts\DestinationUrl.cs" />
+    <Compile Include="Urls\Commerce\Checkouts\OrderAttributeUrl.cs" />
+    <Compile Include="Urls\Commerce\Checkouts\OrderItemUrl.cs" />
+    <Compile Include="Urls\Commerce\Checkouts\PaymentUrl.cs" />
+    <Compile Include="Urls\Commerce\CheckoutUrl.cs" />
     <Compile Include="Urls\Commerce\Customer\Accounts\CardUrl.cs" />
     <Compile Include="Urls\Commerce\Customer\Accounts\CustomerAttributeUrl.cs" />
     <Compile Include="Urls\Commerce\Customer\Accounts\CustomerAuditEntryUrl.cs" />
@@ -1029,7 +1067,8 @@
     <Compile Include="Urls\Commerce\Settings\Shipping\SiteShippingHandlingFeeUrl.cs" />
     <Compile Include="Urls\Commerce\Settings\SiteShippingSettingsUrl.cs" />
     <Compile Include="Urls\Commerce\Shipping\Admin\CarrierConfigurationUrl.cs" />
-    <Compile Include="Urls\Commerce\Shipping\Admin\Profiles\HandlingFeeRuleUrl.cs" />
+    <Compile Include="Urls\Commerce\Shipping\Admin\Profiles\OrderHandlingFeeRulesUrl.cs" />
+    <Compile Include="Urls\Commerce\Shipping\Admin\Profiles\ProductHandlingFeeRulesUrl.cs" />
     <Compile Include="Urls\Commerce\Shipping\Admin\Profiles\ShippingInclusionRuleUrl.cs" />
     <Compile Include="Urls\Commerce\Shipping\Admin\Profiles\ShippingStatesUrl.cs" />
     <Compile Include="Urls\Commerce\Shipping\Admin\ShippingProfileUrl.cs" />
@@ -1051,6 +1090,7 @@
     <Compile Include="Urls\Event\Push\SubscriptionUrl.cs" />
     <Compile Include="Urls\Platform\Adminuser\AdminUserUrl.cs" />
     <Compile Include="Urls\Platform\Adminuser\TenantAdminUserAuthTicketUrl.cs" />
+    <Compile Include="Urls\Platform\Appdev\AppPackageUrl.cs" />
     <Compile Include="Urls\Platform\Appdev\PackageUrl.cs" />
     <Compile Include="Urls\Platform\Applications\AuthTicketUrl.cs" />
     <Compile Include="Urls\Platform\ApplicationUrl.cs" />
@@ -1060,6 +1100,7 @@
     <Compile Include="Urls\Platform\Entitylists\ListViewUrl.cs" />
     <Compile Include="Urls\Platform\EntityListUrl.cs" />
     <Compile Include="Urls\Platform\Extensions\CredentialStoreEntryUrl.cs" />
+    <Compile Include="Urls\Platform\InstalledApplicationsUrl.cs" />
     <Compile Include="Urls\Platform\ReferenceDataUrl.cs" />
     <Compile Include="Urls\Platform\SecureAppDataUrl.cs" />
     <Compile Include="Urls\Platform\SiteDataUrl.cs" />

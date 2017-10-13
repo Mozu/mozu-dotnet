@@ -19,9 +19,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class Category
 		{
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
 			public AuditInfo AuditInfo { get; set; }
 
 			public int? CatalogId { get; set; }
@@ -36,14 +33,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public string CategoryType { get; set; }
 
-			///
-			///The number of children (subcategories, for example) that stem from a parent (top-level category).
-			///
 			public int? ChildCount { get; set; }
 
-			///
-			///Complex type that contains content for a language specified by LocaleCode.
-			///
 			public CategoryLocalizedContent Content { get; set; }
 
 			///
@@ -51,9 +42,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public DynamicExpression DynamicExpression { get; set; }
 
-			///
-			///Unique identifier of the source property, such as a catalog, discount, order, or email template.For a product field it will be the name of the field.For a category ID, must be a positive integer not greater than 2000000. By default,  auto-generates a category ID when categories are created. If you want to specify an ID during creation (which preserves category link relationships when migrating tenant data from one sandbox to another), you must also include the  query string in the endpoint. For example, . Then, use the  property to specify the desired category ID.For a product attribute it will be the Attribute FQN.For a document, the ID must be specified as a 32 character, case-insensitive, alphanumeric string. You can specify the ID as 32 sequential characters or as groups separated by dashes in the format 8-4-4-4-12. For example, or.For email templates, the ID must be one of the following values:///
-			///
 			public int? Id { get; set; }
 
 			///
@@ -61,9 +49,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool? IsActive { get; set; }
 
-			///
-			///Indicates if the object is displayed on the storefront. If true, the admin product category is displayed in the store. If false, the category is not displayed.
-			///
 			public bool? IsDisplayed { get; set; }
 
 			///
@@ -71,9 +56,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public string ParentCategoryCode { get; set; }
 
-			///
-			///If the current category has a parent, the identifier of the category's parent category.
-			///
 			public int? ParentCategoryId { get; set; }
 
 			///
@@ -86,14 +68,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool? ParentIsActive { get; set; }
 
-			///
-			///The total number of products. This total may indicate the total products associate with a product type or number of products in a list.
-			///
 			public int? ProductCount { get; set; }
 
-			///
-			///The numeric order of objects, used by a vocabulary value defined for an extensible attribute, images, and categories.
-			///
 			public int? Sequence { get; set; }
 
 		}

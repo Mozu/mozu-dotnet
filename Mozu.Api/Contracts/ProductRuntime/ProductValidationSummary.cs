@@ -24,9 +24,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public List<BundledProductSummary> BundledProducts { get; set; }
 
-			///
-			///The list of all categories associated with the product. These categories contain products, can have discounts associated, and define the grouping of products to display on the storefront.
-			///
 			public List<Category> Categories { get; set; }
 
 			///
@@ -35,18 +32,12 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public List<string> FulfillmentTypesSupported { get; set; }
 
 			///
-			///The type of goods in a bundled product. A bundled product is composed of products associated to sell together. Possible values include “Physical” and “DigitalCredit”. This comes from the `productType `of the product. Products are defaulted to a Physical `goodsType`. Gift cards have a `goodsType `of DigitalCredit.
+			///The type of goods in a bundled product. A bundled product is composed of products associated to sell together. Possible values include â€œPhysicalâ€ and â€œDigitalCreditâ€. This comes from the `productType `of the product. Products are defaulted to a Physical `goodsType`. Gift cards have a `goodsType `of DigitalCredit.
 			///
 			public string GoodsType { get; set; }
 
-			///
-			///The image configured for the product on the storefront.
-			///
 			public ProductImage Image { get; set; }
 
-			///
-			///Properties and data of inventory information for configured and bundled products. If product stock is managed, the data specifies out of stock behavior.
-			///
 			public ProductInventoryInfo InventoryInfo { get; set; }
 
 			///
@@ -54,14 +45,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public bool? IsPackagedStandAlone { get; set; }
 
-			///
-			///Indicates if the item is subject to taxation, used by products, options, extras, cart and order items, line items, and wish lists. If true, the entity is subject to tax based on the relevant tax rate and rules.
-			///
 			public bool IsTaxable { get; set; }
 
-			///
-			///Dimensions of the packaged product.
-			///
 			public PackageMeasurements Measurements { get; set; }
 
 			///
@@ -69,9 +54,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public string MfgPartNumber { get; set; }
 
-			///
-			///Price that the merchant intends to sell the product which is not necessarily the list price. This is the price the merchant intends to sell the product if no sale price is present.
-			///
 			public ProductPrice Price { get; set; }
 
 			///
@@ -79,19 +61,10 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public ProductPricingBehaviorInfo PricingBehavior { get; set; }
 
-			///
-			///Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-			///
 			public string ProductCode { get; set; }
 
-			///
-			///The name of the product that represents a line item in a taxable order or product bundle.
-			///
 			public string ProductName { get; set; }
 
-			///
-			///Brief text description of the product or component in a product bundle, typically used when the product is displayed in a list or in search results.
-			///
 			public string ProductShortDescription { get; set; }
 
 			///
@@ -104,24 +77,17 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public string ProductUsage { get; set; }
 
-			///
-			///Collection of property attributes defined for the object. Properties are associated to all objects within , including documents, products, and product types.
-			///
 			public List<ProductProperty> Properties { get; set; }
 
-			///
-			///The current state of the configured product determines whether or not the product is eligible for purchase. Products with options are only purchasable if the shopper has selected all required options. If the product is not ready for purchase, a message lists missing options that are required.
-			///
 			public ProductPurchasableState PurchasableState { get; set; }
+
+			public string PurchaseLocation { get; set; }
 
 			///
 			///The universal product code (UPC) is the barcode defined for the product. The UPC is unique across all sales channels. 
 			///
 			public string Upc { get; set; }
 
-			///
-			///Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
-			///
 			public string VariationProductCode { get; set; }
 
 		}

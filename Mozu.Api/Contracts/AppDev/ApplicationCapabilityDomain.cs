@@ -19,19 +19,10 @@ namespace Mozu.Api.Contracts.AppDev
 		///
 		public class ApplicationCapabilityDomain
 		{
-			///
-			///Mozu.AppDev.Contracts.ApplicationCapabilityDomain applicationCapabilityDomainId ApiTypeMember DOCUMENT_HERE 
-			///
 			public int ApplicationCapabilityDomainId { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationCapabilityDomain applicationCapabilityDomainValues1 ApiTypeMember DOCUMENT_HERE 
-			///
 			public List<ApplicationCapabilityDomainValue> ApplicationCapabilityDomainValues1 { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationCapabilityDomain applicationCapabilityDomainValues2 ApiTypeMember DOCUMENT_HERE 
-			///
 			public List<ApplicationCapabilityDomainValue> ApplicationCapabilityDomainValues2 { get; set; }
 
 			///
@@ -39,9 +30,6 @@ namespace Mozu.Api.Contracts.AppDev
 			///
 			public int ApplicationCapabilityTypeId { get; set; }
 
-			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
-			///
 			public string Name { get; set; }
 
 		}

@@ -20,34 +20,16 @@ namespace Mozu.Api.Contracts.Customer
 		///
 		public class CustomerAccount
 		{
-			///
-			///Indicates if the customer account is opted to receive marketing materials. If true, the customer account is opted in for receiving the content. 
-			///
 			public bool AcceptsMarketing { get; set; }
 
-			///
-			///Collection of attributes that may be paged list or a list, depending on the usage per object and API type. 
-			///
 			public List<CustomerAttribute> Attributes { get; set; }
 
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
 			public AuditInfo AuditInfo { get; set; }
 
-			///
-			///Properties of the commerce summary associated with a customer account, which includes details about the shopper's most recent order, wish lists, and total order value over time.
-			///
 			public CommerceSummary CommerceSummary { get; set; }
 
-			///
-			///The legal or doing business as (DBA) or tradestyle name of the business or organization. The maximum character length is 200.
-			///
 			public string CompanyOrOrganization { get; set; }
 
-			///
-			///Contact information, including the contact's name, address, phone numbers, email addresses, and company (if supplied). Also indicates whether this is a billing, shipping, or billing and shipping contact.
-			///
 			public List<CustomerContact> Contacts { get; set; }
 
 			///
@@ -56,7 +38,7 @@ namespace Mozu.Api.Contracts.Customer
 			public string CustomerSet { get; set; }
 
 			///
-			///This property tracks the customer account creation date. This date can be set manually via the API for customer accounts that are imported into . 
+			///This property tracks the customer account creation date. This date can be set manually via the APIÂ for customer accounts that are imported into . 
 			///
 			public DateTime? CustomerSinceDate { get; set; }
 
@@ -80,9 +62,6 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public bool HasExternalPassword { get; set; }
 
-			///
-			///Unique identifier of the source property, such as a catalog, discount, order, or email template.For a product field it will be the name of the field.For a category ID, must be a positive integer not greater than 2000000. By default,  auto-generates a category ID when categories are created. If you want to specify an ID during creation (which preserves category link relationships when migrating tenant data from one sandbox to another), you must also include the  query string in the endpoint. For example, . Then, use the  property to specify the desired category ID.For a product attribute it will be the Attribute FQN.For a document, the ID must be specified as a 32 character, case-insensitive, alphanumeric string. You can specify the ID as 32 sequential characters or as groups separated by dashes in the format 8-4-4-4-12. For example, or.For email templates, the ID must be one of the following values:///
-			///
 			public int Id { get; set; }
 
 			///
@@ -110,9 +89,6 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public string LocaleCode { get; set; }
 
-			///
-			///Paged list collection of note content for objects including customers, orders, and returns. 
-			///
 			public List<CustomerNote> Notes { get; set; }
 
 			///
@@ -120,19 +96,10 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public List<CustomerSegment> Segments { get; set; }
 
-			///
-			///If true, this customer account has tax exempt status.
-			///
 			public bool TaxExempt { get; set; }
 
-			///
-			///The tax identification number associated with the customer account.
-			///
 			public string TaxId { get; set; }
 
-			///
-			///Unique identifier of the customer account (shopper or system user). System-supplied and read-only. If the shopper user is anonymous, the user ID represents a system-generated user ID string.
-			///
 			public string UserId { get; set; }
 
 			///

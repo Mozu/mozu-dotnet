@@ -39,9 +39,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 
 				
 
-
 		/// <summary>
-		/// Retrieves a list of coupon sets in the catalog according to any specified filter criteria and sort options.
+		/// 
 		/// </summary>
 		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
 		/// <param name="includeCounts">Specifies whether to include the number of redeemed coupons, existing coupon codes, and assigned discounts in the response body.</param>
@@ -69,9 +68,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 
-
 		/// <summary>
-		/// Retrieves the details of a single coupon set. Use the couponSetCode parameter to specify the coupon set. Use the includeCounts parameter to specify whether to include the number of redeemed coupons, existing coupon codes, and assigned discounts.
+		/// 
 		/// </summary>
 		/// <param name="couponSetCode">The unique identifier of the coupon set.</param>
 		/// <param name="includeCounts">Specifies whether to include the number of redeemed coupons, existing coupon codes, and assigned discounts in the response body.</param>
@@ -96,9 +94,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 
-
 		/// <summary>
-		/// Returns a unique, random four character code to use for the couponSetCode.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
@@ -121,9 +118,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 
-
 		/// <summary>
-		/// Adds a single coupon set to the catalog.
+		/// 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="couponSet">The details of the new coupon set.</param>
@@ -147,9 +143,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 
-
 		/// <summary>
-		/// Validates the couponSetCode and tests it for uniqueness.
+		/// 
 		/// </summary>
 		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <returns>
@@ -171,9 +166,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		}
 
 
-
 		/// <summary>
-		/// Updates one or more properties of a coupon set in the catalog.
+		/// 
 		/// </summary>
 		/// <param name="couponSetCode">The unique identifier of the coupon set.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -199,7 +193,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 
 
 		/// <summary>
-		/// Deletes a specified coupon set from the catalog. Use the couponSetCode parameter to specify the coupon set to delete.
+		/// 
 		/// </summary>
 		/// <param name="couponSetCode">The unique identifier of the coupon set.</param>
 		/// <returns>

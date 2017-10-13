@@ -30,8 +30,14 @@ namespace Mozu.Api.Contracts.PricingRuntime.ThirdParty
 			///
 			public string CurrencyCode { get; set; }
 
+			///
+			///handlingDiscount ApiType DOCUMENT_HERE 
+			///
 			public AppliedDiscount HandlingDiscount { get; set; }
 
+			///
+			///The handling discounts applied to the order.
+			///
 			public List<AppliedDiscount> HandlingDiscounts { get; set; }
 
 			///
@@ -49,12 +55,24 @@ namespace Mozu.Api.Contracts.PricingRuntime.ThirdParty
 			///
 			public DateTime OrderDate { get; set; }
 
+			///
+			///The discount applied to the order.
+			///
 			public AppliedDiscount OrderDiscount { get; set; }
 
+			///
+			///List of order-level discounts projected to apply to the cart at checkout or order.
+			///
 			public List<AppliedDiscount> OrderDiscounts { get; set; }
 
+			///
+			///Unique identifier of the order associated with the payment.
+			///
 			public string OrderId { get; set; }
 
+			///
+			///The unique identifier of the order.
+			///
 			public int? OrderNumber { get; set; }
 
 			///
@@ -72,12 +90,24 @@ namespace Mozu.Api.Contracts.PricingRuntime.ThirdParty
 			///
 			public decimal ShippingAmount { get; set; }
 
+			///
+			///The discount applied to the order's shipping cost.
+			///
 			public AppliedOrderShippingDiscount ShippingDiscount { get; set; }
 
+			///
+			///List of shipping discounts projected to apply to carts, orders, and wish lists and items at checkout.
+			///
 			public List<AppliedOrderShippingDiscount> ShippingDiscounts { get; set; }
 
+			///
+			///The code associated with a carrier's shipping method service type, used during fulfillment of packages and shipments. Service type codes include a prefix that indicates the carrier. For example: FEDEX_INTERNATIONAL_STANDARD and UPS_GROUND.If using a custom rate, this property corresponds to the  field in  when you navigate to  &gt;  &gt; , and then click on an existing rate or on .
+			///
 			public string ShippingMethodCode { get; set; }
 
+			///
+			///The carrier-supplied name for the shipping service type, such as "UPS Ground" or "2nd Day Air".If using a custom rate, this property corresponds to the  field in  when you navigate to  &gt;  &gt; , and then click on an existing rate or on .
+			///
 			public string ShippingMethodName { get; set; }
 
 			///

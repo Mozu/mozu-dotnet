@@ -26,9 +26,6 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public string DocumentListType { get; set; }
 
-			///
-			///List of document types associated with this document list.
-			///
 			public List<string> DocumentTypes { get; set; }
 
 			///
@@ -36,9 +33,6 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public bool? EnableActiveDateRanges { get; set; }
 
-			///
-			///Indicates if the document list and document list type are enabled to publish. If true, publishing of draft documents in this document list/document list type is enabled for the site. If false, all document changes are immediately published in live mode.
-			///
 			public bool? EnablePublishing { get; set; }
 
 			///
@@ -46,14 +40,8 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public string ListFQN { get; set; }
 
-			///
-			///Metadata content for entities, used by document lists, document type lists, document type, views, entity lists, and list views.
-			///
 			public JObject Metadata { get; set; }
 
-			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
-			///
 			public string Name { get; set; }
 
 			///
@@ -81,9 +69,6 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public bool? SupportsActiveDateRanges { get; set; }
 
-			///
-			///Indicates if modified documents are published automatically or saved to publish at a later time. If true, changed documents in this list can be saved as drafts until they are published to the site. If false, all document changes are immediately published in live mode. System-supplied and read only.
-			///
 			public bool? SupportsPublishing { get; set; }
 
 			///

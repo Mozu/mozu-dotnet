@@ -23,10 +23,35 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 	public partial class ShippingClient 	{
 		
 		/// <summary>
-		/// Retrieves the shipping rates applicable for the site.
+		/// 
+		/// </summary>
+		/// <param name="includeRawResponse"></param>
+		/// <param name="rateRequestGroupList"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ShippingRuntime.RatesResponseGroup"/>}}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetMultiRates( rateRequestGroupList,  includeRawResponse);
+		///   var ratesResponseGroupClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<List<Mozu.Api.Contracts.ShippingRuntime.RatesResponseGroup>> GetMultiRatesClient(List<Mozu.Api.Contracts.ShippingRuntime.RateRequestGroup> rateRequestGroupList, bool? includeRawResponse =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ShippingUrl.GetMultiRatesUrl(includeRawResponse);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<List<Mozu.Api.Contracts.ShippingRuntime.RatesResponseGroup>>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<List<Mozu.Api.Contracts.ShippingRuntime.RateRequestGroup>>(rateRequestGroupList);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
 		/// </summary>
 		/// <param name="includeRawResponse">Set this parameter to  to retrieve the full raw JSON response from a shipping carrier (instead of just the shipping rate).</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="rateRequest">Properties required to request a shipping rate calculation.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ShippingRuntime.RatesResponse"/>}

@@ -24,14 +24,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool? AppliesToLeastExpensiveProductsFirst { get; set; }
 
-			///
-			///The list of all categories associated with the product. These categories contain products, can have discounts associated, and define the grouping of products to display on the storefront.
-			///
 			public List<TargetedCategory> Categories { get; set; }
 
-			///
-			///List of the product categories that are not eligible for the discount.
-			///
 			public List<TargetedCategory> ExcludedCategories { get; set; }
 
 			///
@@ -39,9 +33,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public string ExcludedCategoriesOperator { get; set; }
 
-			///
-			///List of products that are not eligible for the discount.
-			///
 			public List<TargetedProduct> ExcludedProducts { get; set; }
 
 			///
@@ -54,9 +45,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool? ExcludeItemsWithExistingShippingDiscounts { get; set; }
 
-			///
-			///If true, the target discount applies to all products sold on the site, regardless of product category.
-			///
 			public bool? IncludeAllProducts { get; set; }
 
 			///
@@ -69,14 +57,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public int? MaximumQuantityPerRedemption { get; set; }
 
-			///
-			///List of product codes that represent the products to which the discount can apply.
-			///
 			public List<TargetedProduct> Products { get; set; }
 
-			///
-			///The list of shipping method codes that represents the shipping service types to which the discount can apply.
-			///
 			public List<TargetedShippingMethod> ShippingMethods { get; set; }
 
 			///
@@ -84,9 +66,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public List<TargetedShippingZone> ShippingZones { get; set; }
 
-			///
-			///Properties of the object to which this discount is targeted, which can be Product or Shipping. If the discount type is Product, the target properties describe the product or product categories to which the discount applies. If the discount type is Shipping, the target properties describe the shipping methods eligible for the discount.
-			///
 			public string Type { get; set; }
 
 		}

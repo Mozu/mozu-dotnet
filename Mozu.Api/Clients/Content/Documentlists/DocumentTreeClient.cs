@@ -23,7 +23,7 @@ namespace Mozu.Api.Clients.Content.Documentlists
 	public partial class DocumentTreeClient 	{
 		
 		/// <summary>
-		/// Retrieve the content associated with the document, such as a product image or PDF specifications file.
+		/// 
 		/// </summary>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
 		/// <param name="documentName">The name of the document in the site.</param>
@@ -49,7 +49,7 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		}
 
 		/// <summary>
-		/// Performs transformations on a document. For example, resizing an image.
+		/// 
 		/// </summary>
 		/// <param name="crop">Crops the image based on the specified coordinates. The reference point for positive coordinates is the top-left corner of the image, and the reference point for negative coordinates is the bottom-right corner of the image.Usage: Example:  removes 10 pixels from all edges of the image.  leaves the image uncropped.</param>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
@@ -81,12 +81,12 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		}
 
 		/// <summary>
-		/// Retrieves a document based on its document list and folder path in the document hierarchy.
+		/// 
 		/// </summary>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
 		/// <param name="documentName">The name of the document in the site.</param>
 		/// <param name="includeInactive">Include inactive content.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.Document"/>}
 		/// </returns>
@@ -109,7 +109,7 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		}
 
 		/// <summary>
-		/// Updates the binary data or content associated with a document, such as a product image or PDF specifications file, by supplying the document name.
+		/// 
 		/// </summary>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
 		/// <param name="documentName">The name of the document in the site.</param>
@@ -136,7 +136,7 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		}
 
 		/// <summary>
-		/// Deletes the content associated with a document, such as a product image or PDF specifications file.
+		/// 
 		/// </summary>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
 		/// <param name="documentName">The name of the document in the site.</param>

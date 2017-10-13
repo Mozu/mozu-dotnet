@@ -21,24 +21,12 @@ namespace Mozu.Api.Contracts.PricingRuntime
 		///
 		public class OrderTaxContext
 		{
-			///
-			///Tax amount applied to the handling fee defined for orders on this site.
-			///
 			public decimal HandlingFeeTax { get; set; }
 
-			///
-			///Properties of the tax context applicable for line items in an order.
-			///
 			public List<ItemTaxContext> ItemTaxContexts { get; set; }
 
-			///
-			///Tax amount applied to the order.
-			///
 			public decimal OrderTax { get; set; }
 
-			///
-			///Amount of tax applied to shipping costs for line items in and entire orders.
-			///
 			public decimal ShippingTax { get; set; }
 
 			///

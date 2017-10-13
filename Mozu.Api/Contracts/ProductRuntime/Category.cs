@@ -24,19 +24,10 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public string CategoryCode { get; set; }
 
-			///
-			///Unique identifier for the storefront container used to organize products.
-			///
 			public int CategoryId { get; set; }
 
-			///
-			///List of the subcategories in the hierarchy for the specified categories.
-			///
 			public List<Category> ChildrenCategories { get; set; }
 
-			///
-			///Complex type that contains content for a language specified by LocaleCode.
-			///
 			public CategoryContent Content { get; set; }
 
 			///
@@ -49,14 +40,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public bool IsDisplayed { get; set; }
 
-			///
-			///If applicable, the parent category in the hierarchy for the specified category.
-			///
 			public Category ParentCategory { get; set; }
 
-			///
-			///The numeric order of objects, used by a vocabulary value defined for an extensible attribute, images, and categories.
-			///
 			public int? Sequence { get; set; }
 
 		}

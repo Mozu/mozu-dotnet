@@ -40,7 +40,7 @@ namespace Mozu.Api.Resources.Commerce.Returns
 				
 
 		/// <summary>
-		/// Retrieves the package label image supplied by the carrier for a return replacement.
+		/// 
 		/// </summary>
 		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
 		/// <param name="returnAsBase64Png">Specifies whether to return the RMA label image as Base64-encoded PNG image instead of as a byte array encoded in the original image format. The default is .</param>
@@ -66,10 +66,10 @@ namespace Mozu.Api.Resources.Commerce.Returns
 
 
 		/// <summary>
-		/// Retrieves the details of a package of return replacement items.
+		/// 
 		/// </summary>
 		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>
@@ -92,9 +92,9 @@ namespace Mozu.Api.Resources.Commerce.Returns
 
 
 		/// <summary>
-		/// Creates a new physical package of return replacement items.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
 		/// <param name="package">Properties of a physical package shipped for an order.</param>
 		/// <returns>
@@ -118,10 +118,10 @@ namespace Mozu.Api.Resources.Commerce.Returns
 
 
 		/// <summary>
-		/// Updates one or more properties of a package associated with a return replacement.
+		/// 
 		/// </summary>
 		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
 		/// <param name="package">Properties of a physical package shipped for an order.</param>
 		/// <returns>
@@ -145,7 +145,7 @@ namespace Mozu.Api.Resources.Commerce.Returns
 
 
 		/// <summary>
-		/// Deletes a package associated with a return replacement.
+		/// 
 		/// </summary>
 		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>

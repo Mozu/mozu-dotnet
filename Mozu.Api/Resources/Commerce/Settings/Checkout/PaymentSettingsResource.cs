@@ -40,7 +40,7 @@ namespace Mozu.Api.Resources.Commerce.Settings.Checkout
 				
 
 		/// <summary>
-		/// Retrieves the schema and definition along with the actual instance values of the third-party payment service workflow configured for the corresponding fully qualified name.
+		/// 
 		/// </summary>
 		/// <param name="fullyQualifiedName">Fully qualified name of the attribute for the third-party payment workflow.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -65,7 +65,7 @@ namespace Mozu.Api.Resources.Commerce.Settings.Checkout
 
 
 		/// <summary>
-		/// Retrieves the schema and definition of all third-party payment service workflows configured for the site.
+		/// 
 		/// </summary>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.SiteSettings.Order.ExternalPaymentWorkflowDefinition"/>}
@@ -88,7 +88,7 @@ namespace Mozu.Api.Resources.Commerce.Settings.Checkout
 
 
 		/// <summary>
-		/// Adds a third-party payment workflow to the site. A third-party payment workflow is a definition of a process by which a third-party payment provider (such as Amazon Payments or PayPal Express) interacts with the  platform.
+		/// 
 		/// </summary>
 		/// <param name="definition">Properties of an external payment processing workflow defined for the site. At this time, only PayPal Express is supported.</param>
 		/// <returns>
@@ -111,7 +111,7 @@ namespace Mozu.Api.Resources.Commerce.Settings.Checkout
 
 
 		/// <summary>
-		/// Deletes a third-party payment workflow. A third-party payment workflow is a definition of a process by which a third-party payment provider (such as Amazon Payments or PayPal Express) interacts with the  platform. 
+		/// 
 		/// </summary>
 		/// <param name="fullyQualifiedName">Fully qualified name of the attribute for the third-party payment workflow.</param>
 		/// <returns>

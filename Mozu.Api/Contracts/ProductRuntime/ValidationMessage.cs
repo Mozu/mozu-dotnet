@@ -18,24 +18,12 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		///
 		public class ValidationMessage
 		{
-			///
-			///The text of the change message, such as "This product is no longer available." System-supplied and read-only.
-			///
 			public string Message { get; set; }
 
-			///
-			///The severity level of validation failures for shipping rates and products.
-			///
 			public string Severity { get; set; }
 
-			///
-			///Source for an action or container for originating content. Source is used as an origin for validation and notification messages based on successful or failed actions. For originating content, source is used for the facet source information, including the category, price, or attribute properties.
-			///
 			public string Source { get; set; }
 
-			///
-			///Unique identifier of the entity that triggered the validation.
-			///
 			public string SourceId { get; set; }
 
 			///

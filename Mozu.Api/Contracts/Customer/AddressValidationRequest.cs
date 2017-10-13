@@ -19,9 +19,6 @@ namespace Mozu.Api.Contracts.Customer
 		///
 		public class AddressValidationRequest
 		{
-			///
-			///Address information to supply for a contact.
-			///
 			public Address Address { get; set; }
 
 		}

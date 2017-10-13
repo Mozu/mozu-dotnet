@@ -23,7 +23,7 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 	public partial class CustomerAuditEntryClient 	{
 		
 		/// <summary>
-		/// Retrieves audit log entries for the specified customer account.
+		/// 
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>

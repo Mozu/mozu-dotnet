@@ -41,9 +41,6 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			///
 			public JObject Data { get; set; }
 
-			///
-			///The physical address orders are sent to as a shipping destination. This address may contain multiple lines, city, state/province, country, and zip/postal code. The destination is used to calculate shipping costs.
-			///
 			public Address DestinationAddress { get; set; }
 
 			///
@@ -51,19 +48,12 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			///
 			public DateTime? EstimatedShipmentDate { get; set; }
 
-			///
-			///If true, the destination address associated with the shipping rate request is a commercial address.
-			///
+			public string Id { get; set; }
+
 			public bool? IsDestinationAddressCommercial { get; set; }
 
-			///
-			///3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
-			///
 			public string IsoCurrencyCode { get; set; }
 
-			///
-			///A list of requested items. All returned data is provided in an items array.For a failed request, the returned response may be success with an empty item array.
-			///
 			public List<RateRequestItem> Items { get; set; }
 
 			///
@@ -71,9 +61,6 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			///
 			public decimal? OrderDiscountedSubTotal { get; set; }
 
-			///
-			///The total monetary amount of the order. This amount is used to calculate the shipping rate estimate.
-			///
 			public decimal? OrderTotal { get; set; }
 
 			///

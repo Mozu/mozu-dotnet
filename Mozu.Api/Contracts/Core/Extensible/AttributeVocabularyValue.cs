@@ -18,9 +18,6 @@ namespace Mozu.Api.Contracts.Core.Extensible
 		///
 		public class AttributeVocabularyValue
 		{
-			///
-			///Localizable content (such as a name and/or description) for an attribute. The content may be localized when displayed according to the locale code specified by the master catalog. Content can include descriptive text for product extensible attributes, catalog-level descriptions (displayed if isContentOverriden is true), product bundles, and customer account notes.
-			///
 			public AttributeValueLocalizedContent Content { get; set; }
 
 			///
@@ -28,14 +25,8 @@ namespace Mozu.Api.Contracts.Core.Extensible
 			///
 			public bool? IsHidden { get; set; }
 
-			///
-			///The numeric order of objects, used by a vocabulary value defined for an extensible attribute, images, and categories.
-			///
 			public int? Sequence { get; set; }
 
-			///
-			///The value of a property, used by numerous objects within  including facets, attributes, products, localized content, metadata, capabilities ( and third-party), location inventory adjustment, and more. The value may be a string, integer, or double. Validation may be run against the entered and saved values depending on the object type.
-			///
 			public string Value { get; set; }
 
 		}

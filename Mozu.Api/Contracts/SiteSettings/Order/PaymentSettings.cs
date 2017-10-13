@@ -20,24 +20,12 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 		///
 		public class PaymentSettings
 		{
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
 			public AuditInfo AuditInfo { get; set; }
 
-			///
-			///The external payment workflwo definitions configured for the site's payment settings. At this time, only PayPal Express is supported.
-			///
 			public List<ExternalPaymentWorkflowDefinition> ExternalPaymentWorkflowDefinitions { get; set; }
 
-			///
-			///List of name and account information for a payment gateway.
-			///
 			public List<Gateway> Gateways { get; set; }
 
-			///
-			///Settings that provide for the ability to pay for an order by mail.
-			///
 			public bool PayByMail { get; set; }
 
 			///

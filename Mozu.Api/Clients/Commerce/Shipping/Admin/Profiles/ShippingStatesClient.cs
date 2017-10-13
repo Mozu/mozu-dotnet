@@ -23,7 +23,7 @@ namespace Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles
 	public partial class ShippingStatesClient 	{
 		
 		/// <summary>
-		/// Retrieves a list of shipping states and their details.
+		/// 
 		/// </summary>
 		/// <param name="profileCode">The unique, user-defined code of the profile with which the shipping state is associated.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
@@ -48,7 +48,7 @@ namespace Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles
 		}
 
 		/// <summary>
-		/// Updates the details of the shipping states.
+		/// 
 		/// </summary>
 		/// <param name="profilecode">The unique, user-defined code of the profile with which the shipping state is associated.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>

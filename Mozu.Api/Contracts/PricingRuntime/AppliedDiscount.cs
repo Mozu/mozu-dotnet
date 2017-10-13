@@ -13,13 +13,16 @@ using System;
 
 namespace Mozu.Api.Contracts.PricingRuntime
 {
+		///
+		///	Properties for the applied discounts to a cart, order, or product.
+		///
 		public class AppliedDiscount
 		{
-			///
-			///Alphanumeric code associated with the coupon or promotion that results in a discounted price.
-			///
 			public string CouponCode { get; set; }
 
+			///
+			///The unique identifier of the coupon set for the applied discount.
+			///
 			public int? CouponSetId { get; set; }
 
 			public Discount Discount { get; set; }

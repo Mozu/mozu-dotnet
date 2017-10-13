@@ -40,7 +40,7 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 				
 
 		/// <summary>
-		/// Retrieves a list of the taxable territories configured for the site.
+		/// 
 		/// </summary>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory"/>}
@@ -63,9 +63,9 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 
 
 		/// <summary>
-		/// Creates a new territory for which to calculate sales tax.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="taxableTerritory">Properties of the territory which is subject to sales tax.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.General.TaxableTerritory"/>
@@ -88,7 +88,7 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 
 
 		/// <summary>
-		/// Updates one or more taxable territories configured for a site.
+		/// 
 		/// </summary>
 		/// <param name="taxableterritories">Properties of the territory which is subject to sales tax.</param>
 		/// <returns>

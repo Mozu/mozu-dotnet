@@ -19,9 +19,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		///
 		public class ConfiguredProduct
 		{
-			///
-			///List of shipping discounts that can be applied to the configured product. These discounts are calculated and updated as shoppers add content to their cart and continue checkout steps to order submission.
-			///
 			public List<Discount> AvailableShippingDiscounts { get; set; }
 
 			///
@@ -29,14 +26,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public List<string> FulfillmentTypesSupported { get; set; }
 
-			///
-			///Properties and data of inventory information for configured and bundled products. If product stock is managed, the data specifies out of stock behavior.
-			///
 			public ProductInventoryInfo InventoryInfo { get; set; }
 
-			///
-			///Dimensions of the packaged product.
-			///
 			public PackageMeasurements Measurements { get; set; }
 
 			///
@@ -44,41 +35,28 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public string MfgPartNumber { get; set; }
 
-			///
-			///List of option attributes configured for an object. These values are associated and used by products, product bundles, and product types.
-			///
 			public List<ProductOption> Options { get; set; }
 
-			///
-			///Unit price that the tenant intends to sell the product if no sale price is set.
-			///
 			public ProductPrice Price { get; set; }
 
+			///
+			///The price list entry type.
+			///
 			public ProductProperty PriceListEntryTypeProperty { get; set; }
 
-			///
-			///For products with options that vary the cost of the product, the range between lowest and highest possible price of the product based on the current selection of options.
-			///
 			public ProductPriceRange PriceRange { get; set; }
 
-			///
-			///Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-			///
 			public string ProductCode { get; set; }
 
-			///
-			///The current state of the configured product determines whether or not the product is eligible for purchase. Products with options are only purchasable if the shopper has selected all required options. If the product is not ready for purchase, a message lists missing options that are required.
-			///
 			public ProductPurchasableState PurchasableState { get; set; }
+
+			public string PurchaseLocation { get; set; }
 
 			///
 			///The universal product code (UPC) is the barcode defined for the product. The UPC is unique across all sales channels. 
 			///
 			public string Upc { get; set; }
 
-			///
-			///Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
-			///
 			public string VariationProductCode { get; set; }
 
 			///

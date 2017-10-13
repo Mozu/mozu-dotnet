@@ -40,9 +40,9 @@ namespace Mozu.Api.Resources.Commerce.Carts
 				
 
 		/// <summary>
-		/// Retrieves the messages associated with the current shopper's cart.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartChangeMessageCollection"/>
 		/// </returns>
@@ -64,7 +64,7 @@ namespace Mozu.Api.Resources.Commerce.Carts
 
 
 		/// <summary>
-		/// Deletes all messages associated with the cart of the current shopper.
+		/// 
 		/// </summary>
 		/// <returns>
 		/// 
@@ -86,7 +86,7 @@ namespace Mozu.Api.Resources.Commerce.Carts
 
 
 		/// <summary>
-		/// Removes a single message associated with the cart of the current shopper.
+		/// 
 		/// </summary>
 		/// <param name="messageId">Identifier of the message to remove from the cart.</param>
 		/// <returns>

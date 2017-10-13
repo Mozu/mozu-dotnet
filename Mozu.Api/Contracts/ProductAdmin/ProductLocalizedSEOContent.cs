@@ -18,34 +18,16 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class ProductLocalizedSEOContent
 		{
-			///
-			///Language used for the entity. Currently, only "en-US" is supported.
-			///
 			public string LocaleCode { get; set; }
 
-			///
-			///Description defined for metadata, used to interally manage data, in the language specified by the `localeCode`. This content is used by categories, products, localized content, and SEO content.
-			///
 			public string MetaTagDescription { get; set; }
 
-			///
-			///Keywords defined for metadata, used to internally manage data, in the language specified by the `localeCode`. Keywords are used by content for categories, products, localized content, and SEO content.
-			///
 			public string MetaTagKeywords { get; set; }
 
-			///
-			///Title defined for metadata, used to internally manage data, in the language specified by the `localeCode`. Titles are used by content for categories, products, localized content, and SEO content.
-			///
 			public string MetaTagTitle { get; set; }
 
-			///
-			///The search engine optimized, human-readable portion of the URL. The content is localized according to the product's `localeCode`.
-			///
 			public string SeoFriendlyUrl { get; set; }
 
-			///
-			///Customizes the HTML title tag within the header section of the product details page for the specified product.
-			///
 			public string TitleTagTitle { get; set; }
 
 		}

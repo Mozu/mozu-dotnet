@@ -13,14 +13,23 @@ using System;
 
 namespace Mozu.Api.Contracts.PricingRuntime
 {
+		///
+		///	Name of the discount added and applied to a shopping cart and order for a shopper's purchase.
+		///
 		public class Discount
 		{
+			///
+			///The type of the discount, either  (meaning the discount amount value represents a percentage off the original price),  (meaning the discount amount value represents a dollar amount off the original price),  (meaning the discount amount value is ignored because the product is free), or  (meaning the discount amount value represents the discounted price of the item).
+			///
 			public string AmountType { get; set; }
 
 			public int DiscountId { get; set; }
 
 			public DateTime? ExpirationDate { get; set; }
 
+			///
+			///The localizable, shopper-facing description defined for a discount or a storefront message.
+			///
 			public string FriendlyDescription { get; set; }
 
 			public string Name { get; set; }

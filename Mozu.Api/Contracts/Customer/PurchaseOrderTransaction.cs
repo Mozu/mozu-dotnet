@@ -65,7 +65,7 @@ namespace Mozu.Api.Contracts.Customer
 			public string PurchaseOrderNumber { get; set; }
 
 			///
-			///Unique identifier for the site. This ID is used at all levels of a store, catalog, and tenant to associate objects to a site.
+			///Unique identifier for the site. This IDÂ is used at all levels of a store, catalog, and tenant to associate objects to a site.
 			///
 			public int SiteId { get; set; }
 
@@ -90,7 +90,7 @@ namespace Mozu.Api.Contracts.Customer
 			public string TransactionDescription { get; set; }
 
 			///
-			///The type of the purchase order transaction.The valid values are:*  — Line of Credit Change*  — Payment Requested*  — Payment Collected *  — Payment Voided*  — Payment Refund*  — Manual Adjustment
+			///The type of the purchase order transaction.The valid values are:*  â€” Line of Credit Change*  â€” Payment Requested*  â€” Payment Collected *  â€” Payment Voided*  â€” Payment Refund*  â€” Manual Adjustment
 			///
 			public int TransactionTypeId { get; set; }
 

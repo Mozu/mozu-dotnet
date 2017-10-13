@@ -23,7 +23,7 @@ namespace Mozu.Api.Clients.Commerce.Shipping.Admin
 	public partial class CarrierConfigurationClient 	{
 		
 		/// <summary>
-		/// Retrieves a list of carrier configurations and their details according to any specified facets, filter criteria, and sort options.
+		/// 
 		/// </summary>
 		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
 		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
@@ -51,7 +51,7 @@ namespace Mozu.Api.Clients.Commerce.Shipping.Admin
 		}
 
 		/// <summary>
-		/// Retrieves the details of the specified carrier configuration.
+		/// 
 		/// </summary>
 		/// <param name="carrierId">The unique identifier of the carrier.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -76,7 +76,7 @@ namespace Mozu.Api.Clients.Commerce.Shipping.Admin
 		}
 
 		/// <summary>
-		/// Creates a new carrier configuration.
+		/// 
 		/// </summary>
 		/// <param name="carrierId">The unique identifier of the carrier.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -102,7 +102,7 @@ namespace Mozu.Api.Clients.Commerce.Shipping.Admin
 		}
 
 		/// <summary>
-		/// Updates the details of the specified carrier configuration.
+		/// 
 		/// </summary>
 		/// <param name="carrierId">The unique identifier of the carrier.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -128,7 +128,7 @@ namespace Mozu.Api.Clients.Commerce.Shipping.Admin
 		}
 
 		/// <summary>
-		/// Deletes the specified carrier configuration.
+		/// 
 		/// </summary>
 		/// <param name="carrierId">The unique identifier of the carrier configuration.</param>
 		/// <returns>

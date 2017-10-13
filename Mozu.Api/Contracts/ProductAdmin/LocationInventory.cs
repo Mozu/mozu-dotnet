@@ -29,34 +29,16 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public string BaseProductCode { get; set; }
 
-			///
-			///The unique, user-defined code that identifies a location. This location can be the location where the order was entered, location for newly in-stock products, and where products are returned.
-			///
 			public string LocationCode { get; set; }
 
-			///
-			///Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-			///
 			public string ProductCode { get; set; }
 
-			///
-			///The name of the product that represents a line item in a taxable order or product bundle.
-			///
 			public string ProductName { get; set; }
 
-			///
-			///The stock level for the associated product currently available, at specified locations, and based on the number of pending product reservations as applicable. System-supplied and read only.
-			///
 			public int? StockAvailable { get; set; }
 
-			///
-			///The stock level for the associated product currently on back order for this location, based on the number of pending product reservations. System-supplied and read only.
-			///
 			public int? StockOnBackOrder { get; set; }
 
-			///
-			///The current physical stock level for the associated product, which does not account for pending product reservations.
-			///
 			public int? StockOnHand { get; set; }
 
 		}

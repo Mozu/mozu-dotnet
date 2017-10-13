@@ -18,9 +18,6 @@ namespace Mozu.Api.Contracts.Customer
 		///
 		public class Transaction
 		{
-			///
-			///If applicable, the amount of the transaction.
-			///
 			public decimal Amount { get; set; }
 
 			///
@@ -28,29 +25,14 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public string CurrencyCode { get; set; }
 
-			///
-			///The date and time recording for a customer action including a transaction and storefront visit.
-			///
 			public DateTime Date { get; set; }
 
-			///
-			///The type of payment interaction. The payment can be Capture or CheckReceived. The value also includes customer payment interactions such as Website, Call, Store, or Unknown.
-			///
 			public string InteractionType { get; set; }
 
-			///
-			///The unique identifier of the transaction.
-			///
 			public string TransactionId { get; set; }
 
-			///
-			///Specifies the type of transaction, including customer transactions and credit transactions.Valid values for credit transactions are the following:* —decreases the credit amount* —updates the credit amountValid values for customer transaction types are the following:* * * * 
-			///
 			public string TransactionType { get; set; }
 
-			///
-			///Unique identifier of the customer visit in which the cart was created or last modified.
-			///
 			public string VisitId { get; set; }
 
 		}
