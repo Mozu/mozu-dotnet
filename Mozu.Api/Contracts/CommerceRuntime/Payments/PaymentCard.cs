@@ -18,6 +18,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 		///
 		public class PaymentCard
 		{
+			///
+			///bin ApiType DOCUMENT_HERE 
+			///
+			public string Bin { get; set; }
+
 			public string CardNumberPartOrMask { get; set; }
 
 			public short ExpireMonth { get; set; }

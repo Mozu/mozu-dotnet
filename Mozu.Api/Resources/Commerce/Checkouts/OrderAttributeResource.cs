@@ -18,7 +18,7 @@ using System.Threading;
 namespace Mozu.Api.Resources.Commerce.Checkouts
 {
 	/// <summary>
-	/// 
+	/// commerce/checkouts/checkoutattributes related resources. DOCUMENT_HERE 
 	/// </summary>
 	public partial class OrderAttributeResource  	{
 		///

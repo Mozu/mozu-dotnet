@@ -18,7 +18,7 @@ using System.Threading;
 namespace Mozu.Api.Clients.Commerce.Checkouts
 {
 	/// <summary>
-	/// 
+	/// commerce/checkouts/checkoutitems related resources. DOCUMENT_HERE 
 	/// </summary>
 	public partial class OrderItemClient 	{
 		
@@ -27,8 +27,8 @@ namespace Mozu.Api.Clients.Commerce.Checkouts
 		/// </summary>
 		/// <param name="checkoutId"></param>
 		/// <param name="itemId"></param>
-		/// <param name="quantity"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout"/>}
 		/// </returns>
@@ -53,7 +53,7 @@ namespace Mozu.Api.Clients.Commerce.Checkouts
 		/// 
 		/// </summary>
 		/// <param name="checkoutId"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="itemsForDestination"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout"/>}
@@ -81,7 +81,7 @@ namespace Mozu.Api.Clients.Commerce.Checkouts
 		/// <param name="checkoutId"></param>
 		/// <param name="destinationId"></param>
 		/// <param name="itemId"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout"/>}
 		/// </returns>

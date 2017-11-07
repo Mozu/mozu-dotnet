@@ -18,7 +18,7 @@ using System.Threading;
 namespace Mozu.Api.Clients.Commerce.Checkouts
 {
 	/// <summary>
-	/// 
+	/// commerce/checkouts/checkoutpayments related resources. DOCUMENT_HERE 
 	/// </summary>
 	public partial class PaymentClient 	{
 		
@@ -26,8 +26,8 @@ namespace Mozu.Api.Clients.Commerce.Checkouts
 		/// 
 		/// </summary>
 		/// <param name="checkoutId"></param>
-		/// <param name="paymentId"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="paymentId">Unique identifier of the payment for which to perform the action.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="action"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout"/>}
@@ -53,7 +53,7 @@ namespace Mozu.Api.Clients.Commerce.Checkouts
 		/// 
 		/// </summary>
 		/// <param name="checkoutId"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="action"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout"/>}

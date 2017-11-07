@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Checkouts
 {
 	/// <summary>
-	/// 
+	/// commerce/checkouts/checkoutcoupons related resources. DOCUMENT_HERE 
 	/// </summary>
 	public partial class AppliedDiscountOrdersFactory : BaseDataFactory
 	{

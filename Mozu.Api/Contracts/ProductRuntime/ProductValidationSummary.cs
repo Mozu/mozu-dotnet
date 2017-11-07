@@ -81,6 +81,9 @@ namespace Mozu.Api.Contracts.ProductRuntime
 
 			public ProductPurchasableState PurchasableState { get; set; }
 
+			///
+			///purchaseLocation ApiType DOCUMENT_HERE 
+			///
 			public string PurchaseLocation { get; set; }
 
 			///

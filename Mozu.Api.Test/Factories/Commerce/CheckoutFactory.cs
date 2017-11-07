@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce
 {
 	/// <summary>
-	/// 
+	/// commerce/checkouts related resources. DOCUMENT_HERE 
 	/// </summary>
 	public partial class CheckoutFactory : BaseDataFactory
 	{

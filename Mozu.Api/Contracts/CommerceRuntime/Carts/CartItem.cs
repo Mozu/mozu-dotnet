@@ -77,6 +77,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 
 			public List<AppliedLineItemProductDiscount> ProductDiscounts { get; set; }
 
+			///
+			///purchaseLocation ApiType DOCUMENT_HERE 
+			///
+			public string PurchaseLocation { get; set; }
+
 			public int Quantity { get; set; }
 
 			///

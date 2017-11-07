@@ -14,10 +14,19 @@ using Mozu.Api.Contracts.CommerceRuntime.Fulfillment;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 {
+		///
+		///	Mozu.CommerceRuntime.Contracts.Checkouts.CheckoutGroupShippingMethod ApiType DOCUMENT_HERE 
+		///
 		public class CheckoutGroupShippingMethod
 		{
+			///
+			///groupingId ApiType DOCUMENT_HERE 
+			///
 			public string GroupingId { get; set; }
 
+			///
+			///shippingRate ApiType DOCUMENT_HERE 
+			///
 			public ShippingRate ShippingRate { get; set; }
 
 		}

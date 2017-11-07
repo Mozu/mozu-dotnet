@@ -17,56 +17,134 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 {
+		///
+		///	Mozu.CommerceRuntime.Contracts.Checkouts.CheckoutGrouping ApiType DOCUMENT_HERE 
+		///
 		public class CheckoutGrouping
 		{
+			///
+			///destinationId ApiType DOCUMENT_HERE 
+			///
 			public string DestinationId { get; set; }
 
+			///
+			///dutyAmount ApiType DOCUMENT_HERE 
+			///
 			public decimal? DutyAmount { get; set; }
 
+			///
+			///dutyTotal ApiType DOCUMENT_HERE 
+			///
 			public decimal DutyTotal { get; set; }
 
+			///
+			///The method used to fulfill this cart or order item. The method includes direct ship or in-store pickup. The available methods depend on the supported fulfillment types for the product.
+			///
 			public string FulfillmentMethod { get; set; }
 
+			///
+			///The combined price for all handling costs calculated together for shipped orders, not for digital or in-store pickup. This includes all handling costs per the product line items and options, excluding taxes and discounts.
+			///
 			public decimal? HandlingAmount { get; set; }
 
+			///
+			///handlingDiscounts ApiType DOCUMENT_HERE 
+			///
 			public List<AppliedDiscount> HandlingDiscounts { get; set; }
 
+			///
+			///handlingSubTotal ApiType DOCUMENT_HERE 
+			///
 			public decimal HandlingSubTotal { get; set; }
 
+			///
+			///handlingTax ApiType DOCUMENT_HERE 
+			///
 			public decimal? HandlingTax { get; set; }
 
+			///
+			///Calculated total tax amount for handling costs if the cart/order is subject to sales tax.
+			///
 			public decimal HandlingTaxTotal { get; set; }
 
+			///
+			///handlingTotal ApiType DOCUMENT_HERE 
+			///
 			public decimal HandlingTotal { get; set; }
 
+			///
+			///Unique identifier of the source property, such as a catalog, discount, order, or email template.For a product field it will be the name of the field.For a category ID, must be a positive integer not greater than 2000000. By default,  auto-generates a category ID when categories are created. If you want to specify an ID during creation (which preserves category link relationships when migrating tenant data from one sandbox to another), you must also include the  query string in the endpoint. For example, . Then, use the  property to specify the desired category ID.For a product attribute it will be the Attribute FQN.For a document, the ID must be specified as a 32 character, case-insensitive, alphanumeric string. You can specify the ID as 32 sequential characters or as groups separated by dashes in the format 8-4-4-4-12. For example, or.For email templates, the ID must be one of the following values:///
+			///
 			public string Id { get; set; }
 
+			///
+			///itemLevelHandlingDiscountTotal ApiType DOCUMENT_HERE 
+			///
 			public decimal ItemLevelHandlingDiscountTotal { get; set; }
 
+			///
+			///itemLevelShippingDiscountTotal ApiType DOCUMENT_HERE 
+			///
 			public decimal ItemLevelShippingDiscountTotal { get; set; }
 
+			///
+			///orderItemIds ApiType DOCUMENT_HERE 
+			///
 			public List<string> OrderItemIds { get; set; }
 
+			///
+			///orderLevelHandlingDiscountTotal ApiType DOCUMENT_HERE 
+			///
 			public decimal OrderLevelHandlingDiscountTotal { get; set; }
 
+			///
+			///orderLevelShippingDiscountTotal ApiType DOCUMENT_HERE 
+			///
 			public decimal OrderLevelShippingDiscountTotal { get; set; }
 
+			///
+			///The calculated monetary amount of shipping for a line items within and an entire order.
+			///
 			public decimal? ShippingAmount { get; set; }
 
+			///
+			///List of shipping discounts projected to apply to carts, orders, and wish lists and items at checkout.
+			///
 			public List<ShippingDiscount> ShippingDiscounts { get; set; }
 
+			///
+			///The code associated with a carrier's shipping method service type, used during fulfillment of packages and shipments. Service type codes include a prefix that indicates the carrier. For example: FEDEX_INTERNATIONAL_STANDARD and UPS_GROUND.If using a custom rate, this property corresponds to the  field in  when you navigate to  &gt;  &gt; , and then click on an existing rate or on .
+			///
 			public string ShippingMethodCode { get; set; }
 
+			///
+			///The carrier-supplied name for the shipping service type, such as "UPS Ground" or "2nd Day Air".If using a custom rate, this property corresponds to the  field in  when you navigate to  &gt;  &gt; , and then click on an existing rate or on .
+			///
 			public string ShippingMethodName { get; set; }
 
+			///
+			///The shipping subtotal amount calculated without any applied discounts for line item and entire amounts of carts and orders. This property is not calculated for wish lists at this time.
+			///
 			public decimal ShippingSubTotal { get; set; }
 
+			///
+			///Amount of tax applied to shipping costs for line items in and entire orders.
+			///
 			public decimal? ShippingTax { get; set; }
 
+			///
+			///The total amount of tax incurred on the shipping charges in the cart and order. This property is not calculated at this time for wish lists.
+			///
 			public decimal ShippingTaxTotal { get; set; }
 
+			///
+			///The calculated total shipping amount estimated for carts or orders, including tax. This amount is not calculated for wish lists at this time.
+			///
 			public decimal ShippingTotal { get; set; }
 
+			///
+			///taxData ApiType DOCUMENT_HERE 
+			///
 			public JObject TaxData { get; set; }
 
 		}

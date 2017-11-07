@@ -70,6 +70,9 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 
 			public bool IsMozuWebSite { get; set; }
 
+			///
+			///isMultishipEnabled ApiType DOCUMENT_HERE 
+			///
 			public bool? IsMultishipEnabled { get; set; }
 
 			public bool? IsWishlistCreationEnabled { get; set; }

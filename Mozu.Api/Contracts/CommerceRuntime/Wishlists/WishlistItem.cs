@@ -79,6 +79,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 
 			public string PurchasableStatusType { get; set; }
 
+			///
+			///purchaseLocation ApiType DOCUMENT_HERE 
+			///
+			public string PurchaseLocation { get; set; }
+
 			public int Quantity { get; set; }
 
 			///

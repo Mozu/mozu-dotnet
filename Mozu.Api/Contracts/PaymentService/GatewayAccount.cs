@@ -19,6 +19,11 @@ namespace Mozu.Api.Contracts.PaymentService
 		///
 		public class GatewayAccount
 		{
+			///
+			///binPatterns ApiType DOCUMENT_HERE 
+			///
+			public List<string> BinPatterns { get; set; }
+
 			public string CountryCode { get; set; }
 
 			public List<GatewayCredentialFieldValue> CredentialFields { get; set; }

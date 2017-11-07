@@ -36,6 +36,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public JObject Data { get; set; }
 
+			///
+			///destinationId ApiType DOCUMENT_HERE 
+			///
 			public string DestinationId { get; set; }
 
 			public decimal? DiscountedTotal { get; set; }
@@ -85,6 +88,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public AppliedLineItemProductDiscount ProductDiscount { get; set; }
 
 			public List<AppliedLineItemProductDiscount> ProductDiscounts { get; set; }
+
+			///
+			///purchaseLocation ApiType DOCUMENT_HERE 
+			///
+			public string PurchaseLocation { get; set; }
 
 			public int Quantity { get; set; }
 

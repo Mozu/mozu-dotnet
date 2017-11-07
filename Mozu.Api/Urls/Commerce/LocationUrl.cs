@@ -20,7 +20,7 @@ namespace Mozu.Api.Urls.Commerce
         /// Get Resource Url for GetLocation
         /// </summary>
         /// <param name="includeAttributeDefinition"></param>
-        /// <param name="locationCode"></param>
+        /// <param name="locationCode">The unique, user-defined code that identifies a location.</param>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
@@ -83,7 +83,7 @@ namespace Mozu.Api.Urls.Commerce
         /// Get Resource Url for GetInStorePickupLocation
         /// </summary>
         /// <param name="includeAttributeDefinition"></param>
-        /// <param name="locationCode"></param>
+        /// <param name="locationCode">The unique, user-defined code that identifies a location.</param>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url

@@ -26,6 +26,9 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///
 			public JObject Data { get; set; }
 
+			///
+			///The physical address orders are sent to as a shipping destination. This address may contain multiple lines, city, state/province, country, and zip/postal code. The destination is used to calculate shipping costs.
+			///
 			public Address DestinationAddress { get; set; }
 
 			///
@@ -54,6 +57,9 @@ namespace Mozu.Api.Contracts.PricingRuntime
 
 			public decimal LineItemPrice { get; set; }
 
+			///
+			///The physical address from which the order or shipment will ship.
+			///
 			public Address OriginAddress { get; set; }
 
 			public string ProductCode { get; set; }

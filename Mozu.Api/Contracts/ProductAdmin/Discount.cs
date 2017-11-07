@@ -40,6 +40,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public int? CurrentRedemptionCount { get; set; }
 
+			///
+			///doesNotApplyToMultiShipToOrders ApiType DOCUMENT_HERE 
+			///
 			public bool? DoesNotApplyToMultiShipToOrders { get; set; }
 
 			///

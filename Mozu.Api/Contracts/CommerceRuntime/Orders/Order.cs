@@ -171,6 +171,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 
 			public bool? IsImport { get; set; }
 
+			///
+			///isPartialOrder ApiType DOCUMENT_HERE 
+			///
 			public bool IsPartialOrder { get; set; }
 
 			public bool? IsTaxExempt { get; set; }
@@ -198,8 +201,14 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 
 			public List<Package> Packages { get; set; }
 
+			///
+			///parentCheckoutId ApiType DOCUMENT_HERE 
+			///
 			public string ParentCheckoutId { get; set; }
 
+			///
+			///parentCheckoutNumber ApiType DOCUMENT_HERE 
+			///
 			public int? ParentCheckoutNumber { get; set; }
 
 			///
@@ -219,8 +228,14 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public int? ParentReturnNumber { get; set; }
 
+			///
+			///partialOrderCount ApiType DOCUMENT_HERE 
+			///
 			public int? PartialOrderCount { get; set; }
 
+			///
+			///partialOrderNumber ApiType DOCUMENT_HERE 
+			///
 			public int? PartialOrderNumber { get; set; }
 
 			public List<Payment> Payments { get; set; }
