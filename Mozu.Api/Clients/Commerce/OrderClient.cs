@@ -207,6 +207,33 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="couponCodeToApply"></param>
+		/// <param name="refreshShipping"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="order"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=PriceOrder( order,  refreshShipping,  couponCodeToApply,  responseFields);
+		///   var orderClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> PriceOrderClient(Mozu.Api.Contracts.CommerceRuntime.Orders.Order order, bool refreshShipping, string couponCodeToApply =  null, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.OrderUrl.PriceOrderUrl(refreshShipping, couponCodeToApply, responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.CommerceRuntime.Orders.Order>(order);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="digitalWalletType">The type of digital wallet to be processed.</param>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>

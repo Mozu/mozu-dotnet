@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
 				/// <summary>
         /// Get Resource Url for GetMultiRates
         /// </summary>
-        /// <param name="includeRawResponse"></param>
+        /// <param name="includeRawResponse">Set this parameter to  to retrieve the full raw JSON response from a shipping carrier (instead of just the shipping rate).</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

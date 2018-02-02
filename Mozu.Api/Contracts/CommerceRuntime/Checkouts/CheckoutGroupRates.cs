@@ -21,12 +21,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 		public class CheckoutGroupRates
 		{
 			///
-			///groupingId ApiType DOCUMENT_HERE 
+			///The unique identifier of the grouping.
 			///
 			public string GroupingId { get; set; }
 
 			///
-			///shippingRates ApiType DOCUMENT_HERE 
+			///The shipping rates available to the grouping.
 			///
 			public List<ShippingRate> ShippingRates { get; set; }
 

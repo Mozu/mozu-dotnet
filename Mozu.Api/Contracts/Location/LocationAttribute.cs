@@ -22,7 +22,7 @@ namespace Mozu.Api.Contracts.Location
 		public class LocationAttribute
 		{
 			///
-			///attributeDefinition ApiType DOCUMENT_HERE 
+			///The custom attribute object for the location.
 			///
 			public Attribute AttributeDefinition { get; set; }
 

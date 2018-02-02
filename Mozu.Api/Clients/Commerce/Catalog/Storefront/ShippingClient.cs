@@ -25,8 +25,8 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="includeRawResponse"></param>
-		/// <param name="rateRequestGroupList"></param>
+		/// <param name="includeRawResponse">Set this parameter to  to retrieve the full raw JSON response from a shipping carrier (instead of just the shipping rate).</param>
+		/// <param name="rateRequestGroupList">The shipping rates available for the grouping.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ShippingRuntime.RatesResponseGroup"/>}}
 		/// </returns>

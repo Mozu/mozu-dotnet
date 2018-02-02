@@ -41,7 +41,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public int? CurrentRedemptionCount { get; set; }
 
 			///
-			///doesNotApplyToMultiShipToOrders ApiType DOCUMENT_HERE 
+			///True if the discount should not apply to orders with multiple shipments. For more information, refer to the topic on [multiple shipments](https://www.mozu.com/docs/Guides/orders/multi-ship.htm#effect_on_discounts).
 			///
 			public bool? DoesNotApplyToMultiShipToOrders { get; set; }
 
@@ -61,6 +61,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///Products receiving a price from a price list specified here or a child of a specified price list can be discounted.
 			///
 			public List<string> IncludedPriceLists { get; set; }
+
+			///
+			///This field is read-only and specifies whether the discount condition is one product or category, and matches the discount target.
+			///
+			public bool? IsBxGx { get; set; }
 
 			///
 			///Maximum impact this discount can apply on a single order. Must be either null or greater than zero.

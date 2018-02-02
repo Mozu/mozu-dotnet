@@ -23,17 +23,17 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 		public class CheckoutGrouping
 		{
 			///
-			///destinationId ApiType DOCUMENT_HERE 
+			///The unique identifier of the destination.
 			///
 			public string DestinationId { get; set; }
 
 			///
-			///dutyAmount ApiType DOCUMENT_HERE 
+			///Grouping-level duty or tariff amount.
 			///
 			public decimal? DutyAmount { get; set; }
 
 			///
-			///dutyTotal ApiType DOCUMENT_HERE 
+			///Duties or tariff totals for the grouping.
 			///
 			public decimal DutyTotal { get; set; }
 
@@ -48,17 +48,17 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 			public decimal? HandlingAmount { get; set; }
 
 			///
-			///handlingDiscounts ApiType DOCUMENT_HERE 
+			///The list of historically-applied handling discounts for the grouping. The active one will have IsExcluded == false.
 			///
 			public List<AppliedDiscount> HandlingDiscounts { get; set; }
 
 			///
-			///handlingSubTotal ApiType DOCUMENT_HERE 
+			///Handling fees for the grouping.
 			///
 			public decimal HandlingSubTotal { get; set; }
 
 			///
-			///handlingTax ApiType DOCUMENT_HERE 
+			///Calculated total tax amount for handling costs of the grouping if the cart/order is subject to sales tax.
 			///
 			public decimal? HandlingTax { get; set; }
 
@@ -68,7 +68,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 			public decimal HandlingTaxTotal { get; set; }
 
 			///
-			///handlingTotal ApiType DOCUMENT_HERE 
+			///The total handling cost for the grouping.
 			///
 			public decimal HandlingTotal { get; set; }
 
@@ -78,27 +78,27 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 			public string Id { get; set; }
 
 			///
-			///itemLevelHandlingDiscountTotal ApiType DOCUMENT_HERE 
+			///The handling discount total for the grouping item.
 			///
 			public decimal ItemLevelHandlingDiscountTotal { get; set; }
 
 			///
-			///itemLevelShippingDiscountTotal ApiType DOCUMENT_HERE 
+			///The applicable shipping discount for the grouping item.
 			///
 			public decimal ItemLevelShippingDiscountTotal { get; set; }
 
 			///
-			///orderItemIds ApiType DOCUMENT_HERE 
+			///The list of order item IDs that belong to the grouping.
 			///
 			public List<string> OrderItemIds { get; set; }
 
 			///
-			///orderLevelHandlingDiscountTotal ApiType DOCUMENT_HERE 
+			///The handling discount total at the order level.
 			///
 			public decimal OrderLevelHandlingDiscountTotal { get; set; }
 
 			///
-			///orderLevelShippingDiscountTotal ApiType DOCUMENT_HERE 
+			///The shipping level discount at the order level.
 			///
 			public decimal OrderLevelShippingDiscountTotal { get; set; }
 
@@ -143,7 +143,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 			public decimal ShippingTotal { get; set; }
 
 			///
-			///taxData ApiType DOCUMENT_HERE 
+			///standaloneGroup ApiType DOCUMENT_HERE 
+			///
+			public bool StandaloneGroup { get; set; }
+
+			///
+			///Leverage this property within a [tax Arc.js action](https://www.mozu.com/docs/arcjs/commerce-catalog-storefront-tax/commerce-catalog-storefront-tax.htm) to supplement the tax information for this item or object with custom JSON data.
 			///
 			public JObject TaxData { get; set; }
 

@@ -50,6 +50,11 @@ namespace Mozu.Api.Contracts.Customer.Credit
 			public decimal? CurrentBalance { get; set; }
 
 			///
+			///customCreditType ApiType DOCUMENT_HERE 
+			///
+			public string CustomCreditType { get; set; }
+
+			///
 			///Unique identifier of the customer in , used to associate customers with data, orders, returns, and in-store credit.
 			///
 			public int? CustomerId { get; set; }

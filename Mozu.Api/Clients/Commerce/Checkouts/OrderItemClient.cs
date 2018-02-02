@@ -18,15 +18,15 @@ using System.Threading;
 namespace Mozu.Api.Clients.Commerce.Checkouts
 {
 	/// <summary>
-	/// commerce/checkouts/checkoutitems related resources. DOCUMENT_HERE 
+	/// Use this resource to manage the items a shopper adds to their cart while the Checkouts resource is active (the Checkouts resource only applies to sites that enable shipping to multiple destinations within the same order). The Checkouts resource remains active until the shopper submits their order.
 	/// </summary>
 	public partial class OrderItemClient 	{
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId"></param>
-		/// <param name="itemId"></param>
+		/// <param name="checkoutId">The unique identifier of the checkout.</param>
+		/// <param name="itemId">The unique identifier of the item.</param>
 		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
@@ -52,9 +52,9 @@ namespace Mozu.Api.Clients.Commerce.Checkouts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId"></param>
+		/// <param name="checkoutId">The unique identifier of the checkout.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="itemsForDestination"></param>
+		/// <param name="itemsForDestination">A collection of items to be associated with a destination.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout"/>}
 		/// </returns>
@@ -78,9 +78,9 @@ namespace Mozu.Api.Clients.Commerce.Checkouts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId"></param>
-		/// <param name="destinationId"></param>
-		/// <param name="itemId"></param>
+		/// <param name="checkoutId">The unique identifier of the checkout.</param>
+		/// <param name="destinationId">The unique identifier of the destination.</param>
+		/// <param name="itemId">The unique identifier of the item.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout"/>}

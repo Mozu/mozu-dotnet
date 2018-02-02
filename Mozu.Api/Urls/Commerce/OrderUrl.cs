@@ -145,6 +145,25 @@ namespace Mozu.Api.Urls.Commerce
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for PriceOrder
+        /// </summary>
+        /// <param name="couponCodeToApply"></param>
+        /// <param name="refreshShipping"></param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl PriceOrderUrl(bool refreshShipping, string couponCodeToApply =  null, string responseFields =  null)
+		{
+			var url = "/api/commerce/orders/price?refreshShipping={refreshShipping}&couponCodeToApply={couponCodeToApply}&responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "couponCodeToApply", couponCodeToApply);
+			mozuUrl.FormatUrl( "refreshShipping", refreshShipping);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for ProcessDigitalWallet
         /// </summary>

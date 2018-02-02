@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Checkouts
 {
 	/// <summary>
-	/// commerce/checkouts/checkoutattributes related resources. DOCUMENT_HERE 
+	/// Use this resource to manage custom attributes attached to the Checkouts resource.
 	/// </summary>
 	public partial class OrderAttributeFactory : BaseDataFactory
 	{

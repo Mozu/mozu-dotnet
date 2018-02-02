@@ -20,7 +20,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 		public class Destination
 		{
 			///
-			///destinationContact ApiType DOCUMENT_HERE 
+			///The contact associated with the destination.
 			///
 			public Contact DestinationContact { get; set; }
 
@@ -30,7 +30,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			public string Id { get; set; }
 
 			///
-			///isDestinationCommercial ApiType DOCUMENT_HERE 
+			///True if the destination is a commercial address.
 			///
 			public bool? IsDestinationCommercial { get; set; }
 

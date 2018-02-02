@@ -20,12 +20,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 		public class ItemsForDestination
 		{
 			///
-			///destinationId ApiType DOCUMENT_HERE 
+			///The ID of the destination the order items will ship to.
 			///
 			public string DestinationId { get; set; }
 
 			///
-			///itemIds ApiType DOCUMENT_HERE 
+			///The order item IDs of the items associated with a destination.
 			///
 			public List<string> ItemIds { get; set; }
 

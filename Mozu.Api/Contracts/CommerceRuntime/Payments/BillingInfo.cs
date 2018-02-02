@@ -32,6 +32,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			public CheckPayment Check { get; set; }
 
 			///
+			///customCreditType ApiType DOCUMENT_HERE 
+			///
+			public string CustomCreditType { get; set; }
+
+			///
 			///Custom data originated by the billing service.
 			///
 			public JObject Data { get; set; }
@@ -59,6 +64,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///The code that identifies the store credit to apply to the order.
 			///
 			public string StoreCreditCode { get; set; }
+
+			///
+			///storeCreditType ApiType DOCUMENT_HERE 
+			///
+			public string StoreCreditType { get; set; }
 
 		}
 

@@ -172,7 +172,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public bool? IsImport { get; set; }
 
 			///
-			///isPartialOrder ApiType DOCUMENT_HERE 
+			///True if the order is one of multiple orders created to fulfill as parent order that supports shipping to multiple adresses.
 			///
 			public bool IsPartialOrder { get; set; }
 
@@ -202,12 +202,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public List<Package> Packages { get; set; }
 
 			///
-			///parentCheckoutId ApiType DOCUMENT_HERE 
+			///The unique identifier of the checkout that created the parent order (if the order is one of multiple orders created to fulfill a parent order that support shipping to multiple addresses).
 			///
 			public string ParentCheckoutId { get; set; }
 
 			///
-			///parentCheckoutNumber ApiType DOCUMENT_HERE 
+			///The checkout number from the checkout that created the parent order (if the order is one of multiple orders created to fulfill a parent order that support shipping to multiple addresses).
 			///
 			public int? ParentCheckoutNumber { get; set; }
 
@@ -229,12 +229,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public int? ParentReturnNumber { get; set; }
 
 			///
-			///partialOrderCount ApiType DOCUMENT_HERE 
+			///The number of partial orders that make up the parent order.
 			///
 			public int? PartialOrderCount { get; set; }
 
 			///
-			///partialOrderNumber ApiType DOCUMENT_HERE 
+			///The order number for the partial order.
 			///
 			public int? PartialOrderNumber { get; set; }
 
@@ -284,6 +284,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public DateTime? SubmittedDate { get; set; }
 
 			public decimal? Subtotal { get; set; }
+
+			///
+			///suggestedDiscounts ApiType DOCUMENT_HERE 
+			///
+			public List<SuggestedDiscount> SuggestedDiscounts { get; set; }
 
 			///
 			///Leverage this property within a [tax Arc.js action](https://www.mozu.com/docs/arcjs/commerce-catalog-storefront-tax/commerce-catalog-storefront-tax.htm) to supplement the tax information for this item or object with custom JSON data.

@@ -308,6 +308,7 @@
     <Compile Include="Contracts\CommerceRuntime\Discounts\Discount.cs" />
     <Compile Include="Contracts\CommerceRuntime\Discounts\InvalidCoupon.cs" />
     <Compile Include="Contracts\CommerceRuntime\Discounts\ShippingDiscount.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Discounts\SuggestedDiscount.cs" />
     <Compile Include="Contracts\CommerceRuntime\Fulfillment\Destination.cs" />
     <Compile Include="Contracts\CommerceRuntime\Fulfillment\DigitalPackage.cs" />
     <Compile Include="Contracts\CommerceRuntime\Fulfillment\DigitalPackageItem.cs" />
@@ -524,6 +525,8 @@
     <Compile Include="Contracts\PricingRuntime\AppliedLineItemShippingDiscount.cs" />
     <Compile Include="Contracts\PricingRuntime\AppliedOrderShippingDiscount.cs" />
     <Compile Include="Contracts\PricingRuntime\Discount.cs" />
+    <Compile Include="Contracts\PricingRuntime\DiscountCondition.cs" />
+    <Compile Include="Contracts\PricingRuntime\DiscountTarget.cs" />
     <Compile Include="Contracts\PricingRuntime\ItemTaxContext.cs" />
     <Compile Include="Contracts\PricingRuntime\OrderTaxContext.cs" />
     <Compile Include="Contracts\PricingRuntime\ProductAttribute.cs" />

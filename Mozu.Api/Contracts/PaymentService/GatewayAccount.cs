@@ -20,7 +20,7 @@ namespace Mozu.Api.Contracts.PaymentService
 		public class GatewayAccount
 		{
 			///
-			///binPatterns ApiType DOCUMENT_HERE 
+			///The bin patterns for a branded credit card.
 			///
 			public List<string> BinPatterns { get; set; }
 

@@ -108,7 +108,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <param name="acceptVariantProductCode">Specifies whether to accept a product variant's code as the .When you set this parameter to , you can pass in a product variant's code in the GetProduct call to retrieve the product variant details that are associated with the base product.</param>
 		/// <param name="allowInactive">If true, allow inactive categories to be retrieved in the category list response. If false, the categories retrieved will not include ones marked inactive.</param>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="purchaseLocation"></param>
+		/// <param name="purchaseLocation">The location where the order item(s) was purchased.</param>
 		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
@@ -166,7 +166,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// </summary>
 		/// <param name="includeOptionDetails">If true, the response returns details about the product. If false, returns a product summary such as the product name, price, and sale price.</param>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="purchaseLocation"></param>
+		/// <param name="purchaseLocation">The location where the order item(s) was purchased.</param>
 		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
@@ -195,7 +195,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// 
 		/// </summary>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="purchaseLocation"></param>
+		/// <param name="purchaseLocation">The location where the order item(s) was purchased.</param>
 		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="skipDefaults">Normally, product validation applies default extras to products that do not have options specified. If , product validation does not apply default extras to products.</param>

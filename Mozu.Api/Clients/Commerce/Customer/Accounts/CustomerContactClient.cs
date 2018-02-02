@@ -135,7 +135,7 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="contactList"></param>
+		/// <param name="contactList">The list of contacts.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerContactCollection"/>}
 		/// </returns>

@@ -18,14 +18,14 @@ using System.Threading;
 namespace Mozu.Api.Clients.Commerce.Checkouts
 {
 	/// <summary>
-	/// commerce/checkouts/checkoutattributes related resources. DOCUMENT_HERE 
+	/// Use this resource to manage custom attributes attached to the Checkouts resource.
 	/// </summary>
 	public partial class OrderAttributeClient 	{
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId"></param>
+		/// <param name="checkoutId">The unique identifier of the checkout.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute"/>}}
 		/// </returns>
@@ -49,8 +49,8 @@ namespace Mozu.Api.Clients.Commerce.Checkouts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId"></param>
-		/// <param name="checkoutAttributes"></param>
+		/// <param name="checkoutId">The unique identifier of the checkout.</param>
+		/// <param name="checkoutAttributes">The custom attribute definition.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute"/>}}
 		/// </returns>
@@ -74,9 +74,9 @@ namespace Mozu.Api.Clients.Commerce.Checkouts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId"></param>
-		/// <param name="removeMissing"></param>
-		/// <param name="checkoutAttributes"></param>
+		/// <param name="checkoutId">The unique identifier of the checkout.</param>
+		/// <param name="removeMissing">If true, the operation removes missing properties so that the updated checkout attributes will not show properties with a null value.</param>
+		/// <param name="checkoutAttributes">The custom attribute definition.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute"/>}}
 		/// </returns>

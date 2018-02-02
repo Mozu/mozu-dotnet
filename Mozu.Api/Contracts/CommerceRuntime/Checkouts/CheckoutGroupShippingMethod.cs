@@ -20,12 +20,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 		public class CheckoutGroupShippingMethod
 		{
 			///
-			///groupingId ApiType DOCUMENT_HERE 
+			///The grouping ID that the shipping method applies to.
 			///
 			public string GroupingId { get; set; }
 
 			///
-			///shippingRate ApiType DOCUMENT_HERE 
+			///The shipping rate applied to the grouping.
 			///
 			public ShippingRate ShippingRate { get; set; }
 

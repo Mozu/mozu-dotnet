@@ -32,12 +32,17 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public AuditInfo AuditInfo { get; set; }
 
 			///
+			///autoAddDiscountId ApiType DOCUMENT_HERE 
+			///
+			public int? AutoAddDiscountId { get; set; }
+
+			///
 			///Custom data for a given vendor set within the commerce process.
 			///
 			public JObject Data { get; set; }
 
 			///
-			///destinationId ApiType DOCUMENT_HERE 
+			///The destination the order item will ship to.
 			///
 			public string DestinationId { get; set; }
 
@@ -90,7 +95,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public List<AppliedLineItemProductDiscount> ProductDiscounts { get; set; }
 
 			///
-			///purchaseLocation ApiType DOCUMENT_HERE 
+			///The location where the item was purchased.
 			///
 			public string PurchaseLocation { get; set; }
 

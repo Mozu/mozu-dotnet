@@ -105,6 +105,57 @@ namespace Mozu.Api.Clients.Commerce.Customer.Attributedefinition
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="attribute">Properties of an attribute used to describe customers or orders.</param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.Extensible.Attribute"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=CreateAttribute( attribute,  responseFields);
+		///   var attributeClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> CreateAttributeClient(Mozu.Api.Contracts.Core.Extensible.Attribute attribute, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Customer.Attributedefinition.AttributeUrl.CreateAttributeUrl(responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.Core.Extensible.Attribute>(attribute);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="attribute">Properties of an attribute used to describe customers or orders.</param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.Extensible.Attribute"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=UpdateAttribute( attribute,  attributeFQN,  responseFields);
+		///   var attributeClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> UpdateAttributeClient(Mozu.Api.Contracts.Core.Extensible.Attribute attribute, string attributeFQN, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Customer.Attributedefinition.AttributeUrl.UpdateAttributeUrl(attributeFQN, responseFields);
+			const string verb = "PUT";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.Core.Extensible.Attribute>(attribute);
+			return mozuClient;
+
+		}
+
 
 	}
 
