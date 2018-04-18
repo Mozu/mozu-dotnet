@@ -25,7 +25,7 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="orderId">Unique identifier of the order for which to retrieve a list of defined attributes.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute"/>}}
 		/// </returns>
@@ -49,8 +49,8 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="orderAttributes">Properties of an attribute applied to an order.</param>
+		/// <param name="orderId">Unique identifier of the order for which to assign the attributes.</param>
+		/// <param name="orderAttributes">The list of attributes to associate with the order, and the properties of each attribute to define for the order.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute"/>}}
 		/// </returns>
@@ -74,9 +74,9 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="orderId">Identifier of the order for which to update attributes.</param>
 		/// <param name="removeMissing">If true, the operation removes missing properties so that the updated order attributes will not show properties with a null value.</param>
-		/// <param name="orderAttributes">Properties of an attribute applied to an order.</param>
+		/// <param name="orderAttributes">List of order attributes to update, including the properties of each defined attribute in the list.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute"/>}}
 		/// </returns>

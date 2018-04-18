@@ -14,7 +14,7 @@ using System;
 namespace Mozu.Api.Contracts.Core
 {
 		///
-		///	Properties of the scope in which a user operates, which represents a developer account or  production tenant.
+		///	Properties of the scope in which a user operates, which represents a developer account or Mozu production tenant.
 		///
 		public class UserScope
 		{

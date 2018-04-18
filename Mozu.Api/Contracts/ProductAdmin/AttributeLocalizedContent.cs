@@ -14,7 +14,7 @@ using System;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	The localized name and description of the attribute, displayed in the locale defined for the master catalog.
+		///	Localized content displayed in the storefront for this attribute.
 		///
 		public class AttributeLocalizedContent
 		{

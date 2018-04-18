@@ -19,8 +19,8 @@ namespace Mozu.Api.Urls.Commerce.Orders
 		/// <summary>
         /// Get Resource Url for GetExtendedProperties
         /// </summary>
-        /// <param name="draft">If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.</param>
-        /// <param name="orderId">Unique identifier of the order.</param>
+        /// <param name="draft"></param>
+        /// <param name="orderId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -36,9 +36,9 @@ namespace Mozu.Api.Urls.Commerce.Orders
 				/// <summary>
         /// Get Resource Url for AddExtendedProperties
         /// </summary>
-        /// <param name="orderId">Unique identifier of the order.</param>
-        /// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-        /// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
+        /// <param name="orderId"></param>
+        /// <param name="updateMode"></param>
+        /// <param name="version"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -55,12 +55,12 @@ namespace Mozu.Api.Urls.Commerce.Orders
 				/// <summary>
         /// Get Resource Url for UpdateExtendedProperty
         /// </summary>
-        /// <param name="key">The extended property key.</param>
-        /// <param name="orderId">Unique identifier of the order.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-        /// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-        /// <param name="upsert">Inserts and updates an extended property.        </param>
-        /// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
+        /// <param name="key"></param>
+        /// <param name="orderId"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="updateMode"></param>
+        /// <param name="upsert"></param>
+        /// <param name="version"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -80,10 +80,10 @@ namespace Mozu.Api.Urls.Commerce.Orders
 		/// <summary>
         /// Get Resource Url for UpdateExtendedProperties
         /// </summary>
-        /// <param name="orderId">Unique identifier of the order.</param>
-        /// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-        /// <param name="upsert">Inserts and updates the extended property.        </param>
-        /// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
+        /// <param name="orderId"></param>
+        /// <param name="updateMode"></param>
+        /// <param name="upsert"></param>
+        /// <param name="version"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -101,10 +101,10 @@ namespace Mozu.Api.Urls.Commerce.Orders
 				/// <summary>
         /// Get Resource Url for DeleteExtendedProperty
         /// </summary>
-        /// <param name="key">The extended property key.</param>
-        /// <param name="orderId">Unique identifier of the order.</param>
-        /// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-        /// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
+        /// <param name="key"></param>
+        /// <param name="orderId"></param>
+        /// <param name="updateMode"></param>
+        /// <param name="version"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -122,9 +122,9 @@ namespace Mozu.Api.Urls.Commerce.Orders
 		/// <summary>
         /// Get Resource Url for DeleteExtendedProperties
         /// </summary>
-        /// <param name="orderId">Unique identifier of the order.</param>
-        /// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-        /// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
+        /// <param name="orderId"></param>
+        /// <param name="updateMode"></param>
+        /// <param name="version"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

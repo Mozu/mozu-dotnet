@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Shipping.Admin.Profiles
 {
 	/// <summary>
-	/// Use the ShippingInclusionRules sub-resource to manage your shipping inclusion rules that are associated with a specific shipping profile.
+	/// 
 	/// </summary>
 	public partial class ShippingInclusionRuleFactory : BaseDataFactory
 	{

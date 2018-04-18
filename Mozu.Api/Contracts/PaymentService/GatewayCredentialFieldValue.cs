@@ -18,6 +18,8 @@ namespace Mozu.Api.Contracts.PaymentService
 		///
 		public class GatewayCredentialFieldValue
 		{
+			public bool IsValueSet { get; set; }
+
 			public string Name { get; set; }
 
 			public string Value { get; set; }

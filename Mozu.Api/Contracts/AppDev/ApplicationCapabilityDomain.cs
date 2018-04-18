@@ -14,9 +14,6 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.AppDev
 {
-		///
-		///	This property is not exposed in documentation.
-		///
 		public class ApplicationCapabilityDomain
 		{
 			public int ApplicationCapabilityDomainId { get; set; }
@@ -25,9 +22,6 @@ namespace Mozu.Api.Contracts.AppDev
 
 			public List<ApplicationCapabilityDomainValue> ApplicationCapabilityDomainValues2 { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationCapabilityDomain applicationCapabilityTypeId ApiTypeMember DOCUMENT_HERE 
-			///
 			public int ApplicationCapabilityTypeId { get; set; }
 
 			public string Name { get; set; }

@@ -18,9 +18,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class AttributeVocabularyValueInProductType
 		{
-			///
-			///Defines the intended display of this attribute in the storefront. Options include Drop Down, Image Picker, and Radio Buttons.
-			///
 			public AttributeVocabularyValueDisplayInfo DisplayInfo { get; set; }
 
 			public int? Order { get; set; }

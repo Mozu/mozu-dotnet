@@ -30,9 +30,6 @@ namespace Mozu.Api.Contracts.PricingRuntime
 
 			public decimal Tax { get; set; }
 
-			///
-			///Leverage this property within a [tax Arc.js action](https://www.mozu.com/docs/arcjs/commerce-catalog-storefront-tax/commerce-catalog-storefront-tax.htm) to supplement the tax information for this item or object with custom JSON data.
-			///
 			public JObject TaxData { get; set; }
 
 		}

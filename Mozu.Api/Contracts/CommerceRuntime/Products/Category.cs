@@ -14,7 +14,7 @@ using System;
 namespace Mozu.Api.Contracts.CommerceRuntime.Products
 {
 		///
-		///	The category associated with assigned products. Products, product bundles, and options can be classified to multiple categories. 
+		///	The category into which products are classified.
 		///
 		public class Category
 		{

@@ -23,18 +23,12 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public decimal? DeltaWeight { get; set; }
 
-			///
-			///If the product is in Explicit pricing mode, this is the price of the variation.Refer to [Product Variant Pricing and Weight](../../../guides/catalog/products.htm#product_variant_pricing_and_weight) in the Products guides topic for more information.
-			///
 			public ProductVariationFixedPrice FixedPrice { get; set; }
 
-			///
-			///If the product is in explicit pricing mode, this is the fixed weight of the variation.
-			///
 			public decimal? FixedWeight { get; set; }
 
 			///
-			///List of supported types of fulfillment for the product or variation. The types include direct ship, in-store pickup, or both.
+			///Describes the types of fulfillment that are supported for this product variation. A variation can support direct ship, in-store pickup, or both. Supported fulfillment types are defined at the master catalog level. Client administrators cannot override the supported fulfillment types at the catalog level.
 			///
 			public List<string> FulfillmentTypesSupported { get; set; }
 
@@ -42,25 +36,19 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public bool? IsOrphan { get; set; }
 
-			///
-			///The difference between associated prices for a product, variation option, or extra that is localized per the `localeCode`. The difference is calculated by subtracting the base price from the associated price with this product, option, and/or extra. Depending on the localeCode, the price may be converted such as from USD (USÂ Dollar) to EUR (euro).
-			///
 			public List<ProductVariationDeltaPrice> LocalizedDeltaPrice { get; set; }
 
-			///
-			///Price of the variation using fixed per currency This collection allows for multiple currencies.
-			///
 			public List<ProductVariationFixedPrice> LocalizedFixedPrice { get; set; }
 
 			public List<ProductVariationOption> Options { get; set; }
 
 			///
-			///Supplier-defined properties assigned for the product.
+			///Supplier-defined properties assigned for the product variation.
 			///
 			public ProductSupplierInfo SupplierInfo { get; set; }
 
 			///
-			///The universal product code (UPC) is the barcode defined for the product. The UPC is unique across all sales channels. 
+			///The universal product code associated with the product variation. The UPC of a product is unique across all sales channels.
 			///
 			public string Upc { get; set; }
 

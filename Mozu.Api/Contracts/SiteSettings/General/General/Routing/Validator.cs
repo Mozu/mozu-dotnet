@@ -14,44 +14,20 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.SiteSettings.General.General.Routing
 {
-		///
-		///	Mozu.SiteSettings.General.Contracts.General.Routing.Validator ApiType DOCUMENT_HERE 
-		///
 		public class Validator
 		{
-			///
-			///The fully qualified name of the attribute. The attributeDefiniteId may be used to generate this name.
-			///
 			public string AttributeFQN { get; set; }
 
-			///
-			///docId ApiType DOCUMENT_HERE 
-			///
 			public string DocId { get; set; }
 
-			///
-			///field ApiType DOCUMENT_HERE 
-			///
 			public string Field { get; set; }
 
-			///
-			///The fully qualified name of the document list.
-			///
 			public string ListFqn { get; set; }
 
-			///
-			///pattern ApiType DOCUMENT_HERE 
-			///
 			public string Pattern { get; set; }
 
-			///
-			///type ApiType DOCUMENT_HERE 
-			///
 			public string Type { get; set; }
 
-			///
-			///List of value data for objects.
-			///
 			public List<string> Values { get; set; }
 
 		}

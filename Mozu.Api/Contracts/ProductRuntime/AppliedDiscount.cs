@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 
 
 namespace Mozu.Api.Contracts.ProductRuntime
@@ -21,6 +22,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string CouponCode { get; set; }
 
 			public Discount Discount { get; set; }
+
+			public List<Discount> Discounts { get; set; }
 
 			public decimal Impact { get; set; }
 

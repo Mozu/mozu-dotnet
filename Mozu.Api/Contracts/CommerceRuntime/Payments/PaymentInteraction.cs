@@ -38,13 +38,10 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 
 			public string GatewayResponseCode { get; set; }
 
-			///
-			///Additional response data from the gateway that's unique to each gateway.This is a list of key value pairs.Refer to [Gateway Response Data](https://www.mozu.com/docs/developer/api-guides/payment-gateways.htm#gateway_response_data) in the API Guides for more information.
-			///
 			public List<PaymentGatewayResponseData> GatewayResponseData { get; set; }
 
 			///
-			///Textual message returned by the payment gateway for the associated .Refer to [Gateway Response Code and Text](https://www.mozu.com/docs/developer/api-guides/payment-gateways.htm#gateway_response_code_and_text) in the API Guides for more information.
+			///Textual message returned by the payment gateway.
 			///
 			public string GatewayResponseText { get; set; }
 
@@ -70,14 +67,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 
 			public int? PaymentTransactionInteractionIdReference { get; set; }
 
-			///
-			///The unique identifier of the refund for a given interaction.
-			///
 			public string RefundId { get; set; }
 
-			///
-			///The unique identifier of the return associated with a given interaction.
-			///
 			public string ReturnId { get; set; }
 
 			public string Status { get; set; }

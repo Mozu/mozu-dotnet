@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Payments
 {
 	/// <summary>
-	/// commerce/payments/cards related resources. DOCUMENT_HERE 
+	/// 
 	/// </summary>
 	public partial class PublicCardFactory : BaseDataFactory
 	{

@@ -20,7 +20,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// Get Resource Url for GetAvailableDigitalPackageFulfillmentActions
         /// </summary>
         /// <param name="digitalPackageId">This parameter supplies package ID to get fulfillment actions for the digital package.</param>
-        /// <param name="orderId">Unique identifier of the order.</param>
+        /// <param name="orderId">This parameter provides the unique identifier of the order on which to get a list of available actions.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -36,9 +36,9 @@ namespace Mozu.Api.Urls.Commerce.Orders
 		/// <summary>
         /// Get Resource Url for GetDigitalPackage
         /// </summary>
-        /// <param name="digitalPackageId">This parameter supplies package ID to get fulfillment actions for the digital package.</param>
-        /// <param name="orderId">Unique identifier of the order.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="digitalPackageId">This parameter provides the digital package Id.</param>
+        /// <param name="orderId">This parameter provides the unique identifier of the order with which to associate the digital package.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -55,8 +55,8 @@ namespace Mozu.Api.Urls.Commerce.Orders
 				/// <summary>
         /// Get Resource Url for CreateDigitalPackage
         /// </summary>
-        /// <param name="orderId">Unique identifier of the order.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="orderId">The orderID is a required paramter for the digitalpackages operation. The orderId is a unique identifier of the order with which to associate the digital package.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -72,9 +72,9 @@ namespace Mozu.Api.Urls.Commerce.Orders
 				/// <summary>
         /// Get Resource Url for UpdateDigitalPackage
         /// </summary>
-        /// <param name="digitalPackageId">This parameter supplies package ID to get fulfillment actions for the digital package.</param>
-        /// <param name="orderId">Unique identifier of the order.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="digitalPackageId">This parameter specifies the digital package to update in the order.</param>
+        /// <param name="orderId">This parameter provides the unique identifier of the order with which to associate the digital package.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -91,8 +91,8 @@ namespace Mozu.Api.Urls.Commerce.Orders
 				/// <summary>
         /// Get Resource Url for DeleteDigitalPackage
         /// </summary>
-        /// <param name="digitalPackageId">This parameter supplies package ID to get fulfillment actions for the digital package.</param>
-        /// <param name="orderId">Unique identifier of the order.</param>
+        /// <param name="digitalPackageId">The digitalPackage ID is unique package ID to update on the order.</param>
+        /// <param name="orderId">The orderId is unique identifier of the order with which to associate the package.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

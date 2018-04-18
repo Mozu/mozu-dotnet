@@ -25,11 +25,11 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product category search results by any of its properties, including its position in the category hierarchy. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.CategoryPagedCollection"/>}
 		/// </returns>
@@ -54,8 +54,8 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="categoryId">Unique identifier of the category to modify.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="categoryId">Unique identifier of the category for which to retrieve subcategories.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.CategoryCollection"/>}
 		/// </returns>
@@ -79,8 +79,8 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="categoryId">Unique identifier of the category to modify.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="categoryId">Unique identifier of the category to retrieve.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Category"/>}
 		/// </returns>
@@ -106,9 +106,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// 
 		/// </summary>
 		/// <param name="incrementSequence">If true, when adding a new product category, set the sequence number of the new category to an increment of one integer greater than the maximum available sequence number across all product categories. If false, set the sequence number to zero.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="useProvidedId">Optional. If ,  uses the  you specify in the request as the category's id. If ,  generates an  for the category regardless if you specify an id in the request.If you specify an id already in use and set this parameter to ,  returns an error.</param>
-		/// <param name="category">A descriptive container that groups products. A category is merchant defined with associated products and discounts as configured. GThe storefront displays products in a hierarchy of categories. As such, categories can include a nesting of sub-categories to organize products and product options per set guidelines such as color, brand, material, and size.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="useProvidedId"></param>
+		/// <param name="category">Properties of the new category to create. You must specify a name and parent category if you want to create it as a subcategory.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Category"/>}
 		/// </returns>
@@ -132,8 +132,8 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="dynamicExpressionIn">The details of the dynamic expression that you want to validate.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="dynamicExpressionIn"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.DynamicExpression"/>}
 		/// </returns>
@@ -157,8 +157,8 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="dynamicExpressionIn">The details of the dynamic expression that you want to validate.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="dynamicExpressionIn"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.DynamicExpression"/>}
 		/// </returns>
@@ -182,10 +182,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="cascadeVisibility">If true, when changing the display option for the category, change it for all subcategories also. The default value is false.</param>
+		/// <param name="cascadeVisibility">If true, when changing the display option for the category, change it for all subcategories also. Default: False.</param>
 		/// <param name="categoryId">Unique identifier of the category to modify.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="category">A descriptive container that groups products. A category is merchant defined with associated products and discounts as configured. GThe storefront displays products in a hierarchy of categories. As such, categories can include a nesting of sub-categories to organize products and product options per set guidelines such as color, brand, material, and size.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="category">Properties of the category to modify.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Category"/>}
 		/// </returns>
@@ -209,10 +209,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="cascadeDelete">Specifies whether to also delete all subcategories associated with the specified category.If you set this value is false, only the specified category is deleted.The default value is false.</param>
-		/// <param name="categoryId">Unique identifier of the category to modify.</param>
-		/// <param name="forceDelete">Specifies whether the category, and any associated subcategories, are deleted even if there are products that reference them. The default value is false.</param>
-		/// <param name="reassignToParent">Specifies whether any subcategories of the specified category are reassigned to the parent of the specified category.This field only applies if the cascadeDelete parameter is false.The default value is false.</param>
+		/// <param name="cascadeDelete">If true, also delete all subcategories associated with the specified category.</param>
+		/// <param name="categoryId">Unique identifier of the category to delete.</param>
+		/// <param name="forceDelete"></param>
+		/// <param name="reassignToParent"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

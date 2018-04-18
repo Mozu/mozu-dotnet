@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin
 {
 	/// <summary>
-	/// Use the Product Publishing resource to publish or discard pending changes to products in a master catalog, or to add or remove pending changes to and from product publish sets.You can use product publish sets to group pending product changes together and publish them all at the same time.
+	/// Use the Product Publishing resource to publish or discard pending changes to product definitions in the master catalog.
 	/// </summary>
 	public partial class PublishingScopeFactory : BaseDataFactory
 	{

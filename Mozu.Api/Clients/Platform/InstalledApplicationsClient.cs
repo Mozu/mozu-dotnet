@@ -25,8 +25,8 @@ namespace Mozu.Api.Clients.Platform
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="appId">appId parameter description DOCUMENT_HERE </param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="appId">The application ID that represents the application to retrieve.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.InstalledApplications.Application"/>}
 		/// </returns>
@@ -50,9 +50,9 @@ namespace Mozu.Api.Clients.Platform
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="appId">appId parameter description DOCUMENT_HERE </param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="application">Properties of an app installed in a tenant.</param>
+		/// <param name="appId">The application ID that represents the application to update.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="application">Properties of the application to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.InstalledApplications.Application"/>}
 		/// </returns>

@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Platform
 {
 	/// <summary>
-	/// Use the tenant data resource to store tenant-level information required for a third-party application in the  database.
+	/// Use the tenant data resource to store tenant-level information required for a third-party application in the Mozu database.
 	/// </summary>
 	public partial class TenantDataFactory : BaseDataFactory
 	{

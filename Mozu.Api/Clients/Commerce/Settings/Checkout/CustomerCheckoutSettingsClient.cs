@@ -25,7 +25,7 @@ namespace Mozu.Api.Clients.Commerce.Settings.Checkout
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Order.CustomerCheckoutSettings"/>}
 		/// </returns>
@@ -49,8 +49,8 @@ namespace Mozu.Api.Clients.Commerce.Settings.Checkout
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="customerCheckoutSettings">The properties of the customer checkout settings such as whether shoppers must be logged in.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="customerCheckoutSettings">All the properties to update in the checkout settings.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Order.CustomerCheckoutSettings"/>}
 		/// </returns>

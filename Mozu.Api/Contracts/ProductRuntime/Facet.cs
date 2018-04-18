@@ -15,7 +15,7 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
-		///	Properties of the facet used to retrieve documents.
+		///	Properties of the facet used to index product searches on a storefront.
 		///
 		public class Facet
 		{

@@ -14,59 +14,26 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.PricingRuntime
 {
-		///
-		///	Properties of the target to which the discount applies, such as the type of discount and which products, categories, or shipping methods are eligible for the discount and the properties of this discount target.
-		///
 		public class DiscountTarget
 		{
-			///
-			///excludedCategoriesOperator ApiType DOCUMENT_HERE 
-			///
 			public string ExcludedCategoriesOperator { get; set; }
 
-			///
-			///excludedCategoryIds ApiType DOCUMENT_HERE 
-			///
 			public List<int> ExcludedCategoryIds { get; set; }
 
-			///
-			///excludedProductCodes ApiType DOCUMENT_HERE 
-			///
 			public List<string> ExcludedProductCodes { get; set; }
 
-			///
-			///includeAllProducts ApiType DOCUMENT_HERE 
-			///
 			public bool IncludeAllProducts { get; set; }
 
-			///
-			///includedCategoriesOperator ApiType DOCUMENT_HERE 
-			///
 			public string IncludedCategoriesOperator { get; set; }
 
-			///
-			///includedCategoryIds ApiType DOCUMENT_HERE 
-			///
 			public List<int> IncludedCategoryIds { get; set; }
 
-			///
-			///includedProductCodes ApiType DOCUMENT_HERE 
-			///
 			public List<string> IncludedProductCodes { get; set; }
 
-			///
-			///shippingMethods ApiType DOCUMENT_HERE 
-			///
 			public List<string> ShippingMethods { get; set; }
 
-			///
-			///shippingZones ApiType DOCUMENT_HERE 
-			///
 			public List<string> ShippingZones { get; set; }
 
-			///
-			///type ApiType DOCUMENT_HERE 
-			///
 			public string Type { get; set; }
 
 		}

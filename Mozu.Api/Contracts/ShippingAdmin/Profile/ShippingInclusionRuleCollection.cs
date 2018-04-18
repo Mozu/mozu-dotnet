@@ -14,19 +14,10 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.ShippingAdmin.Profile
 {
-		///
-		///	Mozu.ShippingAdmin.Contracts.Profile.ShippingInclusionRuleCollection ApiType DOCUMENT_HERE 
-		///
 		public class ShippingInclusionRuleCollection
 		{
-			///
-			///A list of requested items. All returned data is provided in an items array.For a failed request, the returned response may be success with an empty item array.
-			///
 			public List<ShippingInclusionRule> Items { get; set; }
 
-			///
-			///The total number of items in the list.
-			///
 			public int TotalCount { get; set; }
 
 		}

@@ -19,9 +19,6 @@ namespace Mozu.Api.Contracts.PaymentService
 		///
 		public class GatewayAccount
 		{
-			///
-			///The bin patterns for a branded credit card.
-			///
 			public List<string> BinPatterns { get; set; }
 
 			public string CountryCode { get; set; }
@@ -33,6 +30,8 @@ namespace Mozu.Api.Contracts.PaymentService
 			public string Id { get; set; }
 
 			public bool IsActive { get; set; }
+
+			public string Name { get; set; }
 
 		}
 

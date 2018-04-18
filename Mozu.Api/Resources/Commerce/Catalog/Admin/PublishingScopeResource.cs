@@ -18,7 +18,7 @@ using System.Threading;
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 {
 	/// <summary>
-	/// Use the Product Publishing resource to publish or discard pending changes to products in a master catalog, or to add or remove pending changes to and from product publish sets.You can use product publish sets to group pending product changes together and publish them all at the same time.
+	/// Use the Product Publishing resource to publish or discard pending changes to product definitions in the master catalog.
 	/// </summary>
 	public partial class PublishingScopeResource  	{
 		///
@@ -49,8 +49,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="publishSetCode">The unique identifier of the publish set.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="publishSetCode"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PublishSet"/>
@@ -75,7 +75,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PublishSetCollection"/>
@@ -101,7 +101,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// 
 		/// </summary>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="publishScope">Describes the scope of the product publishing update, which can include individual product codes or all pending changes.</param>
+		/// <param name="publishScope">Properties of the pending product changes to include in this operation.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -125,7 +125,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// 
 		/// </summary>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="publishScope">Describes the scope of the product publishing update, which can include individual product codes or all pending changes.</param>
+		/// <param name="publishScope">Properties of the pending product changes to include in this operation.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -148,9 +148,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="publishSet">The details of the publish to which you want to assign products.</param>
+		/// <param name="publishSet"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PublishSet"/>
 		/// </returns>
@@ -174,8 +174,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="discardDrafts">Specifies whether to discard all the drafts assigned to the publish set when the publish set is deleted.</param>
-		/// <param name="publishSetCode">The unique identifier of the publish set.</param>
+		/// <param name="discardDrafts"></param>
+		/// <param name="publishSetCode"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// 

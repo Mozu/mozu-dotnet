@@ -14,100 +14,48 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.PricingRuntime
 {
-		///
-		///	Name of the discount added and applied to a shopping cart and order for a shopper's purchase.
-		///
 		public class Discount
 		{
-			///
-			///amount ApiType DOCUMENT_HERE 
-			///
 			public decimal Amount { get; set; }
 
-			///
-			///The type of the discount, either  (meaning the discount amount value represents a percentage off the original price),  (meaning the discount amount value represents a dollar amount off the original price),  (meaning the discount amount value is ignored because the product is free), or  (meaning the discount amount value represents the discounted price of the item).
-			///
 			public string AmountType { get; set; }
 
-			///
-			///condition ApiType DOCUMENT_HERE 
-			///
 			public DiscountCondition Condition { get; set; }
 
 			public int DiscountId { get; set; }
 
-			///
-			///doesNotApplyToMultiShipToOrders ApiType DOCUMENT_HERE 
-			///
 			public bool? DoesNotApplyToMultiShipToOrders { get; set; }
 
-			///
-			///doesNotApplyToProductsWithSalePrice ApiType DOCUMENT_HERE 
-			///
 			public bool DoesNotApplyToProductsWithSalePrice { get; set; }
 
 			public DateTime? ExpirationDate { get; set; }
 
-			///
-			///The localizable, shopper-facing description defined for a discount or a storefront message.
-			///
 			public string FriendlyDescription { get; set; }
 
-			///
-			///includedPriceLists ApiType DOCUMENT_HERE 
-			///
 			public List<string> IncludedPriceLists { get; set; }
 
-			///
-			///maxDiscountValuePerRedemption ApiType DOCUMENT_HERE 
-			///
 			public decimal? MaxDiscountValuePerRedemption { get; set; }
 
-			///
-			///maximumDiscountValuePerOrder ApiType DOCUMENT_HERE 
-			///
 			public decimal? MaximumDiscountValuePerOrder { get; set; }
 
-			///
-			///maximumRedemptionsPerOrder ApiType DOCUMENT_HERE 
-			///
 			public int? MaximumRedemptionsPerOrder { get; set; }
 
-			///
-			///maximumUsesPerUser ApiType DOCUMENT_HERE 
-			///
 			public int? MaximumUsesPerUser { get; set; }
 
-			///
-			///maxRedemptions ApiType DOCUMENT_HERE 
-			///
 			public int? MaxRedemptions { get; set; }
 
 			public string Name { get; set; }
 
-			///
-			///redemptions ApiType DOCUMENT_HERE 
-			///
 			public int Redemptions { get; set; }
 
-			///
-			///requiresAuthenticatedUser ApiType DOCUMENT_HERE 
-			///
 			public bool RequiresAuthenticatedUser { get; set; }
 
-			///
-			///scope ApiType DOCUMENT_HERE 
-			///
 			public string Scope { get; set; }
 
-			///
-			///Targets represent the object, such as an item to apply discounts to(products or orders) or a view field for content. Targets are the dot notations that link to the source document property. For example, firstitem for the direct level or firstitem.seconditem.thirditem for a deeper property.
-			///
+			public int StackingLayer { get; set; }
+
 			public DiscountTarget Target { get; set; }
 
-			///
-			///type ApiType DOCUMENT_HERE 
-			///
 			public string Type { get; set; }
 
 		}

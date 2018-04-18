@@ -32,7 +32,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public DateTime? AcceptedDate { get; set; }
 
 			///
-			///Indicates if the customer account is opted to receive marketing materials. If true, the customer account is opted in for receiving the content. 
+			///If true, the customer account associated with the order is opted in to receive marketing materials.
 			///
 			public bool? AcceptsMarketing { get; set; }
 
@@ -43,9 +43,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public decimal AmountAvailableForRefund { get; set; }
 
-			///
-			///A counter for how much money has been issued in refunds. This calculated field does NOT include refunds issued in returns.
-			///
 			public decimal AmountRefunded { get; set; }
 
 			///
@@ -79,9 +76,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 
 			public string CustomerTaxId { get; set; }
 
-			///
-			///Custom data for a given vendor set within the commerce process.
-			///
 			public JObject Data { get; set; }
 
 			///
@@ -95,27 +89,18 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 
 			public decimal? DiscountTotal { get; set; }
 
-			///
-			///Order level duty or tariff amount. Does not take into account duties or tariffs specifically on items on the order
-			///
 			public decimal? DutyAmount { get; set; }
 
-			///
-			///Duties or tariffs for the Order as well as OrderItems (e.g. if the Order has a $5 duty or tariff for any reason and an OrderItem has a $2 duty or tariff then the value in this property would be $7)
-			///
 			public decimal? DutyTotal { get; set; }
 
 			public string Email { get; set; }
 
 			public DateTime? ExpirationDate { get; set; }
 
-			///
-			///Extra properties (key-value pairs) that extend the primary object. Think of this as a property bag of string keys and string values.
-			///
 			public List<ExtendedProperty> ExtendedProperties { get; set; }
 
 			///
-			///Unique identifier used by an external program to identify a  order, customer account, or wish list.
+			///Unique identifier used by an external program to identify a Mozu order.
 			///
 			public string ExternalId { get; set; }
 
@@ -125,16 +110,10 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 
 			public string FulfillmentStatus { get; set; }
 
-			///
-			///The amount to adjust the order handling fee.
-			///
 			public Adjustment HandlingAdjustment { get; set; }
 
 			public decimal? HandlingAmount { get; set; }
 
-			///
-			///The list of historically-applied handling discounts. The active one will have IsExcluded == false
-			///
 			public List<AppliedDiscount> HandlingDiscounts { get; set; }
 
 			public decimal? HandlingSubTotal { get; set; }
@@ -151,12 +130,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public string Id { get; set; }
 
 			///
-			///The date and time an order or wish list is imported into . This is not the date and time it was created in the external application.
+			///If the order was imported from an external program, the date and time the order was imported into Mozu.
 			///
 			public DateTime? ImportDate { get; set; }
 
 			///
-			///The list of invalid coupons the shopper attempted to enter for the cart or order. These coupons may no longer be valid or incorrectly entered.
+			///List of invalid coupon codes the shopper entered for the order.
 			///
 			public List<InvalidCoupon> InvalidCoupons { get; set; }
 
@@ -171,9 +150,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 
 			public bool? IsImport { get; set; }
 
-			///
-			///True if the order is one of multiple orders created to fulfill as parent order that supports shipping to multiple adresses.
-			///
 			public bool IsPartialOrder { get; set; }
 
 			public bool? IsTaxExempt { get; set; }
@@ -184,9 +160,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 
 			public DateTime? LastValidationDate { get; set; }
 
-			///
-			///The total charge for the line item with all weighted order level manual adjustments.
-			///
 			public decimal? LineItemSubtotalWithOrderAdjustments { get; set; }
 
 			public string LocationCode { get; set; }
@@ -201,41 +174,20 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 
 			public List<Package> Packages { get; set; }
 
-			///
-			///The unique identifier of the checkout that created the parent order (if the order is one of multiple orders created to fulfill a parent order that support shipping to multiple addresses).
-			///
 			public string ParentCheckoutId { get; set; }
 
-			///
-			///The checkout number from the checkout that created the parent order (if the order is one of multiple orders created to fulfill a parent order that support shipping to multiple addresses).
-			///
 			public int? ParentCheckoutNumber { get; set; }
 
-			///
-			///If this Order has a parent Order, the parent Order ID is recorded here.
-			///
 			public string ParentOrderId { get; set; }
 
-			///
-			///If the Order has a parent Order, the order number is recorded here.
-			///
 			public int? ParentOrderNumber { get; set; }
 
 			public string ParentReturnId { get; set; }
 
-			///
-			///If the Order has a parent Order with a return, the return number is recorded here.
-			///
 			public int? ParentReturnNumber { get; set; }
 
-			///
-			///The number of partial orders that make up the parent order.
-			///
 			public int? PartialOrderCount { get; set; }
 
-			///
-			///The order number for the partial order.
-			///
 			public int? PartialOrderNumber { get; set; }
 
 			public List<Payment> Payments { get; set; }
@@ -244,14 +196,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 
 			public List<Pickup> Pickups { get; set; }
 
-			///
-			///If the order is associated with a price list, this is the unique code of the price list.
-			///
 			public string PriceListCode { get; set; }
 
-			///
-			///Refunds associated with this order. A refund is a single exchange of money from merchant to customer that either encapsulates a refund to a credit card or an issuance of a store credit. Refunds does not reduce the 'amount collected' on an order and it is possible for refunds to exceed the total order amount.
-			///
 			public List<Refund> Refunds { get; set; }
 
 			public string ReturnStatus { get; set; }
@@ -260,9 +206,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 
 			public Adjustment ShippingAdjustment { get; set; }
 
-			///
-			///The total shipping amount for the order before discounts and adjustments.
-			///
 			public decimal? ShippingAmountBeforeDiscountsAndAdjustments { get; set; }
 
 			public List<ShippingDiscount> ShippingDiscounts { get; set; }
@@ -285,14 +228,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 
 			public decimal? Subtotal { get; set; }
 
-			///
-			///suggestedDiscounts ApiType DOCUMENT_HERE 
-			///
 			public List<SuggestedDiscount> SuggestedDiscounts { get; set; }
 
-			///
-			///Leverage this property within a [tax Arc.js action](https://www.mozu.com/docs/arcjs/commerce-catalog-storefront-tax/commerce-catalog-storefront-tax.htm) to supplement the tax information for this item or object with custom JSON data.
-			///
 			public JObject TaxData { get; set; }
 
 			public decimal? TaxTotal { get; set; }

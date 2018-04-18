@@ -13,14 +13,8 @@ using System;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
-		///
-		///	Properties for the intended view of the product attribute in the storefront.
-		///
 		public class AttributeInProductTypeDisplayInfo
 		{
-			///
-			///Defines the intended display of this attribute in the storefront. Options include Drop Down, Image Picker, and Radio Buttons.
-			///
 			public string DisplayIntention { get; set; }
 
 		}

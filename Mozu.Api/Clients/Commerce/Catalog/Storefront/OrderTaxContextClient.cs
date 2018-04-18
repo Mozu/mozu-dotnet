@@ -18,14 +18,14 @@ using System.Threading;
 namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 {
 	/// <summary>
-	/// Use the Storefront Tax resource to retrieve tax information from the storefront.
+	/// 
 	/// </summary>
 	public partial class OrderTaxContextClient 	{
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="taxableOrder"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.PricingRuntime.OrderTaxContext"/>}

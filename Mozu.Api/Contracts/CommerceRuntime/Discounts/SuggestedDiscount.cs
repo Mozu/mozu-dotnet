@@ -13,24 +13,12 @@ using System;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Discounts
 {
-		///
-		///	Mozu.CommerceRuntime.Contracts.Discounts.SuggestedDiscount ApiType DOCUMENT_HERE 
-		///
 		public class SuggestedDiscount
 		{
-			///
-			///autoAdd ApiType DOCUMENT_HERE 
-			///
 			public bool AutoAdd { get; set; }
 
-			///
-			///The unique identifier of the discount.
-			///
 			public int DiscountId { get; set; }
 
-			///
-			///The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			///
 			public string ProductCode { get; set; }
 
 		}
