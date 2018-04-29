@@ -75,6 +75,11 @@ namespace Mozu.Api.Contracts.ProductRuntime
 
 			public bool IsTaxable { get; set; }
 
+			///
+			///locationsInStock ApiType DOCUMENT_HERE 
+			///
+			public List<string> LocationsInStock { get; set; }
+
 			public PackageMeasurements Measurements { get; set; }
 
 			///

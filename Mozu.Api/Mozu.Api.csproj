@@ -123,6 +123,7 @@
     <Compile Include="Clients\Commerce\Catalog\Admin\Couponsets\CouponClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\DiscountClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\Discounts\DiscountTargetClient.cs" />
+    <Compile Include="Clients\Commerce\Catalog\Admin\DiscountSettingsClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\FacetClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\LocationInventoryClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\MasterCatalogClient.cs" />
@@ -302,6 +303,7 @@
     <Compile Include="Contracts\CommerceRuntime\Commerce\CommerceUnitPrice.cs" />
     <Compile Include="Contracts\CommerceRuntime\Commerce\ExtendedProperty.cs" />
     <Compile Include="Contracts\CommerceRuntime\Commerce\PackageMeasurements.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Commerce\ThresholdMessage.cs" />
     <Compile Include="Contracts\CommerceRuntime\Discounts\AppliedDiscount.cs" />
     <Compile Include="Contracts\CommerceRuntime\Discounts\AppliedLineItemProductDiscount.cs" />
     <Compile Include="Contracts\CommerceRuntime\Discounts\AppliedLineItemShippingDiscount.cs" />
@@ -337,6 +339,7 @@
     <Compile Include="Contracts\CommerceRuntime\Payments\CheckPayment.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\Payment.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PaymentAction.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Payments\PaymentActionTarget.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PaymentCard.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PaymentCollection.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PaymentGatewayInteraction.cs" />
@@ -345,6 +348,7 @@
     <Compile Include="Contracts\CommerceRuntime\Payments\PurchaseOrderCustomField.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PurchaseOrderPayment.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PurchaseOrderPaymentTerm.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Payments\SubPayment.cs" />
     <Compile Include="Contracts\CommerceRuntime\Products\BundledProduct.cs" />
     <Compile Include="Contracts\CommerceRuntime\Products\Category.cs" />
     <Compile Include="Contracts\CommerceRuntime\Products\Product.cs" />
@@ -572,6 +576,7 @@
     <Compile Include="Contracts\ProductAdmin\DiscountCollection.cs" />
     <Compile Include="Contracts\ProductAdmin\DiscountCondition.cs" />
     <Compile Include="Contracts\ProductAdmin\DiscountLocalizedContent.cs" />
+    <Compile Include="Contracts\ProductAdmin\DiscountSettings.cs" />
     <Compile Include="Contracts\ProductAdmin\DiscountTarget.cs" />
     <Compile Include="Contracts\ProductAdmin\DynamicExpression.cs" />
     <Compile Include="Contracts\ProductAdmin\Expression.cs" />
@@ -643,10 +648,13 @@
     <Compile Include="Contracts\ProductAdmin\SoftAllocation.cs" />
     <Compile Include="Contracts\ProductAdmin\SoftAllocationCollection.cs" />
     <Compile Include="Contracts\ProductAdmin\SoftAllocationRenew.cs" />
+    <Compile Include="Contracts\ProductAdmin\StackingConfiguration.cs" />
     <Compile Include="Contracts\ProductAdmin\TargetedCategory.cs" />
     <Compile Include="Contracts\ProductAdmin\TargetedProduct.cs" />
     <Compile Include="Contracts\ProductAdmin\TargetedShippingMethod.cs" />
     <Compile Include="Contracts\ProductAdmin\TargetedShippingZone.cs" />
+    <Compile Include="Contracts\ProductAdmin\ThresholdMessage.cs" />
+    <Compile Include="Contracts\ProductAdmin\ThresholdMessageLocalizedContent.cs" />
     <Compile Include="Contracts\ProductRuntime\AppliedDiscount.cs" />
     <Compile Include="Contracts\ProductRuntime\AttributeDetail.cs" />
     <Compile Include="Contracts\ProductRuntime\AttributeValidation.cs" />
@@ -834,6 +842,7 @@
     <Compile Include="Resources\Commerce\Catalog\Admin\Couponsets\CouponResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\DiscountResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\Discounts\DiscountTargetResource.cs" />
+    <Compile Include="Resources\Commerce\Catalog\Admin\DiscountSettingsResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\FacetResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\LocationInventoryResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\MasterCatalogResource.cs" />
@@ -983,6 +992,7 @@
     <Compile Include="Urls\Commerce\Catalog\Admin\Couponsets\CouponUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\CouponSetUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\Discounts\DiscountTargetUrl.cs" />
+    <Compile Include="Urls\Commerce\Catalog\Admin\DiscountSettingsUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\DiscountUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\FacetUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\LocationInventoryUrl.cs" />

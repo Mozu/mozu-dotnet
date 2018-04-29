@@ -122,6 +122,7 @@
     <Compile Include="Factories\Commerce\Catalog\Admin\Couponsets\CouponFactory.cs" />
     <Compile Include="Factories\Commerce\Catalog\Admin\DiscountFactory.cs" />
     <Compile Include="Factories\Commerce\Catalog\Admin\Discounts\DiscountTargetFactory.cs" />
+    <Compile Include="Factories\Commerce\Catalog\Admin\DiscountSettingsFactory.cs" />
     <Compile Include="Factories\Commerce\Catalog\Admin\FacetAdminFactory.cs" />
     <Compile Include="Factories\Commerce\Catalog\Admin\LocationInventoryFactory.cs" />
     <Compile Include="Factories\Commerce\Catalog\Admin\MasterCatalogFactory.cs" />

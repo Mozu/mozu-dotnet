@@ -27,6 +27,11 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public string FriendlyDescription { get; set; }
 
+			///
+			///The value of the discount applied to the cart or order, represented as a negative currency amount to apply to the original price.
+			///
+			public decimal Impact { get; set; }
+
 			public string Name { get; set; }
 
 		}

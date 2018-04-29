@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using Newtonsoft.Json.Linq;
 
 using Mozu.Api.Contracts.Core;
 
@@ -19,6 +20,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 		///
 		public class Destination
 		{
+			///
+			///data ApiType DOCUMENT_HERE 
+			///
+			public JObject Data { get; set; }
+
 			///
 			///The contact associated with the destination.
 			///

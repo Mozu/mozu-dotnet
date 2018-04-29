@@ -105,7 +105,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
         /// </returns>
         public static MozuUrl GetProductForIndexingUrl(string productCode, long? productVersion =  null, DateTime? lastModifiedDate =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/storefront/products/indexing/{productCode}&productVersion={productVersion}&lastModifiedDate={lastModifiedDate}?responseFields={responseFields}";
+			var url = "/api/commerce/catalog/storefront/products/indexing/{productCode}?productVersion={productVersion}&lastModifiedDate={lastModifiedDate}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "lastModifiedDate", lastModifiedDate);
 			mozuUrl.FormatUrl( "productCode", productCode);

@@ -58,6 +58,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 
 			public decimal? DiscountedTotal { get; set; }
 
+			///
+			///discountThresholdMessages ApiType DOCUMENT_HERE 
+			///
+			public List<ThresholdMessage> DiscountThresholdMessages { get; set; }
+
 			public decimal? DiscountTotal { get; set; }
 
 			public DateTime? ExpirationDate { get; set; }

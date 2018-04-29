@@ -101,6 +101,11 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			public string Scope { get; set; }
 
 			///
+			///stackingLayer ApiType DOCUMENT_HERE 
+			///
+			public int StackingLayer { get; set; }
+
+			///
 			///Targets represent the object, such as an item to apply discounts to(products or orders) or a view field for content. Targets are the dot notations that link to the source document property. For example, firstitem for the direct level or firstitem.seconditem.thirditem for a deeper property.
 			///
 			public DiscountTarget Target { get; set; }

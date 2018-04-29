@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
+using Mozu.Api.Contracts.CommerceRuntime.Commerce;
 using Mozu.Api.Contracts.CommerceRuntime.Discounts;
 using Mozu.Api.Contracts.CommerceRuntime.Fulfillment;
 using Mozu.Api.Contracts.CommerceRuntime.Orders;
@@ -89,6 +90,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 			///The collection of destinations available for the checkout.
 			///
 			public List<Destination> Destinations { get; set; }
+
+			///
+			///discountThresholdMessages ApiType DOCUMENT_HERE 
+			///
+			public List<ThresholdMessage> DiscountThresholdMessages { get; set; }
 
 			///
 			///Duties or tariffs for the Order as well as OrderItems (e.g. if the Order has a $5 duty or tariff for any reason and an OrderItem has a $2 duty or tariff then the value in this property would be $7).

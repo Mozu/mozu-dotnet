@@ -93,6 +93,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 
 			public decimal? DiscountedTotal { get; set; }
 
+			///
+			///discountThresholdMessages ApiType DOCUMENT_HERE 
+			///
+			public List<ThresholdMessage> DiscountThresholdMessages { get; set; }
+
 			public decimal? DiscountTotal { get; set; }
 
 			///

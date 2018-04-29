@@ -32,6 +32,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public bool CanBeDeleted { get; set; }
 
 			///
+			///canBeStackedUpon ApiType DOCUMENT_HERE 
+			///
+			public bool? CanBeStackedUpon { get; set; }
+
+			///
 			///List of conditions that must be met for the discount to apply.
 			///
 			public DiscountCondition Conditions { get; set; }
@@ -89,9 +94,19 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public string Scope { get; set; }
 
+			///
+			///stackingLayer ApiType DOCUMENT_HERE 
+			///
+			public int? StackingLayer { get; set; }
+
 			public string Status { get; set; }
 
 			public DiscountTarget Target { get; set; }
+
+			///
+			///thresholdMessage ApiType DOCUMENT_HERE 
+			///
+			public ThresholdMessage ThresholdMessage { get; set; }
 
 		}
 

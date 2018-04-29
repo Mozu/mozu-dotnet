@@ -20,6 +20,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class DiscountCondition
 		{
 			///
+			///categoriesToExcludeFromMinOrderTotal ApiType DOCUMENT_HERE 
+			///
+			public List<CategoryDiscountCondition> CategoriesToExcludeFromMinOrderTotal { get; set; }
+
+			///
 			///The coupon code that a shopper uses to redeem an associated discount  on a purchase. This is also the unique identifier of the coupon itself.
 			///
 			public string CouponCode { get; set; }
@@ -88,6 +93,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///This specifies the minimum quantity of products in the specified IncludedProducts that must be purchased to qualify for the associated discount. This defaults to 1 if null, and IncludedProducts has values.
 			///
 			public int? MinimumQuantityRequiredProducts { get; set; }
+
+			///
+			///productsToExcludeFromMinOrderTotal ApiType DOCUMENT_HERE 
+			///
+			public List<ProductDiscountCondition> ProductsToExcludeFromMinOrderTotal { get; set; }
 
 			///
 			///If true, only authenticated users can redeem the discount. If false, anonymous users can redeem the discount.

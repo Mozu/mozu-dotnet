@@ -52,6 +52,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///
 			public string ExternalTransactionId { get; set; }
 
+			///
+			///groupId ApiType DOCUMENT_HERE 
+			///
+			public PaymentActionTarget GroupId { get; set; }
+
 			public string Id { get; set; }
 
 			public List<PaymentInteraction> Interactions { get; set; }
@@ -70,6 +75,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			public string PaymentWorkflow { get; set; }
 
 			public string Status { get; set; }
+
+			///
+			///subPayments ApiType DOCUMENT_HERE 
+			///
+			public List<SubPayment> SubPayments { get; set; }
 
 		}
 
