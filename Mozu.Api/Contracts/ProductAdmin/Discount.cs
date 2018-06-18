@@ -92,6 +92,21 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public int? MaximumUsesPerUser { get; set; }
 
+			///
+			///preventLineItemShippingDiscounts ApiType DOCUMENT_HERE 
+			///
+			public bool? PreventLineItemShippingDiscounts { get; set; }
+
+			///
+			///preventOrderProductDiscounts ApiType DOCUMENT_HERE 
+			///
+			public bool? PreventOrderProductDiscounts { get; set; }
+
+			///
+			///preventOrderShippingDiscounts ApiType DOCUMENT_HERE 
+			///
+			public bool? PreventOrderShippingDiscounts { get; set; }
+
 			public string Scope { get; set; }
 
 			///

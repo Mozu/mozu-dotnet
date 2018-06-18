@@ -10,7 +10,9 @@
 
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.PaymentService
 {
@@ -19,6 +21,11 @@ namespace Mozu.Api.Contracts.PaymentService
 		///
 		public class GatewayDefinition
 		{
+			///
+			///administationUi ApiType DOCUMENT_HERE 
+			///
+			public JObject AdministationUi { get; set; }
+
 			public string CountryCode { get; set; }
 
 			public List<GatewayCredentialFieldDefinition> CredentialDefinitions { get; set; }

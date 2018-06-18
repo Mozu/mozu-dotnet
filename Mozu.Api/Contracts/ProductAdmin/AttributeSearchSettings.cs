@@ -24,6 +24,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public bool? AllowFilteringAndSortingInStorefront { get; set; }
 
 			///
+			///customWeightInStorefrontSearch ApiType DOCUMENT_HERE 
+			///
+			public bool? CustomWeightInStorefrontSearch { get; set; }
+
+			///
 			///Specifies whether to create a case-sensitive Solr search index. The default is .
 			///
 			public bool? IndexValueWithCase { get; set; }

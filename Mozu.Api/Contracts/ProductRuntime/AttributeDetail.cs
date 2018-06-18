@@ -23,6 +23,11 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public bool AllowFilteringAndSortingInStorefront { get; set; }
 
+			///
+			///customWeightInStorefrontSearch ApiType DOCUMENT_HERE 
+			///
+			public bool? CustomWeightInStorefrontSearch { get; set; }
+
 			public string DataType { get; set; }
 
 			public int DataTypeSequence { get; set; }

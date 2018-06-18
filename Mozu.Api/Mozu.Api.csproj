@@ -66,6 +66,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiException.cs" />
+    <Compile Include="Contracts\PaymentService\Extensibility\V1\ConnectionStatuses.cs" />
+    <Compile Include="Contracts\PaymentService\Extensibility\V1\TransactionType.cs" />
     <Compile Include="DataViewMode.cs" />
     <Compile Include="Events\EventService.cs" />
     <Compile Include="Events\EventServiceFactory.cs" />
@@ -510,6 +512,20 @@
     <Compile Include="Contracts\PaymentService\Address.cs" />
     <Compile Include="Contracts\PaymentService\Contact.cs" />
     <Compile Include="Contracts\PaymentService\CustomData.cs" />
+    <Compile Include="Contracts\PaymentService\Extensibility\V1\AdapterContext.cs" />
+    <Compile Include="Contracts\PaymentService\Extensibility\V1\Address.cs" />
+    <Compile Include="Contracts\PaymentService\Extensibility\V1\CaptureRequest.cs" />
+    <Compile Include="Contracts\PaymentService\Extensibility\V1\CardInformation.cs" />
+    <Compile Include="Contracts\PaymentService\Extensibility\V1\Contact.cs" />
+    <Compile Include="Contracts\PaymentService\Extensibility\V1\CustomerInformation.cs" />
+    <Compile Include="Contracts\PaymentService\Extensibility\V1\GatewayAuthorizationRequest.cs" />
+    <Compile Include="Contracts\PaymentService\Extensibility\V1\GatewayAuthorizeResponse.cs" />
+    <Compile Include="Contracts\PaymentService\Extensibility\V1\GatewayCaptureResponse.cs" />
+    <Compile Include="Contracts\PaymentService\Extensibility\V1\GatewayCreditResponse.cs" />
+    <Compile Include="Contracts\PaymentService\Extensibility\V1\GatewayInteraction.cs" />
+    <Compile Include="Contracts\PaymentService\Extensibility\V1\GatewayVoidResponse.cs" />
+    <Compile Include="Contracts\PaymentService\Extensibility\V1\KeyValueTuple.cs" />
+    <Compile Include="Contracts\PaymentService\Extensibility\V1\Transaction.cs" />
     <Compile Include="Contracts\PaymentService\FraudScreenResponseData.cs" />
     <Compile Include="Contracts\PaymentService\GatewayAccount.cs" />
     <Compile Include="Contracts\PaymentService\GatewayCredentialFieldDefinition.cs" />
