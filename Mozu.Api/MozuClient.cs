@@ -188,6 +188,7 @@ namespace Mozu.Api
 
         static MozuClient()
         {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
             _clientsByHostName = new ConcurrentDictionary<string, HttpClient>();
         }
 
