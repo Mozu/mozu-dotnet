@@ -60,6 +60,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool? DoesNotApplyToSalePrice { get; set; }
 
+			public bool HasPurchaseConditions { get; set; }
+
 			public int? Id { get; set; }
 
 			///
@@ -106,6 +108,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///preventOrderShippingDiscounts ApiType DOCUMENT_HERE 
 			///
 			public bool? PreventOrderShippingDiscounts { get; set; }
+
+			public string PurchaseRequirementType { get; set; }
 
 			public string Scope { get; set; }
 

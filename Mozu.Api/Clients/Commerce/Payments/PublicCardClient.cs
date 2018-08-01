@@ -50,6 +50,57 @@ namespace Mozu.Api.Clients.Commerce.Payments
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="cardId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="balanceRequest"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.PaymentService.Response.SyncResponse"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetGiftCardBalance( balanceRequest,  cardId,  responseFields);
+		///   var syncResponseClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.PaymentService.Response.SyncResponse> GetGiftCardBalanceClient(Mozu.Api.Contracts.PaymentService.Request.GetGiftCardBalanceRequest balanceRequest, string cardId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Payments.PublicCardUrl.GetGiftCardBalanceUrl(cardId, responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.PaymentService.Response.SyncResponse>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.PaymentService.Request.GetGiftCardBalanceRequest>(balanceRequest);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="balanceRequest"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.PaymentService.Response.SyncResponse"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetUnregisteredGiftCardBalance( balanceRequest,  responseFields);
+		///   var syncResponseClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.PaymentService.Response.SyncResponse> GetUnregisteredGiftCardBalanceClient(Mozu.Api.Contracts.PaymentService.Request.GetGiftCardBalanceRequest balanceRequest, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Payments.PublicCardUrl.GetUnregisteredGiftCardBalanceUrl(responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.PaymentService.Response.SyncResponse>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.PaymentService.Request.GetGiftCardBalanceRequest>(balanceRequest);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="request">Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE </param>

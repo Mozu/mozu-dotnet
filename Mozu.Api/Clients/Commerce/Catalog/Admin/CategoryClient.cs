@@ -132,6 +132,57 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="categoryId"></param>
+		/// <param name="productCodes"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=AddProductsToCategory(dataViewMode,  productCodes,  categoryId);
+		///mozuClient.WithBaseAddress(url).Execute();
+		/// </code>
+		/// </example>
+		public static MozuClient AddProductsToCategoryClient(DataViewMode dataViewMode, List<string> productCodes, int categoryId)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.CategoryUrl.AddProductsToCategoryUrl(categoryId);
+			const string verb = "POST";
+			var mozuClient = new MozuClient()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody(productCodes)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="categoryId"></param>
+		/// <param name="productCodes"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=RemoveProductsFromCategory( productCodes,  categoryId);
+		///mozuClient.WithBaseAddress(url).Execute();
+		/// </code>
+		/// </example>
+		public static MozuClient RemoveProductsFromCategoryClient(List<string> productCodes, int categoryId)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.CategoryUrl.RemoveProductsFromCategoryUrl(categoryId);
+			const string verb = "POST";
+			var mozuClient = new MozuClient()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody(productCodes);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="dynamicExpressionIn">The details of the dynamic expression that you want to validate.</param>
 		/// <returns>

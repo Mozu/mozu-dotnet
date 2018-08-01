@@ -29,6 +29,8 @@ namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 			///
 			public string AvsCodes { get; set; }
 
+			public decimal CapturedAmount { get; set; }
+
 			///
 			///cvV2Codes ApiType DOCUMENT_HERE 
 			///

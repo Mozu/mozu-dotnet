@@ -154,6 +154,54 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="categoryId"></param>
+		/// <param name="productCodes"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var category = new Category();
+		///   await category.AddProductsToCategoryAsync(_dataViewMode,  productCodes,  categoryId);
+		/// </code>
+		/// </example>
+		public virtual async Task AddProductsToCategoryAsync(List<string> productCodes, int categoryId, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.AddProductsToCategoryClient(_dataViewMode,  productCodes,  categoryId);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="categoryId"></param>
+		/// <param name="productCodes"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var category = new Category();
+		///   await category.RemoveProductsFromCategoryAsync( productCodes,  categoryId);
+		/// </code>
+		/// </example>
+		public virtual async Task RemoveProductsFromCategoryAsync(List<string> productCodes, int categoryId, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.RemoveProductsFromCategoryClient( productCodes,  categoryId);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="dynamicExpressionIn">The details of the dynamic expression that you want to validate.</param>
 		/// <returns>

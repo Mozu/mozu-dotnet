@@ -60,4 +60,5 @@ namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 			public TransactionType TransactionType { get; set; }
 
 		}
+
 }

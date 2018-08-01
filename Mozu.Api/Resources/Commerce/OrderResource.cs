@@ -224,7 +224,6 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="couponCodeToApply"></param>
 		/// <param name="refreshShipping"></param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="order"></param>
@@ -234,13 +233,13 @@ namespace Mozu.Api.Resources.Commerce
 		/// <example>
 		/// <code>
 		///   var order = new Order();
-		///   var order = await order.PriceOrderAsync( order,  refreshShipping,  couponCodeToApply,  responseFields);
+		///   var order = await order.PriceOrderAsync( order,  refreshShipping,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> PriceOrderAsync(Mozu.Api.Contracts.CommerceRuntime.Orders.Order order, bool refreshShipping, string couponCodeToApply =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> PriceOrderAsync(Mozu.Api.Contracts.CommerceRuntime.Orders.Order order, bool refreshShipping, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
-			var client = Mozu.Api.Clients.Commerce.OrderClient.PriceOrderClient( order,  refreshShipping,  couponCodeToApply,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.OrderClient.PriceOrderClient( order,  refreshShipping,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();

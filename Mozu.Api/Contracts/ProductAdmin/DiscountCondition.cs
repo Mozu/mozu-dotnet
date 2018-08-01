@@ -94,6 +94,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public int? MinimumQuantityRequiredProducts { get; set; }
 
+			public int? MinimumRequiredQuantityPerRedemption { get; set; }
+
 			///
 			///productsToExcludeFromMinOrderTotal ApiType DOCUMENT_HERE 
 			///

@@ -207,7 +207,6 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="couponCodeToApply"></param>
 		/// <param name="refreshShipping"></param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="order"></param>
@@ -216,13 +215,13 @@ namespace Mozu.Api.Clients.Commerce
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=PriceOrder( order,  refreshShipping,  couponCodeToApply,  responseFields);
+		///   var mozuClient=PriceOrder( order,  refreshShipping,  responseFields);
 		///   var orderClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> PriceOrderClient(Mozu.Api.Contracts.CommerceRuntime.Orders.Order order, bool refreshShipping, string couponCodeToApply =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> PriceOrderClient(Mozu.Api.Contracts.CommerceRuntime.Orders.Order order, bool refreshShipping, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.OrderUrl.PriceOrderUrl(refreshShipping, couponCodeToApply, responseFields);
+			var url = Mozu.Api.Urls.Commerce.OrderUrl.PriceOrderUrl(refreshShipping, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order>()
 									.WithVerb(verb).WithResourceUrl(url)

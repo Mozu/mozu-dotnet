@@ -71,6 +71,57 @@ namespace Mozu.Api.Resources.Commerce.Payments
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="cardId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="balanceRequest"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.PaymentService.Response.SyncResponse"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var publiccard = new PublicCard();
+		///   var syncResponse = await publiccard.GetGiftCardBalanceAsync( balanceRequest,  cardId,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.PaymentService.Response.SyncResponse> GetGiftCardBalanceAsync(Mozu.Api.Contracts.PaymentService.Request.GetGiftCardBalanceRequest balanceRequest, string cardId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.PaymentService.Response.SyncResponse> response;
+			var client = Mozu.Api.Clients.Commerce.Payments.PublicCardClient.GetGiftCardBalanceClient( balanceRequest,  cardId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="balanceRequest"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.PaymentService.Response.SyncResponse"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var publiccard = new PublicCard();
+		///   var syncResponse = await publiccard.GetUnregisteredGiftCardBalanceAsync( balanceRequest,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.PaymentService.Response.SyncResponse> GetUnregisteredGiftCardBalanceAsync(Mozu.Api.Contracts.PaymentService.Request.GetGiftCardBalanceRequest balanceRequest, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.PaymentService.Response.SyncResponse> response;
+			var client = Mozu.Api.Clients.Commerce.Payments.PublicCardClient.GetUnregisteredGiftCardBalanceClient( balanceRequest,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="request">Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE </param>

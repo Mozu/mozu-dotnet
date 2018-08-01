@@ -65,4 +65,5 @@ namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 			public string TransactionId { get; set; }
 
 		}
+
 }

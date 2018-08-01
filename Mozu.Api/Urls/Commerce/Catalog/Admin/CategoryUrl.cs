@@ -93,6 +93,36 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
+        /// Get Resource Url for AddProductsToCategory
+        /// </summary>
+        /// <param name="categoryId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl AddProductsToCategoryUrl(int categoryId)
+		{
+			var url = "/api/commerce/catalog/admin/categories/{categoryId}/add-products";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "categoryId", categoryId);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for RemoveProductsFromCategory
+        /// </summary>
+        /// <param name="categoryId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl RemoveProductsFromCategoryUrl(int categoryId)
+		{
+			var url = "/api/commerce/catalog/admin/categories/{categoryId}/remove-products";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "categoryId", categoryId);
+			return mozuUrl;
+		}
+
+		/// <summary>
         /// Get Resource Url for ValidateDynamicExpression
         /// </summary>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>

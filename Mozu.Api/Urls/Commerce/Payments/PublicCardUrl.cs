@@ -31,6 +31,38 @@ namespace Mozu.Api.Urls.Commerce.Payments
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for GetGiftCardBalance
+        /// </summary>
+        /// <param name="cardId"></param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetGiftCardBalanceUrl(string cardId, string responseFields =  null)
+		{
+			var url = "/payments/commerce/payments/cards/{cardId}/balance?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.PCI_POD, false) ;
+			mozuUrl.FormatUrl( "cardId", cardId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for GetUnregisteredGiftCardBalance
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetUnregisteredGiftCardBalanceUrl(string responseFields =  null)
+		{
+			var url = "/payments/commerce/payments/cards/balance?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.PCI_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for Update
         /// </summary>

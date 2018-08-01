@@ -300,14 +300,14 @@ namespace Mozu.Api.Test.Factories.Commerce
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = OrderFactory.PriceOrder(handler : handler,  order :  order,  refreshShipping :  refreshShipping,  couponCodeToApply :  couponCodeToApply,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = OrderFactory.PriceOrder(handler : handler,  order :  order,  refreshShipping :  refreshShipping,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Order/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order PriceOrder(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.CommerceRuntime.Orders.Order order, bool refreshShipping, string couponCodeToApply = null, string responseFields = null, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Orders.Order order, bool refreshShipping, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -315,7 +315,7 @@ namespace Mozu.Api.Test.Factories.Commerce
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.OrderClient.PriceOrderClient(
-				 order :  order,  refreshShipping :  refreshShipping,  couponCodeToApply :  couponCodeToApply,  responseFields :  responseFields		);
+				 order :  order,  refreshShipping :  refreshShipping,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();

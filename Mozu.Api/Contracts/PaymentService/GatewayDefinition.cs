@@ -30,6 +30,8 @@ namespace Mozu.Api.Contracts.PaymentService
 
 			public List<GatewayCredentialFieldDefinition> CredentialDefinitions { get; set; }
 
+			public List<string> Features { get; set; }
+
 			public string Id { get; set; }
 
 			public string IntegrationImplTypeName { get; set; }

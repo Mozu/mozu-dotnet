@@ -537,6 +537,7 @@
     <Compile Include="Contracts\PaymentService\Product.cs" />
     <Compile Include="Contracts\PaymentService\PublicCard.cs" />
     <Compile Include="Contracts\PaymentService\Request\FraudScreenRequest.cs" />
+    <Compile Include="Contracts\PaymentService\Request\GetGiftCardBalanceRequest.cs" />
     <Compile Include="Contracts\PaymentService\Response\FraudScreen.cs" />
     <Compile Include="Contracts\PaymentService\Response\SyncResponse.cs" />
     <Compile Include="Contracts\PaymentService\SupportedCard.cs" />

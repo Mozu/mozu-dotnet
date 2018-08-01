@@ -26,6 +26,8 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 
 			public AuditInfo AuditInfo { get; set; }
 
+			public string GiftCardProcessingType { get; set; }
+
 			public string PaymentProcessingFlowType { get; set; }
 
 			public bool UseOverridePriceToCalculateDiscounts { get; set; }

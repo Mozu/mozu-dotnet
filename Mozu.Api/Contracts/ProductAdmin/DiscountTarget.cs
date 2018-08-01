@@ -24,11 +24,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool? AppliesToLeastExpensiveProductsFirst { get; set; }
 
-			///
-			///Specifies whether the discount applies to the discount condition items as well. If , the shopper must purchase the required amount of the discount condition before the discount applies.
-			///
-			public bool? AppliesToPurchaseConditionItems { get; set; }
-
 			public List<TargetedCategory> Categories { get; set; }
 
 			public List<TargetedCategory> ExcludedCategories { get; set; }
