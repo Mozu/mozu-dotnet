@@ -21,7 +21,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 		public class Destination
 		{
 			///
-			///data ApiType DOCUMENT_HERE 
+			///A data bag that merchants can use for storing custom data. This one is tied to the associated destination.
 			///
 			public JObject Data { get; set; }
 

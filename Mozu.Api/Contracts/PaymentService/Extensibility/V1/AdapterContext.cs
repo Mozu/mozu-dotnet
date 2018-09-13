@@ -15,22 +15,22 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 {
 		///
-		///	Mozu.PaymentService.Extensibility.Contracts.V1.AdapterContext ApiType DOCUMENT_HERE 
+		///	Contains information about the payment gateway adapter configuration
 		///
 		public class AdapterContext
 		{
 			///
-			///configuration ApiType DOCUMENT_HERE 
+			///A list of KeyValueTuples containing the configuration from the application setup.
 			///
 			public List<KeyValueTuple> Configuration { get; set; }
 
 			///
-			///settings ApiType DOCUMENT_HERE 
+			///A list of KeyValueTuples containing the configuration from the settings for the application in the Tenant.
 			///
 			public List<KeyValueTuple> Settings { get; set; }
 
 			///
-			///transaction ApiType DOCUMENT_HERE 
+			///Contains information on the transaction, including previous interactions with the gateway.
 			///
 			public Transaction Transaction { get; set; }
 

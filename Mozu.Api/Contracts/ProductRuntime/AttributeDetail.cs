@@ -24,7 +24,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public bool AllowFilteringAndSortingInStorefront { get; set; }
 
 			///
-			///customWeightInStorefrontSearch ApiType DOCUMENT_HERE 
+			///When set to true, enables you to set a custom search weight for a product attribute in search-settings.
 			///
 			public bool? CustomWeightInStorefrontSearch { get; set; }
 

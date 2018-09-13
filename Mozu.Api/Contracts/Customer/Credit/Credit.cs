@@ -49,9 +49,6 @@ namespace Mozu.Api.Contracts.Customer.Credit
 			///
 			public decimal? CurrentBalance { get; set; }
 
-			///
-			///customCreditType ApiType DOCUMENT_HERE 
-			///
 			public string CustomCreditType { get; set; }
 
 			///

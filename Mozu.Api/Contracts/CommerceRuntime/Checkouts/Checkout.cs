@@ -92,7 +92,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 			public List<Destination> Destinations { get; set; }
 
 			///
-			///discountThresholdMessages ApiType DOCUMENT_HERE 
+			///List of threshold messages to display on Checkout page.
 			///
 			public List<ThresholdMessage> DiscountThresholdMessages { get; set; }
 
@@ -267,7 +267,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 			public decimal SubTotal { get; set; }
 
 			///
-			///suggestedDiscounts ApiType DOCUMENT_HERE 
+			///Refers to the BOGA discounts that are currently satisfied but whose free item has not yet been added.
 			///
 			public List<SuggestedDiscount> SuggestedDiscounts { get; set; }
 

@@ -11,21 +11,22 @@
 using System;
 
 
-namespace Mozu.Api.Contracts.PaymentService
+namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	Field value information for the payment gateway.
+		///	Mozu.ProductRuntime.Contracts.ProductSortExpression ApiType DOCUMENT_HERE 
 		///
-		public class GatewayCredentialFieldValue
+		public class ProductSortExpression
 		{
 			///
-			///A list of KeyValueTuples containing the configuration from the application setup.
+			///direction ApiType DOCUMENT_HERE 
 			///
-			public bool IsValueSet { get; set; }
+			public string Direction { get; set; }
 
-			public string Name { get; set; }
-
-			public string Value { get; set; }
+			///
+			///field ApiType DOCUMENT_HERE 
+			///
+			public string Field { get; set; }
 
 		}
 

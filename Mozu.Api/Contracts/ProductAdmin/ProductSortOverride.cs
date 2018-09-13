@@ -14,14 +14,24 @@ using System;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	Indicates if the stacking is enabled for a specific catalog, here you can set the stacking configuration.
+		///	Mozu.ProductAdmin.Contracts.ProductSortOverride ApiType DOCUMENT_HERE 
 		///
-		public class DiscountSettings
+		public class ProductSortOverride
 		{
 			///
-			///Where we can enable stacking and indicate how many layers we want to use for line item/order discounts.
+			///isPinned ApiType DOCUMENT_HERE 
 			///
-			public StackingConfiguration StackingConfiguration { get; set; }
+			public bool? IsPinned { get; set; }
+
+			///
+			///position ApiType DOCUMENT_HERE 
+			///
+			public int? Position { get; set; }
+
+			///
+			///The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			///
+			public string ProductCode { get; set; }
 
 		}
 

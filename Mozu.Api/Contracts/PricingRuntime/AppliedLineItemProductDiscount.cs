@@ -53,9 +53,6 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///
 			public bool IsForced { get; set; }
 
-			///
-			///normalizedImpact ApiType DOCUMENT_HERE 
-			///
 			public decimal NormalizedImpact { get; set; }
 
 			///

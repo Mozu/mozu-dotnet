@@ -14,22 +14,22 @@ using System;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	Mozu.ProductAdmin.Contracts.StackingConfiguration ApiType DOCUMENT_HERE 
+		///	Used to enable stacking and indicate how many layers to use for line item/order discounts. 
 		///
 		public class StackingConfiguration
 		{
 			///
-			///productLineItemLayers ApiType DOCUMENT_HERE 
+			///Numerical fieldÂ that represents the number of discount layers for line item product discounts (up to 3).
 			///
 			public int ProductLineItemLayers { get; set; }
 
 			///
-			///productOrderLayers ApiType DOCUMENT_HERE 
+			///Numerical fieldÂ that represents number of discount layers for order product discounts (up to 3).
 			///
 			public int ProductOrderLayers { get; set; }
 
 			///
-			///stackingEnabled ApiType DOCUMENT_HERE 
+			///Boolean field that indicates whether or not stackable discounts are enabled per catalog.
 			///
 			public bool StackingEnabled { get; set; }
 

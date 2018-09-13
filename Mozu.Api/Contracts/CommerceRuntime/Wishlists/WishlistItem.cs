@@ -31,9 +31,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 
 			public AuditInfo AuditInfo { get; set; }
 
-			///
-			///autoAddDiscountId ApiType DOCUMENT_HERE 
-			///
 			public int? AutoAddDiscountId { get; set; }
 
 			public string Comments { get; set; }

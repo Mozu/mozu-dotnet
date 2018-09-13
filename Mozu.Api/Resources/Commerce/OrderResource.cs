@@ -224,9 +224,9 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="refreshShipping"></param>
+		/// <param name="refreshShipping">Specifies whether shipping rates should be re-evaluated while pricing.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="order"></param>
+		/// <param name="order">The order payload to price.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>

@@ -135,6 +135,7 @@
     <Compile Include="Factories\Commerce\Catalog\Admin\Products\ProductOptionFactory.cs" />
     <Compile Include="Factories\Commerce\Catalog\Admin\Products\ProductPropertyFactory.cs" />
     <Compile Include="Factories\Commerce\Catalog\Admin\Products\ProductVariationFactory.cs" />
+    <Compile Include="Factories\Commerce\Catalog\Admin\ProductSortDefinitionFactory.cs" />
     <Compile Include="Factories\Commerce\Catalog\Admin\PublishingScopeFactory.cs" />
     <Compile Include="Factories\Commerce\Catalog\Admin\SearchFactory.cs" />
     <Compile Include="Factories\Commerce\Catalog\Admin\SoftAllocationFactory.cs" />

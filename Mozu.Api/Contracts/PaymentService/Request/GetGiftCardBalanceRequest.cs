@@ -13,12 +13,24 @@ using System;
 
 namespace Mozu.Api.Contracts.PaymentService.Request
 {
+		///
+		///	Mozu.PaymentService.Contracts.Request.GetGiftCardBalanceRequest ApiType DOCUMENT_HERE 
+		///
 		public class GetGiftCardBalanceRequest
 		{
+			///
+			///cardNumberPart ApiType DOCUMENT_HERE 
+			///
 			public string CardNumberPart { get; set; }
 
+			///
+			///cardType ApiType DOCUMENT_HERE 
+			///
 			public string CardType { get; set; }
 
+			///
+			///cvv ApiType DOCUMENT_HERE 
+			///
 			public string Cvv { get; set; }
 
 		}

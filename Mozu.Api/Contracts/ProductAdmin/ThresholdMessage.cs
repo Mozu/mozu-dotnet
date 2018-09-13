@@ -15,7 +15,7 @@ using Mozu.Api.Contracts.Core;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	Mozu.ProductAdmin.Contracts.ThresholdMessage ApiType DOCUMENT_HERE 
+		///	Information on where, when and what content to display in a threshold message to customers.
 		///
 		public class ThresholdMessage
 		{
@@ -40,22 +40,22 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public bool IsActive { get; set; }
 
 			///
-			///requiresCouponCode ApiType DOCUMENT_HERE 
+			///Indicates if the threshold message will display when a promo code is evaluated
 			///
 			public bool RequiresCouponCode { get; set; }
 
 			///
-			///showInCart ApiType DOCUMENT_HERE 
+			///Indicates if the threshold message will display in the cart
 			///
 			public bool ShowInCart { get; set; }
 
 			///
-			///showOnCheckout ApiType DOCUMENT_HERE 
+			///Indicates if the threshold message will display on the checkout page
 			///
 			public bool ShowOnCheckout { get; set; }
 
 			///
-			///thresholdValue ApiType DOCUMENT_HERE 
+			///The cart total amount that must be met before the threshold message is displayed
 			///
 			public decimal ThresholdValue { get; set; }
 

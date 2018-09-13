@@ -34,14 +34,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Storefront
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = ProductFactory.GetProducts(handler : handler,  filter :  filter,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  responseOptions :  responseOptions,  cursorMark :  cursorMark,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductFactory.GetProducts(handler : handler,  filter :  filter,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  responseOptions :  responseOptions,  cursorMark :  cursorMark,  defaultSort :  defaultSort,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<ProductCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductRuntime.ProductCollection GetProducts(ServiceClientMessageHandler handler, 
- 		 string filter = null, int? startIndex = null, int? pageSize = null, string sortBy = null, string responseOptions = null, string cursorMark = null, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 string filter = null, int? startIndex = null, int? pageSize = null, string sortBy = null, string responseOptions = null, string cursorMark = null, string defaultSort = null, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -49,7 +49,7 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Storefront
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductsClient(
-				 filter :  filter,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  responseOptions :  responseOptions,  cursorMark :  cursorMark,  responseFields :  responseFields, dataViewMode: dataViewMode		);
+				 filter :  filter,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  responseOptions :  responseOptions,  cursorMark :  cursorMark,  defaultSort :  defaultSort,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();

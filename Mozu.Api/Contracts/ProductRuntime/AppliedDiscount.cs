@@ -23,9 +23,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 
 			public Discount Discount { get; set; }
 
-			///
-			///discounts ApiType DOCUMENT_HERE 
-			///
 			public List<Discount> Discounts { get; set; }
 
 			public decimal Impact { get; set; }

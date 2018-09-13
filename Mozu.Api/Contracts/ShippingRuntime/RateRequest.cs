@@ -48,6 +48,9 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			///
 			public DateTime? EstimatedShipmentDate { get; set; }
 
+			///
+			///handlingTotal ApiType DOCUMENT_HERE 
+			///
 			public decimal? HandlingTotal { get; set; }
 
 			///

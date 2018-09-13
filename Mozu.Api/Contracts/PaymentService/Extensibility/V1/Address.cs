@@ -14,47 +14,47 @@ using System;
 namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 {
 		///
-		///	Mozu.PaymentService.Extensibility.Contracts.V1.Address ApiType DOCUMENT_HERE 
+		///	Contains address information
 		///
 		public class Address
 		{
 			///
-			///city ApiType DOCUMENT_HERE 
+			///An object containing address/city information.
 			///
 			public string City { get; set; }
 
 			///
-			///companyName ApiType DOCUMENT_HERE 
+			///The company name
 			///
 			public string CompanyName { get; set; }
 
 			///
-			///country ApiType DOCUMENT_HERE 
+			///The country
 			///
 			public string Country { get; set; }
 
 			///
-			///line1 ApiType DOCUMENT_HERE 
+			///The first line of the address
 			///
 			public string Line1 { get; set; }
 
 			///
-			///line2 ApiType DOCUMENT_HERE 
+			///The second line of the address
 			///
 			public string Line2 { get; set; }
 
 			///
-			///line3 ApiType DOCUMENT_HERE 
+			///The third line of the address
 			///
 			public string Line3 { get; set; }
 
 			///
-			///postalCode ApiType DOCUMENT_HERE 
+			///The postal code
 			///
 			public string PostalCode { get; set; }
 
 			///
-			///state ApiType DOCUMENT_HERE 
+			///The state
 			///
 			public string State { get; set; }
 

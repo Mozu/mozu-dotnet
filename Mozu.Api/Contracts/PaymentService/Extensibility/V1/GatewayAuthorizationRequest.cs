@@ -14,52 +14,52 @@ using System;
 namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 {
 		///
-		///	Mozu.PaymentService.Extensibility.Contracts.V1.GatewayAuthorizationRequest ApiType DOCUMENT_HERE 
+		///	Contains an authorization request
 		///
 		public class GatewayAuthorizationRequest
 		{
 			///
-			///additionalData ApiType DOCUMENT_HERE 
+			///Contains information not in the object allowing flexibility.
 			///
 			public object AdditionalData { get; set; }
 
 			///
-			///amount ApiType DOCUMENT_HERE 
+			///Contains the amount to authorize.
 			///
 			public decimal Amount { get; set; }
 
 			///
-			///apiVersion ApiType DOCUMENT_HERE 
+			///The api version of the call.
 			///
 			public string ApiVersion { get; set; }
 
 			///
-			///card ApiType DOCUMENT_HERE 
+			///CardInformation object containing the card information.
 			///
 			public CardInformation Card { get; set; }
 
 			///
-			///context ApiType DOCUMENT_HERE 
+			///The AdapterContext information.
 			///
 			public AdapterContext Context { get; set; }
 
 			///
-			///methodName ApiType DOCUMENT_HERE 
+			///The method name being called on the connector.
 			///
 			public string MethodName { get; set; }
 
 			///
-			///preAuth ApiType DOCUMENT_HERE 
+			///Indicates whether the request is pre-auth or not.
 			///
 			public bool PreAuth { get; set; }
 
 			///
-			///recurringType ApiType DOCUMENT_HERE 
+			///Indicates whether the request is recurring or not.
 			///
 			public string RecurringType { get; set; }
 
 			///
-			///shopper ApiType DOCUMENT_HERE 
+			///The CustomerInformation for the shopper.
 			///
 			public CustomerInformation Shopper { get; set; }
 

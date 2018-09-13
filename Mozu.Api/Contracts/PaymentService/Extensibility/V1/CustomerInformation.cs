@@ -15,7 +15,7 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 {
 		///
-		///	Mozu.PaymentService.Extensibility.Contracts.V1.CustomerInformation ApiType DOCUMENT_HERE 
+		///	Contains information about the customer
 		///
 		public class CustomerInformation
 		{
@@ -25,7 +25,7 @@ namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 			public Address Address { get; set; }
 
 			///
-			///contact ApiType DOCUMENT_HERE 
+			///Contains the Contact information for the customer.
 			///
 			public Contact Contact { get; set; }
 
@@ -40,27 +40,27 @@ namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 			public string CustomerId { get; set; }
 
 			///
-			///extendedInfo ApiType DOCUMENT_HERE 
+			///Contains information not in the object allowing flexibility.
 			///
 			public List<KeyValueTuple> ExtendedInfo { get; set; }
 
 			///
-			///phoneNumber ApiType DOCUMENT_HERE 
+			///Contains the phone for the customer.
 			///
 			public string PhoneNumber { get; set; }
 
 			///
-			///requestorIp ApiType DOCUMENT_HERE 
+			///Contains the IP the customer is using.
 			///
 			public string RequestorIp { get; set; }
 
 			///
-			///requestorUrl ApiType DOCUMENT_HERE 
+			///Contains the url the customer is using.
 			///
 			public string RequestorUrl { get; set; }
 
 			///
-			///requestorUserAgent ApiType DOCUMENT_HERE 
+			///Contains the user agent the customer is using.
 			///
 			public string RequestorUserAgent { get; set; }
 

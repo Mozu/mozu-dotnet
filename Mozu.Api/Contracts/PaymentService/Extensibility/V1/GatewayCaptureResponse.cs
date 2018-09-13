@@ -15,54 +15,57 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 {
 		///
-		///	Mozu.PaymentService.Extensibility.Contracts.V1.GatewayCaptureResponse ApiType DOCUMENT_HERE 
+		///	Contains a capture response
 		///
 		public class GatewayCaptureResponse
 		{
 			///
-			///authCode ApiType DOCUMENT_HERE 
+			///Contains the auth code from the gateway.
 			///
 			public string AuthCode { get; set; }
 
 			///
-			///avsCodes ApiType DOCUMENT_HERE 
+			///Contains the avs codes from the gateway.
 			///
 			public string AvsCodes { get; set; }
 
+			///
+			///capturedAmount ApiType DOCUMENT_HERE 
+			///
 			public decimal CapturedAmount { get; set; }
 
 			///
-			///cvV2Codes ApiType DOCUMENT_HERE 
+			///Contains the cvv codes from the gateway.
 			///
 			public string CvV2Codes { get; set; }
 
 			///
-			///isDeclined ApiType DOCUMENT_HERE 
+			///Set this to true if the transaction is declined or fails for any reason.
 			///
 			public bool IsDeclined { get; set; }
 
 			///
-			///remoteConnectionStatus ApiType DOCUMENT_HERE 
+			///Contains information about the interaction with the gateway.
 			///
 			public ConnectionStatuses RemoteConnectionStatus { get; set; }
 
 			///
-			///responseCode ApiType DOCUMENT_HERE 
+			///Contains the response code from the gateway.
 			///
 			public string ResponseCode { get; set; }
 
 			///
-			///responseData ApiType DOCUMENT_HERE 
+			///Contains information not in the object allowing flexibility.
 			///
 			public List<KeyValueTuple> ResponseData { get; set; }
 
 			///
-			///responseText ApiType DOCUMENT_HERE 
+			///Contains the text for the response, eg, 'Insufficient funds'.
 			///
 			public string ResponseText { get; set; }
 
 			///
-			///transactionId ApiType DOCUMENT_HERE 
+			///Contains the id for the transaction provided by the gateway.
 			///
 			public string TransactionId { get; set; }
 

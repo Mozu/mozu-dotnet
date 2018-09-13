@@ -32,7 +32,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public bool CanBeDeleted { get; set; }
 
 			///
-			///canBeStackedUpon ApiType DOCUMENT_HERE 
+			///Boolean field, if true, this discount will allow discounts in the following layer to be stacked on top.
 			///
 			public bool? CanBeStackedUpon { get; set; }
 
@@ -60,6 +60,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool? DoesNotApplyToSalePrice { get; set; }
 
+			///
+			///hasPurchaseConditions ApiType DOCUMENT_HERE 
+			///
 			public bool HasPurchaseConditions { get; set; }
 
 			public int? Id { get; set; }
@@ -94,27 +97,21 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public int? MaximumUsesPerUser { get; set; }
 
-			///
-			///preventLineItemShippingDiscounts ApiType DOCUMENT_HERE 
-			///
 			public bool? PreventLineItemShippingDiscounts { get; set; }
 
-			///
-			///preventOrderProductDiscounts ApiType DOCUMENT_HERE 
-			///
 			public bool? PreventOrderProductDiscounts { get; set; }
 
-			///
-			///preventOrderShippingDiscounts ApiType DOCUMENT_HERE 
-			///
 			public bool? PreventOrderShippingDiscounts { get; set; }
 
+			///
+			///purchaseRequirementType ApiType DOCUMENT_HERE 
+			///
 			public string PurchaseRequirementType { get; set; }
 
 			public string Scope { get; set; }
 
 			///
-			///stackingLayer ApiType DOCUMENT_HERE 
+			///Numerical fieldÂ representing number of discount layer (up to 3) -Each discount can be assigned to a layer which is then used to determine the order of application. Discounts in the same layer will compete and provide the best value for the shopper.
 			///
 			public int? StackingLayer { get; set; }
 
@@ -123,7 +120,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public DiscountTarget Target { get; set; }
 
 			///
-			///thresholdMessage ApiType DOCUMENT_HERE 
+			///Text field representing message content that the user wants to display on their storefront
 			///
 			public ThresholdMessage ThresholdMessage { get; set; }
 

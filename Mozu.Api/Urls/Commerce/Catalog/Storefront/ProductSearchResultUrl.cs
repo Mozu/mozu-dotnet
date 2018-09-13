@@ -41,6 +41,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
         /// Get Resource Url for Search
         /// </summary>
         /// <param name="cursorMark">In your first deep paged request, set this parameter to . Then, in all subsequent requests, set this parameter to the subsequent values of  that's returned in each response to continue paging through the results. Continue this pattern until  is null, which signifies the end of the paged results.</param>
+        /// <param name="defaultSort"></param>
+        /// <param name="defaultSortDefinitionName"></param>
         /// <param name="enableSearchTuningRules">Enables search tuning rules on your site.</param>
         /// <param name="facet">Individually list the facet fields you want to display in a web storefront product search.</param>
         /// <param name="facetFieldRangeQuery">Display a range facet not specified in a template in a web storefront product search by listing the facet field and the range to display.</param>
@@ -65,15 +67,18 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
         /// <param name="searchTuningRuleCode">The unique identifier of the search tuning rule.</param>
         /// <param name="searchTuningRuleContext">The category ID that the search tuning rule applies to.</param>
         /// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
+        /// <param name="sortDefinitionName"></param>
         /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl SearchUrl(string query =  null, string filter =  null, string facetTemplate =  null, string facetTemplateSubset =  null, string facet =  null, string facetFieldRangeQuery =  null, string facetHierPrefix =  null, string facetHierValue =  null, string facetHierDepth =  null, string facetStartIndex =  null, string facetPageSize =  null, string facetSettings =  null, string facetValueFilter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, string searchSettings =  null, bool? enableSearchTuningRules =  null, string searchTuningRuleContext =  null, string searchTuningRuleCode =  null, string facetTemplateExclude =  null, string facetPrefix =  null, string responseOptions =  null, string cursorMark =  null, string facetValueSort =  null, string responseFields =  null)
+        public static MozuUrl SearchUrl(string query =  null, string filter =  null, string facetTemplate =  null, string facetTemplateSubset =  null, string facet =  null, string facetFieldRangeQuery =  null, string facetHierPrefix =  null, string facetHierValue =  null, string facetHierDepth =  null, string facetStartIndex =  null, string facetPageSize =  null, string facetSettings =  null, string facetValueFilter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, string searchSettings =  null, bool? enableSearchTuningRules =  null, string searchTuningRuleContext =  null, string searchTuningRuleCode =  null, string facetTemplateExclude =  null, string facetPrefix =  null, string responseOptions =  null, string cursorMark =  null, string facetValueSort =  null, string defaultSort =  null, string sortDefinitionName =  null, string defaultSortDefinitionName =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/storefront/productsearch/search/?query={query}&filter={filter}&facetTemplate={facetTemplate}&facetTemplateSubset={facetTemplateSubset}&facet={facet}&facetFieldRangeQuery={facetFieldRangeQuery}&facetHierPrefix={facetHierPrefix}&facetHierValue={facetHierValue}&facetHierDepth={facetHierDepth}&facetStartIndex={facetStartIndex}&facetPageSize={facetPageSize}&facetSettings={facetSettings}&facetValueFilter={facetValueFilter}&sortBy={sortBy}&pageSize={pageSize}&startIndex={startIndex}&searchSettings={searchSettings}&enableSearchTuningRules={enableSearchTuningRules}&searchTuningRuleContext={searchTuningRuleContext}&searchTuningRuleCode={searchTuningRuleCode}&facetTemplateExclude={facetTemplateExclude}&facetPrefix={facetPrefix}&responseOptions={responseOptions}&cursorMark={cursorMark}&facetValueSort={facetValueSort}&responseFields={responseFields}";
+			var url = "/api/commerce/catalog/storefront/productsearch/search/?query={query}&filter={filter}&facetTemplate={facetTemplate}&facetTemplateSubset={facetTemplateSubset}&facet={facet}&facetFieldRangeQuery={facetFieldRangeQuery}&facetHierPrefix={facetHierPrefix}&facetHierValue={facetHierValue}&facetHierDepth={facetHierDepth}&facetStartIndex={facetStartIndex}&facetPageSize={facetPageSize}&facetSettings={facetSettings}&facetValueFilter={facetValueFilter}&sortBy={sortBy}&pageSize={pageSize}&startIndex={startIndex}&searchSettings={searchSettings}&enableSearchTuningRules={enableSearchTuningRules}&searchTuningRuleContext={searchTuningRuleContext}&searchTuningRuleCode={searchTuningRuleCode}&facetTemplateExclude={facetTemplateExclude}&facetPrefix={facetPrefix}&responseOptions={responseOptions}&cursorMark={cursorMark}&facetValueSort={facetValueSort}&defaultSort={defaultSort}&sortDefinitionName={sortDefinitionName}&defaultSortDefinitionName={defaultSortDefinitionName}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "cursorMark", cursorMark);
+			mozuUrl.FormatUrl( "defaultSort", defaultSort);
+			mozuUrl.FormatUrl( "defaultSortDefinitionName", defaultSortDefinitionName);
 			mozuUrl.FormatUrl( "enableSearchTuningRules", enableSearchTuningRules);
 			mozuUrl.FormatUrl( "facet", facet);
 			mozuUrl.FormatUrl( "facetFieldRangeQuery", facetFieldRangeQuery);
@@ -98,6 +103,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
 			mozuUrl.FormatUrl( "searchTuningRuleCode", searchTuningRuleCode);
 			mozuUrl.FormatUrl( "searchTuningRuleContext", searchTuningRuleContext);
 			mozuUrl.FormatUrl( "sortBy", sortBy);
+			mozuUrl.FormatUrl( "sortDefinitionName", sortDefinitionName);
 			mozuUrl.FormatUrl( "startIndex", startIndex);
 			return mozuUrl;
 		}

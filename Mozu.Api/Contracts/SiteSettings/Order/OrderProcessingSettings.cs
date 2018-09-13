@@ -26,6 +26,9 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 
 			public AuditInfo AuditInfo { get; set; }
 
+			///
+			///giftCardProcessingType ApiType DOCUMENT_HERE 
+			///
 			public string GiftCardProcessingType { get; set; }
 
 			public string PaymentProcessingFlowType { get; set; }

@@ -30,9 +30,6 @@ namespace Mozu.Api.Contracts.Customer.Credit
 			///
 			public string Comments { get; set; }
 
-			///
-			///data ApiType DOCUMENT_HERE 
-			///
 			public JObject Data { get; set; }
 
 			///

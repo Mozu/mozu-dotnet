@@ -15,17 +15,17 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 {
 		///
-		///	Mozu.PaymentService.Extensibility.Contracts.V1.GatewayInteraction ApiType DOCUMENT_HERE 
+		///	Contains information about interactions with the gateway
 		///
 		public class GatewayInteraction
 		{
 			///
-			///amount ApiType DOCUMENT_HERE 
+			///Contains information about interactions with the gateway; contains the amount of this interaction.
 			///
 			public decimal Amount { get; set; }
 
 			///
-			///cardId ApiType DOCUMENT_HERE 
+			///Contains the id for the card for this interaction.
 			///
 			public string CardId { get; set; }
 
@@ -45,12 +45,12 @@ namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 			public bool IsDeleted { get; set; }
 
 			///
-			///isSuccessful ApiType DOCUMENT_HERE 
+			///Indicates whether the interaction succeeded or not.
 			///
 			public bool IsSuccessful { get; set; }
 
 			///
-			///responseData ApiType DOCUMENT_HERE 
+			///Contains information not in the object allowing flexibility.
 			///
 			public List<KeyValueTuple> ResponseData { get; set; }
 

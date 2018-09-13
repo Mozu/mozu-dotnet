@@ -138,6 +138,7 @@
     <Compile Include="Clients\Commerce\Catalog\Admin\Products\ProductOptionClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\Products\ProductPropertyClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\Products\ProductVariationClient.cs" />
+    <Compile Include="Clients\Commerce\Catalog\Admin\ProductSortDefinitionClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\PublishingScopeClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\SearchClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\SoftAllocationClient.cs" />
@@ -637,6 +638,10 @@
     <Compile Include="Contracts\ProductAdmin\ProductPublishingInfo.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductReservation.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductReservationCollection.cs" />
+    <Compile Include="Contracts\ProductAdmin\ProductSortDefinition.cs" />
+    <Compile Include="Contracts\ProductAdmin\ProductSortDefinitionPagedCollection.cs" />
+    <Compile Include="Contracts\ProductAdmin\ProductSortExpression.cs" />
+    <Compile Include="Contracts\ProductAdmin\ProductSortOverride.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductSupplierInfo.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductType.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductTypeCollection.cs" />
@@ -872,6 +877,7 @@
     <Compile Include="Resources\Commerce\Catalog\Admin\Products\ProductOptionResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\Products\ProductPropertyResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\Products\ProductVariationResource.cs" />
+    <Compile Include="Resources\Commerce\Catalog\Admin\ProductSortDefinitionResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\PublishingScopeResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\SearchResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\SoftAllocationResource.cs" />
@@ -1022,6 +1028,7 @@
     <Compile Include="Urls\Commerce\Catalog\Admin\Products\ProductOptionUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\Products\ProductPropertyUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\Products\ProductVariationUrl.cs" />
+    <Compile Include="Urls\Commerce\Catalog\Admin\ProductSortDefinitionUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\ProductUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\PublishingScopeUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\SearchUrl.cs" />

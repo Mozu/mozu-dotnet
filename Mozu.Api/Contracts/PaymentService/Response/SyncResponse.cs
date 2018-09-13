@@ -18,6 +18,9 @@ namespace Mozu.Api.Contracts.PaymentService.Response
 		///
 		public class SyncResponse
 		{
+			///
+			///balance ApiType DOCUMENT_HERE 
+			///
 			public decimal Balance { get; set; }
 
 			///
@@ -30,6 +33,9 @@ namespace Mozu.Api.Contracts.PaymentService.Response
 			///
 			public bool IsSuccessful { get; set; }
 
+			///
+			///The text of the change message, such as "This product is no longer available." System-supplied and read-only.
+			///
 			public string Message { get; set; }
 
 			///

@@ -34,8 +34,8 @@ namespace Mozu.Api.Urls.Commerce.Payments
 		/// <summary>
         /// Get Resource Url for GetGiftCardBalance
         /// </summary>
-        /// <param name="cardId"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -51,7 +51,7 @@ namespace Mozu.Api.Urls.Commerce.Payments
 		/// <summary>
         /// Get Resource Url for GetUnregisteredGiftCardBalance
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

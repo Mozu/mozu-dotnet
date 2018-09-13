@@ -20,6 +20,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
         /// Get Resource Url for GetProducts
         /// </summary>
         /// <param name="cursorMark">In your first deep paged request, set this parameter to . Then, in all subsequent requests, set this parameter to the subsequent values of  that's returned in each response to continue paging through the results. Continue this pattern until  is null, which signifies the end of the paged results.</param>
+        /// <param name="defaultSort"></param>
         /// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
         /// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -29,11 +30,12 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetProductsUrl(string filter =  null, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseOptions =  null, string cursorMark =  null, string responseFields =  null)
+        public static MozuUrl GetProductsUrl(string filter =  null, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseOptions =  null, string cursorMark =  null, string defaultSort =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/catalog/storefront/products/?filter={filter}&startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&responseOptions={responseOptions}&cursorMark={cursorMark}&responseFields={responseFields}";
+			var url = "/api/commerce/catalog/storefront/products/?filter={filter}&startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&responseOptions={responseOptions}&cursorMark={cursorMark}&defaultSort={defaultSort}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "cursorMark", cursorMark);
+			mozuUrl.FormatUrl( "defaultSort", defaultSort);
 			mozuUrl.FormatUrl( "filter", filter);
 			mozuUrl.FormatUrl( "pageSize", pageSize);
 			mozuUrl.FormatUrl( "responseFields", responseFields);

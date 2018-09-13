@@ -14,22 +14,22 @@ using System;
 namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 {
 		///
-		///	Mozu.CommerceRuntime.Contracts.Payments.PaymentActionTarget ApiType DOCUMENT_HERE 
+		///	Specifies the target on a payment action or on an interaction
 		///
 		public class PaymentActionTarget
 		{
 			///
-			///targetId ApiType DOCUMENT_HERE 
+			///The Id of the checkout/order to target.
 			///
 			public string TargetId { get; set; }
 
 			///
-			///targetNumber ApiType DOCUMENT_HERE 
+			///The number of the checkout/order to target.
 			///
 			public int? TargetNumber { get; set; }
 
 			///
-			///targetType ApiType DOCUMENT_HERE 
+			///Specifies if the TargetId is a checkout Id or order Id.
 			///
 			public string TargetType { get; set; }
 

@@ -15,12 +15,12 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 {
 		///
-		///	Mozu.PaymentService.Extensibility.Contracts.V1.Transaction ApiType DOCUMENT_HERE 
+		///	Contains information about a transaction
 		///
 		public class Transaction
 		{
 			///
-			///activeCardId ApiType DOCUMENT_HERE 
+			///Contains the card id used in the transaction
 			///
 			public string ActiveCardId { get; set; }
 
@@ -35,7 +35,7 @@ namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 			public string CurrencyCode { get; set; }
 
 			///
-			///gatewayInteractions ApiType DOCUMENT_HERE 
+			///Contains information about the gateway interactions
 			///
 			public List<GatewayInteraction> GatewayInteractions { get; set; }
 
@@ -50,7 +50,7 @@ namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 			public bool IsRecurring { get; set; }
 
 			///
-			///kiboTransactionId ApiType DOCUMENT_HERE 
+			///Contains the Kibo transaction id
 			///
 			public string KiboTransactionId { get; set; }
 

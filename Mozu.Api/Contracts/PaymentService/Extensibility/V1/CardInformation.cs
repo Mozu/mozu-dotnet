@@ -14,32 +14,32 @@ using System;
 namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 {
 		///
-		///	Mozu.PaymentService.Extensibility.Contracts.V1.CardInformation ApiType DOCUMENT_HERE 
+		///	Contains information about the card
 		///
 		public class CardInformation
 		{
 			///
-			///cardHolderName ApiType DOCUMENT_HERE 
+			///The card holder full name.
 			///
 			public string CardHolderName { get; set; }
 
 			///
-			///cardIssueMonth ApiType DOCUMENT_HERE 
+			///The month the credit card was issued; used by some cards.
 			///
 			public int CardIssueMonth { get; set; }
 
 			///
-			///cardIssueNumber ApiType DOCUMENT_HERE 
+			///The issue number of the credit card. (Used by some cards.)
 			///
 			public string CardIssueNumber { get; set; }
 
 			///
-			///cardIssueYear ApiType DOCUMENT_HERE 
+			///The issue year; used by some cards
 			///
 			public int CardIssueYear { get; set; }
 
 			///
-			///cvv ApiType DOCUMENT_HERE 
+			///The CVV code for the credit card.
 			///
 			public string Cvv { get; set; }
 
@@ -59,17 +59,17 @@ namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 			public string Id { get; set; }
 
 			///
-			///numberPart ApiType DOCUMENT_HERE 
+			///Contains the card number or number part if the card is tokenized.
 			///
 			public string NumberPart { get; set; }
 
 			///
-			///persistCard ApiType DOCUMENT_HERE 
+			///Indicates whether to store credit card information.
 			///
 			public bool PersistCard { get; set; }
 
 			///
-			///type ApiType DOCUMENT_HERE 
+			///Contains the type of credit card. For example: Visa, MasterCard.
 			///
 			public string Type { get; set; }
 

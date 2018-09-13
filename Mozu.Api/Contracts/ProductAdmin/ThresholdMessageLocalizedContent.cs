@@ -15,7 +15,7 @@ using Mozu.Api.Contracts.Core;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	Mozu.ProductAdmin.Contracts.ThresholdMessageLocalizedContent ApiType DOCUMENT_HERE 
+		///	The localized content of the threshold message.
 		///
 		public class ThresholdMessageLocalizedContent
 		{
@@ -30,7 +30,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string LocaleCode { get; set; }
 
 			///
-			///messageTemplate ApiType DOCUMENT_HERE 
+			///Locale-based contents of the Threshold Message that will be displayed.
 			///
 			public string MessageTemplate { get; set; }
 

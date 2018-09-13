@@ -13,13 +13,10 @@ using System;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Discounts
 {
-		///
-		///	Mozu.CommerceRuntime.Contracts.Discounts.SuggestedDiscount ApiType DOCUMENT_HERE 
-		///
 		public class SuggestedDiscount
 		{
 			///
-			///autoAdd ApiType DOCUMENT_HERE 
+			///Indicates whether the free BOGA item should automatically be added to cart. If the free item has been added before and the shopper removed the free item (rejected it), the value will be false.
 			///
 			public bool AutoAdd { get; set; }
 

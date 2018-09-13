@@ -154,7 +154,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="categoryId"></param>
+		/// <param name="categoryId">Unique identifier of the category to modify.</param>
 		/// <param name="productCodes"></param>
 		/// <returns>
 		/// 
@@ -178,7 +178,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="categoryId"></param>
+		/// <param name="categoryId">Unique identifier of the category to modify.</param>
 		/// <param name="productCodes"></param>
 		/// <returns>
 		/// 

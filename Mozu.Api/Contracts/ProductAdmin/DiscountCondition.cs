@@ -19,9 +19,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class DiscountCondition
 		{
-			///
-			///categoriesToExcludeFromMinOrderTotal ApiType DOCUMENT_HERE 
-			///
 			public List<CategoryDiscountCondition> CategoriesToExcludeFromMinOrderTotal { get; set; }
 
 			///
@@ -94,11 +91,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public int? MinimumQuantityRequiredProducts { get; set; }
 
+			///
+			///minimumRequiredQuantityPerRedemption ApiType DOCUMENT_HERE 
+			///
 			public int? MinimumRequiredQuantityPerRedemption { get; set; }
 
-			///
-			///productsToExcludeFromMinOrderTotal ApiType DOCUMENT_HERE 
-			///
 			public List<ProductDiscountCondition> ProductsToExcludeFromMinOrderTotal { get; set; }
 
 			///

@@ -24,19 +24,10 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///
 			public string CouponCode { get; set; }
 
-			///
-			///customerSegmentIds ApiType DOCUMENT_HERE 
-			///
 			public List<int> CustomerSegmentIds { get; set; }
 
-			///
-			///excludedCategoryIds ApiType DOCUMENT_HERE 
-			///
 			public List<int> ExcludedCategoryIds { get; set; }
 
-			///
-			///excludedProductCodes ApiType DOCUMENT_HERE 
-			///
 			public List<string> ExcludedProductCodes { get; set; }
 
 			///
@@ -44,54 +35,24 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///
 			public DateTime? ExpirationDate { get; set; }
 
-			///
-			///includedCategoryIds ApiType DOCUMENT_HERE 
-			///
 			public List<int> IncludedCategoryIds { get; set; }
 
-			///
-			///includedProductCodes ApiType DOCUMENT_HERE 
-			///
 			public List<string> IncludedProductCodes { get; set; }
 
-			///
-			///minimumCategorySubtotalBeforeDiscounts ApiType DOCUMENT_HERE 
-			///
 			public decimal? MinimumCategorySubtotalBeforeDiscounts { get; set; }
 
-			///
-			///minimumLifetimeValueAmount ApiType DOCUMENT_HERE 
-			///
 			public decimal? MinimumLifetimeValueAmount { get; set; }
 
-			///
-			///minimumOrderAmount ApiType DOCUMENT_HERE 
-			///
 			public decimal? MinimumOrderAmount { get; set; }
 
-			///
-			///minimumQuantityProductsRequiredInCategories ApiType DOCUMENT_HERE 
-			///
 			public int? MinimumQuantityProductsRequiredInCategories { get; set; }
 
-			///
-			///minimumQuantityRequiredProducts ApiType DOCUMENT_HERE 
-			///
 			public int? MinimumQuantityRequiredProducts { get; set; }
 
-			///
-			///paymentWorkflows ApiType DOCUMENT_HERE 
-			///
 			public List<string> PaymentWorkflows { get; set; }
 
-			///
-			///requiresCoupon ApiType DOCUMENT_HERE 
-			///
 			public bool RequiresCoupon { get; set; }
 
-			///
-			///startDate ApiType DOCUMENT_HERE 
-			///
 			public DateTime? StartDate { get; set; }
 
 		}

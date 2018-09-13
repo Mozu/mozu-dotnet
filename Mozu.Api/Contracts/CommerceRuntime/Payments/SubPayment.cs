@@ -14,27 +14,27 @@ using System;
 namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 {
 		///
-		///	Mozu.CommerceRuntime.Contracts.Payments.SubPayment ApiType DOCUMENT_HERE 
+		///	Sub-payment that corresponds to a child order in case of multiship order.
 		///
 		public class SubPayment
 		{
 			///
-			///amountCollected ApiType DOCUMENT_HERE 
+			///The amount collected for that portion of the payment.
 			///
 			public decimal AmountCollected { get; set; }
 
 			///
-			///amountCredited ApiType DOCUMENT_HERE 
+			///The amount credited back for that portion of the payment.
 			///
 			public decimal AmountCredited { get; set; }
 
 			///
-			///amountRefunded ApiType DOCUMENT_HERE 
+			///The amount refunded for that portion of the payment.
 			///
 			public decimal AmountRefunded { get; set; }
 
 			///
-			///amountRequested ApiType DOCUMENT_HERE 
+			///The amount requested for that portion of the payment.
 			///
 			public decimal AmountRequested { get; set; }
 

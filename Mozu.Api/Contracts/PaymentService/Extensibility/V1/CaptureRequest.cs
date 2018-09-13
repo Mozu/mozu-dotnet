@@ -14,42 +14,42 @@ using System;
 namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 {
 		///
-		///	Mozu.PaymentService.Extensibility.Contracts.V1.CaptureRequest ApiType DOCUMENT_HERE 
+		///	Contains a capture request
 		///
 		public class CaptureRequest
 		{
 			///
-			///additionalData ApiType DOCUMENT_HERE 
+			///Contains information not in the object allowing flexibility.
 			///
 			public object AdditionalData { get; set; }
 
 			///
-			///amount ApiType DOCUMENT_HERE 
+			///The amount to capture.
 			///
 			public decimal Amount { get; set; }
 
 			///
-			///apiVersion ApiType DOCUMENT_HERE 
+			///The api version of the call.
 			///
 			public string ApiVersion { get; set; }
 
 			///
-			///card ApiType DOCUMENT_HERE 
+			///CardInformation object containing the card information.
 			///
 			public CardInformation Card { get; set; }
 
 			///
-			///context ApiType DOCUMENT_HERE 
+			///The AdapterContext information.
 			///
 			public AdapterContext Context { get; set; }
 
 			///
-			///methodName ApiType DOCUMENT_HERE 
+			///The method name being called on the connector.
 			///
 			public string MethodName { get; set; }
 
 			///
-			///shopper ApiType DOCUMENT_HERE 
+			///The customer information for the shopper.
 			///
 			public CustomerInformation Shopper { get; set; }
 

@@ -15,37 +15,37 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 {
 		///
-		///	Mozu.PaymentService.Extensibility.Contracts.V1.GatewayVoidResponse ApiType DOCUMENT_HERE 
+		///	Contains a void response
 		///
 		public class GatewayVoidResponse
 		{
 			///
-			///isDeclined ApiType DOCUMENT_HERE 
+			///Set this to true if the transaction is declined or fails for any reason.
 			///
 			public bool IsDeclined { get; set; }
 
 			///
-			///remoteConnectionStatus ApiType DOCUMENT_HERE 
+			///Contains information about the interaction with the gateway.
 			///
 			public ConnectionStatuses RemoteConnectionStatus { get; set; }
 
 			///
-			///responseCode ApiType DOCUMENT_HERE 
+			///Contains the response code from the gateway.
 			///
 			public string ResponseCode { get; set; }
 
 			///
-			///responseData ApiType DOCUMENT_HERE 
+			///Contains information not in the object allowing flexibility.
 			///
 			public List<KeyValueTuple> ResponseData { get; set; }
 
 			///
-			///responseText ApiType DOCUMENT_HERE 
+			///Contains the text for the response. For example: 'Insufficient funds'.
 			///
 			public string ResponseText { get; set; }
 
 			///
-			///transactionId ApiType DOCUMENT_HERE 
+			///Contains the id for the transaction provided by the gateway.
 			///
 			public string TransactionId { get; set; }
 

@@ -95,7 +95,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for AddProductsToCategory
         /// </summary>
-        /// <param name="categoryId"></param>
+        /// <param name="categoryId">Unique identifier of the category to modify.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -110,7 +110,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for RemoveProductsFromCategory
         /// </summary>
-        /// <param name="categoryId"></param>
+        /// <param name="categoryId">Unique identifier of the category to modify.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

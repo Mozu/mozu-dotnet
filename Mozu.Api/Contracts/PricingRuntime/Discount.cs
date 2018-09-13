@@ -19,9 +19,6 @@ namespace Mozu.Api.Contracts.PricingRuntime
 		///
 		public class Discount
 		{
-			///
-			///amount ApiType DOCUMENT_HERE 
-			///
 			public decimal Amount { get; set; }
 
 			///
@@ -29,21 +26,12 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///
 			public string AmountType { get; set; }
 
-			///
-			///condition ApiType DOCUMENT_HERE 
-			///
 			public DiscountCondition Condition { get; set; }
 
 			public int DiscountId { get; set; }
 
-			///
-			///doesNotApplyToMultiShipToOrders ApiType DOCUMENT_HERE 
-			///
 			public bool? DoesNotApplyToMultiShipToOrders { get; set; }
 
-			///
-			///doesNotApplyToProductsWithSalePrice ApiType DOCUMENT_HERE 
-			///
 			public bool DoesNotApplyToProductsWithSalePrice { get; set; }
 
 			public DateTime? ExpirationDate { get; set; }
@@ -53,55 +41,28 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///
 			public string FriendlyDescription { get; set; }
 
-			///
-			///includedPriceLists ApiType DOCUMENT_HERE 
-			///
 			public List<string> IncludedPriceLists { get; set; }
 
-			///
-			///maxDiscountValuePerRedemption ApiType DOCUMENT_HERE 
-			///
 			public decimal? MaxDiscountValuePerRedemption { get; set; }
 
-			///
-			///maximumDiscountValuePerOrder ApiType DOCUMENT_HERE 
-			///
 			public decimal? MaximumDiscountValuePerOrder { get; set; }
 
-			///
-			///maximumRedemptionsPerOrder ApiType DOCUMENT_HERE 
-			///
 			public int? MaximumRedemptionsPerOrder { get; set; }
 
-			///
-			///maximumUsesPerUser ApiType DOCUMENT_HERE 
-			///
 			public int? MaximumUsesPerUser { get; set; }
 
-			///
-			///maxRedemptions ApiType DOCUMENT_HERE 
-			///
 			public int? MaxRedemptions { get; set; }
 
 			public string Name { get; set; }
 
-			///
-			///redemptions ApiType DOCUMENT_HERE 
-			///
 			public int Redemptions { get; set; }
 
-			///
-			///requiresAuthenticatedUser ApiType DOCUMENT_HERE 
-			///
 			public bool RequiresAuthenticatedUser { get; set; }
 
-			///
-			///scope ApiType DOCUMENT_HERE 
-			///
 			public string Scope { get; set; }
 
 			///
-			///stackingLayer ApiType DOCUMENT_HERE 
+			///Numerical fieldÂ representing the number of discount layer (up to 3).
 			///
 			public int StackingLayer { get; set; }
 
@@ -110,9 +71,6 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///
 			public DiscountTarget Target { get; set; }
 
-			///
-			///type ApiType DOCUMENT_HERE 
-			///
 			public string Type { get; set; }
 
 		}

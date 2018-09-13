@@ -21,15 +21,15 @@ namespace Mozu.Api.Contracts.PaymentService
 		///
 		public class GatewayDefinition
 		{
-			///
-			///administationUi ApiType DOCUMENT_HERE 
-			///
 			public JObject AdministationUi { get; set; }
 
 			public string CountryCode { get; set; }
 
 			public List<GatewayCredentialFieldDefinition> CredentialDefinitions { get; set; }
 
+			///
+			///features ApiType DOCUMENT_HERE 
+			///
 			public List<string> Features { get; set; }
 
 			public string Id { get; set; }

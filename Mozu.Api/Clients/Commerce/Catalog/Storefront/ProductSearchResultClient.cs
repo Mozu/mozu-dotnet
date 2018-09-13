@@ -53,6 +53,8 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// 
 		/// </summary>
 		/// <param name="cursorMark">In your first deep paged request, set this parameter to . Then, in all subsequent requests, set this parameter to the subsequent values of  that's returned in each response to continue paging through the results. Continue this pattern until  is null, which signifies the end of the paged results.</param>
+		/// <param name="defaultSort"></param>
+		/// <param name="defaultSortDefinitionName"></param>
 		/// <param name="enableSearchTuningRules">Enables search tuning rules on your site.</param>
 		/// <param name="facet">Individually list the facet fields you want to display in a web storefront product search.</param>
 		/// <param name="facetFieldRangeQuery">Display a range facet not specified in a template in a web storefront product search by listing the facet field and the range to display.</param>
@@ -77,19 +79,20 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// <param name="searchTuningRuleCode">The unique identifier of the search tuning rule.</param>
 		/// <param name="searchTuningRuleContext">The category ID that the search tuning rule applies to.</param>
 		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
+		/// <param name="sortDefinitionName"></param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductRuntime.ProductSearchResult"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=Search( query,  filter,  facetTemplate,  facetTemplateSubset,  facet,  facetFieldRangeQuery,  facetHierPrefix,  facetHierValue,  facetHierDepth,  facetStartIndex,  facetPageSize,  facetSettings,  facetValueFilter,  sortBy,  pageSize,  startIndex,  searchSettings,  enableSearchTuningRules,  searchTuningRuleContext,  searchTuningRuleCode,  facetTemplateExclude,  facetPrefix,  responseOptions,  cursorMark,  facetValueSort,  responseFields);
+		///   var mozuClient=Search( query,  filter,  facetTemplate,  facetTemplateSubset,  facet,  facetFieldRangeQuery,  facetHierPrefix,  facetHierValue,  facetHierDepth,  facetStartIndex,  facetPageSize,  facetSettings,  facetValueFilter,  sortBy,  pageSize,  startIndex,  searchSettings,  enableSearchTuningRules,  searchTuningRuleContext,  searchTuningRuleCode,  facetTemplateExclude,  facetPrefix,  responseOptions,  cursorMark,  facetValueSort,  defaultSort,  sortDefinitionName,  defaultSortDefinitionName,  responseFields);
 		///   var productSearchResultClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductSearchResult> SearchClient(string query =  null, string filter =  null, string facetTemplate =  null, string facetTemplateSubset =  null, string facet =  null, string facetFieldRangeQuery =  null, string facetHierPrefix =  null, string facetHierValue =  null, string facetHierDepth =  null, string facetStartIndex =  null, string facetPageSize =  null, string facetSettings =  null, string facetValueFilter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, string searchSettings =  null, bool? enableSearchTuningRules =  null, string searchTuningRuleContext =  null, string searchTuningRuleCode =  null, string facetTemplateExclude =  null, string facetPrefix =  null, string responseOptions =  null, string cursorMark =  null, string facetValueSort =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductSearchResult> SearchClient(string query =  null, string filter =  null, string facetTemplate =  null, string facetTemplateSubset =  null, string facet =  null, string facetFieldRangeQuery =  null, string facetHierPrefix =  null, string facetHierValue =  null, string facetHierDepth =  null, string facetStartIndex =  null, string facetPageSize =  null, string facetSettings =  null, string facetValueFilter =  null, string sortBy =  null, int? pageSize =  null, int? startIndex =  null, string searchSettings =  null, bool? enableSearchTuningRules =  null, string searchTuningRuleContext =  null, string searchTuningRuleCode =  null, string facetTemplateExclude =  null, string facetPrefix =  null, string responseOptions =  null, string cursorMark =  null, string facetValueSort =  null, string defaultSort =  null, string sortDefinitionName =  null, string defaultSortDefinitionName =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductSearchResultUrl.SearchUrl(query, filter, facetTemplate, facetTemplateSubset, facet, facetFieldRangeQuery, facetHierPrefix, facetHierValue, facetHierDepth, facetStartIndex, facetPageSize, facetSettings, facetValueFilter, sortBy, pageSize, startIndex, searchSettings, enableSearchTuningRules, searchTuningRuleContext, searchTuningRuleCode, facetTemplateExclude, facetPrefix, responseOptions, cursorMark, facetValueSort, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.ProductSearchResultUrl.SearchUrl(query, filter, facetTemplate, facetTemplateSubset, facet, facetFieldRangeQuery, facetHierPrefix, facetHierValue, facetHierDepth, facetStartIndex, facetPageSize, facetSettings, facetValueFilter, sortBy, pageSize, startIndex, searchSettings, enableSearchTuningRules, searchTuningRuleContext, searchTuningRuleCode, facetTemplateExclude, facetPrefix, responseOptions, cursorMark, facetValueSort, defaultSort, sortDefinitionName, defaultSortDefinitionName, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductRuntime.ProductSearchResult>()
 									.WithVerb(verb).WithResourceUrl(url)

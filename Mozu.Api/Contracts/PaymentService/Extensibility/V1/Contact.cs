@@ -14,12 +14,12 @@ using System;
 namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 {
 		///
-		///	Mozu.PaymentService.Extensibility.Contracts.V1.Contact ApiType DOCUMENT_HERE 
+		///	Contains information about the contact for billing
 		///
 		public class Contact
 		{
 			///
-			///country ApiType DOCUMENT_HERE 
+			///Contains the country for the contact.
 			///
 			public string Country { get; set; }
 
@@ -39,7 +39,7 @@ namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 			public string Lastname { get; set; }
 
 			///
-			///phone ApiType DOCUMENT_HERE 
+			///Contains the phone for the contact.
 			///
 			public string Phone { get; set; }
 

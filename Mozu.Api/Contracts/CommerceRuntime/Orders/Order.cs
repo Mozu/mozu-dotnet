@@ -94,7 +94,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public decimal? DiscountedTotal { get; set; }
 
 			///
-			///discountThresholdMessages ApiType DOCUMENT_HERE 
+			///Saves threshold message settings for the Cart and Checkout pages.
 			///
 			public List<ThresholdMessage> DiscountThresholdMessages { get; set; }
 
@@ -291,7 +291,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public decimal? Subtotal { get; set; }
 
 			///
-			///suggestedDiscounts ApiType DOCUMENT_HERE 
+			///Refers to the BOGA discounts that are currently satisfied but whose free item has not yet been added.
 			///
 			public List<SuggestedDiscount> SuggestedDiscounts { get; set; }
 

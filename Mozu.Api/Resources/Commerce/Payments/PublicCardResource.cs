@@ -71,8 +71,8 @@ namespace Mozu.Api.Resources.Commerce.Payments
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="cardId"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="balanceRequest"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.PaymentService.Response.SyncResponse"/>
@@ -97,7 +97,7 @@ namespace Mozu.Api.Resources.Commerce.Payments
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="balanceRequest"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.PaymentService.Response.SyncResponse"/>
