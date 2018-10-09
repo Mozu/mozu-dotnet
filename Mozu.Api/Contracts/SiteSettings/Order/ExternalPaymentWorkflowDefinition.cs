@@ -33,6 +33,11 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 
 			public bool IsEnabled { get; set; }
 
+			///
+			///isLegacy ApiType DOCUMENT_HERE 
+			///
+			public bool? IsLegacy { get; set; }
+
 			public string Name { get; set; }
 
 			///

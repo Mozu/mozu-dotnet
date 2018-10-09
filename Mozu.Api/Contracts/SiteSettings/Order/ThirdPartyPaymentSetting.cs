@@ -9,24 +9,24 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
 
-using Mozu.Api.Contracts.PaymentService;
 
 namespace Mozu.Api.Contracts.SiteSettings.Order
 {
 		///
-		///	Properties of a payment gateway defined for the site.
+		///	Mozu.SiteSettings.Order.Contracts.ThirdPartyPaymentSetting ApiType DOCUMENT_HERE 
 		///
-		public class Gateway
+		public class ThirdPartyPaymentSetting
 		{
-			public bool AreGatewayCredentialFieldsSet { get; set; }
+			///
+			///paymentProcessingFlowType ApiType DOCUMENT_HERE 
+			///
+			public string PaymentProcessingFlowType { get; set; }
 
-			public GatewayAccount GatewayAccount { get; set; }
-
-			public GatewayDefinition GatewayDefinition { get; set; }
-
-			public List<SiteGatewaySupportedCard> SupportedCards { get; set; }
+			///
+			///type ApiType DOCUMENT_HERE 
+			///
+			public string Type { get; set; }
 
 		}
 

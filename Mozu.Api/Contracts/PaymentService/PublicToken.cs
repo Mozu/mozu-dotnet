@@ -9,25 +9,26 @@
 //------------------------------------------------------------------------------
 
 using System;
+using Newtonsoft.Json.Linq;
 
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.PaymentService
 {
 		///
-		///	Properties of the credential fields associated with the payment gateway.
+		///	Mozu.PaymentService.Contracts.PublicToken ApiType DOCUMENT_HERE 
 		///
-		public class GatewayCredentialFieldDefinition
+		public class PublicToken
 		{
-			public int AdminDisplayOrder { get; set; }
-
-			public string DisplayName { get; set; }
+			///
+			///token ApiType DOCUMENT_HERE 
+			///
+			public JObject Token { get; set; }
 
 			///
-			///isPublic ApiType DOCUMENT_HERE 
+			///type ApiType DOCUMENT_HERE 
 			///
-			public bool IsPublic { get; set; }
-
-			public string Name { get; set; }
+			public string Type { get; set; }
 
 		}
 

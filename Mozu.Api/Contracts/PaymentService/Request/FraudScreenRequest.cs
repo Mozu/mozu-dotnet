@@ -21,27 +21,27 @@ namespace Mozu.Api.Contracts.PaymentService.Request
 		public class FraudScreenRequest
 		{
 			///
-			///Mozu.PaymentService.Contracts.Request.FraudScreenRequest avsCodes ApiTypeMember DOCUMENT_HERE 
+			///Contains the avs codes from the gateway.
 			///
 			public string AvsCodes { get; set; }
 
 			///
-			///Mozu.PaymentService.Contracts.Request.FraudScreenRequest billingAddress ApiTypeMember DOCUMENT_HERE 
+			///The billing address used in the transaction.
 			///
 			public Address BillingAddress { get; set; }
 
 			///
-			///Mozu.PaymentService.Contracts.Request.FraudScreenRequest billingContact ApiTypeMember DOCUMENT_HERE 
+			///The cardholder's billing contact information, including addresses.
 			///
 			public Contact BillingContact { get; set; }
 
 			///
-			///Mozu.PaymentService.Contracts.Request.FraudScreenRequest cardId ApiTypeMember DOCUMENT_HERE 
+			///Unique identifier of the card associated with the customer account billing contact.
 			///
 			public string CardId { get; set; }
 
 			///
-			///Mozu.PaymentService.Contracts.Request.FraudScreenRequest cardNumberPart ApiTypeMember DOCUMENT_HERE 
+			///The masked credit card number part returned from the payment gateway.
 			///
 			public string CardNumberPart { get; set; }
 
@@ -71,7 +71,7 @@ namespace Mozu.Api.Contracts.PaymentService.Request
 			public string CustomerId { get; set; }
 
 			///
-			///Mozu.PaymentService.Contracts.Request.FraudScreenRequest cvV2Codes ApiTypeMember DOCUMENT_HERE 
+			///The CVV code for the credit card.
 			///
 			public string CvV2Codes { get; set; }
 
@@ -96,12 +96,12 @@ namespace Mozu.Api.Contracts.PaymentService.Request
 			public string MerchantTransactionId { get; set; }
 
 			///
-			///Mozu.PaymentService.Contracts.Request.FraudScreenRequest orderItems ApiTypeMember DOCUMENT_HERE 
+			///A list of items included in the order.
 			///
 			public List<OrderItem> OrderItems { get; set; }
 
 			///
-			///Mozu.PaymentService.Contracts.Request.FraudScreenRequest orderNumber ApiTypeMember DOCUMENT_HERE 
+			///The unique identifier of the order.
 			///
 			public int OrderNumber { get; set; }
 
@@ -116,17 +116,17 @@ namespace Mozu.Api.Contracts.PaymentService.Request
 			public string PaymentType { get; set; }
 
 			///
-			///Mozu.PaymentService.Contracts.Request.FraudScreenRequest requestorIp ApiTypeMember DOCUMENT_HERE 
+			///Contains the IP the customer is using.
 			///
 			public string RequestorIp { get; set; }
 
 			///
-			///Mozu.PaymentService.Contracts.Request.FraudScreenRequest requestorUrl ApiTypeMember DOCUMENT_HERE 
+			///Contains the url the customer is using.
 			///
 			public string RequestorUrl { get; set; }
 
 			///
-			///Mozu.PaymentService.Contracts.Request.FraudScreenRequest requestorUserAgent ApiTypeMember DOCUMENT_HERE 
+			///Contains the user agent the customer is using.
 			///
 			public string RequestorUserAgent { get; set; }
 

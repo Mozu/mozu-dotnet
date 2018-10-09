@@ -19,7 +19,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class CategoryDiscountCondition
 		{
 			///
-			///Unique identifier of a category. 
+			///ID of the relevant category.
 			///
 			public int CategoryId { get; set; }
 

@@ -9,29 +9,31 @@
 //------------------------------------------------------------------------------
 
 using System;
+using Newtonsoft.Json.Linq;
 
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.PaymentService.Request
 {
 		///
-		///	Mozu.PaymentService.Contracts.Request.GetGiftCardBalanceRequest ApiType DOCUMENT_HERE 
+		///	Mozu.PaymentService.Contracts.Request.ExecuteRequest ApiType DOCUMENT_HERE 
 		///
-		public class GetGiftCardBalanceRequest
+		public class ExecuteRequest
 		{
 			///
-			///The masked credit card number part returned from the payment gateway.
+			///body ApiType DOCUMENT_HERE 
 			///
-			public string CardNumberPart { get; set; }
+			public JObject Body { get; set; }
 
 			///
-			///The type of credit card, such as Visa or Amex.
+			///methodName ApiType DOCUMENT_HERE 
 			///
-			public string CardType { get; set; }
+			public string MethodName { get; set; }
 
 			///
-			///The CVV code for the credit card.
+			///tokenId ApiType DOCUMENT_HERE 
 			///
-			public string Cvv { get; set; }
+			public string TokenId { get; set; }
 
 		}
 

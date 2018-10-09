@@ -36,7 +36,7 @@ namespace Mozu.Api.Contracts.PaymentService.Response
 			public string Status { get; set; }
 
 			///
-			///Mozu.PaymentService.Contracts.Response.FraudScreen transactionId ApiTypeMember DOCUMENT_HERE 
+			///Contains the id for the transaction provided by the gateway.
 			///
 			public string TransactionId { get; set; }
 

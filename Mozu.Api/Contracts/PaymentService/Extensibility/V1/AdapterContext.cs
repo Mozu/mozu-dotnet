@@ -25,6 +25,11 @@ namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 			public List<KeyValueTuple> Configuration { get; set; }
 
 			///
+			///previousTransactions ApiType DOCUMENT_HERE 
+			///
+			public List<Transaction> PreviousTransactions { get; set; }
+
+			///
 			///A list of KeyValueTuples containing the configuration from the settings for the application in the Tenant.
 			///
 			public List<KeyValueTuple> Settings { get; set; }

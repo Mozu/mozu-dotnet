@@ -194,6 +194,7 @@
     <Compile Include="Factories\Commerce\Orders\StorefrontShipmentFactory.cs" />
     <Compile Include="Factories\Commerce\Payments\FraudScreenFactory.cs" />
     <Compile Include="Factories\Commerce\Payments\PublicCardFactory.cs" />
+    <Compile Include="Factories\Commerce\Payments\PublicTokenFactory.cs" />
     <Compile Include="Factories\Commerce\ReturnFactory.cs" />
     <Compile Include="Factories\Commerce\Returns\OrderNoteFactory.cs" />
     <Compile Include="Factories\Commerce\Returns\ReturnsPackageFactory.cs" />

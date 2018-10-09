@@ -42,7 +42,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetProductSortDefinition
         /// </summary>
-        /// <param name="productSortDefinitionId"></param>
+        /// <param name="productSortDefinitionId">Unique identifier of the product sort definition.</param>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
@@ -60,7 +60,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// Get Resource Url for AddProductSortDefinition
         /// </summary>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-        /// <param name="useProvidedId"></param>
+        /// <param name="useProvidedId">If true, the provided Id value will be used as the ProductSortDefinitionId. If omitted or false, the system will generate a ProductSortDefinitionId</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -76,7 +76,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for UpdateProductSortDefinition
         /// </summary>
-        /// <param name="productSortDefinitionId"></param>
+        /// <param name="productSortDefinitionId">Unique identifier of the product sort definition.</param>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
@@ -93,7 +93,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for DeleteProductSortDefinition
         /// </summary>
-        /// <param name="productSortDefinitionId"></param>
+        /// <param name="productSortDefinitionId">Unique identifier of the product sort definition.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

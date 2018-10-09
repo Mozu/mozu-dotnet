@@ -29,6 +29,16 @@ namespace Mozu.Api.Contracts.ProductAdmin.Search
 			public decimal MainPartBoost { get; set; }
 
 			///
+			///matchOnAnyTerm ApiType DOCUMENT_HERE 
+			///
+			public bool? MatchOnAnyTerm { get; set; }
+
+			///
+			///phraseBoost ApiType DOCUMENT_HERE 
+			///
+			public int? PhraseBoost { get; set; }
+
+			///
 			///Boosts the synonyms to affect rankings for search results.
 			///
 			public decimal SynonymPartBoost { get; set; }

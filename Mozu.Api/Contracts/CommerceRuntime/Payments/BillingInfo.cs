@@ -70,6 +70,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///
 			public string StoreCreditType { get; set; }
 
+			///
+			///token ApiType DOCUMENT_HERE 
+			///
+			public PaymentToken Token { get; set; }
+
 		}
 
 }

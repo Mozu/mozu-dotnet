@@ -34,7 +34,7 @@ namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 			public string CardIssueNumber { get; set; }
 
 			///
-			///The issue year; used by some cards
+			///The issue year; used by some cards.
 			///
 			public int CardIssueYear { get; set; }
 

@@ -197,6 +197,7 @@
     <Compile Include="Clients\Commerce\Orders\ShipmentClient.cs" />
     <Compile Include="Clients\Commerce\Payments\FraudScreenClient.cs" />
     <Compile Include="Clients\Commerce\Payments\PublicCardClient.cs" />
+    <Compile Include="Clients\Commerce\Payments\PublicTokenClient.cs" />
     <Compile Include="Clients\Commerce\ReturnClient.cs" />
     <Compile Include="Clients\Commerce\Returns\OrderNoteClient.cs" />
     <Compile Include="Clients\Commerce\Returns\PackageClient.cs" />
@@ -348,6 +349,7 @@
     <Compile Include="Contracts\CommerceRuntime\Payments\PaymentGatewayInteraction.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PaymentGatewayResponseData.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PaymentInteraction.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Payments\PaymentToken.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PurchaseOrderCustomField.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PurchaseOrderPayment.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\PurchaseOrderPaymentTerm.cs" />
@@ -526,6 +528,7 @@
     <Compile Include="Contracts\PaymentService\Extensibility\V1\GatewayInteraction.cs" />
     <Compile Include="Contracts\PaymentService\Extensibility\V1\GatewayVoidResponse.cs" />
     <Compile Include="Contracts\PaymentService\Extensibility\V1\KeyValueTuple.cs" />
+    <Compile Include="Contracts\PaymentService\Extensibility\V1\PaymentToken.cs" />
     <Compile Include="Contracts\PaymentService\Extensibility\V1\Transaction.cs" />
     <Compile Include="Contracts\PaymentService\FraudScreenResponseData.cs" />
     <Compile Include="Contracts\PaymentService\GatewayAccount.cs" />
@@ -537,10 +540,14 @@
     <Compile Include="Contracts\PaymentService\PreAuthorizeTransactionTypeDataContract.cs" />
     <Compile Include="Contracts\PaymentService\Product.cs" />
     <Compile Include="Contracts\PaymentService\PublicCard.cs" />
+    <Compile Include="Contracts\PaymentService\PublicToken.cs" />
+    <Compile Include="Contracts\PaymentService\Request\ExecuteRequest.cs" />
     <Compile Include="Contracts\PaymentService\Request\FraudScreenRequest.cs" />
     <Compile Include="Contracts\PaymentService\Request\GetGiftCardBalanceRequest.cs" />
     <Compile Include="Contracts\PaymentService\Response\FraudScreen.cs" />
     <Compile Include="Contracts\PaymentService\Response\SyncResponse.cs" />
+    <Compile Include="Contracts\PaymentService\Response\TokenResponse.cs" />
+    <Compile Include="Contracts\PaymentService\SiteGatewaySupportedCard.cs" />
     <Compile Include="Contracts\PaymentService\SupportedCard.cs" />
     <Compile Include="Contracts\PricingRuntime\AppliedDiscount.cs" />
     <Compile Include="Contracts\PricingRuntime\AppliedLineItemProductDiscount.cs" />
@@ -807,6 +814,7 @@
     <Compile Include="Contracts\SiteSettings\Order\PurchaseOrderPaymentDefinition.cs" />
     <Compile Include="Contracts\SiteSettings\Order\PurchaseOrderPaymentTerm.cs" />
     <Compile Include="Contracts\SiteSettings\Order\ThirdPartyCredentialField.cs" />
+    <Compile Include="Contracts\SiteSettings\Order\ThirdPartyPaymentSetting.cs" />
     <Compile Include="Contracts\SiteSettings\Order\VocabularyValue.cs" />
     <Compile Include="Contracts\SiteSettings\Shipping\SiteShippingHandlingFee.cs" />
     <Compile Include="Contracts\SiteSettings\Shipping\SiteShippingSettings.cs" />
@@ -936,6 +944,7 @@
     <Compile Include="Resources\Commerce\Orders\ShipmentResource.cs" />
     <Compile Include="Resources\Commerce\Payments\FraudScreenResource.cs" />
     <Compile Include="Resources\Commerce\Payments\PublicCardResource.cs" />
+    <Compile Include="Resources\Commerce\Payments\PublicTokenResource.cs" />
     <Compile Include="Resources\Commerce\ReturnResource.cs" />
     <Compile Include="Resources\Commerce\Returns\OrderNoteResource.cs" />
     <Compile Include="Resources\Commerce\Returns\PackageResource.cs" />
@@ -1088,6 +1097,7 @@
     <Compile Include="Urls\Commerce\OrderUrl.cs" />
     <Compile Include="Urls\Commerce\Payments\FraudScreenUrl.cs" />
     <Compile Include="Urls\Commerce\Payments\PublicCardUrl.cs" />
+    <Compile Include="Urls\Commerce\Payments\PublicTokenUrl.cs" />
     <Compile Include="Urls\Commerce\Returns\OrderNoteUrl.cs" />
     <Compile Include="Urls\Commerce\Returns\PackageUrl.cs" />
     <Compile Include="Urls\Commerce\Returns\ShipmentUrl.cs" />

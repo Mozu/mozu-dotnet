@@ -18,7 +18,7 @@ using System.Threading;
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 {
 	/// <summary>
-	/// commerce/catalog/admin/productsortdefinitions related resources. DOCUMENT_HERE 
+	/// Use the Product Sort Definition resource to create, update, and delete sort order definitions used in visual merchandising.You can use these definitions to apply organization rules to a category defined by a product property or custom attribute. The sort order determines the order that products are displayed in, such as newest to oldest, so that they can be rearranged.
 	/// </summary>
 	public partial class ProductSortDefinitionResource  	{
 		///
@@ -77,7 +77,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="productSortDefinitionId"></param>
+		/// <param name="productSortDefinitionId">Unique identifier of the product sort definition.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductSortDefinition"/>
@@ -103,8 +103,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// 
 		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="useProvidedId"></param>
-		/// <param name="definition"></param>
+		/// <param name="useProvidedId">If true, the provided Id value will be used as the ProductSortDefinitionId. If omitted or false, the system will generate a ProductSortDefinitionId</param>
+		/// <param name="definition">Properties of the new product sort definition. Required properties of StartDate and Name.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductSortDefinition"/>
 		/// </returns>
@@ -128,9 +128,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="productSortDefinitionId"></param>
+		/// <param name="productSortDefinitionId">Unique identifier of the product sort definition.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="definition"></param>
+		/// <param name="definition">The details of the product sort definition to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductSortDefinition"/>
 		/// </returns>
@@ -154,7 +154,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="productSortDefinitionId"></param>
+		/// <param name="productSortDefinitionId">Unique identifier of the product sort definition.</param>
 		/// <returns>
 		/// 
 		/// </returns>

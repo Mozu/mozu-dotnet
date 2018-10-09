@@ -9,7 +9,9 @@
 //------------------------------------------------------------------------------
 
 using System;
+using Newtonsoft.Json.Linq;
 
+using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 {
@@ -18,11 +20,6 @@ namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 		///
 		public class GatewayAuthorizationRequest
 		{
-			///
-			///Contains information not in the object allowing flexibility.
-			///
-			public object AdditionalData { get; set; }
-
 			///
 			///Contains the amount to authorize.
 			///
@@ -44,6 +41,11 @@ namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 			public AdapterContext Context { get; set; }
 
 			///
+			///data ApiType DOCUMENT_HERE 
+			///
+			public JObject Data { get; set; }
+
+			///
 			///The method name being called on the connector.
 			///
 			public string MethodName { get; set; }
@@ -62,6 +64,11 @@ namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 			///The CustomerInformation for the shopper.
 			///
 			public CustomerInformation Shopper { get; set; }
+
+			///
+			///token ApiType DOCUMENT_HERE 
+			///
+			public PaymentToken Token { get; set; }
 
 		}
 

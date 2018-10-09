@@ -19,12 +19,12 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class ProductSortExpression
 		{
 			///
-			///direction ApiType DOCUMENT_HERE 
+			///ASC or DESC. Represents a product that is positioned out of its normal sort position. It can be boosted to the top of the list, positioned exactly or buried at the bottom.
 			///
 			public string Direction { get; set; }
 
 			///
-			///field ApiType DOCUMENT_HERE 
+			///The name of the field to sort on. A known sort field or sortable attribute.
 			///
 			public string Field { get; set; }
 

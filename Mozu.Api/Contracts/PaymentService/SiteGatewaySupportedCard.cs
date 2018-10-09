@@ -14,18 +14,29 @@ using System;
 namespace Mozu.Api.Contracts.PaymentService
 {
 		///
-		///	Properties of a supported credit card for the site's payment gateway.
+		///	Mozu.PaymentService.Contracts.SiteGatewaySupportedCard ApiType DOCUMENT_HERE 
 		///
-		public class SupportedCard
+		public class SiteGatewaySupportedCard
 		{
-			public string FriendlyName { get; set; }
+			///
+			///cardTypeId ApiType DOCUMENT_HERE 
+			///
+			public string CardTypeId { get; set; }
+
+			///
+			///gatewayAccountId ApiType DOCUMENT_HERE 
+			///
+			public string GatewayAccountId { get; set; }
 
 			///
 			///The type of payment, such as credit card, check, or PayPal Express. Additional payment types will be supported in future releases.
 			///
 			public string PaymentType { get; set; }
 
-			public string Type { get; set; }
+			///
+			///processingGatewayAccountId ApiType DOCUMENT_HERE 
+			///
+			public string ProcessingGatewayAccountId { get; set; }
 
 		}
 

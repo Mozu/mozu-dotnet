@@ -26,22 +26,22 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public AuditInfo AuditInfo { get; set; }
 
 			///
-			///boosted ApiType DOCUMENT_HERE 
+			///List of products being boosted.
 			///
 			public List<ProductSortOverride> Boosted { get; set; }
 
 			///
-			///buried ApiType DOCUMENT_HERE 
+			///List of products being positioned.
 			///
 			public List<ProductSortOverride> Buried { get; set; }
 
 			///
-			///Unique identifier of a category.
+			///ID of the relevant category.
 			///
 			public int? CategoryId { get; set; }
 
 			///
-			///endDate ApiType DOCUMENT_HERE 
+			///Optional end date for a product sort definition.
 			///
 			public DateTime? EndDate { get; set; }
 
@@ -51,17 +51,17 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string Name { get; set; }
 
 			///
-			///productSortDefinitionId ApiType DOCUMENT_HERE 
+			///System or user provided ID for the ProductSortDefinition.
 			///
 			public int? ProductSortDefinitionId { get; set; }
 
 			///
-			///sortExpressions ApiType DOCUMENT_HERE 
+			///Sort expression to apply two expression.
 			///
 			public List<ProductSortExpression> SortExpressions { get; set; }
 
 			///
-			///startDate ApiType DOCUMENT_HERE 
+			///The Start Date when the sort definition becomes active.
 			///
 			public DateTime? StartDate { get; set; }
 

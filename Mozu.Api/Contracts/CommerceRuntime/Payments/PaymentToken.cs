@@ -11,23 +11,22 @@
 using System;
 
 
-namespace Mozu.Api.Contracts.PaymentService
+namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 {
 		///
-		///	Properties of the credential fields associated with the payment gateway.
+		///	Mozu.CommerceRuntime.Contracts.Payments.PaymentToken ApiType DOCUMENT_HERE 
 		///
-		public class GatewayCredentialFieldDefinition
+		public class PaymentToken
 		{
-			public int AdminDisplayOrder { get; set; }
-
-			public string DisplayName { get; set; }
+			///
+			///paymentServiceTokenId ApiType DOCUMENT_HERE 
+			///
+			public string PaymentServiceTokenId { get; set; }
 
 			///
-			///isPublic ApiType DOCUMENT_HERE 
+			///type ApiType DOCUMENT_HERE 
 			///
-			public bool IsPublic { get; set; }
-
-			public string Name { get; set; }
+			public string Type { get; set; }
 
 		}
 

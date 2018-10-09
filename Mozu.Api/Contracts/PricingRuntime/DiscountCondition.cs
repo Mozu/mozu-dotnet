@@ -24,10 +24,19 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///
 			public string CouponCode { get; set; }
 
+			///
+			///A list of customer segments - groups of customers accounts that discounts can be targeted for.
+			///
 			public List<int> CustomerSegmentIds { get; set; }
 
+			///
+			///A list of categories to be excluded from the discount.
+			///
 			public List<int> ExcludedCategoryIds { get; set; }
 
+			///
+			///A list of product codes to be excluded from the discount.
+			///
 			public List<string> ExcludedProductCodes { get; set; }
 
 			///
@@ -35,24 +44,51 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///
 			public DateTime? ExpirationDate { get; set; }
 
+			///
+			///A list of categories to be included with the discount.
+			///
 			public List<int> IncludedCategoryIds { get; set; }
 
+			///
+			///A list of product codes to be included in the discount.
+			///
 			public List<string> IncludedProductCodes { get; set; }
 
+			///
+			///This specifies the minimum amount that must be purchased in the combined categories defined in IncludedCategories. This amount is calculated before discounting and it is not used if IncludedCategories is empty.
+			///
 			public decimal? MinimumCategorySubtotalBeforeDiscounts { get; set; }
 
+			///
+			///The minimum customer lifetime value amount required to redeem this discount.
+			///
 			public decimal? MinimumLifetimeValueAmount { get; set; }
 
+			///
+			///The minimum order amount required to redeem this discount.
+			///
 			public decimal? MinimumOrderAmount { get; set; }
 
+			///
+			///This specifies the minimum quantity of products in the categories specified in IncludedCategories, which must be purchased to qualify for the associated discount. This defaults to 1 if null, and IncludedCategories has values.
+			///
 			public int? MinimumQuantityProductsRequiredInCategories { get; set; }
 
+			///
+			///This specifies the minimum quantity of products in the specified IncludedProducts that must be purchased to qualify for the associated discount. This defaults to 1 if null, and IncludedProducts has values.
+			///
 			public int? MinimumQuantityRequiredProducts { get; set; }
 
 			public List<string> PaymentWorkflows { get; set; }
 
+			///
+			///If true, redemption of this discount requires entry of a coupon code.
+			///
 			public bool RequiresCoupon { get; set; }
 
+			///
+			///The earliest date and time this discount can be redeemed.
+			///
 			public DateTime? StartDate { get; set; }
 
 		}

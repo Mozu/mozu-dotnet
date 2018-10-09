@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 
 using Mozu.Api.Contracts.Core;
 
@@ -32,6 +33,11 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 			public string GiftCardProcessingType { get; set; }
 
 			public string PaymentProcessingFlowType { get; set; }
+
+			///
+			///thirdPartyPaymentSettings ApiType DOCUMENT_HERE 
+			///
+			public List<ThirdPartyPaymentSetting> ThirdPartyPaymentSettings { get; set; }
 
 			public bool UseOverridePriceToCalculateDiscounts { get; set; }
 

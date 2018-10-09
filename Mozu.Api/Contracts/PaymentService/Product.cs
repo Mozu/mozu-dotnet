@@ -29,7 +29,7 @@ namespace Mozu.Api.Contracts.PaymentService
 			public string ProductName { get; set; }
 
 			///
-			///Mozu.PaymentService.Contracts.Product variantProductCode ApiTypeMember DOCUMENT_HERE 
+			///For configurable products, the unique identifier of the product variation that has been selected.
 			///
 			public string VariantProductCode { get; set; }
 

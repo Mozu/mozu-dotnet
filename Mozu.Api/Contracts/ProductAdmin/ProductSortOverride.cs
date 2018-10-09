@@ -19,12 +19,12 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class ProductSortOverride
 		{
 			///
-			///isPinned ApiType DOCUMENT_HERE 
+			///Flag to indicate that the product is pinned at the specified position. Not applicable to buried products.
 			///
 			public bool? IsPinned { get; set; }
 
 			///
-			///position ApiType DOCUMENT_HERE 
+			///Indicates the relative position of the product to other overridden products. Position is absolute if IsPinned is true. Not applicable to buried products. Buried products will be given a default of -1.
 			///
 			public int? Position { get; set; }
 
