@@ -14,7 +14,7 @@ using System;
 namespace Mozu.Api.Contracts.SiteSettings.Order
 {
 		///
-		///	Mozu.SiteSettings.Order.Contracts.ThirdPartyPaymentSetting ApiType DOCUMENT_HERE 
+		///	A configuration setting for the third party payment gateway.
 		///
 		public class ThirdPartyPaymentSetting
 		{

@@ -26,7 +26,9 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 
 			public GatewayDefinition GatewayDefinition { get; set; }
 
-			public List<SiteGatewaySupportedCard> SupportedCards { get; set; }
+			public List<SiteGatewaySupportedCard> SiteGatewaySupportedCards { get; set; }
+
+			public List<string> SupportedCards { get; set; }
 
 		}
 

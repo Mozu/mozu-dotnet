@@ -16,7 +16,7 @@ using Mozu.Api.Contracts.Core;
 namespace Mozu.Api.Contracts.PaymentService.Request
 {
 		///
-		///	Mozu.PaymentService.Contracts.Request.ExecuteRequest ApiType DOCUMENT_HERE 
+		///	The request to be executed.
 		///
 		public class ExecuteRequest
 		{

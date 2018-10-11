@@ -14,7 +14,7 @@ using System;
 namespace Mozu.Api.Contracts.PaymentService
 {
 		///
-		///	Mozu.PaymentService.Contracts.SiteGatewaySupportedCard ApiType DOCUMENT_HERE 
+		///	A card supported by the payment gateway enabled for the site.
 		///
 		public class SiteGatewaySupportedCard
 		{

@@ -16,7 +16,7 @@ using Mozu.Api.Contracts.Core;
 namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 {
 		///
-		///	Mozu.PaymentService.Extensibility.Contracts.V1.PaymentToken ApiType DOCUMENT_HERE 
+		///	The authentication token used to authorize the payment.
 		///
 		public class PaymentToken
 		{

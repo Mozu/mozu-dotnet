@@ -14,17 +14,17 @@ using System;
 namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 {
 		///
-		///	Mozu.CommerceRuntime.Contracts.Payments.PaymentToken ApiType DOCUMENT_HERE 
+		///	The token used to authorize the payment request.
 		///
 		public class PaymentToken
 		{
 			///
-			///paymentServiceTokenId ApiType DOCUMENT_HERE 
+			///The identifier of the payment service token.
 			///
 			public string PaymentServiceTokenId { get; set; }
 
 			///
-			///type ApiType DOCUMENT_HERE 
+			///The type of token being provided for the payment.
 			///
 			public string Type { get; set; }
 

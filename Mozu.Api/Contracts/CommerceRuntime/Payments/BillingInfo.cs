@@ -71,7 +71,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			public string StoreCreditType { get; set; }
 
 			///
-			///token ApiType DOCUMENT_HERE 
+			///The token to access billing information.
 			///
 			public PaymentToken Token { get; set; }
 
