@@ -95,6 +95,32 @@ namespace Mozu.Api.Resources.Commerce.Checkouts
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="checkoutId"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="item"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var orderitem = new OrderItem();
+		///   var checkout = await orderitem.AddCheckoutItemAsync( item,  checkoutId,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout> AddCheckoutItemAsync(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem item, string checkoutId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout> response;
+			var client = Mozu.Api.Clients.Commerce.Checkouts.OrderItemClient.AddCheckoutItemClient( item,  checkoutId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="checkoutId">The unique identifier of the checkout.</param>
 		/// <param name="destinationId">The unique identifier of the destination.</param>
 		/// <param name="itemId">The unique identifier of the item.</param>
@@ -112,6 +138,31 @@ namespace Mozu.Api.Resources.Commerce.Checkouts
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout> response;
 			var client = Mozu.Api.Clients.Commerce.Checkouts.OrderItemClient.UpdateItemDestinationClient( checkoutId,  itemId,  destinationId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="checkoutId"></param>
+		/// <param name="itemId"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var orderitem = new OrderItem();
+		///   var checkout = await orderitem.DeleteCheckoutItemAsync( checkoutId,  itemId);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout> DeleteCheckoutItemAsync(string checkoutId, string itemId, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout> response;
+			var client = Mozu.Api.Clients.Commerce.Checkouts.OrderItemClient.DeleteCheckoutItemClient( checkoutId,  itemId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();

@@ -19,12 +19,12 @@ namespace Mozu.Api.Contracts.PaymentService
 		public class SiteGatewaySupportedCard
 		{
 			///
-			///cardTypeId ApiType DOCUMENT_HERE 
+			///An identifier for the type of payment card being used in the gateway.
 			///
 			public string CardTypeId { get; set; }
 
 			///
-			///gatewayAccountId ApiType DOCUMENT_HERE 
+			///The identifier of the account for the gateway.
 			///
 			public string GatewayAccountId { get; set; }
 
@@ -34,7 +34,7 @@ namespace Mozu.Api.Contracts.PaymentService
 			public string PaymentType { get; set; }
 
 			///
-			///processingGatewayAccountId ApiType DOCUMENT_HERE 
+			///The identifier of the account for the processing gateway.
 			///
 			public string ProcessingGatewayAccountId { get; set; }
 

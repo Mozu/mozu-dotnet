@@ -35,7 +35,7 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 			public string PaymentProcessingFlowType { get; set; }
 
 			///
-			///thirdPartyPaymentSettings ApiType DOCUMENT_HERE 
+			///The settings of the third party payment gateways as configured by the user.
 			///
 			public List<ThirdPartyPaymentSetting> ThirdPartyPaymentSettings { get; set; }
 

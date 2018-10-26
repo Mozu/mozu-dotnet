@@ -21,17 +21,17 @@ namespace Mozu.Api.Contracts.PaymentService.Request
 		public class ExecuteRequest
 		{
 			///
-			///body ApiType DOCUMENT_HERE 
+			///The content body of the request.
 			///
 			public JObject Body { get; set; }
 
 			///
-			///methodName ApiType DOCUMENT_HERE 
+			///The title of a method in the request.
 			///
 			public string MethodName { get; set; }
 
 			///
-			///tokenId ApiType DOCUMENT_HERE 
+			///The identifier of the token being used in the request.
 			///
 			public string TokenId { get; set; }
 

@@ -24,7 +24,7 @@ namespace Mozu.Api.Contracts.PaymentService.Response
 			public string Id { get; set; }
 
 			///
-			///isSuccessful ApiType DOCUMENT_HERE 
+			///Whether or not the request was completely successfully.
 			///
 			public bool IsSuccessful { get; set; }
 

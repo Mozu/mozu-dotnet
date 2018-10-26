@@ -23,7 +23,7 @@ namespace Mozu.Api.Contracts.PaymentService
 			public string DisplayName { get; set; }
 
 			///
-			///isPublic ApiType DOCUMENT_HERE 
+			///Whether or not the field is public.
 			///
 			public bool IsPublic { get; set; }
 

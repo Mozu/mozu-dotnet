@@ -54,6 +54,23 @@ namespace Mozu.Api.Urls.Commerce.Checkouts
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for AddCheckoutItem
+        /// </summary>
+        /// <param name="checkoutId"></param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl AddCheckoutItemUrl(string checkoutId, string responseFields =  null)
+		{
+			var url = "/api/commerce/checkouts/{checkoutId}/items?skipInventoryCheck={skipInventoryCheck}&responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "checkoutId", checkoutId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for UpdateItemDestination
         /// </summary>
@@ -75,7 +92,24 @@ namespace Mozu.Api.Urls.Commerce.Checkouts
 			return mozuUrl;
 		}
 
-				
+				/// <summary>
+        /// Get Resource Url for DeleteCheckoutItem
+        /// </summary>
+        /// <param name="checkoutId"></param>
+        /// <param name="itemId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl DeleteCheckoutItemUrl(string checkoutId, string itemId)
+		{
+			var url = "/api/commerce/checkouts/{checkoutId}/items/{itemId}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "checkoutId", checkoutId);
+			mozuUrl.FormatUrl( "itemId", itemId);
+			return mozuUrl;
+		}
+
+		
 	}
 }
 

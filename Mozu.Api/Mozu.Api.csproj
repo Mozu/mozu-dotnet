@@ -1157,7 +1157,9 @@
     <Compile Include="Urls\Platform\UserDataUrl.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Mozu.Api.nuspec">
       <SubType>Designer</SubType>
     </None>

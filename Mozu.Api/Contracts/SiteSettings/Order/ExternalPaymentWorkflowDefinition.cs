@@ -34,7 +34,7 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 			public bool IsEnabled { get; set; }
 
 			///
-			///isLegacy ApiType DOCUMENT_HERE 
+			///Whether this is a legacy process.
 			///
 			public bool? IsLegacy { get; set; }
 

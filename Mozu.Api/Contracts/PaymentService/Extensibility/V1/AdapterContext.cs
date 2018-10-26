@@ -25,7 +25,7 @@ namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 			public List<KeyValueTuple> Configuration { get; set; }
 
 			///
-			///previousTransactions ApiType DOCUMENT_HERE 
+			///The previous transactions performed from this adapter.
 			///
 			public List<Transaction> PreviousTransactions { get; set; }
 

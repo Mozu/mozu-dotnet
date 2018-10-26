@@ -21,12 +21,12 @@ namespace Mozu.Api.Contracts.PaymentService
 		public class PublicToken
 		{
 			///
-			///token ApiType DOCUMENT_HERE 
+			///The public token being used for this payment service.
 			///
 			public JObject Token { get; set; }
 
 			///
-			///type ApiType DOCUMENT_HERE 
+			///The type of public token being provided.
 			///
 			public string Type { get; set; }
 

@@ -26,12 +26,12 @@ namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 			public string Id { get; set; }
 
 			///
-			///token ApiType DOCUMENT_HERE 
+			///The authentication token being used to authorize the payment.
 			///
 			public JObject Token { get; set; }
 
 			///
-			///type ApiType DOCUMENT_HERE 
+			///The type of payment token for the request.
 			///
 			public string Type { get; set; }
 

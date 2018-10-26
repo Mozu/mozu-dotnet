@@ -78,6 +78,32 @@ namespace Mozu.Api.Clients.Commerce.Checkouts
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="checkoutId"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="item"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=AddCheckoutItem( item,  checkoutId,  responseFields);
+		///   var checkoutClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout> AddCheckoutItemClient(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem item, string checkoutId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Checkouts.OrderItemUrl.AddCheckoutItemUrl(checkoutId, responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem>(item);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="checkoutId">The unique identifier of the checkout.</param>
 		/// <param name="destinationId">The unique identifier of the destination.</param>
 		/// <param name="itemId">The unique identifier of the item.</param>
@@ -95,6 +121,31 @@ namespace Mozu.Api.Clients.Commerce.Checkouts
 		{
 			var url = Mozu.Api.Urls.Commerce.Checkouts.OrderItemUrl.UpdateItemDestinationUrl(checkoutId, itemId, destinationId, responseFields);
 			const string verb = "PUT";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="checkoutId"></param>
+		/// <param name="itemId"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=DeleteCheckoutItem( checkoutId,  itemId);
+		///   var checkoutClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout> DeleteCheckoutItemClient(string checkoutId, string itemId)
+		{
+			var url = Mozu.Api.Urls.Commerce.Checkouts.OrderItemUrl.DeleteCheckoutItemUrl(checkoutId, itemId);
+			const string verb = "DELETE";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;

@@ -41,7 +41,7 @@ namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 			public AdapterContext Context { get; set; }
 
 			///
-			///data ApiType DOCUMENT_HERE 
+			///The data provided for the capture.
 			///
 			public JObject Data { get; set; }
 
@@ -56,7 +56,7 @@ namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 			public CustomerInformation Shopper { get; set; }
 
 			///
-			///token ApiType DOCUMENT_HERE 
+			///The token being used for the capture.
 			///
 			public PaymentToken Token { get; set; }
 

@@ -19,12 +19,12 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 		public class ThirdPartyPaymentSetting
 		{
 			///
-			///paymentProcessingFlowType ApiType DOCUMENT_HERE 
+			///Determines whether payment authorization occurs when the order is placed or when the order is shipped.
 			///
 			public string PaymentProcessingFlowType { get; set; }
 
 			///
-			///type ApiType DOCUMENT_HERE 
+			///A setting configured for the third party payment gateways.
 			///
 			public string Type { get; set; }
 
