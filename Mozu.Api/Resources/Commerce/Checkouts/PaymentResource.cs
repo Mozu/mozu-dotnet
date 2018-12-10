@@ -18,7 +18,7 @@ using System.Threading;
 namespace Mozu.Api.Resources.Commerce.Checkouts
 {
 	/// <summary>
-	/// Use this resource to manage payments while the Checkouts resource is active (the Checkouts resource only applies to sites that enable shipping to multiple destinations within the same order). The Checkouts resource remains active until the shopper submits their order.
+	/// commerce/checkouts/checkoutpayments related resources. DOCUMENT_HERE 
 	/// </summary>
 	public partial class PaymentResource  	{
 		///
@@ -42,10 +42,10 @@ namespace Mozu.Api.Resources.Commerce.Checkouts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId">The unique identifier of the checkout.</param>
+		/// <param name="checkoutId"></param>
 		/// <param name="paymentId">Unique identifier of the payment for which to perform the action.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="action">The name of the action to perform.</param>
+		/// <param name="action"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout"/>
 		/// </returns>
@@ -69,9 +69,9 @@ namespace Mozu.Api.Resources.Commerce.Checkouts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId">The unique identifier of the checkout.</param>
+		/// <param name="checkoutId"></param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="action">The name of the action to create.</param>
+		/// <param name="action"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout"/>
 		/// </returns>

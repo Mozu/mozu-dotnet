@@ -25,7 +25,7 @@ namespace Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="profileCode">The unique, user-defined code of the profile with which the shipping state is associated.</param>
+		/// <param name="profileCode"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingStates"/>}}
@@ -50,9 +50,9 @@ namespace Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="profilecode">The unique, user-defined code of the profile with which the shipping state is associated.</param>
+		/// <param name="profilecode"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="states">The updated details of the shipping states associated with the specified profilecode.</param>
+		/// <param name="states"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingStates"/>}}
 		/// </returns>

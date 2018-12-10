@@ -18,9 +18,6 @@ namespace Mozu.Api.Contracts.PaymentService
 		///
 		public class GatewayCredentialFieldValue
 		{
-			///
-			///A list of KeyValueTuples containing the configuration from the application setup.
-			///
 			public bool IsValueSet { get; set; }
 
 			public string Name { get; set; }

@@ -28,14 +28,8 @@ namespace Mozu.Api.Contracts.ProductAdmin.Search
 			///
 			public decimal MainPartBoost { get; set; }
 
-			///
-			///Allows a document to appear in search results even if only one term is present from the list of search terms.
-			///
 			public bool? MatchOnAnyTerm { get; set; }
 
-			///
-			///Raises the relevancy score of a search result that has the exact search phrase with all terms next to each other.
-			///
 			public int? PhraseBoost { get; set; }
 
 			///

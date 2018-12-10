@@ -163,6 +163,8 @@
     <Compile Include="Factories\Commerce\Customer\Accounts\TransactionFactory.cs" />
     <Compile Include="Factories\Commerce\Customer\AddressValidationRequestFactory.cs" />
     <Compile Include="Factories\Commerce\Customer\Attributedefinition\AttributeFactory.cs" />
+    <Compile Include="Factories\Commerce\Customer\B2BAccountFactory.cs" />
+    <Compile Include="Factories\Commerce\Customer\B2battributedefinition\AttributeFactory.cs" />
     <Compile Include="Factories\Commerce\Customer\CreditFactory.cs" />
     <Compile Include="Factories\Commerce\Customer\Credits\CreditAuditEntryFactory.cs" />
     <Compile Include="Factories\Commerce\Customer\Credits\CreditTransactionFactory.cs" />

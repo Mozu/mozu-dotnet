@@ -224,6 +224,44 @@ namespace Mozu.Api.Test.Factories.Commerce
 		/// 
 		/// <example> 
 		///  <code> 
+		/// var result = CartFactory.RejectSuggestedDiscount(handler : handler,  cartId :  cartId,  discountId :  discountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Cart/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.CommerceRuntime.Carts.Cart RejectSuggestedDiscount(ServiceClientMessageHandler handler, 
+ 		 string cartId, int discountId, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.CartClient.RejectSuggestedDiscountClient(
+				 cartId :  cartId,  discountId :  discountId,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
 		/// var result = CartFactory.UpdateCart(handler : handler,  cart :  cart,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Cart/>(result); 
 		/// return optionalCasting;

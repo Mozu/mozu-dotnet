@@ -5,6 +5,12 @@ namespace Mozu.Api.Events
 {
 	public class Topics
 	{
+		public const string CARTDELETED = "cart.deleted";
+
+		public const string CARTUPDATED = "cart.updated";
+
+		public const string CARTCREATED = "cart.created";
+
 		public const string APPLICATIONDISABLED = "application.disabled";
 
 		public const string APPLICATIONENABLED = "application.enabled";
@@ -20,12 +26,6 @@ namespace Mozu.Api.Events
 		public const string ATTRIBUTEDELETED = "attribute.deleted";
 
 		public const string ATTRIBUTEUPDATED = "attribute.updated";
-
-		public const string CARTCREATED = "cart.created";
-
-		public const string CARTDELETED = "cart.deleted";
-
-		public const string CARTUPDATED = "cart.updated";
 
 		public const string CATEGORYCREATED = "category.created";
 

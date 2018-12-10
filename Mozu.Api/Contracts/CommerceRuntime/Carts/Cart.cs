@@ -41,7 +41,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			public string ChannelCode { get; set; }
 
 			///
-			///Array list of coupon codes associated with a shopping cart and the associated order. These codes are entered by a shopper when proceeding to checkout. 
+			///Array list of coupon codes associated with a shopping cart and the associated order. These codes are entered by a shopper when proceeding to checkout.
 			///
 			public List<string> CouponCodes { get; set; }
 
@@ -58,9 +58,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 
 			public decimal? DiscountedTotal { get; set; }
 
-			///
-			///A list of threshold messages to display on Cart page.
-			///
 			public List<ThresholdMessage> DiscountThresholdMessages { get; set; }
 
 			public decimal? DiscountTotal { get; set; }
@@ -118,6 +115,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///
 			public string PriceListCode { get; set; }
 
+			public List<SuggestedDiscount> RejectedDiscounts { get; set; }
+
 			///
 			///The total shipping amount for the cart before discounts and adjustments.
 			///
@@ -133,9 +132,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 
 			public decimal? Subtotal { get; set; }
 
-			///
-			///Refers to the BOGA discounts that are currently satisfied but whose free item has not yet been added.
-			///
 			public List<SuggestedDiscount> SuggestedDiscounts { get; set; }
 
 			///

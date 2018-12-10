@@ -43,8 +43,8 @@ namespace Mozu.Api.Resources.Platform
 		/// 
 		/// </summary>
 		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="dbEntryQuery"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// JObject
 		/// </returns>
@@ -69,8 +69,8 @@ namespace Mozu.Api.Resources.Platform
 		/// 
 		/// </summary>
 		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="dbEntryQuery"></param>
+		/// <param name="value"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -94,8 +94,8 @@ namespace Mozu.Api.Resources.Platform
 		/// 
 		/// </summary>
 		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="dbEntryQuery"></param>
+		/// <param name="value"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -119,7 +119,7 @@ namespace Mozu.Api.Resources.Platform
 		/// 
 		/// </summary>
 		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
+		/// <param name="dbEntryQuery"></param>
 		/// <returns>
 		/// 
 		/// </returns>

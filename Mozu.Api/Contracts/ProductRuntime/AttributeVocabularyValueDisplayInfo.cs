@@ -14,7 +14,7 @@ using System;
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
-		///	Provides the display information for attribute vocabulary values. 
+		///	Provides the display information for attribute vocabulary values.
 		///
 		public class AttributeVocabularyValueDisplayInfo
 		{

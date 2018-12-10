@@ -22,12 +22,12 @@ namespace Mozu.Api.Contracts.Content
 		public class DocumentListType
 		{
 			///
-			///Definition of any documents to create with a document list is created. 
+			///Definition of any documents to create with a document list is created.
 			///
 			public List<DocumentInstallation> DefaultDocuments { get; set; }
 
 			///
-			///The fully qualified name for the document list type for content. 
+			///The fully qualified name for the document list type for content.
 			///
 			public string DocumentListTypeFQN { get; set; }
 

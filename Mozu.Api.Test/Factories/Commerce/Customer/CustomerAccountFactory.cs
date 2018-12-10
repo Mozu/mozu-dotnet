@@ -110,14 +110,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAccountFactory.GetAccount(handler : handler,  accountId :  accountId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CustomerAccountFactory.GetAccount(handler : handler,  accountId :  accountId,  userId :  userId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CustomerAccount/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.CustomerAccount GetAccount(ServiceClientMessageHandler handler, 
- 		 int accountId, string responseFields = null, 
+ 		 int accountId, string userId = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -125,7 +125,7 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetAccountClient(
-				 accountId :  accountId,  responseFields :  responseFields		);
+				 accountId :  accountId,  userId :  userId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -562,14 +562,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAccountFactory.GetCustomersPurchaseOrderAccounts(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CustomerAccountFactory.GetCustomersPurchaseOrderAccounts(handler : handler,  accountType :  accountType,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CustomerPurchaseOrderAccountCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccountCollection GetCustomersPurchaseOrderAccounts(ServiceClientMessageHandler handler, 
- 		 int? startIndex = null, int? pageSize = null, string sortBy = null, string responseFields = null, 
+ 		 string accountType = null, int? startIndex = null, int? pageSize = null, string sortBy = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -577,7 +577,7 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetCustomersPurchaseOrderAccountsClient(
-				 startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  responseFields :  responseFields		);
+				 accountType :  accountType,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();

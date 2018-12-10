@@ -21,6 +21,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Discounts
 		{
 			public DateTime? ExpirationDate { get; set; }
 
+			public bool HasMultipleTargetProducts { get; set; }
+
 			public int Id { get; set; }
 
 			public List<string> ItemIds { get; set; }

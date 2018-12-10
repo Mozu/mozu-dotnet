@@ -24,22 +24,22 @@ namespace Mozu.Api.Contracts.AppDev
 			public string AdminName { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Attribute applicationAttributeId ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Attribute applicationAttributeId ApiTypeMember DOCUMENT_HERE
 			///
 			public int ApplicationAttributeId { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Attribute attributeId ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Attribute attributeId ApiTypeMember DOCUMENT_HERE
 			///
 			public int AttributeId { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Attribute code ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Attribute code ApiTypeMember DOCUMENT_HERE
 			///
 			public string Code { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Attribute fqn ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Attribute fqn ApiTypeMember DOCUMENT_HERE
 			///
 			public string Fqn { get; set; }
 
@@ -59,12 +59,12 @@ namespace Mozu.Api.Contracts.AppDev
 			public int Sequence { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Attribute type ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Attribute type ApiTypeMember DOCUMENT_HERE
 			///
 			public string Type { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Attribute vocabularyJson ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Attribute vocabularyJson ApiTypeMember DOCUMENT_HERE
 			///
 			public string VocabularyJson { get; set; }
 

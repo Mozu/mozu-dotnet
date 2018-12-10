@@ -35,7 +35,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// Get Resource Url for AddTransaction
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -51,7 +51,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
 						/// <summary>
         /// Get Resource Url for RemoveTransaction
         /// </summary>
-        /// <param name="accountId">Unique identifier of the customer account.</param>
+        /// <param name="accountId">Unique identifier of the customer account from which to delete the transaction.</param>
         /// <param name="transactionId">Unique identifier of the transaction to delete.</param>
         /// <returns>
         /// String - Resource Url

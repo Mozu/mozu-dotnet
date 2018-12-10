@@ -74,6 +74,30 @@ namespace Mozu.Api.Clients.Commerce.Carts
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="cartItems"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=AddItemsToCart( cartItems);
+		///mozuClient.WithBaseAddress(url).Execute();
+		/// </code>
+		/// </example>
+		public static MozuClient AddItemsToCartClient(List<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> cartItems)
+		{
+			var url = Mozu.Api.Urls.Commerce.Carts.CartItemUrl.AddItemsToCartUrl();
+			const string verb = "POST";
+			var mozuClient = new MozuClient()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<List<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem>>(cartItems);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="cartItem">Properties of an item added to an active shopping cart.</param>
 		/// <returns>

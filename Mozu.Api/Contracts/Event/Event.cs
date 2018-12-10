@@ -16,7 +16,7 @@ using Mozu.Api.Contracts.Core;
 namespace Mozu.Api.Contracts.Event
 {
 		///
-		///	Mozu.AppDev.Contracts.Event ApiType DOCUMENT_HERE
+		///	Mozu.AppDev.Contracts.Event ApiType DOCUMENT_HERE 
 		///
 		public class Event
 		{

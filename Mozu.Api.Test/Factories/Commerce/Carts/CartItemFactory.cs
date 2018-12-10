@@ -110,6 +110,43 @@ namespace Mozu.Api.Test.Factories.Commerce.Carts
 		/// 
 		/// <example> 
 		///  <code> 
+		/// var result = CartItemFactory.AddItemsToCart(handler : handler,  cartItems :  cartItems,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static void AddItemsToCart(ServiceClientMessageHandler handler, 
+ 		List<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> cartItems, 
+		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Carts.CartItemClient.AddItemsToCartClient(
+				 cartItems :  cartItems		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+			}
+			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
 		/// var result = CartItemFactory.AddItemToCart(handler : handler,  cartItem :  cartItem,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CartItem/>(result); 
 		/// return optionalCasting;

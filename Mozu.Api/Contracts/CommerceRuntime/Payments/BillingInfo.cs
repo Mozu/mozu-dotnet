@@ -31,9 +31,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///
 			public CheckPayment Check { get; set; }
 
-			///
-			///If StoreCreditType is set to Custom, this field is used to provide the custom name for the payment type.
-			///
 			public string CustomCreditType { get; set; }
 
 			///
@@ -65,14 +62,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///
 			public string StoreCreditCode { get; set; }
 
-			///
-			///A payment referring to a store credit or gift card.* StoreCredit* GiftCard* CustomStoreCredit and GiftCard are internally managed by Kibo eComm. Use Custom for externally managed gift cards or reward systems. If Custom is used, provide the name for the custom type in the CustomCreditType field.
-			///
 			public string StoreCreditType { get; set; }
 
-			///
-			///The token to access billing information.
-			///
 			public PaymentToken Token { get; set; }
 
 		}

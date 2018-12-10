@@ -40,7 +40,7 @@ namespace Mozu.Api.Contracts.Event
 			public string EntityId { get; set; }
 
 			///
-			///Unique identifier for the event. 
+			///Unique identifier for the event.
 			///
 			public string EventId { get; set; }
 
@@ -50,7 +50,7 @@ namespace Mozu.Api.Contracts.Event
 			public List<EventExtendedProperty> ExtendedProperties { get; set; }
 
 			///
-			///Unique identifier for the master catalog. 
+			///Unique identifier for the master catalog.
 			///
 			public int? MasterCatalogId { get; set; }
 

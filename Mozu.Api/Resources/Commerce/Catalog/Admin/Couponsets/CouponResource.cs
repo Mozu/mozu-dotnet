@@ -42,10 +42,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Couponsets
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="couponCode">Code associated with the coupon to remove from the cart.</param>
-		/// <param name="couponSetCode">The unique identifier of the coupon set that the coupon belongs to.</param>
-		/// <param name="includeCounts">Specifies whether to return the redemptionCount property in the response body object.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="couponCode"></param>
+		/// <param name="couponSetCode"></param>
+		/// <param name="includeCounts"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Coupon"/>
 		/// </returns>
@@ -69,13 +69,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Couponsets
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="couponSetCode">The unique identifier of the coupon set that the coupons belongs to.</param>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
-		/// <param name="includeCounts">Specifies whether to include the redemptionCount property in the response body object.</param>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+		/// <param name="couponSetCode"></param>
+		/// <param name="filter"></param>
+		/// <param name="includeCounts"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.CouponCollection"/>
 		/// </returns>
@@ -99,8 +99,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Couponsets
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="couponSetCode">The unique identifier of the coupon set.</param>
-		/// <param name="coupons">The details necessary to assign the discount to a coupon set, including .</param>
+		/// <param name="couponSetCode"></param>
+		/// <param name="coupons"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -123,8 +123,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Couponsets
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="couponSetCode">The unique identifier of the coupon set that the coupon belongs to.</param>
-		/// <param name="couponCodes">The unique identifiers of the coupons to delete.</param>
+		/// <param name="couponSetCode"></param>
+		/// <param name="couponCodes"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -147,8 +147,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Couponsets
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="couponCode">Code associated with the coupon to remove from the cart.</param>
-		/// <param name="couponSetCode">The unique identifier of the coupon set that the coupon belongs to.</param>
+		/// <param name="couponCode"></param>
+		/// <param name="couponSetCode"></param>
 		/// <returns>
 		/// 
 		/// </returns>

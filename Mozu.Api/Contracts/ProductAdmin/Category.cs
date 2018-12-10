@@ -38,7 +38,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public CategoryLocalizedContent Content { get; set; }
 
 			///
-			///Mozu.ProductAdmin.Contracts.Category dynamicExpression ApiTypeMember DOCUMENT_HERE 
+			///Mozu.ProductAdmin.Contracts.Category dynamicExpression ApiTypeMember DOCUMENT_HERE
 			///
 			public DynamicExpression DynamicExpression { get; set; }
 

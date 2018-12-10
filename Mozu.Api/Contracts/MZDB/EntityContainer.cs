@@ -56,7 +56,7 @@ namespace Mozu.Api.Contracts.MZDB
 			public string LocaleCode { get; set; }
 
 			///
-			///Unique identifier for the master catalog. 
+			///Unique identifier for the master catalog.
 			///
 			public int? MasterCatalogId { get; set; }
 

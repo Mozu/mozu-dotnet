@@ -84,7 +84,7 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			public int Quantity { get; set; }
 
 			///
-			///The reason description for an action, including item return, coupon not valid, and item is taxed. 
+			///The reason description for an action, including item return, coupon not valid, and item is taxed.
 			///
 			public string Reason { get; set; }
 

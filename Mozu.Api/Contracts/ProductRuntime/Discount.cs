@@ -14,7 +14,7 @@ using System;
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
-		///	Name of the discount added and applied to a shopping cart and order for a shopper's purchase. 
+		///	Name of the discount added and applied to a shopping cart and order for a shopper's purchase.
 		///
 		public class Discount
 		{
@@ -23,13 +23,10 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public DateTime? ExpirationDate { get; set; }
 
 			///
-			///The localizable, shopper-facing description defined for a discount or a storefront message. 
+			///The localizable, shopper-facing description defined for a discount or a storefront message.
 			///
 			public string FriendlyDescription { get; set; }
 
-			///
-			///The value of the discount applied to the cart or order, represented as a negative currency amount to apply to the original price.
-			///
 			public decimal Impact { get; set; }
 
 			public string Name { get; set; }

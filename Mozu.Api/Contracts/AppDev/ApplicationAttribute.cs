@@ -30,17 +30,17 @@ namespace Mozu.Api.Contracts.AppDev
 			public string AttributeJson { get; set; }
 
 			///
-			///Collection of attributes that may be paged list or a list, depending on the usage per object and API type. 
+			///Collection of attributes that may be paged list or a list, depending on the usage per object and API type.
 			///
 			public List<Attribute> Attributes { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.ApplicationAttribute isAppliedToBase ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.ApplicationAttribute isAppliedToBase ApiTypeMember DOCUMENT_HERE
 			///
 			public bool IsAppliedToBase { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.ApplicationAttribute packageId ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.ApplicationAttribute packageId ApiTypeMember DOCUMENT_HERE
 			///
 			public int PackageId { get; set; }
 

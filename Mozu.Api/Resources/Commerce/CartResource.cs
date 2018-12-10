@@ -165,6 +165,32 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="cartId"></param>
+		/// <param name="discountId"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var cart = new Cart();
+		///   var cart = await cart.RejectSuggestedDiscountAsync( cartId,  discountId,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> RejectSuggestedDiscountAsync(string cartId, int discountId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> response;
+			var client = Mozu.Api.Clients.Commerce.CartClient.RejectSuggestedDiscountClient( cartId,  discountId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="cart">Properties of a shopping cart.</param>
 		/// <returns>

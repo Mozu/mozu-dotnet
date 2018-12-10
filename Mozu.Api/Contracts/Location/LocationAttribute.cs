@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+
 using System.Collections.Generic;
 
 using Mozu.Api.Contracts.Core;
@@ -21,7 +22,7 @@ namespace Mozu.Api.Contracts.Location
 		public class LocationAttribute
 		{
 			///
-			///The custom attribute object for the location.
+			///attributeDefinition ApiType DOCUMENT_HERE 
 			///
 			public Attribute AttributeDefinition { get; set; }
 

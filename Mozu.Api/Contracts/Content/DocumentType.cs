@@ -27,7 +27,7 @@ namespace Mozu.Api.Contracts.Content
 			public string AdminName { get; set; }
 
 			///
-			///Fully qualified name of the document type. 
+			///Fully qualified name of the document type.
 			///
 			public string DocumentTypeFQN { get; set; }
 

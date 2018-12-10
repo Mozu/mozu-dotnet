@@ -24,7 +24,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public decimal? CreditValue { get; set; }
 
 			///
-			///The localized currency code for the monetary amount. 
+			///The localized currency code for the monetary amount.
 			///
 			public string CurrencyCode { get; set; }
 

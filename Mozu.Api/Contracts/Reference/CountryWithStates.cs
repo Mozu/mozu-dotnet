@@ -25,7 +25,7 @@ namespace Mozu.Api.Contracts.Reference
 			public string Code { get; set; }
 
 			///
-			///The state code, name, and tags, if applicable. 
+			///The state code, name, and tags, if applicable.
 			///
 			public List<State> States { get; set; }
 

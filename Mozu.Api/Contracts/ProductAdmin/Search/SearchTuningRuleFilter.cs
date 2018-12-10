@@ -19,7 +19,7 @@ namespace Mozu.Api.Contracts.ProductAdmin.Search
 		public class SearchTuningRuleFilter
 		{
 			///
-			///Mozu.ProductAdmin.Contracts.Search.SearchTuningRuleFilter field ApiTypeMember DOCUMENT_HERE 
+			///Mozu.ProductAdmin.Contracts.Search.SearchTuningRuleFilter field ApiTypeMember DOCUMENT_HERE
 			///
 			public string Field { get; set; }
 

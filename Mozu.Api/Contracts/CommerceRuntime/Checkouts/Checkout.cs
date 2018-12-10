@@ -32,7 +32,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 			public bool? AcceptsMarketing { get; set; }
 
 			///
-			///The total amount of the order not currently associated with a payment. The shopper must create one or more payments to satisfy this amount before the order can be fully paid.
+			///amountRemainingForPayment ApiType DOCUMENT_HERE 
 			///
 			public decimal AmountRemainingForPayment { get; set; }
 
@@ -50,6 +50,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 			///Available actions you can complete for an order. These actions may differ depending on the status of the order, such as actions required to enter a payment, return of a package, and fulfillment of a shipment.
 			///
 			public List<string> AvailableActions { get; set; }
+
+			public int? B2bAccountId { get; set; }
 
 			///
 			///Code that identifies the channel associated with the site for the shopper's created shopping cart, order, and return.
@@ -77,27 +79,24 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 			public string CustomerInteractionType { get; set; }
 
 			///
-			///The tax identification number (TIN) of the customer who submitted the order. If the customer who submitted the order has a customer account defined for the tenant, the system sets this value when the order is submitted.
+			///customerTaxId ApiType DOCUMENT_HERE 
 			///
 			public string CustomerTaxId { get; set; }
 
 			///
-			///Custom data for a given vendor set within the commerce process.
+			///data ApiType DOCUMENT_HERE 
 			///
 			public JObject Data { get; set; }
 
 			///
-			///The collection of destinations available for the checkout.
+			///destinations ApiType DOCUMENT_HERE 
 			///
 			public List<Destination> Destinations { get; set; }
 
-			///
-			///List of threshold messages to display on Checkout page.
-			///
 			public List<ThresholdMessage> DiscountThresholdMessages { get; set; }
 
 			///
-			///Duties or tariffs for the Order as well as OrderItems (e.g. if the Order has a $5 duty or tariff for any reason and an OrderItem has a $2 duty or tariff then the value in this property would be $7).
+			///dutyTotal ApiType DOCUMENT_HERE 
 			///
 			public decimal? DutyTotal { get; set; }
 
@@ -112,12 +111,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 			public decimal FeeTotal { get; set; }
 
 			///
-			///Groupings bundle items together that have the same fulfillment type and destination. Direct ship items going to the same destination are grouped together, in-store pickup items are grouped together, and gift card items are grouped together.
+			///groupings ApiType DOCUMENT_HERE 
 			///
 			public List<CheckoutGrouping> Groupings { get; set; }
 
 			///
-			///Handling fees for the Order as well as OrderItems (e.g. if the Order has a $5 handling fee and an OrderItem has a $2 handling fee per item quantity then the value in this property would be $9).
+			///handlingSubTotal ApiType DOCUMENT_HERE 
 			///
 			public decimal HandlingSubTotal { get; set; }
 
@@ -127,7 +126,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 			public decimal HandlingTaxTotal { get; set; }
 
 			///
-			///This total represents the handling amount value with any applied discounts.
+			///handlingTotal ApiType DOCUMENT_HERE 
 			///
 			public decimal HandlingTotal { get; set; }
 
@@ -147,22 +146,22 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 			public string IpAddress { get; set; }
 
 			///
-			///If true, the order is exempt from applied sales tax.
+			///isTaxExempt ApiType DOCUMENT_HERE 
 			///
 			public bool? IsTaxExempt { get; set; }
 
 			///
-			///The list of historically-applied handling discounts at the order item level. The active one will have IsExcluded == false.
+			///itemLevelHandlingDiscountTotal ApiType DOCUMENT_HERE 
 			///
 			public decimal ItemLevelHandlingDiscountTotal { get; set; }
 
 			///
-			///The applicable product discount for the order item.
+			///itemLevelProductDiscountTotal ApiType DOCUMENT_HERE 
 			///
 			public decimal ItemLevelProductDiscountTotal { get; set; }
 
 			///
-			///The applicable shipping discount for the order item.
+			///itemLevelShippingDiscountTotal ApiType DOCUMENT_HERE 
 			///
 			public decimal ItemLevelShippingDiscountTotal { get; set; }
 
@@ -177,7 +176,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 			public decimal ItemTaxTotal { get; set; }
 
 			///
-			///The total cost for the item.
+			///itemTotal ApiType DOCUMENT_HERE 
 			///
 			public decimal ItemTotal { get; set; }
 
@@ -187,7 +186,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 			public string LocationCode { get; set; }
 
 			///
-			///The order item number.
+			///number ApiType DOCUMENT_HERE 
 			///
 			public int? Number { get; set; }
 
@@ -197,22 +196,22 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 			public List<AppliedDiscount> OrderDiscounts { get; set; }
 
 			///
-			///The list of historically-applied handling discounts at the order level. The active one will have IsExcluded == false.
+			///orderLevelHandlingDiscountTotal ApiType DOCUMENT_HERE 
 			///
 			public decimal OrderLevelHandlingDiscountTotal { get; set; }
 
 			///
-			///The applicable product discount for the order.
+			///orderLevelProductDiscountTotal ApiType DOCUMENT_HERE 
 			///
 			public decimal OrderLevelProductDiscountTotal { get; set; }
 
 			///
-			///The applicable shipping discount for the order.
+			///orderLevelShippingDiscountTotal ApiType DOCUMENT_HERE 
 			///
 			public decimal OrderLevelShippingDiscountTotal { get; set; }
 
 			///
-			///The unique identifier of the item when it was applied to a cart.
+			///originalCartId ApiType DOCUMENT_HERE 
 			///
 			public string OriginalCartId { get; set; }
 
@@ -222,7 +221,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 			public List<Payment> Payments { get; set; }
 
 			///
-			///If the order is associated with a price list, this is the unique code of the price list.
+			///priceListCode ApiType DOCUMENT_HERE 
 			///
 			public string PriceListCode { get; set; }
 
@@ -242,7 +241,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 			public decimal ShippingTotal { get; set; }
 
 			///
-			///A paged list collection of shopper notes for the order.
+			///shopperNotes ApiType DOCUMENT_HERE 
 			///
 			public ShopperNotes ShopperNotes { get; set; }
 
@@ -252,27 +251,21 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 			public int SiteId { get; set; }
 
 			///
-			///The device from which the order originated in the case of offline orders.
+			///sourceDevice ApiType DOCUMENT_HERE 
 			///
 			public string SourceDevice { get; set; }
 
 			///
-			///The date and time the order was submitted. System-supplied and read-only.
+			///submittedDate ApiType DOCUMENT_HERE 
 			///
 			public DateTime? SubmittedDate { get; set; }
 
-			///
-			///Estimated amount of the cart or order without sales tax, shipping costs, and other fees. This amount is not calculated for wish lists at this time.
-			///
 			public decimal SubTotal { get; set; }
 
-			///
-			///Refers to the BOGA discounts that are currently satisfied but whose free item has not yet been added.
-			///
 			public List<SuggestedDiscount> SuggestedDiscounts { get; set; }
 
 			///
-			///Leverage this property within a [tax Arc.js action](https://www.mozu.com/docs/arcjs/commerce-catalog-storefront-tax/commerce-catalog-storefront-tax.htm) to supplement the tax information for this item or object with custom JSON data.
+			///taxData ApiType DOCUMENT_HERE 
 			///
 			public JObject TaxData { get; set; }
 
@@ -287,7 +280,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 			public decimal Total { get; set; }
 
 			///
-			///The type of scope, which is a developer account or production tenant.
+			///type ApiType DOCUMENT_HERE 
 			///
 			public string Type { get; set; }
 

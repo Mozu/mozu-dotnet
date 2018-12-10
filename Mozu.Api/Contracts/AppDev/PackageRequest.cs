@@ -19,12 +19,12 @@ namespace Mozu.Api.Contracts.AppDev
 		public class PackageRequest
 		{
 			///
-			///Mozu.AppDev.Contracts.PackageRequest appKey ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.PackageRequest appKey ApiTypeMember DOCUMENT_HERE
 			///
 			public string AppKey { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.PackageRequest parentThemeAppKey ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.PackageRequest parentThemeAppKey ApiTypeMember DOCUMENT_HERE
 			///
 			public string ParentThemeAppKey { get; set; }
 

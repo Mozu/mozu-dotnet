@@ -42,7 +42,7 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.General.General.Routing.CustomRouteSettings"/>
 		/// </returns>
@@ -66,8 +66,8 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="settings">The details of the new custom route setting.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="settings"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.General.General.Routing.CustomRouteSettings"/>
 		/// </returns>
@@ -91,8 +91,8 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="settings">The updated details of the custom route settings.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="settings"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.General.General.Routing.CustomRouteSettings"/>
 		/// </returns>

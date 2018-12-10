@@ -32,7 +32,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public DateTime? AcceptedDate { get; set; }
 
 			///
-			///Indicates if the customer account is opted to receive marketing materials. If true, the customer account is opted in for receiving the content. 
+			///Indicates if the customer account is opted to receive marketing materials. If true, the customer account is opted in for receiving the content.
 			///
 			public bool? AcceptsMarketing { get; set; }
 
@@ -58,6 +58,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public AuditInfo AuditInfo { get; set; }
 
 			public List<string> AvailableActions { get; set; }
+
+			public int? B2bAccountId { get; set; }
 
 			public BillingInfo BillingInfo { get; set; }
 
@@ -93,9 +95,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 
 			public decimal? DiscountedTotal { get; set; }
 
-			///
-			///Saves threshold message settings for the Cart and Checkout pages.
-			///
 			public List<ThresholdMessage> DiscountThresholdMessages { get; set; }
 
 			public decimal? DiscountTotal { get; set; }
@@ -177,7 +176,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public bool? IsImport { get; set; }
 
 			///
-			///True if the order is one of multiple orders created to fulfill as parent order that supports shipping to multiple adresses.
+			///isPartialOrder ApiType DOCUMENT_HERE 
 			///
 			public bool IsPartialOrder { get; set; }
 
@@ -207,12 +206,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public List<Package> Packages { get; set; }
 
 			///
-			///The unique identifier of the checkout that created the parent order (if the order is one of multiple orders created to fulfill a parent order that support shipping to multiple addresses).
+			///parentCheckoutId ApiType DOCUMENT_HERE 
 			///
 			public string ParentCheckoutId { get; set; }
 
 			///
-			///The checkout number from the checkout that created the parent order (if the order is one of multiple orders created to fulfill a parent order that support shipping to multiple addresses).
+			///parentCheckoutNumber ApiType DOCUMENT_HERE 
 			///
 			public int? ParentCheckoutNumber { get; set; }
 
@@ -234,12 +233,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public int? ParentReturnNumber { get; set; }
 
 			///
-			///The number of partial orders that make up the parent order.
+			///partialOrderCount ApiType DOCUMENT_HERE 
 			///
 			public int? PartialOrderCount { get; set; }
 
 			///
-			///The order number for the partial order.
+			///partialOrderNumber ApiType DOCUMENT_HERE 
 			///
 			public int? PartialOrderNumber { get; set; }
 
@@ -258,6 +257,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///Refunds associated with this order. A refund is a single exchange of money from merchant to customer that either encapsulates a refund to a credit card or an issuance of a store credit. Refunds does not reduce the 'amount collected' on an order and it is possible for refunds to exceed the total order amount.
 			///
 			public List<Refund> Refunds { get; set; }
+
+			public List<SuggestedDiscount> RejectedDiscounts { get; set; }
 
 			public string ReturnStatus { get; set; }
 
@@ -290,9 +291,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 
 			public decimal? Subtotal { get; set; }
 
-			///
-			///Refers to the BOGA discounts that are currently satisfied but whose free item has not yet been added.
-			///
 			public List<SuggestedDiscount> SuggestedDiscounts { get; set; }
 
 			///
@@ -312,6 +310,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///This specifies the order type. This means, was this order placed online or offline? Online means shopper created the order at checkout, offline means the order was a phone order.
 			///
 			public string Type { get; set; }
+
+			public string UserId { get; set; }
 
 			///
 			///Response returned by an order validation capability application.

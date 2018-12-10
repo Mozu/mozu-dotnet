@@ -25,9 +25,9 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="contactId">Unique identifer of the customer account contact being updated.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="accountId">Unique identifier of the customer account whose contact information is being retrieved.</param>
+		/// <param name="contactId">Unique identifier of the customer account contact to retrieve.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerContact"/>}
 		/// </returns>
@@ -51,12 +51,12 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+		/// <param name="accountId">Unique identifier of the customer account associated with the contact information to retrieve.</param>
+		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerContactCollection"/>}
 		/// </returns>
@@ -80,9 +80,9 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="contact">Contact information, including the contact's name, address, phone numbers, email addresses, and company (if supplied). Also indicates whether this is a billing, shipping, or billing and shipping contact.</param>
+		/// <param name="accountId">Unique identifier of the customer account containing the new contact.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="contact">Properties of the new contact. Required properties: Contact.Email, ContactType.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerContact"/>}
 		/// </returns>
@@ -106,10 +106,10 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="accountId">Unique identifier of the customer account whose contact information is being updated.</param>
 		/// <param name="contactId">Unique identifer of the customer account contact being updated.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="contact">Contact information, including the contact's name, address, phone numbers, email addresses, and company (if supplied). Also indicates whether this is a billing, shipping, or billing and shipping contact.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="contact">All properties the updated contact will have. Required properties: Name and email address.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerContact"/>}
 		/// </returns>
@@ -133,9 +133,9 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="contactList">The list of contacts.</param>
+		/// <param name="accountId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="contactList"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerContactCollection"/>}
 		/// </returns>
@@ -160,7 +160,7 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// 
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="contactId">Unique identifer of the customer account contact being updated.</param>
+		/// <param name="contactId">Unique identifier of the customer account contact to delete.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

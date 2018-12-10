@@ -20,14 +20,14 @@ namespace Mozu.Api.Urls.Commerce.Customer
         /// Get Resource Url for GetAccounts
         /// </summary>
         /// <param name="fields">The fields to include in the response.</param>
-        /// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
+        /// <param name="filter"></param>
         /// <param name="isAnonymous">If true, retrieve anonymous shopper accounts in the response.</param>
-        /// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-        /// <param name="q">A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.</param>
+        /// <param name="pageSize"></param>
+        /// <param name="q">A list of customer account search terms to use in the query when searching across customer name and email. Separate multiple search terms with a space character.</param>
         /// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-        /// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
-        /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+        /// <param name="responseFields"></param>
+        /// <param name="sortBy"></param>
+        /// <param name="startIndex"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -51,7 +51,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
         /// Get Resource Url for GetLoginState
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -67,24 +67,26 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for GetAccount
         /// </summary>
-        /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="accountId">Unique identifier of the customer account to retrieve.</param>
+        /// <param name="responseFields"></param>
+        /// <param name="userId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetAccountUrl(int accountId, string responseFields =  null)
+        public static MozuUrl GetAccountUrl(int accountId, string userId =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/{accountId}?responseFields={responseFields}";
+			var url = "/api/commerce/customer/accounts/{accountId}?userId={userId}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "accountId", accountId);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "userId", userId);
 			return mozuUrl;
 		}
 
 				/// <summary>
         /// Get Resource Url for AddAccount
         /// </summary>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -99,8 +101,8 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for ChangePassword
         /// </summary>
-        /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="unlockAccount">Specifies whether to unlock the specified customer account.</param>
+        /// <param name="accountId">The customer account information required to change the userpassword.</param>
+        /// <param name="unlockAccount"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -117,7 +119,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
         /// Get Resource Url for AddLoginToExistingCustomer
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -133,7 +135,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for RecomputeCustomerLifetimeValue
         /// </summary>
-        /// <param name="accountId">Unique identifier of the customer account.</param>
+        /// <param name="accountId">The unique identifier of the customer account for which to calculate customer lifetime value.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -148,7 +150,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for SetLoginLocked
         /// </summary>
-        /// <param name="accountId">Unique identifier of the customer account.</param>
+        /// <param name="accountId">The unique identifier of the customer account.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -178,7 +180,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for AddAccountAndLogin
         /// </summary>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -193,7 +195,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for AddAccounts
         /// </summary>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -208,7 +210,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for ChangePasswords
         /// </summary>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -223,9 +225,9 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for GetLoginStateByEmailAddress
         /// </summary>
-        /// <param name="customerSetCode">The unique idenfitier of the customer set.</param>
+        /// <param name="customerSetCode"></param>
         /// <param name="emailAddress">The email address associated with the customer account.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -242,8 +244,8 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for GetLoginStateByUserName
         /// </summary>
-        /// <param name="customerSetCode">The unique idenfitier of the customer set.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="customerSetCode"></param>
+        /// <param name="responseFields"></param>
         /// <param name="userName">The user name associated with the customer account.</param>
         /// <returns>
         /// String - Resource Url
@@ -261,17 +263,19 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for GetCustomersPurchaseOrderAccounts
         /// </summary>
-        /// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-        /// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
-        /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+        /// <param name="accountType"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="sortBy"></param>
+        /// <param name="startIndex"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetCustomersPurchaseOrderAccountsUrl(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseFields =  null)
+        public static MozuUrl GetCustomersPurchaseOrderAccountsUrl(string accountType =  null, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/purchaseOrderAccounts?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&responseFields={responseFields}";
+			var url = "/api/commerce/customer/accounts/purchaseOrderAccounts?accountType={accountType}&startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "accountType", accountType);
 			mozuUrl.FormatUrl( "pageSize", pageSize);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "sortBy", sortBy);
@@ -296,7 +300,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
         /// Get Resource Url for UpdateAccount
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -312,7 +316,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 				/// <summary>
         /// Get Resource Url for DeleteAccount
         /// </summary>
-        /// <param name="accountId">Unique identifier of the customer account.</param>
+        /// <param name="accountId">Unique identifier of the customer account to delete.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

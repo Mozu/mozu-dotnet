@@ -25,11 +25,11 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.DiscountCollection"/>}
 		/// </returns>
@@ -54,8 +54,8 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent"/>}
 		/// </returns>
@@ -80,8 +80,8 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Discount"/>}
 		/// </returns>
@@ -106,7 +106,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{string}
 		/// </returns>
@@ -130,8 +130,8 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="discount">Name of the discount added and applied to a shopping cart and order for a shopper's purchase. </param>
+		/// <param name="responseFields"></param>
+		/// <param name="discount">Properties of the discount to create. You must specify the discount name, amount type, start date, and target.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Discount"/>}
 		/// </returns>
@@ -155,9 +155,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="content">The container for the language-specific name of the discount. A container exists for each supported language (LocaleCode). This parameter enables you to display the discount name in multiple languages yet manage it as a single discount internally.</param>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="content">The discount content to update, including the discount name.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent"/>}
 		/// </returns>
@@ -181,9 +181,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="discount">Name of the discount added and applied to a shopping cart and order for a shopper's purchase. </param>
+		/// <param name="discountId">Unique identifier of the discount to update.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="discount">Properties of the discount to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Discount"/>}
 		/// </returns>
@@ -207,7 +207,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

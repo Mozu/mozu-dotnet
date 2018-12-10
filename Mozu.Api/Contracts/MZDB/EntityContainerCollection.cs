@@ -15,7 +15,7 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.MZDB
 {
 		///
-		///	Paged collection of EntityContainers within a specific tenant and site. 
+		///	Paged collection of EntityContainers within a specific tenant and site.
 		///
 		public class EntityContainerCollection
 		{

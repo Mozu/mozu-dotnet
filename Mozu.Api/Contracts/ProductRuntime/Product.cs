@@ -122,9 +122,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 
 			public ProductPurchasableState PurchasableState { get; set; }
 
-			///
-			///The location where the order item(s) was purchased.
-			///
 			public string PurchaseLocation { get; set; }
 
 			public string Upc { get; set; }

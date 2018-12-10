@@ -15,19 +15,10 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.PaymentService
 {
-		///
-		///	Mozu.PaymentService.Contracts.PublicToken ApiType DOCUMENT_HERE 
-		///
 		public class PublicToken
 		{
-			///
-			///The public token being used for this payment service.
-			///
 			public JObject Token { get; set; }
 
-			///
-			///The type of public token being provided.
-			///
 			public string Type { get; set; }
 
 		}

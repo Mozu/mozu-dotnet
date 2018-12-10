@@ -18,14 +18,14 @@ using System.Threading;
 namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 {
 	/// <summary>
-	/// Properties of localized content for attributes, based on a `localeCode` at a site/tenant level. This content supports translated text for product, product options, and additional objects. 
+	/// Properties of localized content for attributes, based on a `localeCode` at a site/tenant level. This content supports translated text for product, product options, and additional objects.
 	/// </summary>
 	public partial class AttributeLocalizedContentClient 	{
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+		/// <param name="attributeFQN"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent"/>}}
@@ -50,9 +50,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="localeCode">The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="localeCode"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent"/>}
@@ -77,10 +77,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="localizedContent">The localized name and description of the attribute, displayed in the locale defined for the master catalog.</param>
+		/// <param name="localizedContent"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent"/>}
 		/// </returns>
@@ -104,9 +104,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+		/// <param name="attributeFQN"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="localizedContent">The localized name and description of the attribute, displayed in the locale defined for the master catalog.</param>
+		/// <param name="localizedContent"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent"/>}}
 		/// </returns>
@@ -130,11 +130,11 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="localeCode">The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="localeCode"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="localizedContent">The localized name and description of the attribute, displayed in the locale defined for the master catalog.</param>
+		/// <param name="localizedContent"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent"/>}
 		/// </returns>
@@ -158,8 +158,8 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="localeCode">The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="localeCode"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />

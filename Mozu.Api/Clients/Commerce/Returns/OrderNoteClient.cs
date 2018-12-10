@@ -25,7 +25,7 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="returnId"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote"/>}}
 		/// </returns>
@@ -49,9 +49,9 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="noteId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="returnId"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote"/>}
 		/// </returns>
@@ -75,8 +75,8 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="returnId"></param>
 		/// <param name="returnNote"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote"/>}
@@ -101,9 +101,9 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="noteId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="returnId"></param>
 		/// <param name="returnNote"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote"/>}
@@ -128,8 +128,8 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="noteId"></param>
+		/// <param name="returnId"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

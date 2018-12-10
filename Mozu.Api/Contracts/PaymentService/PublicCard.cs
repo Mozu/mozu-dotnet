@@ -13,15 +13,18 @@ using System;
 
 namespace Mozu.Api.Contracts.PaymentService
 {
+		///
+		///	Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE 
+		///
 		public class PublicCard
 		{
 			///
-			///The card holder full name.
+			///Mozu.PaymentService.Contracts.PublicCard cardHolderName ApiTypeMember DOCUMENT_HERE
 			///
 			public string CardHolderName { get; set; }
 
 			///
-			///The month the credit card was issued; used by some cards.
+			///Mozu.PaymentService.Contracts.PublicCard cardIssueMonth ApiTypeMember DOCUMENT_HERE
 			///
 			public int CardIssueMonth { get; set; }
 
@@ -31,7 +34,7 @@ namespace Mozu.Api.Contracts.PaymentService
 			public string CardIssueNumber { get; set; }
 
 			///
-			///The issue year; used by some cards.
+			///Mozu.PaymentService.Contracts.PublicCard cardIssueYear ApiTypeMember DOCUMENT_HERE
 			///
 			public int CardIssueYear { get; set; }
 
@@ -41,12 +44,12 @@ namespace Mozu.Api.Contracts.PaymentService
 			public string CardNumber { get; set; }
 
 			///
-			///The type of credit card, such as Visa or Amex.
+			///Mozu.PaymentService.Contracts.PublicCard cardType ApiTypeMember DOCUMENT_HERE
 			///
 			public string CardType { get; set; }
 
 			///
-			///The CVV code for the credit card.
+			///Mozu.PaymentService.Contracts.PublicCard cvv ApiTypeMember DOCUMENT_HERE
 			///
 			public string Cvv { get; set; }
 

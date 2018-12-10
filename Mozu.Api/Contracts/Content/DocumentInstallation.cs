@@ -16,12 +16,12 @@ using Mozu.Api.Contracts.Core;
 namespace Mozu.Api.Contracts.Content
 {
 		///
-		///	Properties for the document installation package and data. This information details the installation of document content and files within the site. 
+		///	Properties for the document installation package and data. This information details the installation of document content and files within the site.
 		///
 		public class DocumentInstallation
 		{
 			///
-			///Fully qualified name of the document type. 
+			///Fully qualified name of the document type.
 			///
 			public string DocumentTypeFQN { get; set; }
 

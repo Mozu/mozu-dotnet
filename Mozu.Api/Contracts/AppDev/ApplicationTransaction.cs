@@ -21,7 +21,7 @@ namespace Mozu.Api.Contracts.AppDev
 			public int? ApplicationEntitlementId { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.ApplicationTransaction applicationId ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.ApplicationTransaction applicationId ApiTypeMember DOCUMENT_HERE
 			///
 			public int ApplicationId { get; set; }
 

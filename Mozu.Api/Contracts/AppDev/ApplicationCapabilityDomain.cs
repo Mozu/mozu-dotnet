@@ -26,7 +26,7 @@ namespace Mozu.Api.Contracts.AppDev
 			public List<ApplicationCapabilityDomainValue> ApplicationCapabilityDomainValues2 { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.ApplicationCapabilityDomain applicationCapabilityTypeId ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.ApplicationCapabilityDomain applicationCapabilityTypeId ApiTypeMember DOCUMENT_HERE
 			///
 			public int ApplicationCapabilityTypeId { get; set; }
 

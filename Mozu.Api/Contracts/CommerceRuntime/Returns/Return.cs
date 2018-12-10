@@ -28,6 +28,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 
 			public List<string> AvailableActions { get; set; }
 
+			public int? B2bAccountId { get; set; }
+
 			///
 			///Collection (list or paged) of change messages logged for each modification made by a shopper to their carts, wishlists, orders, package, payment, pickup, and returns. Change log messages are system-supplied based on shopper actions and read only.
 			///

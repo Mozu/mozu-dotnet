@@ -40,12 +40,12 @@ namespace Mozu.Api.Contracts.PaymentService
 			public int Quantity { get; set; }
 
 			///
-			///Mozu.PaymentService.Contracts.OrderItem taxAmount ApiTypeMember DOCUMENT_HERE 
+			///Mozu.PaymentService.Contracts.OrderItem taxAmount ApiTypeMember DOCUMENT_HERE
 			///
 			public decimal? TaxAmount { get; set; }
 
 			///
-			///Mozu.PaymentService.Contracts.OrderItem totalAmount ApiTypeMember DOCUMENT_HERE 
+			///Mozu.PaymentService.Contracts.OrderItem totalAmount ApiTypeMember DOCUMENT_HERE
 			///
 			public decimal? TotalAmount { get; set; }
 

@@ -49,7 +49,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			public decimal? FeeTotal { get; set; }
 
 			///
-			///The combined price for all handling costs calculated together for shipped orders, not for digital or in-store pickup. This includes all handling costs per the product line items and options, excluding taxes and discounts. 
+			///The combined price for all handling costs calculated together for shipped orders, not for digital or in-store pickup. This includes all handling costs per the product line items and options, excluding taxes and discounts.
 			///
 			public decimal? HandlingAmount { get; set; }
 
@@ -73,7 +73,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			public Product Product { get; set; }
 
 			///
-			///The applicable product discount for an associated cart, order, or wish list. 
+			///The applicable product discount for an associated cart, order, or wish list.
 			///
 			public AppliedLineItemProductDiscount ProductDiscount { get; set; }
 
@@ -81,9 +81,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 
 			public string PurchasableStatusType { get; set; }
 
-			///
-			///The location where the order item(s) was purchased.
-			///
 			public string PurchaseLocation { get; set; }
 
 			public int Quantity { get; set; }

@@ -23,9 +23,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool? AllowFilteringAndSortingInStorefront { get; set; }
 
-			///
-			///When set to true, enables you to set a custom search weight for a product attribute in search-settings.
-			///
 			public bool? CustomWeightInStorefrontSearch { get; set; }
 
 			///

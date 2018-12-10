@@ -18,9 +18,6 @@ namespace Mozu.Api.Contracts.PaymentService.Response
 		///
 		public class SyncResponse
 		{
-			///
-			///The current balance of the card.
-			///
 			public decimal Balance { get; set; }
 
 			///
@@ -29,13 +26,10 @@ namespace Mozu.Api.Contracts.PaymentService.Response
 			public string Id { get; set; }
 
 			///
-			///Indicates whether the interaction succeeded or not.
+			///Mozu.PaymentService.Contracts.Response.SyncResponse isSuccessful ApiTypeMember DOCUMENT_HERE
 			///
 			public bool IsSuccessful { get; set; }
 
-			///
-			///The text of the change message, such as "This product is no longer available." System-supplied and read-only.
-			///
 			public string Message { get; set; }
 
 			///

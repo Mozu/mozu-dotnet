@@ -25,7 +25,7 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			public string Id { get; set; }
 
 			///
-			///The properties required to request shipping rates.
+			///rateRequests ApiType DOCUMENT_HERE 
 			///
 			public List<RateRequest> RateRequests { get; set; }
 

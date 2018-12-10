@@ -49,6 +49,19 @@ namespace Mozu.Api.Urls.Commerce.Carts
 		}
 
 				/// <summary>
+        /// Get Resource Url for AddItemsToCart
+        /// </summary>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl AddItemsToCartUrl()
+		{
+			var url = "/api/commerce/carts/current/bulkitems";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			return mozuUrl;
+		}
+
+		/// <summary>
         /// Get Resource Url for AddItemToCart
         /// </summary>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>

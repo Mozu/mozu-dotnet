@@ -21,7 +21,7 @@ namespace Mozu.Api.Contracts.Content
 		public class Document
 		{
 			///
-			///Mozu.Content.Contracts.Document activeDateRange ApiTypeMember DOCUMENT_HERE 
+			///Mozu.Content.Contracts.Document activeDateRange ApiTypeMember DOCUMENT_HERE
 			///
 			public ActiveDateRange ActiveDateRange { get; set; }
 
@@ -32,7 +32,7 @@ namespace Mozu.Api.Contracts.Content
 			public DateTime? ContentUpdateDate { get; set; }
 
 			///
-			///Fully qualified name of the document type. 
+			///Fully qualified name of the document type.
 			///
 			public string DocumentTypeFQN { get; set; }
 

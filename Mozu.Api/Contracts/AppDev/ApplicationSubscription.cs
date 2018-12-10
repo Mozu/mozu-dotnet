@@ -30,17 +30,17 @@ namespace Mozu.Api.Contracts.AppDev
 			public int ApplicationSubscriptionId { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.ApplicationSubscription events ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.ApplicationSubscription events ApiTypeMember DOCUMENT_HERE
 			///
 			public List<Event> Events { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.ApplicationSubscription noCallback ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.ApplicationSubscription noCallback ApiTypeMember DOCUMENT_HERE
 			///
 			public bool NoCallback { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.ApplicationSubscription packageId ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.ApplicationSubscription packageId ApiTypeMember DOCUMENT_HERE
 			///
 			public int PackageId { get; set; }
 

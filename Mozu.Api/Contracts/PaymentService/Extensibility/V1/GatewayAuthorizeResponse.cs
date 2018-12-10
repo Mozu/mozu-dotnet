@@ -14,54 +14,24 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 {
-		///
-		///	Contains an authorization response
-		///
 		public class GatewayAuthorizeResponse
 		{
-			///
-			///Contains the auth code from the gateway.
-			///
 			public string AuthCode { get; set; }
 
-			///
-			///Contains the avs codes from the gateway.
-			///
 			public string AvsCodes { get; set; }
 
-			///
-			///Contains the CVV2 codes from the gateway.
-			///
 			public string CvV2Codes { get; set; }
 
-			///
-			///Set this to true if the transaction is declined or fails for any reason.
-			///
 			public bool IsDeclined { get; set; }
 
-			///
-			///Contains information about the interaction with the gateway.
-			///
 			public ConnectionStatuses RemoteConnectionStatus { get; set; }
 
-			///
-			///Contains the response code from the gateway.
-			///
 			public string ResponseCode { get; set; }
 
-			///
-			///Contains information not contained in the object allowing flexibility.
-			///
 			public List<KeyValueTuple> ResponseData { get; set; }
 
-			///
-			///Contains the text for the response,  'Insufficient funds'.
-			///
 			public string ResponseText { get; set; }
 
-			///
-			///Contains the id for the transaction provided by the gateway.
-			///
 			public string TransactionId { get; set; }
 
 		}
