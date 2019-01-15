@@ -96,6 +96,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// 
 		/// </summary>
 		/// <param name="responseFields"></param>
+		/// <param name="userId"></param>
 		/// <param name="credit">Properties of the store credit to create.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Credit.Credit"/>
@@ -103,13 +104,13 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <example>
 		/// <code>
 		///   var credit = new Credit();
-		///   var credit = await credit.AddCreditAsync( credit,  responseFields);
+		///   var credit = await credit.AddCreditAsync( credit,  userId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.Credit.Credit> AddCreditAsync(Mozu.Api.Contracts.Customer.Credit.Credit credit, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.Customer.Credit.Credit> AddCreditAsync(Mozu.Api.Contracts.Customer.Credit.Credit credit, string userId =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.Credit.Credit> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.CreditClient.AddCreditClient( credit,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Customer.CreditClient.AddCreditClient( credit,  userId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -146,19 +147,20 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// 
 		/// </summary>
 		/// <param name="code"></param>
+		/// <param name="userId"></param>
 		/// <returns>
 		/// 
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var credit = new Credit();
-		///   await credit.ResendCreditCreatedEmailAsync( code);
+		///   await credit.ResendCreditCreatedEmailAsync( code,  userId);
 		/// </code>
 		/// </example>
-		public virtual async Task ResendCreditCreatedEmailAsync(string code, CancellationToken ct = default(CancellationToken))
+		public virtual async Task ResendCreditCreatedEmailAsync(string code, string userId =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Customer.CreditClient.ResendCreditCreatedEmailClient( code);
+			var client = Mozu.Api.Clients.Commerce.Customer.CreditClient.ResendCreditCreatedEmailClient( code,  userId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 

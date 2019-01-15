@@ -33,6 +33,8 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public bool? UnlockAccount { get; set; }
 
+			public string UserId { get; set; }
+
 		}
 
 }

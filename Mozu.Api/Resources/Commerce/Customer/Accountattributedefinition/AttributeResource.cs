@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using System.Threading;
 
-namespace Mozu.Api.Resources.Commerce.Customer.B2battributedefinition
+namespace Mozu.Api.Resources.Commerce.Customer.Accountattributedefinition
 {
 	/// <summary>
 	/// 
@@ -59,7 +59,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.B2battributedefinition
 		public virtual async Task<Mozu.Api.Contracts.Core.Extensible.AttributeCollection> GetAttributesAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Core.Extensible.AttributeCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.B2battributedefinition.AttributeClient.GetAttributesClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Customer.Accountattributedefinition.AttributeClient.GetAttributesClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -83,7 +83,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.B2battributedefinition
 		public virtual async Task<List<Mozu.Api.Contracts.Core.Extensible.AttributeVocabularyValue>> GetAttributeVocabularyValuesAsync(string attributeFQN, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<List<Mozu.Api.Contracts.Core.Extensible.AttributeVocabularyValue>> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.B2battributedefinition.AttributeClient.GetAttributeVocabularyValuesClient( attributeFQN);
+			var client = Mozu.Api.Clients.Commerce.Customer.Accountattributedefinition.AttributeClient.GetAttributeVocabularyValuesClient( attributeFQN);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -108,7 +108,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.B2battributedefinition
 		public virtual async Task<Mozu.Api.Contracts.Core.Extensible.Attribute> GetAttributeAsync(string attributeFQN, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.B2battributedefinition.AttributeClient.GetAttributeClient( attributeFQN,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Customer.Accountattributedefinition.AttributeClient.GetAttributeClient( attributeFQN,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -133,7 +133,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.B2battributedefinition
 		public virtual async Task<Mozu.Api.Contracts.Core.Extensible.Attribute> CreateAttributeAsync(Mozu.Api.Contracts.Core.Extensible.Attribute attribute, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.B2battributedefinition.AttributeClient.CreateAttributeClient( attribute,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Customer.Accountattributedefinition.AttributeClient.CreateAttributeClient( attribute,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -159,7 +159,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.B2battributedefinition
 		public virtual async Task<Mozu.Api.Contracts.Core.Extensible.Attribute> UpdateAttributeAsync(Mozu.Api.Contracts.Core.Extensible.Attribute attribute, string attributeFQN, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.B2battributedefinition.AttributeClient.UpdateAttributeClient( attribute,  attributeFQN,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Customer.Accountattributedefinition.AttributeClient.UpdateAttributeClient( attribute,  attributeFQN,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();

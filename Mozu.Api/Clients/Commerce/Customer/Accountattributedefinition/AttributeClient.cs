@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using System.Threading;
 
-namespace Mozu.Api.Clients.Commerce.Customer.B2battributedefinition
+namespace Mozu.Api.Clients.Commerce.Customer.Accountattributedefinition
 {
 	/// <summary>
 	/// 
@@ -41,7 +41,7 @@ namespace Mozu.Api.Clients.Commerce.Customer.B2battributedefinition
 		/// </example>
 		public static MozuClient<Mozu.Api.Contracts.Core.Extensible.AttributeCollection> GetAttributesClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.B2battributedefinition.AttributeUrl.GetAttributesUrl(startIndex, pageSize, sortBy, filter, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Customer.Accountattributedefinition.AttributeUrl.GetAttributesUrl(startIndex, pageSize, sortBy, filter, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Core.Extensible.AttributeCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -65,7 +65,7 @@ namespace Mozu.Api.Clients.Commerce.Customer.B2battributedefinition
 		/// </example>
 		public static MozuClient<List<Mozu.Api.Contracts.Core.Extensible.AttributeVocabularyValue>> GetAttributeVocabularyValuesClient(string attributeFQN)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.B2battributedefinition.AttributeUrl.GetAttributeVocabularyValuesUrl(attributeFQN);
+			var url = Mozu.Api.Urls.Commerce.Customer.Accountattributedefinition.AttributeUrl.GetAttributeVocabularyValuesUrl(attributeFQN);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<List<Mozu.Api.Contracts.Core.Extensible.AttributeVocabularyValue>>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -90,7 +90,7 @@ namespace Mozu.Api.Clients.Commerce.Customer.B2battributedefinition
 		/// </example>
 		public static MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> GetAttributeClient(string attributeFQN, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.B2battributedefinition.AttributeUrl.GetAttributeUrl(attributeFQN, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Customer.Accountattributedefinition.AttributeUrl.GetAttributeUrl(attributeFQN, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -115,7 +115,7 @@ namespace Mozu.Api.Clients.Commerce.Customer.B2battributedefinition
 		/// </example>
 		public static MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> CreateAttributeClient(Mozu.Api.Contracts.Core.Extensible.Attribute attribute, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.B2battributedefinition.AttributeUrl.CreateAttributeUrl(responseFields);
+			var url = Mozu.Api.Urls.Commerce.Customer.Accountattributedefinition.AttributeUrl.CreateAttributeUrl(responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -141,7 +141,7 @@ namespace Mozu.Api.Clients.Commerce.Customer.B2battributedefinition
 		/// </example>
 		public static MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> UpdateAttributeClient(Mozu.Api.Contracts.Core.Extensible.Attribute attribute, string attributeFQN, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.B2battributedefinition.AttributeUrl.UpdateAttributeUrl(attributeFQN, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Customer.Accountattributedefinition.AttributeUrl.UpdateAttributeUrl(attributeFQN, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute>()
 									.WithVerb(verb).WithResourceUrl(url)

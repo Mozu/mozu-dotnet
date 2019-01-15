@@ -110,14 +110,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = CreditFactory.AddCredit(handler : handler,  credit :  credit,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CreditFactory.AddCredit(handler : handler,  credit :  credit,  userId :  userId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Credit/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.Credit.Credit AddCredit(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.Customer.Credit.Credit credit, string responseFields = null, 
+ 		 Mozu.Api.Contracts.Customer.Credit.Credit credit, string userId = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -125,7 +125,7 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.CreditClient.AddCreditClient(
-				 credit :  credit,  responseFields :  responseFields		);
+				 credit :  credit,  userId :  userId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -186,14 +186,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = CreditFactory.ResendCreditCreatedEmail(handler : handler,  code :  code,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CreditFactory.ResendCreditCreatedEmail(handler : handler,  code :  code,  userId :  userId,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static void ResendCreditCreatedEmail(ServiceClientMessageHandler handler, 
- 		string code, 
+ 		string code, string userId = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
@@ -201,7 +201,7 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.CreditClient.ResendCreditCreatedEmailClient(
-				 code :  code		);
+				 code :  code,  userId :  userId		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();

@@ -110,14 +110,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Carts
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = CartItemFactory.AddItemsToCart(handler : handler,  cartItems :  cartItems,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CartItemFactory.AddItemsToCart(handler : handler,  cartItems :  cartItems,  throwErrorOnInvalidItems :  throwErrorOnInvalidItems,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static void AddItemsToCart(ServiceClientMessageHandler handler, 
- 		List<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> cartItems, 
+ 		List<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> cartItems, bool? throwErrorOnInvalidItems = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
@@ -125,7 +125,7 @@ namespace Mozu.Api.Test.Factories.Commerce.Carts
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Carts.CartItemClient.AddItemsToCartClient(
-				 cartItems :  cartItems		);
+				 cartItems :  cartItems,  throwErrorOnInvalidItems :  throwErrorOnInvalidItems		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();

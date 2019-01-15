@@ -60,14 +60,16 @@ namespace Mozu.Api.Urls.Commerce.Customer
         /// Get Resource Url for AddCredit
         /// </summary>
         /// <param name="responseFields"></param>
+        /// <param name="userId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl AddCreditUrl(string responseFields =  null)
+        public static MozuUrl AddCreditUrl(string userId =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/credits/?responseFields={responseFields}";
+			var url = "/api/commerce/customer/credits/?userId={userId}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "userId", userId);
 			return mozuUrl;
 		}
 
@@ -92,14 +94,16 @@ namespace Mozu.Api.Urls.Commerce.Customer
         /// Get Resource Url for ResendCreditCreatedEmail
         /// </summary>
         /// <param name="code"></param>
+        /// <param name="userId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl ResendCreditCreatedEmailUrl(string code)
+        public static MozuUrl ResendCreditCreatedEmailUrl(string code, string userId =  null)
 		{
-			var url = "/api/commerce/customer/credits/{code}/Resend-Email";
+			var url = "/api/commerce/customer/credits/{code}/Resend-Email?userId={userId}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "code", code);
+			mozuUrl.FormatUrl( "userId", userId);
 			return mozuUrl;
 		}
 

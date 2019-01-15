@@ -91,6 +91,7 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="throwErrorOnInvalidItems"></param>
 		/// <param name="cartItems"></param>
 		/// <returns>
 		/// 
@@ -98,13 +99,13 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// <example>
 		/// <code>
 		///   var cartitem = new CartItem();
-		///   await cartitem.AddItemsToCartAsync( cartItems);
+		///   await cartitem.AddItemsToCartAsync( cartItems,  throwErrorOnInvalidItems);
 		/// </code>
 		/// </example>
-		public virtual async Task AddItemsToCartAsync(List<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> cartItems, CancellationToken ct = default(CancellationToken))
+		public virtual async Task AddItemsToCartAsync(List<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> cartItems, bool? throwErrorOnInvalidItems =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Carts.CartItemClient.AddItemsToCartClient( cartItems);
+			var client = Mozu.Api.Clients.Commerce.Carts.CartItemClient.AddItemsToCartClient( cartItems,  throwErrorOnInvalidItems);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 

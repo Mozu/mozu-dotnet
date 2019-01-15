@@ -45,19 +45,20 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <param name="accountId">Unique identifier of the customer account whose contact information is being retrieved.</param>
 		/// <param name="contactId">Unique identifier of the customer account contact to retrieve.</param>
 		/// <param name="responseFields"></param>
+		/// <param name="userId"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerContact"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customercontact = new CustomerContact();
-		///   var customerContact = await customercontact.GetAccountContactAsync( accountId,  contactId,  responseFields);
+		///   var customerContact = await customercontact.GetAccountContactAsync( accountId,  contactId,  userId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerContact> GetAccountContactAsync(int accountId, int contactId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerContact> GetAccountContactAsync(int accountId, int contactId, string userId =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerContact> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerContactClient.GetAccountContactClient( accountId,  contactId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerContactClient.GetAccountContactClient( accountId,  contactId,  userId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -74,19 +75,20 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <param name="responseFields"></param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
+		/// <param name="userId"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerContactCollection"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customercontact = new CustomerContact();
-		///   var customerContactCollection = await customercontact.GetAccountContactsAsync( accountId,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		///   var customerContactCollection = await customercontact.GetAccountContactsAsync( accountId,  startIndex,  pageSize,  sortBy,  filter,  userId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerContactCollection> GetAccountContactsAsync(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerContactCollection> GetAccountContactsAsync(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string userId =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerContactCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerContactClient.GetAccountContactsClient( accountId,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerContactClient.GetAccountContactsClient( accountId,  startIndex,  pageSize,  sortBy,  filter,  userId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -126,6 +128,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <param name="accountId">Unique identifier of the customer account whose contact information is being updated.</param>
 		/// <param name="contactId">Unique identifer of the customer account contact being updated.</param>
 		/// <param name="responseFields"></param>
+		/// <param name="userId"></param>
 		/// <param name="contact">All properties the updated contact will have. Required properties: Name and email address.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerContact"/>
@@ -133,13 +136,13 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <example>
 		/// <code>
 		///   var customercontact = new CustomerContact();
-		///   var customerContact = await customercontact.UpdateAccountContactAsync( contact,  accountId,  contactId,  responseFields);
+		///   var customerContact = await customercontact.UpdateAccountContactAsync( contact,  accountId,  contactId,  userId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerContact> UpdateAccountContactAsync(Mozu.Api.Contracts.Customer.CustomerContact contact, int accountId, int contactId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerContact> UpdateAccountContactAsync(Mozu.Api.Contracts.Customer.CustomerContact contact, int accountId, int contactId, string userId =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerContact> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerContactClient.UpdateAccountContactClient( contact,  accountId,  contactId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerContactClient.UpdateAccountContactClient( contact,  accountId,  contactId,  userId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();

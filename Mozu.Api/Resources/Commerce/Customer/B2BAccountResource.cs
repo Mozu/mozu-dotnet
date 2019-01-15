@@ -44,7 +44,6 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// </summary>
 		/// <param name="fields"></param>
 		/// <param name="filter"></param>
-		/// <param name="isAnonymous"></param>
 		/// <param name="pageSize"></param>
 		/// <param name="q"></param>
 		/// <param name="qLimit"></param>
@@ -57,13 +56,13 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <example>
 		/// <code>
 		///   var b2baccount = new B2BAccount();
-		///   var b2BAccountCollection = await b2baccount.GetB2BAccountsAsync( startIndex,  pageSize,  sortBy,  filter,  fields,  q,  qLimit,  isAnonymous,  responseFields);
+		///   var b2BAccountCollection = await b2baccount.GetB2BAccountsAsync( startIndex,  pageSize,  sortBy,  filter,  fields,  q,  qLimit,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.B2BAccountCollection> GetB2BAccountsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string fields =  null, string q =  null, int? qLimit =  null, bool? isAnonymous =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.Customer.B2BAccountCollection> GetB2BAccountsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string fields =  null, string q =  null, int? qLimit =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.B2BAccountCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.B2BAccountClient.GetB2BAccountsClient( startIndex,  pageSize,  sortBy,  filter,  fields,  q,  qLimit,  isAnonymous,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Customer.B2BAccountClient.GetB2BAccountsClient( startIndex,  pageSize,  sortBy,  filter,  fields,  q,  qLimit,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -119,31 +118,6 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerAttributeCollection> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.B2BAccountClient.GetB2BAccountAttributesClient( accountId,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
-			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
-			return await response.ResultAsync();
-
-		}
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="accountId"></param>
-		/// <param name="userId"></param>
-		/// <returns>
-		/// List{int}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var b2baccount = new B2BAccount();
-		///   var int = await b2baccount.GetUserBehaviorsAsync( accountId,  userId);
-		/// </code>
-		/// </example>
-		public virtual async Task<List<int>> GetUserBehaviorsAsync(int accountId, string userId, CancellationToken ct = default(CancellationToken))
-		{
-			MozuClient<List<int>> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.B2BAccountClient.GetUserBehaviorsClient( accountId,  userId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();

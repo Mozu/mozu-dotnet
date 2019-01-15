@@ -28,18 +28,19 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// <param name="accountId">Unique identifier of the customer account whose contact information is being retrieved.</param>
 		/// <param name="contactId">Unique identifier of the customer account contact to retrieve.</param>
 		/// <param name="responseFields"></param>
+		/// <param name="userId"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerContact"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetAccountContact( accountId,  contactId,  responseFields);
+		///   var mozuClient=GetAccountContact( accountId,  contactId,  userId,  responseFields);
 		///   var customerContactClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerContact> GetAccountContactClient(int accountId, int contactId, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerContact> GetAccountContactClient(int accountId, int contactId, string userId =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerContactUrl.GetAccountContactUrl(accountId, contactId, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerContactUrl.GetAccountContactUrl(accountId, contactId, userId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerContact>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -57,18 +58,19 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// <param name="responseFields"></param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
+		/// <param name="userId"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerContactCollection"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetAccountContacts( accountId,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		///   var mozuClient=GetAccountContacts( accountId,  startIndex,  pageSize,  sortBy,  filter,  userId,  responseFields);
 		///   var customerContactCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerContactCollection> GetAccountContactsClient(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerContactCollection> GetAccountContactsClient(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string userId =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerContactUrl.GetAccountContactsUrl(accountId, startIndex, pageSize, sortBy, filter, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerContactUrl.GetAccountContactsUrl(accountId, startIndex, pageSize, sortBy, filter, userId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerContactCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -109,19 +111,20 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// <param name="accountId">Unique identifier of the customer account whose contact information is being updated.</param>
 		/// <param name="contactId">Unique identifer of the customer account contact being updated.</param>
 		/// <param name="responseFields"></param>
+		/// <param name="userId"></param>
 		/// <param name="contact">All properties the updated contact will have. Required properties: Name and email address.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerContact"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateAccountContact( contact,  accountId,  contactId,  responseFields);
+		///   var mozuClient=UpdateAccountContact( contact,  accountId,  contactId,  userId,  responseFields);
 		///   var customerContactClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerContact> UpdateAccountContactClient(Mozu.Api.Contracts.Customer.CustomerContact contact, int accountId, int contactId, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerContact> UpdateAccountContactClient(Mozu.Api.Contracts.Customer.CustomerContact contact, int accountId, int contactId, string userId =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerContactUrl.UpdateAccountContactUrl(accountId, contactId, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerContactUrl.UpdateAccountContactUrl(accountId, contactId, userId, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerContact>()
 									.WithVerb(verb).WithResourceUrl(url)

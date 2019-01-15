@@ -27,7 +27,6 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// </summary>
 		/// <param name="fields"></param>
 		/// <param name="filter"></param>
-		/// <param name="isAnonymous"></param>
 		/// <param name="pageSize"></param>
 		/// <param name="q"></param>
 		/// <param name="qLimit"></param>
@@ -39,13 +38,13 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetB2BAccounts( startIndex,  pageSize,  sortBy,  filter,  fields,  q,  qLimit,  isAnonymous,  responseFields);
+		///   var mozuClient=GetB2BAccounts( startIndex,  pageSize,  sortBy,  filter,  fields,  q,  qLimit,  responseFields);
 		///   var b2BAccountCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.B2BAccountCollection> GetB2BAccountsClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string fields =  null, string q =  null, int? qLimit =  null, bool? isAnonymous =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Customer.B2BAccountCollection> GetB2BAccountsClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string fields =  null, string q =  null, int? qLimit =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.B2BAccountUrl.GetB2BAccountsUrl(startIndex, pageSize, sortBy, filter, fields, q, qLimit, isAnonymous, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Customer.B2BAccountUrl.GetB2BAccountsUrl(startIndex, pageSize, sortBy, filter, fields, q, qLimit, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.B2BAccountCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -103,31 +102,6 @@ namespace Mozu.Api.Clients.Commerce.Customer
 			var url = Mozu.Api.Urls.Commerce.Customer.B2BAccountUrl.GetB2BAccountAttributesUrl(accountId, startIndex, pageSize, sortBy, filter, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerAttributeCollection>()
-									.WithVerb(verb).WithResourceUrl(url)
-;
-			return mozuClient;
-
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="accountId"></param>
-		/// <param name="userId"></param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{List{int}}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetUserBehaviors( accountId,  userId);
-		///   var intClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<List<int>> GetUserBehaviorsClient(int accountId, string userId)
-		{
-			var url = Mozu.Api.Urls.Commerce.Customer.B2BAccountUrl.GetUserBehaviorsUrl(accountId, userId);
-			const string verb = "GET";
-			var mozuClient = new MozuClient<List<int>>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

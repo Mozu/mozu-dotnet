@@ -21,7 +21,6 @@ namespace Mozu.Api.Urls.Commerce.Customer
         /// </summary>
         /// <param name="fields"></param>
         /// <param name="filter"></param>
-        /// <param name="isAnonymous"></param>
         /// <param name="pageSize"></param>
         /// <param name="q"></param>
         /// <param name="qLimit"></param>
@@ -31,13 +30,12 @@ namespace Mozu.Api.Urls.Commerce.Customer
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetB2BAccountsUrl(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string fields =  null, string q =  null, int? qLimit =  null, bool? isAnonymous =  null, string responseFields =  null)
+        public static MozuUrl GetB2BAccountsUrl(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string fields =  null, string q =  null, int? qLimit =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/b2baccounts/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&fields={fields}&q={q}&qLimit={qLimit}&isAnonymous={isAnonymous}&responseFields={responseFields}";
+			var url = "/api/commerce/customer/b2baccounts/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&fields={fields}&q={q}&qLimit={qLimit}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "fields", fields);
 			mozuUrl.FormatUrl( "filter", filter);
-			mozuUrl.FormatUrl( "isAnonymous", isAnonymous);
 			mozuUrl.FormatUrl( "pageSize", pageSize);
 			mozuUrl.FormatUrl( "q", q);
 			mozuUrl.FormatUrl( "qLimit", qLimit);
@@ -88,23 +86,6 @@ namespace Mozu.Api.Urls.Commerce.Customer
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "sortBy", sortBy);
 			mozuUrl.FormatUrl( "startIndex", startIndex);
-			return mozuUrl;
-		}
-
-		/// <summary>
-        /// Get Resource Url for GetUserBehaviors
-        /// </summary>
-        /// <param name="accountId"></param>
-        /// <param name="userId"></param>
-        /// <returns>
-        /// String - Resource Url
-        /// </returns>
-        public static MozuUrl GetUserBehaviorsUrl(int accountId, string userId)
-		{
-			var url = "/api/commerce/customer/b2baccounts/{accountId}/user/{userId}/behaviors";
-			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "accountId", accountId);
-			mozuUrl.FormatUrl( "userId", userId);
 			return mozuUrl;
 		}
 

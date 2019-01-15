@@ -74,19 +74,20 @@ namespace Mozu.Api.Clients.Commerce.Carts
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="throwErrorOnInvalidItems"></param>
 		/// <param name="cartItems"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddItemsToCart( cartItems);
+		///   var mozuClient=AddItemsToCart( cartItems,  throwErrorOnInvalidItems);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient AddItemsToCartClient(List<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> cartItems)
+		public static MozuClient AddItemsToCartClient(List<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> cartItems, bool? throwErrorOnInvalidItems =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Carts.CartItemUrl.AddItemsToCartUrl();
+			var url = Mozu.Api.Urls.Commerce.Carts.CartItemUrl.AddItemsToCartUrl(throwErrorOnInvalidItems);
 			const string verb = "POST";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)

@@ -22,16 +22,18 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// <param name="accountId">Unique identifier of the customer account whose contact information is being retrieved.</param>
         /// <param name="contactId">Unique identifier of the customer account contact to retrieve.</param>
         /// <param name="responseFields"></param>
+        /// <param name="userId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetAccountContactUrl(int accountId, int contactId, string responseFields =  null)
+        public static MozuUrl GetAccountContactUrl(int accountId, int contactId, string userId =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/{accountId}/contacts/{contactId}?responseFields={responseFields}";
+			var url = "/api/commerce/customer/accounts/{accountId}/contacts/{contactId}?userId={userId}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "accountId", accountId);
 			mozuUrl.FormatUrl( "contactId", contactId);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "userId", userId);
 			return mozuUrl;
 		}
 
@@ -44,12 +46,13 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// <param name="responseFields"></param>
         /// <param name="sortBy"></param>
         /// <param name="startIndex"></param>
+        /// <param name="userId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetAccountContactsUrl(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+        public static MozuUrl GetAccountContactsUrl(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string userId =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/{accountId}/contacts?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
+			var url = "/api/commerce/customer/accounts/{accountId}/contacts?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&userId={userId}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "accountId", accountId);
 			mozuUrl.FormatUrl( "filter", filter);
@@ -57,6 +60,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "sortBy", sortBy);
 			mozuUrl.FormatUrl( "startIndex", startIndex);
+			mozuUrl.FormatUrl( "userId", userId);
 			return mozuUrl;
 		}
 
@@ -83,16 +87,18 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// <param name="accountId">Unique identifier of the customer account whose contact information is being updated.</param>
         /// <param name="contactId">Unique identifer of the customer account contact being updated.</param>
         /// <param name="responseFields"></param>
+        /// <param name="userId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateAccountContactUrl(int accountId, int contactId, string responseFields =  null)
+        public static MozuUrl UpdateAccountContactUrl(int accountId, int contactId, string userId =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/{accountId}/contacts/{contactId}?responseFields={responseFields}";
+			var url = "/api/commerce/customer/accounts/{accountId}/contacts/{contactId}?userId={userId}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "accountId", accountId);
 			mozuUrl.FormatUrl( "contactId", contactId);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "userId", userId);
 			return mozuUrl;
 		}
 

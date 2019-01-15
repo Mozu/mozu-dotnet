@@ -57,31 +57,6 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="responseFields"></param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.LoginState"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetLoginState( accountId,  responseFields);
-		///   var loginStateClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateClient(int accountId, string responseFields =  null)
-		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetLoginStateUrl(accountId, responseFields);
-			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.LoginState>()
-									.WithVerb(verb).WithResourceUrl(url)
-;
-			return mozuClient;
-
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account to retrieve.</param>
 		/// <param name="responseFields"></param>
 		/// <param name="userId"></param>
@@ -99,6 +74,32 @@ namespace Mozu.Api.Clients.Commerce.Customer
 			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetAccountUrl(accountId, userId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="userId"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.LoginState"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetLoginState( accountId,  userId,  responseFields);
+		///   var loginStateClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateClient(int accountId, string userId =  null, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetLoginStateUrl(accountId, userId, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.LoginState>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -135,19 +136,20 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// </summary>
 		/// <param name="accountId">The customer account information required to change the userpassword.</param>
 		/// <param name="unlockAccount"></param>
+		/// <param name="userId"></param>
 		/// <param name="passwordInfo">The password information required to change the user password.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=ChangePassword( passwordInfo,  accountId,  unlockAccount);
+		///   var mozuClient=ChangePassword( passwordInfo,  accountId,  unlockAccount,  userId);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient ChangePasswordClient(Mozu.Api.Contracts.Customer.PasswordInfo passwordInfo, int accountId, bool? unlockAccount =  null)
+		public static MozuClient ChangePasswordClient(Mozu.Api.Contracts.Customer.PasswordInfo passwordInfo, int accountId, bool? unlockAccount =  null, string userId =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.ChangePasswordUrl(accountId, unlockAccount);
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.ChangePasswordUrl(accountId, unlockAccount, userId);
 			const string verb = "POST";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -210,19 +212,20 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// 
 		/// </summary>
 		/// <param name="accountId">The unique identifier of the customer account.</param>
+		/// <param name="userId"></param>
 		/// <param name="isLocked">If true, the customer account is locked from logging in.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=SetLoginLocked( isLocked,  accountId);
+		///   var mozuClient=SetLoginLocked( isLocked,  accountId,  userId);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient SetLoginLockedClient(bool isLocked, int accountId)
+		public static MozuClient SetLoginLockedClient(bool isLocked, int accountId, string userId =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.SetLoginLockedUrl(accountId);
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.SetLoginLockedUrl(accountId, userId);
 			const string verb = "POST";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -235,19 +238,20 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// 
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="userId"></param>
 		/// <param name="isPasswordChangeRequired">If true, the password for the customer account must be changed.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=SetPasswordChangeRequired( isPasswordChangeRequired,  accountId);
+		///   var mozuClient=SetPasswordChangeRequired( isPasswordChangeRequired,  accountId,  userId);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient SetPasswordChangeRequiredClient(bool isPasswordChangeRequired, int accountId)
+		public static MozuClient SetPasswordChangeRequiredClient(bool isPasswordChangeRequired, int accountId, string userId =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.SetPasswordChangeRequiredUrl(accountId);
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.SetPasswordChangeRequiredUrl(accountId, userId);
 			const string verb = "POST";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -396,13 +400,13 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetCustomersPurchaseOrderAccounts( accountType,  startIndex,  pageSize,  sortBy,  responseFields);
+		///   var mozuClient=GetCustomersPurchaseOrderAccounts( startIndex,  pageSize,  sortBy,  accountType,  responseFields);
 		///   var customerPurchaseOrderAccountCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccountCollection> GetCustomersPurchaseOrderAccountsClient(string accountType =  null, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccountCollection> GetCustomersPurchaseOrderAccountsClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string accountType =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetCustomersPurchaseOrderAccountsUrl(accountType, startIndex, pageSize, sortBy, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetCustomersPurchaseOrderAccountsUrl(startIndex, pageSize, sortBy, accountType, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccountCollection>()
 									.WithVerb(verb).WithResourceUrl(url)

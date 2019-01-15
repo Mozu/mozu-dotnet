@@ -22,34 +22,34 @@ using System.Threading;
 
 #endregion
 
-namespace Mozu.Api.Test.Factories.Commerce.Customer.Accounts
+namespace Mozu.Api.Test.Factories.Commerce
 {
 	/// <summary>
-	/// Use the Attributes subresource to manage the attributes used to uniquely identify shopper accounts, such as gender or age.
+	/// 
 	/// </summary>
-	public partial class CustomerAttributeFactory : BaseDataFactory
+	public partial class QuoteFactory : BaseDataFactory
 	{
 
 		/// <summary> 
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAttributeFactory.GetAccountAttribute(handler : handler,  accountId :  accountId,  attributeFQN :  attributeFQN,  userId :  userId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<CustomerAttribute/>(result); 
+		/// var result = QuoteFactory.GetQuotes(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  q :  q,  qLimit :  qLimit,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<QuoteCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.Customer.CustomerAttribute GetAccountAttribute(ServiceClientMessageHandler handler, 
- 		 int accountId, string attributeFQN, string userId = null, string responseFields = null, 
+		public static Mozu.Api.Contracts.CommerceRuntime.Quotes.QuoteCollection GetQuotes(ServiceClientMessageHandler handler, 
+ 		 int? startIndex = null, int? pageSize = null, string sortBy = null, string filter = null, string q = null, int? qLimit = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.GetAccountAttributeClient(
-				 accountId :  accountId,  attributeFQN :  attributeFQN,  userId :  userId,  responseFields :  responseFields		);
+			var apiClient = Mozu.Api.Clients.Commerce.QuoteClient.GetQuotesClient(
+				 startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  q :  q,  qLimit :  qLimit,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -72,22 +72,22 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer.Accounts
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAttributeFactory.GetAccountAttributes(handler : handler,  accountId :  accountId,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  userId :  userId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<CustomerAttributeCollection/>(result); 
+		/// var result = QuoteFactory.GetQuote(handler : handler,  quoteId :  quoteId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Quote/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.Customer.CustomerAttributeCollection GetAccountAttributes(ServiceClientMessageHandler handler, 
- 		 int accountId, int? startIndex = null, int? pageSize = null, string sortBy = null, string filter = null, string userId = null, string responseFields = null, 
+		public static Mozu.Api.Contracts.CommerceRuntime.Quotes.Quote GetQuote(ServiceClientMessageHandler handler, 
+ 		 string quoteId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.GetAccountAttributesClient(
-				 accountId :  accountId,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  userId :  userId,  responseFields :  responseFields		);
+			var apiClient = Mozu.Api.Clients.Commerce.QuoteClient.GetQuoteClient(
+				 quoteId :  quoteId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -110,22 +110,60 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer.Accounts
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAttributeFactory.AddAccountAttribute(handler : handler,  attribute :  attribute,  accountId :  accountId,  userId :  userId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<CustomerAttribute/>(result); 
+		/// var result = QuoteFactory.GetQuoteByName(handler : handler,  customerAccountId :  customerAccountId,  quoteName :  quoteName,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Quote/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.Customer.CustomerAttribute AddAccountAttribute(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.Customer.CustomerAttribute attribute, int accountId, string userId = null, string responseFields = null, 
+		public static Mozu.Api.Contracts.CommerceRuntime.Quotes.Quote GetQuoteByName(ServiceClientMessageHandler handler, 
+ 		 int customerAccountId, string quoteName, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.QuoteClient.GetQuoteByNameClient(
+				 customerAccountId :  customerAccountId,  quoteName :  quoteName,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = QuoteFactory.CreateQuote(handler : handler,  quote :  quote,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Quote/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.CommerceRuntime.Quotes.Quote CreateQuote(ServiceClientMessageHandler handler, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Quotes.Quote quote, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.AddAccountAttributeClient(
-				 attribute :  attribute,  accountId :  accountId,  userId :  userId,  responseFields :  responseFields		);
+			var apiClient = Mozu.Api.Clients.Commerce.QuoteClient.CreateQuoteClient(
+				 quote :  quote,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -148,22 +186,22 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer.Accounts
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAttributeFactory.UpdateAccountAttribute(handler : handler,  attribute :  attribute,  accountId :  accountId,  attributeFQN :  attributeFQN,  userId :  userId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<CustomerAttribute/>(result); 
+		/// var result = QuoteFactory.UpdateQuote(handler : handler,  quote :  quote,  quoteId :  quoteId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Quote/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.Customer.CustomerAttribute UpdateAccountAttribute(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.Customer.CustomerAttribute attribute, int accountId, string attributeFQN, string userId = null, string responseFields = null, 
+		public static Mozu.Api.Contracts.CommerceRuntime.Quotes.Quote UpdateQuote(ServiceClientMessageHandler handler, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Quotes.Quote quote, string quoteId, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.UpdateAccountAttributeClient(
-				 attribute :  attribute,  accountId :  accountId,  attributeFQN :  attributeFQN,  userId :  userId,  responseFields :  responseFields		);
+			var apiClient = Mozu.Api.Clients.Commerce.QuoteClient.UpdateQuoteClient(
+				 quote :  quote,  quoteId :  quoteId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -186,22 +224,22 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer.Accounts
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAttributeFactory.DeleteAccountAttribute(handler : handler,  accountId :  accountId,  attributeFQN :  attributeFQN,  userId :  userId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = QuoteFactory.DeleteQuote(handler : handler,  quoteId :  quoteId,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<void/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeleteAccountAttribute(ServiceClientMessageHandler handler, 
- 		int accountId, string attributeFQN, string userId = null, 
+		public static void DeleteQuote(ServiceClientMessageHandler handler, 
+ 		string quoteId, 
 		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.DeleteAccountAttributeClient(
-				 accountId :  accountId,  attributeFQN :  attributeFQN,  userId :  userId		);
+			var apiClient = Mozu.Api.Clients.Commerce.QuoteClient.DeleteQuoteClient(
+				 quoteId :  quoteId		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();

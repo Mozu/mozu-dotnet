@@ -79,19 +79,20 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// 
 		/// </summary>
 		/// <param name="responseFields"></param>
+		/// <param name="userId"></param>
 		/// <param name="credit">Properties of the store credit to create.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.Credit.Credit"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddCredit( credit,  responseFields);
+		///   var mozuClient=AddCredit( credit,  userId,  responseFields);
 		///   var creditClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.Credit.Credit> AddCreditClient(Mozu.Api.Contracts.Customer.Credit.Credit credit, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Customer.Credit.Credit> AddCreditClient(Mozu.Api.Contracts.Customer.Credit.Credit credit, string userId =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CreditUrl.AddCreditUrl(responseFields);
+			var url = Mozu.Api.Urls.Commerce.Customer.CreditUrl.AddCreditUrl(userId, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.Credit.Credit>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -129,18 +130,19 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// 
 		/// </summary>
 		/// <param name="code"></param>
+		/// <param name="userId"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=ResendCreditCreatedEmail( code);
+		///   var mozuClient=ResendCreditCreatedEmail( code,  userId);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient ResendCreditCreatedEmailClient(string code)
+		public static MozuClient ResendCreditCreatedEmailClient(string code, string userId =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CreditUrl.ResendCreditCreatedEmailUrl(code);
+			var url = Mozu.Api.Urls.Commerce.Customer.CreditUrl.ResendCreditCreatedEmailUrl(code, userId);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)

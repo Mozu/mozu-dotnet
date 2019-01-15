@@ -34,14 +34,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer.Accounts
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerContactFactory.GetAccountContact(handler : handler,  accountId :  accountId,  contactId :  contactId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CustomerContactFactory.GetAccountContact(handler : handler,  accountId :  accountId,  contactId :  contactId,  userId :  userId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CustomerContact/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.CustomerContact GetAccountContact(ServiceClientMessageHandler handler, 
- 		 int accountId, int contactId, string responseFields = null, 
+ 		 int accountId, int contactId, string userId = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -49,7 +49,7 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer.Accounts
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerContactClient.GetAccountContactClient(
-				 accountId :  accountId,  contactId :  contactId,  responseFields :  responseFields		);
+				 accountId :  accountId,  contactId :  contactId,  userId :  userId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -72,14 +72,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer.Accounts
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerContactFactory.GetAccountContacts(handler : handler,  accountId :  accountId,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CustomerContactFactory.GetAccountContacts(handler : handler,  accountId :  accountId,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  userId :  userId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CustomerContactCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.CustomerContactCollection GetAccountContacts(ServiceClientMessageHandler handler, 
- 		 int accountId, int? startIndex = null, int? pageSize = null, string sortBy = null, string filter = null, string responseFields = null, 
+ 		 int accountId, int? startIndex = null, int? pageSize = null, string sortBy = null, string filter = null, string userId = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -87,7 +87,7 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer.Accounts
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerContactClient.GetAccountContactsClient(
-				 accountId :  accountId,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  responseFields :  responseFields		);
+				 accountId :  accountId,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  userId :  userId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -148,14 +148,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer.Accounts
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerContactFactory.UpdateAccountContact(handler : handler,  contact :  contact,  accountId :  accountId,  contactId :  contactId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = CustomerContactFactory.UpdateAccountContact(handler : handler,  contact :  contact,  accountId :  accountId,  contactId :  contactId,  userId :  userId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<CustomerContact/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Customer.CustomerContact UpdateAccountContact(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.Customer.CustomerContact contact, int accountId, int contactId, string responseFields = null, 
+ 		 Mozu.Api.Contracts.Customer.CustomerContact contact, int accountId, int contactId, string userId = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -163,7 +163,7 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer.Accounts
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerContactClient.UpdateAccountContactClient(
-				 contact :  contact,  accountId :  accountId,  contactId :  contactId,  responseFields :  responseFields		);
+				 contact :  contact,  accountId :  accountId,  contactId :  contactId,  userId :  userId,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();

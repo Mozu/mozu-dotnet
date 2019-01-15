@@ -51,13 +51,15 @@ namespace Mozu.Api.Urls.Commerce.Carts
 				/// <summary>
         /// Get Resource Url for AddItemsToCart
         /// </summary>
+        /// <param name="throwErrorOnInvalidItems"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl AddItemsToCartUrl()
+        public static MozuUrl AddItemsToCartUrl(bool? throwErrorOnInvalidItems =  null)
 		{
-			var url = "/api/commerce/carts/current/bulkitems";
+			var url = "/api/commerce/carts/current/bulkitems?throwErrorOnInvalidItems={throwErrorOnInvalidItems}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "throwErrorOnInvalidItems", throwErrorOnInvalidItems);
 			return mozuUrl;
 		}
 

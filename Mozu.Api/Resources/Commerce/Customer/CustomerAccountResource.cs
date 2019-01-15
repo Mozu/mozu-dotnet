@@ -74,31 +74,6 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="responseFields"></param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Customer.LoginState"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var customeraccount = new CustomerAccount();
-		///   var loginState = await customeraccount.GetLoginStateAsync( accountId,  responseFields);
-		/// </code>
-		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateAsync(int accountId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
-		{
-			MozuClient<Mozu.Api.Contracts.Customer.LoginState> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetLoginStateClient( accountId,  responseFields);
-			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
-			return await response.ResultAsync();
-
-		}
-
-
-		/// <summary>
-		/// 
-		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account to retrieve.</param>
 		/// <param name="responseFields"></param>
 		/// <param name="userId"></param>
@@ -115,6 +90,32 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetAccountClient( accountId,  userId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="userId"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.LoginState"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customeraccount = new CustomerAccount();
+		///   var loginState = await customeraccount.GetLoginStateAsync( accountId,  userId,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateAsync(int accountId, string userId =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.Customer.LoginState> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetLoginStateClient( accountId,  userId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -152,6 +153,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// </summary>
 		/// <param name="accountId">The customer account information required to change the userpassword.</param>
 		/// <param name="unlockAccount"></param>
+		/// <param name="userId"></param>
 		/// <param name="passwordInfo">The password information required to change the user password.</param>
 		/// <returns>
 		/// 
@@ -159,13 +161,13 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <example>
 		/// <code>
 		///   var customeraccount = new CustomerAccount();
-		///   await customeraccount.ChangePasswordAsync( passwordInfo,  accountId,  unlockAccount);
+		///   await customeraccount.ChangePasswordAsync( passwordInfo,  accountId,  unlockAccount,  userId);
 		/// </code>
 		/// </example>
-		public virtual async Task ChangePasswordAsync(Mozu.Api.Contracts.Customer.PasswordInfo passwordInfo, int accountId, bool? unlockAccount =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task ChangePasswordAsync(Mozu.Api.Contracts.Customer.PasswordInfo passwordInfo, int accountId, bool? unlockAccount =  null, string userId =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.ChangePasswordClient( passwordInfo,  accountId,  unlockAccount);
+			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.ChangePasswordClient( passwordInfo,  accountId,  unlockAccount,  userId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
@@ -225,6 +227,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// 
 		/// </summary>
 		/// <param name="accountId">The unique identifier of the customer account.</param>
+		/// <param name="userId"></param>
 		/// <param name="isLocked">If true, the customer account is locked from logging in.</param>
 		/// <returns>
 		/// 
@@ -232,13 +235,13 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <example>
 		/// <code>
 		///   var customeraccount = new CustomerAccount();
-		///   await customeraccount.SetLoginLockedAsync( isLocked,  accountId);
+		///   await customeraccount.SetLoginLockedAsync( isLocked,  accountId,  userId);
 		/// </code>
 		/// </example>
-		public virtual async Task SetLoginLockedAsync(bool isLocked, int accountId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task SetLoginLockedAsync(bool isLocked, int accountId, string userId =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.SetLoginLockedClient( isLocked,  accountId);
+			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.SetLoginLockedClient( isLocked,  accountId,  userId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
@@ -249,6 +252,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// 
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="userId"></param>
 		/// <param name="isPasswordChangeRequired">If true, the password for the customer account must be changed.</param>
 		/// <returns>
 		/// 
@@ -256,13 +260,13 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <example>
 		/// <code>
 		///   var customeraccount = new CustomerAccount();
-		///   await customeraccount.SetPasswordChangeRequiredAsync( isPasswordChangeRequired,  accountId);
+		///   await customeraccount.SetPasswordChangeRequiredAsync( isPasswordChangeRequired,  accountId,  userId);
 		/// </code>
 		/// </example>
-		public virtual async Task SetPasswordChangeRequiredAsync(bool isPasswordChangeRequired, int accountId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task SetPasswordChangeRequiredAsync(bool isPasswordChangeRequired, int accountId, string userId =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.SetPasswordChangeRequiredClient( isPasswordChangeRequired,  accountId);
+			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.SetPasswordChangeRequiredClient( isPasswordChangeRequired,  accountId,  userId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
@@ -410,13 +414,13 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <example>
 		/// <code>
 		///   var customeraccount = new CustomerAccount();
-		///   var customerPurchaseOrderAccountCollection = await customeraccount.GetCustomersPurchaseOrderAccountsAsync( accountType,  startIndex,  pageSize,  sortBy,  responseFields);
+		///   var customerPurchaseOrderAccountCollection = await customeraccount.GetCustomersPurchaseOrderAccountsAsync( startIndex,  pageSize,  sortBy,  accountType,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccountCollection> GetCustomersPurchaseOrderAccountsAsync(string accountType =  null, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccountCollection> GetCustomersPurchaseOrderAccountsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string accountType =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccountCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetCustomersPurchaseOrderAccountsClient( accountType,  startIndex,  pageSize,  sortBy,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetCustomersPurchaseOrderAccountsClient( startIndex,  pageSize,  sortBy,  accountType,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();

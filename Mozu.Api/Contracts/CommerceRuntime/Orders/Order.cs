@@ -59,8 +59,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 
 			public List<string> AvailableActions { get; set; }
 
-			public int? B2bAccountId { get; set; }
-
 			public BillingInfo BillingInfo { get; set; }
 
 			public DateTime? CancelledDate { get; set; }

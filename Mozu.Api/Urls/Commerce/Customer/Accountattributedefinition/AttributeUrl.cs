@@ -11,7 +11,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Mozu.Api.Urls.Commerce.Customer.B2battributedefinition
+namespace Mozu.Api.Urls.Commerce.Customer.Accountattributedefinition
 {
 	public partial class AttributeUrl 
 	{
@@ -29,7 +29,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.B2battributedefinition
         /// </returns>
         public static MozuUrl GetAttributesUrl(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/b2battributedefinition/attributes/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
+			var url = "/api/commerce/customer/accountattributedefinition/attributes/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "filter", filter);
 			mozuUrl.FormatUrl( "pageSize", pageSize);
@@ -48,7 +48,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.B2battributedefinition
         /// </returns>
         public static MozuUrl GetAttributeVocabularyValuesUrl(string attributeFQN)
 		{
-			var url = "/api/commerce/customer/b2battributedefinition/attributes/{attributeFQN}/VocabularyValues";
+			var url = "/api/commerce/customer/accountattributedefinition/attributes/{attributeFQN}/VocabularyValues";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "attributeFQN", attributeFQN);
 			return mozuUrl;
@@ -64,7 +64,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.B2battributedefinition
         /// </returns>
         public static MozuUrl GetAttributeUrl(string attributeFQN, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/b2battributedefinition/attributes/{attributeFQN}?responseFields={responseFields}";
+			var url = "/api/commerce/customer/accountattributedefinition/attributes/{attributeFQN}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "attributeFQN", attributeFQN);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
@@ -80,7 +80,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.B2battributedefinition
         /// </returns>
         public static MozuUrl CreateAttributeUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/b2battributedefinition/attributes/?responseFields={responseFields}";
+			var url = "/api/commerce/customer/accountattributedefinition/attributes/?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
@@ -96,7 +96,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.B2battributedefinition
         /// </returns>
         public static MozuUrl UpdateAttributeUrl(string attributeFQN, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/b2battributedefinition/attributes/{attributeFQN}?responseFields={responseFields}";
+			var url = "/api/commerce/customer/accountattributedefinition/attributes/{attributeFQN}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "attributeFQN", attributeFQN);
 			mozuUrl.FormatUrl( "responseFields", responseFields);

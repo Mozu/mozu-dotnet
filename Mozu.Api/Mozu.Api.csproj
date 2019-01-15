@@ -156,6 +156,7 @@
     <Compile Include="Clients\Commerce\Checkouts\OrderAttributeClient.cs" />
     <Compile Include="Clients\Commerce\Checkouts\OrderItemClient.cs" />
     <Compile Include="Clients\Commerce\Checkouts\PaymentClient.cs" />
+    <Compile Include="Clients\Commerce\Customer\Accountattributedefinition\AttributeClient.cs" />
     <Compile Include="Clients\Commerce\Customer\Accounts\CardClient.cs" />
     <Compile Include="Clients\Commerce\Customer\Accounts\CustomerAttributeClient.cs" />
     <Compile Include="Clients\Commerce\Customer\Accounts\CustomerAuditEntryClient.cs" />
@@ -167,7 +168,6 @@
     <Compile Include="Clients\Commerce\Customer\AddressValidationRequestClient.cs" />
     <Compile Include="Clients\Commerce\Customer\Attributedefinition\AttributeClient.cs" />
     <Compile Include="Clients\Commerce\Customer\B2BAccountClient.cs" />
-    <Compile Include="Clients\Commerce\Customer\B2battributedefinition\AttributeClient.cs" />
     <Compile Include="Clients\Commerce\Customer\CreditClient.cs" />
     <Compile Include="Clients\Commerce\Customer\Credits\CreditAuditEntryClient.cs" />
     <Compile Include="Clients\Commerce\Customer\Credits\CreditTransactionClient.cs" />
@@ -200,6 +200,8 @@
     <Compile Include="Clients\Commerce\Payments\FraudScreenClient.cs" />
     <Compile Include="Clients\Commerce\Payments\PublicCardClient.cs" />
     <Compile Include="Clients\Commerce\Payments\PublicTokenClient.cs" />
+    <Compile Include="Clients\Commerce\QuoteClient.cs" />
+    <Compile Include="Clients\Commerce\Quotes\OrderItemClient.cs" />
     <Compile Include="Clients\Commerce\ReturnClient.cs" />
     <Compile Include="Clients\Commerce\Returns\OrderNoteClient.cs" />
     <Compile Include="Clients\Commerce\Returns\PackageClient.cs" />
@@ -363,6 +365,9 @@
     <Compile Include="Contracts\CommerceRuntime\Products\ProductPrice.cs" />
     <Compile Include="Contracts\CommerceRuntime\Products\ProductProperty.cs" />
     <Compile Include="Contracts\CommerceRuntime\Products\ProductPropertyValue.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Quotes\Quote.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Quotes\QuoteCollection.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Quotes\QuoteItemCollection.cs" />
     <Compile Include="Contracts\CommerceRuntime\Refunds\Refund.cs" />
     <Compile Include="Contracts\CommerceRuntime\Returns\ReasonCollection.cs" />
     <Compile Include="Contracts\CommerceRuntime\Returns\Return.cs" />
@@ -911,6 +916,7 @@
     <Compile Include="Resources\Commerce\Checkouts\OrderAttributeResource.cs" />
     <Compile Include="Resources\Commerce\Checkouts\OrderItemResource.cs" />
     <Compile Include="Resources\Commerce\Checkouts\PaymentResource.cs" />
+    <Compile Include="Resources\Commerce\Customer\Accountattributedefinition\AttributeResource.cs" />
     <Compile Include="Resources\Commerce\Customer\Accounts\CardResource.cs" />
     <Compile Include="Resources\Commerce\Customer\Accounts\CustomerAttributeResource.cs" />
     <Compile Include="Resources\Commerce\Customer\Accounts\CustomerAuditEntryResource.cs" />
@@ -922,7 +928,6 @@
     <Compile Include="Resources\Commerce\Customer\AddressValidationRequestResource.cs" />
     <Compile Include="Resources\Commerce\Customer\Attributedefinition\AttributeResource.cs" />
     <Compile Include="Resources\Commerce\Customer\B2BAccountResource.cs" />
-    <Compile Include="Resources\Commerce\Customer\B2battributedefinition\AttributeResource.cs" />
     <Compile Include="Resources\Commerce\Customer\CreditResource.cs" />
     <Compile Include="Resources\Commerce\Customer\Credits\CreditAuditEntryResource.cs" />
     <Compile Include="Resources\Commerce\Customer\Credits\CreditTransactionResource.cs" />
@@ -955,6 +960,8 @@
     <Compile Include="Resources\Commerce\Payments\FraudScreenResource.cs" />
     <Compile Include="Resources\Commerce\Payments\PublicCardResource.cs" />
     <Compile Include="Resources\Commerce\Payments\PublicTokenResource.cs" />
+    <Compile Include="Resources\Commerce\QuoteResource.cs" />
+    <Compile Include="Resources\Commerce\Quotes\OrderItemResource.cs" />
     <Compile Include="Resources\Commerce\ReturnResource.cs" />
     <Compile Include="Resources\Commerce\Returns\OrderNoteResource.cs" />
     <Compile Include="Resources\Commerce\Returns\PackageResource.cs" />
@@ -1066,6 +1073,7 @@
     <Compile Include="Urls\Commerce\Checkouts\OrderItemUrl.cs" />
     <Compile Include="Urls\Commerce\Checkouts\PaymentUrl.cs" />
     <Compile Include="Urls\Commerce\CheckoutUrl.cs" />
+    <Compile Include="Urls\Commerce\Customer\Accountattributedefinition\AttributeUrl.cs" />
     <Compile Include="Urls\Commerce\Customer\Accounts\CardUrl.cs" />
     <Compile Include="Urls\Commerce\Customer\Accounts\CustomerAttributeUrl.cs" />
     <Compile Include="Urls\Commerce\Customer\Accounts\CustomerAuditEntryUrl.cs" />
@@ -1077,7 +1085,6 @@
     <Compile Include="Urls\Commerce\Customer\AddressValidationRequestUrl.cs" />
     <Compile Include="Urls\Commerce\Customer\Attributedefinition\AttributeUrl.cs" />
     <Compile Include="Urls\Commerce\Customer\B2BAccountUrl.cs" />
-    <Compile Include="Urls\Commerce\Customer\B2battributedefinition\AttributeUrl.cs" />
     <Compile Include="Urls\Commerce\Customer\Credits\CreditAuditEntryUrl.cs" />
     <Compile Include="Urls\Commerce\Customer\Credits\CreditTransactionUrl.cs" />
     <Compile Include="Urls\Commerce\Customer\CreditUrl.cs" />
@@ -1110,6 +1117,8 @@
     <Compile Include="Urls\Commerce\Payments\FraudScreenUrl.cs" />
     <Compile Include="Urls\Commerce\Payments\PublicCardUrl.cs" />
     <Compile Include="Urls\Commerce\Payments\PublicTokenUrl.cs" />
+    <Compile Include="Urls\Commerce\Quotes\OrderItemUrl.cs" />
+    <Compile Include="Urls\Commerce\QuoteUrl.cs" />
     <Compile Include="Urls\Commerce\Returns\OrderNoteUrl.cs" />
     <Compile Include="Urls\Commerce\Returns\PackageUrl.cs" />
     <Compile Include="Urls\Commerce\Returns\ShipmentUrl.cs" />

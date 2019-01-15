@@ -51,8 +51,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 			///
 			public List<string> AvailableActions { get; set; }
 
-			public int? B2bAccountId { get; set; }
-
 			///
 			///Code that identifies the channel associated with the site for the shopper's created shopping cart, order, and return.
 			///
