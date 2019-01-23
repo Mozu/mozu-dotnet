@@ -57,7 +57,7 @@ namespace Mozu.Api.Urls.Commerce.Checkouts
 		/// <summary>
         /// Get Resource Url for AddCheckoutItem
         /// </summary>
-        /// <param name="checkoutId"></param>
+        /// <param name="checkoutId">The unique identifier of the checkout.</param>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
@@ -95,8 +95,8 @@ namespace Mozu.Api.Urls.Commerce.Checkouts
 				/// <summary>
         /// Get Resource Url for DeleteCheckoutItem
         /// </summary>
-        /// <param name="checkoutId"></param>
-        /// <param name="itemId"></param>
+        /// <param name="checkoutId">The unique identifier of the checkout.</param>
+        /// <param name="itemId">The unique identifier of the item.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

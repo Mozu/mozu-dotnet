@@ -25,6 +25,10 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Discounts
 			///
 			public int DiscountId { get; set; }
 
+			public bool HasMultipleProducts { get; set; }
+
+			public bool HasOptions { get; set; }
+
 			///
 			///The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			///

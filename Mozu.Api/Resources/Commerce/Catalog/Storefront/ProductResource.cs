@@ -115,19 +115,20 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
 		/// <param name="supressOutOfStock404">Specifies whether to supress the 404 error when the product is out of stock.</param>
 		/// <param name="variationProductCode">Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.</param>
+		/// <param name="variationProductCodeFilter"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.Product"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var product = await product.GetProductAsync(_dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  supressOutOfStock404,  quantity,  acceptVariantProductCode,  purchaseLocation,  responseFields);
+		///   var product = await product.GetProductAsync(_dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  supressOutOfStock404,  quantity,  acceptVariantProductCode,  purchaseLocation,  variationProductCodeFilter,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.Product> GetProductAsync(string productCode, string variationProductCode =  null, bool? allowInactive =  null, bool? skipInventoryCheck =  null, bool? supressOutOfStock404 =  null, int? quantity =  null, bool? acceptVariantProductCode =  null, string purchaseLocation =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.Product> GetProductAsync(string productCode, string variationProductCode =  null, bool? allowInactive =  null, bool? skipInventoryCheck =  null, bool? supressOutOfStock404 =  null, int? quantity =  null, bool? acceptVariantProductCode =  null, string purchaseLocation =  null, string variationProductCodeFilter =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.Product> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductClient(_dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  supressOutOfStock404,  quantity,  acceptVariantProductCode,  purchaseLocation,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductClient(_dataViewMode,  productCode,  variationProductCode,  allowInactive,  skipInventoryCheck,  supressOutOfStock404,  quantity,  acceptVariantProductCode,  purchaseLocation,  variationProductCodeFilter,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -171,6 +172,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
+		/// <param name="variationProductCodeFilter"></param>
 		/// <param name="productOptionSelections">For a product with shopper-configurable options, the properties of the product options selected by the shopper.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductRuntime.ConfiguredProduct"/>
@@ -178,13 +180,13 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   var configuredProduct = await product.ConfiguredProductAsync( productOptionSelections,  productCode,  includeOptionDetails,  skipInventoryCheck,  quantity,  purchaseLocation,  responseFields);
+		///   var configuredProduct = await product.ConfiguredProductAsync( productOptionSelections,  productCode,  includeOptionDetails,  skipInventoryCheck,  quantity,  purchaseLocation,  variationProductCodeFilter,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.ConfiguredProduct> ConfiguredProductAsync(Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode, bool? includeOptionDetails =  null, bool? skipInventoryCheck =  null, int? quantity =  null, string purchaseLocation =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.ConfiguredProduct> ConfiguredProductAsync(Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode, bool? includeOptionDetails =  null, bool? skipInventoryCheck =  null, int? quantity =  null, string purchaseLocation =  null, string variationProductCodeFilter =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductRuntime.ConfiguredProduct> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.ConfiguredProductClient( productOptionSelections,  productCode,  includeOptionDetails,  skipInventoryCheck,  quantity,  purchaseLocation,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.ConfiguredProductClient( productOptionSelections,  productCode,  includeOptionDetails,  skipInventoryCheck,  quantity,  purchaseLocation,  variationProductCodeFilter,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();

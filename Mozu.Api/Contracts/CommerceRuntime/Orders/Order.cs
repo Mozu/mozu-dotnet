@@ -259,6 +259,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public List<Refund> Refunds { get; set; }
 
+			public List<SuggestedDiscount> RejectedDiscounts { get; set; }
+
 			public string ReturnStatus { get; set; }
 
 			public List<Shipment> Shipments { get; set; }
@@ -312,6 +314,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///This specifies the order type. This means, was this order placed online or offline? Online means shopper created the order at checkout, offline means the order was a phone order.
 			///
 			public string Type { get; set; }
+
+			public string UserId { get; set; }
 
 			///
 			///Response returned by an order validation capability application.

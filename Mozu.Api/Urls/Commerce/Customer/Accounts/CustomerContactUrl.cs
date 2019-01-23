@@ -22,16 +22,18 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// <param name="accountId">Unique identifier of the customer account.</param>
         /// <param name="contactId">Unique identifer of the customer account contact being updated.</param>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="userId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetAccountContactUrl(int accountId, int contactId, string responseFields =  null)
+        public static MozuUrl GetAccountContactUrl(int accountId, int contactId, string userId =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/{accountId}/contacts/{contactId}?responseFields={responseFields}";
+			var url = "/api/commerce/customer/accounts/{accountId}/contacts/{contactId}?userId={userId}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "accountId", accountId);
 			mozuUrl.FormatUrl( "contactId", contactId);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "userId", userId);
 			return mozuUrl;
 		}
 
@@ -44,12 +46,13 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
         /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+        /// <param name="userId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetAccountContactsUrl(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+        public static MozuUrl GetAccountContactsUrl(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string userId =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/{accountId}/contacts?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}";
+			var url = "/api/commerce/customer/accounts/{accountId}/contacts?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&userId={userId}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "accountId", accountId);
 			mozuUrl.FormatUrl( "filter", filter);
@@ -57,6 +60,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "sortBy", sortBy);
 			mozuUrl.FormatUrl( "startIndex", startIndex);
+			mozuUrl.FormatUrl( "userId", userId);
 			return mozuUrl;
 		}
 
@@ -83,16 +87,18 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// <param name="accountId">Unique identifier of the customer account.</param>
         /// <param name="contactId">Unique identifer of the customer account contact being updated.</param>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="userId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateAccountContactUrl(int accountId, int contactId, string responseFields =  null)
+        public static MozuUrl UpdateAccountContactUrl(int accountId, int contactId, string userId =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/{accountId}/contacts/{contactId}?responseFields={responseFields}";
+			var url = "/api/commerce/customer/accounts/{accountId}/contacts/{contactId}?userId={userId}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "accountId", accountId);
 			mozuUrl.FormatUrl( "contactId", contactId);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "userId", userId);
 			return mozuUrl;
 		}
 

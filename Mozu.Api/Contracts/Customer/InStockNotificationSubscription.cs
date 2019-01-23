@@ -49,6 +49,8 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public string ProductCode { get; set; }
 
+			public string UserId { get; set; }
+
 		}
 
 }

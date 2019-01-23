@@ -99,6 +99,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 
 			public string PrivacyType { get; set; }
 
+			public List<SuggestedDiscount> RejectedDiscounts { get; set; }
+
 			///
 			///The total shipping amount for the wishlist before discounts and adjustments.
 			///
@@ -133,6 +135,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			public decimal? Total { get; set; }
 
 			public string TypeTag { get; set; }
+
+			public string UserId { get; set; }
 
 			public string Version { get; set; }
 

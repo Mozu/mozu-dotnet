@@ -28,18 +28,19 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="userId"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerAttribute"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetAccountAttribute( accountId,  attributeFQN,  responseFields);
+		///   var mozuClient=GetAccountAttribute( accountId,  attributeFQN,  userId,  responseFields);
 		///   var customerAttributeClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAttribute> GetAccountAttributeClient(int accountId, string attributeFQN, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAttribute> GetAccountAttributeClient(int accountId, string attributeFQN, string userId =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerAttributeUrl.GetAccountAttributeUrl(accountId, attributeFQN, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerAttributeUrl.GetAccountAttributeUrl(accountId, attributeFQN, userId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerAttribute>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -57,18 +58,19 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+		/// <param name="userId"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerAttributeCollection"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetAccountAttributes( accountId,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		///   var mozuClient=GetAccountAttributes( accountId,  startIndex,  pageSize,  sortBy,  filter,  userId,  responseFields);
 		///   var customerAttributeCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAttributeCollection> GetAccountAttributesClient(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAttributeCollection> GetAccountAttributesClient(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string userId =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerAttributeUrl.GetAccountAttributesUrl(accountId, startIndex, pageSize, sortBy, filter, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerAttributeUrl.GetAccountAttributesUrl(accountId, startIndex, pageSize, sortBy, filter, userId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerAttributeCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -82,19 +84,20 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="userId"></param>
 		/// <param name="attribute">Properties of an attribute associated with a customer account.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerAttribute"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=AddAccountAttribute( attribute,  accountId,  responseFields);
+		///   var mozuClient=AddAccountAttribute( attribute,  accountId,  userId,  responseFields);
 		///   var customerAttributeClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAttribute> AddAccountAttributeClient(Mozu.Api.Contracts.Customer.CustomerAttribute attribute, int accountId, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAttribute> AddAccountAttributeClient(Mozu.Api.Contracts.Customer.CustomerAttribute attribute, int accountId, string userId =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerAttributeUrl.AddAccountAttributeUrl(accountId, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerAttributeUrl.AddAccountAttributeUrl(accountId, userId, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerAttribute>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -109,19 +112,20 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="userId"></param>
 		/// <param name="attribute">Properties of an attribute associated with a customer account.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerAttribute"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateAccountAttribute( attribute,  accountId,  attributeFQN,  responseFields);
+		///   var mozuClient=UpdateAccountAttribute( attribute,  accountId,  attributeFQN,  userId,  responseFields);
 		///   var customerAttributeClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAttribute> UpdateAccountAttributeClient(Mozu.Api.Contracts.Customer.CustomerAttribute attribute, int accountId, string attributeFQN, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAttribute> UpdateAccountAttributeClient(Mozu.Api.Contracts.Customer.CustomerAttribute attribute, int accountId, string attributeFQN, string userId =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerAttributeUrl.UpdateAccountAttributeUrl(accountId, attributeFQN, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerAttributeUrl.UpdateAccountAttributeUrl(accountId, attributeFQN, userId, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerAttribute>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -135,18 +139,19 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+		/// <param name="userId"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=DeleteAccountAttribute( accountId,  attributeFQN);
+		///   var mozuClient=DeleteAccountAttribute( accountId,  attributeFQN,  userId);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteAccountAttributeClient(int accountId, string attributeFQN)
+		public static MozuClient DeleteAccountAttributeClient(int accountId, string attributeFQN, string userId =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerAttributeUrl.DeleteAccountAttributeUrl(accountId, attributeFQN);
+			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerAttributeUrl.DeleteAccountAttributeUrl(accountId, attributeFQN, userId);
 			const string verb = "DELETE";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)

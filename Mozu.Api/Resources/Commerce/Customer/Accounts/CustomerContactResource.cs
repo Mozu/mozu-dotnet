@@ -45,19 +45,20 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="contactId">Unique identifer of the customer account contact being updated.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="userId"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerContact"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customercontact = new CustomerContact();
-		///   var customerContact = await customercontact.GetAccountContactAsync( accountId,  contactId,  responseFields);
+		///   var customerContact = await customercontact.GetAccountContactAsync( accountId,  contactId,  userId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerContact> GetAccountContactAsync(int accountId, int contactId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerContact> GetAccountContactAsync(int accountId, int contactId, string userId =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerContact> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerContactClient.GetAccountContactClient( accountId,  contactId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerContactClient.GetAccountContactClient( accountId,  contactId,  userId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -74,19 +75,20 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+		/// <param name="userId"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerContactCollection"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customercontact = new CustomerContact();
-		///   var customerContactCollection = await customercontact.GetAccountContactsAsync( accountId,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		///   var customerContactCollection = await customercontact.GetAccountContactsAsync( accountId,  startIndex,  pageSize,  sortBy,  filter,  userId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerContactCollection> GetAccountContactsAsync(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerContactCollection> GetAccountContactsAsync(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string userId =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerContactCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerContactClient.GetAccountContactsClient( accountId,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerContactClient.GetAccountContactsClient( accountId,  startIndex,  pageSize,  sortBy,  filter,  userId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -126,6 +128,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="contactId">Unique identifer of the customer account contact being updated.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="userId"></param>
 		/// <param name="contact">Contact information, including the contact's name, address, phone numbers, email addresses, and company (if supplied). Also indicates whether this is a billing, shipping, or billing and shipping contact.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerContact"/>
@@ -133,13 +136,13 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <example>
 		/// <code>
 		///   var customercontact = new CustomerContact();
-		///   var customerContact = await customercontact.UpdateAccountContactAsync( contact,  accountId,  contactId,  responseFields);
+		///   var customerContact = await customercontact.UpdateAccountContactAsync( contact,  accountId,  contactId,  userId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerContact> UpdateAccountContactAsync(Mozu.Api.Contracts.Customer.CustomerContact contact, int accountId, int contactId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerContact> UpdateAccountContactAsync(Mozu.Api.Contracts.Customer.CustomerContact contact, int accountId, int contactId, string userId =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerContact> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerContactClient.UpdateAccountContactClient( contact,  accountId,  contactId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerContactClient.UpdateAccountContactClient( contact,  accountId,  contactId,  userId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();

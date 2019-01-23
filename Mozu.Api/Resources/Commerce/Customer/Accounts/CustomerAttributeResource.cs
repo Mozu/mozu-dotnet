@@ -45,19 +45,20 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="userId"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAttribute"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customerattribute = new CustomerAttribute();
-		///   var customerAttribute = await customerattribute.GetAccountAttributeAsync( accountId,  attributeFQN,  responseFields);
+		///   var customerAttribute = await customerattribute.GetAccountAttributeAsync( accountId,  attributeFQN,  userId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAttribute> GetAccountAttributeAsync(int accountId, string attributeFQN, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAttribute> GetAccountAttributeAsync(int accountId, string attributeFQN, string userId =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerAttribute> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.GetAccountAttributeClient( accountId,  attributeFQN,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.GetAccountAttributeClient( accountId,  attributeFQN,  userId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -74,19 +75,20 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
 		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+		/// <param name="userId"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAttributeCollection"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customerattribute = new CustomerAttribute();
-		///   var customerAttributeCollection = await customerattribute.GetAccountAttributesAsync( accountId,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+		///   var customerAttributeCollection = await customerattribute.GetAccountAttributesAsync( accountId,  startIndex,  pageSize,  sortBy,  filter,  userId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAttributeCollection> GetAccountAttributesAsync(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAttributeCollection> GetAccountAttributesAsync(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string userId =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerAttributeCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.GetAccountAttributesClient( accountId,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.GetAccountAttributesClient( accountId,  startIndex,  pageSize,  sortBy,  filter,  userId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -99,6 +101,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="userId"></param>
 		/// <param name="attribute">Properties of an attribute associated with a customer account.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAttribute"/>
@@ -106,13 +109,13 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <example>
 		/// <code>
 		///   var customerattribute = new CustomerAttribute();
-		///   var customerAttribute = await customerattribute.AddAccountAttributeAsync( attribute,  accountId,  responseFields);
+		///   var customerAttribute = await customerattribute.AddAccountAttributeAsync( attribute,  accountId,  userId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAttribute> AddAccountAttributeAsync(Mozu.Api.Contracts.Customer.CustomerAttribute attribute, int accountId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAttribute> AddAccountAttributeAsync(Mozu.Api.Contracts.Customer.CustomerAttribute attribute, int accountId, string userId =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerAttribute> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.AddAccountAttributeClient( attribute,  accountId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.AddAccountAttributeClient( attribute,  accountId,  userId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -126,6 +129,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="userId"></param>
 		/// <param name="attribute">Properties of an attribute associated with a customer account.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAttribute"/>
@@ -133,13 +137,13 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <example>
 		/// <code>
 		///   var customerattribute = new CustomerAttribute();
-		///   var customerAttribute = await customerattribute.UpdateAccountAttributeAsync( attribute,  accountId,  attributeFQN,  responseFields);
+		///   var customerAttribute = await customerattribute.UpdateAccountAttributeAsync( attribute,  accountId,  attributeFQN,  userId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAttribute> UpdateAccountAttributeAsync(Mozu.Api.Contracts.Customer.CustomerAttribute attribute, int accountId, string attributeFQN, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAttribute> UpdateAccountAttributeAsync(Mozu.Api.Contracts.Customer.CustomerAttribute attribute, int accountId, string attributeFQN, string userId =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerAttribute> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.UpdateAccountAttributeClient( attribute,  accountId,  attributeFQN,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.UpdateAccountAttributeClient( attribute,  accountId,  attributeFQN,  userId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -152,19 +156,20 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+		/// <param name="userId"></param>
 		/// <returns>
 		/// 
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customerattribute = new CustomerAttribute();
-		///   await customerattribute.DeleteAccountAttributeAsync( accountId,  attributeFQN);
+		///   await customerattribute.DeleteAccountAttributeAsync( accountId,  attributeFQN,  userId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteAccountAttributeAsync(int accountId, string attributeFQN, CancellationToken ct = default(CancellationToken))
+		public virtual async Task DeleteAccountAttributeAsync(int accountId, string attributeFQN, string userId =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.DeleteAccountAttributeClient( accountId,  attributeFQN);
+			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.DeleteAccountAttributeClient( accountId,  attributeFQN,  userId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 

@@ -120,6 +120,7 @@
     <Compile Include="Factories\Commerce\Catalog\Admin\CouponSetFactory.cs" />
     <Compile Include="Factories\Commerce\Catalog\Admin\Couponsets\AssignedDiscountFactory.cs" />
     <Compile Include="Factories\Commerce\Catalog\Admin\Couponsets\CouponFactory.cs" />
+    <Compile Include="Factories\Commerce\Catalog\Admin\CurrencyLocalizationFactory.cs" />
     <Compile Include="Factories\Commerce\Catalog\Admin\DiscountFactory.cs" />
     <Compile Include="Factories\Commerce\Catalog\Admin\Discounts\DiscountTargetFactory.cs" />
     <Compile Include="Factories\Commerce\Catalog\Admin\DiscountSettingsFactory.cs" />
@@ -139,7 +140,9 @@
     <Compile Include="Factories\Commerce\Catalog\Admin\PublishingScopeFactory.cs" />
     <Compile Include="Factories\Commerce\Catalog\Admin\SearchFactory.cs" />
     <Compile Include="Factories\Commerce\Catalog\Admin\SoftAllocationFactory.cs" />
+    <Compile Include="Factories\Commerce\Catalog\Storefront\StorefrontAutoAddDiscountTargetFactory.cs" />
     <Compile Include="Factories\Commerce\Catalog\Storefront\StorefrontCategoryFactory.cs" />
+    <Compile Include="Factories\Commerce\Catalog\Storefront\StorefrontCurrencyExchangeRateFactory.cs" />
     <Compile Include="Factories\Commerce\Catalog\Storefront\StorefrontOrderTaxContextFactory.cs" />
     <Compile Include="Factories\Commerce\Catalog\Storefront\StorefrontPriceListFactory.cs" />
     <Compile Include="Factories\Commerce\Catalog\Storefront\StorefrontProductFactory.cs" />
@@ -153,6 +156,7 @@
     <Compile Include="Factories\Commerce\Checkouts\OrderAttributeFactory.cs" />
     <Compile Include="Factories\Commerce\Checkouts\OrderItemFactory.cs" />
     <Compile Include="Factories\Commerce\Checkouts\PaymentFactory.cs" />
+    <Compile Include="Factories\Commerce\Customer\Accountattributedefinition\AttributeFactory.cs" />
     <Compile Include="Factories\Commerce\Customer\Accounts\CardFactory.cs" />
     <Compile Include="Factories\Commerce\Customer\Accounts\CustomerAttributeFactory.cs" />
     <Compile Include="Factories\Commerce\Customer\Accounts\CustomerAuditEntryFactory.cs" />
@@ -163,6 +167,7 @@
     <Compile Include="Factories\Commerce\Customer\Accounts\TransactionFactory.cs" />
     <Compile Include="Factories\Commerce\Customer\AddressValidationRequestFactory.cs" />
     <Compile Include="Factories\Commerce\Customer\Attributedefinition\AttributeFactory.cs" />
+    <Compile Include="Factories\Commerce\Customer\B2BAccountFactory.cs" />
     <Compile Include="Factories\Commerce\Customer\CreditFactory.cs" />
     <Compile Include="Factories\Commerce\Customer\Credits\CreditAuditEntryFactory.cs" />
     <Compile Include="Factories\Commerce\Customer\Credits\CreditTransactionFactory.cs" />
@@ -195,6 +200,8 @@
     <Compile Include="Factories\Commerce\Payments\FraudScreenFactory.cs" />
     <Compile Include="Factories\Commerce\Payments\PublicCardFactory.cs" />
     <Compile Include="Factories\Commerce\Payments\PublicTokenFactory.cs" />
+    <Compile Include="Factories\Commerce\QuoteFactory.cs" />
+    <Compile Include="Factories\Commerce\Quotes\OrderItemFactory.cs" />
     <Compile Include="Factories\Commerce\ReturnFactory.cs" />
     <Compile Include="Factories\Commerce\Returns\OrderNoteFactory.cs" />
     <Compile Include="Factories\Commerce\Returns\ReturnsPackageFactory.cs" />

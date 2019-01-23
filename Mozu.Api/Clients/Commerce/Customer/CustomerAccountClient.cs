@@ -59,20 +59,21 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="userId"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.LoginState"/>}
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetLoginState( accountId,  responseFields);
-		///   var loginStateClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var mozuClient=GetAccount( accountId,  userId,  responseFields);
+		///   var customerAccountClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateClient(int accountId, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount> GetAccountClient(int accountId, string userId =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetLoginStateUrl(accountId, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetAccountUrl(accountId, userId, responseFields);
 			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.LoginState>()
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -84,20 +85,21 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="userId"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>}
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.LoginState"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetAccount( accountId,  responseFields);
-		///   var customerAccountClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var mozuClient=GetLoginState( accountId,  userId,  responseFields);
+		///   var loginStateClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount> GetAccountClient(int accountId, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Customer.LoginState> GetLoginStateClient(int accountId, string userId =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetAccountUrl(accountId, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetLoginStateUrl(accountId, userId, responseFields);
 			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount>()
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.LoginState>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -134,19 +136,20 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="unlockAccount">Specifies whether to unlock the specified customer account.</param>
+		/// <param name="userId"></param>
 		/// <param name="passwordInfo">The information required to modify a shopper account password.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=ChangePassword( passwordInfo,  accountId,  unlockAccount);
+		///   var mozuClient=ChangePassword( passwordInfo,  accountId,  unlockAccount,  userId);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient ChangePasswordClient(Mozu.Api.Contracts.Customer.PasswordInfo passwordInfo, int accountId, bool? unlockAccount =  null)
+		public static MozuClient ChangePasswordClient(Mozu.Api.Contracts.Customer.PasswordInfo passwordInfo, int accountId, bool? unlockAccount =  null, string userId =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.ChangePasswordUrl(accountId, unlockAccount);
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.ChangePasswordUrl(accountId, unlockAccount, userId);
 			const string verb = "POST";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -209,19 +212,20 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// 
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="userId"></param>
 		/// <param name="isLocked">If true, the customer account is locked from logging in.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=SetLoginLocked( isLocked,  accountId);
+		///   var mozuClient=SetLoginLocked( isLocked,  accountId,  userId);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient SetLoginLockedClient(bool isLocked, int accountId)
+		public static MozuClient SetLoginLockedClient(bool isLocked, int accountId, string userId =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.SetLoginLockedUrl(accountId);
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.SetLoginLockedUrl(accountId, userId);
 			const string verb = "POST";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -234,19 +238,20 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// 
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="userId"></param>
 		/// <param name="isPasswordChangeRequired">If true, the password for the customer account must be changed.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=SetPasswordChangeRequired( isPasswordChangeRequired,  accountId);
+		///   var mozuClient=SetPasswordChangeRequired( isPasswordChangeRequired,  accountId,  userId);
 		///mozuClient.WithBaseAddress(url).Execute();
 		/// </code>
 		/// </example>
-		public static MozuClient SetPasswordChangeRequiredClient(bool isPasswordChangeRequired, int accountId)
+		public static MozuClient SetPasswordChangeRequiredClient(bool isPasswordChangeRequired, int accountId, string userId =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.SetPasswordChangeRequiredUrl(accountId);
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.SetPasswordChangeRequiredUrl(accountId, userId);
 			const string verb = "POST";
 			var mozuClient = new MozuClient()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -385,6 +390,7 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="accountType"></param>
 		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
@@ -394,13 +400,13 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetCustomersPurchaseOrderAccounts( startIndex,  pageSize,  sortBy,  responseFields);
+		///   var mozuClient=GetCustomersPurchaseOrderAccounts( startIndex,  pageSize,  sortBy,  accountType,  responseFields);
 		///   var customerPurchaseOrderAccountCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccountCollection> GetCustomersPurchaseOrderAccountsClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccountCollection> GetCustomersPurchaseOrderAccountsClient(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string accountType =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetCustomersPurchaseOrderAccountsUrl(startIndex, pageSize, sortBy, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetCustomersPurchaseOrderAccountsUrl(startIndex, pageSize, sortBy, accountType, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccountCollection>()
 									.WithVerb(verb).WithResourceUrl(url)

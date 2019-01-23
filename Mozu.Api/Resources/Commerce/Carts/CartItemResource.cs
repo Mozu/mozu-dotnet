@@ -91,6 +91,30 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="throwErrorOnInvalidItems"></param>
+		/// <param name="cartItems"></param>
+		/// <returns>
+		/// 
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var cartitem = new CartItem();
+		///   await cartitem.AddItemsToCartAsync( cartItems,  throwErrorOnInvalidItems);
+		/// </code>
+		/// </example>
+		public virtual async Task AddItemsToCartAsync(List<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> cartItems, bool? throwErrorOnInvalidItems =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient response;
+			var client = Mozu.Api.Clients.Commerce.Carts.CartItemClient.AddItemsToCartClient( cartItems,  throwErrorOnInvalidItems);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="cartItem">Properties of an item added to an active shopping cart.</param>
 		/// <returns>

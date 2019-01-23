@@ -78,7 +78,7 @@ namespace Mozu.Api.Clients.Commerce.Checkouts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId"></param>
+		/// <param name="checkoutId">The unique identifier of the checkout.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="item"></param>
 		/// <returns>
@@ -131,8 +131,8 @@ namespace Mozu.Api.Clients.Commerce.Checkouts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId"></param>
-		/// <param name="itemId"></param>
+		/// <param name="checkoutId">The unique identifier of the checkout.</param>
+		/// <param name="itemId">The unique identifier of the item.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout"/>}
 		/// </returns>

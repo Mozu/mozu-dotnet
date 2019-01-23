@@ -110,14 +110,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Storefront
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = ProductFactory.GetProduct(handler : handler,  productCode :  productCode,  variationProductCode :  variationProductCode,  allowInactive :  allowInactive,  skipInventoryCheck :  skipInventoryCheck,  supressOutOfStock404 :  supressOutOfStock404,  quantity :  quantity,  acceptVariantProductCode :  acceptVariantProductCode,  purchaseLocation :  purchaseLocation,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductFactory.GetProduct(handler : handler,  productCode :  productCode,  variationProductCode :  variationProductCode,  allowInactive :  allowInactive,  skipInventoryCheck :  skipInventoryCheck,  supressOutOfStock404 :  supressOutOfStock404,  quantity :  quantity,  acceptVariantProductCode :  acceptVariantProductCode,  purchaseLocation :  purchaseLocation,  variationProductCodeFilter :  variationProductCodeFilter,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Product/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductRuntime.Product GetProduct(ServiceClientMessageHandler handler, 
- 		 string productCode, string variationProductCode = null, bool? allowInactive = null, bool? skipInventoryCheck = null, bool? supressOutOfStock404 = null, int? quantity = null, bool? acceptVariantProductCode = null, string purchaseLocation = null, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 string productCode, string variationProductCode = null, bool? allowInactive = null, bool? skipInventoryCheck = null, bool? supressOutOfStock404 = null, int? quantity = null, bool? acceptVariantProductCode = null, string purchaseLocation = null, string variationProductCodeFilter = null, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -125,7 +125,7 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Storefront
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductClient(
-				 productCode :  productCode,  variationProductCode :  variationProductCode,  allowInactive :  allowInactive,  skipInventoryCheck :  skipInventoryCheck,  supressOutOfStock404 :  supressOutOfStock404,  quantity :  quantity,  acceptVariantProductCode :  acceptVariantProductCode,  purchaseLocation :  purchaseLocation,  responseFields :  responseFields, dataViewMode: dataViewMode		);
+				 productCode :  productCode,  variationProductCode :  variationProductCode,  allowInactive :  allowInactive,  skipInventoryCheck :  skipInventoryCheck,  supressOutOfStock404 :  supressOutOfStock404,  quantity :  quantity,  acceptVariantProductCode :  acceptVariantProductCode,  purchaseLocation :  purchaseLocation,  variationProductCodeFilter :  variationProductCodeFilter,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -186,14 +186,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Storefront
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = ProductFactory.ConfiguredProduct(handler : handler,  productOptionSelections :  productOptionSelections,  productCode :  productCode,  includeOptionDetails :  includeOptionDetails,  skipInventoryCheck :  skipInventoryCheck,  quantity :  quantity,  purchaseLocation :  purchaseLocation,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductFactory.ConfiguredProduct(handler : handler,  productOptionSelections :  productOptionSelections,  productCode :  productCode,  includeOptionDetails :  includeOptionDetails,  skipInventoryCheck :  skipInventoryCheck,  quantity :  quantity,  purchaseLocation :  purchaseLocation,  variationProductCodeFilter :  variationProductCodeFilter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<ConfiguredProduct/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductRuntime.ConfiguredProduct ConfiguredProduct(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode, bool? includeOptionDetails = null, bool? skipInventoryCheck = null, int? quantity = null, string purchaseLocation = null, string responseFields = null, 
+ 		 Mozu.Api.Contracts.ProductRuntime.ProductOptionSelections productOptionSelections, string productCode, bool? includeOptionDetails = null, bool? skipInventoryCheck = null, int? quantity = null, string purchaseLocation = null, string variationProductCodeFilter = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -201,7 +201,7 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Storefront
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.ConfiguredProductClient(
-				 productOptionSelections :  productOptionSelections,  productCode :  productCode,  includeOptionDetails :  includeOptionDetails,  skipInventoryCheck :  skipInventoryCheck,  quantity :  quantity,  purchaseLocation :  purchaseLocation,  responseFields :  responseFields		);
+				 productOptionSelections :  productOptionSelections,  productCode :  productCode,  includeOptionDetails :  includeOptionDetails,  skipInventoryCheck :  skipInventoryCheck,  quantity :  quantity,  purchaseLocation :  purchaseLocation,  variationProductCodeFilter :  variationProductCodeFilter,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();

@@ -118,6 +118,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			///
 			public string PriceListCode { get; set; }
 
+			public List<SuggestedDiscount> RejectedDiscounts { get; set; }
+
 			///
 			///The total shipping amount for the cart before discounts and adjustments.
 			///
