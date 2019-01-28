@@ -6,4 +6,5 @@ packages/*
 *.vspscc
 *.suo
 *.vssscc
-Libraries/Mozu.Api.ToolKit/TestResult.xml
+/.fake/build.fsx_6665AD7F.dll
+/.fake/build.fsx_6665AD7F_config.xml
