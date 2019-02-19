@@ -75,7 +75,7 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			public string OriginalDocumentCode { get; set; }
 
 			///
-			///The date and time the original order was placed. This date is set when the order is submitted with payment. 
+			///The date and time the original order was placed. This date is set when the order is submitted with payment.
 			///
 			public DateTime OriginalOrderDate { get; set; }
 

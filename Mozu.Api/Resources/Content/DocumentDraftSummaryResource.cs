@@ -42,10 +42,10 @@ namespace Mozu.Api.Resources.Content
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="documentLists">List of document lists that contain documents to delete.</param>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+		/// <param name="documentLists">Lists that contain the document drafts.</param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.DocumentDraftSummaryPagedCollection"/>
 		/// </returns>
@@ -93,8 +93,8 @@ namespace Mozu.Api.Resources.Content
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="documentLists">List of document lists that contain documents to delete.</param>
-		/// <param name="documentIds">Unique identifiers of the documents to delete.</param>
+		/// <param name="documentLists">List of document lists that contain documents to publish.</param>
+		/// <param name="documentIds">List of unique identifiers of the document drafts to publish.</param>
 		/// <returns>
 		/// 
 		/// </returns>

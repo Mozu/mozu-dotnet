@@ -19,8 +19,8 @@ namespace Mozu.Api.Urls.Commerce.Checkouts
 				/// <summary>
         /// Get Resource Url for SplitItem
         /// </summary>
-        /// <param name="checkoutId">The unique identifier of the checkout.</param>
-        /// <param name="itemId">The unique identifier of the item.</param>
+        /// <param name="checkoutId"></param>
+        /// <param name="itemId"></param>
         /// <param name="quantity">The number of cart items in the shopper's active cart.</param>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
@@ -40,7 +40,7 @@ namespace Mozu.Api.Urls.Commerce.Checkouts
 		/// <summary>
         /// Get Resource Url for BulkUpdateItemDestinations
         /// </summary>
-        /// <param name="checkoutId">The unique identifier of the checkout.</param>
+        /// <param name="checkoutId"></param>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
@@ -57,8 +57,8 @@ namespace Mozu.Api.Urls.Commerce.Checkouts
 		/// <summary>
         /// Get Resource Url for AddCheckoutItem
         /// </summary>
-        /// <param name="checkoutId">The unique identifier of the checkout.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="checkoutId"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -74,9 +74,9 @@ namespace Mozu.Api.Urls.Commerce.Checkouts
 				/// <summary>
         /// Get Resource Url for UpdateItemDestination
         /// </summary>
-        /// <param name="checkoutId">The unique identifier of the checkout.</param>
-        /// <param name="destinationId">The unique identifier of the destination.</param>
-        /// <param name="itemId">The unique identifier of the item.</param>
+        /// <param name="checkoutId"></param>
+        /// <param name="destinationId"></param>
+        /// <param name="itemId"></param>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
@@ -95,8 +95,8 @@ namespace Mozu.Api.Urls.Commerce.Checkouts
 				/// <summary>
         /// Get Resource Url for DeleteCheckoutItem
         /// </summary>
-        /// <param name="checkoutId">The unique identifier of the checkout.</param>
-        /// <param name="itemId">The unique identifier of the item.</param>
+        /// <param name="checkoutId"></param>
+        /// <param name="itemId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

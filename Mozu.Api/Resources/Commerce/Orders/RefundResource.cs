@@ -69,7 +69,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="refundId">Unique ID of the refund.        </param>
+		/// <param name="refundId">Unique ID of the refund.</param>
 		/// <returns>
 		/// 
 		/// </returns>

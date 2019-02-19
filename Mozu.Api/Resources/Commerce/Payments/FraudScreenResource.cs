@@ -42,8 +42,8 @@ namespace Mozu.Api.Resources.Commerce.Payments
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="request">Mozu.PaymentService.Contracts.Request.FraudScreenRequest ApiType DOCUMENT_HERE </param>
+		/// <param name="responseFields"></param>
+		/// <param name="request"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.PaymentService.Response.FraudScreen"/>
 		/// </returns>

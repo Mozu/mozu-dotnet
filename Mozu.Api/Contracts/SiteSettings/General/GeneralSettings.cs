@@ -71,7 +71,7 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			public bool IsMozuWebSite { get; set; }
 
 			///
-			///True if the site supports [shipping to multiple addresses](https://www.mozu.com/docs/Guides/orders/multi-ship.htm) within one order.
+			///isMultishipEnabled ApiType DOCUMENT_HERE 
 			///
 			public bool? IsMultishipEnabled { get; set; }
 

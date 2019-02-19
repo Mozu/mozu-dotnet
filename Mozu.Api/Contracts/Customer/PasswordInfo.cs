@@ -24,7 +24,7 @@ namespace Mozu.Api.Contracts.Customer
 			public string ExternalPassword { get; set; }
 
 			///
-			///The new password entered and saved by the user of the account. 
+			///The new password entered and saved by the user of the account.
 			///
 			public string NewPassword { get; set; }
 

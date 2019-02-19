@@ -14,12 +14,12 @@ using System;
 namespace Mozu.Api.Contracts.Reference
 {
 		///
-		///	The state code, name, and tags, if applicable. 
+		///	The state code, name, and tags, if applicable.
 		///
 		public class State
 		{
 			///
-			///The two character state code. 
+			///The two character state code.
 			///
 			public string Code { get; set; }
 

@@ -13,24 +13,12 @@ using System;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
-		///
-		///	Mozu.ProductAdmin.Contracts.ProductSortOverride ApiType DOCUMENT_HERE 
-		///
 		public class ProductSortOverride
 		{
-			///
-			///Flag to indicate that the product is pinned at the specified position. Not applicable to buried products.
-			///
 			public bool? IsPinned { get; set; }
 
-			///
-			///Indicates the relative position of the product to other overridden products. Position is absolute if IsPinned is true. Not applicable to buried products. Buried products will be given a default of -1.
-			///
 			public int? Position { get; set; }
 
-			///
-			///The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			///
 			public string ProductCode { get; set; }
 
 		}

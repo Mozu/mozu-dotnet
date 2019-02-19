@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce.Checkouts
 		/// <summary>
         /// Get Resource Url for GetCheckoutAttributes
         /// </summary>
-        /// <param name="checkoutId">The unique identifier of the checkout.</param>
+        /// <param name="checkoutId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -34,7 +34,7 @@ namespace Mozu.Api.Urls.Commerce.Checkouts
 				/// <summary>
         /// Get Resource Url for CreateCheckoutAttributes
         /// </summary>
-        /// <param name="checkoutId">The unique identifier of the checkout.</param>
+        /// <param name="checkoutId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -49,8 +49,8 @@ namespace Mozu.Api.Urls.Commerce.Checkouts
 				/// <summary>
         /// Get Resource Url for UpdateCheckoutAttribute
         /// </summary>
-        /// <param name="checkoutId">The unique identifier of the checkout.</param>
-        /// <param name="removeMissing">If true, the operation removes missing properties so that the updated checkout attributes will not show properties with a null value.</param>
+        /// <param name="checkoutId"></param>
+        /// <param name="removeMissing"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

@@ -16,7 +16,7 @@ using Mozu.Api.Contracts.Core;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	Name of the discount added and applied to a shopping cart and order for a shopper's purchase. 
+		///	Name of the discount added and applied to a shopping cart and order for a shopper's purchase.
 		///
 		public class Discount
 		{
@@ -31,9 +31,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool CanBeDeleted { get; set; }
 
-			///
-			///Boolean field, if true, this discount will allow discounts in the following layer to be stacked on top.
-			///
 			public bool? CanBeStackedUpon { get; set; }
 
 			///
@@ -46,7 +43,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public int? CurrentRedemptionCount { get; set; }
 
 			///
-			///True if the discount should not apply to orders with multiple shipments. For more information, refer to the topic on [multiple shipments](https://www.mozu.com/docs/Guides/orders/multi-ship.htm#effect_on_discounts).
+			///doesNotApplyToMultiShipToOrders ApiType DOCUMENT_HERE 
 			///
 			public bool? DoesNotApplyToMultiShipToOrders { get; set; }
 
@@ -60,9 +57,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool? DoesNotApplyToSalePrice { get; set; }
 
-			///
-			///hasPurchaseConditions ApiType DOCUMENT_HERE 
-			///
 			public bool HasPurchaseConditions { get; set; }
 
 			public int? Id { get; set; }
@@ -72,9 +66,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public List<string> IncludedPriceLists { get; set; }
 
-			///
-			///This field is read-only and specifies whether the discount condition is one product or category, and matches the discount target.
-			///
 			public bool? IsBxGx { get; set; }
 
 			///
@@ -103,25 +94,16 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public bool? PreventOrderShippingDiscounts { get; set; }
 
-			///
-			///purchaseRequirementType ApiType DOCUMENT_HERE 
-			///
 			public string PurchaseRequirementType { get; set; }
 
 			public string Scope { get; set; }
 
-			///
-			///Numerical fieldÂ representing number of discount layer (up to 3) -Each discount can be assigned to a layer which is then used to determine the order of application. Discounts in the same layer will compete and provide the best value for the shopper.
-			///
 			public int? StackingLayer { get; set; }
 
 			public string Status { get; set; }
 
 			public DiscountTarget Target { get; set; }
 
-			///
-			///Text field representing message content that the user wants to display on their storefront
-			///
 			public ThresholdMessage ThresholdMessage { get; set; }
 
 		}

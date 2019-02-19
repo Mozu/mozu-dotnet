@@ -27,15 +27,12 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 			public string Description { get; set; }
 
 			///
-			///Fully qualified name of the attribute for the order or customer. 
+			///Fully qualified name of the attribute for the order or customer.
 			///
 			public string FullyQualifiedName { get; set; }
 
 			public bool IsEnabled { get; set; }
 
-			///
-			///Whether this is a legacy process.
-			///
 			public bool? IsLegacy { get; set; }
 
 			public string Name { get; set; }

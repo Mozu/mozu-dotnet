@@ -15,7 +15,7 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.Reference
 {
 		///
-		///	The paged collection of country codes and their corresponding names. 
+		///	The paged collection of country codes and their corresponding names.
 		///
 		public class CountryWithStatesCollection
 		{

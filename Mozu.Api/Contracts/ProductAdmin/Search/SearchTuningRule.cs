@@ -56,7 +56,7 @@ namespace Mozu.Api.Contracts.ProductAdmin.Search
 			public List<SearchTuningRuleFilter> Filters { get; set; }
 
 			///
-			///Indicates if the object is default. This indicator is used for product variations and site search settings. If true, the value/object is the default option. 
+			///Indicates if the object is default. This indicator is used for product variations and site search settings. If true, the value/object is the default option.
 			///
 			public bool IsDefault { get; set; }
 

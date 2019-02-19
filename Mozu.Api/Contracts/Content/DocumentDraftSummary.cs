@@ -31,7 +31,7 @@ namespace Mozu.Api.Contracts.Content
 			public int? CatalogId { get; set; }
 
 			///
-			///Fully qualified name of the document type. 
+			///Fully qualified name of the document type.
 			///
 			public string DocumentTypeFQN { get; set; }
 
@@ -45,7 +45,7 @@ namespace Mozu.Api.Contracts.Content
 			public string ListFQN { get; set; }
 
 			///
-			///Unique identifier for the master catalog. 
+			///Unique identifier for the master catalog.
 			///
 			public int? MasterCatalogId { get; set; }
 

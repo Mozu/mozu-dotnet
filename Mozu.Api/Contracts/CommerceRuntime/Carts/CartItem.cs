@@ -31,9 +31,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 
 			public AuditInfo AuditInfo { get; set; }
 
-			///
-			///If an item was automatically added as a result of a BOGA discount (i.e. this is the free item), this field will be populated with the corresponding BOGA discount ID.
-			///
 			public int? AutoAddDiscountId { get; set; }
 
 			///
@@ -54,7 +51,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			public string FulfillmentMethod { get; set; }
 
 			///
-			///The combined price for all handling costs calculated together for shipped orders, not for digital or in-store pickup. This includes all handling costs per the product line items and options, excluding taxes and discounts. 
+			///The combined price for all handling costs calculated together for shipped orders, not for digital or in-store pickup. This includes all handling costs per the product line items and options, excluding taxes and discounts.
 			///
 			public decimal? HandlingAmount { get; set; }
 
@@ -76,15 +73,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			public Product Product { get; set; }
 
 			///
-			///The applicable product discount for an associated cart, order, or wish list. 
+			///The applicable product discount for an associated cart, order, or wish list.
 			///
 			public AppliedLineItemProductDiscount ProductDiscount { get; set; }
 
 			public List<AppliedLineItemProductDiscount> ProductDiscounts { get; set; }
 
-			///
-			///The location where the order item(s) was purchased.
-			///
 			public string PurchaseLocation { get; set; }
 
 			public int Quantity { get; set; }

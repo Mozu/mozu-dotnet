@@ -21,7 +21,7 @@ namespace Mozu.Api.Contracts.PaymentService.Response
 		public class FraudScreen
 		{
 			///
-			///Mozu.PaymentService.Contracts.Response.FraudScreen fraudScreenResponseData ApiTypeMember DOCUMENT_HERE 
+			///Mozu.PaymentService.Contracts.Response.FraudScreen fraudScreenResponseData ApiTypeMember DOCUMENT_HERE
 			///
 			public List<FraudScreenResponseData> FraudScreenResponseData { get; set; }
 
@@ -36,7 +36,7 @@ namespace Mozu.Api.Contracts.PaymentService.Response
 			public string Status { get; set; }
 
 			///
-			///Contains the id for the transaction provided by the gateway.
+			///Mozu.PaymentService.Contracts.Response.FraudScreen transactionId ApiTypeMember DOCUMENT_HERE
 			///
 			public string TransactionId { get; set; }
 

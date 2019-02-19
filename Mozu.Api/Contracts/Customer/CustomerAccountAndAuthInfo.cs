@@ -14,7 +14,7 @@ using System;
 namespace Mozu.Api.Contracts.Customer
 {
 		///
-		///	The authentication information associated with a customer account.Â The data includes the account properties such as the name, username, authorization access, and email address, the required password to match, and indicates if the account was imported from a third party resource. 
+		///	The authentication information associated with a customer account.Â The data includes the account properties such as the name, username, authorization access, and email address, the required password to match, and indicates if the account was imported from a third party resource.
 		///
 		public class CustomerAccountAndAuthInfo
 		{

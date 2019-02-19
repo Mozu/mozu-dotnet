@@ -52,9 +52,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			///
 			public string ExternalTransactionId { get; set; }
 
-			///
-			///The parent group Id that this payment belongs to. This will refer to the parent checkout in the case of a multi-ship order, or the parent order in the case of a non-multi-ship order. This will (eventually) allow us to find all payments associated with a checkout, even if the payment is added directly to one of the child orders.
-			///
 			public PaymentActionTarget GroupId { get; set; }
 
 			public string Id { get; set; }
@@ -76,9 +73,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 
 			public string Status { get; set; }
 
-			///
-			///List of sub-payments that correspond to child orders in case of multiship orders. Used for tracking each order's portion of a shared payment.
-			///
 			public List<SubPayment> SubPayments { get; set; }
 
 		}

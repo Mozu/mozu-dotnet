@@ -19,12 +19,12 @@ namespace Mozu.Api.Contracts.AppDev
 		public class ApplicationBehavior
 		{
 			///
-			///Mozu.AppDev.Contracts.ApplicationBehavior behaviorId ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.ApplicationBehavior behaviorId ApiTypeMember DOCUMENT_HERE
 			///
 			public int BehaviorId { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.ApplicationBehavior packageId ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.ApplicationBehavior packageId ApiTypeMember DOCUMENT_HERE
 			///
 			public int PackageId { get; set; }
 

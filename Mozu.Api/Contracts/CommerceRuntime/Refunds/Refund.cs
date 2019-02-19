@@ -46,7 +46,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Refunds
 			public Payment Payment { get; set; }
 
 			///
-			///The reason description for an action, including item return, coupon not valid, and item is taxed. 
+			///The reason description for an action, including item return, coupon not valid, and item is taxed.
 			///
 			public string Reason { get; set; }
 

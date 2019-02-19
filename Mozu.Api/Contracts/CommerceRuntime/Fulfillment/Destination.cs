@@ -20,13 +20,10 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 		///
 		public class Destination
 		{
-			///
-			///A data bag that merchants can use for storing custom data. This one is tied to the associated destination.
-			///
 			public JObject Data { get; set; }
 
 			///
-			///The contact associated with the destination.
+			///destinationContact ApiType DOCUMENT_HERE 
 			///
 			public Contact DestinationContact { get; set; }
 
@@ -36,7 +33,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			public string Id { get; set; }
 
 			///
-			///True if the destination is a commercial address.
+			///isDestinationCommercial ApiType DOCUMENT_HERE 
 			///
 			public bool? IsDestinationCommercial { get; set; }
 

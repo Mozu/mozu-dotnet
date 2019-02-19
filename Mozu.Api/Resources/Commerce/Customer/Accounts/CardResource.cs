@@ -44,7 +44,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Card"/>
 		/// </returns>
@@ -69,7 +69,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// 
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CardCollection"/>
 		/// </returns>
@@ -94,8 +94,8 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// 
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="card">Properties of a credit card used to submit payment for an order.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="card">Properties of the customer credit card to add to the account.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Card"/>
 		/// </returns>
@@ -120,9 +120,9 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// 
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="card">Properties of a credit card used to submit payment for an order.</param>
+		/// <param name="cardId">Unique identifier of the credit card.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="card">Properties of the customer account credit card to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Card"/>
 		/// </returns>
@@ -147,7 +147,7 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// 
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
+		/// <param name="cardId">Unique identifier of the credit card to delete.</param>
 		/// <returns>
 		/// 
 		/// </returns>

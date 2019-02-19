@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
 				/// <summary>
         /// Get Resource Url for GetMultiRates
         /// </summary>
-        /// <param name="includeRawResponse">Set this parameter to  to retrieve the full raw JSON response from a shipping carrier (instead of just the shipping rate).</param>
+        /// <param name="includeRawResponse"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -34,8 +34,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
 		/// <summary>
         /// Get Resource Url for GetRates
         /// </summary>
-        /// <param name="includeRawResponse">Set this parameter to  to retrieve the full raw JSON response from a shipping carrier (instead of just the shipping rate).</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="includeRawResponse"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

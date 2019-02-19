@@ -50,13 +50,10 @@ namespace Mozu.Api.Contracts.ProductRuntime
 
 			public ProductPurchasableState PurchasableState { get; set; }
 
-			///
-			///The location where the order item(s) was purchased.
-			///
 			public string PurchaseLocation { get; set; }
 
 			///
-			///The universal product code (UPC) is the barcode defined for the product. The UPC is unique across all sales channels. 
+			///The universal product code (UPC) is the barcode defined for the product. The UPC is unique across all sales channels.
 			///
 			public string Upc { get; set; }
 

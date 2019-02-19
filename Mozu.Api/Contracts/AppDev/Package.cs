@@ -20,7 +20,7 @@ namespace Mozu.Api.Contracts.AppDev
 		public class Package
 		{
 			///
-			///Mozu.AppDev.Contracts.Package apiVersion ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package apiVersion ApiTypeMember DOCUMENT_HERE
 			///
 			public string ApiVersion { get; set; }
 
@@ -40,7 +40,7 @@ namespace Mozu.Api.Contracts.AppDev
 			public string AppKey { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package applicationAttributes ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package applicationAttributes ApiTypeMember DOCUMENT_HERE
 			///
 			public List<ApplicationAttribute> ApplicationAttributes { get; set; }
 
@@ -50,37 +50,37 @@ namespace Mozu.Api.Contracts.AppDev
 			public List<ApplicationBehavior> ApplicationBehaviors { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package applicationCapabilities ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package applicationCapabilities ApiTypeMember DOCUMENT_HERE
 			///
 			public List<ApplicationCapability> ApplicationCapabilities { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package applicationCapabilityTypes ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package applicationCapabilityTypes ApiTypeMember DOCUMENT_HERE
 			///
 			public List<ApplicationCapabilityType> ApplicationCapabilityTypes { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package applicationDescription ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package applicationDescription ApiTypeMember DOCUMENT_HERE
 			///
 			public string ApplicationDescription { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package applicationDetailId ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package applicationDetailId ApiTypeMember DOCUMENT_HERE
 			///
 			public int? ApplicationDetailId { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package applicationEntitlements ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package applicationEntitlements ApiTypeMember DOCUMENT_HERE
 			///
 			public List<ApplicationEntitlement> ApplicationEntitlements { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package applicationId ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package applicationId ApiTypeMember DOCUMENT_HERE
 			///
 			public int ApplicationId { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package applicationName ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package applicationName ApiTypeMember DOCUMENT_HERE
 			///
 			public string ApplicationName { get; set; }
 
@@ -90,32 +90,32 @@ namespace Mozu.Api.Contracts.AppDev
 			public int ApplicationOwnerDevAccountId { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package applicationStatus ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package applicationStatus ApiTypeMember DOCUMENT_HERE
 			///
 			public string ApplicationStatus { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package applicationStatusId ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package applicationStatusId ApiTypeMember DOCUMENT_HERE
 			///
 			public int ApplicationStatusId { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package applicationStatusName ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package applicationStatusName ApiTypeMember DOCUMENT_HERE
 			///
 			public string ApplicationStatusName { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package applicationSubscriptions ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package applicationSubscriptions ApiTypeMember DOCUMENT_HERE
 			///
 			public List<ApplicationSubscription> ApplicationSubscriptions { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package applicationTypeId ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package applicationTypeId ApiTypeMember DOCUMENT_HERE
 			///
 			public int ApplicationTypeId { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package applicationTypeName ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package applicationTypeName ApiTypeMember DOCUMENT_HERE
 			///
 			public string ApplicationTypeName { get; set; }
 
@@ -125,27 +125,27 @@ namespace Mozu.Api.Contracts.AppDev
 			public DateTime? ApplicationUpdateDate { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package appSchemeVersion ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package appSchemeVersion ApiTypeMember DOCUMENT_HERE
 			///
 			public byte AppSchemeVersion { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package assetFileCount ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package assetFileCount ApiTypeMember DOCUMENT_HERE
 			///
 			public int AssetFileCount { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package attributeNamespace ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package attributeNamespace ApiTypeMember DOCUMENT_HERE
 			///
 			public string AttributeNamespace { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package dataNamespace ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package dataNamespace ApiTypeMember DOCUMENT_HERE
 			///
 			public string DataNamespace { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package hasApplicationVersions ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package hasApplicationVersions ApiTypeMember DOCUMENT_HERE
 			///
 			public bool HasApplicationVersions { get; set; }
 
@@ -155,7 +155,7 @@ namespace Mozu.Api.Contracts.AppDev
 			public int Id { get; set; }
 
 			///
-			///Indicates if the object is deleted. If true, the object has been deleted. This may affect associated child members and objects. For example, a deleted master catalog affects all associated catalogs. 
+			///Indicates if the object is deleted. If true, the object has been deleted. This may affect associated child members and objects. For example, a deleted master catalog affects all associated catalogs.
 			///
 			public bool IsDeleted { get; set; }
 
@@ -165,22 +165,22 @@ namespace Mozu.Api.Contracts.AppDev
 			public bool IsLocked { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package isReleasePackage ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package isReleasePackage ApiTypeMember DOCUMENT_HERE
 			///
 			public bool IsReleasePackage { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package legacyNamespace ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package legacyNamespace ApiTypeMember DOCUMENT_HERE
 			///
 			public string LegacyNamespace { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package majorVersion ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package majorVersion ApiTypeMember DOCUMENT_HERE
 			///
 			public int MajorVersion { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package minorVersion ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package minorVersion ApiTypeMember DOCUMENT_HERE
 			///
 			public int MinorVersion { get; set; }
 
@@ -190,22 +190,22 @@ namespace Mozu.Api.Contracts.AppDev
 			public string Namespace { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package namespaceRegistryId ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package namespaceRegistryId ApiTypeMember DOCUMENT_HERE
 			///
 			public string NamespaceRegistryId { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package packageDescription ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package packageDescription ApiTypeMember DOCUMENT_HERE
 			///
 			public string PackageDescription { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package packageGuid ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package packageGuid ApiTypeMember DOCUMENT_HERE
 			///
 			public string PackageGuid { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package packageName ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package packageName ApiTypeMember DOCUMENT_HERE
 			///
 			public string PackageName { get; set; }
 
@@ -215,37 +215,37 @@ namespace Mozu.Api.Contracts.AppDev
 			public string ParentThemeAppKey { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package parentThemeName ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package parentThemeName ApiTypeMember DOCUMENT_HERE
 			///
 			public string ParentThemeName { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package publishedParentSemanticVersion ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package publishedParentSemanticVersion ApiTypeMember DOCUMENT_HERE
 			///
 			public string PublishedParentSemanticVersion { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package publishedParentThemeId ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package publishedParentThemeId ApiTypeMember DOCUMENT_HERE
 			///
 			public int? PublishedParentThemeId { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package revision ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package revision ApiTypeMember DOCUMENT_HERE
 			///
 			public int Revision { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package semanticVersionRange ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package semanticVersionRange ApiTypeMember DOCUMENT_HERE
 			///
 			public string SemanticVersionRange { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package sharedSecret ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package sharedSecret ApiTypeMember DOCUMENT_HERE
 			///
 			public string SharedSecret { get; set; }
 
 			///
-			///Mozu.AppDev.Contracts.Package themeEngineVersion ApiTypeMember DOCUMENT_HERE 
+			///Mozu.AppDev.Contracts.Package themeEngineVersion ApiTypeMember DOCUMENT_HERE
 			///
 			public string ThemeEngineVersion { get; set; }
 

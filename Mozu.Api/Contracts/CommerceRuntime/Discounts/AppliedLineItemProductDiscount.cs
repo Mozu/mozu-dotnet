@@ -29,7 +29,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Discounts
 			public string CouponCode { get; set; }
 
 			///
-			///Name of the discount added and applied to a shopping cart and order for a shopper's purchase. 
+			///Name of the discount added and applied to a shopping cart and order for a shopper's purchase.
 			///
 			public Discount Discount { get; set; }
 
@@ -49,7 +49,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Discounts
 			public decimal? Impact { get; set; }
 
 			///
-			///The impact of a discount for each discount quantity. 
+			///The impact of a discount for each discount quantity.
 			///
 			public decimal? ImpactPerUnit { get; set; }
 

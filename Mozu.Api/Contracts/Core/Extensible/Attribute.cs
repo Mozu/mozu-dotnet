@@ -51,7 +51,7 @@ namespace Mozu.Api.Contracts.Core.Extensible
 			public bool? IsMultiValued { get; set; }
 
 			///
-			///Flag used to indicate if this attribute definition is read-only. Once an attribute definition is set to read-only this action cannot be undone. 
+			///Flag used to indicate if this attribute definition is read-only. Once an attribute definition is set to read-only this action cannot be undone.
 			///
 			public bool IsReadOnly { get; set; }
 
@@ -75,7 +75,7 @@ namespace Mozu.Api.Contracts.Core.Extensible
 			public AttributeValidation Validation { get; set; }
 
 			///
-			///An attribute value type is either predefined vocabulary set by the admin during attribute set up, or user-defined with an appropriate type (AdminEntered or ShopperEntered, depending on the user). These types are used by products and attributes. To use a predefined value, you can set this parameter as "predefined" and whatever the admin entered in the Product Attributes &gt; Create New Attribute interface menu will become the predefined value on the attribute. AdminEntered and ShopperEntered are values that are entered rather than system-supplied and are not stored in the database, but captured during a live commerce operations such as during an order.
+			///An attribute value type is either predefined vocabulary by the admin during attribute set up or user-defined with an appropriate type (AdminEntered or ShopperEntered depending on the user). These types are used by products and attributes. The difference between predefined values versus manually entered values is such that the first choice is a set of options to choose from. AdminEntered and ShopperEntered are values that are entered rather than system-supplied and are not stored in the database, but captured during a live commerce operations such as during an order.
 			///
 			public string ValueType { get; set; }
 

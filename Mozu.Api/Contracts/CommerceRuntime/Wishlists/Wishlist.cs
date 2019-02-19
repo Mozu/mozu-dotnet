@@ -45,9 +45,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 
 			public decimal? DiscountedTotal { get; set; }
 
-			///
-			///A list of threshold messages to display on the Wishlist page.
-			///
 			public List<ThresholdMessage> DiscountThresholdMessages { get; set; }
 
 			public decimal? DiscountTotal { get; set; }
@@ -118,9 +115,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 
 			public decimal? Subtotal { get; set; }
 
-			///
-			///Refers to the BOGA discounts that are currently satisfied but whose free item has not yet been added.
-			///
 			public List<SuggestedDiscount> SuggestedDiscounts { get; set; }
 
 			///

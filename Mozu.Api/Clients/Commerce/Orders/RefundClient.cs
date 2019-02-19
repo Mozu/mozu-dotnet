@@ -52,7 +52,7 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="refundId">Unique ID of the refund.        </param>
+		/// <param name="refundId">Unique ID of the refund.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

@@ -26,21 +26,12 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///
 			public string AmountType { get; set; }
 
-			///
-			///A condition that must be met for the discount to apply.
-			///
 			public DiscountCondition Condition { get; set; }
 
 			public int DiscountId { get; set; }
 
-			///
-			///True if the discount should not apply to orders with multiple shipments. For more information, refer to the topic on [multiple shipments](https://www.mozu.com/docs/Guides/orders/multi-ship.htm#effect_on_discounts).
-			///
 			public bool? DoesNotApplyToMultiShipToOrders { get; set; }
 
-			///
-			///Determines whether or not a discount applies to a items with a sale price. Applicable on order and line item discounts. For line items, when this is true, the discount will be disqualified. For order level discounts, when true, the discount will not be applied to those items have a sale price.
-			///
 			public bool DoesNotApplyToProductsWithSalePrice { get; set; }
 
 			public DateTime? ExpirationDate { get; set; }
@@ -50,58 +41,28 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			///
 			public string FriendlyDescription { get; set; }
 
-			///
-			///Products receiving a price from a price list specified here or a child of a specified price list can be discounted.
-			///
 			public List<string> IncludedPriceLists { get; set; }
 
-			///
-			///The maximum amount of savings that may be applied per each redemption of this discount.
-			///
 			public decimal? MaxDiscountValuePerRedemption { get; set; }
 
-			///
-			///The maximum amount of discount savings that may be applied per order.
-			///
 			public decimal? MaximumDiscountValuePerOrder { get; set; }
 
-			///
-			///Maximum number of redemptions allowed per order. If null, defaults to unlimited.
-			///
 			public int? MaximumRedemptionsPerOrder { get; set; }
 
-			///
-			///The maximum number of times an individual shopper can redeem the discount.
-			///
 			public int? MaximumUsesPerUser { get; set; }
 
-			///
-			///The maximum number of times any coupon code in the coupon set can be used. This value must be either null, greater than or equal to 1, or -1. A value of -1 indicates unlimited.If you leave this value null,  defaults this value to 1 when you create the coupon set.
-			///
 			public int? MaxRedemptions { get; set; }
 
 			public string Name { get; set; }
 
 			public int Redemptions { get; set; }
 
-			///
-			///If true, only authenticated users can redeem the discount. If false, anonymous users can redeem the discount.
-			///
 			public bool RequiresAuthenticatedUser { get; set; }
 
-			///
-			///The scope to which the discount applies, which is "Order" for order discounts or "LineItem" for individual product discounts.
-			///
 			public string Scope { get; set; }
 
-			///
-			///Numerical fieldÂ representing the number of discount layer (up to 3).
-			///
 			public int StackingLayer { get; set; }
 
-			///
-			///Targets represent the object, such as an item to apply discounts to(products or orders) or a view field for content. Targets are the dot notations that link to the source document property. For example, firstitem for the direct level or firstitem.seconditem.thirditem for a deeper property.
-			///
 			public DiscountTarget Target { get; set; }
 
 			public string Type { get; set; }

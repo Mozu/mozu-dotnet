@@ -26,7 +26,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public AuditInfo AuditInfo { get; set; }
 
 			///
-			///Mozu.ProductAdmin.Contracts.PriceListEntry cost ApiTypeMember DOCUMENT_HERE 
+			///Mozu.ProductAdmin.Contracts.PriceListEntry cost ApiTypeMember DOCUMENT_HERE
 			///
 			public decimal? Cost { get; set; }
 
@@ -36,7 +36,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string CostMode { get; set; }
 
 			///
-			///The localized currency code for the monetary amount. 
+			///The localized currency code for the monetary amount.
 			///
 			public string CurrencyCode { get; set; }
 

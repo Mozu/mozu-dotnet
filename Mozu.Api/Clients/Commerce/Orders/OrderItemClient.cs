@@ -164,7 +164,7 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="dutyAmount">The amount added to the order item for duty fees.        </param>
+		/// <param name="dutyAmount">The amount added to the order item for duty fees.</param>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="orderItemId">Unique identifier of the item to remove from the order.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>

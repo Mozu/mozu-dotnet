@@ -18,7 +18,7 @@ using System.Threading;
 namespace Mozu.Api.Clients.Commerce
 {
 	/// <summary>
-	/// Use this resource to track a shopper's order items and their intended destinations on sites that have the multiple shipment feature enabled. The Checkouts resource is active until the shopper submits the order, at which point one or many orders are created based on the data contained in the Checkouts resource.To learn more about this resource and the ability to ship items to multiple addresses, refer to the [Multiple Shipments API Overview](https://www.mozu.com/docs/Developer/api-guides/multi-ship.htm) topic.
+	/// commerce/checkouts related resources. DOCUMENT_HERE 
 	/// </summary>
 	public partial class CheckoutClient 	{
 		
@@ -55,7 +55,7 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId">The unique identifier of the checkout.</param>
+		/// <param name="checkoutId"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{string}}
 		/// </returns>
@@ -79,7 +79,7 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId">The unique identifier of the checkout.</param>
+		/// <param name="checkoutId"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Checkouts.CheckoutGroupRates"/>}}
 		/// </returns>
@@ -103,7 +103,7 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId">The unique identifier of the checkout.</param>
+		/// <param name="checkoutId"></param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout"/>}
@@ -153,9 +153,9 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId">The unique identifier of the checkout.</param>
+		/// <param name="checkoutId"></param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="action">The name of the action to perform.</param>
+		/// <param name="action"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout"/>}
 		/// </returns>
@@ -179,7 +179,7 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId">The unique identifier of the checkout.</param>
+		/// <param name="checkoutId"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
@@ -203,9 +203,9 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId">The unique identifier of the checkout.</param>
+		/// <param name="checkoutId"></param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="groupShippingMethods">The shipping methods for the grouping.</param>
+		/// <param name="groupShippingMethods"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout"/>}
 		/// </returns>
@@ -229,9 +229,9 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId">The unique identifier of the checkout.</param>
+		/// <param name="checkoutId"></param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="checkout">The checkout object.</param>
+		/// <param name="checkout"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout"/>}
 		/// </returns>
@@ -255,10 +255,10 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId">The unique identifier of the checkout.</param>
-		/// <param name="digitalWalletType">The type of digital wallet.</param>
+		/// <param name="checkoutId"></param>
+		/// <param name="digitalWalletType"></param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="digitalWallet">The digital wallet object.</param>
+		/// <param name="digitalWallet"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout"/>}
 		/// </returns>
@@ -282,9 +282,9 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId">The unique identifier of the checkout.</param>
+		/// <param name="checkoutId"></param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="priceListCode">The unique identifier of the price list that applies to the checkout, if applicable.</param>
+		/// <param name="priceListCode"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout"/>}
 		/// </returns>

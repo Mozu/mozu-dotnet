@@ -42,7 +42,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Couponsets
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="couponSetCode">The unique identifier of the coupon set.</param>
+		/// <param name="couponSetCode"></param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.AssignedDiscount"/>}
 		/// </returns>
@@ -66,8 +66,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Couponsets
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="couponSetCode">The unique identifier of the coupon set.</param>
-		/// <param name="assignedDiscount">The details of the discount assigned to the coupon set.</param>
+		/// <param name="couponSetCode"></param>
+		/// <param name="assignedDiscount"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -90,8 +90,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Couponsets
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="couponSetCode">The unique identifier of the coupon set.</param>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
+		/// <param name="couponSetCode"></param>
+		/// <param name="discountId"></param>
 		/// <returns>
 		/// 
 		/// </returns>
