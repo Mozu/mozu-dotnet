@@ -18,24 +18,9 @@ namespace Mozu.Api.Events
 	public interface IReturnEvents
 	{
 		[Obsolete("This method is obsolete; use the async method instead")]
-		void Authorized(IApiContext apiContext, Event eventPayLoad);
+		void Updated(IApiContext apiContext, Event eventPayLoad);
 
-		Task AuthorizedAsync(IApiContext apiContext, Event eventPayLoad);
-
-		[Obsolete("This method is obsolete; use the async method instead")]
-		void Cancelled(IApiContext apiContext, Event eventPayLoad);
-
-		Task CancelledAsync(IApiContext apiContext, Event eventPayLoad);
-
-		[Obsolete("This method is obsolete; use the async method instead")]
-		void Closed(IApiContext apiContext, Event eventPayLoad);
-
-		Task ClosedAsync(IApiContext apiContext, Event eventPayLoad);
-
-		[Obsolete("This method is obsolete; use the async method instead")]
-		void Opened(IApiContext apiContext, Event eventPayLoad);
-
-		Task OpenedAsync(IApiContext apiContext, Event eventPayLoad);
+		Task UpdatedAsync(IApiContext apiContext, Event eventPayLoad);
 
 		[Obsolete("This method is obsolete; use the async method instead")]
 		void Rejected(IApiContext apiContext, Event eventPayLoad);
@@ -43,9 +28,24 @@ namespace Mozu.Api.Events
 		Task RejectedAsync(IApiContext apiContext, Event eventPayLoad);
 
 		[Obsolete("This method is obsolete; use the async method instead")]
-		void Updated(IApiContext apiContext, Event eventPayLoad);
+		void Opened(IApiContext apiContext, Event eventPayLoad);
 
-		Task UpdatedAsync(IApiContext apiContext, Event eventPayLoad);
+		Task OpenedAsync(IApiContext apiContext, Event eventPayLoad);
+
+		[Obsolete("This method is obsolete; use the async method instead")]
+		void Closed(IApiContext apiContext, Event eventPayLoad);
+
+		Task ClosedAsync(IApiContext apiContext, Event eventPayLoad);
+
+		[Obsolete("This method is obsolete; use the async method instead")]
+		void Cancelled(IApiContext apiContext, Event eventPayLoad);
+
+		Task CancelledAsync(IApiContext apiContext, Event eventPayLoad);
+
+		[Obsolete("This method is obsolete; use the async method instead")]
+		void Authorized(IApiContext apiContext, Event eventPayLoad);
+
+		Task AuthorizedAsync(IApiContext apiContext, Event eventPayLoad);
 
 	}
 

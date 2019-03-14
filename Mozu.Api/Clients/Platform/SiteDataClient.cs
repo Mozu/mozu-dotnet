@@ -18,15 +18,15 @@ using System.Threading;
 namespace Mozu.Api.Clients.Platform
 {
 	/// <summary>
-	/// Use the site data resource to store site-level information required for a third-party application in the  database.
+	/// Use the site data resource to store site-level information required for a third-party application in the Mozu database.
 	/// </summary>
 	public partial class SiteDataClient 	{
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="dbEntryQuery">The database entry query string used to retrieve the record information.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{string}
 		/// </returns>
@@ -75,8 +75,8 @@ namespace Mozu.Api.Clients.Platform
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="dbEntryQuery">The database entry query string used to update the record information.</param>
+		/// <param name="value">The database value to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
@@ -100,7 +100,7 @@ namespace Mozu.Api.Clients.Platform
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
+		/// <param name="dbEntryQuery">The database entry string to delete.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

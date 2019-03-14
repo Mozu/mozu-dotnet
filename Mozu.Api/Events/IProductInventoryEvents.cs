@@ -18,9 +18,9 @@ namespace Mozu.Api.Events
 	public interface IProductInventoryEvents
 	{
 		[Obsolete("This method is obsolete; use the async method instead")]
-		void InStock(IApiContext apiContext, Event eventPayLoad);
+		void Updated(IApiContext apiContext, Event eventPayLoad);
 
-		Task InStockAsync(IApiContext apiContext, Event eventPayLoad);
+		Task UpdatedAsync(IApiContext apiContext, Event eventPayLoad);
 
 		[Obsolete("This method is obsolete; use the async method instead")]
 		void OutOfStock(IApiContext apiContext, Event eventPayLoad);
@@ -28,9 +28,9 @@ namespace Mozu.Api.Events
 		Task OutOfStockAsync(IApiContext apiContext, Event eventPayLoad);
 
 		[Obsolete("This method is obsolete; use the async method instead")]
-		void Updated(IApiContext apiContext, Event eventPayLoad);
+		void InStock(IApiContext apiContext, Event eventPayLoad);
 
-		Task UpdatedAsync(IApiContext apiContext, Event eventPayLoad);
+		Task InStockAsync(IApiContext apiContext, Event eventPayLoad);
 
 	}
 

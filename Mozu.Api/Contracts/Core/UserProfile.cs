@@ -27,7 +27,7 @@ namespace Mozu.Api.Contracts.Core
 			public string UserId { get; set; }
 
 			///
-			///The user name associated with the user profile. The customer uses the user name to access the account.
+			///The user name associated with the user profile.
 			///
 			public string UserName { get; set; }
 

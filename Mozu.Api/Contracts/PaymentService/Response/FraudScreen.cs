@@ -15,29 +15,14 @@ using Mozu.Api.Contracts.PaymentService;
 
 namespace Mozu.Api.Contracts.PaymentService.Response
 {
-		///
-		///	Mozu.PaymentService.Contracts.Response.FraudScreen ApiType DOCUMENT_HERE 
-		///
 		public class FraudScreen
 		{
-			///
-			///Mozu.PaymentService.Contracts.Response.FraudScreen fraudScreenResponseData ApiTypeMember DOCUMENT_HERE 
-			///
 			public List<FraudScreenResponseData> FraudScreenResponseData { get; set; }
 
-			///
-			///Unique identifier of the payment interaction from the payment gateway.
-			///
 			public int? GatewayInteractionId { get; set; }
 
-			///
-			///The current status of the object.This value is read only. Valid values for this field are: "Active", "Expired", and "Inactive".
-			///
 			public string Status { get; set; }
 
-			///
-			///Contains the id for the transaction provided by the gateway.
-			///
 			public string TransactionId { get; set; }
 
 		}

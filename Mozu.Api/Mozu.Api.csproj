@@ -66,8 +66,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiException.cs" />
-    <Compile Include="Contracts\PaymentService\Extensibility\V1\ConnectionStatuses.cs" />
-    <Compile Include="Contracts\PaymentService\Extensibility\V1\TransactionType.cs" />
     <Compile Include="DataViewMode.cs" />
     <Compile Include="Events\EventService.cs" />
     <Compile Include="Events\EventServiceFactory.cs" />
@@ -203,8 +201,6 @@
     <Compile Include="Clients\Commerce\Payments\FraudScreenClient.cs" />
     <Compile Include="Clients\Commerce\Payments\PublicCardClient.cs" />
     <Compile Include="Clients\Commerce\Payments\PublicTokenClient.cs" />
-    <Compile Include="Clients\Commerce\QuoteClient.cs" />
-    <Compile Include="Clients\Commerce\Quotes\OrderItemClient.cs" />
     <Compile Include="Clients\Commerce\ReturnClient.cs" />
     <Compile Include="Clients\Commerce\Returns\OrderNoteClient.cs" />
     <Compile Include="Clients\Commerce\Returns\PackageClient.cs" />
@@ -368,9 +364,6 @@
     <Compile Include="Contracts\CommerceRuntime\Products\ProductPrice.cs" />
     <Compile Include="Contracts\CommerceRuntime\Products\ProductProperty.cs" />
     <Compile Include="Contracts\CommerceRuntime\Products\ProductPropertyValue.cs" />
-    <Compile Include="Contracts\CommerceRuntime\Quotes\Quote.cs" />
-    <Compile Include="Contracts\CommerceRuntime\Quotes\QuoteCollection.cs" />
-    <Compile Include="Contracts\CommerceRuntime\Quotes\QuoteItemCollection.cs" />
     <Compile Include="Contracts\CommerceRuntime\Refunds\Refund.cs" />
     <Compile Include="Contracts\CommerceRuntime\Returns\ReasonCollection.cs" />
     <Compile Include="Contracts\CommerceRuntime\Returns\Return.cs" />
@@ -972,8 +965,6 @@
     <Compile Include="Resources\Commerce\Payments\FraudScreenResource.cs" />
     <Compile Include="Resources\Commerce\Payments\PublicCardResource.cs" />
     <Compile Include="Resources\Commerce\Payments\PublicTokenResource.cs" />
-    <Compile Include="Resources\Commerce\QuoteResource.cs" />
-    <Compile Include="Resources\Commerce\Quotes\OrderItemResource.cs" />
     <Compile Include="Resources\Commerce\ReturnResource.cs" />
     <Compile Include="Resources\Commerce\Returns\OrderNoteResource.cs" />
     <Compile Include="Resources\Commerce\Returns\PackageResource.cs" />
@@ -1132,8 +1123,6 @@
     <Compile Include="Urls\Commerce\Payments\FraudScreenUrl.cs" />
     <Compile Include="Urls\Commerce\Payments\PublicCardUrl.cs" />
     <Compile Include="Urls\Commerce\Payments\PublicTokenUrl.cs" />
-    <Compile Include="Urls\Commerce\Quotes\OrderItemUrl.cs" />
-    <Compile Include="Urls\Commerce\QuoteUrl.cs" />
     <Compile Include="Urls\Commerce\Returns\OrderNoteUrl.cs" />
     <Compile Include="Urls\Commerce\Returns\PackageUrl.cs" />
     <Compile Include="Urls\Commerce\Returns\ShipmentUrl.cs" />

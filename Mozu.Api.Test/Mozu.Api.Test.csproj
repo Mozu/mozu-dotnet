@@ -200,8 +200,6 @@
     <Compile Include="Factories\Commerce\Payments\FraudScreenFactory.cs" />
     <Compile Include="Factories\Commerce\Payments\PublicCardFactory.cs" />
     <Compile Include="Factories\Commerce\Payments\PublicTokenFactory.cs" />
-    <Compile Include="Factories\Commerce\QuoteFactory.cs" />
-    <Compile Include="Factories\Commerce\Quotes\OrderItemFactory.cs" />
     <Compile Include="Factories\Commerce\ReturnFactory.cs" />
     <Compile Include="Factories\Commerce\Returns\OrderNoteFactory.cs" />
     <Compile Include="Factories\Commerce\Returns\ReturnsPackageFactory.cs" />

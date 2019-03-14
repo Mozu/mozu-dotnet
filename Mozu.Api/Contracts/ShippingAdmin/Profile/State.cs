@@ -13,19 +13,10 @@ using System;
 
 namespace Mozu.Api.Contracts.ShippingAdmin.Profile
 {
-		///
-		///	Mozu.ShippingAdmin.Contracts.Profile.State ApiType DOCUMENT_HERE 
-		///
 		public class State
 		{
-			///
-			///code ApiType DOCUMENT_HERE 
-			///
 			public string Code { get; set; }
 
-			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
-			///
 			public string Name { get; set; }
 
 		}

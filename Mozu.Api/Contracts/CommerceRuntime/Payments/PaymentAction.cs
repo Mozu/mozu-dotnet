@@ -30,14 +30,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 
 			public string CurrencyCode { get; set; }
 
-			///
-			///AÂ general field for data to be communicated from an external payment service. 
-			///
 			public JObject Data { get; set; }
 
-			///
-			///An IDÂ provided by a third party external payment service to identify a transaction.
-			///
 			public string ExternalTransactionId { get; set; }
 
 			public DateTime? InteractionDate { get; set; }

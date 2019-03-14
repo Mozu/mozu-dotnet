@@ -15,39 +15,18 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.ShippingAdmin.Profile
 {
-		///
-		///	Mozu.ShippingAdmin.Contracts.Profile.ShippingProfile ApiType DOCUMENT_HERE 
-		///
 		public class ShippingProfile
 		{
-			///
-			///Basic audit info about the object, including date, time, and user account. This data may be captured when creating, updating, and removing data.
-			///
 			public AuditInfo AuditInfo { get; set; }
 
-			///
-			///The unique code of the shipping profile.
-			///
 			public string Code { get; set; }
 
-			///
-			///A list of order handling fee rules and their details.
-			///
 			public List<HandlingFeeRule> OrderHandlingFeeRules { get; set; }
 
-			///
-			///A list of product handling fee rules and their details.
-			///
 			public List<HandlingFeeRule> ProductHandlingFeeRules { get; set; }
 
-			///
-			///A list of shipping inclusion rules and their details.
-			///
 			public List<ShippingInclusionRule> ShippingInclusionRules { get; set; }
 
-			///
-			///A list of unique site identifiers that the shipping profile targets.
-			///
 			public List<int> TargetedSiteIds { get; set; }
 
 		}

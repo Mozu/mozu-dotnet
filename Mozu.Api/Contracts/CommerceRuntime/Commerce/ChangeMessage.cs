@@ -23,24 +23,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
 			///
 			public decimal? Amount { get; set; }
 
-			///
-			///Unique identifier of an app available in your  tenant or within  Dev Center. This ID is unique across all apps installed, initialized, and enabled in the  and those in development through the Dev Center Console.
-			///
 			public string AppId { get; set; }
 
-			///
-			///The application's key.
-			///
 			public string AppKey { get; set; }
 
-			///
-			///The application's name.
-			///
 			public string AppName { get; set; }
 
-			///
-			///The unique identifier of the API request associated with the event action, which might contain multiple actions.
-			///
 			public string CorrelationId { get; set; }
 
 			public DateTime? CreateDate { get; set; }
@@ -51,9 +39,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
 
 			public string Message { get; set; }
 
-			///
-			///Metadata content for entities, used by document lists, document type lists, document type, views, entity lists, and list views.
-			///
 			public object Metadata { get; set; }
 
 			public string NewValue { get; set; }
@@ -69,24 +54,15 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
 			///
 			public bool? Success { get; set; }
 
-			///
-			///The user's first name.
-			///
 			public string UserFirstName { get; set; }
 
 			///
-			///Unique identifier of the customer account (shopper or system user). System-supplied and read-only. If the shopper user is anonymous, the user ID represents a system-generated user ID string.
+			///The unique identifier of the user who initiated the change.
 			///
 			public string UserId { get; set; }
 
-			///
-			///The user's last name.
-			///
 			public string UserLastName { get; set; }
 
-			///
-			///The user type (e.g. Shopper, Admin, etc.).
-			///
 			public string UserScopeType { get; set; }
 
 			public string Verb { get; set; }

@@ -15,7 +15,7 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.Core
 {
 		///
-		///	Properties of an application's behavior.
+		///	Properties of an application behavior.
 		///
 		public class Behavior
 		{

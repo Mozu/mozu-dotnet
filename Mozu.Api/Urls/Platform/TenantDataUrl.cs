@@ -19,8 +19,8 @@ namespace Mozu.Api.Urls.Platform
 		/// <summary>
         /// Get Resource Url for GetDBValue
         /// </summary>
-        /// <param name="dbEntryQuery">The database entry string to create.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="dbEntryQuery">The database entry query string used to retrieve the record information.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -51,7 +51,7 @@ namespace Mozu.Api.Urls.Platform
 				/// <summary>
         /// Get Resource Url for UpdateDBValue
         /// </summary>
-        /// <param name="dbEntryQuery">The database entry string to create.</param>
+        /// <param name="dbEntryQuery">The database entry query string used to update the record information.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -66,7 +66,7 @@ namespace Mozu.Api.Urls.Platform
 				/// <summary>
         /// Get Resource Url for DeleteDBValue
         /// </summary>
-        /// <param name="dbEntryQuery">The database entry string to create.</param>
+        /// <param name="dbEntryQuery">The database entry string to delete.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

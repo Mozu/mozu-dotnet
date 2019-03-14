@@ -16,7 +16,7 @@ using Mozu.Api.Contracts.Core;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	The properties of a product, referenced and used by carts, orders, wish lists, and returns.
+		///	Properties of a product in a master catalog. Product properties include discounts, localizable content, inventory information, attribute configurations, price data, and the catalogs associated with a product.
 		///
 		public class Product
 		{
@@ -36,7 +36,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public List<ProductExtra> Extras { get; set; }
 
 			///
-			///List of supported types of fulfillment for the product or variation. The types include direct ship, in-store pickup, or both.
+			///Describes the types of fulfillment that are supported for this product. A product can support direct ship, in-store pickup, or both. Supported fulfillment types are defined at the master catalog level. Client administrators cannot override the supported fulfillment types at the catalog level.
 			///
 			public List<string> FulfillmentTypesSupported { get; set; }
 
@@ -71,7 +71,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public ProductPrice Price { get; set; }
 
 			///
-			///Properties that describe the behavior the system uses when determining the price of products.
+			///Describes the behavior the system uses when determining the price of the product.
 			///
 			public ProductPricingBehaviorInfo PricingBehavior { get; set; }
 

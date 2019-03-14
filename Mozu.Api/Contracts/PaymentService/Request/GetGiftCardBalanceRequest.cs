@@ -13,24 +13,12 @@ using System;
 
 namespace Mozu.Api.Contracts.PaymentService.Request
 {
-		///
-		///	Mozu.PaymentService.Contracts.Request.GetGiftCardBalanceRequest ApiType DOCUMENT_HERE 
-		///
 		public class GetGiftCardBalanceRequest
 		{
-			///
-			///The masked credit card number part returned from the payment gateway.
-			///
 			public string CardNumberPart { get; set; }
 
-			///
-			///The type of credit card, such as Visa or Amex.
-			///
 			public string CardType { get; set; }
 
-			///
-			///The CVV code for the credit card.
-			///
 			public string Cvv { get; set; }
 
 		}

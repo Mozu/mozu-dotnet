@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Settings
 {
 	/// <summary>
-	/// Use the cart subresource to manage settings for the cart, such as whether to include handling fees in the cost calculations.
+	/// 
 	/// </summary>
 	public partial class CartSettingsFactory : BaseDataFactory
 	{

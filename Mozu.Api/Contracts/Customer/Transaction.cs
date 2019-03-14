@@ -20,9 +20,6 @@ namespace Mozu.Api.Contracts.Customer
 		{
 			public decimal Amount { get; set; }
 
-			///
-			///The localized currency code for the monetary amount. 
-			///
 			public string CurrencyCode { get; set; }
 
 			public DateTime Date { get; set; }

@@ -16,7 +16,7 @@ using Mozu.Api.Contracts.Core;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	Name of the discount added and applied to a shopping cart and order for a shopper's purchase. 
+		///	Discount used to calculate SalePrice. Includes coupon code if applicable, amount of the discount, and discount savings. Discounts can be either an absolute price or a percentage off. The sale price beats any discounts.
 		///
 		public class Discount
 		{
@@ -26,14 +26,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public AuditInfo AuditInfo { get; set; }
 
-			///
-			///Signifies that the discount is not referenced and can be hard deleted
-			///
 			public bool CanBeDeleted { get; set; }
 
-			///
-			///Boolean field, if true, this discount will allow discounts in the following layer to be stacked on top.
-			///
 			public bool? CanBeStackedUpon { get; set; }
 
 			///
@@ -45,14 +39,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public int? CurrentRedemptionCount { get; set; }
 
-			///
-			///True if the discount should not apply to orders with multiple shipments. For more information, refer to the topic on [multiple shipments](https://www.mozu.com/docs/Guides/orders/multi-ship.htm#effect_on_discounts).
-			///
 			public bool? DoesNotApplyToMultiShipToOrders { get; set; }
 
-			///
-			///Determines whether or not a discount applies to a items with a sale price. Applicable on order and line item discounts. For line items, when this is true, the discount will be disqualified. For order level discounts, when true, the discount will not be applied to those items have a sale price.
-			///
 			public bool? DoesNotApplyToProductsWithSalePrice { get; set; }
 
 			///
@@ -60,36 +48,18 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public bool? DoesNotApplyToSalePrice { get; set; }
 
-			///
-			///hasPurchaseConditions ApiType DOCUMENT_HERE 
-			///
 			public bool HasPurchaseConditions { get; set; }
 
 			public int? Id { get; set; }
 
-			///
-			///Products receiving a price from a price list specified here or a child of a specified price list can be discounted.
-			///
 			public List<string> IncludedPriceLists { get; set; }
 
-			///
-			///This field is read-only and specifies whether the discount condition is one product or category, and matches the discount target.
-			///
 			public bool? IsBxGx { get; set; }
 
-			///
-			///Maximum impact this discount can apply on a single order. Must be either null or greater than zero.
-			///
 			public decimal? MaximumDiscountImpactPerOrder { get; set; }
 
-			///
-			///Maximum impact this discount can apply on a single line item. Must be either null or greater than zero.
-			///
 			public decimal? MaximumDiscountImpactPerRedemption { get; set; }
 
-			///
-			///Maximum number of redemptions allowed per order. If null, defaults to unlimited.
-			///
 			public int? MaximumRedemptionsPerOrder { get; set; }
 
 			///
@@ -103,25 +73,16 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public bool? PreventOrderShippingDiscounts { get; set; }
 
-			///
-			///purchaseRequirementType ApiType DOCUMENT_HERE 
-			///
 			public string PurchaseRequirementType { get; set; }
 
 			public string Scope { get; set; }
 
-			///
-			///Numerical fieldÂ representing number of discount layer (up to 3) -Each discount can be assigned to a layer which is then used to determine the order of application. Discounts in the same layer will compete and provide the best value for the shopper.
-			///
 			public int? StackingLayer { get; set; }
 
 			public string Status { get; set; }
 
 			public DiscountTarget Target { get; set; }
 
-			///
-			///Text field representing message content that the user wants to display on their storefront
-			///
 			public ThresholdMessage ThresholdMessage { get; set; }
 
 		}

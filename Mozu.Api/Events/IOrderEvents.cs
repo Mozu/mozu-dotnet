@@ -18,39 +18,9 @@ namespace Mozu.Api.Events
 	public interface IOrderEvents
 	{
 		[Obsolete("This method is obsolete; use the async method instead")]
-		void Abandoned(IApiContext apiContext, Event eventPayLoad);
+		void Updated(IApiContext apiContext, Event eventPayLoad);
 
-		Task AbandonedAsync(IApiContext apiContext, Event eventPayLoad);
-
-		[Obsolete("This method is obsolete; use the async method instead")]
-		void Cancelled(IApiContext apiContext, Event eventPayLoad);
-
-		Task CancelledAsync(IApiContext apiContext, Event eventPayLoad);
-
-		[Obsolete("This method is obsolete; use the async method instead")]
-		void Closed(IApiContext apiContext, Event eventPayLoad);
-
-		Task ClosedAsync(IApiContext apiContext, Event eventPayLoad);
-
-		[Obsolete("This method is obsolete; use the async method instead")]
-		void Fulfilled(IApiContext apiContext, Event eventPayLoad);
-
-		Task FulfilledAsync(IApiContext apiContext, Event eventPayLoad);
-
-		[Obsolete("This method is obsolete; use the async method instead")]
-		void Imported(IApiContext apiContext, Event eventPayLoad);
-
-		Task ImportedAsync(IApiContext apiContext, Event eventPayLoad);
-
-		[Obsolete("This method is obsolete; use the async method instead")]
-		void Opened(IApiContext apiContext, Event eventPayLoad);
-
-		Task OpenedAsync(IApiContext apiContext, Event eventPayLoad);
-
-		[Obsolete("This method is obsolete; use the async method instead")]
-		void PendingReview(IApiContext apiContext, Event eventPayLoad);
-
-		Task PendingReviewAsync(IApiContext apiContext, Event eventPayLoad);
+		Task UpdatedAsync(IApiContext apiContext, Event eventPayLoad);
 
 		[Obsolete("This method is obsolete; use the async method instead")]
 		void Saved(IApiContext apiContext, Event eventPayLoad);
@@ -58,9 +28,39 @@ namespace Mozu.Api.Events
 		Task SavedAsync(IApiContext apiContext, Event eventPayLoad);
 
 		[Obsolete("This method is obsolete; use the async method instead")]
-		void Updated(IApiContext apiContext, Event eventPayLoad);
+		void PendingReview(IApiContext apiContext, Event eventPayLoad);
 
-		Task UpdatedAsync(IApiContext apiContext, Event eventPayLoad);
+		Task PendingReviewAsync(IApiContext apiContext, Event eventPayLoad);
+
+		[Obsolete("This method is obsolete; use the async method instead")]
+		void Opened(IApiContext apiContext, Event eventPayLoad);
+
+		Task OpenedAsync(IApiContext apiContext, Event eventPayLoad);
+
+		[Obsolete("This method is obsolete; use the async method instead")]
+		void Imported(IApiContext apiContext, Event eventPayLoad);
+
+		Task ImportedAsync(IApiContext apiContext, Event eventPayLoad);
+
+		[Obsolete("This method is obsolete; use the async method instead")]
+		void Fulfilled(IApiContext apiContext, Event eventPayLoad);
+
+		Task FulfilledAsync(IApiContext apiContext, Event eventPayLoad);
+
+		[Obsolete("This method is obsolete; use the async method instead")]
+		void Closed(IApiContext apiContext, Event eventPayLoad);
+
+		Task ClosedAsync(IApiContext apiContext, Event eventPayLoad);
+
+		[Obsolete("This method is obsolete; use the async method instead")]
+		void Cancelled(IApiContext apiContext, Event eventPayLoad);
+
+		Task CancelledAsync(IApiContext apiContext, Event eventPayLoad);
+
+		[Obsolete("This method is obsolete; use the async method instead")]
+		void Abandoned(IApiContext apiContext, Event eventPayLoad);
+
+		Task AbandonedAsync(IApiContext apiContext, Event eventPayLoad);
 
 	}
 

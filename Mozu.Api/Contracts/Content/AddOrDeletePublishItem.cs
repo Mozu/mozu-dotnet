@@ -13,29 +13,14 @@ using System;
 
 namespace Mozu.Api.Contracts.Content
 {
-		///
-		///	This property is not exposed in documentation.
-		///
 		public class AddOrDeletePublishItem
 		{
-			///
-			///The fully qualified name of the document list that the pending content change is associated with.
-			///
 			public string DocListFQN { get; set; }
 
-			///
-			///The unique identifier of the pending content change or the document.
-			///
 			public string DocumentId { get; set; }
 
-			///
-			///The unique identifier of the scope. For example, if your scope type is site, then this value would be the site id.
-			///
 			public int ScopeId { get; set; }
 
-			///
-			///The type of scope associated with the documentList. For example, if the documentList is pageTemplateContent, the scopeType is Site.Valid values are: "Tenant", "MasterCatalog", and "Site".
-			///
 			public string ScopeType { get; set; }
 
 		}

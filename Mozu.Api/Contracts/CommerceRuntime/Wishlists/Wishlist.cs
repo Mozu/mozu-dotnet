@@ -36,31 +36,22 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 
 			public string CustomerInteractionType { get; set; }
 
-			///
-			///Custom data for a given vendor set within the commerce process.
-			///
 			public JObject Data { get; set; }
 
 			public decimal? DiscountedSubtotal { get; set; }
 
 			public decimal? DiscountedTotal { get; set; }
 
-			///
-			///A list of threshold messages to display on the Wishlist page.
-			///
 			public List<ThresholdMessage> DiscountThresholdMessages { get; set; }
 
 			public decimal? DiscountTotal { get; set; }
 
 			public DateTime? ExpirationDate { get; set; }
 
-			///
-			///Extra properties (key-value pairs) that extend the primary object. Think of this as a property bag of string keys and string values.
-			///
 			public List<ExtendedProperty> ExtendedProperties { get; set; }
 
 			///
-			///Unique identifier used by an external program to identify a  order, customer account, or wish list.
+			///The identifier an external program uses to identify the Mozu wish list.
 			///
 			public string ExternalId { get; set; }
 
@@ -73,12 +64,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			public string Id { get; set; }
 
 			///
-			///The date and time an order or wish list is imported into . This is not the date and time it was created in the external application.
+			///If this wish list was imported from an external program, the date and time the wish list was imported.
 			///
 			public DateTime? ImportDate { get; set; }
 
 			///
-			///Indicates if this object/data was imported from an outside source such as a data import or synchronization via an app or service. If true, this data was originally imported into  and accessible through your store database. Examples of imported objects/data include orders and customer accounts.
+			///If true, this wish list was imported from an external program.
 			///
 			public bool? IsImport { get; set; }
 
@@ -88,9 +79,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 
 			public DateTime? LastValidationDate { get; set; }
 
-			///
-			///The total charge for the line item with all weighted order level manual adjustments.
-			///
 			public decimal? LineItemSubtotalWithOrderAdjustments { get; set; }
 
 			public string Name { get; set; }
@@ -99,11 +87,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 
 			public string PrivacyType { get; set; }
 
-			public List<SuggestedDiscount> RejectedDiscounts { get; set; }
-
-			///
-			///The total shipping amount for the wishlist before discounts and adjustments.
-			///
 			public decimal? ShippingAmountBeforeDiscountsAndAdjustments { get; set; }
 
 			public decimal? ShippingSubTotal { get; set; }
@@ -118,14 +101,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 
 			public decimal? Subtotal { get; set; }
 
-			///
-			///Refers to the BOGA discounts that are currently satisfied but whose free item has not yet been added.
-			///
 			public List<SuggestedDiscount> SuggestedDiscounts { get; set; }
 
-			///
-			///Leverage this property within a [tax Arc.js action](https://www.mozu.com/docs/arcjs/commerce-catalog-storefront-tax/commerce-catalog-storefront-tax.htm) to supplement the tax information for this item or object with custom JSON data.
-			///
 			public JObject TaxData { get; set; }
 
 			public decimal? TaxTotal { get; set; }
@@ -135,8 +112,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			public decimal? Total { get; set; }
 
 			public string TypeTag { get; set; }
-
-			public string UserId { get; set; }
 
 			public string Version { get; set; }
 

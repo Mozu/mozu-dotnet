@@ -13,54 +13,24 @@ using System;
 
 namespace Mozu.Api.Contracts.AppDev
 {
-		///
-		///	Mozu.AppDev.Contracts.PackageSummary ApiType DOCUMENT_HERE 
-		///
 		public class PackageSummary
 		{
-			///
-			///The unique identifier of the application.
-			///
 			public int ApplicationId { get; set; }
 
-			///
-			///Application Name
-			///
 			public string ApplicationName { get; set; }
 
-			///
-			///Application Type Id
-			///
 			public int ApplicationTypeId { get; set; }
 
-			///
-			///Unique identifier of the source property, such as a catalog, discount, order, or email template.For a product field it will be the name of the field.For a category ID, must be a positive integer not greater than 2000000. By default,  auto-generates a category ID when categories are created. If you want to specify an ID during creation (which preserves category link relationships when migrating tenant data from one sandbox to another), you must also include the  query string in the endpoint. For example, . Then, use the  property to specify the desired category ID.For a product attribute it will be the Attribute FQN.For a document, the ID must be specified as a 32 character, case-insensitive, alphanumeric string. You can specify the ID as 32 sequential characters or as groups separated by dashes in the format 8-4-4-4-12. For example, or.For email templates, the ID must be one of the following values:///
-			///
 			public int Id { get; set; }
 
-			///
-			///Indicates if a customer account and associated data is locked. If true, the user account is locked due to multiple failed authentication attempts. The user cannot login until the account is unlocked.
-			///
 			public bool IsLocked { get; set; }
 
-			///
-			///Application Major Version
-			///
 			public int MajorVersion { get; set; }
 
-			///
-			///Application Minor Version
-			///
 			public int MinorVersion { get; set; }
 
-			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
-			///
 			public string Name { get; set; }
 
-			///
-			///Application Revision
-			///
 			public int Revision { get; set; }
 
 		}

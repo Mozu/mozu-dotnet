@@ -21,64 +21,34 @@ namespace Mozu.Api.Contracts.Content
 		///
 		public class DocumentList
 		{
-			///
-			///The type of the document list, containing content for a site. For example, a list type could be web pages.
-			///
 			public string DocumentListType { get; set; }
 
 			public List<string> DocumentTypes { get; set; }
 
-			///
-			///If set, documents in this list will only be returned if the date queried for their is within their ActiveDateRange.
-			///
 			public bool? EnableActiveDateRanges { get; set; }
 
 			public bool? EnablePublishing { get; set; }
 
-			///
-			///The fully qualified name of the document list.
-			///
 			public string ListFQN { get; set; }
 
 			public JObject Metadata { get; set; }
 
 			public string Name { get; set; }
 
-			///
-			///The namespace for the accessible APIs and source capabilities in the core of  APIs.
-			///
 			public string Namespace { get; set; }
 
-			///
-			///The unique identifier of the scope. For example, if your scope type is site, then this value would be the site id.
-			///
 			public int? ScopeId { get; set; }
 
-			///
-			///The type of scope associated with the documentList. For example, if the documentList is pageTemplateContent, the scopeType is Site.Valid values are: "Tenant", "MasterCatalog", and "Site".
-			///
 			public string ScopeType { get; set; }
 
-			///
-			///Indicates the security level for the document content as public, administrator, or owner.
-			///
 			public string Security { get; set; }
 
-			///
-			///Determines if the documentList will support ranges of dates that documents are considered 'active'. This field defaults to false and cannot be updated. If the documentList is based on a documentListType, then this value will be derived from the documentListType.
-			///
 			public bool? SupportsActiveDateRanges { get; set; }
 
 			public bool? SupportsPublishing { get; set; }
 
-			///
-			///A string array that determines where the document or entity list displays. The options are , for displaying content in the Custom Schema page in  , and , for displaying content in the site tree in Site Builder (applies only to document lists). The following example demonstrates how to display content across both options:
-			///
 			public List<string> Usages { get; set; }
 
-			///
-			///The view in the site used by associated entities or document lists/list types.
-			///
 			public List<View> Views { get; set; }
 
 		}

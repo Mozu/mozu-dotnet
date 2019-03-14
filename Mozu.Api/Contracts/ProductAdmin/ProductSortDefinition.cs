@@ -15,54 +15,24 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
-		///
-		///	Mozu.ProductRuntime.Contracts.ProductSortDefinition ApiType DOCUMENT_HERE 
-		///
 		public class ProductSortDefinition
 		{
-			///
-			///Basic audit info about the object, including date, time, and user account. This data may be captured when creating, updating, and removing data.
-			///
 			public AuditInfo AuditInfo { get; set; }
 
-			///
-			///List of products being boosted.
-			///
 			public List<ProductSortOverride> Boosted { get; set; }
 
-			///
-			///List of products being positioned.
-			///
 			public List<ProductSortOverride> Buried { get; set; }
 
-			///
-			///ID of the relevant category.
-			///
 			public int? CategoryId { get; set; }
 
-			///
-			///Optional end date for a product sort definition.
-			///
 			public DateTime? EndDate { get; set; }
 
-			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
-			///
 			public string Name { get; set; }
 
-			///
-			///System or user provided ID for the ProductSortDefinition.
-			///
 			public int? ProductSortDefinitionId { get; set; }
 
-			///
-			///Sort expression to apply two expression.
-			///
 			public List<ProductSortExpression> SortExpressions { get; set; }
 
-			///
-			///The Start Date when the sort definition becomes active.
-			///
 			public DateTime? StartDate { get; set; }
 
 		}

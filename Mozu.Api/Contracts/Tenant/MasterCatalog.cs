@@ -15,37 +15,21 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.Tenant
 {
 		///
-		///	Properties of a master product catalog defined for a tenant. All catalogs and sites associated with a master catalog share product definitions.
+		///	Properties of a master catalog defined for a tenant. All catalogs associated with a master catalog share product definitions.
 		///
 		public class MasterCatalog
 		{
 			public List<Catalog> Catalogs { get; set; }
 
-			public DateTime CreateDate { get; set; }
-
 			public string DefaultCurrencyCode { get; set; }
 
 			public string DefaultLocaleCode { get; set; }
 
-			public DateTime DeleteDate { get; set; }
-
 			public int Id { get; set; }
-
-			public bool IsDeleted { get; set; }
 
 			public string Name { get; set; }
 
-			///
-			///The current status of the object.This value is read only. Valid values for this field are: "Active", "Expired", and "Inactive".
-			///
-			public string Status { get; set; }
-
-			///
-			///Unique identifier of the Mozu tenant.
-			///
 			public int TenantId { get; set; }
-
-			public DateTime UpdateDate { get; set; }
 
 		}
 
