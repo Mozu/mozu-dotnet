@@ -8,25 +8,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
+using System;
 using System.Collections.Generic;
 
-using Mozu.Api.Contracts.Core;
-using Mozu.Api.Contracts.Core.Extensible;
 
-namespace Mozu.Api.Contracts.Location
+namespace Mozu.Api.Contracts.CommerceRuntime.Quotes
 {
-		public class LocationAttribute
+		public class QuoteCollection
 		{
-			public Attribute AttributeDefinition { get; set; }
+			public List<Quote> Items { get; set; }
 
-			public int? AttributeDefinitionId { get; set; }
+			public int PageCount { get; set; }
 
-			public AuditInfo AuditInfo { get; set; }
+			public int PageSize { get; set; }
 
-			public string FullyQualifiedName { get; set; }
+			public int StartIndex { get; set; }
 
-			public List<object> Values { get; set; }
+			public int TotalCount { get; set; }
 
 		}
 

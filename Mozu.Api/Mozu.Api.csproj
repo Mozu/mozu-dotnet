@@ -66,6 +66,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiException.cs" />
+    <Compile Include="Clients\Commerce\QuoteClient.cs" />
+    <Compile Include="Clients\Commerce\Quotes\OrderItemClient.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Quotes\Quote.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Quotes\QuoteCollection.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Quotes\QuoteItemCollection.cs" />
+    <Compile Include="Contracts\PaymentService\Extensibility\V1\ConnectionStatuses.cs" />
+    <Compile Include="Contracts\PaymentService\Extensibility\V1\TransactionType.cs" />
     <Compile Include="DataViewMode.cs" />
     <Compile Include="Events\EventService.cs" />
     <Compile Include="Events\EventServiceFactory.cs" />
@@ -77,12 +84,16 @@
     <Compile Include="Logging\LogManager.cs" />
     <Compile Include="MozuConfig.cs" />
     <Compile Include="MozuUrl.cs" />
+    <Compile Include="Resources\Commerce\QuoteResource.cs" />
+    <Compile Include="Resources\Commerce\Quotes\OrderItemResource.cs" />
     <Compile Include="Security\AuthenticationScope.cs" />
     <Compile Include="Security\AuthTicket.cs" />
     <Compile Include="Security\ConfigurationAuth.cs" />
     <Compile Include="Security\CustomerAuthenticator.cs" />
     <Compile Include="Security\Scope.cs" />
     <Compile Include="Security\UserAuthenticator.cs" />
+    <Compile Include="Urls\Commerce\Quotes\OrderItemUrl.cs" />
+    <Compile Include="Urls\Commerce\QuoteUrl.cs" />
     <Compile Include="Utilities\HttpHelper.cs" />
     <Compile Include="Utilities\ResponseHelper.cs" />
     <Compile Include="Version.cs" />
