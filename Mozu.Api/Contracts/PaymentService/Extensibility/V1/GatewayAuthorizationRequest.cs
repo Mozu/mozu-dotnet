@@ -15,59 +15,26 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 {
-		///
-		///	Contains an authorization request
-		///
 		public class GatewayAuthorizationRequest
 		{
-			///
-			///Contains the amount to authorize.
-			///
 			public decimal Amount { get; set; }
 
-			///
-			///The api version of the call.
-			///
 			public string ApiVersion { get; set; }
 
-			///
-			///CardInformation object containing the card information.
-			///
 			public CardInformation Card { get; set; }
 
-			///
-			///The AdapterContext information.
-			///
 			public AdapterContext Context { get; set; }
 
-			///
-			///The data provided for the authorization.
-			///
 			public JObject Data { get; set; }
 
-			///
-			///The method name being called on the connector.
-			///
 			public string MethodName { get; set; }
 
-			///
-			///Indicates whether the request is pre-auth or not.
-			///
 			public bool PreAuth { get; set; }
 
-			///
-			///Indicates whether the request is recurring or not.
-			///
 			public string RecurringType { get; set; }
 
-			///
-			///The CustomerInformation for the shopper.
-			///
 			public CustomerInformation Shopper { get; set; }
 
-			///
-			///The token for gateway authorization.
-			///
 			public PaymentToken Token { get; set; }
 
 		}

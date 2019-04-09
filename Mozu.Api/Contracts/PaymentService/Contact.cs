@@ -13,9 +13,6 @@ using System;
 
 namespace Mozu.Api.Contracts.PaymentService
 {
-		///
-		///	Contact information for an account.
-		///
 		public class Contact
 		{
 			public string Country { get; set; }

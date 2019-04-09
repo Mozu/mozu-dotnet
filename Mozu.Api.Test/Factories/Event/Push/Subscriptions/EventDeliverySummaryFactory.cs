@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Event.Push.Subscriptions
 {
 	/// <summary>
-	/// Provides details for each attempted delivery of the event to the endpoint.
+	/// 
 	/// </summary>
 	public partial class EventDeliverySummaryFactory : BaseDataFactory
 	{

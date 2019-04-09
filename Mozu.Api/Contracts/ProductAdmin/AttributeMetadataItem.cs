@@ -14,7 +14,7 @@ using System;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	Properties of a metadata item defined for an attribute.
+		///	Item used to define additional key-value pairs of data associated with a product attribute.
 		///
 		public class AttributeMetadataItem
 		{

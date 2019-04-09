@@ -42,10 +42,10 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="draft">If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.</param>
-		/// <param name="lineId">The specific line id that's associated with the order item.</param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="draft"></param>
+		/// <param name="lineId"></param>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem"/>
 		/// </returns>
@@ -69,10 +69,10 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="draft">If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.</param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="orderItemId">Unique identifier of the item to remove from the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="draft">If true, retrieve the draft version of this order item, which might include uncommitted changes to the order item, the order, or other order components.</param>
+		/// <param name="orderId">Unique identifier of the order item to retrieve.</param>
+		/// <param name="orderItemId">Unique identifier of the order item details to retrieve.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem"/>
 		/// </returns>
@@ -96,9 +96,9 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="draft">If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.</param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="draft">If true, retrieve the draft version of the order's items, which might include uncommitted changes to one or more order items, the order itself, or other order components.</param>
+		/// <param name="orderId">Unique identifier of the order items to retrieve.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItemCollection"/>
 		/// </returns>
@@ -122,12 +122,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
-		/// <param name="orderItem">The details associated with a specific item in an order.</param>
+		/// <param name="orderId">Unique identifier of the order for which to add the item.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="skipInventoryCheck">If true, do not validate the product inventory when adding this item to the order.</param>
+		/// <param name="updateMode">Specifies whether to add the item by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
+		/// <param name="version"></param>
+		/// <param name="orderItem">The properties of the item to create in the existing order.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
@@ -151,13 +151,13 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="orderItemId">Unique identifier of the item to remove from the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
-		/// <param name="discount">Properties of all applied discounts for an associated cart, order, or product. </param>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read only.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the item discount.</param>
+		/// <param name="orderItemId">Unique identifier of the item in the order.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="updateMode">Specifies whether to change the item discount by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
+		/// <param name="version"></param>
+		/// <param name="discount">Properties of the discount to modify for the order item.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
@@ -181,12 +181,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="dutyAmount">The amount added to the order item for duty fees.        </param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="orderItemId">Unique identifier of the item to remove from the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
+		/// <param name="dutyAmount"></param>
+		/// <param name="orderId"></param>
+		/// <param name="orderItemId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="updateMode"></param>
+		/// <param name="version"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
@@ -211,11 +211,11 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="orderItemId">Unique identifier of the item to remove from the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
-		/// <param name="orderItem">The details associated with a specific item in an order.</param>
+		/// <param name="orderItemId">Unique identifier of the item in the order.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="updateMode">Specifies whether to apply the coupon by updating the original order, updating the order in draft mode, or updating the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
+		/// <param name="version"></param>
+		/// <param name="orderItem">Properties of the order item to update for fulfillment.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
@@ -239,12 +239,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="orderItemId">Unique identifier of the item to remove from the order.</param>
+		/// <param name="orderId">Unique identifier of the order containing the item to price override.</param>
+		/// <param name="orderItemId">Unique identifier of the item in the order to price override.</param>
 		/// <param name="price">The override price to specify for this item in the specified order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="updateMode">Specifies whether to change the product price by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
+		/// <param name="version"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
@@ -268,12 +268,44 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="orderItemId">Unique identifier of the item to remove from the order.</param>
-		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
+		/// <param name="orderId"></param>
+		/// <param name="orderItemId"></param>
+		/// <param name="quantity"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sendEmail"></param>
+		/// <param name="updateFulfillment"></param>
+		/// <param name="updateMode"></param>
+		/// <param name="version"></param>
+		/// <param name="reason"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var orderitem = new OrderItem();
+		///   var order = await orderitem.CancelItemAsync( reason,  orderId,  orderItemId,  quantity,  updateMode,  version,  updateFulfillment,  sendEmail,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> CancelItemAsync(Mozu.Api.Contracts.CommerceRuntime.Orders.CanceledReason reason, string orderId, string orderItemId, int quantity, string updateMode =  null, string version =  null, bool? updateFulfillment =  null, bool? sendEmail =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.OrderItemClient.CancelItemClient( reason,  orderId,  orderItemId,  quantity,  updateMode,  version,  updateFulfillment,  sendEmail,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="orderId">Unique identifier of the order containing the item to update quantity.</param>
+		/// <param name="orderItemId">Unique identifier of the item in the order to update quantity.</param>
+		/// <param name="quantity">The quantity of the item in the order to update.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="updateMode">Specifies whether to change the item quantity by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
+		/// <param name="version"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
@@ -297,10 +329,10 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="orderId">Unique identifier of the order with the item to remove.</param>
 		/// <param name="orderItemId">Unique identifier of the item to remove from the order.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
+		/// <param name="updateMode">Specifies whether to remove the item by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
+		/// <param name="version"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>

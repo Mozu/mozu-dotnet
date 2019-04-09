@@ -338,6 +338,44 @@ namespace Mozu.Api.Test.Factories.Commerce.Orders
 		/// 
 		/// <example> 
 		///  <code> 
+		/// var result = OrderItemFactory.CancelItem(handler : handler,  reason :  reason,  orderId :  orderId,  orderItemId :  orderItemId,  quantity :  quantity,  updateMode :  updateMode,  version :  version,  updateFulfillment :  updateFulfillment,  sendEmail :  sendEmail,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Order/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order CancelItem(ServiceClientMessageHandler handler, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Orders.CanceledReason reason, string orderId, string orderItemId, int quantity, string updateMode = null, string version = null, bool? updateFulfillment = null, bool? sendEmail = null, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Orders.OrderItemClient.CancelItemClient(
+				 reason :  reason,  orderId :  orderId,  orderItemId :  orderItemId,  quantity :  quantity,  updateMode :  updateMode,  version :  version,  updateFulfillment :  updateFulfillment,  sendEmail :  sendEmail,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
 		/// var result = OrderItemFactory.UpdateItemQuantity(handler : handler,  orderId :  orderId,  orderItemId :  orderItemId,  quantity :  quantity,  updateMode :  updateMode,  version :  version,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Order/>(result); 
 		/// return optionalCasting;

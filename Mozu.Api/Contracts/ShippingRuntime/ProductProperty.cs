@@ -14,24 +14,12 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.ShippingRuntime
 {
-		///
-		///	Details of a property defined for a product.
-		///
 		public class ProductProperty
 		{
-			///
-			///The fully qualified name of the attribute. The attributeDefiniteId may be used to generate this name.
-			///
 			public string AttributeFQN { get; set; }
 
-			///
-			///The data type of the source product property, typically of type Bool, DateTime, Number, or String.
-			///
 			public string DataType { get; set; }
 
-			///
-			///List of value data for objects.
-			///
 			public List<object> Values { get; set; }
 
 		}

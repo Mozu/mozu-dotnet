@@ -13,9 +13,6 @@ using System;
 
 namespace Mozu.Api.Contracts.AppDev
 {
-		///
-		///	Mozu.AppDev.Contracts.Event ApiType DOCUMENT_HERE 
-		///
 		public class Event
 		{
 			public string ApiVersionNumber { get; set; }

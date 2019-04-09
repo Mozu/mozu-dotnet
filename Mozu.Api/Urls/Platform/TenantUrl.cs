@@ -19,8 +19,8 @@ namespace Mozu.Api.Urls.Platform
 		/// <summary>
         /// Get Resource Url for GetTenant
         /// </summary>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-        /// <param name="tenantId">Unique identifier of the development or production tenant for which to generate the user authentication ticket.</param>
+        /// <param name="responseFields"></param>
+        /// <param name="tenantId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

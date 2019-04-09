@@ -13,19 +13,10 @@ using System;
 
 namespace Mozu.Api.Contracts.Content
 {
-		///
-		///	Specifies a start date and end date for when associated object is on the live site, if  is set to .If  is set to  ignores this property.
-		///
 		public class ActiveDateRange
 		{
-			///
-			///The end of the active date range for this document
-			///
 			public DateTime? EndDate { get; set; }
 
-			///
-			///The beginning of the active date range of this document
-			///
 			public DateTime? StartDate { get; set; }
 
 		}

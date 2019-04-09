@@ -29,6 +29,8 @@ namespace Mozu.Api.Contracts.Tenant
 
 			public string Name { get; set; }
 
+			public int OmsMerchantId { get; set; }
+
 			public List<Site> Sites { get; set; }
 
 		}

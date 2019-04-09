@@ -42,7 +42,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.MasterCatalogCollection"/>
 		/// </returns>
@@ -66,8 +66,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="masterCatalogId">Unique identifier for the master catalog. The master catalog contains all products accessible per catalogs and the site/tenant.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="masterCatalogId"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.MasterCatalog"/>
 		/// </returns>
@@ -91,9 +91,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="masterCatalogId">Unique identifier for the master catalog. The master catalog contains all products accessible per catalogs and the site/tenant.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="masterCatalog">Properties of a master product catalog defined for a tenant. All catalogs and sites associated with a master catalog share product definitions.</param>
+		/// <param name="masterCatalogId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="masterCatalog">Properties of the master catalog to update, which consists of the product publishing mode. Possible values are "Pending" which saves product updates in draft mode until they are published, and "Live" which publishes all product changes immediately.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.MasterCatalog"/>
 		/// </returns>

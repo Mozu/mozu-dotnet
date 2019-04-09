@@ -18,14 +18,14 @@ using System.Threading;
 namespace Mozu.Api.Clients.Platform.Adminuser
 {
 	/// <summary>
-	/// The Accounts resource displays the user accounts and account details associated with a developer or  tenant administrator. Email addresses uniquely identify admin user accounts.
+	/// Displays the user accounts and account details associated with a developer or Mozu tenant administrator. Email addresses uniquely identify admin user accounts.
 	/// </summary>
 	public partial class AdminUserClient 	{
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Tenant.TenantCollection"/>}
@@ -50,8 +50,8 @@ namespace Mozu.Api.Clients.Platform.Adminuser
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="userId">Unique identifier of the administrator account to retrieve.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.User"/>}
 		/// </returns>

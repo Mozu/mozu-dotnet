@@ -15,49 +15,22 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 {
-		///
-		///	Contains a capture request
-		///
 		public class CaptureRequest
 		{
-			///
-			///The amount to capture.
-			///
 			public decimal Amount { get; set; }
 
-			///
-			///The api version of the call.
-			///
 			public string ApiVersion { get; set; }
 
-			///
-			///CardInformation object containing the card information.
-			///
 			public CardInformation Card { get; set; }
 
-			///
-			///The AdapterContext information.
-			///
 			public AdapterContext Context { get; set; }
 
-			///
-			///The data provided for the capture.
-			///
 			public JObject Data { get; set; }
 
-			///
-			///The method name being called on the connector.
-			///
 			public string MethodName { get; set; }
 
-			///
-			///The customer information for the shopper.
-			///
 			public CustomerInformation Shopper { get; set; }
 
-			///
-			///The token being used for the capture.
-			///
 			public PaymentToken Token { get; set; }
 
 		}

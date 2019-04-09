@@ -15,7 +15,7 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
-		///	Details of a property defined for a product.
+		///	Details of a property attribute defined for a product.
 		///
 		public class ProductProperty
 		{

@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Platform.Entitylists
 {
 	/// <summary>
-	/// Entity containers provide all properties and data for entities within a site/tenant. This data encapsulates all associated IDs including entity lists, entity views, site, tenant, entities, and more.
+	/// 
 	/// </summary>
 	public partial class EntityContainerFactory : BaseDataFactory
 	{

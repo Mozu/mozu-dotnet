@@ -14,19 +14,10 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.ShippingAdmin.Profile
 {
-		///
-		///	Mozu.ShippingAdmin.Contracts.Profile.ShippingStates ApiType DOCUMENT_HERE 
-		///
 		public class ShippingStates
 		{
-			///
-			///The 2-letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
-			///
 			public string CountryCode { get; set; }
 
-			///
-			///The states of the shipping profile.
-			///
 			public List<State> States { get; set; }
 
 		}

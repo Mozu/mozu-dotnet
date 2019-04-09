@@ -33,9 +33,6 @@ namespace Mozu.Api.Contracts.Customer
 
 			public string Id { get; set; }
 
-			///
-			///AÂ boolean that signals whether this credit card is the default payment method for this customer account.
-			///
 			public bool IsDefaultPayMethod { get; set; }
 
 			public string NameOnCard { get; set; }

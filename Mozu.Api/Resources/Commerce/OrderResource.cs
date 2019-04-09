@@ -42,14 +42,14 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
+		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter an order's search results by any of its properties, including status, contact information, or total. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Status+eq+Submitted"</param>
 		/// <param name="includeBin"></param>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-		/// <param name="q">A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.</param>
+		/// <param name="pageSize">Used to page results from a query. Indicates the maximum number of entities to return from a query. Default value: 20. Max value: 200.</param>
+		/// <param name="q">A list of order search terms to use in the query when searching across order number and the name or email of the billing contact. Separate multiple search terms with a space character.</param>
 		/// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy">The element to sort the results by and the order in which the results appear. Either ascending order (a-z) which accepts 'asc' or 'asc' or descending order (z-a) which accepts 'desc' or 'desc'. The sortBy parameter follows an available property. For examp</param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderCollection"/>
 		/// </returns>
@@ -73,7 +73,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="orderId">Unique identifier of the available order actions to get.</param>
 		/// <returns>
 		/// List{string}
 		/// </returns>
@@ -97,7 +97,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="orderId">Unique identifier of the order to retrieve.</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.PricingRuntime.TaxableOrder"/>}
 		/// </returns>
@@ -123,8 +123,8 @@ namespace Mozu.Api.Resources.Commerce
 		/// </summary>
 		/// <param name="draft">If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.</param>
 		/// <param name="includeBin"></param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="orderId">Unique identifier of the order details to get.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
@@ -148,8 +148,32 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="cartId">Identifier of the cart to delete.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.ReasonCollection"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var order = new Order();
+		///   var reasonCollection = await order.GetReasonsAsync( responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.ReasonCollection> GetReasonsAsync(string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.ReasonCollection> response;
+			var client = Mozu.Api.Clients.Commerce.OrderClient.GetReasonsClient( responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="cartId">Unique identifier of the cart. This is the original cart ID expressed as a GUID.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
@@ -173,8 +197,8 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="order">Properties of an order, including its components.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="order">Properties of the order to create and submit.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
@@ -199,7 +223,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="action">The action to perform for the order.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
@@ -224,9 +248,35 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="refreshShipping">Specifies whether shipping rates should be re-evaluated while pricing.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="order">The order payload to price.</param>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="reason"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var order = new Order();
+		///   var order = await order.CancelOrderAsync( reason,  orderId,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> CancelOrderAsync(Mozu.Api.Contracts.CommerceRuntime.Orders.CanceledReason reason, string orderId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
+			var client = Mozu.Api.Clients.Commerce.OrderClient.CancelOrderClient( reason,  orderId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="refreshShipping"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="order"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
@@ -250,10 +300,10 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="digitalWalletType">The type of digital wallet to be processed.</param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="digitalWallet">The details of the digitial wallet.</param>
+		/// <param name="digitalWalletType"></param>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="digitalWallet"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
@@ -277,12 +327,12 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
-		/// <param name="discount">Properties of all applied discounts for an associated cart, order, or product. </param>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read only.</param>
+		/// <param name="orderId">Unique identifier of the order discount. System-supplied and read only.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="updateMode">Specifies whether to modify the discount by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
+		/// <param name="version"></param>
+		/// <param name="discount">Properties of the order discount to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
@@ -306,8 +356,8 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the draft to delete.</param>
+		/// <param name="version">If applicable, the version of the order draft to delete.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -330,8 +380,8 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="action">The action to perform for the order.</param>
+		/// <param name="orderId"></param>
+		/// <param name="action"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -354,11 +404,11 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
-		/// <param name="priceListCode">The unique price list code.</param>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="updateMode"></param>
+		/// <param name="version"></param>
+		/// <param name="priceListCode"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
@@ -383,7 +433,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
@@ -407,11 +457,11 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="orderId">Unique identifier of the order to update.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
-		/// <param name="order">Properties of an order, including its components.</param>
+		/// <param name="version"></param>
+		/// <param name="order">The properties of the order to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>

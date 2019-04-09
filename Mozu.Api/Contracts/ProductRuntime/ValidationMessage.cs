@@ -26,9 +26,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 
 			public string SourceId { get; set; }
 
-			///
-			///Type of validation error that occurred. This can be checked programatically. Must be one of the values in ValidationTypeConst.
-			///
 			public string ValidationType { get; set; }
 
 		}

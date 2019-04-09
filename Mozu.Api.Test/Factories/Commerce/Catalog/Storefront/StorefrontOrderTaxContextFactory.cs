@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Catalog.Storefront
 {
 	/// <summary>
-	/// Use the Storefront Tax resource to retrieve tax information from the storefront.
+	/// 
 	/// </summary>
 	public partial class StorefrontOrderTaxContextFactory : BaseDataFactory
 	{

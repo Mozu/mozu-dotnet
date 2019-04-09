@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Customer.Accounts
 {
 	/// <summary>
-	/// Use the Audit Log resource to retrieve audit logs for customer accounts.
+	/// 
 	/// </summary>
 	public partial class CustomerAuditEntryFactory : BaseDataFactory
 	{

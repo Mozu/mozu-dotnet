@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Platform.Appdev
 {
 	/// <summary>
-	/// This resource is not public.
+	/// 
 	/// </summary>
 	public partial class PackageFactory : BaseDataFactory
 	{
