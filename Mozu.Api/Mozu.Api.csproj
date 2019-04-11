@@ -66,6 +66,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiException.cs" />
+    <Compile Include="Contracts\PaymentService\Extensibility\V1\ConnectionStatuses.cs" />
+    <Compile Include="Contracts\PaymentService\Extensibility\V1\TransactionType.cs" />
     <Compile Include="DataViewMode.cs" />
     <Compile Include="Events\EventService.cs" />
     <Compile Include="Events\EventServiceFactory.cs" />
