@@ -16,7 +16,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 {
 		public class ReasonCollection
 		{
-			public List<string> Items { get; set; }
+			public List<CancelReasonItem> Items { get; set; }
 
 			public int TotalCount { get; set; }
 

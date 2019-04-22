@@ -17,7 +17,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 		{
 			public string Description { get; set; }
 
-			public string Reason { get; set; }
+			public string ReasonCode { get; set; }
 
 		}
 

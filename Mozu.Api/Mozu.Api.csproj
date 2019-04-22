@@ -335,6 +335,7 @@
     <Compile Include="Contracts\CommerceRuntime\Fulfillment\ShippingRate.cs" />
     <Compile Include="Contracts\CommerceRuntime\Orders\CanceledOrderItem.cs" />
     <Compile Include="Contracts\CommerceRuntime\Orders\CanceledReason.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Orders\CancelReasonItem.cs" />
     <Compile Include="Contracts\CommerceRuntime\Orders\DigitalWallet.cs" />
     <Compile Include="Contracts\CommerceRuntime\Orders\Order.cs" />
     <Compile Include="Contracts\CommerceRuntime\Orders\OrderAction.cs" />

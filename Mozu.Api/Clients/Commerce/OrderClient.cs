@@ -131,19 +131,20 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="category"></param>
 		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.ReasonCollection"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetReasons( responseFields);
+		///   var mozuClient=GetReasons( category,  responseFields);
 		///   var reasonCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.ReasonCollection> GetReasonsClient(string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.ReasonCollection> GetReasonsClient(string category =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.OrderUrl.GetReasonsUrl(responseFields);
+			var url = Mozu.Api.Urls.Commerce.OrderUrl.GetReasonsUrl(category, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.ReasonCollection>()
 									.WithVerb(verb).WithResourceUrl(url)

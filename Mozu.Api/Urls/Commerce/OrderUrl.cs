@@ -99,14 +99,16 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetReasons
         /// </summary>
+        /// <param name="category"></param>
         /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetReasonsUrl(string responseFields =  null)
+        public static MozuUrl GetReasonsUrl(string category =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/orders/cancel/reasons?responseFields={responseFields}";
+			var url = "/api/commerce/orders/cancel/reasons?category={category}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "category", category);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}

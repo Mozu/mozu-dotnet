@@ -148,6 +148,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="category"></param>
 		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.ReasonCollection"/>
@@ -155,13 +156,13 @@ namespace Mozu.Api.Resources.Commerce
 		/// <example>
 		/// <code>
 		///   var order = new Order();
-		///   var reasonCollection = await order.GetReasonsAsync( responseFields);
+		///   var reasonCollection = await order.GetReasonsAsync( category,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.ReasonCollection> GetReasonsAsync(string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.ReasonCollection> GetReasonsAsync(string category =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.ReasonCollection> response;
-			var client = Mozu.Api.Clients.Commerce.OrderClient.GetReasonsClient( responseFields);
+			var client = Mozu.Api.Clients.Commerce.OrderClient.GetReasonsClient( category,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
