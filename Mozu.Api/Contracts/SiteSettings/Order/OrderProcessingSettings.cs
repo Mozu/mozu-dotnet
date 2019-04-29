@@ -27,6 +27,8 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 
 			public AuditInfo AuditInfo { get; set; }
 
+			public int? DefaultBackOrderDays { get; set; }
+
 			public string GiftCardProcessingType { get; set; }
 
 			public string PaymentProcessingFlowType { get; set; }

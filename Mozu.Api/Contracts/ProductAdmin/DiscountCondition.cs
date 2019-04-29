@@ -61,6 +61,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public List<ProductDiscountCondition> IncludedProducts { get; set; }
 
+			public decimal? MaximumOrderAmount { get; set; }
+
 			///
 			///The maximum number of times the discount can be redeemed.
 			///

@@ -57,32 +57,6 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account to retrieve.</param>
-		/// <param name="responseFields"></param>
-		/// <param name="userId"></param>
-		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var mozuClient=GetAccount( accountId,  userId,  responseFields);
-		///   var customerAccountClient = mozuClient.WithBaseAddress(url).Execute().Result();
-		/// </code>
-		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount> GetAccountClient(int accountId, string userId =  null, string responseFields =  null)
-		{
-			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetAccountUrl(accountId, userId, responseFields);
-			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount>()
-									.WithVerb(verb).WithResourceUrl(url)
-;
-			return mozuClient;
-
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="responseFields"></param>
 		/// <param name="userId"></param>
@@ -100,6 +74,32 @@ namespace Mozu.Api.Clients.Commerce.Customer
 			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetLoginStateUrl(accountId, userId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.LoginState>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account to retrieve.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="userId"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetAccount( accountId,  userId,  responseFields);
+		///   var customerAccountClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount> GetAccountClient(int accountId, string userId =  null, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.GetAccountUrl(accountId, userId, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

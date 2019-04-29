@@ -48,6 +48,8 @@ namespace Mozu.Api.Contracts.Location
 
 			public bool IncludeInInventoryAggregrate { get; set; }
 
+			public bool IncludeInLocationExport { get; set; }
+
 			///
 			///Locations is disabled (soft delete)
 			///

@@ -74,32 +74,6 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account to retrieve.</param>
-		/// <param name="responseFields"></param>
-		/// <param name="userId"></param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var customeraccount = new CustomerAccount();
-		///   var customerAccount = await customeraccount.GetAccountAsync( accountId,  userId,  responseFields);
-		/// </code>
-		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAccount> GetAccountAsync(int accountId, string userId =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
-		{
-			MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetAccountClient( accountId,  userId,  responseFields);
-			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
-			return await response.ResultAsync();
-
-		}
-
-
-		/// <summary>
-		/// 
-		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="responseFields"></param>
 		/// <param name="userId"></param>
@@ -116,6 +90,32 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.LoginState> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetLoginStateClient( accountId,  userId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account to retrieve.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="userId"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customeraccount = new CustomerAccount();
+		///   var customerAccount = await customeraccount.GetAccountAsync( accountId,  userId,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAccount> GetAccountAsync(int accountId, string userId =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetAccountClient( accountId,  userId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();

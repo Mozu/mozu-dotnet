@@ -72,13 +72,13 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAccountFactory.GetAccount(handler : handler,  accountId :  accountId,  userId :  userId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<CustomerAccount/>(result); 
+		/// var result = CustomerAccountFactory.GetLoginState(handler : handler,  accountId :  accountId,  userId :  userId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<LoginState/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.Customer.CustomerAccount GetAccount(ServiceClientMessageHandler handler, 
+		public static Mozu.Api.Contracts.Customer.LoginState GetLoginState(ServiceClientMessageHandler handler, 
  		 int accountId, string userId = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
@@ -86,7 +86,7 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetAccountClient(
+			var apiClient = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetLoginStateClient(
 				 accountId :  accountId,  userId :  userId,  responseFields :  responseFields		);
 			try
 			{
@@ -110,13 +110,13 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = CustomerAccountFactory.GetLoginState(handler : handler,  accountId :  accountId,  userId :  userId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<LoginState/>(result); 
+		/// var result = CustomerAccountFactory.GetAccount(handler : handler,  accountId :  accountId,  userId :  userId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<CustomerAccount/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.Customer.LoginState GetLoginState(ServiceClientMessageHandler handler, 
+		public static Mozu.Api.Contracts.Customer.CustomerAccount GetAccount(ServiceClientMessageHandler handler, 
  		 int accountId, string userId = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
@@ -124,7 +124,7 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
-			var apiClient = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetLoginStateClient(
+			var apiClient = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetAccountClient(
 				 accountId :  accountId,  userId :  userId,  responseFields :  responseFields		);
 			try
 			{
