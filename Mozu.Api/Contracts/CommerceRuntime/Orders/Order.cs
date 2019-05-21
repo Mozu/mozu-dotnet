@@ -259,6 +259,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public List<Refund> Refunds { get; set; }
 
+			///
+			///List of discounts that were rejected instead of applied to this order.
+			///
 			public List<SuggestedDiscount> RejectedDiscounts { get; set; }
 
 			public string ReturnStatus { get; set; }
@@ -315,6 +318,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public string Type { get; set; }
 
+			///
+			///Unique identifier of the customer account (shopper or system user). System-supplied and read-only. If the shopper user is anonymous, the user ID represents a system-generated user ID string.
+			///
 			public string UserId { get; set; }
 
 			///

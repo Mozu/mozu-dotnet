@@ -28,7 +28,7 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 			public AuditInfo AuditInfo { get; set; }
 
 			///
-			///giftCardProcessingType ApiType DOCUMENT_HERE 
+			///The gift card payment type being used to perform this purchase.
 			///
 			public string GiftCardProcessingType { get; set; }
 

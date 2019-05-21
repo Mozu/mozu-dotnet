@@ -25,8 +25,14 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Discounts
 			///
 			public int DiscountId { get; set; }
 
+			///
+			///hasMultipleProducts ApiType DOCUMENT_HERE 
+			///
 			public bool HasMultipleProducts { get; set; }
 
+			///
+			///Whether the suggested discount includes multiple options.
+			///
 			public bool HasOptions { get; set; }
 
 			///

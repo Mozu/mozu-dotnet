@@ -48,17 +48,17 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		}
 
 		/// <summary>
-        /// Get Resource Url for GetAccount
+        /// Get Resource Url for GetLoginState
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-        /// <param name="userId"></param>
+        /// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetAccountUrl(int accountId, string userId =  null, string responseFields =  null)
+        public static MozuUrl GetLoginStateUrl(int accountId, string userId =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/{accountId}&userId={userId}?responseFields={responseFields}";
+			var url = "/api/commerce/customer/accounts/{accountId}/loginstate?userId={userId}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "accountId", accountId);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
@@ -67,17 +67,17 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		}
 
 		/// <summary>
-        /// Get Resource Url for GetLoginState
+        /// Get Resource Url for GetAccount
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-        /// <param name="userId"></param>
+        /// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetLoginStateUrl(int accountId, string userId =  null, string responseFields =  null)
+        public static MozuUrl GetAccountUrl(int accountId, string userId =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/customer/accounts/{accountId}/loginstate?userId={userId}&responseFields={responseFields}";
+			var url = "/api/commerce/customer/accounts/{accountId}?userId={userId}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "accountId", accountId);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
@@ -105,7 +105,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
         /// <param name="unlockAccount">Specifies whether to unlock the specified customer account.</param>
-        /// <param name="userId"></param>
+        /// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -155,7 +155,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
         /// Get Resource Url for SetLoginLocked
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="userId"></param>
+        /// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -172,7 +172,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
         /// Get Resource Url for SetPasswordChangeRequired
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="userId"></param>
+        /// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -271,7 +271,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for GetCustomersPurchaseOrderAccounts
         /// </summary>
-        /// <param name="accountType"></param>
+        /// <param name="accountType">The type of customer account utilizing purchase orders.</param>
         /// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>

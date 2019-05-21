@@ -60,7 +60,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
         /// Get Resource Url for AddCredit
         /// </summary>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-        /// <param name="userId"></param>
+        /// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -94,7 +94,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
         /// Get Resource Url for ResendCreditCreatedEmail
         /// </summary>
         /// <param name="code">User-defined code that uniqely identifies the channel group.</param>
-        /// <param name="userId"></param>
+        /// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

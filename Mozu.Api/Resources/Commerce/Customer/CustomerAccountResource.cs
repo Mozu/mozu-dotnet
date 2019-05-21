@@ -76,33 +76,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="userId"></param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var customeraccount = new CustomerAccount();
-		///   var customerAccount = await customeraccount.GetAccountAsync( accountId,  userId,  responseFields);
-		/// </code>
-		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAccount> GetAccountAsync(int accountId, string userId =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
-		{
-			MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetAccountClient( accountId,  userId,  responseFields);
-			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
-			return await response.ResultAsync();
-
-		}
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="userId"></param>
+		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.LoginState"/>
 		/// </returns>
@@ -116,6 +90,32 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.LoginState> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetLoginStateClient( accountId,  userId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customeraccount = new CustomerAccount();
+		///   var customerAccount = await customeraccount.GetAccountAsync( accountId,  userId,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAccount> GetAccountAsync(int accountId, string userId =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetAccountClient( accountId,  userId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -153,7 +153,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="unlockAccount">Specifies whether to unlock the specified customer account.</param>
-		/// <param name="userId"></param>
+		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
 		/// <param name="passwordInfo">The information required to modify a shopper account password.</param>
 		/// <returns>
 		/// 
@@ -227,7 +227,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// 
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="userId"></param>
+		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
 		/// <param name="isLocked">If true, the customer account is locked from logging in.</param>
 		/// <returns>
 		/// 
@@ -252,7 +252,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// 
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="userId"></param>
+		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
 		/// <param name="isPasswordChangeRequired">If true, the password for the customer account must be changed.</param>
 		/// <returns>
 		/// 
@@ -403,7 +403,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="accountType"></param>
+		/// <param name="accountType">The type of customer account utilizing purchase orders.</param>
 		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>

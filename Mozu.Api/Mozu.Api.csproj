@@ -651,6 +651,8 @@
     <Compile Include="Contracts\ProductAdmin\ProductExtra.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductExtraValue.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductExtraValueDeltaPrice.cs" />
+    <Compile Include="Contracts\ProductAdmin\ProductImageGroup.cs" />
+    <Compile Include="Contracts\ProductAdmin\ProductImageGroupTag.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductInCatalogInfo.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductInventoryInfo.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductLocalizedContent.cs" />

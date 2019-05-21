@@ -19,13 +19,13 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetQuotes
         /// </summary>
-        /// <param name="filter"></param>
-        /// <param name="pageSize"></param>
-        /// <param name="q"></param>
-        /// <param name="qLimit"></param>
-        /// <param name="responseFields"></param>
-        /// <param name="sortBy"></param>
-        /// <param name="startIndex"></param>
+        /// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
+        /// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
+        /// <param name="q">A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.</param>
+        /// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
+        /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -46,8 +46,8 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetQuote
         /// </summary>
-        /// <param name="quoteId"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="quoteId">A unique identifier for the quote.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -63,9 +63,9 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetQuoteByName
         /// </summary>
-        /// <param name="customerAccountId"></param>
-        /// <param name="quoteName"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="customerAccountId">The unique identifier of the customer account for which to retrieve wish lists.</param>
+        /// <param name="quoteName">A unique name for the quote.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -82,7 +82,7 @@ namespace Mozu.Api.Urls.Commerce
 				/// <summary>
         /// Get Resource Url for CreateQuote
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -97,8 +97,8 @@ namespace Mozu.Api.Urls.Commerce
 				/// <summary>
         /// Get Resource Url for UpdateQuote
         /// </summary>
-        /// <param name="quoteId"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="quoteId">A unique identifier for the quote being updated.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -114,7 +114,7 @@ namespace Mozu.Api.Urls.Commerce
 				/// <summary>
         /// Get Resource Url for DeleteQuote
         /// </summary>
-        /// <param name="quoteId"></param>
+        /// <param name="quoteId">A unique identifier for the quote.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

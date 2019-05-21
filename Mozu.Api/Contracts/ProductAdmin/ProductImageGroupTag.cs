@@ -15,19 +15,19 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	Mozu.ProductAdmin.Contracts.CurrencyExchangeRateCollection ApiType DOCUMENT_HERE 
+		///	Mozu.ProductAdmin.Contracts.ProductImageGroupTag ApiType DOCUMENT_HERE 
 		///
-		public class CurrencyExchangeRateCollection
+		public class ProductImageGroupTag
 		{
 			///
-			///A list of requested items. All returned data is provided in an items array.For a failed request, the returned response may be success with an empty item array.
+			///fqn ApiType DOCUMENT_HERE 
 			///
-			public List<CurrencyExchangeRate> Items { get; set; }
+			public string Fqn { get; set; }
 
 			///
-			///The total number of items in the list.
+			///List of value data for objects.
 			///
-			public int TotalCount { get; set; }
+			public List<string> Values { get; set; }
 
 		}
 

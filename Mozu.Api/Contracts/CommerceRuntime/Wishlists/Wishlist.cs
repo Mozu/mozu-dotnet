@@ -99,6 +99,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 
 			public string PrivacyType { get; set; }
 
+			///
+			///List of discounts that were rejected instead of applied to this wishlist.
+			///
 			public List<SuggestedDiscount> RejectedDiscounts { get; set; }
 
 			///
@@ -136,6 +139,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 
 			public string TypeTag { get; set; }
 
+			///
+			///Unique identifier of the customer account (shopper or system user). System-supplied and read-only. If the shopper user is anonymous, the user ID represents a system-generated user ID string.
+			///
 			public string UserId { get; set; }
 
 			public string Version { get; set; }

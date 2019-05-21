@@ -13,20 +13,44 @@ using System;
 
 namespace Mozu.Api.Contracts.ProductRuntime
 {
+		///
+		///	Mozu.ProductAdmin.Contracts.CurrencyExchangeRate ApiType DOCUMENT_HERE 
+		///
 		public class CurrencyExchangeRate
 		{
+			///
+			///decimalPlaces ApiType DOCUMENT_HERE 
+			///
 			public int? DecimalPlaces { get; set; }
 
+			///
+			///The code of the original currency that the new currency equivalent is being calculated from.
+			///
 			public string FromCurrencyCode { get; set; }
 
+			///
+			///The multiplier that is used to calculate the equivalent between two currencies.
+			///
 			public decimal? Multiplier { get; set; }
 
+			///
+			///The exact rate of the given currency exchange.
+			///
 			public decimal? Rate { get; set; }
 
+			///
+			///referenceData ApiType DOCUMENT_HERE 
+			///
 			public string ReferenceData { get; set; }
 
+			///
+			///roundingStrategy ApiType DOCUMENT_HERE 
+			///
 			public int? RoundingStrategy { get; set; }
 
+			///
+			///The code of the new currency that the original currency's equivalent is being calculated to.
+			///
 			public string ToCurrencyCode { get; set; }
 
 		}

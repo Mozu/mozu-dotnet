@@ -114,10 +114,13 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			public List<AppliedDiscount> OrderDiscounts { get; set; }
 
 			///
-			///Pricelist code
+			///Code for the pricelist being applied to the products in the cart.
 			///
 			public string PriceListCode { get; set; }
 
+			///
+			///A list of the discounts that were rejected from being applied to the cart.
+			///
 			public List<SuggestedDiscount> RejectedDiscounts { get; set; }
 
 			///

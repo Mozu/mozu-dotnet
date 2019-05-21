@@ -133,7 +133,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// 
 		/// </summary>
 		/// <param name="categoryId">Unique identifier of the category to modify.</param>
-		/// <param name="productCodes"></param>
+		/// <param name="productCodes">A list of product codes to be added to the category.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
@@ -159,7 +159,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// 
 		/// </summary>
 		/// <param name="categoryId">Unique identifier of the category to modify.</param>
-		/// <param name="productCodes"></param>
+		/// <param name="productCodes">A list of product codes to be removed from the category.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

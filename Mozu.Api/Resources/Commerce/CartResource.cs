@@ -165,9 +165,9 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="cartId"></param>
-		/// <param name="discountId"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="cartId">Identifier of the cart to delete.</param>
+		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>
 		/// </returns>

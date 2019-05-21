@@ -25,6 +25,11 @@ namespace Mozu.Api.Contracts.ProductRuntime
 
 			public bool? IsMultiValue { get; set; }
 
+			///
+			///isProductImageGroupSelector ApiType DOCUMENT_HERE 
+			///
+			public bool IsProductImageGroupSelector { get; set; }
+
 			public bool? IsRequired { get; set; }
 
 			public List<ProductOptionValue> Values { get; set; }

@@ -31,6 +31,11 @@ namespace Mozu.Api.Contracts.ProductRuntime
 
 			public string MediaType { get; set; }
 
+			///
+			///productImageGroupId ApiType DOCUMENT_HERE 
+			///
+			public string ProductImageGroupId { get; set; }
+
 			public int? Sequence { get; set; }
 
 			public string VideoUrl { get; set; }

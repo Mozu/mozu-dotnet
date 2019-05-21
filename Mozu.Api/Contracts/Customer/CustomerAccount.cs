@@ -22,6 +22,9 @@ namespace Mozu.Api.Contracts.Customer
 		{
 			public bool AcceptsMarketing { get; set; }
 
+			///
+			///The type of the customer account.
+			///
 			public string AccountType { get; set; }
 
 			public List<CustomerAttribute> Attributes { get; set; }

@@ -48,6 +48,11 @@ namespace Mozu.Api.Contracts.ProductRuntime
 
 			public string ProductCode { get; set; }
 
+			///
+			///List of image files associated with a product. This content may include the image file URL, name, and other information as available.
+			///
+			public List<ProductImage> ProductImages { get; set; }
+
 			public ProductPurchasableState PurchasableState { get; set; }
 
 			///

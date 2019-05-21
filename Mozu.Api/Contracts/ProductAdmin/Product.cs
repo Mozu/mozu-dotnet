@@ -77,6 +77,11 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public string ProductCode { get; set; }
 
+			///
+			///productImageGroups ApiType DOCUMENT_HERE 
+			///
+			public List<ProductImageGroup> ProductImageGroups { get; set; }
+
 			public List<ProductInCatalogInfo> ProductInCatalogs { get; set; }
 
 			public int? ProductSequence { get; set; }
