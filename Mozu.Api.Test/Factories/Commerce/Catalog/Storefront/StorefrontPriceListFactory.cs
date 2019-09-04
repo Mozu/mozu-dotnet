@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Catalog.Storefront
 {
 	/// <summary>
-	/// Retrieves the details of a price list. The details may contain a hierarchy of ancestor and/or descendant price lists dependening on your configuration.
+	/// 
 	/// </summary>
 	public partial class StorefrontPriceListFactory : BaseDataFactory
 	{

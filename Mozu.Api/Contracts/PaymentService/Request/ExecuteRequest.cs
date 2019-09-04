@@ -15,24 +15,12 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.PaymentService.Request
 {
-		///
-		///	The request to be executed.
-		///
 		public class ExecuteRequest
 		{
-			///
-			///The content body of the request.
-			///
 			public JObject Body { get; set; }
 
-			///
-			///The title of a method in the request.
-			///
 			public string MethodName { get; set; }
 
-			///
-			///The identifier of the token being used in the request.
-			///
 			public string TokenId { get; set; }
 
 		}

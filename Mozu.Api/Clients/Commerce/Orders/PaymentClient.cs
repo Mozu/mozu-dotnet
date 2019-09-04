@@ -26,7 +26,7 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentCollection"/>}
 		/// </returns>
@@ -50,8 +50,8 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="paymentId">Unique identifier of the payment for which to perform the action.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the payment.</param>
+		/// <param name="paymentId">Unique identifer of the payment for which to retrieve available actions.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{string}}
 		/// </returns>
@@ -75,9 +75,9 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="paymentId">Unique identifier of the payment for which to perform the action.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the payment transaction.</param>
+		/// <param name="paymentId">Unique identifier of the payment transaction submitted for the order.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Payments.Payment"/>}
 		/// </returns>
@@ -101,10 +101,10 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="paymentId">Unique identifier of the payment for which to perform the action.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="action">Properties of the payment action performed for an order.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the payment.</param>
+		/// <param name="paymentId">Unique identifer of the payment for which to perform the action.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="action">The action to perform for the payment. Possible values are AuthAndCapture, AuthorizePayment, CapturePayment, VoidPayment, CreditPayment, RequestCheck, ApplyCheck, DeclineCheck.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>}
 		/// </returns>
@@ -128,9 +128,9 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="action">Properties of the payment action performed for an order.</param>
+		/// <param name="orderId">Unique identifier of the order for which to apply the payment.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="action">To action to perform for the newly created payment. Possible values are AuthAndCapture, AuthorizePayment, CapturePayment, VoidPayment, CreditPayment, RequestCheck, ApplyCheck, DeclineCheck.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>}
 		/// </returns>
@@ -147,6 +147,32 @@ namespace Mozu.Api.Clients.Commerce.Orders
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.CommerceRuntime.Payments.PaymentAction>(action);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="forceCapture"></param>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=AutoCapturePayments( orderId,  forceCapture,  responseFields);
+		///   var orderClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> AutoCapturePaymentsClient(string orderId, bool? forceCapture =  null, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Orders.PaymentUrl.AutoCapturePaymentsUrl(orderId, forceCapture, responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
 			return mozuClient;
 
 		}

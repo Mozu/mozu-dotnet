@@ -13,29 +13,14 @@ using System;
 
 namespace Mozu.Api.Contracts.ShippingAdmin
 {
-		///
-		///	Mozu.ShippingAdmin.Contracts.TargetRule ApiType DOCUMENT_HERE 
-		///
 		public class TargetRule
 		{
-			///
-			///code ApiType DOCUMENT_HERE 
-			///
 			public string Code { get; set; }
 
-			///
-			///The localized description in text for the object, displayed per the locale code. For example, descriptions are used for product descriptions, attributes, and pre-authorization transaction types.
-			///
 			public string Description { get; set; }
 
-			///
-			///Properties of the domain that the tenant is associated with such as the domain name, the zone string, audit information (system-supplied and read-only), assignment data, and whether or not the domain is primary or requires a SSL for authentication.
-			///
 			public string Domain { get; set; }
 
-			///
-			///expression ApiType DOCUMENT_HERE 
-			///
 			public string Expression { get; set; }
 
 		}

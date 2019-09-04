@@ -100,6 +100,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MsTestCases\UserAuthTest.cs" />
     <Compile Include="Factories\Commerce\Admin\LocationAdminFactory.cs" />
+    <Compile Include="Factories\Commerce\Admin\LocationGroupConfigurationFactory.cs" />
+    <Compile Include="Factories\Commerce\Admin\LocationGroupFactory.cs" />
     <Compile Include="Factories\Commerce\Admin\Locations\Attributedefinition\AttributeFactory.cs" />
     <Compile Include="Factories\Commerce\Admin\LocationTypeFactory.cs" />
     <Compile Include="Factories\Commerce\CartFactory.cs" />
@@ -183,6 +185,7 @@
     <Compile Include="Factories\Commerce\Orders\AppliedDiscountOrdersFactory.cs" />
     <Compile Include="Factories\Commerce\Orders\Attributedefinition\AttributeFactory.cs" />
     <Compile Include="Factories\Commerce\Orders\BillingInfoFactory.cs" />
+    <Compile Include="Factories\Commerce\Orders\CanceledReasonFactory.cs" />
     <Compile Include="Factories\Commerce\Orders\DigitalPackageFactory.cs" />
     <Compile Include="Factories\Commerce\Orders\ExtendedPropertyFactory.cs" />
     <Compile Include="Factories\Commerce\Orders\FulfillmentActionFactory.cs" />
@@ -211,10 +214,12 @@
     <Compile Include="Factories\Commerce\Settings\Checkout\CustomerCheckoutSettingsFactory.cs" />
     <Compile Include="Factories\Commerce\Settings\Checkout\PaymentSettingsFactory.cs" />
     <Compile Include="Factories\Commerce\Settings\CheckoutSettingsFactory.cs" />
+    <Compile Include="Factories\Commerce\Settings\FulfillmentSettingsFactory.cs" />
     <Compile Include="Factories\Commerce\Settings\General\CustomRouteSettingsFactory.cs" />
     <Compile Include="Factories\Commerce\Settings\General\TaxableTerritoryFactory.cs" />
     <Compile Include="Factories\Commerce\Settings\GeneralSettingsFactory.cs" />
     <Compile Include="Factories\Commerce\Settings\LocationUsageFactory.cs" />
+    <Compile Include="Factories\Commerce\Settings\ReturnSettingsFactory.cs" />
     <Compile Include="Factories\Commerce\Settings\Shipping\SiteShippingHandlingFeeFactory.cs" />
     <Compile Include="Factories\Commerce\Settings\SiteShippingSettingsFactory.cs" />
     <Compile Include="Factories\Commerce\Shipping\Admin\CarrierConfigurationFactory.cs" />
@@ -223,6 +228,7 @@
     <Compile Include="Factories\Commerce\Shipping\Admin\Profiles\ShippingInclusionRuleFactory.cs" />
     <Compile Include="Factories\Commerce\Shipping\Admin\Profiles\ShippingStatesFactory.cs" />
     <Compile Include="Factories\Commerce\Shipping\Admin\ShippingProfileFactory.cs" />
+    <Compile Include="Factories\Commerce\Shipping\Global\CarrierConfigurationFactory.cs" />
     <Compile Include="Factories\Commerce\TargetRuleFactory.cs" />
     <Compile Include="Factories\Commerce\WishlistFactory.cs" />
     <Compile Include="Factories\Commerce\Wishlists\WishlistItemFactory.cs" />
@@ -240,6 +246,7 @@
     <Compile Include="Factories\Event\Push\SubscriptionFactory.cs" />
     <Compile Include="Factories\Event\Push\Subscriptions\EventDeliverySummaryFactory.cs" />
     <Compile Include="Factories\Platform\Adminuser\AdminUserFactory.cs" />
+    <Compile Include="Factories\Platform\Adminuser\RoleFactory.cs" />
     <Compile Include="Factories\Platform\Adminuser\TenantAdminUserAuthTicketFactory.cs" />
     <Compile Include="Factories\Platform\Appdev\AppPackageFactory.cs" />
     <Compile Include="Factories\Platform\Appdev\PackageFactory.cs" />

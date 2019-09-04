@@ -18,14 +18,14 @@ using System.Threading;
 namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets
 {
 	/// <summary>
-	/// Use the AssignedDiscounts resource to manage the discounts assigned to coupon sets.
+	/// 
 	/// </summary>
 	public partial class AssignedDiscountClient 	{
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="couponSetCode">The unique identifier of the coupon set.</param>
+		/// <param name="couponSetCode"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ProductAdmin.AssignedDiscount"/>}}
 		/// </returns>
@@ -49,22 +49,22 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="couponSetCode">The unique identifier of the coupon set.</param>
-		/// <param name="assignedDiscount">The details of the discount assigned to the coupon set.</param>
+		/// <param name="couponSetCode"></param>
+		/// <param name="assignedDiscount"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=AssignDiscount( assignedDiscount,  couponSetCode);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient AssignDiscountClient(Mozu.Api.Contracts.ProductAdmin.AssignedDiscount assignedDiscount, string couponSetCode)
+		public static MozuClient<System.IO.Stream> AssignDiscountClient(Mozu.Api.Contracts.ProductAdmin.AssignedDiscount assignedDiscount, string couponSetCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets.AssignedDiscountUrl.AssignDiscountUrl(couponSetCode);
 			const string verb = "POST";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.ProductAdmin.AssignedDiscount>(assignedDiscount);
 			return mozuClient;
@@ -74,22 +74,22 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="couponSetCode">The unique identifier of the coupon set.</param>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
+		/// <param name="couponSetCode"></param>
+		/// <param name="discountId"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=UnAssignDiscount( couponSetCode,  discountId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient UnAssignDiscountClient(string couponSetCode, int discountId)
+		public static MozuClient<System.IO.Stream> UnAssignDiscountClient(string couponSetCode, int discountId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets.AssignedDiscountUrl.UnAssignDiscountUrl(couponSetCode, discountId);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

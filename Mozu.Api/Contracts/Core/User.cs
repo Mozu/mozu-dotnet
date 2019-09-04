@@ -15,11 +15,13 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.Core
 {
 		///
-		///	Properties of the user. Users include customers and  users.
+		///	Properties of the user.
 		///
 		public class User
 		{
 			public string EmailAddress { get; set; }
+
+			public string ExternalId { get; set; }
 
 			public string FirstName { get; set; }
 
@@ -31,11 +33,19 @@ namespace Mozu.Api.Contracts.Core
 
 			public string LocaleCode { get; set; }
 
+			public bool? OptInToEmail { get; set; }
+
+			public bool? OptInToTextMessage { get; set; }
+
 			public string Password { get; set; }
+
+			public string PhoneNumber { get; set; }
 
 			public List<UserRole> Roles { get; set; }
 
 			public UserSystemData SystemData { get; set; }
+
+			public string UserName { get; set; }
 
 		}
 

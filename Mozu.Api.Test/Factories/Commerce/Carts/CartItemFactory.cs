@@ -111,14 +111,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Carts
 		/// <example> 
 		///  <code> 
 		/// var result = CartItemFactory.AddItemsToCart(handler : handler,  cartItems :  cartItems,  throwErrorOnInvalidItems :  throwErrorOnInvalidItems,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void AddItemsToCart(ServiceClientMessageHandler handler, 
- 		List<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> cartItems, bool? throwErrorOnInvalidItems = null, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream AddItemsToCart(ServiceClientMessageHandler handler, 
+ 		 List<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> cartItems, bool? throwErrorOnInvalidItems = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -136,8 +136,9 @@ namespace Mozu.Api.Test.Factories.Commerce.Carts
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 
@@ -300,14 +301,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Carts
 		/// <example> 
 		///  <code> 
 		/// var result = CartItemFactory.DeleteCartItem(handler : handler,  cartItemId :  cartItemId,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeleteCartItem(ServiceClientMessageHandler handler, 
- 		string cartItemId, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream DeleteCartItem(ServiceClientMessageHandler handler, 
+ 		 string cartItemId, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -325,8 +326,9 @@ namespace Mozu.Api.Test.Factories.Commerce.Carts
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

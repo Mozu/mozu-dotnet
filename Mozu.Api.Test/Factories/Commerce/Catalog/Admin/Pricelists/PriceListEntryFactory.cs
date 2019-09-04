@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin.Pricelists
 {
 	/// <summary>
-	/// Use the Entries sub-resource to interact with price list entries. Price list entries enable you to override product pricing as well as control what products shoppers can view and purchase when the price list is exclusive. Refer to the [Price Lists](../../../guides/catalog/price-lists.htm) guides topic for more information.
+	/// 
 	/// </summary>
 	public partial class PriceListEntryFactory : BaseDataFactory
 	{
@@ -187,14 +187,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin.Pricelists
 		/// <example> 
 		///  <code> 
 		/// var result = PriceListEntryFactory.DeletePriceListEntry(handler : handler,  priceListCode :  priceListCode,  productCode :  productCode,  currencyCode :  currencyCode,  startDate :  startDate,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeletePriceListEntry(ServiceClientMessageHandler handler, 
- 		string priceListCode, string productCode, string currencyCode, DateTime? startDate = null, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream DeletePriceListEntry(ServiceClientMessageHandler handler, 
+ 		 string priceListCode, string productCode, string currencyCode, DateTime? startDate = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -212,8 +212,9 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin.Pricelists
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

@@ -49,14 +49,14 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
+		/// <param name="filter"></param>
 		/// <param name="noCount">If true, the operation does not return the TotalCount number of results.</param>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-		/// <param name="q">A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.</param>
+		/// <param name="pageSize"></param>
+		/// <param name="q">A list of product search terms to use in the query when searching across product code and product name. Separate multiple search terms with a space character.</param>
 		/// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductCollection"/>
 		/// </returns>
@@ -80,7 +80,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
+		/// <param name="productCode"></param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo"/>}
 		/// </returns>
@@ -104,9 +104,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="catalogId">Unique identifier for a catalog.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="catalogId"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo"/>
 		/// </returns>
@@ -130,8 +130,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Product"/>
 		/// </returns>
@@ -155,8 +155,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="product">The properties of a product, referenced and used by carts, orders, wish lists, and returns.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="product">Properties of the new product. You must supply values for the product code, product name, and price.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Product"/>
 		/// </returns>
@@ -180,9 +180,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="productInCatalogInfoIn">Properties of a product associated with a specific catalog.</param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="productInCatalogInfoIn">Properties of the product to define for the specific catalog association.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo"/>
 		/// </returns>
@@ -206,22 +206,23 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="productCodeRenames">Properties for a product code current and changed content.</param>
+		/// <param name="productCodeRenames"></param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   await product.RenameProductCodesAsync( productCodeRenames);
+		///   var stream = await product.RenameProductCodesAsync( productCodeRenames);
 		/// </code>
 		/// </example>
-		public virtual async Task RenameProductCodesAsync(List<Mozu.Api.Contracts.ProductAdmin.ProductCodeRename> productCodeRenames, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> RenameProductCodesAsync(List<Mozu.Api.Contracts.ProductAdmin.ProductCodeRename> productCodeRenames, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.RenameProductCodesClient( productCodeRenames);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -229,8 +230,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="productInCatalogsIn">Properties of a product associated with a specific catalog.</param>
+		/// <param name="productCode"></param>
+		/// <param name="productInCatalogsIn">Properties of the product to update for each associated catalog.</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo"/>}
 		/// </returns>
@@ -254,10 +255,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="catalogId">Unique identifier for a catalog.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="productInCatalogInfoIn">Properties of a product associated with a specific catalog.</param>
+		/// <param name="catalogId"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="productInCatalogInfoIn">Properties of the product associated with the catalog specified in the request.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductInCatalogInfo"/>
 		/// </returns>
@@ -281,9 +282,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="product">The properties of a product, referenced and used by carts, orders, wish lists, and returns.</param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="product">Properties of the product definition to update in the master catalog.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.Product"/>
 		/// </returns>
@@ -307,22 +308,23 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
+		/// <param name="productCode"></param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   await product.DeleteProductAsync(_dataViewMode,  productCode);
+		///   var stream = await product.DeleteProductAsync(_dataViewMode,  productCode);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteProductAsync(string productCode, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteProductAsync(string productCode, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.DeleteProductClient(_dataViewMode,  productCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -330,23 +332,24 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="catalogId">Unique identifier for a catalog.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
+		/// <param name="catalogId"></param>
+		/// <param name="productCode"></param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   await product.DeleteProductInCatalogAsync(_dataViewMode,  productCode,  catalogId);
+		///   var stream = await product.DeleteProductInCatalogAsync(_dataViewMode,  productCode,  catalogId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteProductInCatalogAsync(string productCode, int catalogId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteProductInCatalogAsync(string productCode, int catalogId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.DeleteProductInCatalogClient(_dataViewMode,  productCode,  catalogId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

@@ -49,9 +49,9 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="noteId">Unique identifier of the order note to retrieve.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the note.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote"/>}
 		/// </returns>
@@ -75,9 +75,9 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="orderNote">Properties of an order note for a merchant, which is internal only for administrative purposes and not available to the shopper.</param>
+		/// <param name="orderId">Unique identifier of the order for which to add a note.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="orderNote">The alphanumeric text contained in the note. The maximum length is 256 characters.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote"/>}
 		/// </returns>
@@ -101,10 +101,10 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
+		/// <param name="noteId">Unique identifier of the order note.</param>
 		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="orderNote">Properties of an order note for a merchant, which is internal only for administrative purposes and not available to the shopper.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="orderNote">The content of the order note. The maximum length is 256 characters.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote"/>}
 		/// </returns>
@@ -128,22 +128,22 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
-		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="noteId">Unique identifier of the order note to delete.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the note.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteOrderNote( orderId,  noteId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteOrderNoteClient(string orderId, string noteId)
+		public static MozuClient<System.IO.Stream> DeleteOrderNoteClient(string orderId, string noteId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Orders.OrderNoteUrl.DeleteOrderNoteUrl(orderId, noteId);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

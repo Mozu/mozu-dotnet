@@ -66,7 +66,7 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// 
 		/// </summary>
 		/// <param name="locationTypeCode">The user-defined code that identifies the location type.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Location.LocationType"/>
 		/// </returns>
@@ -90,8 +90,8 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="locationType">Properties of a type of physical location, such as warehouse or kiosk. Location types enable tenants to group similar locations for filtering and location usage type definition.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="locationType">Properties of the location type to create.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Location.LocationType"/>
 		/// </returns>
@@ -116,8 +116,8 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// 
 		/// </summary>
 		/// <param name="locationTypeCode">The user-defined code that identifies the location type.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="locationType">Properties of a type of physical location, such as warehouse or kiosk. Location types enable tenants to group similar locations for filtering and location usage type definition.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="locationType">Properties of the location type to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Location.LocationType"/>
 		/// </returns>
@@ -141,22 +141,23 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="locationTypeCode">The user-defined code that identifies the location type.</param>
+		/// <param name="locationTypeCode">User-defined code used to identify the location type.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var locationtype = new LocationType();
-		///   await locationtype.DeleteLocationTypeAsync( locationTypeCode);
+		///   var stream = await locationtype.DeleteLocationTypeAsync( locationTypeCode);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteLocationTypeAsync(string locationTypeCode, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteLocationTypeAsync(string locationTypeCode, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Admin.LocationTypeClient.DeleteLocationTypeClient( locationTypeCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

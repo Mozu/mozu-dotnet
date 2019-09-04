@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Platform
 {
 	/// <summary>
-	/// Use the Extensions resource to manage Arc.js configuration settings. These are the same settings you can configure through  in the Action Management JSON Editor.
+	/// 
 	/// </summary>
 	public partial class TenantExtensionsFactory : BaseDataFactory
 	{
@@ -34,14 +34,14 @@ namespace Mozu.Api.Test.Factories.Platform
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = TenantExtensionsFactory.GetExtensions(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<TenantExtensions/>(result); 
+		/// var result = TenantExtensionsFactory.GetExtensions(handler : handler,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.InstalledApplications.TenantExtensions GetExtensions(ServiceClientMessageHandler handler, 
- 		 string responseFields = null, 
+		public static System.IO.Stream GetExtensions(ServiceClientMessageHandler handler, 
+ 		 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -49,7 +49,7 @@ namespace Mozu.Api.Test.Factories.Platform
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Platform.TenantExtensionsClient.GetExtensionsClient(
-				 responseFields :  responseFields		);
+						);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -72,14 +72,14 @@ namespace Mozu.Api.Test.Factories.Platform
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = TenantExtensionsFactory.UpdateExtensions(handler : handler,  extensions :  extensions,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<TenantExtensions/>(result); 
+		/// var result = TenantExtensionsFactory.UpdateExtensions(handler : handler,  extensions :  extensions,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.InstalledApplications.TenantExtensions UpdateExtensions(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.InstalledApplications.TenantExtensions extensions, string responseFields = null, 
+		public static System.IO.Stream UpdateExtensions(ServiceClientMessageHandler handler, 
+ 		 Mozu.Api.Contracts.InstalledApplications.TenantExtensions extensions, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -87,7 +87,7 @@ namespace Mozu.Api.Test.Factories.Platform
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Platform.TenantExtensionsClient.UpdateExtensionsClient(
-				 extensions :  extensions,  responseFields :  responseFields		);
+				 extensions :  extensions		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();

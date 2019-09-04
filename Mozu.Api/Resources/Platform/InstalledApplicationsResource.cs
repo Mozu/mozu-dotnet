@@ -42,21 +42,20 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="appId">appId parameter description DOCUMENT_HERE </param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="appId">The application ID that represents the application to retrieve.</param>
 		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.InstalledApplications.Application"/>
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var installedapplications = new InstalledApplications();
-		///   var application = await installedapplications.GetApplicationAsync( appId,  responseFields);
+		///   var stream = await installedapplications.GetApplicationAsync( appId);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.InstalledApplications.Application> GetApplicationAsync(string appId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> GetApplicationAsync(string appId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient<Mozu.Api.Contracts.InstalledApplications.Application> response;
-			var client = Mozu.Api.Clients.Platform.InstalledApplicationsClient.GetApplicationClient( appId,  responseFields);
+			MozuClient<System.IO.Stream> response;
+			var client = Mozu.Api.Clients.Platform.InstalledApplicationsClient.GetApplicationClient( appId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -67,22 +66,21 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="appId">appId parameter description DOCUMENT_HERE </param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="application">Properties of an app installed in a tenant.</param>
+		/// <param name="appId">The application ID that represents the application to update.</param>
+		/// <param name="application">Properties of the application to update.</param>
 		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.InstalledApplications.Application"/>
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var installedapplications = new InstalledApplications();
-		///   var application = await installedapplications.UpdateApplicationAsync( application,  appId,  responseFields);
+		///   var stream = await installedapplications.UpdateApplicationAsync( application,  appId);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.InstalledApplications.Application> UpdateApplicationAsync(Mozu.Api.Contracts.InstalledApplications.Application application, string appId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> UpdateApplicationAsync(Mozu.Api.Contracts.InstalledApplications.Application application, string appId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient<Mozu.Api.Contracts.InstalledApplications.Application> response;
-			var client = Mozu.Api.Clients.Platform.InstalledApplicationsClient.UpdateApplicationClient( application,  appId,  responseFields);
+			MozuClient<System.IO.Stream> response;
+			var client = Mozu.Api.Clients.Platform.InstalledApplicationsClient.UpdateApplicationClient( application,  appId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();

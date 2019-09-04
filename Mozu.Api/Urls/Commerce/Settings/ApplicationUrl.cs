@@ -19,30 +19,26 @@ namespace Mozu.Api.Urls.Commerce.Settings
 		/// <summary>
         /// Get Resource Url for ThirdPartyGetApplication
         /// </summary>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl ThirdPartyGetApplicationUrl(string responseFields =  null)
+        public static MozuUrl ThirdPartyGetApplicationUrl()
 		{
-			var url = "/api/commerce/settings/applications/?responseFields={responseFields}";
+			var url = "/api/commerce/settings/applications/";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 						/// <summary>
         /// Get Resource Url for ThirdPartyUpdateApplication
         /// </summary>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl ThirdPartyUpdateApplicationUrl(string responseFields =  null)
+        public static MozuUrl ThirdPartyUpdateApplicationUrl()
 		{
-			var url = "/api/commerce/settings/applications/?responseFields={responseFields}";
+			var url = "/api/commerce/settings/applications/";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

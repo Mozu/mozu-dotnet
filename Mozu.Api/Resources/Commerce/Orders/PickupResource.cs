@@ -42,8 +42,8 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="pickupId">Unique identifier of the pickup to remove.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the pickup.</param>
+		/// <param name="pickupId">Unique identifier of the pickup for which to retrieve available actions.</param>
 		/// <returns>
 		/// List{string}
 		/// </returns>
@@ -67,9 +67,9 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="pickupId">Unique identifier of the pickup to remove.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the pickup.</param>
+		/// <param name="pickupId">Unique identifier of the pickup to retrieve.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup"/>
 		/// </returns>
@@ -94,8 +94,8 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="pickup">Properties of an in-store pickup defined to fulfill items in an order.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="pickup">Properties of the in-store pickup to create.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup"/>
 		/// </returns>
@@ -119,10 +119,10 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="pickupId">Unique identifier of the pickup to remove.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="pickup">Properties of an in-store pickup defined to fulfill items in an order.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the in-store pickup.</param>
+		/// <param name="pickupId">Unique identifier of the pickup to update.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="pickup">Properties of the in-store pickup to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup"/>
 		/// </returns>
@@ -146,23 +146,24 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the pickup.</param>
 		/// <param name="pickupId">Unique identifier of the pickup to remove.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var pickup = new Pickup();
-		///   await pickup.DeletePickupAsync( orderId,  pickupId);
+		///   var stream = await pickup.DeletePickupAsync( orderId,  pickupId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeletePickupAsync(string orderId, string pickupId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeletePickupAsync(string orderId, string pickupId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.PickupClient.DeletePickupClient( orderId,  pickupId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

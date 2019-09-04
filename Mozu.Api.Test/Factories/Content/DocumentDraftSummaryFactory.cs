@@ -73,14 +73,14 @@ namespace Mozu.Api.Test.Factories.Content
 		/// <example> 
 		///  <code> 
 		/// var result = DocumentDraftSummaryFactory.DeleteDocumentDrafts(handler : handler,  documentIds :  documentIds,  documentLists :  documentLists,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeleteDocumentDrafts(ServiceClientMessageHandler handler, 
- 		List<string> documentIds, string documentLists = null, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream DeleteDocumentDrafts(ServiceClientMessageHandler handler, 
+ 		 List<string> documentIds, string documentLists = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -98,8 +98,9 @@ namespace Mozu.Api.Test.Factories.Content
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 
@@ -110,14 +111,14 @@ namespace Mozu.Api.Test.Factories.Content
 		/// <example> 
 		///  <code> 
 		/// var result = DocumentDraftSummaryFactory.PublishDocuments(handler : handler,  documentIds :  documentIds,  documentLists :  documentLists,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void PublishDocuments(ServiceClientMessageHandler handler, 
- 		List<string> documentIds, string documentLists = null, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream PublishDocuments(ServiceClientMessageHandler handler, 
+ 		 List<string> documentIds, string documentLists = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -135,8 +136,9 @@ namespace Mozu.Api.Test.Factories.Content
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

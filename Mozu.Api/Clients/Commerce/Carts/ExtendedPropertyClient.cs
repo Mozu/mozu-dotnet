@@ -18,7 +18,7 @@ using System.Threading;
 namespace Mozu.Api.Clients.Commerce.Carts
 {
 	/// <summary>
-	/// Use the Cart Extended Properties subresource to store an arbitrary number of cart extended properties such as tracking strings, marketing sources, affiliates, sales personnel/data, and so on, on a per cart basis. Each cart may have none, one, or more than one entry in the extended properties collection, and all values in the extended properties collection are represented as strings. When you create an order from a cart, all extended properties are retained from the cart and copied to the order. Refer to the subresource for more information about order extended properties.
+	/// 
 	/// </summary>
 	public partial class ExtendedPropertyClient 	{
 		
@@ -48,7 +48,7 @@ namespace Mozu.Api.Clients.Commerce.Carts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="extendedProperties">The details of the new extended property.</param>
+		/// <param name="extendedProperties"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty"/>}}
 		/// </returns>
@@ -72,10 +72,10 @@ namespace Mozu.Api.Clients.Commerce.Carts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="key">Key used for metadata defined for objects, including extensible attributes, custom attributes associated with a shipping provider, and search synonyms definitions. This content may be user-defined depending on the object and usage.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="upsert">Any set of key value pairs to be stored in the extended properties of a cart.</param>
-		/// <param name="extendedProperty">The details of the updated extended property.</param>
+		/// <param name="key"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="upsert"></param>
+		/// <param name="extendedProperty"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty"/>}
 		/// </returns>
@@ -99,8 +99,8 @@ namespace Mozu.Api.Clients.Commerce.Carts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="upsert">Any set of key value pairs to be stored in the extended properties of a cart.</param>
-		/// <param name="extendedProperties">The details of the updated extended properties.</param>
+		/// <param name="upsert"></param>
+		/// <param name="extendedProperties"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty"/>}}
 		/// </returns>
@@ -126,19 +126,19 @@ namespace Mozu.Api.Clients.Commerce.Carts
 		/// </summary>
 		/// <param name="keys"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteExtendedProperties( keys);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteExtendedPropertiesClient(List<string> keys)
+		public static MozuClient<System.IO.Stream> DeleteExtendedPropertiesClient(List<string> keys)
 		{
 			var url = Mozu.Api.Urls.Commerce.Carts.ExtendedPropertyUrl.DeleteExtendedPropertiesUrl();
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody(keys);
 			return mozuClient;
@@ -150,19 +150,19 @@ namespace Mozu.Api.Clients.Commerce.Carts
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteExtendedProperty( key);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteExtendedPropertyClient(string key)
+		public static MozuClient<System.IO.Stream> DeleteExtendedPropertyClient(string key)
 		{
 			var url = Mozu.Api.Urls.Commerce.Carts.ExtendedPropertyUrl.DeleteExtendedPropertyUrl(key);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

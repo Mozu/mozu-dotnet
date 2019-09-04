@@ -18,7 +18,7 @@ using System.Threading;
 namespace Mozu.Api.Resources.Platform.Developer
 {
 	/// <summary>
-	/// Use the Authtickets resource to manage authentication tickets for your developer account.
+	/// Use this resource to manage authentication tickets for your developer account.
 	/// </summary>
 	public partial class DeveloperAdminUserAuthTicketResource  	{
 		///
@@ -47,8 +47,8 @@ namespace Mozu.Api.Resources.Platform.Developer
 		/// 
 		/// </summary>
 		/// <param name="developerAccountId">Unique identifier of the developer account.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="userAuthInfo">Information required to authenticate a user.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="userAuthInfo">The user authentication information required to generate the developer account user authentication ticket, which consists of a user name and password.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket"/>
 		/// </returns>
@@ -73,8 +73,8 @@ namespace Mozu.Api.Resources.Platform.Developer
 		/// 
 		/// </summary>
 		/// <param name="developerAccountId">Unique identifier of the developer account.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="existingAuthTicket">Properties of the authentication ticket to be used in developer account claims with the  API.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="existingAuthTicket">Properties of the authentication ticket to refresh. The refresh token is required to complete this request.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AdminUser.DeveloperAdminUserAuthTicket"/>
 		/// </returns>
@@ -98,22 +98,23 @@ namespace Mozu.Api.Resources.Platform.Developer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="refreshToken">Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.</param>
+		/// <param name="refreshToken">Refresh token string associated with the developer account authentication ticket.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var developeradminuserauthticket = new DeveloperAdminUserAuthTicket();
-		///   await developeradminuserauthticket.DeleteUserAuthTicketAsync( refreshToken);
+		///   var stream = await developeradminuserauthticket.DeleteUserAuthTicketAsync( refreshToken);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteUserAuthTicketAsync(string refreshToken, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteUserAuthTicketAsync(string refreshToken, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Platform.Developer.DeveloperAdminUserAuthTicketClient.DeleteUserAuthTicketClient( refreshToken);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Shipping.Admin.Profiles
 {
 	/// <summary>
-	/// Use the ProductHandlingFeeRules sub-resource to manage your product handling fee rules that are associated with a specific shipping profile.
+	/// 
 	/// </summary>
 	public partial class ProductHandlingFeeRulesFactory : BaseDataFactory
 	{
@@ -187,14 +187,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Shipping.Admin.Profiles
 		/// <example> 
 		///  <code> 
 		/// var result = ProductHandlingFeeRulesFactory.DeleteProductHandlingFeeRule(handler : handler,  profilecode :  profilecode,  id :  id,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeleteProductHandlingFeeRule(ServiceClientMessageHandler handler, 
- 		string profilecode, string id,  DataViewMode dataViewMode= DataViewMode.Live, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream DeleteProductHandlingFeeRule(ServiceClientMessageHandler handler, 
+ 		 string profilecode, string id,  DataViewMode dataViewMode= DataViewMode.Live, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -212,8 +212,9 @@ namespace Mozu.Api.Test.Factories.Commerce.Shipping.Admin.Profiles
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

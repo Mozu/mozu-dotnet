@@ -14,19 +14,10 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 {
-		///
-		///	Mozu.CommerceRuntime.Contracts.Checkouts.ItemsForDestination ApiType DOCUMENT_HERE 
-		///
 		public class ItemsForDestination
 		{
-			///
-			///The ID of the destination the order items will ship to.
-			///
 			public string DestinationId { get; set; }
 
-			///
-			///The order item IDs of the items associated with a destination.
-			///
 			public List<string> ItemIds { get; set; }
 
 		}

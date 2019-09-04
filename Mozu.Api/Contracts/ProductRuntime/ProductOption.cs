@@ -15,15 +15,17 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
-		///	Properties of the product option to create such as attribute detail, fully qualified name, and list of product option values.
+		///	Represents configurable options that a shopper can choose when ordering a product, such as a t-shirt color and size.
 		///
 		public class ProductOption
 		{
 			public AttributeDetail AttributeDetail { get; set; }
 
-			public string AttributeFQN { get; set; }
+			public string AttributeFqn { get; set; }
 
 			public bool? IsMultiValue { get; set; }
+
+			public bool IsProductImageGroupSelector { get; set; }
 
 			public bool? IsRequired { get; set; }
 

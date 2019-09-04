@@ -42,11 +42,11 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.VisitCollection"/>
 		/// </returns>
@@ -70,8 +70,8 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="visitId">Unique identifier of the customer visit to update.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="visitId">Unique identifier of the customer visit to retrieve.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Visit"/>
 		/// </returns>
@@ -95,8 +95,8 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="visit">Properties of a customer visit to one of a company's sites.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="visit">Properties of the visit to add to the customer account.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Visit"/>
 		/// </returns>
@@ -120,9 +120,9 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="visitId">Unique identifier of the customer visit to update.</param>
-		/// <param name="visit">Properties of a customer visit to one of a company's sites.</param>
+		/// <param name="visit">Properties of the customer visit to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.Visit"/>
 		/// </returns>

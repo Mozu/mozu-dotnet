@@ -49,8 +49,8 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
-		/// <param name="documentName">The name of the document in the site.</param>
+		/// <param name="documentListName">The name of the document list associated with the document.</param>
+		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
 		/// <returns>
 		/// <see cref="System.IO.Stream"/>
 		/// </returns>
@@ -74,15 +74,15 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="crop">Crops the image based on the specified coordinates. The reference point for positive coordinates is the top-left corner of the image, and the reference point for negative coordinates is the bottom-right corner of the image.Usage: Example:  removes 10 pixels from all edges of the image.  leaves the image uncropped.</param>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
-		/// <param name="documentName">The name of the document in the site.</param>
-		/// <param name="height">Specifies an exact height dimension for the image, in pixels.</param>
-		/// <param name="max">Specifies a pixel limitation for the largest side of an image.</param>
-		/// <param name="maxHeight">Specifies a pixel limitation for the height of the image, preserving the aspect ratio if the image needs resizing.</param>
-		/// <param name="maxWidth">Specifies a pixel limitation for the width of the image, preserving the aspect ratio if the image needs resizing.</param>
-		/// <param name="quality">Adjusts the image compression. Accepts values from 0-100, where 100 = highest quality, least compression.</param>
-		/// <param name="width">Specifies an exact width dimension for the image, in pixels.</param>
+		/// <param name="crop"></param>
+		/// <param name="documentListName"></param>
+		/// <param name="documentName"></param>
+		/// <param name="height"></param>
+		/// <param name="max"></param>
+		/// <param name="maxHeight"></param>
+		/// <param name="maxWidth"></param>
+		/// <param name="quality"></param>
+		/// <param name="width"></param>
 		/// <returns>
 		/// <see cref="System.IO.Stream"/>
 		/// </returns>
@@ -106,10 +106,10 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
-		/// <param name="documentName">The name of the document in the site.</param>
-		/// <param name="includeInactive">Include inactive content.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="documentListName">The name of the document list associated with the document.</param>
+		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
+		/// <param name="includeInactive"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.Document"/>
 		/// </returns>
@@ -133,24 +133,25 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
-		/// <param name="documentName">The name of the document in the site.</param>
-		/// <param name="stream">Data stream that delivers information. Used to input and output data.</param>
+		/// <param name="documentListName">The name of the document list associated with the document.</param>
+		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
+		/// <param name="stream">Input output stream that delivers information.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var documenttree = new DocumentTree();
-		///   await documenttree.UpdateTreeDocumentContentAsync( stream,  documentListName,  documentName,  contentType);
+		///   var stream = await documenttree.UpdateTreeDocumentContentAsync( stream,  documentListName,  documentName,  contentType);
 		/// </code>
 		/// </example>
-		public virtual async Task UpdateTreeDocumentContentAsync(System.IO.Stream stream, string documentListName, string documentName, String  contentType= null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> UpdateTreeDocumentContentAsync(System.IO.Stream stream, string documentListName, string documentName, String  contentType= null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Content.Documentlists.DocumentTreeClient.UpdateTreeDocumentContentClient( stream,  documentListName,  documentName,  contentType);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -158,24 +159,25 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
-		/// <param name="documentName">The name of the document in the site.</param>
-		/// <param name="stream">Data stream that delivers information. Used to input and output data.</param>
+		/// <param name="documentListName">The name of the document list associated with the document.</param>
+		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
+		/// <param name="stream">Input output stream that delivers information.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var documenttree = new DocumentTree();
-		///   await documenttree.DeleteTreeDocumentContentAsync( stream,  documentListName,  documentName,  contentType);
+		///   var stream = await documenttree.DeleteTreeDocumentContentAsync( stream,  documentListName,  documentName,  contentType);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteTreeDocumentContentAsync(System.IO.Stream stream, string documentListName, string documentName, String  contentType= null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteTreeDocumentContentAsync(System.IO.Stream stream, string documentListName, string documentName, String  contentType= null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Content.Documentlists.DocumentTreeClient.DeleteTreeDocumentContentClient( stream,  documentListName,  documentName,  contentType);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

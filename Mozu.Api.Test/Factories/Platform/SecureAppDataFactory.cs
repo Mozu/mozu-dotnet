@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Platform
 {
 	/// <summary>
-	/// Manage Secure App Settings. Expose via arc.js so that arc apps can securely access secrets. Third-party extensions can also access their data. Secured via AppKey.AppId
+	/// 
 	/// </summary>
 	public partial class SecureAppDataFactory : BaseDataFactory
 	{
@@ -73,14 +73,14 @@ namespace Mozu.Api.Test.Factories.Platform
 		/// <example> 
 		///  <code> 
 		/// var result = SecureAppDataFactory.CreateDBValue(handler : handler,  value :  value,  appKeyId :  appKeyId,  dbEntryQuery :  dbEntryQuery,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void CreateDBValue(ServiceClientMessageHandler handler, 
- 		JObject value, string appKeyId, string dbEntryQuery, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream CreateDBValue(ServiceClientMessageHandler handler, 
+ 		 JObject value, string appKeyId, string dbEntryQuery, 
+		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -98,8 +98,9 @@ namespace Mozu.Api.Test.Factories.Platform
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 
@@ -110,14 +111,14 @@ namespace Mozu.Api.Test.Factories.Platform
 		/// <example> 
 		///  <code> 
 		/// var result = SecureAppDataFactory.UpdateDBValue(handler : handler,  value :  value,  appKeyId :  appKeyId,  dbEntryQuery :  dbEntryQuery,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void UpdateDBValue(ServiceClientMessageHandler handler, 
- 		JObject value, string appKeyId, string dbEntryQuery, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream UpdateDBValue(ServiceClientMessageHandler handler, 
+ 		 JObject value, string appKeyId, string dbEntryQuery, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -135,8 +136,9 @@ namespace Mozu.Api.Test.Factories.Platform
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 
@@ -147,14 +149,14 @@ namespace Mozu.Api.Test.Factories.Platform
 		/// <example> 
 		///  <code> 
 		/// var result = SecureAppDataFactory.DeleteDBValue(handler : handler,  appKeyId :  appKeyId,  dbEntryQuery :  dbEntryQuery,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeleteDBValue(ServiceClientMessageHandler handler, 
- 		string appKeyId, string dbEntryQuery, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream DeleteDBValue(ServiceClientMessageHandler handler, 
+ 		 string appKeyId, string dbEntryQuery, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -172,8 +174,9 @@ namespace Mozu.Api.Test.Factories.Platform
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

@@ -22,6 +22,8 @@ namespace Mozu.Api.Contracts.ShippingAdmin
 
 			public ServiceTypeLocalizedContent Content { get; set; }
 
+			public string DeliveryDuration { get; set; }
+
 		}
 
 }

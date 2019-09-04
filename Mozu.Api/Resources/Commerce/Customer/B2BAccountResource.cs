@@ -265,20 +265,21 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <param name="roleId"></param>
 		/// <param name="userId"></param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var b2baccount = new B2BAccount();
-		///   await b2baccount.AddUserRoleAsyncAsync( accountId,  userId,  roleId);
+		///   var stream = await b2baccount.AddUserRoleAsyncAsync( accountId,  userId,  roleId);
 		/// </code>
 		/// </example>
-		public virtual async Task AddUserRoleAsyncAsync(int accountId, string userId, int roleId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> AddUserRoleAsyncAsync(int accountId, string userId, int roleId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.B2BAccountClient.AddUserRoleAsyncClient( accountId,  userId,  roleId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -342,20 +343,21 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <param name="accountId"></param>
 		/// <param name="userId"></param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var b2baccount = new B2BAccount();
-		///   await b2baccount.RemoveUserAsync( accountId,  userId);
+		///   var stream = await b2baccount.RemoveUserAsync( accountId,  userId);
 		/// </code>
 		/// </example>
-		public virtual async Task RemoveUserAsync(int accountId, string userId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> RemoveUserAsync(int accountId, string userId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.B2BAccountClient.RemoveUserClient( accountId,  userId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -419,20 +421,21 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <param name="accountId"></param>
 		/// <param name="attributeFQN"></param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var b2baccount = new B2BAccount();
-		///   await b2baccount.DeleteB2BAccountAttributeAsync( accountId,  attributeFQN);
+		///   var stream = await b2baccount.DeleteB2BAccountAttributeAsync( accountId,  attributeFQN);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteB2BAccountAttributeAsync(int accountId, string attributeFQN, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteB2BAccountAttributeAsync(int accountId, string attributeFQN, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.B2BAccountClient.DeleteB2BAccountAttributeClient( accountId,  attributeFQN);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -444,20 +447,21 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <param name="roleId"></param>
 		/// <param name="userId"></param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var b2baccount = new B2BAccount();
-		///   await b2baccount.RemoveUserRoleAsyncAsync( accountId,  userId,  roleId);
+		///   var stream = await b2baccount.RemoveUserRoleAsyncAsync( accountId,  userId,  roleId);
 		/// </code>
 		/// </example>
-		public virtual async Task RemoveUserRoleAsyncAsync(int accountId, string userId, int roleId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> RemoveUserRoleAsyncAsync(int accountId, string userId, int roleId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.B2BAccountClient.RemoveUserRoleAsyncClient( accountId,  userId,  roleId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

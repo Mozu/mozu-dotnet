@@ -43,14 +43,14 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// 
 		/// </summary>
 		/// <param name="fields">The fields to include in the response.</param>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
+		/// <param name="filter"></param>
 		/// <param name="isAnonymous">If true, retrieve anonymous shopper accounts in the response.</param>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-		/// <param name="q">A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.</param>
+		/// <param name="pageSize"></param>
+		/// <param name="q">A list of customer account search terms to use in the query when searching across customer name and email. Separate multiple search terms with a space character.</param>
 		/// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccountCollection"/>
 		/// </returns>
@@ -75,33 +75,7 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// 
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="userId"></param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var customeraccount = new CustomerAccount();
-		///   var customerAccount = await customeraccount.GetAccountAsync( accountId,  userId,  responseFields);
-		/// </code>
-		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAccount> GetAccountAsync(int accountId, string userId =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
-		{
-			MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetAccountClient( accountId,  userId,  responseFields);
-			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
-			return await response.ResultAsync();
-
-		}
-
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="userId"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.LoginState"/>
@@ -126,8 +100,34 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="account">Properties of the customer account.</param>
+		/// <param name="accountId">Unique identifier of the customer account to retrieve.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="userId"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var customeraccount = new CustomerAccount();
+		///   var customerAccount = await customeraccount.GetAccountAsync( accountId,  userId,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerAccount> GetAccountAsync(int accountId, string userId =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.Customer.CustomerAccount> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.GetAccountClient( accountId,  userId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="account">Properties of the customer account to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>
 		/// </returns>
@@ -151,25 +151,26 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="unlockAccount">Specifies whether to unlock the specified customer account.</param>
+		/// <param name="accountId">The customer account information required to change the userpassword.</param>
+		/// <param name="unlockAccount"></param>
 		/// <param name="userId"></param>
-		/// <param name="passwordInfo">The information required to modify a shopper account password.</param>
+		/// <param name="passwordInfo">The password information required to change the user password.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customeraccount = new CustomerAccount();
-		///   await customeraccount.ChangePasswordAsync( passwordInfo,  accountId,  unlockAccount,  userId);
+		///   var stream = await customeraccount.ChangePasswordAsync( passwordInfo,  accountId,  unlockAccount,  userId);
 		/// </code>
 		/// </example>
-		public virtual async Task ChangePasswordAsync(Mozu.Api.Contracts.Customer.PasswordInfo passwordInfo, int accountId, bool? unlockAccount =  null, string userId =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> ChangePasswordAsync(Mozu.Api.Contracts.Customer.PasswordInfo passwordInfo, int accountId, bool? unlockAccount =  null, string userId =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.ChangePasswordClient( passwordInfo,  accountId,  unlockAccount,  userId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -178,8 +179,8 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// 
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="customerAuthInfo">The login information for a customer account.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="customerAuthInfo">The authentication information for the customer account.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>
 		/// </returns>
@@ -203,22 +204,23 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="accountId">The unique identifier of the customer account for which to calculate customer lifetime value.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customeraccount = new CustomerAccount();
-		///   await customeraccount.RecomputeCustomerLifetimeValueAsync( accountId);
+		///   var stream = await customeraccount.RecomputeCustomerLifetimeValueAsync( accountId);
 		/// </code>
 		/// </example>
-		public virtual async Task RecomputeCustomerLifetimeValueAsync(int accountId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> RecomputeCustomerLifetimeValueAsync(int accountId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.RecomputeCustomerLifetimeValueClient( accountId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -226,24 +228,25 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="accountId">The unique identifier of the customer account.</param>
 		/// <param name="userId"></param>
 		/// <param name="isLocked">If true, the customer account is locked from logging in.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customeraccount = new CustomerAccount();
-		///   await customeraccount.SetLoginLockedAsync( isLocked,  accountId,  userId);
+		///   var stream = await customeraccount.SetLoginLockedAsync( isLocked,  accountId,  userId);
 		/// </code>
 		/// </example>
-		public virtual async Task SetLoginLockedAsync(bool isLocked, int accountId, string userId =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> SetLoginLockedAsync(bool isLocked, int accountId, string userId =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.SetLoginLockedClient( isLocked,  accountId,  userId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -255,20 +258,21 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <param name="userId"></param>
 		/// <param name="isPasswordChangeRequired">If true, the password for the customer account must be changed.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customeraccount = new CustomerAccount();
-		///   await customeraccount.SetPasswordChangeRequiredAsync( isPasswordChangeRequired,  accountId,  userId);
+		///   var stream = await customeraccount.SetPasswordChangeRequiredAsync( isPasswordChangeRequired,  accountId,  userId);
 		/// </code>
 		/// </example>
-		public virtual async Task SetPasswordChangeRequiredAsync(bool isPasswordChangeRequired, int accountId, string userId =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> SetPasswordChangeRequiredAsync(bool isPasswordChangeRequired, int accountId, string userId =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.SetPasswordChangeRequiredClient( isPasswordChangeRequired,  accountId,  userId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -276,8 +280,8 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="accountAndAuthInfo">The authentication information associated with a customer account.Â The data includes the account properties such as the name, username, authorization access, and email address, the required password to match, and indicates if the account was imported from a third party resource. </param>
+		/// <param name="responseFields"></param>
+		/// <param name="accountAndAuthInfo">Properties of the customer account to create, including the user authentication information.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAuthTicket"/>
 		/// </returns>
@@ -301,8 +305,8 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="customers">The authentication information associated with a customer account.Â The data includes the account properties such as the name, username, authorization access, and email address, the required password to match, and indicates if the account was imported from a third party resource. </param>
+		/// <param name="responseFields"></param>
+		/// <param name="customers">Properties of the customer accounts to create.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccountCollection"/>
 		/// </returns>
@@ -326,8 +330,8 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="accountPasswordInfos">The details of the changed customer account passwords.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="accountPasswordInfos"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.ChangePasswordResultCollection"/>
 		/// </returns>
@@ -351,9 +355,9 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="customerSetCode">The unique idenfitier of the customer set.</param>
+		/// <param name="customerSetCode"></param>
 		/// <param name="emailAddress">The email address associated with the customer account.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.LoginState"/>
 		/// </returns>
@@ -377,8 +381,8 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="customerSetCode">The unique idenfitier of the customer set.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="customerSetCode"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="userName">The user name associated with the customer account.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.LoginState"/>
@@ -404,10 +408,10 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// 
 		/// </summary>
 		/// <param name="accountType"></param>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccountCollection"/>
 		/// </returns>
@@ -433,20 +437,21 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// </summary>
 		/// <param name="resetPasswordInfo">Information required to reset the password for a customer account.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customeraccount = new CustomerAccount();
-		///   await customeraccount.ResetPasswordAsync( resetPasswordInfo);
+		///   var stream = await customeraccount.ResetPasswordAsync( resetPasswordInfo);
 		/// </code>
 		/// </example>
-		public virtual async Task ResetPasswordAsync(Mozu.Api.Contracts.Customer.ResetPasswordInfo resetPasswordInfo, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> ResetPasswordAsync(Mozu.Api.Contracts.Customer.ResetPasswordInfo resetPasswordInfo, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.ResetPasswordClient( resetPasswordInfo);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -455,8 +460,8 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// 
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="account">Properties of the customer account.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="account">Properties of the customer account to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerAccount"/>
 		/// </returns>
@@ -480,22 +485,23 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="accountId">Unique identifier of the customer account to delete.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customeraccount = new CustomerAccount();
-		///   await customeraccount.DeleteAccountAsync( accountId);
+		///   var stream = await customeraccount.DeleteAccountAsync( accountId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteAccountAsync(int accountId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteAccountAsync(int accountId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.DeleteAccountClient( accountId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

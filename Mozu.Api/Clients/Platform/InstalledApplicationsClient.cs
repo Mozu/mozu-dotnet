@@ -25,22 +25,21 @@ namespace Mozu.Api.Clients.Platform
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="appId">appId parameter description DOCUMENT_HERE </param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="appId">The application ID that represents the application to retrieve.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.InstalledApplications.Application"/>}
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetApplication( appId,  responseFields);
-		///   var applicationClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var mozuClient=GetApplication( appId);
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.InstalledApplications.Application> GetApplicationClient(string appId, string responseFields =  null)
+		public static MozuClient<System.IO.Stream> GetApplicationClient(string appId)
 		{
-			var url = Mozu.Api.Urls.Platform.InstalledApplicationsUrl.GetApplicationUrl(appId, responseFields);
+			var url = Mozu.Api.Urls.Platform.InstalledApplicationsUrl.GetApplicationUrl(appId);
 			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.InstalledApplications.Application>()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -50,23 +49,22 @@ namespace Mozu.Api.Clients.Platform
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="appId">appId parameter description DOCUMENT_HERE </param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="application">Properties of an app installed in a tenant.</param>
+		/// <param name="appId">The application ID that represents the application to update.</param>
+		/// <param name="application">Properties of the application to update.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.InstalledApplications.Application"/>}
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateApplication( application,  appId,  responseFields);
-		///   var applicationClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var mozuClient=UpdateApplication( application,  appId);
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.InstalledApplications.Application> UpdateApplicationClient(Mozu.Api.Contracts.InstalledApplications.Application application, string appId, string responseFields =  null)
+		public static MozuClient<System.IO.Stream> UpdateApplicationClient(Mozu.Api.Contracts.InstalledApplications.Application application, string appId)
 		{
-			var url = Mozu.Api.Urls.Platform.InstalledApplicationsUrl.UpdateApplicationUrl(appId, responseFields);
+			var url = Mozu.Api.Urls.Platform.InstalledApplicationsUrl.UpdateApplicationUrl(appId);
 			const string verb = "PUT";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.InstalledApplications.Application>()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.InstalledApplications.Application>(application);
 			return mozuClient;

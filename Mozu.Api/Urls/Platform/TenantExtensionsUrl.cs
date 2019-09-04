@@ -19,30 +19,26 @@ namespace Mozu.Api.Urls.Platform
 		/// <summary>
         /// Get Resource Url for GetExtensions
         /// </summary>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetExtensionsUrl(string responseFields =  null)
+        public static MozuUrl GetExtensionsUrl()
 		{
-			var url = "/api/platform/extensions/?responseFields={responseFields}";
+			var url = "/api/platform/extensions/";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 						/// <summary>
         /// Get Resource Url for UpdateExtensions
         /// </summary>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateExtensionsUrl(string responseFields =  null)
+        public static MozuUrl UpdateExtensionsUrl()
 		{
-			var url = "/api/platform/extensions/?responseFields={responseFields}";
+			var url = "/api/platform/extensions/";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Platform.Appdev
 {
 	/// <summary>
-	/// This resource is not public.
+	/// 
 	/// </summary>
 	public partial class AppPackageFactory : BaseDataFactory
 	{
@@ -377,14 +377,14 @@ namespace Mozu.Api.Test.Factories.Platform.Appdev
 		/// <example> 
 		///  <code> 
 		/// var result = AppPackageFactory.DeletePackage(handler : handler,  applicationKey :  applicationKey,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeletePackage(ServiceClientMessageHandler handler, 
- 		string applicationKey, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream DeletePackage(ServiceClientMessageHandler handler, 
+ 		 string applicationKey, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -402,8 +402,9 @@ namespace Mozu.Api.Test.Factories.Platform.Appdev
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

@@ -15,7 +15,7 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	Details of a property defined for a product.
+		///	Properties of the product property to create such as attribute detail, fully qualified name, and list of product property values.
 		///
 		public class ProductProperty
 		{

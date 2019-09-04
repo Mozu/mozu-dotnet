@@ -42,7 +42,7 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartChangeMessageCollection"/>
 		/// </returns>
@@ -67,20 +67,21 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// 
 		/// </summary>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var changemessage = new ChangeMessage();
-		///   await changemessage.RemoveAllMessagesAsync();
+		///   var stream = await changemessage.RemoveAllMessagesAsync();
 		/// </code>
 		/// </example>
-		public virtual async Task RemoveAllMessagesAsync(CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> RemoveAllMessagesAsync(CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Carts.ChangeMessageClient.RemoveAllMessagesClient();
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -90,20 +91,21 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// </summary>
 		/// <param name="messageId">Identifier of the message to remove from the cart.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var changemessage = new ChangeMessage();
-		///   await changemessage.RemoveMessageAsync( messageId);
+		///   var stream = await changemessage.RemoveMessageAsync( messageId);
 		/// </code>
 		/// </example>
-		public virtual async Task RemoveMessageAsync(string messageId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> RemoveMessageAsync(string messageId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Carts.ChangeMessageClient.RemoveMessageClient( messageId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

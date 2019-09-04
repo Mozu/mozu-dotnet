@@ -18,7 +18,7 @@ using System.Threading;
 namespace Mozu.Api.Resources.Platform
 {
 	/// <summary>
-	/// Manage Secure App Settings. Expose via arc.js so that arc apps can securely access secrets. Third-party extensions can also access their data. Secured via AppKey.AppId
+	/// 
 	/// </summary>
 	public partial class SecureAppDataResource  	{
 		///
@@ -43,8 +43,8 @@ namespace Mozu.Api.Resources.Platform
 		/// 
 		/// </summary>
 		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="dbEntryQuery"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// JObject
 		/// </returns>
@@ -69,23 +69,24 @@ namespace Mozu.Api.Resources.Platform
 		/// 
 		/// </summary>
 		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="dbEntryQuery"></param>
+		/// <param name="value"></param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var secureappdata = new SecureAppData();
-		///   await secureappdata.CreateDBValueAsync( value,  appKeyId,  dbEntryQuery);
+		///   var stream = await secureappdata.CreateDBValueAsync( value,  appKeyId,  dbEntryQuery);
 		/// </code>
 		/// </example>
-		public virtual async Task CreateDBValueAsync(JObject value, string appKeyId, string dbEntryQuery, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> CreateDBValueAsync(JObject value, string appKeyId, string dbEntryQuery, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Platform.SecureAppDataClient.CreateDBValueClient( value,  appKeyId,  dbEntryQuery);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -94,23 +95,24 @@ namespace Mozu.Api.Resources.Platform
 		/// 
 		/// </summary>
 		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="dbEntryQuery"></param>
+		/// <param name="value"></param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var secureappdata = new SecureAppData();
-		///   await secureappdata.UpdateDBValueAsync( value,  appKeyId,  dbEntryQuery);
+		///   var stream = await secureappdata.UpdateDBValueAsync( value,  appKeyId,  dbEntryQuery);
 		/// </code>
 		/// </example>
-		public virtual async Task UpdateDBValueAsync(JObject value, string appKeyId, string dbEntryQuery, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> UpdateDBValueAsync(JObject value, string appKeyId, string dbEntryQuery, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Platform.SecureAppDataClient.UpdateDBValueClient( value,  appKeyId,  dbEntryQuery);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -119,22 +121,23 @@ namespace Mozu.Api.Resources.Platform
 		/// 
 		/// </summary>
 		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
+		/// <param name="dbEntryQuery"></param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var secureappdata = new SecureAppData();
-		///   await secureappdata.DeleteDBValueAsync( appKeyId,  dbEntryQuery);
+		///   var stream = await secureappdata.DeleteDBValueAsync( appKeyId,  dbEntryQuery);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteDBValueAsync(string appKeyId, string dbEntryQuery, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteDBValueAsync(string appKeyId, string dbEntryQuery, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Platform.SecureAppDataClient.DeleteDBValueClient( appKeyId,  dbEntryQuery);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

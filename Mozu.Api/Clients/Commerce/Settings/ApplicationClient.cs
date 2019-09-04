@@ -25,21 +25,20 @@ namespace Mozu.Api.Clients.Commerce.Settings
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Application.Application"/>}
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=ThirdPartyGetApplication( responseFields);
-		///   var applicationClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var mozuClient=ThirdPartyGetApplication();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.SiteSettings.Application.Application> ThirdPartyGetApplicationClient(string responseFields =  null)
+		public static MozuClient<System.IO.Stream> ThirdPartyGetApplicationClient()
 		{
-			var url = Mozu.Api.Urls.Commerce.Settings.ApplicationUrl.ThirdPartyGetApplicationUrl(responseFields);
+			var url = Mozu.Api.Urls.Commerce.Settings.ApplicationUrl.ThirdPartyGetApplicationUrl();
 			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.SiteSettings.Application.Application>()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -49,22 +48,21 @@ namespace Mozu.Api.Clients.Commerce.Settings
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="application">Properties of an application installed in a tenant.</param>
+		/// <param name="application">Properties of the application to update.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Application.Application"/>}
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=ThirdPartyUpdateApplication( application,  responseFields);
-		///   var applicationClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var mozuClient=ThirdPartyUpdateApplication( application);
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.SiteSettings.Application.Application> ThirdPartyUpdateApplicationClient(Mozu.Api.Contracts.SiteSettings.Application.Application application, string responseFields =  null)
+		public static MozuClient<System.IO.Stream> ThirdPartyUpdateApplicationClient(Mozu.Api.Contracts.SiteSettings.Application.Application application)
 		{
-			var url = Mozu.Api.Urls.Commerce.Settings.ApplicationUrl.ThirdPartyUpdateApplicationUrl(responseFields);
+			var url = Mozu.Api.Urls.Commerce.Settings.ApplicationUrl.ThirdPartyUpdateApplicationUrl();
 			const string verb = "PUT";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.SiteSettings.Application.Application>()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.SiteSettings.Application.Application>(application);
 			return mozuClient;

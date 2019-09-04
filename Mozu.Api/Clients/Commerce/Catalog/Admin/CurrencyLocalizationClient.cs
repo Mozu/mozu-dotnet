@@ -153,19 +153,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <param name="currencyCode"></param>
 		/// <param name="currencyExchangeRates"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=AddCurrencyExchangeRates( currencyExchangeRates,  currencyCode);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient AddCurrencyExchangeRatesClient(List<Mozu.Api.Contracts.ProductAdmin.CurrencyExchangeRate> currencyExchangeRates, string currencyCode)
+		public static MozuClient<System.IO.Stream> AddCurrencyExchangeRatesClient(List<Mozu.Api.Contracts.ProductAdmin.CurrencyExchangeRate> currencyExchangeRates, string currencyCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.CurrencyLocalizationUrl.AddCurrencyExchangeRatesUrl(currencyCode);
 			const string verb = "POST";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.CurrencyExchangeRate>>(currencyExchangeRates);
 			return mozuClient;
@@ -178,19 +178,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <param name="currencyCode"></param>
 		/// <param name="currencyExchangeRates"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=UpdateCurrencyExchangeRates( currencyExchangeRates,  currencyCode);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient UpdateCurrencyExchangeRatesClient(List<Mozu.Api.Contracts.ProductAdmin.CurrencyExchangeRate> currencyExchangeRates, string currencyCode)
+		public static MozuClient<System.IO.Stream> UpdateCurrencyExchangeRatesClient(List<Mozu.Api.Contracts.ProductAdmin.CurrencyExchangeRate> currencyExchangeRates, string currencyCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.CurrencyLocalizationUrl.UpdateCurrencyExchangeRatesUrl(currencyCode);
 			const string verb = "PUT";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.CurrencyExchangeRate>>(currencyExchangeRates);
 			return mozuClient;
@@ -228,19 +228,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="currencyCode"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteCurrencyLocalization( currencyCode);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteCurrencyLocalizationClient(string currencyCode)
+		public static MozuClient<System.IO.Stream> DeleteCurrencyLocalizationClient(string currencyCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.CurrencyLocalizationUrl.DeleteCurrencyLocalizationUrl(currencyCode);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -253,19 +253,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <param name="currencyCode"></param>
 		/// <param name="toCurrencyCode"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteCurrencyExchangeRate( currencyCode,  toCurrencyCode);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteCurrencyExchangeRateClient(string currencyCode, string toCurrencyCode)
+		public static MozuClient<System.IO.Stream> DeleteCurrencyExchangeRateClient(string currencyCode, string toCurrencyCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.CurrencyLocalizationUrl.DeleteCurrencyExchangeRateUrl(currencyCode, toCurrencyCode);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

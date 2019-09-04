@@ -16,7 +16,7 @@ using Mozu.Api.Contracts.Core;
 namespace Mozu.Api.Contracts.AdminUser
 {
 		///
-		///	Properties of the authentication ticket to be used in developer account claims with the  API.
+		///	Properties of the authentication ticket to be used in developer account claims with the Mozu API.
 		///
 		public class DeveloperAdminUserAuthTicket
 		{
@@ -31,6 +31,8 @@ namespace Mozu.Api.Contracts.AdminUser
 			public DateTime CreatedOn { get; set; }
 
 			public List<int> GrantedBehaviors { get; set; }
+
+			public string JwtAccessToken { get; set; }
 
 			public string RefreshToken { get; set; }
 

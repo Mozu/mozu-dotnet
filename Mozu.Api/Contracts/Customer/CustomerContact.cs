@@ -39,9 +39,6 @@ namespace Mozu.Api.Contracts.Customer
 
 			public int Id { get; set; }
 
-			///
-			///Descriptive text used as a label for objects, such as field names, facets, date ranges, contact information, and package information.
-			///
 			public string Label { get; set; }
 
 			public string LastNameOrSurname { get; set; }

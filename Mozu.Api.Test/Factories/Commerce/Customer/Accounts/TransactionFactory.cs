@@ -111,14 +111,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer.Accounts
 		/// <example> 
 		///  <code> 
 		/// var result = TransactionFactory.RemoveTransaction(handler : handler,  accountId :  accountId,  transactionId :  transactionId,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void RemoveTransaction(ServiceClientMessageHandler handler, 
- 		int accountId, string transactionId, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream RemoveTransaction(ServiceClientMessageHandler handler, 
+ 		 int accountId, string transactionId, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -136,8 +136,9 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer.Accounts
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

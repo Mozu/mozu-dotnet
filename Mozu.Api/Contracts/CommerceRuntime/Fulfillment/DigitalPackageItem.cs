@@ -25,23 +25,17 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			///
 			public string GiftCardCode { get; set; }
 
-			///
-			///The line id associated with the fulfillment.
-			///
 			public int? LineId { get; set; }
 
-			///
-			///Fully qualified name of the selected option's attribute. Bundledproducts result from a static bundle or are dynamically added as a result of the shopper selecting products as extras. When the bundled item is dynamic, it includes the attribute's fully qualified name of the extra that it came from. When `optionAttributeFQN `is null, the bundled item was statically defined. When not null, the item came from an extra selection.
-			///
 			public string OptionAttributeFQN { get; set; }
 
 			///
-			///The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			///The product code is the code of the digital product to be fulfilled.
 			///
 			public string ProductCode { get; set; }
 
 			///
-			///The specified quantity of objects and items. This property is used for numerous object types including products, options, components within a product bundle, cart and order items, returned items, shipping line items, items in a digital product. and items associated with types and reservations.
+			///This specifies the quantity of the digital order item.
 			///
 			public int Quantity { get; set; }
 

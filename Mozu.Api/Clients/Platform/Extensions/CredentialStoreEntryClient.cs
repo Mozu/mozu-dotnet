@@ -18,7 +18,7 @@ using System.Threading;
 namespace Mozu.Api.Clients.Platform.Extensions
 {
 	/// <summary>
-	/// The CredentialStore resource allows you to encrypt and store sensitive data on your tenant. You can then decrypt and access that data using an Arc.js application, as described in the Arc.js [Programming Patterns](https://www.mozu.com/docs/developer/arcjs-guides/programming-patterns.htm#securely_store_and_access_sensitive_data) topic.
+	/// 
 	/// </summary>
 	public partial class CredentialStoreEntryClient 	{
 		
@@ -27,19 +27,19 @@ namespace Mozu.Api.Clients.Platform.Extensions
 		/// </summary>
 		/// <param name="credentials"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=StoreCredentials( credentials);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient StoreCredentialsClient(Mozu.Api.Contracts.InstalledApplications.CredentialStoreEntry credentials)
+		public static MozuClient<System.IO.Stream> StoreCredentialsClient(Mozu.Api.Contracts.InstalledApplications.CredentialStoreEntry credentials)
 		{
 			var url = Mozu.Api.Urls.Platform.Extensions.CredentialStoreEntryUrl.StoreCredentialsUrl();
 			const string verb = "POST";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.InstalledApplications.CredentialStoreEntry>(credentials);
 			return mozuClient;

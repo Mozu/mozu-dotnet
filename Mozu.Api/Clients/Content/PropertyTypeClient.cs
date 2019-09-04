@@ -25,9 +25,9 @@ namespace Mozu.Api.Clients.Content
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.PropertyTypeCollection"/>}
 		/// </returns>
@@ -52,8 +52,8 @@ namespace Mozu.Api.Clients.Content
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="propertyTypeName">The name of the property type.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="propertyTypeName">The name of the content property type.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.PropertyType"/>}
 		/// </returns>
@@ -78,8 +78,8 @@ namespace Mozu.Api.Clients.Content
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="propertyType">Property type available for content. Property types are like templates that can be reused.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="propertyType"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.PropertyType"/>}
 		/// </returns>
@@ -103,9 +103,9 @@ namespace Mozu.Api.Clients.Content
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="propertyTypeName">The name of the property type.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="propertyType">Property type available for content. Property types are like templates that can be reused.</param>
+		/// <param name="propertyTypeName"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="propertyType"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.PropertyType"/>}
 		/// </returns>
@@ -130,21 +130,21 @@ namespace Mozu.Api.Clients.Content
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="propertyTypeName">The name of the property type.</param>
+		/// <param name="propertyTypeName"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeletePropertyType(dataViewMode,  propertyTypeName);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeletePropertyTypeClient(DataViewMode dataViewMode, string propertyTypeName)
+		public static MozuClient<System.IO.Stream> DeletePropertyTypeClient(DataViewMode dataViewMode, string propertyTypeName)
 		{
 			var url = Mozu.Api.Urls.Content.PropertyTypeUrl.DeletePropertyTypeUrl(propertyTypeName);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;

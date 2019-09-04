@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce
 {
 	/// <summary>
-	/// Use this resource to track a shopper's order items and their intended destinations on sites that have the multiple shipment feature enabled. The Checkouts resource is active until the shopper submits the order, at which point one or many orders are created based on the data contained in the Checkouts resource.To learn more about this resource and the ability to ship items to multiple addresses, refer to the [Multiple Shipments API Overview](https://www.mozu.com/docs/Developer/api-guides/multi-ship.htm) topic.
+	/// 
 	/// </summary>
 	public partial class CheckoutFactory : BaseDataFactory
 	{
@@ -263,14 +263,14 @@ namespace Mozu.Api.Test.Factories.Commerce
 		/// <example> 
 		///  <code> 
 		/// var result = CheckoutFactory.ResendCheckoutConfirmationEmail(handler : handler,  checkoutId :  checkoutId,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void ResendCheckoutConfirmationEmail(ServiceClientMessageHandler handler, 
- 		string checkoutId, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream ResendCheckoutConfirmationEmail(ServiceClientMessageHandler handler, 
+ 		 string checkoutId, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -288,8 +288,9 @@ namespace Mozu.Api.Test.Factories.Commerce
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

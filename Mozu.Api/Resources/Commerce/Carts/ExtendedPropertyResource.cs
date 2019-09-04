@@ -18,7 +18,7 @@ using System.Threading;
 namespace Mozu.Api.Resources.Commerce.Carts
 {
 	/// <summary>
-	/// Use the Cart Extended Properties subresource to store an arbitrary number of cart extended properties such as tracking strings, marketing sources, affiliates, sales personnel/data, and so on, on a per cart basis. Each cart may have none, one, or more than one entry in the extended properties collection, and all values in the extended properties collection are represented as strings. When you create an order from a cart, all extended properties are retained from the cart and copied to the order. Refer to the subresource for more information about order extended properties.
+	/// 
 	/// </summary>
 	public partial class ExtendedPropertyResource  	{
 		///
@@ -65,7 +65,7 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="extendedProperties">The details of the new extended property.</param>
+		/// <param name="extendedProperties"></param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty"/>}
 		/// </returns>
@@ -89,10 +89,10 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="key">Key used for metadata defined for objects, including extensible attributes, custom attributes associated with a shipping provider, and search synonyms definitions. This content may be user-defined depending on the object and usage.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="upsert">Any set of key value pairs to be stored in the extended properties of a cart.</param>
-		/// <param name="extendedProperty">The details of the updated extended property.</param>
+		/// <param name="key"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="upsert"></param>
+		/// <param name="extendedProperty"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty"/>
 		/// </returns>
@@ -116,8 +116,8 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="upsert">Any set of key value pairs to be stored in the extended properties of a cart.</param>
-		/// <param name="extendedProperties">The details of the updated extended properties.</param>
+		/// <param name="upsert"></param>
+		/// <param name="extendedProperties"></param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty"/>}
 		/// </returns>
@@ -143,20 +143,21 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// </summary>
 		/// <param name="keys"></param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var extendedproperty = new ExtendedProperty();
-		///   await extendedproperty.DeleteExtendedPropertiesAsync( keys);
+		///   var stream = await extendedproperty.DeleteExtendedPropertiesAsync( keys);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteExtendedPropertiesAsync(List<string> keys, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteExtendedPropertiesAsync(List<string> keys, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Carts.ExtendedPropertyClient.DeleteExtendedPropertiesClient( keys);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -166,20 +167,21 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var extendedproperty = new ExtendedProperty();
-		///   await extendedproperty.DeleteExtendedPropertyAsync( key);
+		///   var stream = await extendedproperty.DeleteExtendedPropertyAsync( key);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteExtendedPropertyAsync(string key, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteExtendedPropertyAsync(string key, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Carts.ExtendedPropertyClient.DeleteExtendedPropertyClient( key);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin.Attributedefinition.Attributes
 {
 	/// <summary>
-	/// Properties of localized content for attributes, based on a `localeCode` at a site/tenant level. This content supports translated text for product, product options, and additional objects. 
+	/// 
 	/// </summary>
 	public partial class AttributeLocalizedContentFactory : BaseDataFactory
 	{
@@ -225,14 +225,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin.Attributedefinition.Att
 		/// <example> 
 		///  <code> 
 		/// var result = AttributeLocalizedContentFactory.DeleteLocalizedContent(handler : handler,  attributeFQN :  attributeFQN,  localeCode :  localeCode,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeleteLocalizedContent(ServiceClientMessageHandler handler, 
- 		string attributeFQN, string localeCode, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream DeleteLocalizedContent(ServiceClientMessageHandler handler, 
+ 		 string attributeFQN, string localeCode, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -250,8 +250,9 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin.Attributedefinition.Att
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

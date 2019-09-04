@@ -14,13 +14,10 @@ using System;
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
-		///	Properties of a value for a product property.
+		///	Values of a product property attribute.
 		///
 		public class ProductPropertyValue
 		{
-			///
-			///Defines the intended display of this attribute in the storefront. Options include Drop Down, Image Picker, and Radio Buttons.
-			///
 			public AttributeVocabularyValueDisplayInfo DisplayInfo { get; set; }
 
 			public string StringValue { get; set; }

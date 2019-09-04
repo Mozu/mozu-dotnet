@@ -18,7 +18,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		///
 		public class ProductOptionSelection
 		{
-			public string AttributeFQN { get; set; }
+			public string AttributeFqn { get; set; }
 
 			public int? AttributeValueId { get; set; }
 

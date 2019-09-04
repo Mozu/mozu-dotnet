@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Platform.Developer
 {
 	/// <summary>
-	/// Use the Authtickets resource to manage authentication tickets for your developer account.
+	/// Use this resource to manage authentication tickets for your developer account.
 	/// </summary>
 	public partial class DeveloperAdminUserAuthTicketFactory : BaseDataFactory
 	{
@@ -111,14 +111,14 @@ namespace Mozu.Api.Test.Factories.Platform.Developer
 		/// <example> 
 		///  <code> 
 		/// var result = DeveloperAdminUserAuthTicketFactory.DeleteUserAuthTicket(handler : handler,  refreshToken :  refreshToken,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeleteUserAuthTicket(ServiceClientMessageHandler handler, 
- 		string refreshToken, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream DeleteUserAuthTicket(ServiceClientMessageHandler handler, 
+ 		 string refreshToken, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -136,8 +136,9 @@ namespace Mozu.Api.Test.Factories.Platform.Developer
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

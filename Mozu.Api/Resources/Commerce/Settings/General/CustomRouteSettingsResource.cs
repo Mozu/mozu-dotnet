@@ -18,7 +18,7 @@ using System.Threading;
 namespace Mozu.Api.Resources.Commerce.Settings.General
 {
 	/// <summary>
-	/// Use the Custom Routes resource to manage your custom route settings. Custom routing allows you to display SEO-friendly URLs on your site that map behind-the-scenes to conventional  resources such as a product page or a search results page. With custom routing, you gain advanced control over the URL structures on your site and can more visibly highlight the products or categories your shoppers are interested in purchasing.To learn more about custom routing, refer to the [Custom Route Settings](../../../guides/settings/custom-routes.htm) topic.
+	/// 
 	/// </summary>
 	public partial class CustomRouteSettingsResource  	{
 		///
@@ -42,7 +42,7 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.General.General.Routing.CustomRouteSettings"/>
 		/// </returns>
@@ -66,8 +66,8 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="settings">The details of the new custom route setting.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="settings"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.General.General.Routing.CustomRouteSettings"/>
 		/// </returns>
@@ -91,8 +91,8 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="settings">The updated details of the custom route settings.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="settings"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.General.General.Routing.CustomRouteSettings"/>
 		/// </returns>
@@ -117,20 +117,21 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 		/// 
 		/// </summary>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customroutesettings = new CustomRouteSettings();
-		///   await customroutesettings.DeleteCustomRouteSettingsAsync();
+		///   var stream = await customroutesettings.DeleteCustomRouteSettingsAsync();
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteCustomRouteSettingsAsync(CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteCustomRouteSettingsAsync(CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Settings.General.CustomRouteSettingsClient.DeleteCustomRouteSettingsClient();
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

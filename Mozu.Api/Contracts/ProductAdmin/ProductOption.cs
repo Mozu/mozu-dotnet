@@ -21,6 +21,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		{
 			public string AttributeFQN { get; set; }
 
+			public bool? IsProductImageGroupSelector { get; set; }
+
 			public List<ProductOptionValue> Values { get; set; }
 
 		}

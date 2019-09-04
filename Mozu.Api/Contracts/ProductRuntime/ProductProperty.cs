@@ -15,13 +15,13 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
-		///	Details of a property defined for a product.
+		///	Details of a property attribute defined for a product.
 		///
 		public class ProductProperty
 		{
 			public AttributeDetail AttributeDetail { get; set; }
 
-			public string AttributeFQN { get; set; }
+			public string AttributeFqn { get; set; }
 
 			public bool? IsHidden { get; set; }
 

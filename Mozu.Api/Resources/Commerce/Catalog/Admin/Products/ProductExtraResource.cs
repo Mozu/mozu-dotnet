@@ -49,7 +49,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
+		/// <param name="productCode"></param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtra"/>}
 		/// </returns>
@@ -73,9 +73,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
+		/// <param name="value"></param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>}
 		/// </returns>
@@ -99,11 +99,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="value"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>
 		/// </returns>
@@ -127,9 +127,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtra"/>
 		/// </returns>
@@ -153,11 +153,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <param name="localizedDeltaPrice">The properties of the price difference between the product extra and the base product.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="value"></param>
+		/// <param name="localizedDeltaPrice"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>
 		/// </returns>
@@ -181,9 +181,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="productExtra">Properties of an extra attribute to defined for a product that is associated with a product type that uses the extra. Setting up extras for a product enables shopper-entered information, such as initials for a monogram.</param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="productExtra">Properties of the product extra to configure for the specified product.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtra"/>
 		/// </returns>
@@ -207,10 +207,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <param name="localizedDeltaPrice">The properties of the price difference between the product extra and the base product.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
+		/// <param name="value"></param>
+		/// <param name="localizedDeltaPrice"></param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>}
 		/// </returns>
@@ -234,12 +234,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <param name="localizedDeltaPrice">The properties of the price difference between the product extra and the base product.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="value"></param>
+		/// <param name="localizedDeltaPrice"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>
 		/// </returns>
@@ -263,10 +263,10 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="productExtra">Properties of an extra attribute to defined for a product that is associated with a product type that uses the extra. Setting up extras for a product enables shopper-entered information, such as initials for a monogram.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="productExtra">Properties of the extra attribute to update for the specified product.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtra"/>
 		/// </returns>
@@ -290,23 +290,24 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var productextra = new ProductExtra();
-		///   await productextra.DeleteExtraAsync(_dataViewMode,  productCode,  attributeFQN);
+		///   var stream = await productextra.DeleteExtraAsync(_dataViewMode,  productCode,  attributeFQN);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteExtraAsync(string productCode, string attributeFQN, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteExtraAsync(string productCode, string attributeFQN, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.DeleteExtraClient(_dataViewMode,  productCode,  attributeFQN);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -314,25 +315,26 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="value"></param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var productextra = new ProductExtra();
-		///   await productextra.DeleteExtraValueLocalizedDeltaPriceAsync(_dataViewMode,  productCode,  attributeFQN,  value,  currencyCode);
+		///   var stream = await productextra.DeleteExtraValueLocalizedDeltaPriceAsync(_dataViewMode,  productCode,  attributeFQN,  value,  currencyCode);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteExtraValueLocalizedDeltaPriceAsync(string productCode, string attributeFQN, string value, string currencyCode, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteExtraValueLocalizedDeltaPriceAsync(string productCode, string attributeFQN, string value, string currencyCode, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.DeleteExtraValueLocalizedDeltaPriceClient(_dataViewMode,  productCode,  attributeFQN,  value,  currencyCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

@@ -14,9 +14,6 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.Event
 {
-		///
-		///	The subscription entity used to provide event notifications for third-parties.
-		///
 		public class Subscription
 		{
 			public string ApiVersion { get; set; }
@@ -37,9 +34,6 @@ namespace Mozu.Api.Contracts.Event
 
 			public bool? IsActive { get; set; }
 
-			///
-			///A boolean value that indicates if events should be delivered that resulted from an API call by the application. If true, any events that occur as a result of a direct API call by the same application will not be delivered. This can prevent an endless loop in certain scenarios.
-			///
 			public bool? NoCallback { get; set; }
 
 			public string NotificationDeliveryType { get; set; }

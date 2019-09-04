@@ -377,14 +377,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin.Products
 		/// <example> 
 		///  <code> 
 		/// var result = ProductExtraFactory.DeleteExtra(handler : handler,  productCode :  productCode,  attributeFQN :  attributeFQN,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeleteExtra(ServiceClientMessageHandler handler, 
- 		string productCode, string attributeFQN,  DataViewMode dataViewMode= DataViewMode.Live, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream DeleteExtra(ServiceClientMessageHandler handler, 
+ 		 string productCode, string attributeFQN,  DataViewMode dataViewMode= DataViewMode.Live, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -402,8 +402,9 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin.Products
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 
@@ -414,14 +415,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin.Products
 		/// <example> 
 		///  <code> 
 		/// var result = ProductExtraFactory.DeleteExtraValueLocalizedDeltaPrice(handler : handler,  productCode :  productCode,  attributeFQN :  attributeFQN,  value :  value,  currencyCode :  currencyCode,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeleteExtraValueLocalizedDeltaPrice(ServiceClientMessageHandler handler, 
- 		string productCode, string attributeFQN, string value, string currencyCode,  DataViewMode dataViewMode= DataViewMode.Live, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream DeleteExtraValueLocalizedDeltaPrice(ServiceClientMessageHandler handler, 
+ 		 string productCode, string attributeFQN, string value, string currencyCode,  DataViewMode dataViewMode= DataViewMode.Live, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -439,8 +440,9 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin.Products
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

@@ -18,14 +18,14 @@ using System.Threading;
 namespace Mozu.Api.Clients.Commerce.Checkouts
 {
 	/// <summary>
-	/// Use this resource to manage the addresses a shopper intends to ship items to. This resource remains active while the Checkouts resource is active (the Checkouts resource only applies to sites that enable shipping to multiple destinations within the same order). The Checkouts resource remains active until the shopper submits their order.
+	/// 
 	/// </summary>
 	public partial class DestinationClient 	{
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId">The unique identifier of the checkout.</param>
+		/// <param name="checkoutId"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Destination"/>}}
 		/// </returns>
@@ -49,9 +49,9 @@ namespace Mozu.Api.Clients.Commerce.Checkouts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId">The unique identifier of the checkout.</param>
-		/// <param name="destinationId">The unique identifier of the destination.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="checkoutId"></param>
+		/// <param name="destinationId"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Destination"/>}
 		/// </returns>
@@ -75,9 +75,9 @@ namespace Mozu.Api.Clients.Commerce.Checkouts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId">The unique identifier of the checkout.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="destination">The destination object.</param>
+		/// <param name="checkoutId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="destination"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Destination"/>}
 		/// </returns>
@@ -101,10 +101,10 @@ namespace Mozu.Api.Clients.Commerce.Checkouts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId">The unique identifier of the checkout.</param>
-		/// <param name="destinationId">The unique identifier of the destination.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="destination">The destination object.</param>
+		/// <param name="checkoutId"></param>
+		/// <param name="destinationId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="destination"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Destination"/>}
 		/// </returns>
@@ -128,22 +128,22 @@ namespace Mozu.Api.Clients.Commerce.Checkouts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId">The unique identifier of the checkout.</param>
-		/// <param name="destinationId">The unique identifier of the destination.</param>
+		/// <param name="checkoutId"></param>
+		/// <param name="destinationId"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=RemoveDestination( checkoutId,  destinationId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient RemoveDestinationClient(string checkoutId, string destinationId)
+		public static MozuClient<System.IO.Stream> RemoveDestinationClient(string checkoutId, string destinationId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Checkouts.DestinationUrl.RemoveDestinationUrl(checkoutId, destinationId);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

@@ -25,7 +25,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
+		/// <param name="productCode"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtra"/>}}
 		/// </returns>
@@ -50,9 +50,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
+		/// <param name="value"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>}}
 		/// </returns>
@@ -77,11 +77,11 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="value"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>}
 		/// </returns>
@@ -106,9 +106,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtra"/>}
 		/// </returns>
@@ -133,11 +133,11 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <param name="localizedDeltaPrice">The properties of the price difference between the product extra and the base product.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="value"></param>
+		/// <param name="localizedDeltaPrice"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>}
 		/// </returns>
@@ -162,9 +162,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="productExtra">Properties of an extra attribute to defined for a product that is associated with a product type that uses the extra. Setting up extras for a product enables shopper-entered information, such as initials for a monogram.</param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="productExtra">Properties of the product extra to configure for the specified product.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtra"/>}
 		/// </returns>
@@ -189,10 +189,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <param name="localizedDeltaPrice">The properties of the price difference between the product extra and the base product.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
+		/// <param name="value"></param>
+		/// <param name="localizedDeltaPrice"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>}}
 		/// </returns>
@@ -217,12 +217,12 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <param name="localizedDeltaPrice">The properties of the price difference between the product extra and the base product.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="value"></param>
+		/// <param name="localizedDeltaPrice"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtraValueDeltaPrice"/>}
 		/// </returns>
@@ -247,10 +247,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="productExtra">Properties of an extra attribute to defined for a product that is associated with a product type that uses the extra. Setting up extras for a product enables shopper-entered information, such as initials for a monogram.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="productExtra">Properties of the extra attribute to update for the specified product.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductExtra"/>}
 		/// </returns>
@@ -275,22 +275,22 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteExtra(dataViewMode,  productCode,  attributeFQN);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteExtraClient(DataViewMode dataViewMode, string productCode, string attributeFQN)
+		public static MozuClient<System.IO.Stream> DeleteExtraClient(DataViewMode dataViewMode, string productCode, string attributeFQN)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductExtraUrl.DeleteExtraUrl(productCode, attributeFQN);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
@@ -301,24 +301,24 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="currencyCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="value"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteExtraValueLocalizedDeltaPrice(dataViewMode,  productCode,  attributeFQN,  value,  currencyCode);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteExtraValueLocalizedDeltaPriceClient(DataViewMode dataViewMode, string productCode, string attributeFQN, string value, string currencyCode)
+		public static MozuClient<System.IO.Stream> DeleteExtraValueLocalizedDeltaPriceClient(DataViewMode dataViewMode, string productCode, string attributeFQN, string value, string currencyCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductExtraUrl.DeleteExtraValueLocalizedDeltaPriceUrl(productCode, attributeFQN, value, currencyCode);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;

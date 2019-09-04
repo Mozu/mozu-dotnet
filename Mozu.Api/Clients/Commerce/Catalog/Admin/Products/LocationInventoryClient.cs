@@ -25,12 +25,12 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
+		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
 		/// <param name="productCode"></param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.LocationInventoryCollection"/>}
 		/// </returns>
@@ -55,9 +55,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="locationCode">User-defined code that identifies the location.</param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.LocationInventory"/>}
 		/// </returns>
@@ -82,9 +82,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="performUpserts">Query string parameter lets the service perform an update for a new or existing record. When run, the update occurs without throwing a conflict exception that the record exists. If true, the updates completes regardless of the record currently existing. By default, if no value is specified, the service assumes this value is false.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="locationInventoryList">Properties of an inventory definition that defines the level of inventory for a specific product at a given location.</param>
+		/// <param name="performUpserts">The performUpserts query string parameter lets the service perform an update if the record already exists instead of throwing an already exists conflict exception. PerformUpserts=true means it updates if the record already exists. By default, no value specified means that the service assumes PerformUpserts=false.</param>
+		/// <param name="productCode"></param>
+		/// <param name="locationInventoryList">Array list of the location inventory definitions associated with the product code specified in the request. For each location, you must define the locationCode value and the stockOnHand value. All other properties in the array are system-supplied and read only.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ProductAdmin.LocationInventory"/>}}
 		/// </returns>
@@ -109,8 +109,8 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="locationInventoryAdjustments">Properties of an adjustment to the active product inventory of a specific location.</param>
+		/// <param name="productCode">The product code of the product for which to update active stock on hand inventory at a specified location.</param>
+		/// <param name="locationInventoryAdjustments">Properties of the inventory adjustments to perform for the specified location.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ProductAdmin.LocationInventory"/>}}
 		/// </returns>
@@ -135,22 +135,22 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
+		/// <param name="locationCode">The code that identifies the location for which to delete product inventory.</param>
+		/// <param name="productCode">The product code for which to delete a location's inventory.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteLocationInventory(dataViewMode,  productCode,  locationCode);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteLocationInventoryClient(DataViewMode dataViewMode, string productCode, string locationCode)
+		public static MozuClient<System.IO.Stream> DeleteLocationInventoryClient(DataViewMode dataViewMode, string productCode, string locationCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.LocationInventoryUrl.DeleteLocationInventoryUrl(productCode, locationCode);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;

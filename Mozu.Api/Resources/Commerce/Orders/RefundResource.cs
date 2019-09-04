@@ -18,7 +18,7 @@ using System.Threading;
 namespace Mozu.Api.Resources.Commerce.Orders
 {
 	/// <summary>
-	/// Use the refunds resource to create a refund.
+	/// 
 	/// </summary>
 	public partial class RefundResource  	{
 		///
@@ -42,9 +42,9 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="refund">The details of the refund.</param>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="refund"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Refunds.Refund"/>
 		/// </returns>
@@ -68,23 +68,24 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="refundId">Unique ID of the refund.        </param>
+		/// <param name="orderId"></param>
+		/// <param name="refundId"></param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var refund = new Refund();
-		///   await refund.ResendRefundEmailAsync( orderId,  refundId);
+		///   var stream = await refund.ResendRefundEmailAsync( orderId,  refundId);
 		/// </code>
 		/// </example>
-		public virtual async Task ResendRefundEmailAsync(string orderId, string refundId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> ResendRefundEmailAsync(string orderId, string refundId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.RefundClient.ResendRefundEmailClient( orderId,  refundId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

@@ -19,9 +19,9 @@ namespace Mozu.Api.Urls.Commerce.Checkouts
 				/// <summary>
         /// Get Resource Url for PerformPaymentAction
         /// </summary>
-        /// <param name="checkoutId">The unique identifier of the checkout.</param>
-        /// <param name="paymentId">Unique identifier of the payment for which to perform the action.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="checkoutId"></param>
+        /// <param name="paymentId"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -38,8 +38,8 @@ namespace Mozu.Api.Urls.Commerce.Checkouts
 		/// <summary>
         /// Get Resource Url for CreatePaymentAction
         /// </summary>
-        /// <param name="checkoutId">The unique identifier of the checkout.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="checkoutId"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

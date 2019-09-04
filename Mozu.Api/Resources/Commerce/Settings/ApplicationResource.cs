@@ -42,20 +42,19 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.SiteSettings.Application.Application"/>
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var application = new Application();
-		///   var application = await application.ThirdPartyGetApplicationAsync( responseFields);
+		///   var stream = await application.ThirdPartyGetApplicationAsync();
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Application.Application> ThirdPartyGetApplicationAsync(string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> ThirdPartyGetApplicationAsync(CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient<Mozu.Api.Contracts.SiteSettings.Application.Application> response;
-			var client = Mozu.Api.Clients.Commerce.Settings.ApplicationClient.ThirdPartyGetApplicationClient( responseFields);
+			MozuClient<System.IO.Stream> response;
+			var client = Mozu.Api.Clients.Commerce.Settings.ApplicationClient.ThirdPartyGetApplicationClient();
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -66,21 +65,20 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="application">Properties of an application installed in a tenant.</param>
+		/// <param name="application">Properties of the application to update.</param>
 		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.SiteSettings.Application.Application"/>
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var application = new Application();
-		///   var application = await application.ThirdPartyUpdateApplicationAsync( application,  responseFields);
+		///   var stream = await application.ThirdPartyUpdateApplicationAsync( application);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Application.Application> ThirdPartyUpdateApplicationAsync(Mozu.Api.Contracts.SiteSettings.Application.Application application, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> ThirdPartyUpdateApplicationAsync(Mozu.Api.Contracts.SiteSettings.Application.Application application, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient<Mozu.Api.Contracts.SiteSettings.Application.Application> response;
-			var client = Mozu.Api.Clients.Commerce.Settings.ApplicationClient.ThirdPartyUpdateApplicationClient( application,  responseFields);
+			MozuClient<System.IO.Stream> response;
+			var client = Mozu.Api.Clients.Commerce.Settings.ApplicationClient.ThirdPartyUpdateApplicationClient( application);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();

@@ -159,19 +159,19 @@ namespace Mozu.Api.Clients.Commerce
 		/// </summary>
 		/// <param name="quoteId"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteQuote( quoteId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteQuoteClient(string quoteId)
+		public static MozuClient<System.IO.Stream> DeleteQuoteClient(string quoteId)
 		{
 			var url = Mozu.Api.Urls.Commerce.QuoteUrl.DeleteQuoteUrl(quoteId);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

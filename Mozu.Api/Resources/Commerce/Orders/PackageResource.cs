@@ -42,8 +42,8 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the package fulfillment.</param>
+		/// <param name="packageId">Unique identifier of the package associated with the fulfillment actions to retrieve.</param>
 		/// <returns>
 		/// List{string}
 		/// </returns>
@@ -67,7 +67,7 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the package label to retrieve.</param>
 		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
 		/// <returns>
 		/// <see cref="System.IO.Stream"/>
@@ -92,9 +92,9 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the package to retrieve.</param>
+		/// <param name="packageId">Unique identifier of the package to retrieve.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>
 		/// </returns>
@@ -118,9 +118,9 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="package">Properties of a physical package shipped for an order.</param>
+		/// <param name="orderId">Unique identifier of the order associated with this package.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="package">Properties of the physical package of order items.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>
 		/// </returns>
@@ -144,10 +144,10 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="package">Properties of a physical package shipped for an order.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the package to update.</param>
+		/// <param name="packageId">Unique identifier of the package of order items to update.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="package">Wrapper of properties for the package of order items to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>
 		/// </returns>
@@ -171,23 +171,24 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the package to delete.</param>
+		/// <param name="packageId">Unique identifier of the package to delete.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var package = new Package();
-		///   await package.DeletePackageAsync( orderId,  packageId);
+		///   var stream = await package.DeletePackageAsync( orderId,  packageId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeletePackageAsync(string orderId, string packageId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeletePackageAsync(string orderId, string packageId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.PackageClient.DeletePackageClient( orderId,  packageId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

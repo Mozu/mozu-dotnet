@@ -16,7 +16,7 @@ using Mozu.Api.Contracts.Core;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	Properties of the facet used to retrieve documents.
+		///	Properties of the category, price, or attribute facet shoppers use to filter product display results on a storefront.
 		///
 		public class Facet
 		{
@@ -40,9 +40,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public FacetValidity Validity { get; set; }
 
-			///
-			///Determines how the facet values will be sorted in the store. Must be a valid value for DataType defined in FacetValueSortTypeConst. Allowable values are:* * * * * * The default is .
-			///
 			public string ValueSortType { get; set; }
 
 		}

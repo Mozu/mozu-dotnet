@@ -19,8 +19,8 @@ namespace Mozu.Api.Urls.Commerce.Orders
 		/// <summary>
         /// Get Resource Url for GetShipment
         /// </summary>
-        /// <param name="orderId">Unique identifier of the order.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="orderId">Unique identifier of the order associated with the shipment to retrieve.</param>
+        /// <param name="responseFields"></param>
         /// <param name="shipmentId">Unique identifier of the shipment to retrieve.</param>
         /// <returns>
         /// String - Resource Url
@@ -38,8 +38,8 @@ namespace Mozu.Api.Urls.Commerce.Orders
 		/// <summary>
         /// Get Resource Url for GetAvailableShipmentMethods
         /// </summary>
-        /// <param name="draft">If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.</param>
-        /// <param name="orderId">Unique identifier of the order.</param>
+        /// <param name="draft"></param>
+        /// <param name="orderId">Unique identifier of the order for the available shipment methods being retrieved.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -55,7 +55,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
 				/// <summary>
         /// Get Resource Url for CreatePackageShipments
         /// </summary>
-        /// <param name="orderId">Unique identifier of the order.</param>
+        /// <param name="orderId">Unique identifier of the order for this shipment.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -67,11 +67,79 @@ namespace Mozu.Api.Urls.Commerce.Orders
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for UpdateShipmentAdjustments
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="shipmentNumber"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl UpdateShipmentAdjustmentsUrl(string orderId, int shipmentNumber, string responseFields =  null)
+		{
+			var url = "/api/commerce/orders/{orderId}/shipments/{shipmentNumber}/adjustments/?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "orderId", orderId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "shipmentNumber", shipmentNumber);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for UpdateShipmentItem
+        /// </summary>
+        /// <param name="itemId"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="shipmentNumber"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl UpdateShipmentItemUrl(int shipmentNumber, int itemId, string responseFields =  null)
+		{
+			var url = "/api/commerce/orders/{orderId}/shipments/{shipmentNumber}/item/{itemId}/adjustments?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "itemId", itemId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "shipmentNumber", shipmentNumber);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for RepriceShipment
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <param name="shipmentNumber"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl RepriceShipmentUrl(int shipmentNumber, string responseFields =  null)
+		{
+			var url = "/api/commerce/orders/{orderId}/shipments/{shipmentNumber}/reprice?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "shipmentNumber", shipmentNumber);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for SplitShipments
+        /// </summary>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl SplitShipmentsUrl()
+		{
+			var url = "/api/commerce/orders/{orderId}/shipments/{shipmentNumber}/split";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			return mozuUrl;
+		}
+
 						/// <summary>
         /// Get Resource Url for DeleteShipment
         /// </summary>
-        /// <param name="orderId">Unique identifier of the order.</param>
-        /// <param name="shipmentId">Unique identifier of the shipment to retrieve.</param>
+        /// <param name="orderId">Unique identifier of the order to cancel shipment.</param>
+        /// <param name="shipmentId">Unique identifier of the shipment to cancel.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

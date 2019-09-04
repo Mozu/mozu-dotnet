@@ -18,18 +18,18 @@ using System.Threading;
 namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Pricelists
 {
 	/// <summary>
-	/// Use the Entries sub-resource to interact with price list entries. Price list entries enable you to override product pricing as well as control what products shoppers can view and purchase when the price list is exclusive. Refer to the [Price Lists](../../../guides/catalog/price-lists.htm) guides topic for more information.
+	/// 
 	/// </summary>
 	public partial class PriceListEntryClient 	{
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
-		/// <param name="priceListCode">The unique code of the price list associated with the price list entry.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="startDate">The start date of the price list entry.</param>
+		/// <param name="currencyCode"></param>
+		/// <param name="priceListCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="startDate"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.PriceListEntry"/>}
 		/// </returns>
@@ -53,12 +53,12 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Pricelists
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-		/// <param name="priceListCode">The unique code of the price list associated with the price list entry.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="priceListCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.PriceListEntryCollection"/>}
 		/// </returns>
@@ -82,9 +82,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Pricelists
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="priceListCode">The specified price list to which you want to add the price list entry.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="priceListEntryIn">The details of the new price list entry.</param>
+		/// <param name="priceListCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="priceListEntryIn"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.PriceListEntry"/>}
 		/// </returns>
@@ -108,12 +108,12 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Pricelists
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
-		/// <param name="priceListCode">The unique code of the price list associated with the price list entry.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="startDate">The start date of the price list entry.</param>
-		/// <param name="priceListEntryIn">The updated details of the price list entry.</param>
+		/// <param name="currencyCode"></param>
+		/// <param name="priceListCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="startDate"></param>
+		/// <param name="priceListEntryIn"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.PriceListEntry"/>}
 		/// </returns>
@@ -137,24 +137,24 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Pricelists
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
-		/// <param name="priceListCode">The code of the specified price list associated with the price list entry.</param>
-		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-		/// <param name="startDate">The start date of the price list entry.</param>
+		/// <param name="currencyCode"></param>
+		/// <param name="priceListCode"></param>
+		/// <param name="productCode"></param>
+		/// <param name="startDate"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeletePriceListEntry( priceListCode,  productCode,  currencyCode,  startDate);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeletePriceListEntryClient(string priceListCode, string productCode, string currencyCode, DateTime? startDate =  null)
+		public static MozuClient<System.IO.Stream> DeletePriceListEntryClient(string priceListCode, string productCode, string currencyCode, DateTime? startDate =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Pricelists.PriceListEntryUrl.DeletePriceListEntryUrl(priceListCode, productCode, currencyCode, startDate);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

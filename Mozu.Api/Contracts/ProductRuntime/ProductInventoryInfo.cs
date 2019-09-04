@@ -14,10 +14,12 @@ using System;
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
-		///	Properties of the inventory behavior associated with a product definition.
+		///	Properties of the active inventory managed for the product.
 		///
 		public class ProductInventoryInfo
 		{
+			public DateTime? AvailableDate { get; set; }
+
 			public bool? ManageStock { get; set; }
 
 			///
@@ -25,9 +27,6 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public string OnlineLocationCode { get; set; }
 
-			///
-			///Number of product items currently available for purchase.
-			///
 			public int? OnlineSoftStockAvailable { get; set; }
 
 			public int? OnlineStockAvailable { get; set; }

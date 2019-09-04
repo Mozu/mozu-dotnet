@@ -19,34 +19,30 @@ namespace Mozu.Api.Urls.Platform
 		/// <summary>
         /// Get Resource Url for GetApplication
         /// </summary>
-        /// <param name="appId">appId parameter description DOCUMENT_HERE </param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="appId">The application ID that represents the application to retrieve.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetApplicationUrl(string appId, string responseFields =  null)
+        public static MozuUrl GetApplicationUrl(string appId)
 		{
-			var url = "/api/platform/applications/{appId}?responseFields={responseFields}";
+			var url = "/api/platform/applications/{appId}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "appId", appId);
-			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 						/// <summary>
         /// Get Resource Url for UpdateApplication
         /// </summary>
-        /// <param name="appId">appId parameter description DOCUMENT_HERE </param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="appId">The application ID that represents the application to update.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateApplicationUrl(string appId, string responseFields =  null)
+        public static MozuUrl UpdateApplicationUrl(string appId)
 		{
-			var url = "/api/platform/applications/{appId}?responseFields={responseFields}";
+			var url = "/api/platform/applications/{appId}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "appId", appId);
-			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 

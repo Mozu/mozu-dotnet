@@ -17,7 +17,7 @@ using Mozu.Api.Contracts.Tenant;
 namespace Mozu.Api.Contracts.AdminUser
 {
 		///
-		///	Properties of the authentication ticket to be used in user claims with the  API.
+		///	Properties of the authentication ticket to be used in user claims with the Mozu API.
 		///
 		public class TenantAdminUserAuthTicket
 		{
@@ -30,6 +30,8 @@ namespace Mozu.Api.Contracts.AdminUser
 			public DateTime CreatedOn { get; set; }
 
 			public List<int> GrantedBehaviors { get; set; }
+
+			public string JwtAccessToken { get; set; }
 
 			public string RefreshToken { get; set; }
 

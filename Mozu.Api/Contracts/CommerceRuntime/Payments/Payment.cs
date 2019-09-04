@@ -38,23 +38,14 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			public BillingInfo BillingInfo { get; set; }
 
 			///
-			///Collection (list or paged) of change messages logged for each modification made by a shopper to their carts, wishlists, orders, package, payment, pickup, and returns. Change log messages are system-supplied based on shopper actions and read only.
+			///List of change messages associated with the payment.
 			///
 			public List<ChangeMessage> ChangeMessages { get; set; }
 
-			///
-			///Custom data originated by the payment service.
-			///
 			public JObject Data { get; set; }
 
-			///
-			///The external/third party transaction Id for this payment. This is used to store the transaction Id from digital wallet like Visa Checkout
-			///
 			public string ExternalTransactionId { get; set; }
 
-			///
-			///The parent group Id that this payment belongs to. This will refer to the parent checkout in the case of a multi-ship order, or the parent order in the case of a non-multi-ship order. This will (eventually) allow us to find all payments associated with a checkout, even if the payment is added directly to one of the child orders.
-			///
 			public PaymentActionTarget GroupId { get; set; }
 
 			public string Id { get; set; }
@@ -69,16 +60,10 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 
 			public string PaymentType { get; set; }
 
-			///
-			///The source of data for this payment. By default, this will be set to 'mozu'
-			///
 			public string PaymentWorkflow { get; set; }
 
 			public string Status { get; set; }
 
-			///
-			///List of sub-payments that correspond to child orders in case of multiship orders. Used for tracking each order's portion of a shared payment.
-			///
 			public List<SubPayment> SubPayments { get; set; }
 
 		}
