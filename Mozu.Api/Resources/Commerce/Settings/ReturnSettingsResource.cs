@@ -44,7 +44,7 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		/// </summary>
 		/// <param name="responseFields"></param>
 		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings"/>
+		/// <see cref="Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings"/>
 		/// </returns>
 		/// <example>
 		/// <code>
@@ -52,9 +52,9 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		///   var returnSettings = await returnsettings.GetReturnSettingsAsync( responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings> GetReturnSettingsAsync(string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings> GetReturnSettingsAsync(string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient<Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings> response;
+			MozuClient<Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings> response;
 			var client = Mozu.Api.Clients.Commerce.Settings.ReturnSettingsClient.GetReturnSettingsClient( responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
@@ -69,7 +69,7 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		/// <param name="responseFields"></param>
 		/// <param name="returnSettings"></param>
 		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings"/>
+		/// <see cref="Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings"/>
 		/// </returns>
 		/// <example>
 		/// <code>
@@ -77,9 +77,9 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		///   var returnSettings = await returnsettings.CreateReturnSettingsAsync( returnSettings,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings> CreateReturnSettingsAsync(Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings returnSettings, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings> CreateReturnSettingsAsync(Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings returnSettings, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient<Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings> response;
+			MozuClient<Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings> response;
 			var client = Mozu.Api.Clients.Commerce.Settings.ReturnSettingsClient.CreateReturnSettingsClient( returnSettings,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
@@ -94,7 +94,7 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		/// <param name="responseFields"></param>
 		/// <param name="returnSettings"></param>
 		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings"/>
+		/// <see cref="Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings"/>
 		/// </returns>
 		/// <example>
 		/// <code>
@@ -102,9 +102,9 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		///   var returnSettings = await returnsettings.UpdateReturnSettingsAsync( returnSettings,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings> UpdateReturnSettingsAsync(Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings returnSettings, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings> UpdateReturnSettingsAsync(Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings returnSettings, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient<Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings> response;
+			MozuClient<Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings> response;
 			var client = Mozu.Api.Clients.Commerce.Settings.ReturnSettingsClient.UpdateReturnSettingsClient( returnSettings,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);

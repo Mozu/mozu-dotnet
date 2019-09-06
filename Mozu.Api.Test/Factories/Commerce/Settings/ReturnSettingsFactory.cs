@@ -40,7 +40,7 @@ namespace Mozu.Api.Test.Factories.Commerce.Settings
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings GetReturnSettings(ServiceClientMessageHandler handler, 
+		public static Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings GetReturnSettings(ServiceClientMessageHandler handler, 
  		 string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
@@ -78,8 +78,8 @@ namespace Mozu.Api.Test.Factories.Commerce.Settings
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings CreateReturnSettings(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings returnSettings, string responseFields = null, 
+		public static Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings CreateReturnSettings(ServiceClientMessageHandler handler, 
+ 		 Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings returnSettings, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
@@ -116,8 +116,8 @@ namespace Mozu.Api.Test.Factories.Commerce.Settings
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings UpdateReturnSettings(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings returnSettings, string responseFields = null, 
+		public static Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings UpdateReturnSettings(ServiceClientMessageHandler handler, 
+ 		 Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings returnSettings, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();

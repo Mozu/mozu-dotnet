@@ -18,11 +18,6 @@ namespace Mozu.Api.Events
 	public interface ISiteEvents
 	{
 		[Obsolete("This method is obsolete; use the async method instead")]
-		void Cloned(IApiContext apiContext, Event eventPayLoad);
-
-		Task ClonedAsync(IApiContext apiContext, Event eventPayLoad);
-
-		[Obsolete("This method is obsolete; use the async method instead")]
 		void Created(IApiContext apiContext, Event eventPayLoad);
 
 		Task CreatedAsync(IApiContext apiContext, Event eventPayLoad);
@@ -31,6 +26,11 @@ namespace Mozu.Api.Events
 		void Deleted(IApiContext apiContext, Event eventPayLoad);
 
 		Task DeletedAsync(IApiContext apiContext, Event eventPayLoad);
+
+		[Obsolete("This method is obsolete; use the async method instead")]
+		void Cloned(IApiContext apiContext, Event eventPayLoad);
+
+		Task ClonedAsync(IApiContext apiContext, Event eventPayLoad);
 
 		[Obsolete("This method is obsolete; use the async method instead")]
 		void Updated(IApiContext apiContext, Event eventPayLoad);

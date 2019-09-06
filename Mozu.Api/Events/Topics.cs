@@ -5,6 +5,14 @@ namespace Mozu.Api.Events
 {
 	public class Topics
 	{
+		public const string SITECREATED = "site.created";
+
+		public const string SITEDELETED = "site.deleted";
+
+		public const string SITECLONED = "site.cloned";
+
+		public const string SITEUPDATED = "site.updated";
+
 		public const string APPLICATIONDISABLED = "application.disabled";
 
 		public const string APPLICATIONENABLED = "application.enabled";
@@ -79,9 +87,13 @@ namespace Mozu.Api.Events
 
 		public const string ORDERABANDONED = "order.abandoned";
 
+		public const string ORDERADDRESSCHANGED = "order.addresschanged";
+
 		public const string ORDERCANCELLED = "order.cancelled";
 
 		public const string ORDERCLOSED = "order.closed";
+
+		public const string ORDERERRORED = "order.errored";
 
 		public const string ORDERFULFILLED = "order.fulfilled";
 
@@ -153,15 +165,13 @@ namespace Mozu.Api.Events
 
 		public const string SEARCHSETTINGSUPDATED = "searchsettings.updated";
 
-		public const string SHIPMENTFULFILLED = "shipment.fulfilled";
+		public const string SHIPMENTADJUSTED = "shipment.adjusted";
 
-		public const string SITECLONED = "site.cloned";
+		public const string SHIPMENTITEMSCANCELED = "shipment.itemscanceled";
 
-		public const string SITECREATED = "site.created";
+		public const string SHIPMENTITEMSMODIFIED = "shipment.itemsmodified";
 
-		public const string SITEDELETED = "site.deleted";
-
-		public const string SITEUPDATED = "site.updated";
+		public const string SHIPMENTSTATUSCHANGED = "shipment.statuschanged";
 
 		public const string TENANTCREATED = "tenant.created";
 

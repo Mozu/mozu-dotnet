@@ -12,7 +12,7 @@ using System;
 
 using Mozu.Api.Contracts.Core;
 
-namespace Mozu.Api.Contracts.SiteSettings.Order.Return
+namespace Mozu.Api.Contracts.SiteSettings.Order.Returns
 {
 		public class ReturnSettings
 		{

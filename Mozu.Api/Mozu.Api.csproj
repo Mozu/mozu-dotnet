@@ -878,7 +878,7 @@
     <Compile Include="Contracts\SiteSettings\Order\PurchaseOrderCustomField.cs" />
     <Compile Include="Contracts\SiteSettings\Order\PurchaseOrderPaymentDefinition.cs" />
     <Compile Include="Contracts\SiteSettings\Order\PurchaseOrderPaymentTerm.cs" />
-    <Compile Include="Contracts\SiteSettings\Order\Return\ReturnSettings.cs" />
+    <Compile Include="Contracts\SiteSettings\Order\Returns\ReturnSettings.cs" />
     <Compile Include="Contracts\SiteSettings\Order\ThirdPartyCredentialField.cs" />
     <Compile Include="Contracts\SiteSettings\Order\ThirdPartyPaymentSetting.cs" />
     <Compile Include="Contracts\SiteSettings\Order\VocabularyValue.cs" />

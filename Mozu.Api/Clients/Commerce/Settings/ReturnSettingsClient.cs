@@ -27,7 +27,7 @@ namespace Mozu.Api.Clients.Commerce.Settings
 		/// </summary>
 		/// <param name="responseFields"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings"/>}
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
@@ -35,11 +35,11 @@ namespace Mozu.Api.Clients.Commerce.Settings
 		///   var returnSettingsClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings> GetReturnSettingsClient(string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings> GetReturnSettingsClient(string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Settings.ReturnSettingsUrl.GetReturnSettingsUrl(responseFields);
 			const string verb = "GET";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings>()
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -52,7 +52,7 @@ namespace Mozu.Api.Clients.Commerce.Settings
 		/// <param name="responseFields"></param>
 		/// <param name="returnSettings"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings"/>}
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
@@ -60,13 +60,13 @@ namespace Mozu.Api.Clients.Commerce.Settings
 		///   var returnSettingsClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings> CreateReturnSettingsClient(Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings returnSettings, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings> CreateReturnSettingsClient(Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings returnSettings, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Settings.ReturnSettingsUrl.CreateReturnSettingsUrl(responseFields);
 			const string verb = "POST";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings>()
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings>(returnSettings);
+									.WithBody<Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings>(returnSettings);
 			return mozuClient;
 
 		}
@@ -77,7 +77,7 @@ namespace Mozu.Api.Clients.Commerce.Settings
 		/// <param name="responseFields"></param>
 		/// <param name="returnSettings"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings"/>}
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
@@ -85,13 +85,13 @@ namespace Mozu.Api.Clients.Commerce.Settings
 		///   var returnSettingsClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings> UpdateReturnSettingsClient(Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings returnSettings, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings> UpdateReturnSettingsClient(Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings returnSettings, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Settings.ReturnSettingsUrl.UpdateReturnSettingsUrl(responseFields);
 			const string verb = "PUT";
-			var mozuClient = new MozuClient<Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings>()
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.SiteSettings.Order.Return.ReturnSettings>(returnSettings);
+									.WithBody<Mozu.Api.Contracts.SiteSettings.Order.Returns.ReturnSettings>(returnSettings);
 			return mozuClient;
 
 		}
