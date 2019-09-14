@@ -42,19 +42,20 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
-		/// <see cref="System.IO.Stream"/>
+		/// <see cref="Mozu.Api.Contracts.SiteSettings.Application.Application"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var application = new Application();
-		///   var stream = await application.ThirdPartyGetApplicationAsync();
+		///   var application = await application.ThirdPartyGetApplicationAsync( responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<System.IO.Stream> ThirdPartyGetApplicationAsync(CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Application.Application> ThirdPartyGetApplicationAsync(string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient<System.IO.Stream> response;
-			var client = Mozu.Api.Clients.Commerce.Settings.ApplicationClient.ThirdPartyGetApplicationClient();
+			MozuClient<Mozu.Api.Contracts.SiteSettings.Application.Application> response;
+			var client = Mozu.Api.Clients.Commerce.Settings.ApplicationClient.ThirdPartyGetApplicationClient( responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -65,20 +66,21 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="application">Properties of the application to update.</param>
 		/// <returns>
-		/// <see cref="System.IO.Stream"/>
+		/// <see cref="Mozu.Api.Contracts.SiteSettings.Application.Application"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var application = new Application();
-		///   var stream = await application.ThirdPartyUpdateApplicationAsync( application);
+		///   var application = await application.ThirdPartyUpdateApplicationAsync( application,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<System.IO.Stream> ThirdPartyUpdateApplicationAsync(Mozu.Api.Contracts.SiteSettings.Application.Application application, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Application.Application> ThirdPartyUpdateApplicationAsync(Mozu.Api.Contracts.SiteSettings.Application.Application application, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient<System.IO.Stream> response;
-			var client = Mozu.Api.Clients.Commerce.Settings.ApplicationClient.ThirdPartyUpdateApplicationClient( application);
+			MozuClient<Mozu.Api.Contracts.SiteSettings.Application.Application> response;
+			var client = Mozu.Api.Clients.Commerce.Settings.ApplicationClient.ThirdPartyUpdateApplicationClient( application,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();

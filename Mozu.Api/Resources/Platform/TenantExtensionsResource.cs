@@ -42,19 +42,20 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
-		/// <see cref="System.IO.Stream"/>
+		/// <see cref="Mozu.Api.Contracts.InstalledApplications.TenantExtensions"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var tenantextensions = new TenantExtensions();
-		///   var stream = await tenantextensions.GetExtensionsAsync();
+		///   var tenantExtensions = await tenantextensions.GetExtensionsAsync( responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<System.IO.Stream> GetExtensionsAsync(CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.InstalledApplications.TenantExtensions> GetExtensionsAsync(string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient<System.IO.Stream> response;
-			var client = Mozu.Api.Clients.Platform.TenantExtensionsClient.GetExtensionsClient();
+			MozuClient<Mozu.Api.Contracts.InstalledApplications.TenantExtensions> response;
+			var client = Mozu.Api.Clients.Platform.TenantExtensionsClient.GetExtensionsClient( responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -65,20 +66,21 @@ namespace Mozu.Api.Resources.Platform
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="extensions"></param>
 		/// <returns>
-		/// <see cref="System.IO.Stream"/>
+		/// <see cref="Mozu.Api.Contracts.InstalledApplications.TenantExtensions"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var tenantextensions = new TenantExtensions();
-		///   var stream = await tenantextensions.UpdateExtensionsAsync( extensions);
+		///   var tenantExtensions = await tenantextensions.UpdateExtensionsAsync( extensions,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<System.IO.Stream> UpdateExtensionsAsync(Mozu.Api.Contracts.InstalledApplications.TenantExtensions extensions, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.InstalledApplications.TenantExtensions> UpdateExtensionsAsync(Mozu.Api.Contracts.InstalledApplications.TenantExtensions extensions, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient<System.IO.Stream> response;
-			var client = Mozu.Api.Clients.Platform.TenantExtensionsClient.UpdateExtensionsClient( extensions);
+			MozuClient<Mozu.Api.Contracts.InstalledApplications.TenantExtensions> response;
+			var client = Mozu.Api.Clients.Platform.TenantExtensionsClient.UpdateExtensionsClient( extensions,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();

@@ -13,16 +13,21 @@ using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
 using Mozu.Api.Contracts.CommerceRuntime.Commerce;
+using Mozu.Api.Contracts.CommerceRuntime.Orders;
 using Mozu.Api.Contracts.CommerceRuntime.Products;
 using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 {
-		public class ShipmentItem
+		public class CanceledItem
 		{
 			public decimal ActualPrice { get; set; }
 
+			public AuditInfo AuditInfo { get; set; }
+
 			public DateTime? BackorderReleaseDate { get; set; }
+
+			public CanceledReason CanceledReason { get; set; }
 
 			public JObject Data { get; set; }
 

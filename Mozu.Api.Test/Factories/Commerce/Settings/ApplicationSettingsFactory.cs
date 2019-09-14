@@ -34,14 +34,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Settings
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = ApplicationFactory.ThirdPartyGetApplication(handler : handler,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Stream/>(result); 
+		/// var result = ApplicationFactory.ThirdPartyGetApplication(handler : handler,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Application/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static System.IO.Stream ThirdPartyGetApplication(ServiceClientMessageHandler handler, 
- 		 
+		public static Mozu.Api.Contracts.SiteSettings.Application.Application ThirdPartyGetApplication(ServiceClientMessageHandler handler, 
+ 		 string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -49,7 +49,7 @@ namespace Mozu.Api.Test.Factories.Commerce.Settings
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Settings.ApplicationClient.ThirdPartyGetApplicationClient(
-						);
+				 responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -72,14 +72,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Settings
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = ApplicationFactory.ThirdPartyUpdateApplication(handler : handler,  application :  application,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Stream/>(result); 
+		/// var result = ApplicationFactory.ThirdPartyUpdateApplication(handler : handler,  application :  application,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Application/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static System.IO.Stream ThirdPartyUpdateApplication(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.SiteSettings.Application.Application application, 
+		public static Mozu.Api.Contracts.SiteSettings.Application.Application ThirdPartyUpdateApplication(ServiceClientMessageHandler handler, 
+ 		 Mozu.Api.Contracts.SiteSettings.Application.Application application, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -87,7 +87,7 @@ namespace Mozu.Api.Test.Factories.Commerce.Settings
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Settings.ApplicationClient.ThirdPartyUpdateApplicationClient(
-				 application :  application		);
+				 application :  application,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();

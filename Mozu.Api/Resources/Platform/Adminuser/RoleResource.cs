@@ -43,20 +43,22 @@ namespace Mozu.Api.Resources.Platform.Adminuser
 		/// 
 		/// </summary>
 		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
 		/// <param name="responseFields"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Core.RoleCollection"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var role = new Role();
-		///   var roleCollection = await role.GetRolesAsync( filter,  responseFields);
+		///   var roleCollection = await role.GetRolesAsync( startIndex,  pageSize,  filter,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Core.RoleCollection> GetRolesAsync(string filter =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.Core.RoleCollection> GetRolesAsync(int? startIndex =  null, int? pageSize =  null, string filter =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Core.RoleCollection> response;
-			var client = Mozu.Api.Clients.Platform.Adminuser.RoleClient.GetRolesClient( filter,  responseFields);
+			var client = Mozu.Api.Clients.Platform.Adminuser.RoleClient.GetRolesClient( startIndex,  pageSize,  filter,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();

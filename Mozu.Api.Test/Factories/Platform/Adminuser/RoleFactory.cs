@@ -34,14 +34,14 @@ namespace Mozu.Api.Test.Factories.Platform.Adminuser
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = RoleFactory.GetRoles(handler : handler,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = RoleFactory.GetRoles(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  filter :  filter,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<RoleCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Core.RoleCollection GetRoles(ServiceClientMessageHandler handler, 
- 		 string filter = null, string responseFields = null, 
+ 		 int? startIndex = null, int? pageSize = null, string filter = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -49,7 +49,7 @@ namespace Mozu.Api.Test.Factories.Platform.Adminuser
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Platform.Adminuser.RoleClient.GetRolesClient(
-				 filter :  filter,  responseFields :  responseFields		);
+				 startIndex :  startIndex,  pageSize :  pageSize,  filter :  filter,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();

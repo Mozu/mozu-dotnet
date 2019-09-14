@@ -376,6 +376,44 @@ namespace Mozu.Api.Test.Factories.Platform.Adminuser
 		/// 
 		/// <example> 
 		///  <code> 
+		/// var result = AdminUserFactory.ResetPassword(handler : handler,  resetPasswordInfo :  resetPasswordInfo,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static System.IO.Stream ResetPassword(ServiceClientMessageHandler handler, 
+ 		 Mozu.Api.Contracts.AdminUser.ResetPasswordInfo resetPasswordInfo, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Platform.Adminuser.AdminUserClient.ResetPasswordClient(
+				 resetPasswordInfo :  resetPasswordInfo		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
 		/// var result = AdminUserFactory.UpdateUser(handler : handler,  user :  user,  userId :  userId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<User/>(result); 
 		/// return optionalCasting;

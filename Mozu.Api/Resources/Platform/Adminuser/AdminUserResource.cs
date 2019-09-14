@@ -274,6 +274,30 @@ namespace Mozu.Api.Resources.Platform.Adminuser
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="resetPasswordInfo"></param>
+		/// <returns>
+		/// <see cref="System.IO.Stream"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var adminuser = new AdminUser();
+		///   var stream = await adminuser.ResetPasswordAsync( resetPasswordInfo);
+		/// </code>
+		/// </example>
+		public virtual async Task<System.IO.Stream> ResetPasswordAsync(Mozu.Api.Contracts.AdminUser.ResetPasswordInfo resetPasswordInfo, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<System.IO.Stream> response;
+			var client = Mozu.Api.Clients.Platform.Adminuser.AdminUserClient.ResetPasswordClient( resetPasswordInfo);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="responseFields"></param>
 		/// <param name="userId"></param>
 		/// <param name="user"></param>

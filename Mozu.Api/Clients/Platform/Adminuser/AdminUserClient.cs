@@ -253,6 +253,30 @@ namespace Mozu.Api.Clients.Platform.Adminuser
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="resetPasswordInfo"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=ResetPassword( resetPasswordInfo);
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<System.IO.Stream> ResetPasswordClient(Mozu.Api.Contracts.AdminUser.ResetPasswordInfo resetPasswordInfo)
+		{
+			var url = Mozu.Api.Urls.Platform.Adminuser.AdminUserUrl.ResetPasswordUrl();
+			const string verb = "POST";
+			var mozuClient = new MozuClient<System.IO.Stream>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.AdminUser.ResetPasswordInfo>(resetPasswordInfo);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="responseFields"></param>
 		/// <param name="userId"></param>
 		/// <param name="user"></param>

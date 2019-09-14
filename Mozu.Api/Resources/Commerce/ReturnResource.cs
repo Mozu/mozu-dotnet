@@ -377,6 +377,32 @@ namespace Mozu.Api.Resources.Commerce
 		/// </summary>
 		/// <param name="responseFields"></param>
 		/// <param name="returnId"></param>
+		/// <param name="returnItems"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var return = new Return();
+		///   var return = await return.RestockReturnItemsAsync( returnItems,  returnId,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> RestockReturnItemsAsync(List<Mozu.Api.Contracts.CommerceRuntime.Returns.RestockableReturnItem> returnItems, string returnId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> response;
+			var client = Mozu.Api.Clients.Commerce.ReturnClient.RestockReturnItemsClient( returnItems,  returnId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="returnId"></param>
 		/// <param name="itemQuantities"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>

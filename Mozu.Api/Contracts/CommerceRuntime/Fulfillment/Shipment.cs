@@ -26,7 +26,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 
 			public int? BackorderCreatedDate { get; set; }
 
-			public List<ShipmentItem> CanceledItems { get; set; }
+			public List<CanceledItem> CanceledItems { get; set; }
 
 			public List<ChangeMessage> ChangeMessages { get; set; }
 

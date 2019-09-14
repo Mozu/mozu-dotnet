@@ -246,6 +246,23 @@ namespace Mozu.Api.Urls.Commerce
 		}
 
 		/// <summary>
+        /// Get Resource Url for RestockReturnItems
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <param name="returnId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl RestockReturnItemsUrl(string returnId, string responseFields =  null)
+		{
+			var url = "/api/commerce/returns/{returnId}/restock?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "returnId", returnId);
+			return mozuUrl;
+		}
+
+		/// <summary>
         /// Get Resource Url for CreateReturnShippingOrder
         /// </summary>
         /// <param name="responseFields"></param>

@@ -53,6 +53,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 
 			public int QuantityRestockable { get; set; }
 
+			public int QuantityRestocked { get; set; }
+
 			public int QuantityShipped { get; set; }
 
 			public List<ReturnReason> Reasons { get; set; }

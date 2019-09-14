@@ -63,6 +63,8 @@ namespace Mozu.Api.Contracts.Location
 
 			public int? SendCustomerPickupReminder { get; set; }
 
+			public List<BpmConfiguration> ShipmentTypes { get; set; }
+
 			public int SiteId { get; set; }
 
 			public int TenantId { get; set; }

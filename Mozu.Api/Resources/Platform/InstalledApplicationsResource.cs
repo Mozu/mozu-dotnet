@@ -43,19 +43,20 @@ namespace Mozu.Api.Resources.Platform
 		/// 
 		/// </summary>
 		/// <param name="appId">The application ID that represents the application to retrieve.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
-		/// <see cref="System.IO.Stream"/>
+		/// <see cref="Mozu.Api.Contracts.InstalledApplications.Application"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var installedapplications = new InstalledApplications();
-		///   var stream = await installedapplications.GetApplicationAsync( appId);
+		///   var application = await installedapplications.GetApplicationAsync( appId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<System.IO.Stream> GetApplicationAsync(string appId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.InstalledApplications.Application> GetApplicationAsync(string appId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient<System.IO.Stream> response;
-			var client = Mozu.Api.Clients.Platform.InstalledApplicationsClient.GetApplicationClient( appId);
+			MozuClient<Mozu.Api.Contracts.InstalledApplications.Application> response;
+			var client = Mozu.Api.Clients.Platform.InstalledApplicationsClient.GetApplicationClient( appId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -67,20 +68,21 @@ namespace Mozu.Api.Resources.Platform
 		/// 
 		/// </summary>
 		/// <param name="appId">The application ID that represents the application to update.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="application">Properties of the application to update.</param>
 		/// <returns>
-		/// <see cref="System.IO.Stream"/>
+		/// <see cref="Mozu.Api.Contracts.InstalledApplications.Application"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var installedapplications = new InstalledApplications();
-		///   var stream = await installedapplications.UpdateApplicationAsync( application,  appId);
+		///   var application = await installedapplications.UpdateApplicationAsync( application,  appId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<System.IO.Stream> UpdateApplicationAsync(Mozu.Api.Contracts.InstalledApplications.Application application, string appId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.InstalledApplications.Application> UpdateApplicationAsync(Mozu.Api.Contracts.InstalledApplications.Application application, string appId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient<System.IO.Stream> response;
-			var client = Mozu.Api.Clients.Platform.InstalledApplicationsClient.UpdateApplicationClient( application,  appId);
+			MozuClient<Mozu.Api.Contracts.InstalledApplications.Application> response;
+			var client = Mozu.Api.Clients.Platform.InstalledApplicationsClient.UpdateApplicationClient( application,  appId,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();

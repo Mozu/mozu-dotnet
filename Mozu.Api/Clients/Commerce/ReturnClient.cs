@@ -360,6 +360,32 @@ namespace Mozu.Api.Clients.Commerce
 		/// </summary>
 		/// <param name="responseFields"></param>
 		/// <param name="returnId"></param>
+		/// <param name="returnItems"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=RestockReturnItems( returnItems,  returnId,  responseFields);
+		///   var returnClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> RestockReturnItemsClient(List<Mozu.Api.Contracts.CommerceRuntime.Returns.RestockableReturnItem> returnItems, string returnId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.ReturnUrl.RestockReturnItemsUrl(returnId, responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<List<Mozu.Api.Contracts.CommerceRuntime.Returns.RestockableReturnItem>>(returnItems);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="returnId"></param>
 		/// <param name="itemQuantities"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>}

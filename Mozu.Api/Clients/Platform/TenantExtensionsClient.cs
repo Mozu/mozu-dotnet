@@ -25,20 +25,21 @@ namespace Mozu.Api.Clients.Platform
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.InstalledApplications.TenantExtensions"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetExtensions();
-		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var mozuClient=GetExtensions( responseFields);
+		///   var tenantExtensionsClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<System.IO.Stream> GetExtensionsClient()
+		public static MozuClient<Mozu.Api.Contracts.InstalledApplications.TenantExtensions> GetExtensionsClient(string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Platform.TenantExtensionsUrl.GetExtensionsUrl();
+			var url = Mozu.Api.Urls.Platform.TenantExtensionsUrl.GetExtensionsUrl(responseFields);
 			const string verb = "GET";
-			var mozuClient = new MozuClient<System.IO.Stream>()
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.InstalledApplications.TenantExtensions>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -48,21 +49,22 @@ namespace Mozu.Api.Clients.Platform
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="responseFields"></param>
 		/// <param name="extensions"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.InstalledApplications.TenantExtensions"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateExtensions( extensions);
-		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var mozuClient=UpdateExtensions( extensions,  responseFields);
+		///   var tenantExtensionsClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<System.IO.Stream> UpdateExtensionsClient(Mozu.Api.Contracts.InstalledApplications.TenantExtensions extensions)
+		public static MozuClient<Mozu.Api.Contracts.InstalledApplications.TenantExtensions> UpdateExtensionsClient(Mozu.Api.Contracts.InstalledApplications.TenantExtensions extensions, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Platform.TenantExtensionsUrl.UpdateExtensionsUrl();
+			var url = Mozu.Api.Urls.Platform.TenantExtensionsUrl.UpdateExtensionsUrl(responseFields);
 			const string verb = "PUT";
-			var mozuClient = new MozuClient<System.IO.Stream>()
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.InstalledApplications.TenantExtensions>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.InstalledApplications.TenantExtensions>(extensions);
 			return mozuClient;

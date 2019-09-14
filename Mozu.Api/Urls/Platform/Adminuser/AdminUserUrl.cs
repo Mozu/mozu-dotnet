@@ -169,6 +169,19 @@ namespace Mozu.Api.Urls.Platform.Adminuser
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for ResetPassword
+        /// </summary>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl ResetPasswordUrl()
+		{
+			var url = "/api/platform/adminuser/accounts/Reset-Password";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for UpdateUser
         /// </summary>

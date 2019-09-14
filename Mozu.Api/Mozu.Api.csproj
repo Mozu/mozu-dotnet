@@ -273,6 +273,7 @@
     <Compile Include="Contracts\AdminUser\DeveloperAccount.cs" />
     <Compile Include="Contracts\AdminUser\DeveloperAdminUserAuthTicket.cs" />
     <Compile Include="Contracts\AdminUser\PasswordInfo.cs" />
+    <Compile Include="Contracts\AdminUser\ResetPasswordInfo.cs" />
     <Compile Include="Contracts\AdminUser\TenantAdminUserAuthTicket.cs" />
     <Compile Include="Contracts\AdminUser\UserRoleCollection.cs" />
     <Compile Include="Contracts\AppDev\AppAuthInfo.cs" />
@@ -334,6 +335,7 @@
     <Compile Include="Contracts\CommerceRuntime\Discounts\InvalidCoupon.cs" />
     <Compile Include="Contracts\CommerceRuntime\Discounts\ShippingDiscount.cs" />
     <Compile Include="Contracts\CommerceRuntime\Discounts\SuggestedDiscount.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Fulfillment\CanceledItem.cs" />
     <Compile Include="Contracts\CommerceRuntime\Fulfillment\Destination.cs" />
     <Compile Include="Contracts\CommerceRuntime\Fulfillment\DigitalPackage.cs" />
     <Compile Include="Contracts\CommerceRuntime\Fulfillment\DigitalPackageItem.cs" />
@@ -399,6 +401,7 @@
     <Compile Include="Contracts\CommerceRuntime\Quotes\QuoteItemCollection.cs" />
     <Compile Include="Contracts\CommerceRuntime\Refunds\Refund.cs" />
     <Compile Include="Contracts\CommerceRuntime\Returns\ReasonCollection.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Returns\RestockableReturnItem.cs" />
     <Compile Include="Contracts\CommerceRuntime\Returns\Return.cs" />
     <Compile Include="Contracts\CommerceRuntime\Returns\ReturnAction.cs" />
     <Compile Include="Contracts\CommerceRuntime\Returns\ReturnBundle.cs" />
@@ -553,6 +556,7 @@
     <Compile Include="Contracts\Location\LocationUsage.cs" />
     <Compile Include="Contracts\Location\LocationUsageCollection.cs" />
     <Compile Include="Contracts\Location\RegularHours.cs" />
+    <Compile Include="Contracts\Location\BpmConfiguration.cs" />
     <Compile Include="Contracts\Location\ShippingMethodMappings.cs" />
     <Compile Include="Contracts\Location\ShippingOriginContact.cs" />
     <Compile Include="Contracts\MZDB\EntityCollection.cs" />

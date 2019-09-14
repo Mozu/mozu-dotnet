@@ -26,20 +26,21 @@ namespace Mozu.Api.Clients.Platform
 		/// 
 		/// </summary>
 		/// <param name="appId">The application ID that represents the application to retrieve.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.InstalledApplications.Application"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetApplication( appId);
-		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var mozuClient=GetApplication( appId,  responseFields);
+		///   var applicationClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<System.IO.Stream> GetApplicationClient(string appId)
+		public static MozuClient<Mozu.Api.Contracts.InstalledApplications.Application> GetApplicationClient(string appId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Platform.InstalledApplicationsUrl.GetApplicationUrl(appId);
+			var url = Mozu.Api.Urls.Platform.InstalledApplicationsUrl.GetApplicationUrl(appId, responseFields);
 			const string verb = "GET";
-			var mozuClient = new MozuClient<System.IO.Stream>()
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.InstalledApplications.Application>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -50,21 +51,22 @@ namespace Mozu.Api.Clients.Platform
 		/// 
 		/// </summary>
 		/// <param name="appId">The application ID that represents the application to update.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="application">Properties of the application to update.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.InstalledApplications.Application"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateApplication( application,  appId);
-		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		///   var mozuClient=UpdateApplication( application,  appId,  responseFields);
+		///   var applicationClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<System.IO.Stream> UpdateApplicationClient(Mozu.Api.Contracts.InstalledApplications.Application application, string appId)
+		public static MozuClient<Mozu.Api.Contracts.InstalledApplications.Application> UpdateApplicationClient(Mozu.Api.Contracts.InstalledApplications.Application application, string appId, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Platform.InstalledApplicationsUrl.UpdateApplicationUrl(appId);
+			var url = Mozu.Api.Urls.Platform.InstalledApplicationsUrl.UpdateApplicationUrl(appId, responseFields);
 			const string verb = "PUT";
-			var mozuClient = new MozuClient<System.IO.Stream>()
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.InstalledApplications.Application>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.InstalledApplications.Application>(application);
 			return mozuClient;

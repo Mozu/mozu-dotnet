@@ -19,26 +19,30 @@ namespace Mozu.Api.Urls.Commerce.Settings
 		/// <summary>
         /// Get Resource Url for ThirdPartyGetApplication
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl ThirdPartyGetApplicationUrl()
+        public static MozuUrl ThirdPartyGetApplicationUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/settings/applications/";
+			var url = "/api/commerce/settings/applications/?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
 						/// <summary>
         /// Get Resource Url for ThirdPartyUpdateApplication
         /// </summary>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl ThirdPartyUpdateApplicationUrl()
+        public static MozuUrl ThirdPartyUpdateApplicationUrl(string responseFields =  null)
 		{
-			var url = "/api/commerce/settings/applications/";
+			var url = "/api/commerce/settings/applications/?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
 
