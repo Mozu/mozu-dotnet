@@ -34,14 +34,14 @@ namespace Mozu.Api.Test.Factories.Commerce
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = OrderFactory.GetOrders(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  q :  q,  qLimit :  qLimit,  includeBin :  includeBin,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = OrderFactory.GetOrders(handler : handler,  startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  q :  q,  qLimit :  qLimit,  includeBin :  includeBin,  mode :  mode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<OrderCollection/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Orders.OrderCollection GetOrders(ServiceClientMessageHandler handler, 
- 		 int? startIndex = null, int? pageSize = null, string sortBy = null, string filter = null, string q = null, int? qLimit = null, bool? includeBin = null, string responseFields = null, 
+ 		 int? startIndex = null, int? pageSize = null, string sortBy = null, string filter = null, string q = null, int? qLimit = null, bool? includeBin = null, string mode = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -49,7 +49,7 @@ namespace Mozu.Api.Test.Factories.Commerce
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.OrderClient.GetOrdersClient(
-				 startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  q :  q,  qLimit :  qLimit,  includeBin :  includeBin,  responseFields :  responseFields		);
+				 startIndex :  startIndex,  pageSize :  pageSize,  sortBy :  sortBy,  filter :  filter,  q :  q,  qLimit :  qLimit,  includeBin :  includeBin,  mode :  mode,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -148,14 +148,14 @@ namespace Mozu.Api.Test.Factories.Commerce
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = OrderFactory.GetOrder(handler : handler,  orderId :  orderId,  draft :  draft,  includeBin :  includeBin,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = OrderFactory.GetOrder(handler : handler,  orderId :  orderId,  draft :  draft,  includeBin :  includeBin,  mode :  mode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Order/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order GetOrder(ServiceClientMessageHandler handler, 
- 		 string orderId, bool? draft = null, bool? includeBin = null, string responseFields = null, 
+ 		 string orderId, bool? draft = null, bool? includeBin = null, string mode = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -163,7 +163,7 @@ namespace Mozu.Api.Test.Factories.Commerce
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.OrderClient.GetOrderClient(
-				 orderId :  orderId,  draft :  draft,  includeBin :  includeBin,  responseFields :  responseFields		);
+				 orderId :  orderId,  draft :  draft,  includeBin :  includeBin,  mode :  mode,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();

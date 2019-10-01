@@ -159,11 +159,13 @@ namespace Mozu.Api.Events
 
 		public const string SHIPMENTADJUSTED = "shipment.adjusted";
 
+		public const string SHIPMENTITEMADJUSTED = "shipment.itemadjusted";
+
 		public const string SHIPMENTITEMSCANCELED = "shipment.itemscanceled";
 
-		public const string SHIPMENTITEMSMODIFIED = "shipment.itemsmodified";
-
 		public const string SHIPMENTSTATUSCHANGED = "shipment.statuschanged";
+
+		public const string SHIPMENTWORKFLOWSTATECHANGED = "shipment.workflowstatechanged";
 
 		public const string SITECLONED = "site.cloned";
 

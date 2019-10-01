@@ -371,7 +371,6 @@
     <Compile Include="Contracts\CommerceRuntime\Orders\OrderReturnableItemCollection.cs" />
     <Compile Include="Contracts\CommerceRuntime\Orders\OrderValidationMessage.cs" />
     <Compile Include="Contracts\CommerceRuntime\Orders\OrderValidationResult.cs" />
-    <Compile Include="Contracts\CommerceRuntime\Orders\ReturnableShipItem.cs" />
     <Compile Include="Contracts\CommerceRuntime\Orders\ShopperNotes.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\BillingInfo.cs" />
     <Compile Include="Contracts\CommerceRuntime\Payments\CheckPayment.cs" />
@@ -542,6 +541,7 @@
     <Compile Include="Contracts\InstalledApplications\ExtensionConfiguration.cs" />
     <Compile Include="Contracts\InstalledApplications\TenantExtensions.cs" />
     <Compile Include="Contracts\Location\BoxType.cs" />
+    <Compile Include="Contracts\Location\BpmConfiguration.cs" />
     <Compile Include="Contracts\Location\Carrier.cs" />
     <Compile Include="Contracts\Location\Coordinates.cs" />
     <Compile Include="Contracts\Location\FulfillmentType.cs" />
@@ -556,7 +556,6 @@
     <Compile Include="Contracts\Location\LocationUsage.cs" />
     <Compile Include="Contracts\Location\LocationUsageCollection.cs" />
     <Compile Include="Contracts\Location\RegularHours.cs" />
-    <Compile Include="Contracts\Location\BpmConfiguration.cs" />
     <Compile Include="Contracts\Location\ShippingMethodMappings.cs" />
     <Compile Include="Contracts\Location\ShippingOriginContact.cs" />
     <Compile Include="Contracts\MZDB\EntityCollection.cs" />

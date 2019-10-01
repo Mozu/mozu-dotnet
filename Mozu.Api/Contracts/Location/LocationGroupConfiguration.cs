@@ -25,6 +25,8 @@ namespace Mozu.Api.Contracts.Location
 
 			public List<BoxType> BoxTypes { get; set; }
 
+			public List<BpmConfiguration> BpmConfigurations { get; set; }
+
 			public List<Carrier> Carriers { get; set; }
 
 			public List<string> ClosePickWavePermissions { get; set; }
@@ -62,8 +64,6 @@ namespace Mozu.Api.Contracts.Location
 			public bool? ReturnRefundReduction { get; set; }
 
 			public int? SendCustomerPickupReminder { get; set; }
-
-			public List<BpmConfiguration> ShipmentTypes { get; set; }
 
 			public int SiteId { get; set; }
 

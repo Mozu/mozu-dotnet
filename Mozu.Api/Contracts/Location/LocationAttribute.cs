@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+
 using System.Collections.Generic;
 
 using Mozu.Api.Contracts.Core;

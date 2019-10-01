@@ -15,9 +15,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 {
 		public class ShipmentItemAdjustment
 		{
-			public decimal? ActualPrice { get; set; }
-
-			public decimal? UnitTax { get; set; }
+			public decimal? OverridePrice { get; set; }
 
 		}
 

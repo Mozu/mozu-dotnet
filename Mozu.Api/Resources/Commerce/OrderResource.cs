@@ -44,6 +44,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// </summary>
 		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter an order's search results by any of its properties, including status, contact information, or total. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Status+eq+Submitted"</param>
 		/// <param name="includeBin"></param>
+		/// <param name="mode"></param>
 		/// <param name="pageSize">Used to page results from a query. Indicates the maximum number of entities to return from a query. Default value: 20. Max value: 200.</param>
 		/// <param name="q">A list of order search terms to use in the query when searching across order number and the name or email of the billing contact. Separate multiple search terms with a space character.</param>
 		/// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
@@ -56,13 +57,13 @@ namespace Mozu.Api.Resources.Commerce
 		/// <example>
 		/// <code>
 		///   var order = new Order();
-		///   var orderCollection = await order.GetOrdersAsync( startIndex,  pageSize,  sortBy,  filter,  q,  qLimit,  includeBin,  responseFields);
+		///   var orderCollection = await order.GetOrdersAsync( startIndex,  pageSize,  sortBy,  filter,  q,  qLimit,  includeBin,  mode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderCollection> GetOrdersAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string q =  null, int? qLimit =  null, bool? includeBin =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderCollection> GetOrdersAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string q =  null, int? qLimit =  null, bool? includeBin =  null, string mode =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderCollection> response;
-			var client = Mozu.Api.Clients.Commerce.OrderClient.GetOrdersClient( startIndex,  pageSize,  sortBy,  filter,  q,  qLimit,  includeBin,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.OrderClient.GetOrdersClient( startIndex,  pageSize,  sortBy,  filter,  q,  qLimit,  includeBin,  mode,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -123,6 +124,7 @@ namespace Mozu.Api.Resources.Commerce
 		/// </summary>
 		/// <param name="draft">If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.</param>
 		/// <param name="includeBin"></param>
+		/// <param name="mode"></param>
 		/// <param name="orderId">Unique identifier of the order details to get.</param>
 		/// <param name="responseFields"></param>
 		/// <returns>
@@ -131,13 +133,13 @@ namespace Mozu.Api.Resources.Commerce
 		/// <example>
 		/// <code>
 		///   var order = new Order();
-		///   var order = await order.GetOrderAsync( orderId,  draft,  includeBin,  responseFields);
+		///   var order = await order.GetOrderAsync( orderId,  draft,  includeBin,  mode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> GetOrderAsync(string orderId, bool? draft =  null, bool? includeBin =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> GetOrderAsync(string orderId, bool? draft =  null, bool? includeBin =  null, string mode =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
-			var client = Mozu.Api.Clients.Commerce.OrderClient.GetOrderClient( orderId,  draft,  includeBin,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.OrderClient.GetOrderClient( orderId,  draft,  includeBin,  mode,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();

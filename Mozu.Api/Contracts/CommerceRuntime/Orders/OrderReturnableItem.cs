@@ -9,14 +9,23 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
 
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 {
 		public class OrderReturnableItem
 		{
-			public List<ReturnableShipItem> Items { get; set; }
+			public string FulfillmentStatus { get; set; }
+
+			public string OrderItemId { get; set; }
+
+			public string OrderItemOptionAttributeFQN { get; set; }
+
+			public int OrderLineId { get; set; }
+
+			public string ParentProductCode { get; set; }
+
+			public string ParentProductName { get; set; }
 
 			public string ProductCode { get; set; }
 
@@ -29,6 +38,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public int QuantityReturnable { get; set; }
 
 			public int QuantityReturned { get; set; }
+
+			public int? ShipmentItemId { get; set; }
+
+			public int? ShipmentNumber { get; set; }
+
+			public int UnitQuantity { get; set; }
 
 		}
 

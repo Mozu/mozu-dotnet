@@ -22,6 +22,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 		{
 			public decimal ActualPrice { get; set; }
 
+			public AuditInfo AuditInfo { get; set; }
+
 			public DateTime? BackorderReleaseDate { get; set; }
 
 			public JObject Data { get; set; }
@@ -74,11 +76,31 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 
 			public decimal ShippingTax { get; set; }
 
+			public decimal TaxableHandling { get; set; }
+
+			public decimal TaxableLineItemCost { get; set; }
+
+			public decimal TaxableShipping { get; set; }
+
 			public JObject TaxData { get; set; }
 
 			public decimal UnitPrice { get; set; }
 
 			public string VariationProductCode { get; set; }
+
+			public decimal WeightedDutyAdjustment { get; set; }
+
+			public decimal WeightedHandlingAdjustment { get; set; }
+
+			public decimal WeightedHandlingTaxAdjustment { get; set; }
+
+			public decimal WeightedLineItemTaxAdjustment { get; set; }
+
+			public decimal WeightedShipmentAdjustment { get; set; }
+
+			public decimal WeightedShippingAdjustment { get; set; }
+
+			public decimal WeightedShippingTaxAdjustment { get; set; }
 
 		}
 
