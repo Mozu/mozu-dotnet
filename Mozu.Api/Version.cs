@@ -14,7 +14,7 @@ namespace Mozu.Api
 	{
 		public static string ApiVersion
 		{
-			get { return "1.1940.19274.0"; }
+			get { return "1.1940.19275.1"; }
 		}
 	}
 }

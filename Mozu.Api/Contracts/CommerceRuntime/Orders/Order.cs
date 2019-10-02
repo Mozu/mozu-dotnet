@@ -156,6 +156,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 
 			public bool? IsTaxExempt { get; set; }
 
+			public bool IsUnified { get; set; }
+
 			public List<OrderItem> Items { get; set; }
 
 			public decimal? ItemTaxTotal { get; set; }
