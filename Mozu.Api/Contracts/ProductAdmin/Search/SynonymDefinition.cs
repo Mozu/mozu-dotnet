@@ -14,12 +14,24 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.ProductAdmin.Search
 {
+		///
+		///	Properties of synonyms and their relations via keys and lists to determine search results.
+		///
 		public class SynonymDefinition
 		{
+			///
+			///Key used for metadata defined for objects, including extensible attributes, custom attributes associated with a shipping provider, and search synonyms definitions. This content may be user-defined depending on the object and usage.For search synonym definitions, refer to [Synonym Expansion Types](https://www.mozu.com/docs/Developer/api-guides/search-settings.htm#synonym_expansion_types) for more information about the key usage.
+			///
 			public string Key { get; set; }
 
+			///
+			///The unique identifier of the synonym.
+			///
 			public int? SynonymId { get; set; }
 
+			///
+			///A list of comma seperated synonyms. If you do not specify a ,  uses a two way expansion. Refer to [Synonym Expansion Types](https://www.mozu.com/docs/Developer/api-guides/search-settings.htm#synonym_expansion_types) for more information.
+			///
 			public List<string> Synonyms { get; set; }
 
 		}

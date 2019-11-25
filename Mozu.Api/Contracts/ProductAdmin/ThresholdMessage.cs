@@ -14,22 +14,49 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
+		///
+		///	Information on where, when and what content to display in a threshold message to customers.
+		///
 		public class ThresholdMessage
 		{
+			///
+			///Basic audit info about the object, including date, time, and user account. This data may be captured when creating, updating, and removing data.
+			///
 			public AuditInfo AuditInfo { get; set; }
 
+			///
+			///Localizable content (such as a name and/or description) for an attribute. The content may be localized when displayed according to the locale code specified by the master catalog. Content can include descriptive text for product extensible attributes, catalog-level descriptions (displayed if isContentOverriden is true), product bundles, and customer account notes.
+			///
 			public ThresholdMessageLocalizedContent Content { get; set; }
 
+			///
+			///The unique identifier of the discount.
+			///
 			public int DiscountId { get; set; }
 
+			///
+			///Indicates if the object or feature is active.
+			///
 			public bool IsActive { get; set; }
 
+			///
+			///Indicates if the threshold message will display when a promo code is evaluated
+			///
 			public bool RequiresCouponCode { get; set; }
 
+			///
+			///Indicates if the threshold message will display in the cart
+			///
 			public bool ShowInCart { get; set; }
 
+			///
+			///Indicates if the threshold message will display on the checkout page
+			///
 			public bool ShowOnCheckout { get; set; }
 
+			///
+			///The cart total amount that must be met before the threshold message is displayed
+			///
 			public decimal ThresholdValue { get; set; }
 
 		}

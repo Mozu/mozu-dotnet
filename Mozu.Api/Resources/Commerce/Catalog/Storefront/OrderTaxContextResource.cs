@@ -18,7 +18,7 @@ using System.Threading;
 namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 {
 	/// <summary>
-	/// 
+	/// Use the Storefront Tax resource to retrieve tax information from the storefront.
 	/// </summary>
 	public partial class OrderTaxContextResource  	{
 		///
@@ -42,7 +42,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="taxableOrder"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.PricingRuntime.OrderTaxContext"/>

@@ -13,12 +13,24 @@ using System;
 
 namespace Mozu.Api.Contracts.MZDB
 {
+		///
+		///	Properties for the field associated to a view.
+		///
 		public class ListViewField
 		{
+			///
+			///The user supplied name that appears in . You can use this field for identification purposes.
+			///
 			public string Name { get; set; }
 
+			///
+			///Targets represent the object, such as an item to apply discounts to(products or orders) or a view field for content. Targets are the dot notations that link to the source document property. For example, firstitem for the direct level or firstitem.seconditem.thirditem for a deeper property.
+			///
 			public string Target { get; set; }
 
+			///
+			///The datatype of the field. Valid values are "string", "integer", "decimal", "date", "bool".
+			///
 			public string Type { get; set; }
 
 		}

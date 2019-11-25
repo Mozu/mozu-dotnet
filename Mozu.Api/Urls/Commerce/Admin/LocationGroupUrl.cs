@@ -42,16 +42,16 @@ namespace Mozu.Api.Urls.Commerce.Admin
 		/// <summary>
         /// Get Resource Url for GetLocationGroup
         /// </summary>
-        /// <param name="groupId"></param>
+        /// <param name="locationGroupCode"></param>
         /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetLocationGroupUrl(int groupId, string responseFields =  null)
+        public static MozuUrl GetLocationGroupUrl(string locationGroupCode, string responseFields =  null)
 		{
-			var url = "/api/commerce/admin/locationGroups/{groupId}?responseFields={responseFields}";
+			var url = "/api/commerce/admin/locationGroups/{locationGroupCode}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "groupId", groupId);
+			mozuUrl.FormatUrl( "locationGroupCode", locationGroupCode);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
@@ -74,16 +74,16 @@ namespace Mozu.Api.Urls.Commerce.Admin
 				/// <summary>
         /// Get Resource Url for UpdateLocationGroup
         /// </summary>
-        /// <param name="groupId"></param>
+        /// <param name="locationGroupCode"></param>
         /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl UpdateLocationGroupUrl(int groupId, string responseFields =  null)
+        public static MozuUrl UpdateLocationGroupUrl(string locationGroupCode, string responseFields =  null)
 		{
-			var url = "/api/commerce/admin/locationGroups/{groupId}?responseFields={responseFields}";
+			var url = "/api/commerce/admin/locationGroups/{locationGroupCode}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "groupId", groupId);
+			mozuUrl.FormatUrl( "locationGroupCode", locationGroupCode);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
@@ -91,15 +91,15 @@ namespace Mozu.Api.Urls.Commerce.Admin
 				/// <summary>
         /// Get Resource Url for DeleteLocationGroup
         /// </summary>
-        /// <param name="groupId"></param>
+        /// <param name="locationGroupCode"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl DeleteLocationGroupUrl(int groupId)
+        public static MozuUrl DeleteLocationGroupUrl(string locationGroupCode)
 		{
-			var url = "/api/commerce/admin/locationGroups/{groupId}";
+			var url = "/api/commerce/admin/locationGroups/{locationGroupCode}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "groupId", groupId);
+			mozuUrl.FormatUrl( "locationGroupCode", locationGroupCode);
 			return mozuUrl;
 		}
 

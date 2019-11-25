@@ -20,6 +20,9 @@ namespace Mozu.Api.Contracts.PaymentService
 		{
 			public string FriendlyName { get; set; }
 
+			///
+			///The type of payment, such as credit card, check, or PayPal Express. Additional payment types will be supported in future releases.
+			///
 			public string PaymentType { get; set; }
 
 			public string Type { get; set; }

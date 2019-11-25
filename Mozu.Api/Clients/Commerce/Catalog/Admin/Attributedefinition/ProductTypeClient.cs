@@ -25,11 +25,11 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product type search results by any of its properties. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+cont+shoes"</param>
-		/// <param name="pageSize"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="sortBy"></param>
-		/// <param name="startIndex"></param>
+		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
+		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductTypeCollection"/>}
@@ -55,8 +55,8 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="productTypeId">Identifier of the product type to retrieve.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="productTypeId">Identifier of the product type.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductType"/>}
@@ -82,9 +82,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="productType">Properties of the product type to create.</param>
+		/// <param name="productType">A product type is like a product template.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductType"/>}
 		/// </returns>
@@ -109,10 +109,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="productTypeId">Identifier of the product type to update.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="productTypeId">Identifier of the product type.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="productType">The details of the product type to update.</param>
+		/// <param name="productType">A product type is like a product template.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductType"/>}
 		/// </returns>
@@ -137,7 +137,7 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="productTypeId">Identifier of the product type to delete.</param>
+		/// <param name="productTypeId">Identifier of the product type.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}

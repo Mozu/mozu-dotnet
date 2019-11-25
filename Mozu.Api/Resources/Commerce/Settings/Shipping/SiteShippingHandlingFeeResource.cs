@@ -42,7 +42,7 @@ namespace Mozu.Api.Resources.Commerce.Settings.Shipping
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee"/>
 		/// </returns>
@@ -66,8 +66,8 @@ namespace Mozu.Api.Resources.Commerce.Settings.Shipping
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="orderHandlingFee">Properties of the order handling fee to assess for order shipment.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="orderHandlingFee">Properties of the handling fee to apply to order shipments for the site.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee"/>
 		/// </returns>
@@ -91,8 +91,8 @@ namespace Mozu.Api.Resources.Commerce.Settings.Shipping
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="orderHandlingFee">The combined price for all items in the order, including all selected options but excluding any discounts.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="orderHandlingFee">Properties of the handling fee to apply to order shipments for the site.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee"/>
 		/// </returns>

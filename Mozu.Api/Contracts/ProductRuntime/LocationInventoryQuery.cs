@@ -14,10 +14,19 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.ProductRuntime
 {
+		///
+		///	Properties for the product location inventory provided for queries to locate products by their location.
+		///
 		public class LocationInventoryQuery
 		{
+			///
+			///List of location codes to associate with the location usage. At this time, you can only specify one location code in the request for the direct ship location usage type.
+			///
 			public List<string> LocationCodes { get; set; }
 
+			///
+			///A list of product codes of associated products. When this field is in the Product Publishing resource, you can use this field  to publish or delete individual pending product changes, or assign individual pending product changes to a publish set.
+			///
 			public List<string> ProductCodes { get; set; }
 
 		}

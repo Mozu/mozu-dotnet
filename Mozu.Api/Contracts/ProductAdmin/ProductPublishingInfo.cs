@@ -24,6 +24,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public string PublishedState { get; set; }
 
+			///
+			///The unique identifier of the publish set the pending product draft is assigned to. This field is not valid if the product is live.
+			///
 			public string PublishSetCode { get; set; }
 
 		}

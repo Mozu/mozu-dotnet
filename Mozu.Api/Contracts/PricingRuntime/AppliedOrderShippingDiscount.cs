@@ -13,16 +13,34 @@ using System;
 
 namespace Mozu.Api.Contracts.PricingRuntime
 {
+		///
+		///	The discount applied to the order's shipping cost.
+		///
 		public class AppliedOrderShippingDiscount
 		{
+			///
+			///The coupon code that a shopper uses to redeem an associated discount  on a purchase. This is also the unique identifier of the coupon itself.
+			///
 			public string CouponCode { get; set; }
 
+			///
+			///The unique identifier of the coupon set for the discount applied to the order's shipping cost.
+			///
 			public int? CouponSetId { get; set; }
 
+			///
+			///Name of the discount added and applied to a shopping cart and order for a shopper's purchase.
+			///
 			public Discount Discount { get; set; }
 
+			///
+			///The value of the discount applied to the cart or order, represented as a negative currency amount to apply to the original price.
+			///
 			public decimal Impact { get; set; }
 
+			///
+			///The code associated with a carrier's shipping method service type, used during fulfillment of packages and shipments. Service type codes include a prefix that indicates the carrier. For example: FEDEX_INTERNATIONAL_STANDARD and UPS_GROUND.If using a custom rate, this property corresponds to the  field in  when you navigate to  &gt;  &gt; , and then click on an existing rate or on .
+			///
 			public string ShippingMethodCode { get; set; }
 
 		}

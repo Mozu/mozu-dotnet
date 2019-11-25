@@ -18,6 +18,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 		///
 		public class PaymentCard
 		{
+			///
+			///The bin number of a branded credit card.
+			///
 			public string Bin { get; set; }
 
 			public string CardNumberPartOrMask { get; set; }

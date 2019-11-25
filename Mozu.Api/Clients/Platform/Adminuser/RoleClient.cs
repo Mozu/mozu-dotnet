@@ -26,19 +26,21 @@ namespace Mozu.Api.Clients.Platform.Adminuser
 		/// 
 		/// </summary>
 		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
 		/// <param name="responseFields"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.RoleCollection"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetRoles( filter,  responseFields);
+		///   var mozuClient=GetRoles( startIndex,  pageSize,  filter,  responseFields);
 		///   var roleCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Core.RoleCollection> GetRolesClient(string filter =  null, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Core.RoleCollection> GetRolesClient(int? startIndex =  null, int? pageSize =  null, string filter =  null, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Platform.Adminuser.RoleUrl.GetRolesUrl(filter, responseFields);
+			var url = Mozu.Api.Urls.Platform.Adminuser.RoleUrl.GetRolesUrl(startIndex, pageSize, filter, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Core.RoleCollection>()
 									.WithVerb(verb).WithResourceUrl(url)

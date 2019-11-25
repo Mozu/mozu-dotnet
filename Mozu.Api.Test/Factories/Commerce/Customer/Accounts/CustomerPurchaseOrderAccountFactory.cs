@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Customer.Accounts
 {
 	/// <summary>
-	/// 
+	/// Use the Customer Account Purchase Order resource to manage purchase order details for specific customer acocunts.
 	/// </summary>
 	public partial class CustomerPurchaseOrderAccountFactory : BaseDataFactory
 	{

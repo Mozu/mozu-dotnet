@@ -14,24 +14,54 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.AppDev
 {
+		///
+		///	This property is not exposed in documentation.
+		///
 		public class ApplicationCapabilityType
 		{
+			///
+			///Mozu.AppDev.Contracts.ApplicationCapabilityType applicationCapabilities ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<ApplicationCapability> ApplicationCapabilities { get; set; }
 
+			///
+			///Mozu.AppDev.Contracts.ApplicationCapabilityType applicationCapabilityDomains ApiTypeMember DOCUMENT_HERE 
+			///
 			public List<ApplicationCapabilityDomain> ApplicationCapabilityDomains { get; set; }
 
+			///
+			///Mozu.AppDev.Contracts.ApplicationCapabilityType applicationCapabilityTypeId ApiTypeMember DOCUMENT_HERE 
+			///
 			public int ApplicationCapabilityTypeId { get; set; }
 
+			///
+			///Mozu.AppDev.Contracts.ApplicationCapabilityType applicationId ApiTypeMember DOCUMENT_HERE 
+			///
 			public int ApplicationId { get; set; }
 
+			///
+			///Mozu.AppDev.Contracts.ApplicationCapabilityType capabilityTypeId ApiTypeMember DOCUMENT_HERE 
+			///
 			public int CapabilityTypeId { get; set; }
 
+			///
+			///Mozu.AppDev.Contracts.ApplicationCapabilityType capabilityTypeName ApiTypeMember DOCUMENT_HERE 
+			///
 			public string CapabilityTypeName { get; set; }
 
+			///
+			///Mozu.AppDev.Contracts.ApplicationCapabilityType isImplemented ApiTypeMember DOCUMENT_HERE 
+			///
 			public bool IsImplemented { get; set; }
 
+			///
+			///Mozu.AppDev.Contracts.ApplicationCapabilityType isInitializedByDefault ApiTypeMember DOCUMENT_HERE 
+			///
 			public bool IsInitializedByDefault { get; set; }
 
+			///
+			///Mozu.AppDev.Contracts.ApplicationCapabilityType packageId ApiTypeMember DOCUMENT_HERE 
+			///
 			public int PackageId { get; set; }
 
 		}

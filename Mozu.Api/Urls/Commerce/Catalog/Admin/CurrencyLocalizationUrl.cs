@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetCurrencyLocalizations
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -34,9 +34,9 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetCurrencyExchangeRate
         /// </summary>
-        /// <param name="currencyCode"></param>
-        /// <param name="responseFields"></param>
-        /// <param name="toCurrencyCode"></param>
+        /// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="toCurrencyCode">The code of the new currency that the original currency's equivalent is being calculated to.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -53,8 +53,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetCurrencyExchangeRates
         /// </summary>
-        /// <param name="currencyCode"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -70,8 +70,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetCurrencyLocalization
         /// </summary>
-        /// <param name="currencyCode"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -87,7 +87,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for AddCurrencyLocalization
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -102,7 +102,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for AddCurrencyExchangeRates
         /// </summary>
-        /// <param name="currencyCode"></param>
+        /// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -117,7 +117,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for UpdateCurrencyExchangeRates
         /// </summary>
-        /// <param name="currencyCode"></param>
+        /// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -132,8 +132,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for UpdateCurrencyLocalization
         /// </summary>
-        /// <param name="currencyCode"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -149,7 +149,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for DeleteCurrencyLocalization
         /// </summary>
-        /// <param name="currencyCode"></param>
+        /// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -164,8 +164,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for DeleteCurrencyExchangeRate
         /// </summary>
-        /// <param name="currencyCode"></param>
-        /// <param name="toCurrencyCode"></param>
+        /// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
+        /// <param name="toCurrencyCode">The code of the new currency that the original currency's equivalent is being calculated to.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

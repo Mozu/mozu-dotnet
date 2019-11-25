@@ -21,6 +21,8 @@ namespace Mozu.Api.Contracts.Location
 
 			public List<string> LocationCodes { get; set; }
 
+			public string LocationGroupCode { get; set; }
+
 			public int LocationGroupId { get; set; }
 
 			public string Name { get; set; }

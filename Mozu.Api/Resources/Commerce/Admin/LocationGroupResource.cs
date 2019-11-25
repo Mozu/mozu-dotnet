@@ -70,7 +70,7 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="groupId"></param>
+		/// <param name="locationGroupCode"></param>
 		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Location.LocationGroup"/>
@@ -78,13 +78,13 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// <example>
 		/// <code>
 		///   var locationgroup = new LocationGroup();
-		///   var locationGroup = await locationgroup.GetLocationGroupAsync( groupId,  responseFields);
+		///   var locationGroup = await locationgroup.GetLocationGroupAsync( locationGroupCode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Location.LocationGroup> GetLocationGroupAsync(int groupId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.Location.LocationGroup> GetLocationGroupAsync(string locationGroupCode, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Location.LocationGroup> response;
-			var client = Mozu.Api.Clients.Commerce.Admin.LocationGroupClient.GetLocationGroupClient( groupId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Admin.LocationGroupClient.GetLocationGroupClient( locationGroupCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -120,22 +120,22 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="groupId"></param>
+		/// <param name="locationGroupCode"></param>
 		/// <param name="responseFields"></param>
-		/// <param name="group"></param>
+		/// <param name="locationGroup"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Location.LocationGroup"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var locationgroup = new LocationGroup();
-		///   var locationGroup = await locationgroup.UpdateLocationGroupAsync( group,  groupId,  responseFields);
+		///   var locationGroup = await locationgroup.UpdateLocationGroupAsync( locationGroup,  locationGroupCode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Location.LocationGroup> UpdateLocationGroupAsync(Mozu.Api.Contracts.Location.LocationGroup group, int groupId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.Location.LocationGroup> UpdateLocationGroupAsync(Mozu.Api.Contracts.Location.LocationGroup locationGroup, string locationGroupCode, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Location.LocationGroup> response;
-			var client = Mozu.Api.Clients.Commerce.Admin.LocationGroupClient.UpdateLocationGroupClient( group,  groupId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Admin.LocationGroupClient.UpdateLocationGroupClient( locationGroup,  locationGroupCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -146,20 +146,20 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="groupId"></param>
+		/// <param name="locationGroupCode"></param>
 		/// <returns>
 		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var locationgroup = new LocationGroup();
-		///   var stream = await locationgroup.DeleteLocationGroupAsync( groupId);
+		///   var stream = await locationgroup.DeleteLocationGroupAsync( locationGroupCode);
 		/// </code>
 		/// </example>
-		public virtual async Task<System.IO.Stream> DeleteLocationGroupAsync(int groupId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteLocationGroupAsync(string locationGroupCode, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<System.IO.Stream> response;
-			var client = Mozu.Api.Clients.Commerce.Admin.LocationGroupClient.DeleteLocationGroupClient( groupId);
+			var client = Mozu.Api.Clients.Commerce.Admin.LocationGroupClient.DeleteLocationGroupClient( locationGroupCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();

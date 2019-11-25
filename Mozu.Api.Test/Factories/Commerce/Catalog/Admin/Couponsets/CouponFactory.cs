@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin.Couponsets
 {
 	/// <summary>
-	/// 
+	/// Use the Coupons subresource to manage coupons within manual coupon sets.
 	/// </summary>
 	public partial class CouponFactory : BaseDataFactory
 	{

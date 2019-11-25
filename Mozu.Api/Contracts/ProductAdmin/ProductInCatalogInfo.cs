@@ -20,6 +20,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class ProductInCatalogInfo
 		{
+			///
+			///If true, the product is marked as available for sale in the catalog. Setting a product to IsActive = false will prevent it from being shown on the customer facing storefront.
+			///
 			public ActiveDateRange ActiveDateRange { get; set; }
 
 			public AuditInfo AuditInfo { get; set; }
@@ -28,6 +31,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public ProductLocalizedContent Content { get; set; }
 
+			///
+			///Date this product was first Available for sale in the catalog. This is utilized in expressions that refrence DaysInCatloag.
+			///
 			public DateTime? DateFirstAvailableInCatalog { get; set; }
 
 			public bool? IsActive { get; set; }
@@ -40,6 +46,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public ProductPrice Price { get; set; }
 
+			///
+			///Specifies which static category to use in the navigation breadcrumb, regardless of how shoppers navigate to the product. If not set, or if the product belongs only to dynamic categories, the default is to use the category with the smallest ID.
+			///
 			public ProductCategory PrimaryProductCategory { get; set; }
 
 			public List<ProductCategory> ProductCategories { get; set; }

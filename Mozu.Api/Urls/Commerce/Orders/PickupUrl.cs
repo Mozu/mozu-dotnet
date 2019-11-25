@@ -19,8 +19,8 @@ namespace Mozu.Api.Urls.Commerce.Orders
 		/// <summary>
         /// Get Resource Url for GetAvailablePickupFulfillmentActions
         /// </summary>
-        /// <param name="orderId">Unique identifier of the order associated with the pickup.</param>
-        /// <param name="pickupId">Unique identifier of the pickup for which to retrieve available actions.</param>
+        /// <param name="orderId">Unique identifier of the order.</param>
+        /// <param name="pickupId">Unique identifier of the pickup to remove.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -36,9 +36,9 @@ namespace Mozu.Api.Urls.Commerce.Orders
 		/// <summary>
         /// Get Resource Url for GetPickup
         /// </summary>
-        /// <param name="orderId">Unique identifier of the order associated with the pickup.</param>
-        /// <param name="pickupId">Unique identifier of the pickup to retrieve.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="orderId">Unique identifier of the order.</param>
+        /// <param name="pickupId">Unique identifier of the pickup to remove.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -56,7 +56,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// Get Resource Url for CreatePickup
         /// </summary>
         /// <param name="orderId">Unique identifier of the order.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -72,9 +72,9 @@ namespace Mozu.Api.Urls.Commerce.Orders
 				/// <summary>
         /// Get Resource Url for UpdatePickup
         /// </summary>
-        /// <param name="orderId">Unique identifier of the order associated with the in-store pickup.</param>
-        /// <param name="pickupId">Unique identifier of the pickup to update.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="orderId">Unique identifier of the order.</param>
+        /// <param name="pickupId">Unique identifier of the pickup to remove.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -91,7 +91,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
 				/// <summary>
         /// Get Resource Url for DeletePickup
         /// </summary>
-        /// <param name="orderId">Unique identifier of the order associated with the pickup.</param>
+        /// <param name="orderId">Unique identifier of the order.</param>
         /// <param name="pickupId">Unique identifier of the pickup to remove.</param>
         /// <returns>
         /// String - Resource Url

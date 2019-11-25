@@ -13,8 +13,14 @@ using System;
 
 namespace Mozu.Api.Contracts.Customer
 {
+		///
+		///	This property is not used.
+		///
 		public class CustomerSetAggregateInfo
 		{
+			///
+			///The amount of customers associated with the customer set.
+			///
 			public int CustomerCount { get; set; }
 
 		}

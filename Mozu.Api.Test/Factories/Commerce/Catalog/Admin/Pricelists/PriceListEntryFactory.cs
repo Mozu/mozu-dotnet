@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin.Pricelists
 {
 	/// <summary>
-	/// 
+	/// Use the Entries sub-resource to interact with price list entries. Price list entries enable you to override product pricing as well as control what products shoppers can view and purchase when the price list is exclusive. Refer to the [Price Lists](../../../guides/catalog/price-lists.htm) guides topic for more information.
 	/// </summary>
 	public partial class PriceListEntryFactory : BaseDataFactory
 	{

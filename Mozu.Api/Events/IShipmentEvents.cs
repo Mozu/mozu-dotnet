@@ -33,6 +33,11 @@ namespace Mozu.Api.Events
 		Task ItemsCanceledAsync(IApiContext apiContext, Event eventPayLoad);
 
 		[Obsolete("This method is obsolete; use the async method instead")]
+		void ItemsRejected(IApiContext apiContext, Event eventPayLoad);
+
+		Task ItemsRejectedAsync(IApiContext apiContext, Event eventPayLoad);
+
+		[Obsolete("This method is obsolete; use the async method instead")]
 		void StatusChanged(IApiContext apiContext, Event eventPayLoad);
 
 		Task StatusChangedAsync(IApiContext apiContext, Event eventPayLoad);

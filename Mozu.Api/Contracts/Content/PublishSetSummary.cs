@@ -13,10 +13,19 @@ using System;
 
 namespace Mozu.Api.Contracts.Content
 {
+		///
+		///	Mozu.Content.Contracts.PublishSetSummary ApiType DOCUMENT_HERE 
+		///
 		public class PublishSetSummary
 		{
+			///
+			///The total number of associated items.
+			///
 			public int Count { get; set; }
 
+			///
+			///The unique identifier of the content publish set.
+			///
 			public string PublishSetCode { get; set; }
 
 		}

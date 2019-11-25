@@ -163,6 +163,8 @@ namespace Mozu.Api.Events
 
 		public const string SHIPMENTITEMSCANCELED = "shipment.itemscanceled";
 
+		public const string SHIPMENTITEMSREJECTED = "shipment.itemsrejected";
+
 		public const string SHIPMENTSTATUSCHANGED = "shipment.statuschanged";
 
 		public const string SHIPMENTWORKFLOWSTATECHANGED = "shipment.workflowstatechanged";

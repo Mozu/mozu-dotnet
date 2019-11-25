@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Platform.Appdev
 		/// <summary>
         /// Get Resource Url for GetFile
         /// </summary>
-        /// <param name="applicationKey"></param>
+        /// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}. </param>
         /// <param name="fileName"></param>
         /// <returns>
         /// String - Resource Url

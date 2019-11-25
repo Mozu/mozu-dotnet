@@ -14,26 +14,50 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.AppDev
 {
+		///
+		///	This property is not exposed in documentation.
+		///
 		public class ApplicationEntitlement
 		{
+			///
+			///Mozu.AppDev.Contracts.ApplicationEntitlement appKey ApiTypeMember DOCUMENT_HERE 
+			///
 			public string AppKey { get; set; }
 
 			public int ApplicationEntitlementId { get; set; }
 
+			///
+			///Mozu.AppDev.Contracts.ApplicationEntitlement applicationId ApiTypeMember DOCUMENT_HERE 
+			///
 			public int ApplicationId { get; set; }
 
 			public string ApplicationLicenseType { get; set; }
 
+			///
+			///Mozu.AppDev.Contracts.ApplicationEntitlement applicationName ApiTypeMember DOCUMENT_HERE 
+			///
 			public string ApplicationName { get; set; }
 
+			///
+			///Mozu.AppDev.Contracts.ApplicationEntitlement applicationStatusId ApiTypeMember DOCUMENT_HERE 
+			///
 			public string ApplicationStatusId { get; set; }
 
 			public List<ApplicationTransaction> ApplicationTransactions { get; set; }
 
+			///
+			///Mozu.AppDev.Contracts.ApplicationEntitlement applicationVersion ApiTypeMember DOCUMENT_HERE 
+			///
 			public string ApplicationVersion { get; set; }
 
+			///
+			///Denotes the application owner dev account id
+			///
 			public int AppOwnerDevAccountId { get; set; }
 
+			///
+			///Mozu.AppDev.Contracts.ApplicationEntitlement devAccountId ApiTypeMember DOCUMENT_HERE 
+			///
 			public int DevAccountId { get; set; }
 
 			public DateTime? EffectiveEndDate { get; set; }
@@ -42,22 +66,43 @@ namespace Mozu.Api.Contracts.AppDev
 
 			public string EntitlementStatus { get; set; }
 
+			///
+			///Mozu.AppDev.Contracts.ApplicationEntitlement installedAppsApplicationId ApiTypeMember DOCUMENT_HERE 
+			///
 			public string InstalledAppsApplicationId { get; set; }
 
+			///
+			///Mozu.AppDev.Contracts.ApplicationEntitlement installedByFirstName ApiTypeMember DOCUMENT_HERE 
+			///
 			public string InstalledByFirstName { get; set; }
 
+			///
+			///Mozu.AppDev.Contracts.ApplicationEntitlement installedByLastName ApiTypeMember DOCUMENT_HERE 
+			///
 			public string InstalledByLastName { get; set; }
 
+			///
+			///Mozu.AppDev.Contracts.ApplicationEntitlement installedDate ApiTypeMember DOCUMENT_HERE 
+			///
 			public DateTime InstalledDate { get; set; }
 
+			///
+			///Mozu.AppDev.Contracts.ApplicationEntitlement packageId ApiTypeMember DOCUMENT_HERE 
+			///
 			public int PackageId { get; set; }
 
+			///
+			///Mozu.AppDev.Contracts.ApplicationEntitlement packageName ApiTypeMember DOCUMENT_HERE 
+			///
 			public string PackageName { get; set; }
 
 			public int? SiteId { get; set; }
 
 			public int TenantId { get; set; }
 
+			///
+			///Mozu.AppDev.Contracts.ApplicationEntitlement tenantName ApiTypeMember DOCUMENT_HERE 
+			///
 			public string TenantName { get; set; }
 
 		}

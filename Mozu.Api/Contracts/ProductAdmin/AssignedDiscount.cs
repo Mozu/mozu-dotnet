@@ -14,14 +14,29 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
+		///
+		///	Mozu.ProductAdmin.Contracts.AssignedDiscount ApiType DOCUMENT_HERE 
+		///
 		public class AssignedDiscount
 		{
+			///
+			///Basic audit info about the object, including date, time, and user account. This data may be captured when creating, updating, and removing data.
+			///
 			public AuditInfo AuditInfo { get; set; }
 
+			///
+			///The unique identifier of the coupon set.
+			///
 			public string CouponSetCode { get; set; }
 
+			///
+			///The unique, system generated id. You can use this value to further identify the coupon set.This value is ready only.
+			///
 			public int CouponSetId { get; set; }
 
+			///
+			///The unique identifier of the discount.
+			///
 			public int DiscountId { get; set; }
 
 		}

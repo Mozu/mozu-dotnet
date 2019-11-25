@@ -20,14 +20,26 @@ namespace Mozu.Api.Contracts.ShippingAdmin
 		///
 		public class CarrierConfiguration
 		{
+			///
+			///Specifies whether credentials for the carrier are set.
+			///
 			public bool AreCredentialsSet { get; set; }
 
 			public AuditInfo AuditInfo { get; set; }
 
+			///
+			///A list of any custom table rates for the carrier.
+			///
 			public List<CustomTableRate> CustomTableRates { get; set; }
 
+			///
+			///Indicates if a capability, function tied to an Arc.js action, application, or price list is enabled for the tenant/site. If true, the capability/application/function/price list is enabled for the tenant. System-supplied and read-only with the exception of functions tied to an Arc.js action and price lists.
+			///
 			public bool Enabled { get; set; }
 
+			///
+			///Specifies whether the carrier is enabled for creating RMA labels.
+			///
 			public bool EnabledForReturns { get; set; }
 
 			public string Id { get; set; }

@@ -17,7 +17,7 @@ using Mozu.Api.Contracts.Tenant;
 namespace Mozu.Api.Contracts.AdminUser
 {
 		///
-		///	Properties of the authentication ticket to be used in user claims with the Mozu API.
+		///	Properties of the authentication ticket to be used in user claims with the  API.
 		///
 		public class TenantAdminUserAuthTicket
 		{

@@ -13,14 +13,29 @@ using System;
 
 namespace Mozu.Api.Contracts.ProductRuntime
 {
+		///
+		///	Mozu.ProductRuntime.Contracts.PriceListNode ApiType DOCUMENT_HERE 
+		///
 		public class PriceListNode
 		{
+			///
+			///Specifies the id of the price list's parent within the ancestor/descendant hierarchy, if applicable.
+			///
 			public int? ParentPriceListId { get; set; }
 
+			///
+			///Specifies the code of the price list within the ancestor/descendant hierarchy, if applicable.
+			///
 			public string PriceListCode { get; set; }
 
+			///
+			///Specifies the internal id of the price list within the ancestor/descendant hierarchy, if applicable.
+			///
 			public int PriceListId { get; set; }
 
+			///
+			///Denotes the place of the ancestor/descendant within the hierarchy. A value of 1 is the closest ancestor/descendant to the current price list. For example an ancestor that has a value of 1 is the direct parent of the current price list.
+			///
 			public int PriceListLevel { get; set; }
 
 		}

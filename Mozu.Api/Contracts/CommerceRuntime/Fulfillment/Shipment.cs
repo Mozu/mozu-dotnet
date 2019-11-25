@@ -98,6 +98,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 
 			public string ShipmentStatus { get; set; }
 
+			public ShipmentStatusReason ShipmentStatusReason { get; set; }
+
 			public string ShipmentType { get; set; }
 
 			public decimal ShippingAdjustment { get; set; }

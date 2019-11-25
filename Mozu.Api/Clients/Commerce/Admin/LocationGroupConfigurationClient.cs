@@ -25,20 +25,20 @@ namespace Mozu.Api.Clients.Commerce.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="locationGroupId"></param>
+		/// <param name="locationGroupCode"></param>
 		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Location.LocationGroupConfiguration"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetLocationGroupConfiguration( locationGroupId,  responseFields);
+		///   var mozuClient=GetLocationGroupConfiguration( locationGroupCode,  responseFields);
 		///   var locationGroupConfigurationClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Location.LocationGroupConfiguration> GetLocationGroupConfigurationClient(int locationGroupId, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Location.LocationGroupConfiguration> GetLocationGroupConfigurationClient(string locationGroupCode, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Admin.LocationGroupConfigurationUrl.GetLocationGroupConfigurationUrl(locationGroupId, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Admin.LocationGroupConfigurationUrl.GetLocationGroupConfigurationUrl(locationGroupCode, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Location.LocationGroupConfiguration>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -75,7 +75,7 @@ namespace Mozu.Api.Clients.Commerce.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="locationGroupId"></param>
+		/// <param name="locationGroupCode"></param>
 		/// <param name="responseFields"></param>
 		/// <param name="configuration"></param>
 		/// <returns>
@@ -83,13 +83,13 @@ namespace Mozu.Api.Clients.Commerce.Admin
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=SetLocationGroupConfiguration( configuration,  locationGroupId,  responseFields);
+		///   var mozuClient=SetLocationGroupConfiguration( configuration,  locationGroupCode,  responseFields);
 		///   var locationGroupConfigurationClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Location.LocationGroupConfiguration> SetLocationGroupConfigurationClient(Mozu.Api.Contracts.Location.LocationGroupConfiguration configuration, int locationGroupId, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Location.LocationGroupConfiguration> SetLocationGroupConfigurationClient(Mozu.Api.Contracts.Location.LocationGroupConfiguration configuration, string locationGroupCode, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Admin.LocationGroupConfigurationUrl.SetLocationGroupConfigurationUrl(locationGroupId, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Admin.LocationGroupConfigurationUrl.SetLocationGroupConfigurationUrl(locationGroupCode, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Location.LocationGroupConfiguration>()
 									.WithVerb(verb).WithResourceUrl(url)

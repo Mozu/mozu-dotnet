@@ -14,12 +14,24 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.InstalledApplications
 {
+		///
+		///	Mozu.InstalledApplications.Contracts.TenantExtensions ApiType DOCUMENT_HERE 
+		///
 		public class TenantExtensions
 		{
+			///
+			///The list of actions configured for the site.
+			///
 			public List<CustomFunctionsForAction> Actions { get; set; }
 
+			///
+			///An array of settings that apply to all actions within the application.
+			///
 			public List<ExtensionConfiguration> Configurations { get; set; }
 
+			///
+			///The priority level to assign to application logs. Possible values mirror Apache's log4net: "all", "debug", "info", "warn", "error", "fatal", and "off".
+			///
 			public string DefaultLogLevel { get; set; }
 
 		}

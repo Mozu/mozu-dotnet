@@ -21,6 +21,9 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 		///
 		public class RateRequest
 		{
+			///
+			///Collection of attributes that may be paged list or a list, depending on the usage per object and API type.
+			///
 			public List<RateRequestAttribute> Attributes { get; set; }
 
 			///
@@ -29,21 +32,30 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			public List<string> CarrierIds { get; set; }
 
 			///
-			///List of key-value pairs that represent custom attributes associated with the request.
+			///Collection of carrier-specific key-value attribute pairs associated with a shipping carrier. These are required to retrieve a shipping rate request and are returned for the generated shipping label.
 			///
 			public List<CustomAttribute> CustomAttributes { get; set; }
 
+			///
+			///Data included in the shipping rate information.
+			///
 			public JObject Data { get; set; }
 
 			public Address DestinationAddress { get; set; }
 
 			///
-			///The date and time the shipment will be shipped to the shopper.
+			///The estimated date and time the shipment will be shipped to the shopper. This calculation is based on product stock, availability, date of order entry, and location.
 			///
 			public DateTime? EstimatedShipmentDate { get; set; }
 
+			///
+			///The total fee for shipment handling.
+			///
 			public decimal? HandlingTotal { get; set; }
 
+			///
+			///Unique identifier of the source property, such as a catalog, discount, order, or email template.For a product field it will be the name of the field.For a category ID, must be a positive integer not greater than 2000000. By default,  auto-generates a category ID when categories are created. If you want to specify an ID during creation (which preserves category link relationships when migrating tenant data from one sandbox to another), you must also include the  query string in the endpoint. For example, . Then, use the  property to specify the desired category ID.For a product attribute it will be the Attribute FQN.For a document, the ID must be specified as a 32 character, case-insensitive, alphanumeric string. You can specify the ID as 32 sequential characters or as groups separated by dashes in the format 8-4-4-4-12. For example, or.For email templates, the ID must be one of the following values:///
+			///
 			public string Id { get; set; }
 
 			public bool? IsDestinationAddressCommercial { get; set; }
@@ -52,17 +64,26 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 
 			public List<RateRequestItem> Items { get; set; }
 
+			///
+			///The sub total of the order including all applicable discounts.
+			///
 			public decimal? OrderDiscountedSubTotal { get; set; }
 
 			public decimal? OrderTotal { get; set; }
 
 			///
-			///The physical address from which the shipment will ship.
+			///The physical address from which the order or shipment will ship.
 			///
 			public Address OriginAddress { get; set; }
 
+			///
+			///The unique identifier of the order to which the shipping rate is related.You can use Arc.js in combination with this property to retrieve other properties of the related order.
+			///
 			public string RelatedOrderId { get; set; }
 
+			///
+			///The order number that the customer sees on the storefront when they place the order.
+			///
 			public int? RelatedOrderNumber { get; set; }
 
 			///

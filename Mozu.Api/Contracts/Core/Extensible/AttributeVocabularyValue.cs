@@ -21,7 +21,7 @@ namespace Mozu.Api.Contracts.Core.Extensible
 			public AttributeValueLocalizedContent Content { get; set; }
 
 			///
-			///If true, the attribute vocabulary value does not appear in the list when defining a value for the attribute.
+			///Indicates if the object is hidden or breaks inheritance, primarily used by facets, products, and attribute vocabulary values. For example, if true, the attribute vocabulary value does not appear in the list when defining a value for an attribute.
 			///
 			public bool? IsHidden { get; set; }
 

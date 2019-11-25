@@ -14,6 +14,9 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.ProductAdmin.Search
 {
+		///
+		///	A collection of synonym definitions.
+		///
 		public class SynonymDefinitionCollection
 		{
 			///
@@ -21,8 +24,14 @@ namespace Mozu.Api.Contracts.ProductAdmin.Search
 			///
 			public string LocaleCode { get; set; }
 
+			///
+			///Unique identifier for the site. This IDÂ is used at all levels of a store, catalog, and tenant to associate objects to a site.
+			///
 			public int SiteId { get; set; }
 
+			///
+			///List of mappings for this definition.
+			///
 			public List<SynonymDefinition> SynonymDefinitions { get; set; }
 
 			///

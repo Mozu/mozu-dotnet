@@ -18,16 +18,16 @@ using System.Threading;
 namespace Mozu.Api.Clients.Commerce.Quotes
 {
 	/// <summary>
-	/// 
+	/// Quote Items are the individual products that are added to a particular quote, which serves as the wishlists of the B2B feature.Like the quotes themselves, the quote items APIs are a work-in-progress that will be enhanced with future releases. Use caution when interacting with these APIs, as their current models may change and break backwards compatibility as functionality is added.
 	/// </summary>
 	public partial class OrderItemClient 	{
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="quoteId"></param>
-		/// <param name="quoteItemId"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="quoteId">A unique identifier for the quote that the item is included within.</param>
+		/// <param name="quoteItemId">A unique identifier for the item included within a quote.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderItem"/>}
 		/// </returns>
@@ -51,12 +51,12 @@ namespace Mozu.Api.Clients.Commerce.Quotes
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="filter"></param>
-		/// <param name="pageSize"></param>
-		/// <param name="quoteId"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="sortBy"></param>
-		/// <param name="startIndex"></param>
+		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
+		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
+		/// <param name="quoteId">A unique identifier for the quote that the items are included within.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Quotes.QuoteItemCollection"/>}
 		/// </returns>
@@ -80,13 +80,13 @@ namespace Mozu.Api.Clients.Commerce.Quotes
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="customerAccountId"></param>
-		/// <param name="filter"></param>
-		/// <param name="pageSize"></param>
-		/// <param name="quoteName"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="sortBy"></param>
-		/// <param name="startIndex"></param>
+		/// <param name="customerAccountId">The unique identifier of the customer account for which to retrieve wish lists.</param>
+		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
+		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
+		/// <param name="quoteName">The unique name of the quote that items are being retrieved for.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
+		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Quotes.QuoteItemCollection"/>}
 		/// </returns>
@@ -110,9 +110,9 @@ namespace Mozu.Api.Clients.Commerce.Quotes
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="quoteId"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="quoteItem"></param>
+		/// <param name="quoteId">The unique identifier for the quote that an item is being added to.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="quoteItem">A unique identifier for the item being added to a quote.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Quotes.Quote"/>}
 		/// </returns>
@@ -136,10 +136,10 @@ namespace Mozu.Api.Clients.Commerce.Quotes
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="quoteId"></param>
-		/// <param name="quoteItemId"></param>
-		/// <param name="responseFields"></param>
-		/// <param name="quoteItem"></param>
+		/// <param name="quoteId">The unique identifier for the quote that the item being updated is listed within.</param>
+		/// <param name="quoteItemId">The unique identifier for the quote item being updated.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="quoteItem">The item within a quote that is being updated.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Quotes.Quote"/>}
 		/// </returns>
@@ -163,8 +163,8 @@ namespace Mozu.Api.Clients.Commerce.Quotes
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="quoteId"></param>
-		/// <param name="quoteItemId"></param>
+		/// <param name="quoteId">A unique identifier for the quote tha the item being deleted belongs to.</param>
+		/// <param name="quoteItemId">A unique identifier for an item included in the quote.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>

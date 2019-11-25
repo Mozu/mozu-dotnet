@@ -19,16 +19,16 @@ namespace Mozu.Api.Urls.Commerce.Admin
 		/// <summary>
         /// Get Resource Url for GetLocationGroupConfiguration
         /// </summary>
-        /// <param name="locationGroupId"></param>
+        /// <param name="locationGroupCode"></param>
         /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetLocationGroupConfigurationUrl(int locationGroupId, string responseFields =  null)
+        public static MozuUrl GetLocationGroupConfigurationUrl(string locationGroupCode, string responseFields =  null)
 		{
-			var url = "/api/commerce/admin/locationGroupConfiguration/{locationGroupId}?responseFields={responseFields}";
+			var url = "/api/commerce/admin/locationGroupConfiguration/{locationGroupCode}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "locationGroupId", locationGroupId);
+			mozuUrl.FormatUrl( "locationGroupCode", locationGroupCode);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}
@@ -53,16 +53,16 @@ namespace Mozu.Api.Urls.Commerce.Admin
 						/// <summary>
         /// Get Resource Url for SetLocationGroupConfiguration
         /// </summary>
-        /// <param name="locationGroupId"></param>
+        /// <param name="locationGroupCode"></param>
         /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl SetLocationGroupConfigurationUrl(int locationGroupId, string responseFields =  null)
+        public static MozuUrl SetLocationGroupConfigurationUrl(string locationGroupCode, string responseFields =  null)
 		{
-			var url = "/api/commerce/admin/locationGroupConfiguration/{locationGroupId}?responseFields={responseFields}";
+			var url = "/api/commerce/admin/locationGroupConfiguration/{locationGroupCode}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "locationGroupId", locationGroupId);
+			mozuUrl.FormatUrl( "locationGroupCode", locationGroupCode);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;
 		}

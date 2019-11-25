@@ -15,7 +15,7 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
-		///	Paged collection of product inventory information by location.
+		///	Array list of inventory definitions that manage the stock level of products at a given location.
 		///
 		public class LocationInventoryCollection
 		{

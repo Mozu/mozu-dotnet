@@ -13,38 +13,101 @@ using System;
 
 namespace Mozu.Api.Contracts.SiteSettings.General
 {
+		///
+		///	Mozu.SiteSettings.General.Contracts.EmailTransactionSettings ApiType DOCUMENT_HERE 
+		///
 		public class EmailTransactionSettings
 		{
+			///
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
+			///
 			public bool? BackInStock { get; set; }
 
+			public bool? Backorder { get; set; }
+
+			///
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
+			///
 			public bool? GiftCardCreated { get; set; }
 
+			public bool? OrderCancellation { get; set; }
+
+			///
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
+			///
 			public bool? OrderChanged { get; set; }
 
+			///
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
+			///
 			public bool? OrderFulfillmentDetailsChanged { get; set; }
 
+			public bool? OrderPickupReady { get; set; }
+
+			public bool? OrderPickupReminder { get; set; }
+
+			///
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
+			///
 			public bool? OrderShipped { get; set; }
 
+			///
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
+			///
 			public bool? RefundCreated { get; set; }
 
+			///
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
+			///
 			public bool? ReturnAuthorized { get; set; }
 
+			///
+			///There is no corresponding template for this in the Core theme.
+			///
 			public bool? ReturnCancelled { get; set; }
 
+			///
+			///This controls "email/product-return-received" in the Core theme.
+			///
 			public bool? ReturnClosed { get; set; }
 
+			///
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
+			///
 			public bool? ReturnCreated { get; set; }
 
+			///
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
+			///
 			public bool? ReturnRejected { get; set; }
 
+			///
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
+			///
 			public bool? ReturnUpdated { get; set; }
 
+			public bool? ShipmentBackorderDateChanged { get; set; }
+
+			public bool? ShipmentConfirmation { get; set; }
+
+			///
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
+			///
 			public bool? ShopperLoginCreated { get; set; }
 
+			///
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
+			///
 			public bool? ShopperPasswordReset { get; set; }
 
+			///
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
+			///
 			public bool? StoreCreditCreated { get; set; }
 
+			///
+			///A flag that determines if an email is sent to a shopper account when the described condition is met.
+			///
 			public bool? StoreCreditUpdated { get; set; }
 
 		}

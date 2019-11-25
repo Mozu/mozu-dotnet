@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Shipping.Admin.Profiles
 {
 	/// <summary>
-	/// 
+	/// Use the ProductHandlingFeeRules sub-resource to manage your product handling fee rules that are associated with a specific shipping profile.
 	/// </summary>
 	public partial class ProductHandlingFeeRulesFactory : BaseDataFactory
 	{

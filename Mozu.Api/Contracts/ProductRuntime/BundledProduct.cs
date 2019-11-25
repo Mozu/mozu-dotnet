@@ -19,27 +19,27 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		public class BundledProduct
 		{
 			///
-			///Localizable product content defined for the product bundle. System-supplied and read only.
+			///Localizable content (such as a name and/or description) for an attribute. The content may be localized when displayed according to the locale code specified by the master catalog. Content can include descriptive text for product extensible attributes, catalog-level descriptions (displayed if isContentOverriden is true), product bundles, and customer account notes.
 			///
 			public ProductContent Content { get; set; }
 
 			///
-			///When the goodsType is DigitalCredit this value is populated to indicate the value of the credit. This is used to create store credit in the fulfillment of gift cards.
+			///The credit value of the product or bundled product. When the `goodsType `is `DigitalCredit`, this value is populated to indicate the value of the credit. This is used to create store credit in the fulfillment of gift cards.
 			///
 			public decimal? CreditValue { get; set; }
 
 			///
-			///This is the goods type of the product. Possible values are â€œPhysical,â€ and â€œDigitalCreditâ€. This comes from the productType of the product. Products are defaulted to a Physical goodsType. Gift cards have a goodsType of DigitalCredit.
+			///The type of goods in a bundled product. A bundled product is composed of products associated to sell together. Possible values include â€œPhysicalâ€ and â€œDigitalCreditâ€. This comes from the `productType `of the product. Products are defaulted to a Physical `goodsType`. Gift cards have a `goodsType `of DigitalCredit.
 			///
 			public string GoodsType { get; set; }
 
 			///
-			///This contains the inventory information about bundled products. If it manages stock, it specifies what the out of stock behavior is.
+			///Properties and data of inventory information for configured and bundled products. If product stock is managed, the data specifies out of stock behavior.
 			///
 			public ProductInventoryInfo InventoryInfo { get; set; }
 
 			///
-			///If true, the component product of the bundle should not ship in a package with the rest of the product bundle, and should ship in a package by itself. System-supplied and read only.
+			///Indicates if the product must be shipped alone in a container. This is used for products and products within a bundle. If true, this product cannot be shipped in a package with other items and must ship in a package by itself.
 			///
 			public bool? IsPackagedStandAlone { get; set; }
 
@@ -51,7 +51,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public string OptionAttributeFqn { get; set; }
 
 			///
-			///Properties of a value associated with a product option attribute.
+			///The value of the option attribute. These values are associated and used by product bundles and options.
 			///
 			public object OptionValue { get; set; }
 
@@ -60,10 +60,13 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public string ProductCode { get; set; }
 
+			///
+			///A product type is like a product template.
+			///
 			public string ProductType { get; set; }
 
 			///
-			///The quantity of the component product in the product bundle. System-supplied and read only.
+			///The specified quantity of objects and items. This property is used for numerous object types including products, options, components within a product bundle, cart and order items, returned items, shipping line items, items in a digital product. and items associated with types and reservations.
 			///
 			public int Quantity { get; set; }
 

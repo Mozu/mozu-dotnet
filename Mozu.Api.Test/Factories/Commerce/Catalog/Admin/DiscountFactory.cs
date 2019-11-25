@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin
 {
 	/// <summary>
-	/// Define and manage discounts to apply to products, product categories, or orders. The discounts can be a specified amount off the price, percentage off the price, or for free shipping. Create a coupon code that shoppers can use to redeem the discount.
+	/// Use the Discounts resource to define and manage discounts to apply to products, product categories, or orders. The discounts can be a specified amount off the price, percentage off the price, or for free shipping. You can create a coupon code that shoppers can use to redeem the discount.
 	/// </summary>
 	public partial class DiscountFactory : BaseDataFactory
 	{

@@ -13,16 +13,34 @@ using System;
 
 namespace Mozu.Api.Contracts.ProductRuntime
 {
+		///
+		///	The product price in the applicable volume band.
+		///
 		public class ProductVolumePrice
 		{
+			///
+			///Specifies whether the volume pricing is current for the product.
+			///
 			public bool IsCurrent { get; set; }
 
+			///
+			///The maximum product quantity of the volume price band. A shopper must purchase a quantity equal to or less than down to the  in order to receive the pricing in the volume band.
+			///
 			public int? MaxQty { get; set; }
 
+			///
+			///The minimum product quantity of the volume price band. A shopper must purchase a quantity equal to or greater than up to the  in order to receive the pricing in the volume band.
+			///
 			public int MinQty { get; set; }
 
+			///
+			///The product price in the applicable volume band.
+			///
 			public ProductPrice Price { get; set; }
 
+			///
+			///For products with options that vary the cost of the product, the range between lowest and highest possible price of the product based on the current selection of options.
+			///
 			public ProductPriceRange PriceRange { get; set; }
 
 		}

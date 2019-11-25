@@ -29,7 +29,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 			public string GatewayResponseCode { get; set; }
 
 			///
-			///Textual message returned by the payment gateway.
+			///Textual message returned by the payment gateway for the associated .Refer to [Gateway Response Code and Text](https://www.mozu.com/docs/developer/api-guides/payment-gateways.htm#gateway_response_code_and_text) in the API Guides for more information.
 			///
 			public string GatewayResponseText { get; set; }
 

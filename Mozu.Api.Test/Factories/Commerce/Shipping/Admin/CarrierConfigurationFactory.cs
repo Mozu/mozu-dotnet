@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Shipping.Admin
 {
 	/// <summary>
-	/// 
+	/// Use the Carriers resource to configure and manage your supported shipping carrier configurations.
 	/// </summary>
 	public partial class CarrierConfigurationFactory : BaseDataFactory
 	{

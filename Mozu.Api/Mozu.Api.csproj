@@ -66,8 +66,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiException.cs" />
+    <Compile Include="Clients\Commerce\Catalog\Admin\ProductReservationClient.cs" />
     <Compile Include="Contracts\PaymentService\Extensibility\V1\ConnectionStatuses.cs" />
     <Compile Include="Contracts\PaymentService\Extensibility\V1\TransactionType.cs" />
+    <Compile Include="Contracts\ProductAdmin\ProductReservation.cs" />
+    <Compile Include="Contracts\ProductAdmin\ProductReservationCollection.cs" />
+    <Compile Include="Contracts\ProductAdmin\SoftAllocation.cs" />
+    <Compile Include="Contracts\ProductAdmin\SoftAllocationCollection.cs" />
+    <Compile Include="Contracts\ProductAdmin\SoftAllocationRenew.cs" />
     <Compile Include="DataViewMode.cs" />
     <Compile Include="Events\EventService.cs" />
     <Compile Include="Events\EventServiceFactory.cs" />
@@ -85,6 +91,7 @@
     <Compile Include="Security\CustomerAuthenticator.cs" />
     <Compile Include="Security\Scope.cs" />
     <Compile Include="Security\UserAuthenticator.cs" />
+    <Compile Include="Urls\Commerce\Catalog\Admin\ProductReservationUrl.cs" />
     <Compile Include="Utilities\HttpHelper.cs" />
     <Compile Include="Utilities\ResponseHelper.cs" />
     <Compile Include="Version.cs" />
@@ -135,7 +142,6 @@
     <Compile Include="Clients\Commerce\Catalog\Admin\PriceListClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\Pricelists\PriceListEntryClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\ProductClient.cs" />
-    <Compile Include="Clients\Commerce\Catalog\Admin\ProductReservationClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\Products\LocationInventoryClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\Products\ProductExtraClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\Products\ProductOptionClient.cs" />
@@ -144,7 +150,6 @@
     <Compile Include="Clients\Commerce\Catalog\Admin\ProductSortDefinitionClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\PublishingScopeClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\SearchClient.cs" />
-    <Compile Include="Clients\Commerce\Catalog\Admin\SoftAllocationClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Storefront\AutoAddDiscountTargetClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Storefront\CategoryClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Storefront\CurrencyExchangeRateClient.cs" />
@@ -352,6 +357,7 @@
     <Compile Include="Contracts\CommerceRuntime\Fulfillment\ShipmentAdjustment.cs" />
     <Compile Include="Contracts\CommerceRuntime\Fulfillment\ShipmentItem.cs" />
     <Compile Include="Contracts\CommerceRuntime\Fulfillment\ShipmentItemAdjustment.cs" />
+    <Compile Include="Contracts\CommerceRuntime\Fulfillment\ShipmentStatusReason.cs" />
     <Compile Include="Contracts\CommerceRuntime\Fulfillment\ShippingRate.cs" />
     <Compile Include="Contracts\CommerceRuntime\Fulfillment\SplitShipmentsObject.cs" />
     <Compile Include="Contracts\CommerceRuntime\Fulfillment\TaskInput.cs" />
@@ -540,6 +546,7 @@
     <Compile Include="Contracts\InstalledApplications\CustomFunctionsForContext.cs" />
     <Compile Include="Contracts\InstalledApplications\ExtensionConfiguration.cs" />
     <Compile Include="Contracts\InstalledApplications\TenantExtensions.cs" />
+    <Compile Include="Contracts\Kibo\Cars\Model\GenerateLabelResponse.cs" />
     <Compile Include="Contracts\Location\BoxType.cs" />
     <Compile Include="Contracts\Location\BpmConfiguration.cs" />
     <Compile Include="Contracts\Location\Carrier.cs" />
@@ -705,8 +712,6 @@
     <Compile Include="Contracts\ProductAdmin\ProductPropertyValue.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductPropertyValueLocalizedContent.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductPublishingInfo.cs" />
-    <Compile Include="Contracts\ProductAdmin\ProductReservation.cs" />
-    <Compile Include="Contracts\ProductAdmin\ProductReservationCollection.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductSortDefinition.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductSortDefinitionPagedCollection.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductSortExpression.cs" />
@@ -736,9 +741,6 @@
     <Compile Include="Contracts\ProductAdmin\SiteSearchPhraseRelevancySettings.cs" />
     <Compile Include="Contracts\ProductAdmin\SiteSearchRelevancyCustomField.cs" />
     <Compile Include="Contracts\ProductAdmin\SiteSearchSettings.cs" />
-    <Compile Include="Contracts\ProductAdmin\SoftAllocation.cs" />
-    <Compile Include="Contracts\ProductAdmin\SoftAllocationCollection.cs" />
-    <Compile Include="Contracts\ProductAdmin\SoftAllocationRenew.cs" />
     <Compile Include="Contracts\ProductAdmin\StackingConfiguration.cs" />
     <Compile Include="Contracts\ProductAdmin\TargetedCategory.cs" />
     <Compile Include="Contracts\ProductAdmin\TargetedProduct.cs" />
@@ -873,6 +875,9 @@
     <Compile Include="Contracts\SiteSettings\Order\ForceCaptureJob.cs" />
     <Compile Include="Contracts\SiteSettings\Order\Fulfillment\BPMConfiguration.cs" />
     <Compile Include="Contracts\SiteSettings\Order\Fulfillment\FulfillmentSettings.cs" />
+    <Compile Include="Contracts\SiteSettings\Order\Fulfillment\JobSettings.cs" />
+    <Compile Include="Contracts\SiteSettings\Order\Fulfillment\PickupReminderJob.cs" />
+    <Compile Include="Contracts\SiteSettings\Order\Fulfillment\ReleaseBackorderJob.cs" />
     <Compile Include="Contracts\SiteSettings\Order\Gateway.cs" />
     <Compile Include="Contracts\SiteSettings\Order\JobSettings.cs" />
     <Compile Include="Contracts\SiteSettings\Order\LocalizedContent.cs" />
@@ -951,7 +956,6 @@
     <Compile Include="Resources\Commerce\Catalog\Admin\MasterCatalogResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\PriceListResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\Pricelists\PriceListEntryResource.cs" />
-    <Compile Include="Resources\Commerce\Catalog\Admin\ProductReservationResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\ProductResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\Products\LocationInventoryResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\Products\ProductExtraResource.cs" />
@@ -961,7 +965,6 @@
     <Compile Include="Resources\Commerce\Catalog\Admin\ProductSortDefinitionResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\PublishingScopeResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\SearchResource.cs" />
-    <Compile Include="Resources\Commerce\Catalog\Admin\SoftAllocationResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Storefront\AutoAddDiscountTargetResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Storefront\CategoryResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Storefront\CurrencyExchangeRateResource.cs" />
@@ -1118,7 +1121,6 @@
     <Compile Include="Urls\Commerce\Catalog\Admin\MasterCatalogUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\Pricelists\PriceListEntryUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\PriceListUrl.cs" />
-    <Compile Include="Urls\Commerce\Catalog\Admin\ProductReservationUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\Products\LocationInventoryUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\Products\ProductExtraUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\Products\ProductOptionUrl.cs" />
@@ -1128,7 +1130,6 @@
     <Compile Include="Urls\Commerce\Catalog\Admin\ProductUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\PublishingScopeUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\SearchUrl.cs" />
-    <Compile Include="Urls\Commerce\Catalog\Admin\SoftAllocationUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Storefront\AutoAddDiscountTargetUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Storefront\CategoryUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Storefront\CurrencyExchangeRateUrl.cs" />

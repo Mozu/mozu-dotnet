@@ -16,7 +16,7 @@ using Mozu.Api.Contracts.Core;
 namespace Mozu.Api.Contracts.Event
 {
 		///
-		///	Properties of an event the system creates each time a create, read, update, or delete operation is performed.
+		///	Mozu.AppDev.Contracts.Event ApiType DOCUMENT_HERE
 		///
 		public class Event
 		{
@@ -33,6 +33,9 @@ namespace Mozu.Api.Contracts.Event
 
 			public string EventId { get; set; }
 
+			///
+			///Extended properties. Note: This is purposefully not a CollectionBase type wrapper so consumers start to get used to not having counts returned.
+			///
 			public List<EventExtendedProperty> ExtendedProperties { get; set; }
 
 			public string Id { get; set; }

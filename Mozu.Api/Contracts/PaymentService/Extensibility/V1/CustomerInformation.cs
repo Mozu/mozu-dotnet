@@ -14,24 +14,54 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 {
+		///
+		///	Contains information about the customer
+		///
 		public class CustomerInformation
 		{
+			///
+			///Address information to supply for a contact.
+			///
 			public Address Address { get; set; }
 
+			///
+			///Contains the Contact information for the customer.
+			///
 			public Contact Contact { get; set; }
 
+			///
+			///The localized currency code for the monetary amount.
+			///
 			public string CurrencyCode { get; set; }
 
+			///
+			///Unique identifier of the customer in , used to associate customers with data, orders, returns, and in-store credit.
+			///
 			public string CustomerId { get; set; }
 
+			///
+			///Contains information not in the object allowing flexibility.
+			///
 			public List<KeyValueTuple> ExtendedInfo { get; set; }
 
+			///
+			///Contains the phone for the customer.
+			///
 			public string PhoneNumber { get; set; }
 
+			///
+			///Contains the IP the customer is using.
+			///
 			public string RequestorIp { get; set; }
 
+			///
+			///Contains the url the customer is using.
+			///
 			public string RequestorUrl { get; set; }
 
+			///
+			///Contains the user agent the customer is using.
+			///
 			public string RequestorUserAgent { get; set; }
 
 		}

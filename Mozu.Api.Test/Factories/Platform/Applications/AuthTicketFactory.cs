@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Platform.Applications
 {
 	/// <summary>
-	/// Use this resource to manage authentication tickets for your applications.
+	/// Use the Authetickets for applications resource to manage authentication tickets for your apps.
 	/// </summary>
 	public partial class AuthTicketFactory : BaseDataFactory
 	{

@@ -18,14 +18,14 @@ using System.Threading;
 namespace Mozu.Api.Clients.Platform
 {
 	/// <summary>
-	/// 
+	/// Use the Extensions resource to manage Arc.js configuration settings. These are the same settings you can configure through  in the Action Management JSON Editor.
 	/// </summary>
 	public partial class TenantExtensionsClient 	{
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.InstalledApplications.TenantExtensions"/>}
 		/// </returns>
@@ -49,8 +49,8 @@ namespace Mozu.Api.Clients.Platform
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="extensions"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="extensions">The updated details of the Arc.js configuration settings.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.InstalledApplications.TenantExtensions"/>}
 		/// </returns>

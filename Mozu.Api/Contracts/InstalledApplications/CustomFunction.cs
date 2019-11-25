@@ -15,20 +15,44 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.InstalledApplications
 {
+		///
+		///	Mozu.InstalledApplications.Contracts.CustomFunction ApiType DOCUMENT_HERE 
+		///
 		public class CustomFunction
 		{
+			///
+			///The Arc.js application key.
+			///
 			public string ApplicationKey { get; set; }
 
+			///
+			///Custom function-level settings specified as key-value pairs.
+			///
 			public JObject Configuration { get; set; }
 
+			///
+			///Indicates if a capability, function tied to an Arc.js action, application, or price list is enabled for the tenant/site. If true, the capability/application/function/price list is enabled for the tenant. System-supplied and read-only with the exception of functions tied to an Arc.js action and price lists.
+			///
 			public bool? Enabled { get; set; }
 
+			///
+			///The behavior to take when an error is encountered. "fault" or "continue". The default is "fault".
+			///
 			public string ExceptionBehavior { get; set; }
 
+			///
+			///The name of the custom function tied to a particular action.
+			///
 			public string FunctionId { get; set; }
 
+			///
+			///The priority level to assign to logs related to a particular function. Possible values mirror Apache's log4net: "all", "debug", "info", "warn", "error", "fatal", and "off".
+			///
 			public string LogLevel { get; set; }
 
+			///
+			///The number of milliseconds that the function waits before timing out. The default is 5000 milliseconds
+			///
 			public int? TimeoutMilliseconds { get; set; }
 
 		}

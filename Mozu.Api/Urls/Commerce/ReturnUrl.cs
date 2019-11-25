@@ -19,12 +19,12 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetReturns
         /// </summary>
-        /// <param name="filter"></param>
-        /// <param name="pageSize"></param>
-        /// <param name="q"></param>
-        /// <param name="responseFields"></param>
-        /// <param name="sortBy"></param>
-        /// <param name="startIndex"></param>
+        /// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
+        /// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
+        /// <param name="q">A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
+        /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -44,7 +44,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetAvailableReturnActions
         /// </summary>
-        /// <param name="returnId">Unique identifier of the return for which to retrieve available actions.</param>
+        /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -59,9 +59,9 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetReturnItem
         /// </summary>
-        /// <param name="responseFields"></param>
-        /// <param name="returnId"></param>
-        /// <param name="returnItemId"></param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+        /// <param name="returnItemId">Unique identifier of the return item whose details you want to get.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -78,8 +78,8 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetReturnItems
         /// </summary>
-        /// <param name="responseFields"></param>
-        /// <param name="returnId"></param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -96,7 +96,7 @@ namespace Mozu.Api.Urls.Commerce
         /// Get Resource Url for GetAvailablePaymentActionsForReturn
         /// </summary>
         /// <param name="paymentId">Unique identifier of the payment for which to perform the action.</param>
-        /// <param name="returnId">Unique identifier of the return associated with the payment.</param>
+        /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -112,9 +112,9 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetPayment
         /// </summary>
-        /// <param name="paymentId">Unique identifier of the return payment to retrieve.</param>
-        /// <param name="responseFields"></param>
-        /// <param name="returnId">Unique identifier of the return associated with the payment.</param>
+        /// <param name="paymentId">Unique identifier of the payment for which to perform the action.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -131,8 +131,8 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetPayments
         /// </summary>
-        /// <param name="responseFields"></param>
-        /// <param name="returnId">Returns the details of the refund payment associated with the return specified in the request.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -146,10 +146,27 @@ namespace Mozu.Api.Urls.Commerce
 		}
 
 		/// <summary>
-        /// Get Resource Url for GetReturn
+        /// Get Resource Url for GetReturnLabel
         /// </summary>
         /// <param name="responseFields"></param>
-        /// <param name="returnId">Returns the properties of the return specified in the request as well as system-supplied information.</param>
+        /// <param name="returnId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetReturnLabelUrl(string returnId, string responseFields =  null)
+		{
+			var url = "/api/commerce/returns/{returnId}/shipping/label?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "returnId", returnId);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for GetReturn
+        /// </summary>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -165,7 +182,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetReasons
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -180,7 +197,7 @@ namespace Mozu.Api.Urls.Commerce
 				/// <summary>
         /// Get Resource Url for CreateReturn
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -195,8 +212,8 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for CreateReturnItem
         /// </summary>
-        /// <param name="responseFields"></param>
-        /// <param name="returnId"></param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -212,9 +229,9 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for PerformPaymentActionForReturn
         /// </summary>
-        /// <param name="paymentId">Unique identifier of the return payment to update.</param>
-        /// <param name="responseFields"></param>
-        /// <param name="returnId">Unique identifier of the return associated with the refund payment.</param>
+        /// <param name="paymentId">Unique identifier of the payment for which to perform the action.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -231,8 +248,8 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for CreatePaymentActionForReturn
         /// </summary>
-        /// <param name="responseFields"></param>
-        /// <param name="returnId">Unique identifier of the return associated with the payment action.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -265,8 +282,8 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for CreateReturnShippingOrder
         /// </summary>
-        /// <param name="responseFields"></param>
-        /// <param name="returnId"></param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -282,7 +299,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for PerformReturnActions
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -297,8 +314,8 @@ namespace Mozu.Api.Urls.Commerce
 				/// <summary>
         /// Get Resource Url for UpdateReturn
         /// </summary>
-        /// <param name="responseFields"></param>
-        /// <param name="returnId">Unique identifier of the return.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -327,8 +344,8 @@ namespace Mozu.Api.Urls.Commerce
 				/// <summary>
         /// Get Resource Url for DeleteOrderItem
         /// </summary>
-        /// <param name="returnId"></param>
-        /// <param name="returnItemId"></param>
+        /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+        /// <param name="returnItemId">Unique identifier of the return item whose details you want to get.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -344,7 +361,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for DeleteReturn
         /// </summary>
-        /// <param name="returnId">Unique identifier of the return to delete.</param>
+        /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

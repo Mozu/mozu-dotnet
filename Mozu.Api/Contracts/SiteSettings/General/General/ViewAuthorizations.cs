@@ -13,12 +13,24 @@ using System;
 
 namespace Mozu.Api.Contracts.SiteSettings.General.General
 {
+		///
+		///	Set whether you require users to be authenticated to preview content or view the live site.
+		///
 		public class ViewAuthorizations
 		{
+			///
+			///Specifies whether to enable secure communication across your entire site, using the SSL (Secure Socket Layer) security protocol. Every page on your site will display as an HTTPS page and contain an SSL certificate.
+			///
 			public bool? EnforceSitewideSSL { get; set; }
 
+			///
+			///Require log in to view live storefront site.
+			///
 			public bool RequireAuthForLive { get; set; }
 
+			///
+			///Require log in to view pending storefront site.
+			///
 			public bool RequireAuthForPending { get; set; }
 
 		}

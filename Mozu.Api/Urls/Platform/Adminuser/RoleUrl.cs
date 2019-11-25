@@ -20,16 +20,20 @@ namespace Mozu.Api.Urls.Platform.Adminuser
         /// Get Resource Url for GetRoles
         /// </summary>
         /// <param name="filter"></param>
+        /// <param name="pageSize"></param>
         /// <param name="responseFields"></param>
+        /// <param name="startIndex"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetRolesUrl(string filter =  null, string responseFields =  null)
+        public static MozuUrl GetRolesUrl(int? startIndex =  null, int? pageSize =  null, string filter =  null, string responseFields =  null)
 		{
-			var url = "/api/platform/adminuser/roles/?filter={filter}&responseFields={responseFields}";
+			var url = "/api/platform/adminuser/roles/?startIndex={startIndex}&pageSize={pageSize}&filter={filter}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "filter", filter);
+			mozuUrl.FormatUrl( "pageSize", pageSize);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "startIndex", startIndex);
 			return mozuUrl;
 		}
 

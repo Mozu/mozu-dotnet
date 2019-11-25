@@ -22,6 +22,8 @@ namespace Mozu.Api.Contracts.SiteSettings.Order.Fulfillment
 
 			public int? DefaultBackOrderDays { get; set; }
 
+			public JobSettings FulfillmentJobSettings { get; set; }
+
 		}
 
 }

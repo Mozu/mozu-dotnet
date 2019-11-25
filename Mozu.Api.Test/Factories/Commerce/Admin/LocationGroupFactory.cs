@@ -72,14 +72,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Admin
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = LocationGroupFactory.GetLocationGroup(handler : handler,  groupId :  groupId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = LocationGroupFactory.GetLocationGroup(handler : handler,  locationGroupCode :  locationGroupCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<LocationGroup/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Location.LocationGroup GetLocationGroup(ServiceClientMessageHandler handler, 
- 		 int groupId, string responseFields = null, 
+ 		 string locationGroupCode, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -87,7 +87,7 @@ namespace Mozu.Api.Test.Factories.Commerce.Admin
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Admin.LocationGroupClient.GetLocationGroupClient(
-				 groupId :  groupId,  responseFields :  responseFields		);
+				 locationGroupCode :  locationGroupCode,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -148,14 +148,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Admin
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = LocationGroupFactory.UpdateLocationGroup(handler : handler,  group :  group,  groupId :  groupId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = LocationGroupFactory.UpdateLocationGroup(handler : handler,  locationGroup :  locationGroup,  locationGroupCode :  locationGroupCode,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<LocationGroup/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.Location.LocationGroup UpdateLocationGroup(ServiceClientMessageHandler handler, 
- 		 Mozu.Api.Contracts.Location.LocationGroup group, int groupId, string responseFields = null, 
+ 		 Mozu.Api.Contracts.Location.LocationGroup locationGroup, string locationGroupCode, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -163,7 +163,7 @@ namespace Mozu.Api.Test.Factories.Commerce.Admin
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Admin.LocationGroupClient.UpdateLocationGroupClient(
-				 group :  group,  groupId :  groupId,  responseFields :  responseFields		);
+				 locationGroup :  locationGroup,  locationGroupCode :  locationGroupCode,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -186,14 +186,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Admin
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = LocationGroupFactory.DeleteLocationGroup(handler : handler,  groupId :  groupId,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = LocationGroupFactory.DeleteLocationGroup(handler : handler,  locationGroupCode :  locationGroupCode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static System.IO.Stream DeleteLocationGroup(ServiceClientMessageHandler handler, 
- 		 int groupId, 
+ 		 string locationGroupCode, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -201,7 +201,7 @@ namespace Mozu.Api.Test.Factories.Commerce.Admin
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Admin.LocationGroupClient.DeleteLocationGroupClient(
-				 groupId :  groupId		);
+				 locationGroupCode :  locationGroupCode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();

@@ -42,7 +42,7 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="locationGroupId"></param>
+		/// <param name="locationGroupCode"></param>
 		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Location.LocationGroupConfiguration"/>
@@ -50,13 +50,13 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// <example>
 		/// <code>
 		///   var locationgroupconfiguration = new LocationGroupConfiguration();
-		///   var locationGroupConfiguration = await locationgroupconfiguration.GetLocationGroupConfigurationAsync( locationGroupId,  responseFields);
+		///   var locationGroupConfiguration = await locationgroupconfiguration.GetLocationGroupConfigurationAsync( locationGroupCode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Location.LocationGroupConfiguration> GetLocationGroupConfigurationAsync(int locationGroupId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.Location.LocationGroupConfiguration> GetLocationGroupConfigurationAsync(string locationGroupCode, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Location.LocationGroupConfiguration> response;
-			var client = Mozu.Api.Clients.Commerce.Admin.LocationGroupConfigurationClient.GetLocationGroupConfigurationClient( locationGroupId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Admin.LocationGroupConfigurationClient.GetLocationGroupConfigurationClient( locationGroupCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -92,7 +92,7 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="locationGroupId"></param>
+		/// <param name="locationGroupCode"></param>
 		/// <param name="responseFields"></param>
 		/// <param name="configuration"></param>
 		/// <returns>
@@ -101,13 +101,13 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// <example>
 		/// <code>
 		///   var locationgroupconfiguration = new LocationGroupConfiguration();
-		///   var locationGroupConfiguration = await locationgroupconfiguration.SetLocationGroupConfigurationAsync( configuration,  locationGroupId,  responseFields);
+		///   var locationGroupConfiguration = await locationgroupconfiguration.SetLocationGroupConfigurationAsync( configuration,  locationGroupCode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Location.LocationGroupConfiguration> SetLocationGroupConfigurationAsync(Mozu.Api.Contracts.Location.LocationGroupConfiguration configuration, int locationGroupId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.Location.LocationGroupConfiguration> SetLocationGroupConfigurationAsync(Mozu.Api.Contracts.Location.LocationGroupConfiguration configuration, string locationGroupCode, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Location.LocationGroupConfiguration> response;
-			var client = Mozu.Api.Clients.Commerce.Admin.LocationGroupConfigurationClient.SetLocationGroupConfigurationClient( configuration,  locationGroupId,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.Admin.LocationGroupConfigurationClient.SetLocationGroupConfigurationClient( configuration,  locationGroupCode,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();

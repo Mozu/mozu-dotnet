@@ -21,6 +21,9 @@ namespace Mozu.Api.Contracts.SiteSettings.Application
 		{
 			public string AppId { get; set; }
 
+			///
+			///denotes the Application Key for the app.
+			///
 			public string AppKey { get; set; }
 
 			public List<Capability> Capabilities { get; set; }
@@ -30,10 +33,13 @@ namespace Mozu.Api.Contracts.SiteSettings.Application
 			public bool? Initialized { get; set; }
 
 			///
-			///If true, the application type is Extension.
+			///Indicates if the installed application is of type extension. An extension is an application that extends upon the  infrastructure. Examples of extensions include Arc.js applications and applications that integrate third-party services.
 			///
 			public bool? IsExtension { get; set; }
 
+			///
+			///Indicates if the installed application is a  certified application.
+			///
 			public bool? IsExtensionCertified { get; set; }
 
 			public string UiConfigurationUrl { get; set; }

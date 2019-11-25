@@ -19,9 +19,9 @@ namespace Mozu.Api.Urls.Commerce.Carts
 						/// <summary>
         /// Get Resource Url for ApplyCoupon
         /// </summary>
-        /// <param name="cartId">Unique identifier of the cart to which to apply the coupon.</param>
-        /// <param name="couponCode">Code associated with the coupon to apply to the cart.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="cartId">Identifier of the cart to delete.</param>
+        /// <param name="couponCode">Code associated with the coupon to remove from the cart.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -38,7 +38,7 @@ namespace Mozu.Api.Urls.Commerce.Carts
 				/// <summary>
         /// Get Resource Url for RemoveCoupons
         /// </summary>
-        /// <param name="cartId">Unique identifier of the cart.</param>
+        /// <param name="cartId">Identifier of the cart to delete.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -53,7 +53,7 @@ namespace Mozu.Api.Urls.Commerce.Carts
 		/// <summary>
         /// Get Resource Url for RemoveCoupon
         /// </summary>
-        /// <param name="cartId">Unique identifier of the cart.</param>
+        /// <param name="cartId">Identifier of the cart to delete.</param>
         /// <param name="couponCode">Code associated with the coupon to remove from the cart.</param>
         /// <returns>
         /// String - Resource Url

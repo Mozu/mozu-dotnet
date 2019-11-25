@@ -19,9 +19,9 @@ namespace Mozu.Api.Urls.Commerce.Wishlists
 		/// <summary>
         /// Get Resource Url for GetWishlistItem
         /// </summary>
-        /// <param name="responseFields"></param>
-        /// <param name="wishlistId">Unique identifier of the wish list item to retrieve.</param>
-        /// <param name="wishlistItemId">Unique identifier of the wish list associated with the item to retrieve.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="wishlistId">Unique identifier of the wish list.</param>
+        /// <param name="wishlistItemId">Unique identifier of the item to remove from the shopper wish list.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -38,12 +38,12 @@ namespace Mozu.Api.Urls.Commerce.Wishlists
 		/// <summary>
         /// Get Resource Url for GetWishlistItems
         /// </summary>
-        /// <param name="filter"></param>
-        /// <param name="pageSize"></param>
-        /// <param name="responseFields"></param>
-        /// <param name="sortBy"></param>
-        /// <param name="startIndex"></param>
-        /// <param name="wishlistId">Unique identifier of the wish list associated with the items to retrieve.</param>
+        /// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
+        /// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
+        /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+        /// <param name="wishlistId">Unique identifier of the wish list.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -63,13 +63,13 @@ namespace Mozu.Api.Urls.Commerce.Wishlists
 		/// <summary>
         /// Get Resource Url for GetWishlistItemsByWishlistName
         /// </summary>
-        /// <param name="customerAccountId">The unique identifier of the customer account associated with the wish list.</param>
-        /// <param name="filter"></param>
-        /// <param name="pageSize"></param>
-        /// <param name="responseFields"></param>
-        /// <param name="sortBy"></param>
-        /// <param name="startIndex"></param>
-        /// <param name="wishlistName">The name of the wish list that contains the items to retrieve.</param>
+        /// <param name="customerAccountId">The unique identifier of the customer account for which to retrieve wish lists.</param>
+        /// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
+        /// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
+        /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+        /// <param name="wishlistName">The name of the wish list to retrieve.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -90,8 +90,8 @@ namespace Mozu.Api.Urls.Commerce.Wishlists
 				/// <summary>
         /// Get Resource Url for AddItemToWishlist
         /// </summary>
-        /// <param name="responseFields"></param>
-        /// <param name="wishlistId">Unique identifier of the wish list associated with the item to add.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="wishlistId">Unique identifier of the wish list.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -107,10 +107,10 @@ namespace Mozu.Api.Urls.Commerce.Wishlists
 				/// <summary>
         /// Get Resource Url for UpdateWishlistItemQuantity
         /// </summary>
-        /// <param name="quantity">The quantity of the item in the wish list.</param>
-        /// <param name="responseFields"></param>
-        /// <param name="wishlistId">Unique identifier of the wish list associated with the item quantity to update.</param>
-        /// <param name="wishlistItemId">Unique identifier of the item in the wish list to update quantity.</param>
+        /// <param name="quantity">The number of cart items in the shopper's active cart.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="wishlistId">Unique identifier of the wish list.</param>
+        /// <param name="wishlistItemId">Unique identifier of the item to remove from the shopper wish list.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -128,9 +128,9 @@ namespace Mozu.Api.Urls.Commerce.Wishlists
 		/// <summary>
         /// Get Resource Url for UpdateWishlistItem
         /// </summary>
-        /// <param name="responseFields"></param>
-        /// <param name="wishlistId">Unique identifier of the wish list associated with the item to update.</param>
-        /// <param name="wishlistItemId">Unique identifier of the item in the shopper wish list to update.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="wishlistId">Unique identifier of the wish list.</param>
+        /// <param name="wishlistItemId">Unique identifier of the item to remove from the shopper wish list.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -147,7 +147,7 @@ namespace Mozu.Api.Urls.Commerce.Wishlists
 				/// <summary>
         /// Get Resource Url for RemoveAllWishlistItems
         /// </summary>
-        /// <param name="wishlistId">Unique identifier of the wish list associated with the items to remove.</param>
+        /// <param name="wishlistId">Unique identifier of the wish list.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -162,7 +162,7 @@ namespace Mozu.Api.Urls.Commerce.Wishlists
 		/// <summary>
         /// Get Resource Url for DeleteWishlistItem
         /// </summary>
-        /// <param name="wishlistId">Unique identifier of the wish list associated with the item to remove.</param>
+        /// <param name="wishlistId">Unique identifier of the wish list.</param>
         /// <param name="wishlistItemId">Unique identifier of the item to remove from the shopper wish list.</param>
         /// <returns>
         /// String - Resource Url

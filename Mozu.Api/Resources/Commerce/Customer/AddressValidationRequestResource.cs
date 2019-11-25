@@ -42,8 +42,8 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="addressValidationRequest">Properties of the address to validate.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="addressValidationRequest">Properties of the address used for validation of the account's full address. This content may include multiple lines of an address, city, state/province, zip/postal code, and country.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.AddressValidationResponse"/>
 		/// </returns>

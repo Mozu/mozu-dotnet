@@ -51,6 +51,8 @@ namespace Mozu.Api.Contracts.Location
 
 			public bool? EnableScanningOfUpcForShipToHome { get; set; }
 
+			public string LocationGroupCode { get; set; }
+
 			public int LocationGroupId { get; set; }
 
 			public int? MaximumNumberOfOrdersInPickWave { get; set; }

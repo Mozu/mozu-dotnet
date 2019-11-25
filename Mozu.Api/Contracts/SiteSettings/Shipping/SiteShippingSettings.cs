@@ -23,10 +23,6 @@ namespace Mozu.Api.Contracts.SiteSettings.Shipping
 
 			public SiteShippingHandlingFee OrderHandlingFee { get; set; }
 
-			public bool RefreshShipping { get; set; }
-
-			public bool RefreshTax { get; set; }
-
 			public SiteShippingSignatureRequirement SignatureRequirement { get; set; }
 
 		}

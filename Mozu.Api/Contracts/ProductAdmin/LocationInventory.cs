@@ -24,6 +24,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public AuditInfo AuditInfo { get; set; }
 
+			///
+			///Product code defined by the tenant administrator to use as a base prefix when generating product codes for any variations of this product.
+			///
 			public string BaseProductCode { get; set; }
 
 			public string LocationCode { get; set; }

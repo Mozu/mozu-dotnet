@@ -18,15 +18,15 @@ using System.Threading;
 namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 {
 	/// <summary>
-	/// 
+	/// commerce/catalog/admin/discountsettings related resources. DOCUMENT_HERE 
 	/// </summary>
 	public partial class DiscountSettingsClient 	{
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="catalogId"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="catalogId">Unique identifier for a catalog.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.DiscountSettings"/>}
@@ -52,8 +52,8 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="catalogId"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="catalogId">Unique identifier for a catalog.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="discountSettings"></param>
 		/// <returns>

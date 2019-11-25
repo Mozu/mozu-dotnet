@@ -14,10 +14,19 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.InstalledApplications
 {
+		///
+		///	Mozu.InstalledApplications.Contracts.CustomFunctionsForContext ApiType DOCUMENT_HERE 
+		///
 		public class CustomFunctionsForContext
 		{
+			///
+			///The site ID for the site you want to apply a group of settings to. You do not need to provide this value if you want to apply the same settings to a particular action across all your sites.
+			///
 			public int? Context { get; set; }
 
+			///
+			///An array of custom functions tied to a particular action.
+			///
 			public List<CustomFunction> CustomFunctions { get; set; }
 
 		}

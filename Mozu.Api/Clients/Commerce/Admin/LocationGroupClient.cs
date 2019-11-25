@@ -53,20 +53,20 @@ namespace Mozu.Api.Clients.Commerce.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="groupId"></param>
+		/// <param name="locationGroupCode"></param>
 		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Location.LocationGroup"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=GetLocationGroup( groupId,  responseFields);
+		///   var mozuClient=GetLocationGroup( locationGroupCode,  responseFields);
 		///   var locationGroupClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Location.LocationGroup> GetLocationGroupClient(int groupId, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Location.LocationGroup> GetLocationGroupClient(string locationGroupCode, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Admin.LocationGroupUrl.GetLocationGroupUrl(groupId, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Admin.LocationGroupUrl.GetLocationGroupUrl(locationGroupCode, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Location.LocationGroup>()
 									.WithVerb(verb).WithResourceUrl(url)
@@ -103,25 +103,25 @@ namespace Mozu.Api.Clients.Commerce.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="groupId"></param>
+		/// <param name="locationGroupCode"></param>
 		/// <param name="responseFields"></param>
-		/// <param name="group"></param>
+		/// <param name="locationGroup"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Location.LocationGroup"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpdateLocationGroup( group,  groupId,  responseFields);
+		///   var mozuClient=UpdateLocationGroup( locationGroup,  locationGroupCode,  responseFields);
 		///   var locationGroupClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.Location.LocationGroup> UpdateLocationGroupClient(Mozu.Api.Contracts.Location.LocationGroup group, int groupId, string responseFields =  null)
+		public static MozuClient<Mozu.Api.Contracts.Location.LocationGroup> UpdateLocationGroupClient(Mozu.Api.Contracts.Location.LocationGroup locationGroup, string locationGroupCode, string responseFields =  null)
 		{
-			var url = Mozu.Api.Urls.Commerce.Admin.LocationGroupUrl.UpdateLocationGroupUrl(groupId, responseFields);
+			var url = Mozu.Api.Urls.Commerce.Admin.LocationGroupUrl.UpdateLocationGroupUrl(locationGroupCode, responseFields);
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Location.LocationGroup>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody<Mozu.Api.Contracts.Location.LocationGroup>(group);
+									.WithBody<Mozu.Api.Contracts.Location.LocationGroup>(locationGroup);
 			return mozuClient;
 
 		}
@@ -129,19 +129,19 @@ namespace Mozu.Api.Clients.Commerce.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="groupId"></param>
+		/// <param name="locationGroupCode"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=DeleteLocationGroup( groupId);
+		///   var mozuClient=DeleteLocationGroup( locationGroupCode);
 		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<System.IO.Stream> DeleteLocationGroupClient(int groupId)
+		public static MozuClient<System.IO.Stream> DeleteLocationGroupClient(string locationGroupCode)
 		{
-			var url = Mozu.Api.Urls.Commerce.Admin.LocationGroupUrl.DeleteLocationGroupUrl(groupId);
+			var url = Mozu.Api.Urls.Commerce.Admin.LocationGroupUrl.DeleteLocationGroupUrl(locationGroupCode);
 			const string verb = "DELETE";
 			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)

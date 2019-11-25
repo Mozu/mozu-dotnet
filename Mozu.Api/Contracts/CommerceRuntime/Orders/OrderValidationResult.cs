@@ -25,12 +25,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public DateTime? CreatedDate { get; set; }
 
 			///
-			///Collection of messages returned by the order validation capability.
+			///Array list of validation and status messages associated with shipping rates, orders, and product purchasable state.
 			///
 			public List<OrderValidationMessage> Messages { get; set; }
 
 			///
-			///The status returned from the order validation capability for the order specified in the request, which is Pass, Fail, Error, or Review.
+			///The current status of the object.This value is read only. Valid values for this field are: "Active", "Expired", and "Inactive".
 			///
 			public string Status { get; set; }
 

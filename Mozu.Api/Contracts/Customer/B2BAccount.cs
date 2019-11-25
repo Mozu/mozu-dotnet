@@ -15,40 +15,94 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.Customer
 {
+		///
+		///	The shared B2B account, with associated users that can all log into the B2B account.
+		///
 		public class B2BAccount
 		{
+			///
+			///The type of the B2B account.
+			///
 			public string AccountType { get; set; }
 
+			///
+			///Collection of attributes that may be paged list or a list, depending on the usage per object and API type.
+			///
 			public List<CustomerAttribute> Attributes { get; set; }
 
+			///
+			///Basic audit info about the object, including date, time, and user account. This data may be captured when creating, updating, and removing data.
+			///
 			public AuditInfo AuditInfo { get; set; }
 
+			///
+			///commerceSummary ApiType DOCUMENT_HERE 
+			///
 			public CommerceSummary CommerceSummary { get; set; }
 
+			///
+			///The company or organization name entered for a customer account.
+			///
 			public string CompanyOrOrganization { get; set; }
 
+			///
+			///contacts ApiType DOCUMENT_HERE 
+			///
 			public List<CustomerContact> Contacts { get; set; }
 
+			///
+			///customerSet ApiType DOCUMENT_HERE 
+			///
 			public string CustomerSet { get; set; }
 
+			///
+			///This property tracks the B2B customer account creation date. 
+			///
 			public DateTime? CustomerSinceDate { get; set; }
 
+			///
+			///Unique identifier used by an external program to identify a  order, customer account, or wish list.
+			///
 			public string ExternalId { get; set; }
 
+			///
+			///Unique identifier of the source property, such as a catalog, discount, order, or email template.For a product field it will be the name of the field.For a category ID, must be a positive integer not greater than 2000000. By default,  auto-generates a category ID when categories are created. If you want to specify an ID during creation (which preserves category link relationships when migrating tenant data from one sandbox to another), you must also include the  query string in the endpoint. For example, . Then, use the  property to specify the desired category ID.For a product attribute it will be the Attribute FQN.For a document, the ID must be specified as a 32 character, case-insensitive, alphanumeric string. You can specify the ID as 32 sequential characters or as groups separated by dashes in the format 8-4-4-4-12. For example, or.For email templates, the ID must be one of the following values:///
+			///
 			public int Id { get; set; }
 
+			///
+			///Indicates if the object or feature is active.
+			///
 			public bool? IsActive { get; set; }
 
+			///
+			///Paged list collection of note content for objects including customers, orders, and returns.
+			///
 			public List<CustomerNote> Notes { get; set; }
 
+			///
+			///priceList ApiType DOCUMENT_HERE 
+			///
 			public string PriceList { get; set; }
 
+			///
+			///segments ApiType DOCUMENT_HERE 
+			///
 			public List<CustomerSegment> Segments { get; set; }
 
+			///
+			///If true, this account has tax exempt status.
+			///
 			public bool TaxExempt { get; set; }
 
+			///
+			///The tax identification number associated with the account.
+			///
 			public string TaxId { get; set; }
 
+			///
+			///A list of users associated to the B2B account. On initial B2B account creation, one user is required and will be set up as the admin customer.
+			///
 			public List<B2BUser> Users { get; set; }
 
 		}

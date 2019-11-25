@@ -20,17 +20,20 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		public class ProductValidationSummary
 		{
 			///
-			///Properties of a collection of component products that make up a single product bundle with its own product code.
+			///Properties of a collection of component products that make up a single product bundle with its own product code. Tenants can define product bundles for any product type that supports the Bundle product usage.
 			///
 			public List<BundledProductSummary> BundledProducts { get; set; }
 
 			public List<Category> Categories { get; set; }
 
 			///
-			///List of fulfillment types that the product supports.
+			///List of supported types of fulfillment for the product or variation. The types include direct ship, in-store pickup, or both.
 			///
 			public List<string> FulfillmentTypesSupported { get; set; }
 
+			///
+			///The type of goods in a bundled product. A bundled product is composed of products associated to sell together. Possible values include â€œPhysicalâ€ and â€œDigitalCreditâ€. This comes from the `productType `of the product. Products are defaulted to a Physical `goodsType`. Gift cards have a `goodsType `of DigitalCredit.
+			///
 			public string GoodsType { get; set; }
 
 			public ProductImage Image { get; set; }
@@ -38,7 +41,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public ProductInventoryInfo InventoryInfo { get; set; }
 
 			///
-			///If true, this product should not be packaged with other items and should ship by itself.
+			///Indicates if the product must be shipped alone in a container. This is used for products and products within a bundle. If true, this product cannot be shipped in a package with other items and must ship in a package by itself.
 			///
 			public bool? IsPackagedStandAlone { get; set; }
 
@@ -54,7 +57,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			public ProductPrice Price { get; set; }
 
 			///
-			///Properties that describe the behavior the system uses when determining the price of the product.
+			///Properties that describe the behavior the system uses when determining the price of products.
 			///
 			public ProductPricingBehaviorInfo PricingBehavior { get; set; }
 
@@ -64,10 +67,13 @@ namespace Mozu.Api.Contracts.ProductRuntime
 
 			public string ProductShortDescription { get; set; }
 
+			///
+			///A product type is like a product template.
+			///
 			public string ProductType { get; set; }
 
 			///
-			///The usage type of this product, which is Standard (a single product without configurable options), Configurable (a product that includes configurable option attributes), Bundle (a collection of products sold as a single entity), or Component (an invididual product that represents a component in a bundle).
+			///The usage type that applies to this product, which is Standard (a single product without configurable options), Configurable (a product that includes configurable option attributes), Bundle (a collection of products sold as a single entity), or Component (an invididual product that represents a component in a bundle).
 			///
 			public string ProductUsage { get; set; }
 
@@ -75,10 +81,13 @@ namespace Mozu.Api.Contracts.ProductRuntime
 
 			public ProductPurchasableState PurchasableState { get; set; }
 
+			///
+			///The location where the order item(s) was purchased.
+			///
 			public string PurchaseLocation { get; set; }
 
 			///
-			///The universal product code defined for the product.
+			///The universal product code (UPC) is the barcode defined for the product. The UPC is unique across all sales channels. 
 			///
 			public string Upc { get; set; }
 

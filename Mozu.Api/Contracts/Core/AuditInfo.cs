@@ -14,16 +14,28 @@ using System;
 namespace Mozu.Api.Contracts.Core
 {
 		///
-		///	Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
+		///	Basic audit info about the object, including date, time, and user account. This data may be captured when creating, updating, and removing data.
 		///
 		public class AuditInfo
 		{
+			///
+			///Identifier of the user that created the object. System created and read only.
+			///
 			public string CreateBy { get; set; }
 
+			///
+			///The date and time in UTCÂ format set when the object was created.
+			///
 			public DateTime? CreateDate { get; set; }
 
+			///
+			///Identifier of the user that updated the entity most recently.
+			///
 			public string UpdateBy { get; set; }
 
+			///
+			///The date and time in UTC format the object was updated most recently.
+			///
 			public DateTime? UpdateDate { get; set; }
 
 		}

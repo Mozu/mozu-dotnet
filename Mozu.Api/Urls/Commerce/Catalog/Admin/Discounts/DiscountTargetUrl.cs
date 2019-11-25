@@ -19,8 +19,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Discounts
 		/// <summary>
         /// Get Resource Url for GetDiscountTarget
         /// </summary>
-        /// <param name="discountId">Unique identifier of the discount. System-supplied and read only.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -36,8 +36,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Discounts
 						/// <summary>
         /// Get Resource Url for UpdateDiscountTarget
         /// </summary>
-        /// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

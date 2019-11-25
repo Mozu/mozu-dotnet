@@ -13,10 +13,19 @@ using System;
 
 namespace Mozu.Api.Contracts.SiteSettings.Order
 {
+		///
+		///	A configuration setting for the third party payment gateway.
+		///
 		public class ThirdPartyPaymentSetting
 		{
+			///
+			///Determines whether payment authorization occurs when the order is placed or when the order is shipped.
+			///
 			public string PaymentProcessingFlowType { get; set; }
 
+			///
+			///A setting configured for the third party payment gateways.
+			///
 			public string Type { get; set; }
 
 		}

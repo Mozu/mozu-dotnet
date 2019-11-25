@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Orders
 {
 	/// <summary>
-	/// 
+	/// Use the Extended Properties resource to store tracking strings for your orders. Extended properties can help you track affiliate sources.
 	/// </summary>
 	public partial class ExtendedPropertyFactory : BaseDataFactory
 	{
