@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Orders
 {
 	/// <summary>
-	/// Use the refunds resource to create a refund.
+	/// 
 	/// </summary>
 	public partial class RefundFactory : BaseDataFactory
 	{

@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Content
 {
 	/// <summary>
-	/// Use the Content Publish Set resource to manage content publish sets and the pending content drafts.You can use content publish sets to group pending content changes together and publish them all at the same time.
+	/// 
 	/// </summary>
 	public partial class PublishSetSummaryFactory : BaseDataFactory
 	{

@@ -18,7 +18,7 @@ using System.Threading;
 namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 {
 	/// <summary>
-	/// Resources for the currencies that are supported on the storefront for this catalog.
+	/// 
 	/// </summary>
 	public partial class CurrencyExchangeRateClient 	{
 		

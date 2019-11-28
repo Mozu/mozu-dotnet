@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Platform
 {
 	/// <summary>
-	/// Use the user data subresource to store user-level data required for a third-party application in the  database.
+	/// Use the user data subresource to store user-level data required for a third-party application in the Mozu database.
 	/// </summary>
 	public partial class UserDataFactory : BaseDataFactory
 	{

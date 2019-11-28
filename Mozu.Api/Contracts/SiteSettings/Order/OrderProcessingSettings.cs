@@ -27,16 +27,10 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 
 			public AuditInfo AuditInfo { get; set; }
 
-			///
-			///The gift card payment type being used to perform this purchase.
-			///
 			public string GiftCardProcessingType { get; set; }
 
 			public string PaymentProcessingFlowType { get; set; }
 
-			///
-			///The settings of the third party payment gateways as configured by the user.
-			///
 			public List<ThirdPartyPaymentSetting> ThirdPartyPaymentSettings { get; set; }
 
 			public bool UseOverridePriceToCalculateDiscounts { get; set; }

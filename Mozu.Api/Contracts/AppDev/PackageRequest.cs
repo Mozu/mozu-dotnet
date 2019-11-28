@@ -13,19 +13,10 @@ using System;
 
 namespace Mozu.Api.Contracts.AppDev
 {
-		///
-		///	Mozu.AppDev.Contracts.PackageRequest ApiType DOCUMENT_HERE 
-		///
 		public class PackageRequest
 		{
-			///
-			///Mozu.AppDev.Contracts.PackageRequest appKey ApiTypeMember DOCUMENT_HERE 
-			///
 			public string AppKey { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.PackageRequest parentThemeAppKey ApiTypeMember DOCUMENT_HERE 
-			///
 			public string ParentThemeAppKey { get; set; }
 
 		}

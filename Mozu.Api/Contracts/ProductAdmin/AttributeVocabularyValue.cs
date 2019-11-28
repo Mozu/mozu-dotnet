@@ -15,25 +15,16 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	Properties of a vocabulary value defined for an extensible attribute.
+		///	Properties of an individual vocabulary value for an attribute. For example, a "color" attribute might have the following vocabulary values: Red, Blue, Green.
 		///
 		public class AttributeVocabularyValue
 		{
 			public AttributeVocabularyValueLocalizedContent Content { get; set; }
 
-			///
-			///The order in which the attribute value displays. If you omit a value for this property,  infers the display order from the attribute value's position the list.
-			///
 			public int? DisplayOrder { get; set; }
 
-			///
-			///The localized content associated with the object.
-			///
 			public List<AttributeVocabularyValueLocalizedContent> LocalizedContent { get; set; }
 
-			///
-			///The name of the product that represents a line item in a taxable order or product bundle.
-			///
 			public string ProductName { get; set; }
 
 			public object Value { get; set; }

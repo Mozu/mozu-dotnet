@@ -15,7 +15,7 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	Array list of customer or order attributes.
+		///	Paged list of defined product attributes.
 		///
 		public class AttributeCollection
 		{

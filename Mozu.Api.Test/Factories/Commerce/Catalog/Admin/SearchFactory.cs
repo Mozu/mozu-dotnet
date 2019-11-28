@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin
 {
 	/// <summary>
-	/// Use the Search resource to manage all settings and options for providing product search on your site, as well as search tuning rules.
+	/// 
 	/// </summary>
 	public partial class SearchFactory : BaseDataFactory
 	{

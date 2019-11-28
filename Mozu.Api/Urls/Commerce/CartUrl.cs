@@ -17,10 +17,27 @@ namespace Mozu.Api.Urls.Commerce
 	{
 
 		/// <summary>
+        /// Get Resource Url for GetCartSummaryByCartId
+        /// </summary>
+        /// <param name="cartId"></param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetCartSummaryByCartIdUrl(string cartId, string responseFields =  null)
+		{
+			var url = "/api/commerce/carts/{cartId}/summary?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "cartId", cartId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+		/// <summary>
         /// Get Resource Url for GetCart
         /// </summary>
-        /// <param name="cartId">Identifier of the cart to delete.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="cartId">Identifier of the cart to retrieve.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -36,7 +53,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetOrCreateCart
         /// </summary>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -51,7 +68,7 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetCartSummary
         /// </summary>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -66,8 +83,8 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetUserCartSummary
         /// </summary>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-        /// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
+        /// <param name="responseFields"></param>
+        /// <param name="userId">Unique identifier of the user whose cart details you want to retrieve.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -83,8 +100,8 @@ namespace Mozu.Api.Urls.Commerce
 		/// <summary>
         /// Get Resource Url for GetUserCart
         /// </summary>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-        /// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
+        /// <param name="responseFields"></param>
+        /// <param name="userId">Unique identifier of the user whose cart you want to retrieve.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -100,9 +117,9 @@ namespace Mozu.Api.Urls.Commerce
 				/// <summary>
         /// Get Resource Url for RejectSuggestedDiscount
         /// </summary>
-        /// <param name="cartId">Identifier of the cart to delete.</param>
-        /// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="cartId"></param>
+        /// <param name="discountId"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -116,10 +133,44 @@ namespace Mozu.Api.Urls.Commerce
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for GetOrCreateUserCart
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <param name="userId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetOrCreateUserCartUrl(string userId, string responseFields =  null)
+		{
+			var url = "/api/commerce/carts/user/{userId}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "userId", userId);
+			return mozuUrl;
+		}
+
 				/// <summary>
+        /// Get Resource Url for UpdateCartByCartId
+        /// </summary>
+        /// <param name="cartId"></param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl UpdateCartByCartIdUrl(string cartId, string responseFields =  null)
+		{
+			var url = "/api/commerce/carts/{cartId}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "cartId", cartId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+		/// <summary>
         /// Get Resource Url for UpdateCart
         /// </summary>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -128,6 +179,23 @@ namespace Mozu.Api.Urls.Commerce
 			var url = "/api/commerce/carts/current?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for UpdateUserCart
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <param name="userId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl UpdateUserCartUrl(string userId, string responseFields =  null)
+		{
+			var url = "/api/commerce/carts/user/{userId}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "userId", userId);
 			return mozuUrl;
 		}
 
@@ -143,6 +211,21 @@ namespace Mozu.Api.Urls.Commerce
 			var url = "/api/commerce/carts/{cartId}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "cartId", cartId);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for DeleteUserCart
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl DeleteUserCartUrl(string userId)
+		{
+			var url = "/api/commerce/carts/{userId}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "userId", userId);
 			return mozuUrl;
 		}
 

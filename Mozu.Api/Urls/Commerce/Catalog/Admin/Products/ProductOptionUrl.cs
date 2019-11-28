@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 		/// <summary>
         /// Get Resource Url for GetOptions
         /// </summary>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
+        /// <param name="productCode"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -34,9 +34,9 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 		/// <summary>
         /// Get Resource Url for GetOption
         /// </summary>
-        /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="attributeFQN"></param>
+        /// <param name="productCode"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -53,8 +53,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 				/// <summary>
         /// Get Resource Url for AddOption
         /// </summary>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="productCode"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -70,9 +70,9 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 				/// <summary>
         /// Get Resource Url for UpdateOption
         /// </summary>
-        /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="attributeFQN"></param>
+        /// <param name="productCode"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -89,8 +89,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 				/// <summary>
         /// Get Resource Url for DeleteOption
         /// </summary>
-        /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
+        /// <param name="attributeFQN"></param>
+        /// <param name="productCode"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

@@ -13,24 +13,12 @@ using System;
 
 namespace Mozu.Api.Contracts.Customer
 {
-		///
-		///	The individual user information of logins that can access a shared B2B account.
-		///
 		public class B2BUserAndAuthInfo
 		{
-			///
-			///Individual user information for a login that can access a shared B2B account.
-			///
 			public B2BUser B2bUser { get; set; }
 
-			///
-			///The external password used by this login, if applicable.
-			///
 			public string ExternalPassword { get; set; }
 
-			///
-			///Indicates if this object/data was imported from an outside source such as a data import or synchronization via an app or service. If true, this data was originally imported into  and accessible through your store database. Examples of imported objects/data include orders and customer accounts.
-			///
 			public bool IsImport { get; set; }
 
 		}

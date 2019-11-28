@@ -18,16 +18,16 @@ using System.Threading;
 namespace Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles
 {
 	/// <summary>
-	/// Use the ShippingInclusionRules sub-resource to manage your shipping inclusion rules that are associated with a specific shipping profile.
+	/// 
 	/// </summary>
 	public partial class ShippingInclusionRuleClient 	{
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
-		/// <param name="profilecode">The unique, user-defined code of the profile with which the shipping inclusion rule is associated.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="id"></param>
+		/// <param name="profilecode"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingInclusionRule"/>}
@@ -52,8 +52,8 @@ namespace Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="profilecode">The unique, user-defined code of the profile with which the shipping inclusion rule is associated.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="profilecode"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingInclusionRuleCollection"/>}
@@ -78,10 +78,10 @@ namespace Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="profilecode">The unique, user-defined code of the profile with which the shipping inclusion rule is associated.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="profilecode"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="rule">The details of the new shipping inclusion rule.</param>
+		/// <param name="rule"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingInclusionRule"/>}
 		/// </returns>
@@ -105,11 +105,11 @@ namespace Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
-		/// <param name="profilecode">The unique, user-defined code of the profile with which the shipping inclusion rule is associated.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="id"></param>
+		/// <param name="profilecode"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="rule">The updated details of the shipping inclusion rule.</param>
+		/// <param name="rule"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingInclusionRule"/>}
 		/// </returns>
@@ -133,8 +133,8 @@ namespace Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
-		/// <param name="profilecode">The unique, user-defined code of the profile with which the shipping inclusion rule is associated.</param>
+		/// <param name="id"></param>
+		/// <param name="profilecode"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}

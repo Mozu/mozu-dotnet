@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin.Couponsets
 {
 	/// <summary>
-	/// Use the AssignedDiscounts resource to manage the discounts assigned to coupon sets.
+	/// 
 	/// </summary>
 	public partial class AssignedDiscountFactory : BaseDataFactory
 	{

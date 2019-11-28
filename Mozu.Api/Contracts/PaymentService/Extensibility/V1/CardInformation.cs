@@ -13,64 +13,28 @@ using System;
 
 namespace Mozu.Api.Contracts.PaymentService.Extensibility.V1
 {
-		///
-		///	Contains information about the card
-		///
 		public class CardInformation
 		{
-			///
-			///The card holder full name.
-			///
 			public string CardHolderName { get; set; }
 
-			///
-			///The month the credit card was issued; used by some cards.
-			///
 			public int CardIssueMonth { get; set; }
 
-			///
-			///The issue number of the credit card. (Used by some cards.)
-			///
 			public string CardIssueNumber { get; set; }
 
-			///
-			///The issue year; used by some cards.
-			///
 			public int CardIssueYear { get; set; }
 
-			///
-			///The CVV code for the credit card.
-			///
 			public string Cvv { get; set; }
 
-			///
-			///The two-digit month a credit card expires for a payment method.
-			///
 			public int ExpireMonth { get; set; }
 
-			///
-			///The four-digit year the credit card expires for a payment method.
-			///
 			public int ExpireYear { get; set; }
 
-			///
-			///Unique identifier of the source property, such as a catalog, discount, order, or email template.For a product field it will be the name of the field.For a category ID, must be a positive integer not greater than 2000000. By default,  auto-generates a category ID when categories are created. If you want to specify an ID during creation (which preserves category link relationships when migrating tenant data from one sandbox to another), you must also include the  query string in the endpoint. For example, . Then, use the  property to specify the desired category ID.For a product attribute it will be the Attribute FQN.For a document, the ID must be specified as a 32 character, case-insensitive, alphanumeric string. You can specify the ID as 32 sequential characters or as groups separated by dashes in the format 8-4-4-4-12. For example, or.For email templates, the ID must be one of the following values:///
-			///
 			public string Id { get; set; }
 
-			///
-			///Contains the card number or number part if the card is tokenized.
-			///
 			public string NumberPart { get; set; }
 
-			///
-			///Indicates whether to store credit card information.
-			///
 			public bool PersistCard { get; set; }
 
-			///
-			///Contains the type of credit card. For example: Visa, MasterCard.
-			///
 			public string Type { get; set; }
 
 		}

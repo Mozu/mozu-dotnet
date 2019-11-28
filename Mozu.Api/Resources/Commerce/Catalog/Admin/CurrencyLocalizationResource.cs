@@ -18,7 +18,7 @@ using System.Threading;
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 {
 	/// <summary>
-	/// Manage the currency localization rules and exchange rates for any of the currencies that are supported for placing orders in.
+	/// 
 	/// </summary>
 	public partial class CurrencyLocalizationResource  	{
 		///
@@ -42,7 +42,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.CurrencyLocalizationCollection"/>
 		/// </returns>
@@ -66,9 +66,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="toCurrencyCode">The code of the new currency that the original currency's equivalent is being calculated to.</param>
+		/// <param name="currencyCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="toCurrencyCode"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.CurrencyExchangeRate"/>
 		/// </returns>
@@ -92,8 +92,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="currencyCode"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.CurrencyExchangeRateCollection"/>
 		/// </returns>
@@ -117,8 +117,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="currencyCode"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.CurrencyLocalization"/>
 		/// </returns>
@@ -142,8 +142,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="currencyLocalization">The currency localization strategies being added to the currency data.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="currencyLocalization"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.CurrencyLocalization"/>
 		/// </returns>
@@ -167,8 +167,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
-		/// <param name="currencyExchangeRates">All of the exchange rates being provided.</param>
+		/// <param name="currencyCode"></param>
+		/// <param name="currencyExchangeRates"></param>
 		/// <returns>
 		/// <see cref="System.IO.Stream"/>
 		/// </returns>
@@ -192,7 +192,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
+		/// <param name="currencyCode"></param>
 		/// <param name="currencyExchangeRates"></param>
 		/// <returns>
 		/// <see cref="System.IO.Stream"/>
@@ -217,9 +217,9 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="currencyLocalization">The currency localization information being updated.</param>
+		/// <param name="currencyCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="currencyLocalization"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.CurrencyLocalization"/>
 		/// </returns>
@@ -243,7 +243,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
+		/// <param name="currencyCode"></param>
 		/// <returns>
 		/// <see cref="System.IO.Stream"/>
 		/// </returns>
@@ -267,8 +267,8 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
-		/// <param name="toCurrencyCode">The code of the new currency that the original currency's equivalent is being calculated to.</param>
+		/// <param name="currencyCode"></param>
+		/// <param name="toCurrencyCode"></param>
 		/// <returns>
 		/// <see cref="System.IO.Stream"/>
 		/// </returns>

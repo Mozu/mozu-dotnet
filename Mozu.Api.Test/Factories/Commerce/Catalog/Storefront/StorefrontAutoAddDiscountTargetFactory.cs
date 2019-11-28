@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Catalog.Storefront
 {
 	/// <summary>
-	/// Resources for the discounts supported on the storefront of this catalog.
+	/// 
 	/// </summary>
 	public partial class StorefrontAutoAddDiscountTargetFactory : BaseDataFactory
 	{

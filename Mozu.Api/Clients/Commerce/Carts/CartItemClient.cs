@@ -25,8 +25,59 @@ namespace Mozu.Api.Clients.Commerce.Carts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="cartItemId">Identifier of the cart item to delete.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="cartId"></param>
+		/// <param name="cartItemId"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetCartItemByCartId( cartId,  cartItemId,  responseFields);
+		///   var cartItemClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> GetCartItemByCartIdClient(string cartId, string cartItemId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Carts.CartItemUrl.GetCartItemByCartIdUrl(cartId, cartItemId, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="cartId"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItemCollection"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetCartItemsByCartId( cartId,  responseFields);
+		///   var cartItemCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItemCollection> GetCartItemsByCartIdClient(string cartId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Carts.CartItemUrl.GetCartItemsByCartIdUrl(cartId, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItemCollection>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="cartItemId">Identifier of the cart item to retrieve.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>}
 		/// </returns>
@@ -50,7 +101,7 @@ namespace Mozu.Api.Clients.Commerce.Carts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItemCollection"/>}
 		/// </returns>
@@ -67,6 +118,58 @@ namespace Mozu.Api.Clients.Commerce.Carts
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItemCollection>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="cartId"></param>
+		/// <param name="throwErrorOnInvalidItems"></param>
+		/// <param name="cartItems"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=AddItemsToCartByCartId( cartItems,  cartId,  throwErrorOnInvalidItems);
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<System.IO.Stream> AddItemsToCartByCartIdClient(List<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> cartItems, string cartId, bool? throwErrorOnInvalidItems =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Carts.CartItemUrl.AddItemsToCartByCartIdUrl(cartId, throwErrorOnInvalidItems);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<System.IO.Stream>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<List<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem>>(cartItems);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="cartId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="cartItem"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=AddItemToCartByCartId( cartItem,  cartId,  responseFields);
+		///   var cartItemClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> AddItemToCartByCartIdClient(Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem cartItem, string cartId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Carts.CartItemUrl.AddItemToCartByCartIdUrl(cartId, responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem>(cartItem);
 			return mozuClient;
 
 		}
@@ -99,8 +202,8 @@ namespace Mozu.Api.Clients.Commerce.Carts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="cartItem">Properties of an item added to an active shopping cart.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="cartItem">All properties of the new cart item. The product code is required.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>}
 		/// </returns>
@@ -124,9 +227,63 @@ namespace Mozu.Api.Clients.Commerce.Carts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="cartItemId">Identifier of the cart item to delete.</param>
+		/// <param name="cartId"></param>
+		/// <param name="cartItemId"></param>
+		/// <param name="quantity"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=UpdateCartItemQuantityByCartId( cartId,  cartItemId,  quantity,  responseFields);
+		///   var cartItemClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> UpdateCartItemQuantityByCartIdClient(string cartId, string cartItemId, int quantity, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Carts.CartItemUrl.UpdateCartItemQuantityByCartIdUrl(cartId, cartItemId, quantity, responseFields);
+			const string verb = "PUT";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="cartId"></param>
+		/// <param name="cartItemId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="cartItem"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=UpdateCartItemByCartId( cartItem,  cartId,  cartItemId,  responseFields);
+		///   var cartItemClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem> UpdateCartItemByCartIdClient(Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem cartItem, string cartId, string cartItemId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Carts.CartItemUrl.UpdateCartItemByCartIdUrl(cartId, cartItemId, responseFields);
+			const string verb = "PUT";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem>(cartItem);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="cartItemId">Identifier of the cart item to update quantity.</param>
 		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>}
 		/// </returns>
@@ -150,9 +307,9 @@ namespace Mozu.Api.Clients.Commerce.Carts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="cartItemId">Identifier of the cart item to delete.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="cartItem">Properties of an item added to an active shopping cart.</param>
+		/// <param name="cartItemId">Identifier of the cart item to update.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="cartItem">The properties of the cart item to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>}
 		/// </returns>
@@ -169,6 +326,55 @@ namespace Mozu.Api.Clients.Commerce.Carts
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem>(cartItem);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="cartId"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=RemoveAllCartItemsByCartId( cartId);
+		///   var cartClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> RemoveAllCartItemsByCartIdClient(string cartId)
+		{
+			var url = Mozu.Api.Urls.Commerce.Carts.CartItemUrl.RemoveAllCartItemsByCartIdUrl(cartId);
+			const string verb = "DELETE";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="cartId"></param>
+		/// <param name="cartItemId"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=DeleteCartItemByCartId( cartId,  cartItemId);
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<System.IO.Stream> DeleteCartItemByCartIdClient(string cartId, string cartItemId)
+		{
+			var url = Mozu.Api.Urls.Commerce.Carts.CartItemUrl.DeleteCartItemByCartIdUrl(cartId, cartItemId);
+			const string verb = "DELETE";
+			var mozuClient = new MozuClient<System.IO.Stream>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
 			return mozuClient;
 
 		}

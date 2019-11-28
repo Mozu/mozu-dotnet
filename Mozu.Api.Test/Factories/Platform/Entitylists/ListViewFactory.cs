@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Platform.Entitylists
 {
 	/// <summary>
-	/// Provides settings and options for displaying associated content within a context level of site, tenant, catalog, or master catalog. ListViews can be associated with entity lists and entities.
+	/// 
 	/// </summary>
 	public partial class ListViewFactory : BaseDataFactory
 	{

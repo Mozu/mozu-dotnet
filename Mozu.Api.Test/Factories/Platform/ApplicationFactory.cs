@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Platform
 {
 	/// <summary>
-	/// Use the Developer resource to view and update information and files related to application packages.
+	/// 
 	/// </summary>
 	public partial class ApplicationFactory : BaseDataFactory
 	{

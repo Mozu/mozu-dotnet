@@ -25,11 +25,11 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.Credit.CreditCollection"/>}
 		/// </returns>
@@ -53,8 +53,8 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="code">User-defined code that identifies the store credit to retrieve.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.Credit.Credit"/>}
 		/// </returns>
@@ -78,9 +78,9 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
-		/// <param name="credit">Properties of the store credit of gift card applied to a customer account. At this time, gift card functionality is reserved for future use.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="userId"></param>
+		/// <param name="credit">Properties of the store credit to create.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.Credit.Credit"/>}
 		/// </returns>
@@ -104,8 +104,8 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="code">The code that represents the credit to claim for the shopper.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.Credit.Credit"/>}
 		/// </returns>
@@ -129,8 +129,8 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
-		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
+		/// <param name="code"></param>
+		/// <param name="userId"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
@@ -154,9 +154,9 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="credit">Properties of the store credit of gift card applied to a customer account. At this time, gift card functionality is reserved for future use.</param>
+		/// <param name="code">User-defined code of the store credit to update.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="credit">Properties of the store credit to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.Credit.Credit"/>}
 		/// </returns>
@@ -180,7 +180,7 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
+		/// <param name="code">User-defined code of the store credit to delete.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>

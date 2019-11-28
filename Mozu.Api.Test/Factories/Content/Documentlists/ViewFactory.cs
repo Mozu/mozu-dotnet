@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Content.Documentlists
 {
 	/// <summary>
-	/// Properties and content for views within a site/tenant. Views provide the schema, formatting, and associated content and entities for displaying content within a site/tenant.
+	/// 
 	/// </summary>
 	public partial class ViewFactory : BaseDataFactory
 	{

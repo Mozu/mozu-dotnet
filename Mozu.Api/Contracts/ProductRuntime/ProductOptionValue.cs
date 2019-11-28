@@ -14,24 +14,18 @@ using System;
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
-		///	Properties of a value associated with a product option attribute.
+		///	Represents the values that are the product option selections for a shopper to choose when ordering a product.
 		///
 		public class ProductOptionValue
 		{
 			public int AttributeValueId { get; set; }
 
-			///
-			///The bundled product of a product as extra
-			///
 			public BundledProduct BundledProduct { get; set; }
 
 			public decimal? DeltaPrice { get; set; }
 
 			public decimal? DeltaWeight { get; set; }
 
-			///
-			///Defines the intended display of this attribute in the storefront. Options include Drop Down, Image Picker, and Radio Buttons.
-			///
 			public AttributeVocabularyValueDisplayInfo DisplayInfo { get; set; }
 
 			public bool? IsDefault { get; set; }

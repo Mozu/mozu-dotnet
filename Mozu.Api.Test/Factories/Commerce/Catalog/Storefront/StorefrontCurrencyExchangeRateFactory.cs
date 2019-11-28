@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Catalog.Storefront
 {
 	/// <summary>
-	/// Resources for the currencies that are supported on the storefront for this catalog.
+	/// 
 	/// </summary>
 	public partial class StorefrontCurrencyExchangeRateFactory : BaseDataFactory
 	{

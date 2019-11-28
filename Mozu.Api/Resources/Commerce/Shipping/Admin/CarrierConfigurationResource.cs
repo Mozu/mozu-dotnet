@@ -18,7 +18,7 @@ using System.Threading;
 namespace Mozu.Api.Resources.Commerce.Shipping.Admin
 {
 	/// <summary>
-	/// Use the Carriers resource to configure and manage your supported shipping carrier configurations.
+	/// 
 	/// </summary>
 	public partial class CarrierConfigurationResource  	{
 		///
@@ -42,11 +42,11 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ShippingAdmin.CarrierConfigurationCollection"/>
 		/// </returns>
@@ -70,8 +70,8 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="carrierId">The unique identifier of the carrier.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="carrierId"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration"/>
 		/// </returns>
@@ -95,9 +95,9 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="carrierId">The unique identifier of the carrier.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="carrierConfiguration">Properties of a carrier configured in the shipping admin.</param>
+		/// <param name="carrierId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="carrierConfiguration"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration"/>
 		/// </returns>
@@ -121,9 +121,9 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="carrierId">The unique identifier of the carrier.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="carrierConfiguration">Properties of a carrier configured in the shipping admin.</param>
+		/// <param name="carrierId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="carrierConfiguration"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration"/>
 		/// </returns>
@@ -147,7 +147,7 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="carrierId">The unique identifier of the carrier configuration.</param>
+		/// <param name="carrierId"></param>
 		/// <returns>
 		/// <see cref="System.IO.Stream"/>
 		/// </returns>

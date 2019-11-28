@@ -21,9 +21,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Discounts
 		{
 			public DateTime? ExpirationDate { get; set; }
 
-			///
-			///Indicates whether the discount includes multiple products to be targeted. The target products are what the discount will be applied to, such as a bonus free item.
-			///
 			public bool HasMultipleTargetProducts { get; set; }
 
 			public int Id { get; set; }

@@ -24,23 +24,14 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 		///
 		public class WishlistItem
 		{
-			///
-			///The adjusted subtotal of the line item, including all manual adjustments, discounts, shipping charges and discounts, and duty or any other additional line item fees.
-			///
 			public decimal? AdjustedLineItemSubtotal { get; set; }
 
 			public AuditInfo AuditInfo { get; set; }
 
-			///
-			///Identifier for the auto-add discount being applied.
-			///
 			public int? AutoAddDiscountId { get; set; }
 
 			public string Comments { get; set; }
 
-			///
-			///Custom data for a given vendor set within the commerce process.
-			///
 			public JObject Data { get; set; }
 
 			public decimal? DiscountedTotal { get; set; }
@@ -51,9 +42,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 
 			public decimal? FeeTotal { get; set; }
 
-			///
-			///The combined price for all handling costs calculated together for shipped orders, not for digital or in-store pickup. This includes all handling costs per the product line items and options, excluding taxes and discounts. 
-			///
 			public decimal? HandlingAmount { get; set; }
 
 			public string Id { get; set; }
@@ -64,9 +52,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 
 			public decimal? ItemTaxTotal { get; set; }
 
-			///
-			///The line id assigned to the order item. Visible only in the Admin, this is set from the Admin or in CommerceRuntime when a cart is converted to an order.
-			///
 			public int? LineId { get; set; }
 
 			public string LocaleCode { get; set; }
@@ -76,7 +61,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 			public Product Product { get; set; }
 
 			///
-			///The applicable product discount for an associated cart, order, or wish list. 
+			///List of product discounts that apply to the item in the wishlist.
 			///
 			public AppliedLineItemProductDiscount ProductDiscount { get; set; }
 
@@ -84,16 +69,10 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 
 			public string PurchasableStatusType { get; set; }
 
-			///
-			///The location where the order item(s) was purchased.
-			///
 			public string PurchaseLocation { get; set; }
 
 			public int Quantity { get; set; }
 
-			///
-			///The total shipping amount for the line item before discounts and adjustments.
-			///
 			public decimal? ShippingAmountBeforeDiscountsAndAdjustments { get; set; }
 
 			public List<AppliedLineItemShippingDiscount> ShippingDiscounts { get; set; }
@@ -106,83 +85,38 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Wishlists
 
 			public decimal? TaxableTotal { get; set; }
 
-			///
-			///Leverage this property within a [tax Arc.js action](https://www.mozu.com/docs/arcjs/commerce-catalog-storefront-tax/commerce-catalog-storefront-tax.htm) to supplement the tax information for this item or object with custom JSON data.
-			///
 			public JObject TaxData { get; set; }
 
 			public decimal? Total { get; set; }
 
-			///
-			///The total charge for the line item without any weighted order level shipping and handling charges.
-			///
 			public decimal? TotalWithoutWeightedShippingAndHandling { get; set; }
 
-			///
-			///The total charge for the line item with all weighted order level shipping and handling charges.
-			///
 			public decimal? TotalWithWeightedShippingAndHandling { get; set; }
 
 			public CommerceUnitPrice UnitPrice { get; set; }
 
-			///
-			///The total weighted order level manual adjustment amount.
-			///
 			public decimal? WeightedOrderAdjustment { get; set; }
 
-			///
-			///The total weighted order level discount amount.
-			///
 			public decimal? WeightedOrderDiscount { get; set; }
 
-			///
-			///The total weighted order level duty charges.
-			///
 			public decimal? WeightedOrderDuty { get; set; }
 
-			///
-			///The adjustment to apply to the order handling fee.
-			///
 			public decimal? WeightedOrderHandlingAdjustment { get; set; }
 
-			///
-			///The total weighted order level handling fee amount.
-			///
 			public decimal? WeightedOrderHandlingFee { get; set; }
 
-			///
-			///The total weighted order handling fee discount amount.
-			///
 			public decimal? WeightedOrderHandlingFeeDiscount { get; set; }
 
-			///
-			///The total weighted order level handling fee tax amount.
-			///
 			public decimal? WeightedOrderHandlingFeeTax { get; set; }
 
-			///
-			///The total weighted order level shipping charge.
-			///
 			public decimal? WeightedOrderShipping { get; set; }
 
-			///
-			///The total weighted order level shipping discount amount.
-			///
 			public decimal? WeightedOrderShippingDiscount { get; set; }
 
-			///
-			///The total weighted order level shipping manual adjustment amount.
-			///
 			public decimal? WeightedOrderShippingManualAdjustment { get; set; }
 
-			///
-			///The total weighted order level shipping tax amount.
-			///
 			public decimal? WeightedOrderShippingTax { get; set; }
 
-			///
-			///The total weighted order level tax amount.
-			///
 			public decimal? WeightedOrderTax { get; set; }
 
 		}

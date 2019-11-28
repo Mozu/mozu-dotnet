@@ -16,84 +16,36 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.Content
 {
-		///
-		///	Properties for the document list type. Document lists contain documents with an associated document type, such as web pages.
-		///
 		public class DocumentListType
 		{
-			///
-			///Definition of any documents to create with a document list is created. 
-			///
 			public List<DocumentInstallation> DefaultDocuments { get; set; }
 
-			///
-			///The fully qualified name for the document list type for content. 
-			///
 			public string DocumentListTypeFQN { get; set; }
 
-			///
-			///List of fully qualified names for the document type.
-			///
 			public List<string> DocumentTypeFQNs { get; set; }
 
-			///
-			///Determines if documentLists belonging to this documentListType have ActiveDateRanges turned on or off. Each documentList created from the documentListType will use this value, but it can be overridden in an individual documentList.
-			///
 			public bool? EnableActiveDateRanges { get; set; }
 
-			///
-			///Indicates if the document list and document list type are enabled to publish. If true, publishing of draft documents in this document list/document list type is enabled for the site. If false, all document changes are immediately published in live mode.
-			///
 			public bool? EnablePublishing { get; set; }
 
-			///
-			///The package of document lists and content documents to be installed.
-			///
 			public string InstallationPackage { get; set; }
 
-			///
-			///Metadata content for entities, used by document lists, document type lists, document type, views, entity lists, and list views.
-			///
 			public JObject Metadata { get; set; }
 
-			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
-			///
 			public string Name { get; set; }
 
-			///
-			///The namespace for the accessible APIs and source capabilities in the core of  APIs.
-			///
 			public string Namespace { get; set; }
 
-			///
-			///The type of scope associated with the documentList. For example, if the documentList is pageTemplateContent, the scopeType is Site.Valid values are: "Tenant", "MasterCatalog", and "Site".
-			///
 			public string ScopeType { get; set; }
 
-			///
-			///Determines if documentLists belonging to this documentListType will support drafting and ActiveDateRanges documents. This field defaults to false and cannot be updated. Each documentList created from the documentListType will use this value.
-			///
 			public bool SupportsActiveDateRanges { get; set; }
 
-			///
-			///Indicates if modified documents are published automatically or saved to publish at a later time. If true, changed documents in this list can be saved as drafts until they are published to the site. If false, all document changes are immediately published in live mode. System-supplied and read only.
-			///
 			public bool SupportsPublishing { get; set; }
 
-			///
-			///A string array that determines where the document or entity list displays. The options are , for displaying content in the Custom Schema page in  , and , for displaying content in the site tree in Site Builder (applies only to document lists). The following example demonstrates how to display content across both options:
-			///
 			public List<string> Usages { get; set; }
 
-			///
-			///The current version number of the order, wish list, document list, or document type list.
-			///
 			public string Version { get; set; }
 
-			///
-			///The view in the site used by associated entities or document lists/list types.
-			///
 			public List<View> Views { get; set; }
 
 		}

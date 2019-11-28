@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin
 {
 	/// <summary>
-	/// Manage the currency localization rules and exchange rates for any of the currencies that are supported for placing orders in.
+	/// 
 	/// </summary>
 	public partial class CurrencyLocalizationFactory : BaseDataFactory
 	{

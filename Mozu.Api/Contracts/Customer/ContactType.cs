@@ -19,12 +19,12 @@ namespace Mozu.Api.Contracts.Customer
 		public class ContactType
 		{
 			///
-			///Indicates if the object is primary, used to indicate primary contacts and entities within a tenant. If true, this marker indicates that the object is the primary in a set.
+			///If true, this is the primary contact of this contact type.
 			///
 			public bool IsPrimary { get; set; }
 
 			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
+			///The name of this contact type.
 			///
 			public string Name { get; set; }
 

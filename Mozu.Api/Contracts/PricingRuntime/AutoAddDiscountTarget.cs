@@ -14,24 +14,12 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.PricingRuntime
 {
-		///
-		///	The target product of an auto-add discount.
-		///
 		public class AutoAddDiscountTarget
 		{
-			///
-			///The unique identifier of the discount.
-			///
 			public int DiscountId { get; set; }
 
-			///
-			///The localizable, shopper-facing description defined for a discount or a storefront message.
-			///
 			public string FriendlyDescription { get; set; }
 
-			///
-			///The identification codes of products added to the cart as part of an auto-add discount.
-			///
 			public List<string> IncludedProductCodes { get; set; }
 
 		}

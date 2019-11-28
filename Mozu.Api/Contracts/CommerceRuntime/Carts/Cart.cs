@@ -26,14 +26,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 		{
 			public AuditInfo AuditInfo { get; set; }
 
-			///
-			///An array of message details associated with the cart.
-			///
 			public CartMessage CartMessage { get; set; }
 
-			///
-			///A list of cart messages associated with the cart.
-			///
 			public List<CartMessage> CartMessages { get; set; }
 
 			public List<ChangeMessage> ChangeMessages { get; set; }
@@ -41,7 +35,7 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 			public string ChannelCode { get; set; }
 
 			///
-			///Array list of coupon codes associated with a shopping cart and the associated order. These codes are entered by a shopper when proceeding to checkout. 
+			///The coupon codes applied to the cart. When the customer proceeds to checkout, the coupons applied to the cart apply to the order.
 			///
 			public List<string> CouponCodes { get; set; }
 
@@ -49,54 +43,36 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 
 			public string CustomerInteractionType { get; set; }
 
-			///
-			///Custom data for a given vendor set within the commerce process.
-			///
 			public JObject Data { get; set; }
 
 			public decimal? DiscountedSubtotal { get; set; }
 
 			public decimal? DiscountedTotal { get; set; }
 
-			///
-			///A list of threshold messages to display on Cart page.
-			///
 			public List<ThresholdMessage> DiscountThresholdMessages { get; set; }
 
 			public decimal? DiscountTotal { get; set; }
 
 			public DateTime? ExpirationDate { get; set; }
 
-			///
-			///Extra properties (key-value pairs) that extend the primary object. Think of this as a property bag of string keys and string values.
-			///
 			public List<ExtendedProperty> ExtendedProperties { get; set; }
 
 			public decimal? FeeTotal { get; set; }
 
 			public FulfillmentInfo FulfillmentInfo { get; set; }
 
-			///
-			///The combined price for all handling costs calculated together for shipped orders, not for digital or in-store pickup. This includes all handling costs per the product line items and options, excluding taxes and discounts.
-			///
 			public decimal? HandlingAmount { get; set; }
 
-			///
-			///The handling fee subtotal included in the cart calculation.
-			///
 			public decimal? HandlingSubTotal { get; set; }
 
 			public decimal? HandlingTaxTotal { get; set; }
 
-			///
-			///The handling fee total included in the cart calculation.
-			///
 			public decimal? HandlingTotal { get; set; }
 
 			public string Id { get; set; }
 
 			///
-			///The list of invalid coupons the shopper attempted to enter for the cart or order. These coupons may no longer be valid or incorrectly entered.
+			///The list of invalid coupons the shopper attempted to enter for the cart.
 			///
 			public List<InvalidCoupon> InvalidCoupons { get; set; }
 
@@ -106,26 +82,14 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 
 			public DateTime? LastValidationDate { get; set; }
 
-			///
-			///The total charge for the line item with all weighted order level manual adjustments.
-			///
 			public decimal? LineItemSubtotalWithOrderAdjustments { get; set; }
 
 			public List<AppliedDiscount> OrderDiscounts { get; set; }
 
-			///
-			///Code for the pricelist being applied to the products in the cart.
-			///
 			public string PriceListCode { get; set; }
 
-			///
-			///A list of the discounts that were rejected from being applied to the cart.
-			///
 			public List<SuggestedDiscount> RejectedDiscounts { get; set; }
 
-			///
-			///The total shipping amount for the cart before discounts and adjustments.
-			///
 			public decimal? ShippingAmountBeforeDiscountsAndAdjustments { get; set; }
 
 			public decimal? ShippingSubTotal { get; set; }
@@ -138,14 +102,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Carts
 
 			public decimal? Subtotal { get; set; }
 
-			///
-			///Refers to the BOGA discounts that are currently satisfied but whose free item has not yet been added.
-			///
 			public List<SuggestedDiscount> SuggestedDiscounts { get; set; }
 
-			///
-			///Leverage this property within a [tax Arc.js action](https://www.mozu.com/docs/arcjs/commerce-catalog-storefront-tax/commerce-catalog-storefront-tax.htm) to supplement the tax information for this item or object with custom JSON data.
-			///
 			public JObject TaxData { get; set; }
 
 			public decimal? TaxTotal { get; set; }

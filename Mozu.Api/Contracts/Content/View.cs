@@ -16,14 +16,8 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.Content
 {
-		///
-		///	A view can select which fields are returned from a document query.
-		///
 		public class View
 		{
-			///
-			///The list of fields to display for a view or an associated schema. For example, the address schema would display fields for postal addresses.
-			///
 			public List<ViewField> Fields { get; set; }
 
 			///
@@ -31,34 +25,16 @@ namespace Mozu.Api.Contracts.Content
 			///
 			public string Filter { get; set; }
 
-			///
-			///Specifies how to filter views based on the status of a document.You can specify the following values for this property: or nullâ€”all documents return in the view.â€”only documents within the active date range (or documents without an active date range specified) return in the view.â€”only documents with an active date range set in the future return in the view.â€”only scheduled and active documents return in the view.â€”only documents with an active date range set in the past return in the view.
-			///
 			public string IncludeInactiveMode { get; set; }
 
-			///
-			///If , specifies that the view is the default view for a documentList or documentListType when viewed in . If no view is specified as default, then the first view in the documentList or documentListType is default. Only one view within a documentList or documentListType can have this value set to .
-			///
 			public bool? IsAdminDefault { get; set; }
 
-			///
-			///The isVisibleInStorefront field indicates whether documents in the view can be accessed from the  storefront application. If true, the storefront application and storefront client application (javascript tier) can GET documents from the view.
-			///
 			public bool? IsVisibleInStorefront { get; set; }
 
-			///
-			///Metadata content for entities, used by document lists, document type lists, document type, views, entity lists, and list views.
-			///
 			public JObject Metadata { get; set; }
 
-			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
-			///
 			public string Name { get; set; }
 
-			///
-			///A string array that determines where the document or entity list displays. The options are , for displaying content in the Custom Schema page in  , and , for displaying content in the site tree in Site Builder (applies only to document lists). The following example demonstrates how to display content across both options:
-			///
 			public List<string> Usages { get; set; }
 
 		}

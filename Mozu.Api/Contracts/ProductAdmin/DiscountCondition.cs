@@ -22,7 +22,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public List<CategoryDiscountCondition> CategoriesToExcludeFromMinOrderTotal { get; set; }
 
 			///
-			///The coupon code that a shopper uses to redeem an associated discount  on a purchase. This is also the unique identifier of the coupon itself.
+			///If the discount is a coupon, the code required to redeem the coupon.
 			///
 			public string CouponCode { get; set; }
 
@@ -37,12 +37,12 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public List<CategoryDiscountCondition> ExcludedCategories { get; set; }
 
 			///
-			///List of products that are not eligible for the discount.
+			///List of the products that are not eligible for the discount.
 			///
 			public List<ProductDiscountCondition> ExcludedProducts { get; set; }
 
 			///
-			///Date and time in UTC format when a discount, credit, wish list, or cart expires. An expired discount no longer can be redeemed. An expired wish list is no longer available. An expired credit can no longer be redeemed for a purchase. Acart becomes inactive and expired based on a system-calculated interval. For example, if an anonymous shopper has 14 days of inactivity, the cart is considered abandoned after that period of inactivity. System-supplied and read-only.
+			///The date and time on which the discount expires and cannot be redeemed.
 			///
 			public DateTime? ExpirationDate { get; set; }
 
@@ -51,9 +51,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public List<CategoryDiscountCondition> IncludedCategories { get; set; }
 
-			///
-			///List of payment types that trigger this discount to be valid.
-			///
 			public List<string> IncludedPaymentWorkflows { get; set; }
 
 			///
@@ -61,9 +58,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public List<ProductDiscountCondition> IncludedProducts { get; set; }
 
-			///
-			///This allows you to set a maximum order total as a condition of a discount, so the discount only applies when the shopper has an order totaling less than that value. This allows you to have more control over when discounts should or should not apply in order to control costs, especially when combined with a minimum order value to create a range of order values that are eligible for the discount. This can be used in addition to other discount conditions as well.
-			///
 			public decimal? MaximumOrderAmount { get; set; }
 
 			///
@@ -72,7 +66,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public int? MaxRedemptionCount { get; set; }
 
 			///
-			///This specifies the minimum amount that must be purchased in the combined categories defined in IncludedCategories. This amount is calculated before discounting and it is not used if IncludedCategories is empty.
+			///This pecifies the minimum amount that must be purchased in the combined categories defined in IncludedCategories. This amount is calculated before discounting and it is not used if IncludedCategories is empty.
 			///
 			public decimal? MinimumCategorySubtotalBeforeDiscounts { get; set; }
 
@@ -87,18 +81,15 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public decimal? MinimumOrderAmount { get; set; }
 
 			///
-			///This specifies the minimum quantity of products in the categories specified in IncludedCategories, which must be purchased to qualify for the associated discount. This defaults to 1 if null, and IncludedCategories has values.
+			///This specifies the minimum quantity of products in the categories specified in IncludedCategories, which must be purchased to qualify for the associated discount. This defaults to 1 if  null, and IncludedCategories has values.
 			///
 			public int? MinimumQuantityProductsRequiredInCategories { get; set; }
 
 			///
-			///This specifies the minimum quantity of products in the specified IncludedProducts that must be purchased to qualify for the associated discount. This defaults to 1 if null, and IncludedProducts has values.
+			///This specifies the minimum quantity of products in the specified IncludedProducts that must be purchased to qualify for the associated discount. This defaults to 1 if  null, and IncludedProducts has values.
 			///
 			public int? MinimumQuantityRequiredProducts { get; set; }
 
-			///
-			///minimumRequiredQuantityPerRedemption ApiType DOCUMENT_HERE 
-			///
 			public int? MinimumRequiredQuantityPerRedemption { get; set; }
 
 			public List<ProductDiscountCondition> ProductsToExcludeFromMinOrderTotal { get; set; }
