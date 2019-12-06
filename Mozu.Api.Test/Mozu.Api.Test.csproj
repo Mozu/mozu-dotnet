@@ -177,6 +177,7 @@
     <Compile Include="Factories\Commerce\Customer\CustomerSegmentFactory.cs" />
     <Compile Include="Factories\Commerce\Customer\CustomerSetFactory.cs" />
     <Compile Include="Factories\Commerce\Customer\VisitFactory.cs" />
+    <Compile Include="Factories\Commerce\FulfillmentProxyFactory.cs" />
     <Compile Include="Factories\Commerce\InStockNotificationSubscriptionFactory.cs" />
     <Compile Include="Factories\Commerce\LocationFactory.cs" />
     <Compile Include="Factories\Commerce\OrderFactory.cs" />
