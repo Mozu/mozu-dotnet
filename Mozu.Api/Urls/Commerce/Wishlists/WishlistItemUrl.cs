@@ -19,9 +19,9 @@ namespace Mozu.Api.Urls.Commerce.Wishlists
 		/// <summary>
         /// Get Resource Url for GetWishlistItem
         /// </summary>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="wishlistId">Unique identifier of the wish list.</param>
-        /// <param name="wishlistItemId">Unique identifier of the item to remove from the shopper wish list.</param>
+        /// <param name="responseFields"></param>
+        /// <param name="wishlistId">Unique identifier of the wish list item to retrieve.</param>
+        /// <param name="wishlistItemId">Unique identifier of the wish list associated with the item to retrieve.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -38,12 +38,12 @@ namespace Mozu.Api.Urls.Commerce.Wishlists
 		/// <summary>
         /// Get Resource Url for GetWishlistItems
         /// </summary>
-        /// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-        /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
-        /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
-        /// <param name="wishlistId">Unique identifier of the wish list.</param>
+        /// <param name="filter"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="sortBy"></param>
+        /// <param name="startIndex"></param>
+        /// <param name="wishlistId">Unique identifier of the wish list associated with the items to retrieve.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -63,13 +63,13 @@ namespace Mozu.Api.Urls.Commerce.Wishlists
 		/// <summary>
         /// Get Resource Url for GetWishlistItemsByWishlistName
         /// </summary>
-        /// <param name="customerAccountId">The unique identifier of the customer account for which to retrieve wish lists.</param>
-        /// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-        /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
-        /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
-        /// <param name="wishlistName">The name of the wish list to retrieve.</param>
+        /// <param name="customerAccountId">The unique identifier of the customer account associated with the wish list.</param>
+        /// <param name="filter"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="sortBy"></param>
+        /// <param name="startIndex"></param>
+        /// <param name="wishlistName">The name of the wish list that contains the items to retrieve.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -90,8 +90,8 @@ namespace Mozu.Api.Urls.Commerce.Wishlists
 				/// <summary>
         /// Get Resource Url for AddItemToWishlist
         /// </summary>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="wishlistId">Unique identifier of the wish list.</param>
+        /// <param name="responseFields"></param>
+        /// <param name="wishlistId">Unique identifier of the wish list associated with the item to add.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -107,10 +107,10 @@ namespace Mozu.Api.Urls.Commerce.Wishlists
 				/// <summary>
         /// Get Resource Url for UpdateWishlistItemQuantity
         /// </summary>
-        /// <param name="quantity">The number of cart items in the shopper's active cart.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="wishlistId">Unique identifier of the wish list.</param>
-        /// <param name="wishlistItemId">Unique identifier of the item to remove from the shopper wish list.</param>
+        /// <param name="quantity">The quantity of the item in the wish list.</param>
+        /// <param name="responseFields"></param>
+        /// <param name="wishlistId">Unique identifier of the wish list associated with the item quantity to update.</param>
+        /// <param name="wishlistItemId">Unique identifier of the item in the wish list to update quantity.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -128,9 +128,9 @@ namespace Mozu.Api.Urls.Commerce.Wishlists
 		/// <summary>
         /// Get Resource Url for UpdateWishlistItem
         /// </summary>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="wishlistId">Unique identifier of the wish list.</param>
-        /// <param name="wishlistItemId">Unique identifier of the item to remove from the shopper wish list.</param>
+        /// <param name="responseFields"></param>
+        /// <param name="wishlistId">Unique identifier of the wish list associated with the item to update.</param>
+        /// <param name="wishlistItemId">Unique identifier of the item in the shopper wish list to update.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -147,7 +147,7 @@ namespace Mozu.Api.Urls.Commerce.Wishlists
 				/// <summary>
         /// Get Resource Url for RemoveAllWishlistItems
         /// </summary>
-        /// <param name="wishlistId">Unique identifier of the wish list.</param>
+        /// <param name="wishlistId">Unique identifier of the wish list associated with the items to remove.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -162,7 +162,7 @@ namespace Mozu.Api.Urls.Commerce.Wishlists
 		/// <summary>
         /// Get Resource Url for DeleteWishlistItem
         /// </summary>
-        /// <param name="wishlistId">Unique identifier of the wish list.</param>
+        /// <param name="wishlistId">Unique identifier of the wish list associated with the item to remove.</param>
         /// <param name="wishlistItemId">Unique identifier of the item to remove from the shopper wish list.</param>
         /// <returns>
         /// String - Resource Url

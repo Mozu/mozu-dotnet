@@ -20,12 +20,12 @@ namespace Mozu.Api.Urls.Commerce.Customer
         /// Get Resource Url for GetAccounts
         /// </summary>
         /// <param name="fields">The fields to include in the response.</param>
-        /// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
+        /// <param name="filter"></param>
         /// <param name="isAnonymous">If true, retrieve anonymous shopper accounts in the response.</param>
         /// <param name="pageSize"></param>
-        /// <param name="q">A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.</param>
+        /// <param name="q">A list of customer account search terms to use in the query when searching across customer name and email. Separate multiple search terms with a space character.</param>
         /// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <param name="sortBy"></param>
         /// <param name="startIndex"></param>
         /// <returns>
@@ -51,7 +51,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
         /// Get Resource Url for GetLoginState
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -67,8 +67,8 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for GetAccount
         /// </summary>
-        /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="accountId">Unique identifier of the customer account to retrieve.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -84,7 +84,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 				/// <summary>
         /// Get Resource Url for AddAccount
         /// </summary>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -99,8 +99,8 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for ChangePassword
         /// </summary>
-        /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="unlockAccount">Specifies whether to unlock the specified customer account.</param>
+        /// <param name="accountId">The customer account information required to change the userpassword.</param>
+        /// <param name="unlockAccount"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -117,7 +117,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
         /// Get Resource Url for AddLoginToExistingCustomer
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -133,7 +133,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for RecomputeCustomerLifetimeValue
         /// </summary>
-        /// <param name="accountId">Unique identifier of the customer account.</param>
+        /// <param name="accountId">The unique identifier of the customer account for which to calculate customer lifetime value.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -148,7 +148,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for SetLoginLocked
         /// </summary>
-        /// <param name="accountId">Unique identifier of the customer account.</param>
+        /// <param name="accountId">The unique identifier of the customer account.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -178,7 +178,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for AddAccountAndLogin
         /// </summary>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -193,7 +193,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for AddAccounts
         /// </summary>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -208,7 +208,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for ChangePasswords
         /// </summary>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -223,9 +223,9 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for GetLoginStateByEmailAddress
         /// </summary>
-        /// <param name="customerSetCode">The unique idenfitier of the customer set.</param>
+        /// <param name="customerSetCode"></param>
         /// <param name="emailAddress">The email address associated with the customer account.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -242,8 +242,8 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for GetLoginStateByUserName
         /// </summary>
-        /// <param name="customerSetCode">The unique idenfitier of the customer set.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="customerSetCode"></param>
+        /// <param name="responseFields"></param>
         /// <param name="userName">The user name associated with the customer account.</param>
         /// <returns>
         /// String - Resource Url
@@ -261,10 +261,10 @@ namespace Mozu.Api.Urls.Commerce.Customer
 		/// <summary>
         /// Get Resource Url for GetCustomersPurchaseOrderAccounts
         /// </summary>
-        /// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-        /// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
-        /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+        /// <param name="pageSize"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="sortBy"></param>
+        /// <param name="startIndex"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -296,7 +296,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
         /// Get Resource Url for UpdateAccount
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -312,7 +312,7 @@ namespace Mozu.Api.Urls.Commerce.Customer
 				/// <summary>
         /// Get Resource Url for DeleteAccount
         /// </summary>
-        /// <param name="accountId">Unique identifier of the customer account.</param>
+        /// <param name="accountId">Unique identifier of the customer account to delete.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

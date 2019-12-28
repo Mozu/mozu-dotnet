@@ -19,54 +19,24 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		///
 		public class FacetValue
 		{
-			///
-			///If applicable, the values of any subcategory facets in a hierarchy. Hierarchical facets only apply for product categories.
-			///
 			public List<FacetValue> ChildrenFacetValues { get; set; }
 
-			///
-			///The total number of associated items.
-			///
 			public int Count { get; set; }
 
-			///
-			///Submits the selected facet value as a facet value filter.
-			///
 			public string FilterValue { get; set; }
 
-			///
-			///If true, the facet value is applied as a filter in the storefront product search.
-			///
 			public bool? IsApplied { get; set; }
 
-			///
-			///Indicates if the object is displayed on the storefront. If true, the admin product category is displayed in the store. If false, the category is not displayed.
-			///
 			public bool IsDisplayed { get; set; }
 
-			///
-			///Descriptive text used as a label for objects, such as field names, facets, date ranges, contact information, and package information.
-			///
 			public string Label { get; set; }
 
-			///
-			///If applicable, the values of any parent category facets in a hierarchy. Hierarchical facets only apply for product categories.
-			///
 			public string ParentFacetValue { get; set; }
 
-			///
-			///The maximum value selected or entered for the facet range query.
-			///
 			public string RangeQueryValueEnd { get; set; }
 
-			///
-			///The minimum value selected or entered for the facet range query.
-			///
 			public string RangeQueryValueStart { get; set; }
 
-			///
-			///The value of a property, used by numerous objects within  including facets, attributes, products, localized content, metadata, capabilities ( and third-party), location inventory adjustment, and more. The value may be a string, integer, or double. Validation may be run against the entered and saved values depending on the object type.
-			///
 			public string Value { get; set; }
 
 		}

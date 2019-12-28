@@ -29,7 +29,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string DistPartNumber { get; set; }
 
 			///
-			///The manufacturer's part number for the product.
+			///The manufacturer part number associated with this product, defined by the product manufacturer.
 			///
 			public string MfgPartNumber { get; set; }
 

@@ -20,7 +20,7 @@ namespace Mozu.Api.Urls.Platform.Developer
         /// Get Resource Url for CreateDeveloperUserAuthTicket
         /// </summary>
         /// <param name="developerAccountId">Unique identifier of the developer account.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -37,7 +37,7 @@ namespace Mozu.Api.Urls.Platform.Developer
         /// Get Resource Url for RefreshDeveloperAuthTicket
         /// </summary>
         /// <param name="developerAccountId">Unique identifier of the developer account.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -53,7 +53,7 @@ namespace Mozu.Api.Urls.Platform.Developer
 				/// <summary>
         /// Get Resource Url for DeleteUserAuthTicket
         /// </summary>
-        /// <param name="refreshToken">Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.</param>
+        /// <param name="refreshToken">Refresh token string associated with the developer account authentication ticket.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Clients.Commerce.Customer
 {
@@ -22,10 +23,10 @@ namespace Mozu.Api.Clients.Commerce.Customer
 	public partial class AddressValidationRequestClient 	{
 		
 		/// <summary>
-		/// Validates the customer address supplied in the request.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="addressValidationRequest">Properties of the address used for validation of the account's full address. This content may include multiple lines of an address, city, state/province, zip/postal code, and country.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="addressValidationRequest">Properties of the address to validate.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Customer.AddressValidationResponse"/>}
 		/// </returns>

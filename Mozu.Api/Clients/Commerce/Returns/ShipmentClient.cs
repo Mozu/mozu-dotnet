@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Clients.Commerce.Returns
 {
@@ -22,11 +23,11 @@ namespace Mozu.Api.Clients.Commerce.Returns
 	public partial class ShipmentClient 	{
 		
 		/// <summary>
-		/// Retrieves the details of the specified return replacement shipment.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
-		/// <param name="shipmentId">Unique identifier of the shipment to retrieve.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="returnId">Unique identifier of the return associated with the replacement shipment to retrieve.</param>
+		/// <param name="shipmentId">Unique identifier of the return replacement shipment to retrieve.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment"/>}
 		/// </returns>
@@ -48,10 +49,10 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		}
 
 		/// <summary>
-		/// Creates a shipment from one or more packages associated with a return replacement.
+		/// 
 		/// </summary>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
-		/// <param name="packageIds">List of unique identifiers for each package associated with this shipment. Not all packages must belong to the same shipment.</param>
+		/// <param name="returnId">Unique identifier of the return for which to create replacement package shipments.</param>
+		/// <param name="packageIds">List of packages in the return replacement shipment.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>}}
 		/// </returns>
@@ -73,10 +74,10 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		}
 
 		/// <summary>
-		/// Deletes a shipment for a return replacement.
+		/// 
 		/// </summary>
-		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
-		/// <param name="shipmentId">Unique identifier of the shipment to retrieve.</param>
+		/// <param name="returnId">Unique identifier of the return associated with the replacement shipment to delete.</param>
+		/// <param name="shipmentId">Unique identifier of the return replacement shipment to delete.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

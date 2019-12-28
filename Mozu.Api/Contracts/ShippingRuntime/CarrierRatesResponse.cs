@@ -19,19 +19,10 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 		///
 		public class CarrierRatesResponse
 		{
-			///
-			///Unique identifier of the shipping carrier.
-			///
 			public string CarrierId { get; set; }
 
-			///
-			///Collection of carrier-specific key-value attribute pairs associated with a shipping carrier. These are required to retrieve a shipping rate request and are returned for the generated shipping label.
-			///
 			public List<CustomAttribute> CustomAttributes { get; set; }
 
-			///
-			///Array list of calculated shipping rates for the specified carrier.
-			///
 			public List<ShippingRate> ShippingRates { get; set; }
 
 		}

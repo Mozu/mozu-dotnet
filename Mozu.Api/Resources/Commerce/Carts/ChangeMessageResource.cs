@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Carts
 {
@@ -37,34 +38,11 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		}
 
 				
-		/// <summary>
-		/// Retrieves the messages associated with the current shopper's cart.
-		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartChangeMessageCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var changemessage = new ChangeMessage();
-		///   var cartChangeMessageCollection = changemessage.GetMessages( responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Carts.CartChangeMessageCollection GetMessages(string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartChangeMessageCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Carts.ChangeMessageClient.GetMessagesClient( responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves the messages associated with the current shopper's cart.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartChangeMessageCollection"/>
 		/// </returns>
@@ -74,40 +52,19 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		///   var cartChangeMessageCollection = await changemessage.GetMessagesAsync( responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Carts.CartChangeMessageCollection> GetMessagesAsync(string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Carts.CartChangeMessageCollection> GetMessagesAsync(string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartChangeMessageCollection> response;
 			var client = Mozu.Api.Clients.Commerce.Carts.ChangeMessageClient.GetMessagesClient( responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
+
 		/// <summary>
-		/// Deletes all messages associated with the cart of the current shopper.
-		/// </summary>
-		/// <returns>
 		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var changemessage = new ChangeMessage();
-		///   changemessage.RemoveAllMessages();
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void RemoveAllMessages()
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Carts.ChangeMessageClient.RemoveAllMessagesClient();
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// Deletes all messages associated with the cart of the current shopper.
 		/// </summary>
 		/// <returns>
 		/// 
@@ -118,40 +75,18 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		///   await changemessage.RemoveAllMessagesAsync();
 		/// </code>
 		/// </example>
-		public virtual async Task RemoveAllMessagesAsync()
+		public virtual async Task RemoveAllMessagesAsync(CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Carts.ChangeMessageClient.RemoveAllMessagesClient();
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 
+
 		/// <summary>
-		/// Removes a single message associated with the cart of the current shopper.
-		/// </summary>
-		/// <param name="messageId">Identifier of the message to remove from the cart.</param>
-		/// <returns>
 		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var changemessage = new ChangeMessage();
-		///   changemessage.RemoveMessage( messageId);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void RemoveMessage(string messageId)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Carts.ChangeMessageClient.RemoveMessageClient( messageId);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// Removes a single message associated with the cart of the current shopper.
 		/// </summary>
 		/// <param name="messageId">Identifier of the message to remove from the cart.</param>
 		/// <returns>
@@ -163,12 +98,12 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		///   await changemessage.RemoveMessageAsync( messageId);
 		/// </code>
 		/// </example>
-		public virtual async Task RemoveMessageAsync(string messageId)
+		public virtual async Task RemoveMessageAsync(string messageId, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Carts.ChangeMessageClient.RemoveMessageClient( messageId);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 

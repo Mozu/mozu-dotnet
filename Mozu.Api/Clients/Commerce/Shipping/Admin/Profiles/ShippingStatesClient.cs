@@ -13,18 +13,19 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles
 {
 	/// <summary>
-	/// Use the ShippingStates sub-resource to manage the states your shipping profile supports. For example, you can specify one of your shipping profiles to only support Texas, Oklahoma, Arkansas, Louisiana, and New Mexico.Each shipping state is composed of a user-definied code and name.
+	/// 
 	/// </summary>
 	public partial class ShippingStatesClient 	{
 		
 		/// <summary>
-		/// Retrieves a list of shipping states and their details.
+		/// 
 		/// </summary>
-		/// <param name="profileCode">The unique, user-defined code of the profile with which the shipping state is associated.</param>
+		/// <param name="profileCode"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingStates"/>}}
@@ -47,11 +48,11 @@ namespace Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles
 		}
 
 		/// <summary>
-		/// Updates the details of the shipping states.
+		/// 
 		/// </summary>
-		/// <param name="profilecode">The unique, user-defined code of the profile with which the shipping state is associated.</param>
+		/// <param name="profilecode"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="states">The updated details of the shipping states associated with the specified profilecode.</param>
+		/// <param name="states"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingStates"/>}}
 		/// </returns>

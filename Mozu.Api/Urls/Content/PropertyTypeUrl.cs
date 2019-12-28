@@ -19,9 +19,9 @@ namespace Mozu.Api.Urls.Content
 		/// <summary>
         /// Get Resource Url for GetPropertyTypes
         /// </summary>
-        /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
+        /// <param name="pageSize"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="startIndex"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -38,8 +38,8 @@ namespace Mozu.Api.Urls.Content
 		/// <summary>
         /// Get Resource Url for GetPropertyType
         /// </summary>
-        /// <param name="propertyTypeName">The name of the property type.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="propertyTypeName">The name of the content property type.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -55,7 +55,7 @@ namespace Mozu.Api.Urls.Content
 				/// <summary>
         /// Get Resource Url for CreatePropertyType
         /// </summary>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -70,8 +70,8 @@ namespace Mozu.Api.Urls.Content
 				/// <summary>
         /// Get Resource Url for UpdatePropertyType
         /// </summary>
-        /// <param name="propertyTypeName">The name of the property type.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="propertyTypeName"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -87,7 +87,7 @@ namespace Mozu.Api.Urls.Content
 				/// <summary>
         /// Get Resource Url for DeletePropertyType
         /// </summary>
-        /// <param name="propertyTypeName">The name of the property type.</param>
+        /// <param name="propertyTypeName"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

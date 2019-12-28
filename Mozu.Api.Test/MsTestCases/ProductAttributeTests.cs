@@ -3,21 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Mozu.Api.Contracts.CommerceRuntime.Fulfillment;
-using Mozu.Api.Contracts.CommerceRuntime.Orders;
-using Mozu.Api.Contracts.CommerceRuntime.Payments;
-using Mozu.Api.Contracts.CommerceRuntime.Returns;
-using Mozu.Api.Contracts.Customer;
 using Mozu.Api.Contracts.ProductAdmin;
-using Mozu.Api.Security;
 using Mozu.Api.Test.Helpers;
-using Mozu.Api.Contracts.CommerceRuntime.Carts;
-using Mozu.Api.Test.Factories;
-using Mozu.Api.Contracts.Core;
-using Product = Mozu.Api.Contracts.CommerceRuntime.Products.Product;
-using System.Threading;
-using System.Diagnostics;
-using System.Collections;
+using Mozu.Api.Test.Factories.Commerce.Catalog.Admin;
+using Mozu.Api.Test.Factories.Commerce.Catalog.Admin.Attributedefinition;
+using Mozu.Api.Test.Factories.Commerce.Catalog.Admin.Attributedefinition.Attributes;
+using Mozu.Api.Test.Factories.Platform;
 
 
 namespace Mozu.Api.Test.MsTestCases

@@ -13,13 +13,12 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Customer.Attributedefinition
 {
 	/// <summary>
-	/// Attributes are used to add custom definitions and characteristics to the following objects:
-
-
+	/// Use the Customer Attribute Definition resource to manage the attributes to define for your shoppers.
 	/// </summary>
 	public partial class AttributeResource  	{
 		///
@@ -39,42 +38,15 @@ namespace Mozu.Api.Resources.Commerce.Customer.Attributedefinition
 		}
 
 				
-		/// <summary>
-		/// Retrieves a paged list of attributes according to any specified filter criteria and sort options.
-		/// </summary>
-		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Core.Extensible.AttributeCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var attribute = new Attribute();
-		///   var attributeCollection = attribute.GetAttributes( startIndex,  pageSize,  sortBy,  filter,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Core.Extensible.AttributeCollection GetAttributes(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Core.Extensible.AttributeCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.Attributedefinition.AttributeClient.GetAttributesClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves a paged list of attributes according to any specified filter criteria and sort options.
+		/// 
 		/// </summary>
-		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
+		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Core.Extensible.AttributeCollection"/>
 		/// </returns>
@@ -84,44 +56,21 @@ namespace Mozu.Api.Resources.Commerce.Customer.Attributedefinition
 		///   var attributeCollection = await attribute.GetAttributesAsync( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Core.Extensible.AttributeCollection> GetAttributesAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Core.Extensible.AttributeCollection> GetAttributesAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Core.Extensible.AttributeCollection> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.Attributedefinition.AttributeClient.GetAttributesClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieve a list of the vocabulary values defined for the customer attribute specified in the request.
-		/// </summary>
-		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-		/// <returns>
-		/// List{<see cref="Mozu.Api.Contracts.Core.Extensible.AttributeVocabularyValue"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var attribute = new Attribute();
-		///   var attributeVocabularyValue = attribute.GetAttributeVocabularyValues( attributeFQN);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual List<Mozu.Api.Contracts.Core.Extensible.AttributeVocabularyValue> GetAttributeVocabularyValues(string attributeFQN)
-		{
-			MozuClient<List<Mozu.Api.Contracts.Core.Extensible.AttributeVocabularyValue>> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.Attributedefinition.AttributeClient.GetAttributeVocabularyValuesClient( attributeFQN);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieve a list of the vocabulary values defined for the customer attribute specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+		/// <param name="attributeFQN"></param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.Core.Extensible.AttributeVocabularyValue"/>}
 		/// </returns>
@@ -131,46 +80,22 @@ namespace Mozu.Api.Resources.Commerce.Customer.Attributedefinition
 		///   var attributeVocabularyValue = await attribute.GetAttributeVocabularyValuesAsync( attributeFQN);
 		/// </code>
 		/// </example>
-		public virtual async Task<List<Mozu.Api.Contracts.Core.Extensible.AttributeVocabularyValue>> GetAttributeVocabularyValuesAsync(string attributeFQN)
+		public virtual async Task<List<Mozu.Api.Contracts.Core.Extensible.AttributeVocabularyValue>> GetAttributeVocabularyValuesAsync(string attributeFQN, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<List<Mozu.Api.Contracts.Core.Extensible.AttributeVocabularyValue>> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.Attributedefinition.AttributeClient.GetAttributeVocabularyValuesClient( attributeFQN);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves the details of the specified product attribute.
-		/// </summary>
-		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Core.Extensible.Attribute"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var attribute = new Attribute();
-		///   var attribute = attribute.GetAttribute( attributeFQN,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Core.Extensible.Attribute GetAttribute(string attributeFQN, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.Attributedefinition.AttributeClient.GetAttributeClient( attributeFQN,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves the details of the specified product attribute.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Core.Extensible.Attribute"/>
 		/// </returns>
@@ -180,12 +105,63 @@ namespace Mozu.Api.Resources.Commerce.Customer.Attributedefinition
 		///   var attribute = await attribute.GetAttributeAsync( attributeFQN,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Core.Extensible.Attribute> GetAttributeAsync(string attributeFQN, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Core.Extensible.Attribute> GetAttributeAsync(string attributeFQN, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.Attributedefinition.AttributeClient.GetAttributeClient( attributeFQN,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="attribute"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Core.Extensible.Attribute"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var attribute = new Attribute();
+		///   var attribute = await attribute.CreateAttributeAsync( attribute,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.Core.Extensible.Attribute> CreateAttributeAsync(Mozu.Api.Contracts.Core.Extensible.Attribute attribute, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.Attributedefinition.AttributeClient.CreateAttributeClient( attribute,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="attribute"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Core.Extensible.Attribute"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var attribute = new Attribute();
+		///   var attribute = await attribute.UpdateAttributeAsync( attribute,  attributeFQN,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.Core.Extensible.Attribute> UpdateAttributeAsync(Mozu.Api.Contracts.Core.Extensible.Attribute attribute, string attributeFQN, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> response;
+			var client = Mozu.Api.Clients.Commerce.Customer.Attributedefinition.AttributeClient.UpdateAttributeClient( attribute,  attributeFQN,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}

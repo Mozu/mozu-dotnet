@@ -18,9 +18,6 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class ProductCategory
 		{
-			///
-			///Unique identifier for the storefront container used to organize products.
-			///
 			public int CategoryId { get; set; }
 
 		}

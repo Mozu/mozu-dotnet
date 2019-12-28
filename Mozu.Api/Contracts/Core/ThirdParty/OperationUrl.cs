@@ -18,14 +18,8 @@ namespace Mozu.Api.Contracts.Core.ThirdParty
 		///
 		public class OperationUrl
 		{
-			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
-			///
 			public string Name { get; set; }
 
-			///
-			///The URL endpoint address.
-			///
 			public string Url { get; set; }
 
 		}

@@ -4,8 +4,12 @@ using System.Linq;
 using System.Net;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Mozu.Api.Test.Helpers;
-using Mozu.Api.Test.Factories;
 using System.Threading;
+using Mozu.Api.Test.Factories.Commerce.Catalog.Admin;
+using Mozu.Api.Test.Factories.Commerce.Catalog.Admin.Attributedefinition;
+using Mozu.Api.Test.Factories.Commerce.Catalog.Admin.Attributedefinition.Producttypes;
+using Mozu.Api.Test.Factories.Commerce.Catalog.Admin.Products;
+using Mozu.Api.Test.Factories.Platform;
 
 namespace Mozu.Api.Test.MsTestCases
 {

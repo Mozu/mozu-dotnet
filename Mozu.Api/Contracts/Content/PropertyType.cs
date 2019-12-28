@@ -18,54 +18,24 @@ namespace Mozu.Api.Contracts.Content
 		///
 		public class PropertyType
 		{
-			///
-			///The administrator name associated with the object/data.
-			///
 			public string AdminName { get; set; }
 
-			///
-			///The data type of the source product property, typically of type Bool, DateTime, Number, or String.
-			///
 			public string DataType { get; set; }
 
-			///
-			///The package of document lists and content documents to be installed.
-			///
 			public string InstallationPackage { get; set; }
 
-			///
-			///If true, this entity can be grouped.
-			///
 			public bool? IsAggregatable { get; set; }
 
-			///
-			///Indicates if the entity can be located and returned in a search, used for fields and property types. If true, the entity can be searched. 
-			///
 			public bool? IsQueryable { get; set; }
 
-			///
-			///Indicates if the fields or property types are sortable on the page. If true, the property type results are sortable. If false, the property type results cannot be sorted by any options.
-			///
 			public bool? IsSortable { get; set; }
 
-			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
-			///
 			public string Name { get; set; }
 
-			///
-			///The namespace for the accessible APIs and source capabilities in the core of  APIs.
-			///
 			public string Namespace { get; set; }
 
-			///
-			///The fully qualified name for the property type for content.
-			///
 			public string PropertyTypeFQN { get; set; }
 
-			///
-			///The current version number of the order, wish list, document list, or document type list.
-			///
 			public string Version { get; set; }
 
 		}

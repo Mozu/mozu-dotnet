@@ -13,20 +13,21 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 {
 	/// <summary>
-	/// Use the Discounts resource to define and manage discounts to apply to products, product categories, or orders. The discounts can be a specified amount off the price, percentage off the price, or for free shipping. You can create a coupon code that shoppers can use to redeem the discount.
+	/// Define and manage discounts to apply to products, product categories, or orders. The discounts can be a specified amount off the price, percentage off the price, or for free shipping. Create a coupon code that shoppers can use to redeem the discount.
 	/// </summary>
 	public partial class DiscountClient 	{
 		
 		/// <summary>
-		/// Retrieves a list of discounts according to any specified filter criteria and sort options.
+		/// 
 		/// </summary>
-		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="sortBy"></param>
 		/// <param name="startIndex"></param>
 		/// <returns>
@@ -51,10 +52,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Retrieves the localized content specified for the specified discount.
+		/// 
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent"/>}
 		/// </returns>
@@ -77,10 +78,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Retrieves the details of a single discount.
+		/// 
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Discount"/>}
 		/// </returns>
@@ -103,9 +104,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Generates a random code for a coupon.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{string}
 		/// </returns>
@@ -127,10 +128,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Creates a new discount or coupon to apply to a product, category, order, or shipping.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="discount">Name of the discount added and applied to a shopping cart and order for a shopper's purchase. </param>
+		/// <param name="responseFields"></param>
+		/// <param name="discount">Properties of the discount to create. You must specify the discount name, amount type, start date, and target.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Discount"/>}
 		/// </returns>
@@ -152,11 +153,11 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Updates the localizable content for the specified discount or renames the discount without modifying its other properties.
+		/// 
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="content">The container for the language-specific name of the discount. A container exists for each supported language (LocaleCode). This parameter enables you to display the discount name in multiple languages yet manage it as a single discount internally.</param>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="content">The discount content to update, including the discount name.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.DiscountLocalizedContent"/>}
 		/// </returns>
@@ -178,11 +179,11 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Updates one or more properties of the specified discount.
+		/// 
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="discount">Name of the discount added and applied to a shopping cart and order for a shopper's purchase. </param>
+		/// <param name="discountId">Unique identifier of the discount to update.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="discount">Properties of the discount to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Discount"/>}
 		/// </returns>
@@ -204,9 +205,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Deletes a discount specified by its discount ID.
+		/// 
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

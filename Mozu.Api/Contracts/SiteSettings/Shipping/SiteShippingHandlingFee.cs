@@ -18,9 +18,6 @@ namespace Mozu.Api.Contracts.SiteSettings.Shipping
 		///
 		public class SiteShippingHandlingFee
 		{
-			///
-			///The amount of the order handling fee.
-			///
 			public decimal? Amount { get; set; }
 
 		}

@@ -18,14 +18,8 @@ namespace Mozu.Api.Contracts.Location
 		///
 		public class FulfillmentType
 		{
-			///
-			///The system-supplied code that identifies the fulfillment type, which is "DS" for direct ship or "SP" for in-store pickup.
-			///
 			public string Code { get; set; }
 
-			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
-			///
 			public string Name { get; set; }
 
 		}

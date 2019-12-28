@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 		/// <summary>
         /// Get Resource Url for GetOptions
         /// </summary>
-        /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+        /// <param name="productCode"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -34,9 +34,9 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 		/// <summary>
         /// Get Resource Url for GetOption
         /// </summary>
-        /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-        /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="attributeFQN"></param>
+        /// <param name="productCode"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -53,8 +53,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 				/// <summary>
         /// Get Resource Url for AddOption
         /// </summary>
-        /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="productCode"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -70,9 +70,9 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 				/// <summary>
         /// Get Resource Url for UpdateOption
         /// </summary>
-        /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-        /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="attributeFQN"></param>
+        /// <param name="productCode"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -89,8 +89,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 				/// <summary>
         /// Get Resource Url for DeleteOption
         /// </summary>
-        /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-        /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+        /// <param name="attributeFQN"></param>
+        /// <param name="productCode"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

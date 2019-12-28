@@ -19,19 +19,10 @@ namespace Mozu.Api.Contracts.SiteSettings.Shipping
 		///
 		public class SiteShippingSettings
 		{
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
 			public AuditInfo AuditInfo { get; set; }
 
-			///
-			///The combined price for all items in the order, including all selected options but excluding any discounts.
-			///
 			public SiteShippingHandlingFee OrderHandlingFee { get; set; }
 
-			///
-			///Properties of the package signature requirements for the site.
-			///
 			public SiteShippingSignatureRequirement SignatureRequirement { get; set; }
 
 		}

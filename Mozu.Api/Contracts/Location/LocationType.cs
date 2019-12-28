@@ -21,14 +21,8 @@ namespace Mozu.Api.Contracts.Location
 		{
 			public AuditInfo AuditInfo { get; set; }
 
-			///
-			///User-defined identifying code for the location type.
-			///
 			public string Code { get; set; }
 
-			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
-			///
 			public string Name { get; set; }
 
 		}

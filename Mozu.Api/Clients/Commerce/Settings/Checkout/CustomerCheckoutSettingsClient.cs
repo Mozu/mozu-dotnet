@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Clients.Commerce.Settings.Checkout
 {
@@ -22,9 +23,9 @@ namespace Mozu.Api.Clients.Commerce.Settings.Checkout
 	public partial class CustomerCheckoutSettingsClient 	{
 		
 		/// <summary>
-		/// Retrieves all checkout settings defined for the site: Payment settings, such as the payment gateway ID and credentials, supported credit cards, and more; Customer Checkout settings, such as whether login is required, and any custom attributes; and Order Processing settings, such as when payment is authorized and captured, and any custom attributes.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Order.CustomerCheckoutSettings"/>}
 		/// </returns>
@@ -46,10 +47,10 @@ namespace Mozu.Api.Clients.Commerce.Settings.Checkout
 		}
 
 		/// <summary>
-		/// Modifies existing site checkout settings. Modify Payment, Customer Checkout, and Order Processing settings in one PUT.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="customerCheckoutSettings">The properties of the customer checkout settings such as whether shoppers must be logged in.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="customerCheckoutSettings">All the properties to update in the checkout settings.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Order.CustomerCheckoutSettings"/>}
 		/// </returns>

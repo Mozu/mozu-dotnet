@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Clients.Content
 {
@@ -22,11 +23,11 @@ namespace Mozu.Api.Clients.Content
 	public partial class PropertyTypeClient 	{
 		
 		/// <summary>
-		/// Retrieves a list of the content property types.
+		/// 
 		/// </summary>
-		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.PropertyTypeCollection"/>}
 		/// </returns>
@@ -49,10 +50,10 @@ namespace Mozu.Api.Clients.Content
 		}
 
 		/// <summary>
-		/// Retrieves the details of the content property type.
+		/// 
 		/// </summary>
-		/// <param name="propertyTypeName">The name of the property type.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="propertyTypeName">The name of the content property type.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.PropertyType"/>}
 		/// </returns>
@@ -75,10 +76,10 @@ namespace Mozu.Api.Clients.Content
 		}
 
 		/// <summary>
-		/// Creates a new
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="propertyType">Property type available for content. Property types are like templates that can be reused.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="propertyType"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.PropertyType"/>}
 		/// </returns>
@@ -100,11 +101,11 @@ namespace Mozu.Api.Clients.Content
 		}
 
 		/// <summary>
-		/// Updates a
+		/// 
 		/// </summary>
-		/// <param name="propertyTypeName">The name of the property type.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="propertyType">Property type available for content. Property types are like templates that can be reused.</param>
+		/// <param name="propertyTypeName"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="propertyType"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Content.PropertyType"/>}
 		/// </returns>
@@ -127,9 +128,9 @@ namespace Mozu.Api.Clients.Content
 		}
 
 		/// <summary>
-		/// Delete a specific
+		/// 
 		/// </summary>
-		/// <param name="propertyTypeName">The name of the property type.</param>
+		/// <param name="propertyTypeName"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

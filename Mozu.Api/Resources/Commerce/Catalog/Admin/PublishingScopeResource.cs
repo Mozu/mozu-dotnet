@@ -13,11 +13,12 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 {
 	/// <summary>
-	/// Use the Product Publishing resource to publish or discard pending changes to products in a master catalog, or to add or remove pending changes to and from product publish sets.You can use product publish sets to group pending product changes together and publish them all at the same time.
+	/// Use the Product Publishing resource to publish or discard pending changes to product definitions in the master catalog.
 	/// </summary>
 	public partial class PublishingScopeResource  	{
 		///
@@ -44,37 +45,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 			_dataViewMode = dataViewMode;
 		}
 				
-		/// <summary>
-		/// Retrieves the details of the specified product publish set.
-		/// </summary>
-		/// <param name="publishSetCode">The unique identifier of the publish set.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PublishSet"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var publishingscope = new PublishingScope();
-		///   var publishSet = publishingscope.GetPublishSet( publishSetCode,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.PublishSet GetPublishSet(string publishSetCode, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.PublishSet> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.GetPublishSetClient( publishSetCode,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves the details of the specified product publish set.
+		/// 
 		/// </summary>
-		/// <param name="publishSetCode">The unique identifier of the publish set.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="publishSetCode"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PublishSet"/>
@@ -85,45 +61,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   var publishSet = await publishingscope.GetPublishSetAsync( publishSetCode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.PublishSet> GetPublishSetAsync(string publishSetCode, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.PublishSet> GetPublishSetAsync(string publishSetCode, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.PublishSet> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.GetPublishSetClient( publishSetCode,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves a list of product publish sets and their properties, including the amount of pending product changes that are included in each one.
-		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PublishSetCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var publishingscope = new PublishingScope();
-		///   var publishSetCollection = publishingscope.GetPublishSets( responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.PublishSetCollection GetPublishSets(string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.PublishSetCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.GetPublishSetsClient( responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves a list of product publish sets and their properties, including the amount of pending product changes that are included in each one.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PublishSetCollection"/>
@@ -134,45 +86,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   var publishSetCollection = await publishingscope.GetPublishSetsAsync( responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.PublishSetCollection> GetPublishSetsAsync(string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.PublishSetCollection> GetPublishSetsAsync(string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.PublishSetCollection> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.GetPublishSetsClient( responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
+
 		/// <summary>
-		/// Deletes the draft version of product changes (pending product changes) for each product code specified in the request.
-		/// </summary>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="publishScope">Describes the scope of the product publishing update, which can include individual product codes or all pending changes.</param>
-		/// <returns>
 		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var publishingscope = new PublishingScope();
-		///   publishingscope.DiscardDrafts(_dataViewMode,  publishScope);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DiscardDrafts(Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.DiscardDraftsClient(_dataViewMode,  publishScope);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// Deletes the draft version of product changes (pending product changes) for each product code specified in the request.
 		/// </summary>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="publishScope">Describes the scope of the product publishing update, which can include individual product codes or all pending changes.</param>
+		/// <param name="publishScope">Properties of the pending product changes to include in this operation.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -182,44 +111,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   await publishingscope.DiscardDraftsAsync(_dataViewMode,  publishScope);
 		/// </code>
 		/// </example>
-		public virtual async Task DiscardDraftsAsync(Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope)
+		public virtual async Task DiscardDraftsAsync(Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.DiscardDraftsClient(_dataViewMode,  publishScope);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 
+
 		/// <summary>
-		/// Publishes the draft version of product changes (pending product changes) for each product code specified in the request, and changes the product publish state to "live".
-		/// </summary>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="publishScope">Describes the scope of the product publishing update, which can include individual product codes or all pending changes.</param>
-		/// <returns>
 		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var publishingscope = new PublishingScope();
-		///   publishingscope.PublishDrafts(_dataViewMode,  publishScope);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void PublishDrafts(Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.PublishDraftsClient(_dataViewMode,  publishScope);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// Publishes the draft version of product changes (pending product changes) for each product code specified in the request, and changes the product publish state to "live".
 		/// </summary>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="publishScope">Describes the scope of the product publishing update, which can include individual product codes or all pending changes.</param>
+		/// <param name="publishScope">Properties of the pending product changes to include in this operation.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -229,47 +135,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   await publishingscope.PublishDraftsAsync(_dataViewMode,  publishScope);
 		/// </code>
 		/// </example>
-		public virtual async Task PublishDraftsAsync(Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope)
+		public virtual async Task PublishDraftsAsync(Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.PublishDraftsClient(_dataViewMode,  publishScope);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 
-		/// <summary>
-		/// Assigns pending product changes to a specified product publish set. Use the code field to specify the product publish set.
-		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="publishSet">The details of the publish to which you want to assign products.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PublishSet"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var publishingscope = new PublishingScope();
-		///   var publishSet = publishingscope.AssignProductsToPublishSet( publishSet,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.PublishSet AssignProductsToPublishSet(Mozu.Api.Contracts.ProductAdmin.PublishSet publishSet, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.PublishSet> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.AssignProductsToPublishSetClient( publishSet,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Assigns pending product changes to a specified product publish set. Use the code field to specify the product publish set.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="publishSet">The details of the publish to which you want to assign products.</param>
+		/// <param name="publishSet"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.PublishSet"/>
 		/// </returns>
@@ -279,46 +160,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   var publishSet = await publishingscope.AssignProductsToPublishSetAsync( publishSet,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.PublishSet> AssignProductsToPublishSetAsync(Mozu.Api.Contracts.ProductAdmin.PublishSet publishSet, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.PublishSet> AssignProductsToPublishSetAsync(Mozu.Api.Contracts.ProductAdmin.PublishSet publishSet, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.PublishSet> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.AssignProductsToPublishSetClient( publishSet,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
+
 		/// <summary>
-		/// Deletes the specified product publish set. If you set the discardDrafts parameter to true, this operation also deletes the product drafts assigned to the publish set.
-		/// </summary>
-		/// <param name="discardDrafts">Specifies whether to discard all the drafts assigned to the publish set when the publish set is deleted.</param>
-		/// <param name="publishSetCode">The unique identifier of the publish set.</param>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <returns>
 		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var publishingscope = new PublishingScope();
-		///   publishingscope.DeletePublishSet( publishSetCode,  discardDrafts);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeletePublishSet(string publishSetCode, bool? discardDrafts =  null)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.DeletePublishSetClient( publishSetCode,  discardDrafts);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// Deletes the specified product publish set. If you set the discardDrafts parameter to true, this operation also deletes the product drafts assigned to the publish set.
 		/// </summary>
-		/// <param name="discardDrafts">Specifies whether to discard all the drafts assigned to the publish set when the publish set is deleted.</param>
-		/// <param name="publishSetCode">The unique identifier of the publish set.</param>
+		/// <param name="discardDrafts"></param>
+		/// <param name="publishSetCode"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// 
@@ -329,12 +186,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		///   await publishingscope.DeletePublishSetAsync( publishSetCode,  discardDrafts);
 		/// </code>
 		/// </example>
-		public virtual async Task DeletePublishSetAsync(string publishSetCode, bool? discardDrafts =  null)
+		public virtual async Task DeletePublishSetAsync(string publishSetCode, bool? discardDrafts =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.DeletePublishSetClient( publishSetCode,  discardDrafts);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 

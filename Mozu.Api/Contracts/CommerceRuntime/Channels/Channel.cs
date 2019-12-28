@@ -20,41 +20,20 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Channels
 		///
 		public class Channel
 		{
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
 			public AuditInfo AuditInfo { get; set; }
 
-			///
-			///User-defined code that uniquely identifies the channel.
-			///
 			public string Code { get; set; }
 
 			public string CountryCode { get; set; }
 
-			///
-			///User-defined code that identifies the channel group.
-			///
 			public string GroupCode { get; set; }
 
-			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
-			///
 			public string Name { get; set; }
 
-			///
-			///The geographical region associated with this channel. This region could represent any geographical entity from a state to a continent.
-			///
 			public string Region { get; set; }
 
-			///
-			///Array list of site identifiers associated with this channel. Each tenant site must have a channel association.
-			///
 			public List<int> SiteIds { get; set; }
 
-			///
-			///Unique identifier of the Mozu tenant.
-			///
 			public int TenantId { get; set; }
 
 		}

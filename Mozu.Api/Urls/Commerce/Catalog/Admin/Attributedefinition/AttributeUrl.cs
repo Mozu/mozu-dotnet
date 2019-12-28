@@ -19,9 +19,9 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition
 		/// <summary>
         /// Get Resource Url for GetAttributes
         /// </summary>
-        /// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-        /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="filter"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="responseFields"></param>
         /// <param name="sortBy"></param>
         /// <param name="startIndex"></param>
         /// <returns>
@@ -42,8 +42,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition
 		/// <summary>
         /// Get Resource Url for GetAttribute
         /// </summary>
-        /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="attributeFQN"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -59,7 +59,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition
 				/// <summary>
         /// Get Resource Url for AddAttribute
         /// </summary>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -74,8 +74,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition
 				/// <summary>
         /// Get Resource Url for UpdateAttribute
         /// </summary>
-        /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="attributeFQN"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -91,7 +91,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition
 				/// <summary>
         /// Get Resource Url for DeleteAttribute
         /// </summary>
-        /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+        /// <param name="attributeFQN"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

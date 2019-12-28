@@ -13,11 +13,12 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Shipping.Admin.Profiles
 {
 	/// <summary>
-	/// Use the ShippingStates sub-resource to manage the states your shipping profile supports. For example, you can specify one of your shipping profiles to only support Texas, Oklahoma, Arkansas, Louisiana, and New Mexico.Each shipping state is composed of a user-definied code and name.
+	/// 
 	/// </summary>
 	public partial class ShippingStatesResource  	{
 		///
@@ -37,35 +38,11 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin.Profiles
 		}
 
 				
-		/// <summary>
-		/// Retrieves a list of shipping states and their details.
-		/// </summary>
-		/// <param name="profileCode">The unique, user-defined code of the profile with which the shipping state is associated.</param>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <returns>
-		/// List{<see cref="Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingStates"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var shippingstates = new ShippingStates();
-		///   var shippingStates = shippingstates.GetStates( profileCode);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual List<Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingStates> GetStates(string profileCode)
-		{
-			MozuClient<List<Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingStates>> response;
-			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles.ShippingStatesClient.GetStatesClient( profileCode);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves a list of shipping states and their details.
+		/// 
 		/// </summary>
-		/// <param name="profileCode">The unique, user-defined code of the profile with which the shipping state is associated.</param>
+		/// <param name="profileCode"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingStates"/>}
@@ -76,48 +53,23 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin.Profiles
 		///   var shippingStates = await shippingstates.GetStatesAsync( profileCode);
 		/// </code>
 		/// </example>
-		public virtual async Task<List<Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingStates>> GetStatesAsync(string profileCode)
+		public virtual async Task<List<Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingStates>> GetStatesAsync(string profileCode, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<List<Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingStates>> response;
 			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles.ShippingStatesClient.GetStatesClient( profileCode);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates the details of the shipping states.
-		/// </summary>
-		/// <param name="profilecode">The unique, user-defined code of the profile with which the shipping state is associated.</param>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="states">The updated details of the shipping states associated with the specified profilecode.</param>
-		/// <returns>
-		/// List{<see cref="Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingStates"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var shippingstates = new ShippingStates();
-		///   var shippingStates = shippingstates.UpdateStates( states,  profilecode);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual List<Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingStates> UpdateStates(List<Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingStates> states, string profilecode)
-		{
-			MozuClient<List<Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingStates>> response;
-			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles.ShippingStatesClient.UpdateStatesClient( states,  profilecode);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Updates the details of the shipping states.
+		/// 
 		/// </summary>
-		/// <param name="profilecode">The unique, user-defined code of the profile with which the shipping state is associated.</param>
+		/// <param name="profilecode"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="states">The updated details of the shipping states associated with the specified profilecode.</param>
+		/// <param name="states"></param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingStates"/>}
 		/// </returns>
@@ -127,12 +79,12 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin.Profiles
 		///   var shippingStates = await shippingstates.UpdateStatesAsync( states,  profilecode);
 		/// </code>
 		/// </example>
-		public virtual async Task<List<Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingStates>> UpdateStatesAsync(List<Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingStates> states, string profilecode)
+		public virtual async Task<List<Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingStates>> UpdateStatesAsync(List<Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingStates> states, string profilecode, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<List<Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingStates>> response;
 			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles.ShippingStatesClient.UpdateStatesClient( states,  profilecode);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}

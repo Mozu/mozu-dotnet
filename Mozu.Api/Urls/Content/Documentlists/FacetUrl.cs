@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Content.Documentlists
 		/// <summary>
         /// Get Resource Url for GetFacets
         /// </summary>
-        /// <param name="documentListName">Name of content documentListName to delete</param>
+        /// <param name="documentListName">The document list associated with the facets to retrieve.</param>
         /// <param name="propertyName">The property name associated with the facets to retrieve.</param>
         /// <returns>
         /// String - Resource Url

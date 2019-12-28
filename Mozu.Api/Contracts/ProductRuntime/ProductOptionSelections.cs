@@ -19,14 +19,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		///
 		public class ProductOptionSelections
 		{
-			///
-			///List of option attributes configured for an object. These values are associated and used by products, product bundles, and product types.
-			///
 			public List<ProductOptionSelection> Options { get; set; }
 
-			///
-			///Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
-			///
 			public string VariationProductCode { get; set; }
 
 		}

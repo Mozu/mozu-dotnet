@@ -15,30 +15,18 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
-		///	The container for paged lists of related site-specific product category properties.
+		///	Paged collection of categories and related properties.
 		///
 		public class CategoryPagedCollection
 		{
-			///
-			///An array list of objects in the returned collection.
-			///
 			public List<Category> Items { get; set; }
 
-			///
-			///The number of pages returned based on the startIndex and pageSize values specified. This value is system-supplied and read-only.
-			///
 			public int PageCount { get; set; }
 
-			///
-			///The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-			///
 			public int PageSize { get; set; }
 
 			public int StartIndex { get; set; }
 
-			///
-			///The number of results listed in the query collection, represented by a signed 64-bit (8-byte) integer. This value is system-supplied and read-only.
-			///
 			public int TotalCount { get; set; }
 
 		}

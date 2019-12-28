@@ -19,8 +19,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Discounts
 		/// <summary>
         /// Get Resource Url for GetDiscountTarget
         /// </summary>
-        /// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="discountId">Unique identifier of the discount. System-supplied and read only.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -36,8 +36,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Discounts
 						/// <summary>
         /// Get Resource Url for UpdateDiscountTarget
         /// </summary>
-        /// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Clients.Commerce.Admin
 {
@@ -22,13 +23,13 @@ namespace Mozu.Api.Clients.Commerce.Admin
 	public partial class LocationClient 	{
 		
 		/// <summary>
-		/// Retrieves a list of all locations associated with a tenant, according to any filter and sort criteria specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
+		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Location.LocationCollection"/>}
 		/// </returns>
@@ -50,10 +51,10 @@ namespace Mozu.Api.Clients.Commerce.Admin
 		}
 
 		/// <summary>
-		/// Retrieves the details of the location specified in the request by location code.
+		/// 
 		/// </summary>
-		/// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="locationCode">The merchant-defined code of the location to retrieve.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Location.Location"/>}
 		/// </returns>
@@ -75,10 +76,10 @@ namespace Mozu.Api.Clients.Commerce.Admin
 		}
 
 		/// <summary>
-		/// Creates a new physical location for the tenant specified in the request header.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="location">Properties of a physical location a tenant uses to manage inventory and fulfills orders, provide store finder functionality, or both.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="location">Properties of the location to create.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Location.Location"/>}
 		/// </returns>
@@ -100,11 +101,11 @@ namespace Mozu.Api.Clients.Commerce.Admin
 		}
 
 		/// <summary>
-		/// Updates one or more details of a the location specified in the request by location code.
+		/// 
 		/// </summary>
-		/// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="location">Properties of a physical location a tenant uses to manage inventory and fulfills orders, provide store finder functionality, or both.</param>
+		/// <param name="locationCode">The merchant-defined code associated with the location to update.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="location">Properties of the location to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Location.Location"/>}
 		/// </returns>
@@ -126,9 +127,9 @@ namespace Mozu.Api.Clients.Commerce.Admin
 		}
 
 		/// <summary>
-		/// Deletes the location specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
+		/// <param name="locationCode">The merchant-defined code of the location to delete.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

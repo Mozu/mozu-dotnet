@@ -9,6 +9,7 @@ using Mozu.Api.Resources.Platform.Developer;
 using Mozu.Api.Security;
 using System;
 using Mozu.Api.Test.Factories;
+using Mozu.Api.Test.Factories.Platform;
 using Mozu.Api.Test.Helpers;
 
 namespace Mozu.Api.Test.MsTestCases

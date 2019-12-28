@@ -35,7 +35,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// Get Resource Url for AddValidationResult
         /// </summary>
         /// <param name="orderId">Unique identifier of the order.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

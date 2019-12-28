@@ -26,7 +26,7 @@ namespace Mozu.Api.Logging
 
         public void Debug(object message, Exception ex = null, object properties = null)
         {
-			Console.WriteLine(message);
+			 Console.WriteLine(message);
 		}
 
         public void Error(object message, Exception ex = null, object properties = null)
@@ -36,7 +36,7 @@ namespace Mozu.Api.Logging
 
         public void Fatal(object message, Exception ex = null, object properties = null)
         {
-			Console.WriteLine(message);
+			 Console.WriteLine(message);
 		}
     }
 }

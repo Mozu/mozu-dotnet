@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Clients.Commerce.Settings
 {
@@ -22,9 +23,9 @@ namespace Mozu.Api.Clients.Commerce.Settings
 	public partial class ApplicationClient 	{
 		
 		/// <summary>
-		/// Retrieve the settings of a third-party application.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Application.Application"/>}
 		/// </returns>
@@ -46,10 +47,10 @@ namespace Mozu.Api.Clients.Commerce.Settings
 		}
 
 		/// <summary>
-		/// Initializes an application with the necessary configured settings.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="application">Properties of an application installed in a tenant.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="application">Properties of the application to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Application.Application"/>}
 		/// </returns>

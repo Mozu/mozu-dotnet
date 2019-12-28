@@ -18,14 +18,8 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 		///
 		public class ShippingRateLocalizedContent
 		{
-			///
-			///Language used for the entity. Currently, only "en-US" is supported.
-			///
 			public string LocaleCode { get; set; }
 
-			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
-			///
 			public string Name { get; set; }
 
 		}

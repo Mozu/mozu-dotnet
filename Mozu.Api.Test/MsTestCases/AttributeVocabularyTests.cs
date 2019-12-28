@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Mozu.Api.Test.Factories;
+using Mozu.Api.Test.Factories.Commerce.Catalog.Admin.Attributedefinition.Attributes;
+using Mozu.Api.Test.Factories.Platform;
 using Mozu.Api.Test.Helpers;
 
 namespace Mozu.Api.Test.MsTestCases

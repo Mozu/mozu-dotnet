@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Mozu.Api.Contracts.PaymentService;
 using Mozu.Api.Resources.Commerce.Payments;
-using Mozu.Api.Test.Factories;
+using Mozu.Api.Test.Factories.Commerce.Orders;
+using Mozu.Api.Test.Factories.Platform;
 using Mozu.Api.Test.Helpers;
 
 namespace Mozu.Api.Test.MsTestCases

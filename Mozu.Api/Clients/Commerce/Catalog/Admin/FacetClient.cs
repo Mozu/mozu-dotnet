@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 {
@@ -22,10 +23,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 	public partial class FacetClient 	{
 		
 		/// <summary>
-		/// Retrieves a facet specified by its unique identifier and displays its properties.
+		/// 
 		/// </summary>
 		/// <param name="facetId">Unique identifier of the facet to retrieve.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="validate">Validates that the product category associated with a facet is active. System-supplied and read only.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Facet"/>}
@@ -48,11 +49,11 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Retrieves a list of the facets defined for the specified category.
+		/// 
 		/// </summary>
-		/// <param name="categoryId">Unique identifier of the category to modify.</param>
+		/// <param name="categoryId">Unique identifier of the category associated with the facets to retrieve.</param>
 		/// <param name="includeAvailable">If true, returns a list of the attributes and categories associated with a product type that have not been defined as a facet for the category.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="validate">Validates that the product category associated with a facet is active. System-supplied and read only.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.FacetSet"/>}
@@ -75,10 +76,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Creates a new category, price, or attribute facet. Define the category or attribute source to use for the facet values.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="facet">Properties of the facet used to retrieve documents.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="facet">Properties of the new facet to create. You must specify the source, type, and category.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Facet"/>}
 		/// </returns>
@@ -100,11 +101,11 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Modifies one or more properties of a defined facet.
+		/// 
 		/// </summary>
-		/// <param name="facetId">Unique identifier of the facet to retrieve.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="facet">Properties of the facet used to retrieve documents.</param>
+		/// <param name="facetId">Unique identifier of the facet to modify.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="facet">Properties of the defined facet to modify.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.Facet"/>}
 		/// </returns>
@@ -126,9 +127,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Deletes the facet specified by its unique identifier.
+		/// 
 		/// </summary>
-		/// <param name="facetId">Unique identifier of the facet to retrieve.</param>
+		/// <param name="facetId">Unique identifier of the facet to delete.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

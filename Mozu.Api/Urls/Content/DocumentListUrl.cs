@@ -19,8 +19,8 @@ namespace Mozu.Api.Urls.Content
 		/// <summary>
         /// Get Resource Url for GetDocumentLists
         /// </summary>
-        /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="pageSize"></param>
+        /// <param name="responseFields"></param>
         /// <param name="startIndex"></param>
         /// <returns>
         /// String - Resource Url
@@ -38,8 +38,8 @@ namespace Mozu.Api.Urls.Content
 		/// <summary>
         /// Get Resource Url for GetDocumentList
         /// </summary>
-        /// <param name="documentListName">Name of content documentListName to delete</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="documentListName">The name of the document list.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -55,7 +55,7 @@ namespace Mozu.Api.Urls.Content
 				/// <summary>
         /// Get Resource Url for CreateDocumentList
         /// </summary>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -70,8 +70,8 @@ namespace Mozu.Api.Urls.Content
 				/// <summary>
         /// Get Resource Url for UpdateDocumentList
         /// </summary>
-        /// <param name="documentListName">Name of content documentListName to delete</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="documentListName"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -87,7 +87,7 @@ namespace Mozu.Api.Urls.Content
 				/// <summary>
         /// Get Resource Url for DeleteDocumentList
         /// </summary>
-        /// <param name="documentListName">Name of content documentListName to delete</param>
+        /// <param name="documentListName"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 
 
 namespace Mozu.Api.Contracts.Tenant
@@ -18,43 +19,24 @@ namespace Mozu.Api.Contracts.Tenant
 		///
 		public class Site
 		{
-			///
-			///The unique identifier of the catalog of products used by a site.
-			///
+			public List<TenantAttribute> Attributes { get; set; }
+
 			public int CatalogId { get; set; }
 
 			public string CountryCode { get; set; }
 
-			///
-			///3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
-			///
 			public string CurrencyCode { get; set; }
 
-			///
-			///Properties of the domain that the tenant is associated with such as the domain name, the zone string, audit information (system-supplied and read-only), assignment data, and whether or not the domain is primary or requires a SSL for authentication.
-			///
 			public string Domain { get; set; }
 
 			public int Id { get; set; }
 
-			///
-			///Language used for the entity. Currently, only "en-US" is supported.
-			///
 			public string LocaleCode { get; set; }
 
-			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
-			///
 			public string Name { get; set; }
 
-			///
-			///The primary custom domain of the site.
-			///
 			public string PrimaryCustomDomain { get; set; }
 
-			///
-			///Unique identifier of the Mozu tenant.
-			///
 			public int TenantId { get; set; }
 
 		}

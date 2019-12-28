@@ -18,9 +18,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 		///
 		public class OrderAction
 		{
-			///
-			///The name of the action to perform for the payment, fulfillment, order, or return.
-			///
 			public string ActionName { get; set; }
 
 		}

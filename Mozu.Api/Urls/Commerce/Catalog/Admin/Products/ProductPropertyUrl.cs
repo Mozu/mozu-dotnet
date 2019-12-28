@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 		/// <summary>
         /// Get Resource Url for GetProperties
         /// </summary>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
+        /// <param name="productCode"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -34,9 +34,9 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 		/// <summary>
         /// Get Resource Url for GetPropertyValueLocalizedContents
         /// </summary>
-        /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-        /// <param name="value">The value string to create.</param>
+        /// <param name="attributeFQN"></param>
+        /// <param name="productCode"></param>
+        /// <param name="value"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -53,11 +53,11 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 		/// <summary>
         /// Get Resource Url for GetPropertyValueLocalizedContent
         /// </summary>
-        /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-        /// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="value">The value string to create.</param>
+        /// <param name="attributeFQN"></param>
+        /// <param name="localeCode"></param>
+        /// <param name="productCode"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="value"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -76,9 +76,9 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 		/// <summary>
         /// Get Resource Url for GetProperty
         /// </summary>
-        /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-        /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="attributeFQN"></param>
+        /// <param name="productCode"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -95,10 +95,10 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 				/// <summary>
         /// Get Resource Url for AddPropertyValueLocalizedContent
         /// </summary>
-        /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="value">The value string to create.</param>
+        /// <param name="attributeFQN"></param>
+        /// <param name="productCode"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="value"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -116,8 +116,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 		/// <summary>
         /// Get Resource Url for AddProperty
         /// </summary>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="productCode"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -133,9 +133,9 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 				/// <summary>
         /// Get Resource Url for UpdatePropertyValueLocalizedContents
         /// </summary>
-        /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-        /// <param name="value">The value string to create.</param>
+        /// <param name="attributeFQN"></param>
+        /// <param name="productCode"></param>
+        /// <param name="value"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -152,11 +152,11 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 		/// <summary>
         /// Get Resource Url for UpdatePropertyValueLocalizedContent
         /// </summary>
-        /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-        /// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="value">The value string to create.</param>
+        /// <param name="attributeFQN"></param>
+        /// <param name="localeCode"></param>
+        /// <param name="productCode"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="value"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -175,9 +175,9 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 		/// <summary>
         /// Get Resource Url for UpdateProperty
         /// </summary>
-        /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="attributeFQN"></param>
+        /// <param name="productCode"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -194,8 +194,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 				/// <summary>
         /// Get Resource Url for DeleteProperty
         /// </summary>
-        /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
+        /// <param name="attributeFQN"></param>
+        /// <param name="productCode"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -211,10 +211,10 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Products
 		/// <summary>
         /// Get Resource Url for DeletePropertyValueLocalizedContent
         /// </summary>
-        /// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-        /// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
-        /// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
-        /// <param name="value">The value string to create.</param>
+        /// <param name="attributeFQN"></param>
+        /// <param name="localeCode"></param>
+        /// <param name="productCode"></param>
+        /// <param name="value"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

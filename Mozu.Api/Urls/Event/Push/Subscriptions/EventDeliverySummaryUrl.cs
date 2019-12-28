@@ -19,17 +19,17 @@ namespace Mozu.Api.Urls.Event.Push.Subscriptions
 		/// <summary>
         /// Get Resource Url for GetDeliveryAttemptSummary
         /// </summary>
-        /// <param name="id">Unique identifier of the customer segment to retrieve.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="subscriptionId">Unique identifier for a subscription, such as subscribing tenants for an event or to receive a notification.</param>
+        /// <param name="processId"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="subscriptionId">This operation paramenter is the unique identifer for a subscription.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetDeliveryAttemptSummaryUrl(string subscriptionId, int? id =  null, string responseFields =  null)
+        public static MozuUrl GetDeliveryAttemptSummaryUrl(string subscriptionId, int? processId =  null, string responseFields =  null)
 		{
 			var url = "/api/event/push/subscriptions/{subscriptionId}/deliveryattempts/{id}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
-			mozuUrl.FormatUrl( "id", id);
+			mozuUrl.FormatUrl( "processId", processId);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "subscriptionId", subscriptionId);
 			return mozuUrl;
@@ -38,12 +38,12 @@ namespace Mozu.Api.Urls.Event.Push.Subscriptions
 		/// <summary>
         /// Get Resource Url for GetDeliveryAttemptSummaries
         /// </summary>
-        /// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-        /// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
-        /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
-        /// <param name="subscriptionId">Unique identifier for a subscription, such as subscribing tenants for an event or to receive a notification.</param>
+        /// <param name="filter"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="sortBy"></param>
+        /// <param name="startIndex"></param>
+        /// <param name="subscriptionId"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

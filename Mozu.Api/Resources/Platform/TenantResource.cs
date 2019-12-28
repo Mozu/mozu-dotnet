@@ -13,11 +13,12 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Platform
 {
 	/// <summary>
-	/// Use the tenants resource to manage information about a  tenant.
+	/// Use the tenants resource to manage information about a Mozu tenant.
 	/// </summary>
 	public partial class TenantResource  	{
 		///
@@ -41,36 +42,12 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 				
-		/// <summary>
-		/// Retrieve details about a specific tenant by providing the tenant ID.
-		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="tenantId">Unique identifier of the Mozu tenant.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Tenant.Tenant"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var tenant = new Tenant();
-		///   var tenant = tenant.GetTenant( tenantId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Tenant.Tenant GetTenant(int tenantId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Tenant.Tenant> response;
-			var client = Mozu.Api.Clients.Platform.TenantClient.GetTenantClient( tenantId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieve details about a specific tenant by providing the tenant ID.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="tenantId">Unique identifier of the Mozu tenant.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="tenantId"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Tenant.Tenant"/>
 		/// </returns>
@@ -80,12 +57,12 @@ namespace Mozu.Api.Resources.Platform
 		///   var tenant = await tenant.GetTenantAsync( tenantId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Tenant.Tenant> GetTenantAsync(int tenantId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Tenant.Tenant> GetTenantAsync(int tenantId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Tenant.Tenant> response;
 			var client = Mozu.Api.Clients.Platform.TenantClient.GetTenantClient( tenantId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}

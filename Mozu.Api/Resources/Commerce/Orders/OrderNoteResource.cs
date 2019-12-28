@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Orders
 {
@@ -37,32 +38,9 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		}
 
 				
-		/// <summary>
-		/// Retrieves a list of all notes for an order.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <returns>
-		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var ordernote = new OrderNote();
-		///   var orderNote = ordernote.GetOrderNotes( orderId);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote> GetOrderNotes(string orderId)
-		{
-			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote>> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.OrderNoteClient.GetOrderNotesClient( orderId);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves a list of all notes for an order.
+		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <returns>
@@ -74,48 +52,23 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var orderNote = await ordernote.GetOrderNotesAsync( orderId);
 		/// </code>
 		/// </example>
-		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote>> GetOrderNotesAsync(string orderId)
+		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote>> GetOrderNotesAsync(string orderId, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote>> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.OrderNoteClient.GetOrderNotesClient( orderId);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves the details of a specific order note.
-		/// </summary>
-		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var ordernote = new OrderNote();
-		///   var orderNote = ordernote.GetOrderNote( orderId,  noteId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote GetOrderNote(string orderId, string noteId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.OrderNoteClient.GetOrderNoteClient( orderId,  noteId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves the details of a specific order note.
+		/// 
 		/// </summary>
-		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="noteId">Unique identifier of the order note to retrieve.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the note.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote"/>
 		/// </returns>
@@ -125,48 +78,23 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var orderNote = await ordernote.GetOrderNoteAsync( orderId,  noteId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote> GetOrderNoteAsync(string orderId, string noteId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote> GetOrderNoteAsync(string orderId, string noteId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.OrderNoteClient.GetOrderNoteClient( orderId,  noteId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Creates a new merchant note for the specified order.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="orderNote">Properties of an order note for a merchant, which is internal only for administrative purposes and not available to the shopper.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var ordernote = new OrderNote();
-		///   var orderNote = ordernote.CreateOrderNote( orderNote,  orderId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote CreateOrderNote(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote orderNote, string orderId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.OrderNoteClient.CreateOrderNoteClient( orderNote,  orderId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Creates a new merchant note for the specified order.
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="orderNote">Properties of an order note for a merchant, which is internal only for administrative purposes and not available to the shopper.</param>
+		/// <param name="orderId">Unique identifier of the order for which to add a note.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="orderNote">The alphanumeric text contained in the note. The maximum length is 256 characters.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote"/>
 		/// </returns>
@@ -176,50 +104,24 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var orderNote = await ordernote.CreateOrderNoteAsync( orderNote,  orderId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote> CreateOrderNoteAsync(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote orderNote, string orderId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote> CreateOrderNoteAsync(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote orderNote, string orderId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.OrderNoteClient.CreateOrderNoteClient( orderNote,  orderId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates a specific note for an order.
-		/// </summary>
-		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="orderNote">Properties of an order note for a merchant, which is internal only for administrative purposes and not available to the shopper.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var ordernote = new OrderNote();
-		///   var orderNote = ordernote.UpdateOrderNote( orderNote,  orderId,  noteId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote UpdateOrderNote(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote orderNote, string orderId, string noteId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.OrderNoteClient.UpdateOrderNoteClient( orderNote,  orderId,  noteId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Updates a specific note for an order.
+		/// 
 		/// </summary>
-		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
+		/// <param name="noteId">Unique identifier of the order note.</param>
 		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="orderNote">Properties of an order note for a merchant, which is internal only for administrative purposes and not available to the shopper.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="orderNote">The content of the order note. The maximum length is 256 characters.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote"/>
 		/// </returns>
@@ -229,45 +131,22 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var orderNote = await ordernote.UpdateOrderNoteAsync( orderNote,  orderId,  noteId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote> UpdateOrderNoteAsync(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote orderNote, string orderId, string noteId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote> UpdateOrderNoteAsync(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote orderNote, string orderId, string noteId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderNote> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.OrderNoteClient.UpdateOrderNoteClient( orderNote,  orderId,  noteId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
+
 		/// <summary>
-		/// Deletes the specified order note.
-		/// </summary>
-		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <returns>
 		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var ordernote = new OrderNote();
-		///   ordernote.DeleteOrderNote( orderId,  noteId);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeleteOrderNote(string orderId, string noteId)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Orders.OrderNoteClient.DeleteOrderNoteClient( orderId,  noteId);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// Deletes the specified order note.
 		/// </summary>
-		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
-		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="noteId">Unique identifier of the order note to delete.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the note.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -277,12 +156,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   await ordernote.DeleteOrderNoteAsync( orderId,  noteId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteOrderNoteAsync(string orderId, string noteId)
+		public virtual async Task DeleteOrderNoteAsync(string orderId, string noteId, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Orders.OrderNoteClient.DeleteOrderNoteClient( orderId,  noteId);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 

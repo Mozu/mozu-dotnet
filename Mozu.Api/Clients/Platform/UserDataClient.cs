@@ -13,19 +13,20 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Clients.Platform
 {
 	/// <summary>
-	/// Use the user data subresource to store user-level data required for a third-party application in the  database.
+	/// Use the user data subresource to store user-level data required for a third-party application in the Mozu database.
 	/// </summary>
 	public partial class UserDataClient 	{
 		
 		/// <summary>
-		/// Retrieves the value of a record in the  database.
+		/// 
 		/// </summary>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="dbEntryQuery">The database entry query string used to retrieve the record information.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{string}
 		/// </returns>
@@ -47,7 +48,7 @@ namespace Mozu.Api.Clients.Platform
 		}
 
 		/// <summary>
-		/// Creates a new record in the  database based on the information supplied in the request.
+		/// 
 		/// </summary>
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
 		/// <param name="value">The value string to create.</param>
@@ -72,10 +73,10 @@ namespace Mozu.Api.Clients.Platform
 		}
 
 		/// <summary>
-		/// Updates a record in the  database based on the information supplied in the request.
+		/// 
 		/// </summary>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="dbEntryQuery">The database entry query string used to update the record information.</param>
+		/// <param name="value">The database value to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>
@@ -97,9 +98,9 @@ namespace Mozu.Api.Clients.Platform
 		}
 
 		/// <summary>
-		/// Removes a previously defined record in the  database.
+		/// 
 		/// </summary>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
+		/// <param name="dbEntryQuery">The database entry string to delete.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
 		/// </returns>

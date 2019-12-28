@@ -13,11 +13,12 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Platform.Extensions
 {
 	/// <summary>
-	/// The CredentialStore resource allows you to encrypt and store sensitive data on your tenant. You can then decrypt and access that data using an Arc.js application, as described in the Arc.js [Programming Patterns](https://www.mozu.com/docs/developer/arcjs-guides/programming-patterns.htm#securely_store_and_access_sensitive_data) topic.
+	/// 
 	/// </summary>
 	public partial class CredentialStoreEntryResource  	{
 		///
@@ -37,31 +38,9 @@ namespace Mozu.Api.Resources.Platform.Extensions
 		}
 
 				
+
 		/// <summary>
-		/// Encrypts and stores data contained in the  JSON object. You can decrypt and access the secured data using an Arc.js application, as described in the Arc.js [Programming Patterns](https://www.mozu.com/docs/developer/arcjs-guides/programming-patterns.htm#securely_store_and_access_sensitive_data) topic.
-		/// </summary>
-		/// <param name="credentials"></param>
-		/// <returns>
 		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var credentialstoreentry = new CredentialStoreEntry();
-		///   credentialstoreentry.StoreCredentials( credentials);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void StoreCredentials(Mozu.Api.Contracts.InstalledApplications.CredentialStoreEntry credentials)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Platform.Extensions.CredentialStoreEntryClient.StoreCredentialsClient( credentials);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// Encrypts and stores data contained in the  JSON object. You can decrypt and access the secured data using an Arc.js application, as described in the Arc.js [Programming Patterns](https://www.mozu.com/docs/developer/arcjs-guides/programming-patterns.htm#securely_store_and_access_sensitive_data) topic.
 		/// </summary>
 		/// <param name="credentials"></param>
 		/// <returns>
@@ -73,12 +52,12 @@ namespace Mozu.Api.Resources.Platform.Extensions
 		///   await credentialstoreentry.StoreCredentialsAsync( credentials);
 		/// </code>
 		/// </example>
-		public virtual async Task StoreCredentialsAsync(Mozu.Api.Contracts.InstalledApplications.CredentialStoreEntry credentials)
+		public virtual async Task StoreCredentialsAsync(Mozu.Api.Contracts.InstalledApplications.CredentialStoreEntry credentials, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Platform.Extensions.CredentialStoreEntryClient.StoreCredentialsClient( credentials);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 

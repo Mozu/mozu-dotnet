@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Content.Documentlists
 {
@@ -44,36 +45,12 @@ namespace Mozu.Api.Resources.Content.Documentlists
 			_dataViewMode = dataViewMode;
 		}
 				
-		/// <summary>
-		/// Retrieve the content associated with the document, such as a product image or PDF specifications file.
-		/// </summary>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
-		/// <param name="documentName">The name of the document in the site.</param>
-		/// <returns>
-		/// <see cref="System.IO.Stream"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var documenttree = new DocumentTree();
-		///   var stream = documenttree.GetTreeDocumentContent(_dataViewMode,  documentListName,  documentName);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual System.IO.Stream GetTreeDocumentContent(string documentListName, string documentName)
-		{
-			MozuClient<System.IO.Stream> response;
-			var client = Mozu.Api.Clients.Content.Documentlists.DocumentTreeClient.GetTreeDocumentContentClient(_dataViewMode,  documentListName,  documentName);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieve the content associated with the document, such as a product image or PDF specifications file.
+		/// 
 		/// </summary>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
-		/// <param name="documentName">The name of the document in the site.</param>
+		/// <param name="documentListName">The name of the document list associated with the document.</param>
+		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
 		/// <returns>
 		/// <see cref="System.IO.Stream"/>
 		/// </returns>
@@ -83,60 +60,29 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		///   var stream = await documenttree.GetTreeDocumentContentAsync(_dataViewMode,  documentListName,  documentName);
 		/// </code>
 		/// </example>
-		public virtual async Task<System.IO.Stream> GetTreeDocumentContentAsync(string documentListName, string documentName)
+		public virtual async Task<System.IO.Stream> GetTreeDocumentContentAsync(string documentListName, string documentName, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Content.Documentlists.DocumentTreeClient.GetTreeDocumentContentClient(_dataViewMode,  documentListName,  documentName);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Performs transformations on a document. For example, resizing an image.
-		/// </summary>
-		/// <param name="crop">Crops the image based on the specified coordinates. The reference point for positive coordinates is the top-left corner of the image, and the reference point for negative coordinates is the bottom-right corner of the image.Usage: Example:  removes 10 pixels from all edges of the image.  leaves the image uncropped.</param>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
-		/// <param name="documentName">The name of the document in the site.</param>
-		/// <param name="height">Specifies an exact height dimension for the image, in pixels.</param>
-		/// <param name="max">Specifies a pixel limitation for the largest side of an image.</param>
-		/// <param name="maxHeight">Specifies a pixel limitation for the height of the image, preserving the aspect ratio if the image needs resizing.</param>
-		/// <param name="maxWidth">Specifies a pixel limitation for the width of the image, preserving the aspect ratio if the image needs resizing.</param>
-		/// <param name="quality">Adjusts the image compression. Accepts values from 0-100, where 100 = highest quality, least compression.</param>
-		/// <param name="width">Specifies an exact width dimension for the image, in pixels.</param>
-		/// <returns>
-		/// <see cref="System.IO.Stream"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var documenttree = new DocumentTree();
-		///   var stream = documenttree.TransformTreeDocumentContent( documentListName,  documentName,  width,  height,  max,  maxWidth,  maxHeight,  crop,  quality);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual System.IO.Stream TransformTreeDocumentContent(string documentListName, string documentName, int? width =  null, int? height =  null, int? max =  null, int? maxWidth =  null, int? maxHeight =  null, string crop =  null, int? quality =  null)
-		{
-			MozuClient<System.IO.Stream> response;
-			var client = Mozu.Api.Clients.Content.Documentlists.DocumentTreeClient.TransformTreeDocumentContentClient( documentListName,  documentName,  width,  height,  max,  maxWidth,  maxHeight,  crop,  quality);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Performs transformations on a document. For example, resizing an image.
+		/// 
 		/// </summary>
-		/// <param name="crop">Crops the image based on the specified coordinates. The reference point for positive coordinates is the top-left corner of the image, and the reference point for negative coordinates is the bottom-right corner of the image.Usage: Example:  removes 10 pixels from all edges of the image.  leaves the image uncropped.</param>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
-		/// <param name="documentName">The name of the document in the site.</param>
-		/// <param name="height">Specifies an exact height dimension for the image, in pixels.</param>
-		/// <param name="max">Specifies a pixel limitation for the largest side of an image.</param>
-		/// <param name="maxHeight">Specifies a pixel limitation for the height of the image, preserving the aspect ratio if the image needs resizing.</param>
-		/// <param name="maxWidth">Specifies a pixel limitation for the width of the image, preserving the aspect ratio if the image needs resizing.</param>
-		/// <param name="quality">Adjusts the image compression. Accepts values from 0-100, where 100 = highest quality, least compression.</param>
-		/// <param name="width">Specifies an exact width dimension for the image, in pixels.</param>
+		/// <param name="crop"></param>
+		/// <param name="documentListName"></param>
+		/// <param name="documentName"></param>
+		/// <param name="height"></param>
+		/// <param name="max"></param>
+		/// <param name="maxHeight"></param>
+		/// <param name="maxWidth"></param>
+		/// <param name="quality"></param>
+		/// <param name="width"></param>
 		/// <returns>
 		/// <see cref="System.IO.Stream"/>
 		/// </returns>
@@ -146,50 +92,24 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		///   var stream = await documenttree.TransformTreeDocumentContentAsync( documentListName,  documentName,  width,  height,  max,  maxWidth,  maxHeight,  crop,  quality);
 		/// </code>
 		/// </example>
-		public virtual async Task<System.IO.Stream> TransformTreeDocumentContentAsync(string documentListName, string documentName, int? width =  null, int? height =  null, int? max =  null, int? maxWidth =  null, int? maxHeight =  null, string crop =  null, int? quality =  null)
+		public virtual async Task<System.IO.Stream> TransformTreeDocumentContentAsync(string documentListName, string documentName, int? width =  null, int? height =  null, int? max =  null, int? maxWidth =  null, int? maxHeight =  null, string crop =  null, int? quality =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Content.Documentlists.DocumentTreeClient.TransformTreeDocumentContentClient( documentListName,  documentName,  width,  height,  max,  maxWidth,  maxHeight,  crop,  quality);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves a document based on its document list and folder path in the document hierarchy.
-		/// </summary>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
-		/// <param name="documentName">The name of the document in the site.</param>
-		/// <param name="includeInactive">Include inactive content.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Content.Document"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var documenttree = new DocumentTree();
-		///   var document = documenttree.GetTreeDocument(_dataViewMode,  documentListName,  documentName,  includeInactive,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Content.Document GetTreeDocument(string documentListName, string documentName, bool? includeInactive =  null, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Content.Document> response;
-			var client = Mozu.Api.Clients.Content.Documentlists.DocumentTreeClient.GetTreeDocumentClient(_dataViewMode,  documentListName,  documentName,  includeInactive,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves a document based on its document list and folder path in the document hierarchy.
+		/// 
 		/// </summary>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
-		/// <param name="documentName">The name of the document in the site.</param>
-		/// <param name="includeInactive">Include inactive content.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="documentListName">The name of the document list associated with the document.</param>
+		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
+		/// <param name="includeInactive"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Content.Document"/>
 		/// </returns>
@@ -199,47 +119,23 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		///   var document = await documenttree.GetTreeDocumentAsync(_dataViewMode,  documentListName,  documentName,  includeInactive,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Content.Document> GetTreeDocumentAsync(string documentListName, string documentName, bool? includeInactive =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Content.Document> GetTreeDocumentAsync(string documentListName, string documentName, bool? includeInactive =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Content.Document> response;
 			var client = Mozu.Api.Clients.Content.Documentlists.DocumentTreeClient.GetTreeDocumentClient(_dataViewMode,  documentListName,  documentName,  includeInactive,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
+
 		/// <summary>
-		/// Updates the binary data or content associated with a document, such as a product image or PDF specifications file, by supplying the document name.
-		/// </summary>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
-		/// <param name="documentName">The name of the document in the site.</param>
-		/// <param name="stream">Data stream that delivers information. Used to input and output data.</param>
-		/// <returns>
 		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var documenttree = new DocumentTree();
-		///   documenttree.UpdateTreeDocumentContent( stream,  documentListName,  documentName,  contentType);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void UpdateTreeDocumentContent(System.IO.Stream stream, string documentListName, string documentName, String  contentType= null)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Content.Documentlists.DocumentTreeClient.UpdateTreeDocumentContentClient( stream,  documentListName,  documentName,  contentType);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// Updates the binary data or content associated with a document, such as a product image or PDF specifications file, by supplying the document name.
 		/// </summary>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
-		/// <param name="documentName">The name of the document in the site.</param>
-		/// <param name="stream">Data stream that delivers information. Used to input and output data.</param>
+		/// <param name="documentListName">The name of the document list associated with the document.</param>
+		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
+		/// <param name="stream">Input output stream that delivers information.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -249,46 +145,22 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		///   await documenttree.UpdateTreeDocumentContentAsync( stream,  documentListName,  documentName,  contentType);
 		/// </code>
 		/// </example>
-		public virtual async Task UpdateTreeDocumentContentAsync(System.IO.Stream stream, string documentListName, string documentName, String  contentType= null)
+		public virtual async Task UpdateTreeDocumentContentAsync(System.IO.Stream stream, string documentListName, string documentName, String  contentType= null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Content.Documentlists.DocumentTreeClient.UpdateTreeDocumentContentClient( stream,  documentListName,  documentName,  contentType);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 
+
 		/// <summary>
-		/// Deletes the content associated with a document, such as a product image or PDF specifications file.
-		/// </summary>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
-		/// <param name="documentName">The name of the document in the site.</param>
-		/// <param name="stream">Data stream that delivers information. Used to input and output data.</param>
-		/// <returns>
 		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var documenttree = new DocumentTree();
-		///   documenttree.DeleteTreeDocumentContent( stream,  documentListName,  documentName,  contentType);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeleteTreeDocumentContent(System.IO.Stream stream, string documentListName, string documentName, String  contentType= null)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Content.Documentlists.DocumentTreeClient.DeleteTreeDocumentContentClient( stream,  documentListName,  documentName,  contentType);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// Deletes the content associated with a document, such as a product image or PDF specifications file.
 		/// </summary>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
-		/// <param name="documentName">The name of the document in the site.</param>
-		/// <param name="stream">Data stream that delivers information. Used to input and output data.</param>
+		/// <param name="documentListName">The name of the document list associated with the document.</param>
+		/// <param name="documentName">The name of the document, which is unique within its folder.</param>
+		/// <param name="stream">Input output stream that delivers information.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -298,12 +170,12 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		///   await documenttree.DeleteTreeDocumentContentAsync( stream,  documentListName,  documentName,  contentType);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteTreeDocumentContentAsync(System.IO.Stream stream, string documentListName, string documentName, String  contentType= null)
+		public virtual async Task DeleteTreeDocumentContentAsync(System.IO.Stream stream, string documentListName, string documentName, String  contentType= null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Content.Documentlists.DocumentTreeClient.DeleteTreeDocumentContentClient( stream,  documentListName,  documentName,  contentType);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 

@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Clients.Commerce.Carts
 {
@@ -22,9 +23,9 @@ namespace Mozu.Api.Clients.Commerce.Carts
 	public partial class ChangeMessageClient 	{
 		
 		/// <summary>
-		/// Retrieves the messages associated with the current shopper's cart.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartChangeMessageCollection"/>}
 		/// </returns>
@@ -46,7 +47,7 @@ namespace Mozu.Api.Clients.Commerce.Carts
 		}
 
 		/// <summary>
-		/// Deletes all messages associated with the cart of the current shopper.
+		/// 
 		/// </summary>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />
@@ -69,7 +70,7 @@ namespace Mozu.Api.Clients.Commerce.Carts
 		}
 
 		/// <summary>
-		/// Removes a single message associated with the cart of the current shopper.
+		/// 
 		/// </summary>
 		/// <param name="messageId">Identifier of the message to remove from the cart.</param>
 		/// <returns>

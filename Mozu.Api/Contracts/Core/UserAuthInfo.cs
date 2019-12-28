@@ -18,14 +18,8 @@ namespace Mozu.Api.Contracts.Core
 		///
 		public class UserAuthInfo
 		{
-			///
-			///The email address of the specified user or the email address associated with the specified entity.
-			///
 			public string EmailAddress { get; set; }
 
-			///
-			///The write-only password for the customer account.
-			///
 			public string Password { get; set; }
 
 		}

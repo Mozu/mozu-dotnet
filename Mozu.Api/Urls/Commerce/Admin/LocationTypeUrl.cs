@@ -33,7 +33,7 @@ namespace Mozu.Api.Urls.Commerce.Admin
         /// Get Resource Url for GetLocationType
         /// </summary>
         /// <param name="locationTypeCode">The user-defined code that identifies the location type.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -49,7 +49,7 @@ namespace Mozu.Api.Urls.Commerce.Admin
 				/// <summary>
         /// Get Resource Url for AddLocationType
         /// </summary>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -65,7 +65,7 @@ namespace Mozu.Api.Urls.Commerce.Admin
         /// Get Resource Url for UpdateLocationType
         /// </summary>
         /// <param name="locationTypeCode">The user-defined code that identifies the location type.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -81,7 +81,7 @@ namespace Mozu.Api.Urls.Commerce.Admin
 				/// <summary>
         /// Get Resource Url for DeleteLocationType
         /// </summary>
-        /// <param name="locationTypeCode">The user-defined code that identifies the location type.</param>
+        /// <param name="locationTypeCode">User-defined code used to identify the location type.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

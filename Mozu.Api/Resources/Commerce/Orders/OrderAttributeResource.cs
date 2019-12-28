@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Orders
 {
@@ -37,34 +38,11 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		}
 
 				
-		/// <summary>
-		/// Retrieves a list of the attributes defined for the order specified in the request.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <returns>
-		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var orderattribute = new OrderAttribute();
-		///   var orderAttribute = orderattribute.GetOrderAttributes( orderId);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute> GetOrderAttributes(string orderId)
-		{
-			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute>> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.OrderAttributeClient.GetOrderAttributesClient( orderId);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves a list of the attributes defined for the order specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="orderId">Unique identifier of the order for which to retrieve a list of defined attributes.</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute"/>}
 		/// </returns>
@@ -74,46 +52,22 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var orderAttribute = await orderattribute.GetOrderAttributesAsync( orderId);
 		/// </code>
 		/// </example>
-		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute>> GetOrderAttributesAsync(string orderId)
+		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute>> GetOrderAttributesAsync(string orderId, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute>> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.OrderAttributeClient.GetOrderAttributesClient( orderId);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Applies a list of attributes to the order specified in the request and defines a value for each attribute in the request body.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="orderAttributes">Properties of an attribute applied to an order.</param>
-		/// <returns>
-		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var orderattribute = new OrderAttribute();
-		///   var orderAttribute = orderattribute.CreateOrderAttributes( orderAttributes,  orderId);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute> CreateOrderAttributes(List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute> orderAttributes, string orderId)
-		{
-			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute>> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.OrderAttributeClient.CreateOrderAttributesClient( orderAttributes,  orderId);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Applies a list of attributes to the order specified in the request and defines a value for each attribute in the request body.
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="orderAttributes">Properties of an attribute applied to an order.</param>
+		/// <param name="orderId">Unique identifier of the order for which to assign the attributes.</param>
+		/// <param name="orderAttributes">The list of attributes to associate with the order, and the properties of each attribute to define for the order.</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute"/>}
 		/// </returns>
@@ -123,48 +77,23 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var orderAttribute = await orderattribute.CreateOrderAttributesAsync( orderAttributes,  orderId);
 		/// </code>
 		/// </example>
-		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute>> CreateOrderAttributesAsync(List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute> orderAttributes, string orderId)
+		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute>> CreateOrderAttributesAsync(List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute> orderAttributes, string orderId, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute>> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.OrderAttributeClient.CreateOrderAttributesClient( orderAttributes,  orderId);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates one or more properties of an attribute defined for the order specified in the request.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="removeMissing">If true, the operation removes missing properties so that the updated order attributes will not show properties with a null value.</param>
-		/// <param name="orderAttributes">Properties of an attribute applied to an order.</param>
-		/// <returns>
-		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var orderattribute = new OrderAttribute();
-		///   var orderAttribute = orderattribute.UpdateOrderAttributes( orderAttributes,  orderId,  removeMissing);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute> UpdateOrderAttributes(List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute> orderAttributes, string orderId, bool? removeMissing =  null)
-		{
-			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute>> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.OrderAttributeClient.UpdateOrderAttributesClient( orderAttributes,  orderId,  removeMissing);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Updates one or more properties of an attribute defined for the order specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="orderId">Identifier of the order for which to update attributes.</param>
 		/// <param name="removeMissing">If true, the operation removes missing properties so that the updated order attributes will not show properties with a null value.</param>
-		/// <param name="orderAttributes">Properties of an attribute applied to an order.</param>
+		/// <param name="orderAttributes">List of order attributes to update, including the properties of each defined attribute in the list.</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute"/>}
 		/// </returns>
@@ -174,12 +103,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var orderAttribute = await orderattribute.UpdateOrderAttributesAsync( orderAttributes,  orderId,  removeMissing);
 		/// </code>
 		/// </example>
-		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute>> UpdateOrderAttributesAsync(List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute> orderAttributes, string orderId, bool? removeMissing =  null)
+		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute>> UpdateOrderAttributesAsync(List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute> orderAttributes, string orderId, bool? removeMissing =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAttribute>> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.OrderAttributeClient.UpdateOrderAttributesClient( orderAttributes,  orderId,  removeMissing);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}

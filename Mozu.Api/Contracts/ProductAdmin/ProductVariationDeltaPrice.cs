@@ -19,23 +19,17 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		public class ProductVariationDeltaPrice
 		{
 			///
-			///The credit value of the product or bundled product. When the `goodsType `is `DigitalCredit`, this value is populated to indicate the value of the credit. This is used to create store credit in the fulfillment of gift cards.
+			///The credit amount for the product.
 			///
 			public decimal? CreditValue { get; set; }
 
-			///
-			///3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
-			///
 			public string CurrencyCode { get; set; }
 
 			///
-			///The manufacturer's suggested retail price (MSRP) for the product. This content may be defined by the supplier.
+			///The manufacturer's suggested retail price, as defined by the supplier.
 			///
 			public decimal? Msrp { get; set; }
 
-			///
-			///The value of a property, used by numerous objects within  including facets, attributes, products, localized content, metadata, capabilities ( and third-party), location inventory adjustment, and more. The value may be a string, integer, or double. Validation may be run against the entered and saved values depending on the object type.
-			///
 			public decimal? Value { get; set; }
 
 		}

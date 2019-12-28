@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 {
@@ -44,34 +45,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 			_dataViewMode = dataViewMode;
 		}
 				
-		/// <summary>
-		/// Retrieves a list of all option attributes configured for the product specified in the request.
-		/// </summary>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <returns>
-		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductOption"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productoption = new ProductOption();
-		///   var productOption = productoption.GetOptions(_dataViewMode,  productCode);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual List<Mozu.Api.Contracts.ProductAdmin.ProductOption> GetOptions(string productCode)
-		{
-			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductOption>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductOptionClient.GetOptionsClient(_dataViewMode,  productCode);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves a list of all option attributes configured for the product specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="productCode"></param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.ProductOption"/>}
 		/// </returns>
@@ -81,48 +59,23 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   var productOption = await productoption.GetOptionsAsync(_dataViewMode,  productCode);
 		/// </code>
 		/// </example>
-		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductOption>> GetOptionsAsync(string productCode)
+		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.ProductOption>> GetOptionsAsync(string productCode, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.ProductOption>> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductOptionClient.GetOptionsClient(_dataViewMode,  productCode);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves the details of an option attribute configuration for the specified product.
-		/// </summary>
-		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductOption"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productoption = new ProductOption();
-		///   var productOption = productoption.GetOption(_dataViewMode,  productCode,  attributeFQN,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductOption GetOption(string productCode, string attributeFQN, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductOption> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductOptionClient.GetOptionClient(_dataViewMode,  productCode,  attributeFQN,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves the details of an option attribute configuration for the specified product.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductOption"/>
 		/// </returns>
@@ -132,48 +85,23 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   var productOption = await productoption.GetOptionAsync(_dataViewMode,  productCode,  attributeFQN,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductOption> GetOptionAsync(string productCode, string attributeFQN, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductOption> GetOptionAsync(string productCode, string attributeFQN, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductOption> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductOptionClient.GetOptionClient(_dataViewMode,  productCode,  attributeFQN,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Configures an option attribute for the product specified in the request.
-		/// </summary>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="productOption">Properties of the product option to create such as attribute detail, fully qualified name, and list of product option values.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductOption"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productoption = new ProductOption();
-		///   var productOption = productoption.AddOption(_dataViewMode,  productOption,  productCode,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductOption AddOption(Mozu.Api.Contracts.ProductAdmin.ProductOption productOption, string productCode, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductOption> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductOptionClient.AddOptionClient(_dataViewMode,  productOption,  productCode,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Configures an option attribute for the product specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="productOption">Properties of the product option to create such as attribute detail, fully qualified name, and list of product option values.</param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="productOption">Properties of the option attribute to define for the product.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductOption"/>
 		/// </returns>
@@ -183,50 +111,24 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   var productOption = await productoption.AddOptionAsync(_dataViewMode,  productOption,  productCode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductOption> AddOptionAsync(Mozu.Api.Contracts.ProductAdmin.ProductOption productOption, string productCode, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductOption> AddOptionAsync(Mozu.Api.Contracts.ProductAdmin.ProductOption productOption, string productCode, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductOption> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductOptionClient.AddOptionClient(_dataViewMode,  productOption,  productCode,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates one or more properties of an option attribute configured for a product.
-		/// </summary>
-		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="productOption">Properties of the product option to create such as attribute detail, fully qualified name, and list of product option values.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductOption"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productoption = new ProductOption();
-		///   var productOption = productoption.UpdateOption(_dataViewMode,  productOption,  productCode,  attributeFQN,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.ProductOption UpdateOption(Mozu.Api.Contracts.ProductAdmin.ProductOption productOption, string productCode, string attributeFQN, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductOption> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductOptionClient.UpdateOptionClient(_dataViewMode,  productOption,  productCode,  attributeFQN,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Updates one or more properties of an option attribute configured for a product.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="productOption">Properties of the product option to create such as attribute detail, fully qualified name, and list of product option values.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="productOption">Properties of the product option attribute configuration to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.ProductOption"/>
 		/// </returns>
@@ -236,45 +138,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   var productOption = await productoption.UpdateOptionAsync(_dataViewMode,  productOption,  productCode,  attributeFQN,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductOption> UpdateOptionAsync(Mozu.Api.Contracts.ProductAdmin.ProductOption productOption, string productCode, string attributeFQN, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.ProductOption> UpdateOptionAsync(Mozu.Api.Contracts.ProductAdmin.ProductOption productOption, string productCode, string attributeFQN, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.ProductOption> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductOptionClient.UpdateOptionClient(_dataViewMode,  productOption,  productCode,  attributeFQN,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
+
 		/// <summary>
-		/// Deletes the configuration of an option attribute for the product specified in the request.
-		/// </summary>
-		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-		/// <returns>
 		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var productoption = new ProductOption();
-		///   productoption.DeleteOption(_dataViewMode,  productCode,  attributeFQN);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeleteOption(string productCode, string attributeFQN)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductOptionClient.DeleteOptionClient(_dataViewMode,  productCode,  attributeFQN);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// Deletes the configuration of an option attribute for the product specified in the request.
 		/// </summary>
-		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-		/// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="productCode"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -284,12 +163,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		///   await productoption.DeleteOptionAsync(_dataViewMode,  productCode,  attributeFQN);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteOptionAsync(string productCode, string attributeFQN)
+		public virtual async Task DeleteOptionAsync(string productCode, string attributeFQN, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductOptionClient.DeleteOptionClient(_dataViewMode,  productCode,  attributeFQN);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 

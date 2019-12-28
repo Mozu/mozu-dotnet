@@ -19,10 +19,10 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetProductReservations
         /// </summary>
-        /// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-        /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="sortBy"></param>
+        /// <param name="filter"></param>
+        /// <param name="pageSize">Used to page results from a query. Indicates the maximum number of entities to return from a query. Default value: 20. Max value: 200.</param>
+        /// <param name="responseFields"></param>
+        /// <param name="sortBy">The element to sort the results by and the order in which the results appear. Either ascending order (a-z) which accepts 'asc' or 'asc' or descending order (z-a) which accepts 'desc' or 'desc'. The sortBy parameter follows an available property.</param>
         /// <param name="startIndex"></param>
         /// <returns>
         /// String - Resource Url
@@ -43,7 +43,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
         /// Get Resource Url for GetProductReservation
         /// </summary>
         /// <param name="productReservationId">Unique identifier of the product reservation.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -87,7 +87,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for UpdateProductReservations
         /// </summary>
-        /// <param name="skipInventoryCheck">If true, skip the process to validate inventory when creating this product reservation.</param>
+        /// <param name="skipInventoryCheck">If true, skip the inventory validation process when updating this product reservation.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -102,7 +102,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for DeleteProductReservation
         /// </summary>
-        /// <param name="productReservationId">Unique identifier of the product reservation.</param>
+        /// <param name="productReservationId">Unique identifier of the reservation.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

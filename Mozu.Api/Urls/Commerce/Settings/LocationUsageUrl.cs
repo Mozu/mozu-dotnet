@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce.Settings
 		/// <summary>
         /// Get Resource Url for GetLocationUsages
         /// </summary>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -34,8 +34,8 @@ namespace Mozu.Api.Urls.Commerce.Settings
 		/// <summary>
         /// Get Resource Url for GetLocationUsage
         /// </summary>
-        /// <param name="code">User-defined code that uniqely identifies the channel group.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="code">Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -51,8 +51,8 @@ namespace Mozu.Api.Urls.Commerce.Settings
 						/// <summary>
         /// Get Resource Url for UpdateLocationUsage
         /// </summary>
-        /// <param name="code">User-defined code that uniqely identifies the channel group.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="code">Code that identifies the location usage type, which is "DS" for direct ship, "SP" for in-store pickup, or "storeFinder" for store finder.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

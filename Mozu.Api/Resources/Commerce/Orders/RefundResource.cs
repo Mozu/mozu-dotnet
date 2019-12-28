@@ -13,11 +13,12 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Orders
 {
 	/// <summary>
-	/// Use the refunds resource to create a refund.
+	/// 
 	/// </summary>
 	public partial class RefundResource  	{
 		///
@@ -37,38 +38,13 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		}
 
 				
-		/// <summary>
-		/// Creates a refund based on the information supplied in the request.  
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="refund">The details of the refund.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Refunds.Refund"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var refund = new Refund();
-		///   var refund = refund.CreateRefund( refund,  orderId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Refunds.Refund CreateRefund(Mozu.Api.Contracts.CommerceRuntime.Refunds.Refund refund, string orderId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Refunds.Refund> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.RefundClient.CreateRefundClient( refund,  orderId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Creates a refund based on the information supplied in the request.  
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="refund">The details of the refund.</param>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="refund"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Refunds.Refund"/>
 		/// </returns>
@@ -78,45 +54,22 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var refund = await refund.CreateRefundAsync( refund,  orderId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Refunds.Refund> CreateRefundAsync(Mozu.Api.Contracts.CommerceRuntime.Refunds.Refund refund, string orderId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Refunds.Refund> CreateRefundAsync(Mozu.Api.Contracts.CommerceRuntime.Refunds.Refund refund, string orderId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Refunds.Refund> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.RefundClient.CreateRefundClient( refund,  orderId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
+
 		/// <summary>
-		/// Resends the order refund email previously sent to the shopper. 
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="refundId">Unique ID of the refund.        </param>
-		/// <returns>
 		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var refund = new Refund();
-		///   refund.ResendRefundEmail( orderId,  refundId);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void ResendRefundEmail(string orderId, string refundId)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Orders.RefundClient.ResendRefundEmailClient( orderId,  refundId);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// Resends the order refund email previously sent to the shopper. 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="refundId">Unique ID of the refund.        </param>
+		/// <param name="orderId"></param>
+		/// <param name="refundId"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -126,12 +79,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   await refund.ResendRefundEmailAsync( orderId,  refundId);
 		/// </code>
 		/// </example>
-		public virtual async Task ResendRefundEmailAsync(string orderId, string refundId)
+		public virtual async Task ResendRefundEmailAsync(string orderId, string refundId, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Orders.RefundClient.ResendRefundEmailClient( orderId,  refundId);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 

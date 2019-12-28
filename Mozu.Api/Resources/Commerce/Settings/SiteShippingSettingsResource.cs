@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Settings
 {
@@ -37,34 +38,11 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		}
 
 				
-		/// <summary>
-		/// Retrieves a list of the shipping settings configured for a site.
-		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingSettings"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var siteshippingsettings = new SiteShippingSettings();
-		///   var siteShippingSettings = siteshippingsettings.GetSiteShippingSettings( responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingSettings GetSiteShippingSettings(string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingSettings> response;
-			var client = Mozu.Api.Clients.Commerce.Settings.SiteShippingSettingsClient.GetSiteShippingSettingsClient( responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves a list of the shipping settings configured for a site.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingSettings"/>
 		/// </returns>
@@ -74,12 +52,12 @@ namespace Mozu.Api.Resources.Commerce.Settings
 		///   var siteShippingSettings = await siteshippingsettings.GetSiteShippingSettingsAsync( responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingSettings> GetSiteShippingSettingsAsync(string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingSettings> GetSiteShippingSettingsAsync(string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingSettings> response;
 			var client = Mozu.Api.Clients.Commerce.Settings.SiteShippingSettingsClient.GetSiteShippingSettingsClient( responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}

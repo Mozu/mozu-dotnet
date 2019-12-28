@@ -18,19 +18,10 @@ namespace Mozu.Api.Contracts.Customer
 		///
 		public class CommerceSummary
 		{
-			///
-			///The date and time the shopper last submitted an order for any site associated with the tenant.
-			///
 			public DateTime? LastOrderDate { get; set; }
 
-			///
-			///The total number of order the shopper submitted across all sites associated with the tenant.
-			///
 			public int OrderCount { get; set; }
 
-			///
-			///The aggregate total amount of all orders the shopper submitted, across all sites associated with the tenant.
-			///
 			public CurrencyAmount TotalOrderAmount { get; set; }
 
 			///
@@ -38,9 +29,6 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public int VisitsCount { get; set; }
 
-			///
-			///The number of wish lists associated with a customer account. This number represents the total number of a shopper's wish lists across all sites associated with a tenant.
-			///
 			public int WishlistCount { get; set; }
 
 		}

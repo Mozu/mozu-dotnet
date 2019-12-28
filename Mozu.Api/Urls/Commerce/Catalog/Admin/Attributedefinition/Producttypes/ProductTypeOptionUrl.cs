@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes
 		/// <summary>
         /// Get Resource Url for GetOptions
         /// </summary>
-        /// <param name="productTypeId">Identifier of the product type.</param>
+        /// <param name="productTypeId">Identifier of the product type to retrieve.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -34,9 +34,9 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes
 		/// <summary>
         /// Get Resource Url for GetOption
         /// </summary>
-        /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-        /// <param name="productTypeId">Identifier of the product type.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="attributeFQN"></param>
+        /// <param name="productTypeId">The identifier of the product type.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -54,7 +54,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes
         /// Get Resource Url for AddOption
         /// </summary>
         /// <param name="productTypeId">Identifier of the product type.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -70,9 +70,9 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes
 				/// <summary>
         /// Get Resource Url for UpdateOption
         /// </summary>
-        /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+        /// <param name="attributeFQN"></param>
         /// <param name="productTypeId">Identifier of the product type.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -89,7 +89,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes
 				/// <summary>
         /// Get Resource Url for DeleteOption
         /// </summary>
-        /// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+        /// <param name="attributeFQN"></param>
         /// <param name="productTypeId">Identifier of the product type.</param>
         /// <returns>
         /// String - Resource Url

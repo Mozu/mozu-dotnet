@@ -19,14 +19,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		///
 		public class ProductPurchasableState
 		{
-			///
-			///If true, the entity has met all requirements and considered a purchasable entity.
-			///
 			public bool IsPurchasable { get; set; }
 
-			///
-			///Array list of validation and status messages associated with shipping rates, orders, and product purchasable state.
-			///
 			public List<ValidationMessage> Messages { get; set; }
 
 		}

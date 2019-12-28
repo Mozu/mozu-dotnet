@@ -13,69 +13,30 @@ using System;
 
 namespace Mozu.Api.Contracts.AppDev
 {
-		///
-		///	Mozu.AppDev.Contracts.ApplicationTransaction ApiType DOCUMENT_HERE 
-		///
 		public class ApplicationTransaction
 		{
-			///
-			///Mozu.AppDev.Contracts.ApplicationTransaction applicationEntitlementId ApiTypeMember DOCUMENT_HERE 
-			///
 			public int? ApplicationEntitlementId { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationTransaction applicationId ApiTypeMember DOCUMENT_HERE 
-			///
 			public int ApplicationId { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationTransaction applicationTransactionId ApiTypeMember DOCUMENT_HERE 
-			///
 			public int ApplicationTransactionId { get; set; }
 
-			///
-			///The three character ISO currency code for the monetary amount. For example, USD is used for US Dollars. 
-			///
 			public string IsoCurrencyCode { get; set; }
 
-			///
-			///Language used for the entity. Currently, only "en-US" is supported.
-			///
 			public int LocaleCode { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationTransaction orderNumber ApiTypeMember DOCUMENT_HERE 
-			///
 			public string OrderNumber { get; set; }
 
-			///
-			///Unique identifier for the site. This ID is used at all levels of a store, catalog, and tenant to associate objects to a site.
-			///
 			public int? SiteId { get; set; }
 
-			///
-			///Unique identifier of the Mozu tenant.
-			///
 			public int TenantId { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationTransaction transactionDate ApiTypeMember DOCUMENT_HERE 
-			///
 			public DateTime TransactionDate { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationTransaction transactionPrice ApiTypeMember DOCUMENT_HERE 
-			///
 			public decimal TransactionPrice { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationTransaction transactionTax ApiTypeMember DOCUMENT_HERE 
-			///
 			public decimal TransactionTax { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationTransaction transactionTotal ApiTypeMember DOCUMENT_HERE 
-			///
 			public decimal TransactionTotal { get; set; }
 
 		}

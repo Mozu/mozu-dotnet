@@ -15,35 +15,20 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
-		///	The container for a set of products.
+		///	Collection of products and their related properties.
 		///
 		public class ProductCollection
 		{
-			///
-			///An array list of objects in the returned collection.
-			///
 			public List<Product> Items { get; set; }
 
-			///
-			///This parameter is associated with deep paging. If you started a deep paged request by specifying ,  returns an encoded value for the . In your most immediate subsequent request, set  to the same value you received for  to continue paging. When  is null, you've reached the end of paged results.
-			///
 			public string NextCursorMark { get; set; }
 
-			///
-			///The number of pages returned based on the startIndex and pageSize values specified. This value is system-supplied and read-only.
-			///
 			public int PageCount { get; set; }
 
-			///
-			///The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-			///
 			public int PageSize { get; set; }
 
 			public int StartIndex { get; set; }
 
-			///
-			///The number of results listed in the query collection, represented by a signed 64-bit (8-byte) integer. This value is system-supplied and read-only.
-			///
 			public int TotalCount { get; set; }
 
 		}

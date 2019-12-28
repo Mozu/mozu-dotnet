@@ -18,14 +18,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class TargetedShippingMethod
 		{
-			///
-			///The code associated with the carrier's shipping method service type. Service type codes include a prefix that indicates the carrier. For example: FEDEX_INTERNATIONAL_STANDARD
-			///
 			public string Code { get; set; }
 
-			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
-			///
 			public string Name { get; set; }
 
 		}

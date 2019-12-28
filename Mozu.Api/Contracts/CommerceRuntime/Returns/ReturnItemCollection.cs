@@ -20,13 +20,10 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 		public class ReturnItemCollection
 		{
 			///
-			///A list of requested items. All returned data is provided in an items array.For a failed request, the returned response may be success with an empty item array.
+			///Retrieves the details of all return items in an order.
 			///
 			public List<ReturnItem> Items { get; set; }
 
-			///
-			///The total number of items in the list.
-			///
 			public int TotalCount { get; set; }
 
 		}

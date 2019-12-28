@@ -13,11 +13,12 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Platform
 {
 	/// <summary>
-	/// Use the Developer resource to view and update information and files related to application packages.
+	/// 
 	/// </summary>
 	public partial class ApplicationResource  	{
 		///
@@ -41,36 +42,12 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 				
-		/// <summary>
-		/// Returns a collection of package names for the application specified in the request.
-		/// </summary>
-		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.AppDev.PackageNamesCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var application = new Application();
-		///   var packageNamesCollection = application.GetAppPackageNames( applicationKey,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.AppDev.PackageNamesCollection GetAppPackageNames(string applicationKey, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.AppDev.PackageNamesCollection> response;
-			var client = Mozu.Api.Clients.Platform.ApplicationClient.GetAppPackageNamesClient( applicationKey,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Returns a collection of package names for the application specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="applicationKey"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AppDev.PackageNamesCollection"/>
 		/// </returns>
@@ -80,46 +57,22 @@ namespace Mozu.Api.Resources.Platform
 		///   var packageNamesCollection = await application.GetAppPackageNamesAsync( applicationKey,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.AppDev.PackageNamesCollection> GetAppPackageNamesAsync(string applicationKey, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.AppDev.PackageNamesCollection> GetAppPackageNamesAsync(string applicationKey, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.AppDev.PackageNamesCollection> response;
 			var client = Mozu.Api.Clients.Platform.ApplicationClient.GetAppPackageNamesClient( applicationKey,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves the available versions for the application specified in the request.
-		/// </summary>
-		/// <param name="nsAndAppId">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.AppDev.ApplicationVersionsCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var application = new Application();
-		///   var applicationVersionsCollection = application.GetAppVersions( nsAndAppId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.AppDev.ApplicationVersionsCollection GetAppVersions(string nsAndAppId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.AppDev.ApplicationVersionsCollection> response;
-			var client = Mozu.Api.Clients.Platform.ApplicationClient.GetAppVersionsClient( nsAndAppId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves the available versions for the application specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="nsAndAppId">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="nsAndAppId"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AppDev.ApplicationVersionsCollection"/>
 		/// </returns>
@@ -129,48 +82,23 @@ namespace Mozu.Api.Resources.Platform
 		///   var applicationVersionsCollection = await application.GetAppVersionsAsync( nsAndAppId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.AppDev.ApplicationVersionsCollection> GetAppVersionsAsync(string nsAndAppId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.AppDev.ApplicationVersionsCollection> GetAppVersionsAsync(string nsAndAppId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.AppDev.ApplicationVersionsCollection> response;
 			var client = Mozu.Api.Clients.Platform.ApplicationClient.GetAppVersionsClient( nsAndAppId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves the metadata for a file in an application package.
-		/// </summary>
-		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
-		/// <param name="filepath">Represents the file name and location.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.AppDev.FileMetadata"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var application = new Application();
-		///   var fileMetadata = application.GetPackageFileMetadata( applicationKey,  filepath,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.AppDev.FileMetadata GetPackageFileMetadata(string applicationKey, string filepath, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.AppDev.FileMetadata> response;
-			var client = Mozu.Api.Clients.Platform.ApplicationClient.GetPackageFileMetadataClient( applicationKey,  filepath,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves the metadata for a file in an application package.
+		/// 
 		/// </summary>
-		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
-		/// <param name="filepath">Represents the file name and location.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="applicationKey"></param>
+		/// <param name="filepath"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AppDev.FileMetadata"/>
 		/// </returns>
@@ -180,46 +108,22 @@ namespace Mozu.Api.Resources.Platform
 		///   var fileMetadata = await application.GetPackageFileMetadataAsync( applicationKey,  filepath,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.AppDev.FileMetadata> GetPackageFileMetadataAsync(string applicationKey, string filepath, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.AppDev.FileMetadata> GetPackageFileMetadataAsync(string applicationKey, string filepath, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.AppDev.FileMetadata> response;
 			var client = Mozu.Api.Clients.Platform.ApplicationClient.GetPackageFileMetadataClient( applicationKey,  filepath,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves the metadata for a folder in an application package.
-		/// </summary>
-		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.AppDev.FolderMetadata"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var application = new Application();
-		///   var folderMetadata = application.GetPackageMetadata( applicationKey,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.AppDev.FolderMetadata GetPackageMetadata(string applicationKey, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.AppDev.FolderMetadata> response;
-			var client = Mozu.Api.Clients.Platform.ApplicationClient.GetPackageMetadataClient( applicationKey,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves the metadata for a folder in an application package.
+		/// 
 		/// </summary>
-		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="applicationKey"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AppDev.FolderMetadata"/>
 		/// </returns>
@@ -229,52 +133,25 @@ namespace Mozu.Api.Resources.Platform
 		///   var folderMetadata = await application.GetPackageMetadataAsync( applicationKey,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.AppDev.FolderMetadata> GetPackageMetadataAsync(string applicationKey, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.AppDev.FolderMetadata> GetPackageMetadataAsync(string applicationKey, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.AppDev.FolderMetadata> response;
 			var client = Mozu.Api.Clients.Platform.ApplicationClient.GetPackageMetadataClient( applicationKey,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Insert or update the specified file into the specified application package.
-		/// </summary>
-		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
-		/// <param name="filepath">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
-		/// <param name="lastModifiedTime">The date and time of the last file insert or update. This parameter is optional.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="stream">Data stream that delivers information. Used to input and output data.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.AppDev.FileMetadata"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var application = new Application();
-		///   var fileMetadata = application.UpsertPackageFile( stream,  applicationKey,  filepath,  lastModifiedTime,  responseFields,  contentType);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.AppDev.FileMetadata UpsertPackageFile(System.IO.Stream stream, string applicationKey, string filepath, string lastModifiedTime =  null, string responseFields =  null, String  contentType= null)
-		{
-			MozuClient<Mozu.Api.Contracts.AppDev.FileMetadata> response;
-			var client = Mozu.Api.Clients.Platform.ApplicationClient.UpsertPackageFileClient( stream,  applicationKey,  filepath,  lastModifiedTime,  responseFields,  contentType);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Insert or update the specified file into the specified application package.
+		/// 
 		/// </summary>
-		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
-		/// <param name="filepath">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
-		/// <param name="lastModifiedTime">The date and time of the last file insert or update. This parameter is optional.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="stream">Data stream that delivers information. Used to input and output data.</param>
+		/// <param name="applicationKey"></param>
+		/// <param name="filepath"></param>
+		/// <param name="lastModifiedTime"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="stream"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AppDev.FileMetadata"/>
 		/// </returns>
@@ -284,48 +161,23 @@ namespace Mozu.Api.Resources.Platform
 		///   var fileMetadata = await application.UpsertPackageFileAsync( stream,  applicationKey,  filepath,  lastModifiedTime,  responseFields,  contentType);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.AppDev.FileMetadata> UpsertPackageFileAsync(System.IO.Stream stream, string applicationKey, string filepath, string lastModifiedTime =  null, string responseFields =  null, String  contentType= null)
+		public virtual async Task<Mozu.Api.Contracts.AppDev.FileMetadata> UpsertPackageFileAsync(System.IO.Stream stream, string applicationKey, string filepath, string lastModifiedTime =  null, string responseFields =  null, String  contentType= null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.AppDev.FileMetadata> response;
 			var client = Mozu.Api.Clients.Platform.ApplicationClient.UpsertPackageFileClient( stream,  applicationKey,  filepath,  lastModifiedTime,  responseFields,  contentType);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Renames a file in an application package.
-		/// </summary>
-		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="renameInfo">Information required to update the name of a file in a package, which consists of the original name and the new name.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.AppDev.FileMetadata"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var application = new Application();
-		///   var fileMetadata = application.RenamePackageFile( renameInfo,  applicationKey,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.AppDev.FileMetadata RenamePackageFile(Mozu.Api.Contracts.AppDev.RenameInfo renameInfo, string applicationKey, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.AppDev.FileMetadata> response;
-			var client = Mozu.Api.Clients.Platform.ApplicationClient.RenamePackageFileClient( renameInfo,  applicationKey,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Renames a file in an application package.
+		/// 
 		/// </summary>
-		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="renameInfo">Information required to update the name of a file in a package, which consists of the original name and the new name.</param>
+		/// <param name="applicationKey"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="renameInfo"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AppDev.FileMetadata"/>
 		/// </returns>
@@ -335,45 +187,22 @@ namespace Mozu.Api.Resources.Platform
 		///   var fileMetadata = await application.RenamePackageFileAsync( renameInfo,  applicationKey,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.AppDev.FileMetadata> RenamePackageFileAsync(Mozu.Api.Contracts.AppDev.RenameInfo renameInfo, string applicationKey, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.AppDev.FileMetadata> RenamePackageFileAsync(Mozu.Api.Contracts.AppDev.RenameInfo renameInfo, string applicationKey, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.AppDev.FileMetadata> response;
 			var client = Mozu.Api.Clients.Platform.ApplicationClient.RenamePackageFileClient( renameInfo,  applicationKey,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
+
 		/// <summary>
-		/// Deletes the specified file from the specified application package.
-		/// </summary>
-		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
-		/// <param name="filepath">Represents the file name and location.</param>
-		/// <returns>
 		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var application = new Application();
-		///   application.DeletePackageFile( applicationKey,  filepath);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeletePackageFile(string applicationKey, string filepath)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Platform.ApplicationClient.DeletePackageFileClient( applicationKey,  filepath);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// Deletes the specified file from the specified application package.
 		/// </summary>
-		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
-		/// <param name="filepath">Represents the file name and location.</param>
+		/// <param name="applicationKey"></param>
+		/// <param name="filepath"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -383,12 +212,12 @@ namespace Mozu.Api.Resources.Platform
 		///   await application.DeletePackageFileAsync( applicationKey,  filepath);
 		/// </code>
 		/// </example>
-		public virtual async Task DeletePackageFileAsync(string applicationKey, string filepath)
+		public virtual async Task DeletePackageFileAsync(string applicationKey, string filepath, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Platform.ApplicationClient.DeletePackageFileClient( applicationKey,  filepath);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 

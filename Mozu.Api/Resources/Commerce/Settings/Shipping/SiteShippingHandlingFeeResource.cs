@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Settings.Shipping
 {
@@ -37,34 +38,11 @@ namespace Mozu.Api.Resources.Commerce.Settings.Shipping
 		}
 
 				
-		/// <summary>
-		/// Retrieves the details of the order handling fee configured for the site.
-		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var siteshippinghandlingfee = new SiteShippingHandlingFee();
-		///   var siteShippingHandlingFee = siteshippinghandlingfee.GetOrderHandlingFee( responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee GetOrderHandlingFee(string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee> response;
-			var client = Mozu.Api.Clients.Commerce.Settings.Shipping.SiteShippingHandlingFeeClient.GetOrderHandlingFeeClient( responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves the details of the order handling fee configured for the site.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee"/>
 		/// </returns>
@@ -74,46 +52,22 @@ namespace Mozu.Api.Resources.Commerce.Settings.Shipping
 		///   var siteShippingHandlingFee = await siteshippinghandlingfee.GetOrderHandlingFeeAsync( responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee> GetOrderHandlingFeeAsync(string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee> GetOrderHandlingFeeAsync(string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee> response;
 			var client = Mozu.Api.Clients.Commerce.Settings.Shipping.SiteShippingHandlingFeeClient.GetOrderHandlingFeeClient( responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Creates a new order handling fee for the site.
-		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="orderHandlingFee">Properties of the handling fee to apply to order shipments for the site.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var siteshippinghandlingfee = new SiteShippingHandlingFee();
-		///   var siteShippingHandlingFee = siteshippinghandlingfee.CreateOrderHandlingFee( orderHandlingFee,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee CreateOrderHandlingFee(Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee orderHandlingFee, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee> response;
-			var client = Mozu.Api.Clients.Commerce.Settings.Shipping.SiteShippingHandlingFeeClient.CreateOrderHandlingFeeClient( orderHandlingFee,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Creates a new order handling fee for the site.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="orderHandlingFee">Properties of the handling fee to apply to order shipments for the site.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="orderHandlingFee">Properties of the order handling fee to assess for order shipment.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee"/>
 		/// </returns>
@@ -123,46 +77,22 @@ namespace Mozu.Api.Resources.Commerce.Settings.Shipping
 		///   var siteShippingHandlingFee = await siteshippinghandlingfee.CreateOrderHandlingFeeAsync( orderHandlingFee,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee> CreateOrderHandlingFeeAsync(Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee orderHandlingFee, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee> CreateOrderHandlingFeeAsync(Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee orderHandlingFee, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee> response;
 			var client = Mozu.Api.Clients.Commerce.Settings.Shipping.SiteShippingHandlingFeeClient.CreateOrderHandlingFeeClient( orderHandlingFee,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates the order handling fee amount for the site.
-		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="orderHandlingFee">Properties of the handling fee to apply to order shipments for the site.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var siteshippinghandlingfee = new SiteShippingHandlingFee();
-		///   var siteShippingHandlingFee = siteshippinghandlingfee.UpdateOrderHandlingFee( orderHandlingFee,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee UpdateOrderHandlingFee(Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee orderHandlingFee, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee> response;
-			var client = Mozu.Api.Clients.Commerce.Settings.Shipping.SiteShippingHandlingFeeClient.UpdateOrderHandlingFeeClient( orderHandlingFee,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Updates the order handling fee amount for the site.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="orderHandlingFee">Properties of the handling fee to apply to order shipments for the site.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="orderHandlingFee">The combined price for all items in the order, including all selected options but excluding any discounts.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee"/>
 		/// </returns>
@@ -172,12 +102,12 @@ namespace Mozu.Api.Resources.Commerce.Settings.Shipping
 		///   var siteShippingHandlingFee = await siteshippinghandlingfee.UpdateOrderHandlingFeeAsync( orderHandlingFee,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee> UpdateOrderHandlingFeeAsync(Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee orderHandlingFee, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee> UpdateOrderHandlingFeeAsync(Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee orderHandlingFee, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingHandlingFee> response;
 			var client = Mozu.Api.Clients.Commerce.Settings.Shipping.SiteShippingHandlingFeeClient.UpdateOrderHandlingFeeClient( orderHandlingFee,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}

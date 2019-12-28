@@ -19,9 +19,9 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetLocationInventory
         /// </summary>
-        /// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
-        /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="locationCode">User-defined code that uniquely identifies the location.</param>
+        /// <param name="productCode"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -38,13 +38,13 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetLocationInventories
         /// </summary>
-        /// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-        /// <param name="filterFunctions">Functions that optimize commonly used filters for efficiency.For the  operation, you have access to the  filter function. For example, use  to filter only for product inventory that is currently active.</param>
-        /// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
-        /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
-        /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
+        /// <param name="filter"></param>
+        /// <param name="filterFunctions"></param>
+        /// <param name="locationCode"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="sortBy"></param>
+        /// <param name="startIndex"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -65,8 +65,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for AddLocationInventory
         /// </summary>
-        /// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
-        /// <param name="performUpserts">Query string parameter lets the service perform an update for a new or existing record. When run, the update occurs without throwing a conflict exception that the record exists. If true, the updates completes regardless of the record currently existing. By default, if no value is specified, the service assumes this value is false.</param>
+        /// <param name="locationCode">User-defined code that uniquely identifies the location.</param>
+        /// <param name="performUpserts"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -82,7 +82,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for UpdateLocationInventory
         /// </summary>
-        /// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
+        /// <param name="locationCode">User-defined code that uniquely identifies the location.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -97,8 +97,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 				/// <summary>
         /// Get Resource Url for DeleteLocationInventory
         /// </summary>
-        /// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
-        /// <param name="productCode">Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.</param>
+        /// <param name="locationCode">User-defined code that uniquely identifies the location.</param>
+        /// <param name="productCode"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

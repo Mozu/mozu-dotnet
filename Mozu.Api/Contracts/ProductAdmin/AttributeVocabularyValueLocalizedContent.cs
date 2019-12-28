@@ -18,14 +18,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class AttributeVocabularyValueLocalizedContent
 		{
-			///
-			///Language used for the entity. Currently, only "en-US" is supported.
-			///
 			public string LocaleCode { get; set; }
 
-			///
-			///If the object value is a String, this value provides that string value, used by vocabulary property values, products, and options.
-			///
 			public string StringValue { get; set; }
 
 		}

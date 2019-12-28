@@ -18,24 +18,12 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
 		///
 		public class CommerceUnitPrice
 		{
-			///
-			///Represents the total price of the line item extended to the shopper. This begins with the Unit Price, then uses any of the following prices if they are defined, in the following order: Override Amount, Sale Amount, List Amount.
-			///
 			public decimal? ExtendedAmount { get; set; }
 
-			///
-			///The price the item is listed for in the storefront.
-			///
 			public decimal? ListAmount { get; set; }
 
-			///
-			///The override price of the item set by the merchant for a given order.
-			///
 			public decimal? OverrideAmount { get; set; }
 
-			///
-			///The sale price set for the item.
-			///
 			public decimal? SaleAmount { get; set; }
 
 		}

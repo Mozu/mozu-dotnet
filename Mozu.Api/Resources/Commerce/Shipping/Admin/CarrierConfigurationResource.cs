@@ -13,11 +13,12 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Shipping.Admin
 {
 	/// <summary>
-	/// Use the Carriers resource to configure and manage your supported shipping carrier configurations.
+	/// 
 	/// </summary>
 	public partial class CarrierConfigurationResource  	{
 		///
@@ -37,42 +38,15 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin
 		}
 
 				
-		/// <summary>
-		/// Retrieves a list of carrier configurations and their details according to any specified facets, filter criteria, and sort options.
-		/// </summary>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ShippingAdmin.CarrierConfigurationCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var carrierconfiguration = new CarrierConfiguration();
-		///   var carrierConfigurationCollection = carrierconfiguration.GetConfigurations( startIndex,  pageSize,  sortBy,  filter,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ShippingAdmin.CarrierConfigurationCollection GetConfigurations(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ShippingAdmin.CarrierConfigurationCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.CarrierConfigurationClient.GetConfigurationsClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves a list of carrier configurations and their details according to any specified facets, filter criteria, and sort options.
+		/// 
 		/// </summary>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ShippingAdmin.CarrierConfigurationCollection"/>
 		/// </returns>
@@ -82,46 +56,22 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin
 		///   var carrierConfigurationCollection = await carrierconfiguration.GetConfigurationsAsync( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ShippingAdmin.CarrierConfigurationCollection> GetConfigurationsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ShippingAdmin.CarrierConfigurationCollection> GetConfigurationsAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ShippingAdmin.CarrierConfigurationCollection> response;
 			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.CarrierConfigurationClient.GetConfigurationsClient( startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves the details of the specified carrier configuration.
-		/// </summary>
-		/// <param name="carrierId">The unique identifier of the carrier.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var carrierconfiguration = new CarrierConfiguration();
-		///   var carrierConfiguration = carrierconfiguration.GetConfiguration( carrierId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration GetConfiguration(string carrierId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration> response;
-			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.CarrierConfigurationClient.GetConfigurationClient( carrierId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves the details of the specified carrier configuration.
+		/// 
 		/// </summary>
-		/// <param name="carrierId">The unique identifier of the carrier.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="carrierId"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration"/>
 		/// </returns>
@@ -131,48 +81,23 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin
 		///   var carrierConfiguration = await carrierconfiguration.GetConfigurationAsync( carrierId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration> GetConfigurationAsync(string carrierId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration> GetConfigurationAsync(string carrierId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration> response;
 			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.CarrierConfigurationClient.GetConfigurationClient( carrierId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Creates a new carrier configuration.
-		/// </summary>
-		/// <param name="carrierId">The unique identifier of the carrier.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="carrierConfiguration">Properties of a carrier configured in the shipping admin.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var carrierconfiguration = new CarrierConfiguration();
-		///   var carrierConfiguration = carrierconfiguration.CreateConfiguration( carrierConfiguration,  carrierId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration CreateConfiguration(Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration carrierConfiguration, string carrierId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration> response;
-			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.CarrierConfigurationClient.CreateConfigurationClient( carrierConfiguration,  carrierId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Creates a new carrier configuration.
+		/// 
 		/// </summary>
-		/// <param name="carrierId">The unique identifier of the carrier.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="carrierConfiguration">Properties of a carrier configured in the shipping admin.</param>
+		/// <param name="carrierId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="carrierConfiguration"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration"/>
 		/// </returns>
@@ -182,48 +107,23 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin
 		///   var carrierConfiguration = await carrierconfiguration.CreateConfigurationAsync( carrierConfiguration,  carrierId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration> CreateConfigurationAsync(Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration carrierConfiguration, string carrierId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration> CreateConfigurationAsync(Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration carrierConfiguration, string carrierId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration> response;
 			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.CarrierConfigurationClient.CreateConfigurationClient( carrierConfiguration,  carrierId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates the details of the specified carrier configuration.
-		/// </summary>
-		/// <param name="carrierId">The unique identifier of the carrier.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="carrierConfiguration">Properties of a carrier configured in the shipping admin.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var carrierconfiguration = new CarrierConfiguration();
-		///   var carrierConfiguration = carrierconfiguration.UpdateConfiguration( carrierConfiguration,  carrierId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration UpdateConfiguration(Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration carrierConfiguration, string carrierId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration> response;
-			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.CarrierConfigurationClient.UpdateConfigurationClient( carrierConfiguration,  carrierId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Updates the details of the specified carrier configuration.
+		/// 
 		/// </summary>
-		/// <param name="carrierId">The unique identifier of the carrier.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="carrierConfiguration">Properties of a carrier configured in the shipping admin.</param>
+		/// <param name="carrierId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="carrierConfiguration"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration"/>
 		/// </returns>
@@ -233,43 +133,21 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin
 		///   var carrierConfiguration = await carrierconfiguration.UpdateConfigurationAsync( carrierConfiguration,  carrierId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration> UpdateConfigurationAsync(Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration carrierConfiguration, string carrierId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration> UpdateConfigurationAsync(Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration carrierConfiguration, string carrierId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ShippingAdmin.CarrierConfiguration> response;
 			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.CarrierConfigurationClient.UpdateConfigurationClient( carrierConfiguration,  carrierId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
+
 		/// <summary>
-		/// Deletes the specified carrier configuration.
-		/// </summary>
-		/// <param name="carrierId">The unique identifier of the carrier configuration.</param>
-		/// <returns>
 		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var carrierconfiguration = new CarrierConfiguration();
-		///   carrierconfiguration.DeleteConfiguration( carrierId);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeleteConfiguration(string carrierId)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.CarrierConfigurationClient.DeleteConfigurationClient( carrierId);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// Deletes the specified carrier configuration.
 		/// </summary>
-		/// <param name="carrierId">The unique identifier of the carrier configuration.</param>
+		/// <param name="carrierId"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -279,12 +157,12 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin
 		///   await carrierconfiguration.DeleteConfigurationAsync( carrierId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteConfigurationAsync(string carrierId)
+		public virtual async Task DeleteConfigurationAsync(string carrierId, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.CarrierConfigurationClient.DeleteConfigurationClient( carrierId);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 

@@ -13,11 +13,12 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attributes
 {
 	/// <summary>
-	/// Properties of localized content for attributes, based on a `localeCode` at a site/tenant level. This content supports translated text for product, product options, and additional objects. 
+	/// 
 	/// </summary>
 	public partial class AttributeLocalizedContentResource  	{
 		///
@@ -37,35 +38,11 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		}
 
 				
-		/// <summary>
-		/// Retrieves a collection of localized content for attributes based on a `localeCode`.
-		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <returns>
-		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var attributelocalizedcontent = new AttributeLocalizedContent();
-		///   var attributeLocalizedContent = attributelocalizedcontent.GetAttributeLocalizedContents( attributeFQN);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual List<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> GetAttributeLocalizedContents(string attributeFQN)
-		{
-			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeLocalizedContentClient.GetAttributeLocalizedContentsClient( attributeFQN);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves a collection of localized content for attributes based on a `localeCode`.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+		/// <param name="attributeFQN"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent"/>}
@@ -76,49 +53,23 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		///   var attributeLocalizedContent = await attributelocalizedcontent.GetAttributeLocalizedContentsAsync( attributeFQN);
 		/// </code>
 		/// </example>
-		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent>> GetAttributeLocalizedContentsAsync(string attributeFQN)
+		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent>> GetAttributeLocalizedContentsAsync(string attributeFQN, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent>> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeLocalizedContentClient.GetAttributeLocalizedContentsClient( attributeFQN);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves the localized content for an attribute based on a `localeCode`.
-		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var attributelocalizedcontent = new AttributeLocalizedContent();
-		///   var attributeLocalizedContent = attributelocalizedcontent.GetAttributeLocalizedContent( attributeFQN,  localeCode,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent GetAttributeLocalizedContent(string attributeFQN, string localeCode, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeLocalizedContentClient.GetAttributeLocalizedContentClient( attributeFQN,  localeCode,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves the localized content for an attribute based on a `localeCode`.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="localeCode"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent"/>
@@ -129,50 +80,24 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		///   var attributeLocalizedContent = await attributelocalizedcontent.GetAttributeLocalizedContentAsync( attributeFQN,  localeCode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> GetAttributeLocalizedContentAsync(string attributeFQN, string localeCode, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> GetAttributeLocalizedContentAsync(string attributeFQN, string localeCode, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeLocalizedContentClient.GetAttributeLocalizedContentClient( attributeFQN,  localeCode,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Adds new localized content for an attribute based on a `localeCode`.
-		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="localizedContent">The localized name and description of the attribute, displayed in the locale defined for the master catalog.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var attributelocalizedcontent = new AttributeLocalizedContent();
-		///   var attributeLocalizedContent = attributelocalizedcontent.AddLocalizedContent( localizedContent,  attributeFQN,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent AddLocalizedContent(Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent localizedContent, string attributeFQN, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeLocalizedContentClient.AddLocalizedContentClient( localizedContent,  attributeFQN,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Adds new localized content for an attribute based on a `localeCode`.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="localizedContent">The localized name and description of the attribute, displayed in the locale defined for the master catalog.</param>
+		/// <param name="localizedContent"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent"/>
 		/// </returns>
@@ -182,48 +107,23 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		///   var attributeLocalizedContent = await attributelocalizedcontent.AddLocalizedContentAsync( localizedContent,  attributeFQN,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> AddLocalizedContentAsync(Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent localizedContent, string attributeFQN, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> AddLocalizedContentAsync(Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent localizedContent, string attributeFQN, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeLocalizedContentClient.AddLocalizedContentClient( localizedContent,  attributeFQN,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates the localized content for a collection of existing attributes based on a `localeCode`.
-		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="localizedContent">The localized name and description of the attribute, displayed in the locale defined for the master catalog.</param>
-		/// <returns>
-		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var attributelocalizedcontent = new AttributeLocalizedContent();
-		///   var attributeLocalizedContent = attributelocalizedcontent.UpdateLocalizedContents( localizedContent,  attributeFQN);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual List<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> UpdateLocalizedContents(List<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> localizedContent, string attributeFQN)
-		{
-			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent>> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeLocalizedContentClient.UpdateLocalizedContentsClient( localizedContent,  attributeFQN);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Updates the localized content for a collection of existing attributes based on a `localeCode`.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
+		/// <param name="attributeFQN"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="localizedContent">The localized name and description of the attribute, displayed in the locale defined for the master catalog.</param>
+		/// <param name="localizedContent"></param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent"/>}
 		/// </returns>
@@ -233,52 +133,25 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		///   var attributeLocalizedContent = await attributelocalizedcontent.UpdateLocalizedContentsAsync( localizedContent,  attributeFQN);
 		/// </code>
 		/// </example>
-		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent>> UpdateLocalizedContentsAsync(List<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> localizedContent, string attributeFQN)
+		public virtual async Task<List<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent>> UpdateLocalizedContentsAsync(List<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> localizedContent, string attributeFQN, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<List<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent>> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeLocalizedContentClient.UpdateLocalizedContentsClient( localizedContent,  attributeFQN);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates the localized content for an existing attribute based on a `localeCode`.
-		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="localizedContent">The localized name and description of the attribute, displayed in the locale defined for the master catalog.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var attributelocalizedcontent = new AttributeLocalizedContent();
-		///   var attributeLocalizedContent = attributelocalizedcontent.UpdateLocalizedContent( localizedContent,  attributeFQN,  localeCode,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent UpdateLocalizedContent(Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent localizedContent, string attributeFQN, string localeCode, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeLocalizedContentClient.UpdateLocalizedContentClient( localizedContent,  attributeFQN,  localeCode,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Updates the localized content for an existing attribute based on a `localeCode`.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="localeCode"></param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <param name="localizedContent">The localized name and description of the attribute, displayed in the locale defined for the master catalog.</param>
+		/// <param name="localizedContent"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent"/>
 		/// </returns>
@@ -288,46 +161,22 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		///   var attributeLocalizedContent = await attributelocalizedcontent.UpdateLocalizedContentAsync( localizedContent,  attributeFQN,  localeCode,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> UpdateLocalizedContentAsync(Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent localizedContent, string attributeFQN, string localeCode, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> UpdateLocalizedContentAsync(Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent localizedContent, string attributeFQN, string localeCode, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ProductAdmin.AttributeLocalizedContent> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeLocalizedContentClient.UpdateLocalizedContentClient( localizedContent,  attributeFQN,  localeCode,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
+
 		/// <summary>
-		/// Removes all localized content. Localized content is translated text information and data based on a `localeCode`. 
-		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <returns>
 		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var attributelocalizedcontent = new AttributeLocalizedContent();
-		///   attributelocalizedcontent.DeleteLocalizedContent( attributeFQN,  localeCode);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeleteLocalizedContent(string attributeFQN, string localeCode)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeLocalizedContentClient.DeleteLocalizedContentClient( attributeFQN,  localeCode);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// Removes all localized content. Localized content is translated text information and data based on a `localeCode`. 
 		/// </summary>
-		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
-		/// <param name="localeCode">Language used for the entity. Currently, only "en-US" is supported.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="localeCode"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// 
@@ -338,12 +187,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		///   await attributelocalizedcontent.DeleteLocalizedContentAsync( attributeFQN,  localeCode);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteLocalizedContentAsync(string attributeFQN, string localeCode)
+		public virtual async Task DeleteLocalizedContentAsync(string attributeFQN, string localeCode, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeLocalizedContentClient.DeleteLocalizedContentClient( attributeFQN,  localeCode);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 

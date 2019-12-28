@@ -19,59 +19,26 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class AttributeInProductType
 		{
-			///
-			///The product attribute details common between all attribute types - properties, options, and extras.
-			///
 			public Attribute AttributeDetail { get; set; }
 
-			///
-			///The fully qualified name of the attribute, which is a user defined attribute identifier.
-			///
 			public string AttributeFQN { get; set; }
 
-			///
-			///Defines the intended display of this attribute in the storefront. Options include Drop Down, Image Picker, and Radio Buttons.
-			///
 			public AttributeInProductTypeDisplayInfo DisplayInfo { get; set; }
 
-			///
-			///If true, this property is not available on the storefront. If false, this property will be available on storefront. The IsHiddenProperty hides the property from the customer, but is still available from the API.
-			///
 			public bool? IsAdminOnlyProperty { get; set; }
 
-			///
-			///If true, this property is hidden on the storefront. If false, this property is not hidden from the storefront.
-			///
 			public bool? IsHiddenProperty { get; set; }
 
-			///
-			///If true, this entity is inherited from the base type. If false, this entity is not inherited from the base type.
-			///
 			public bool? IsInheritedFromBaseType { get; set; }
 
-			///
-			///If true, this attribute has more than one possible value.
-			///
 			public bool? IsMultiValueProperty { get; set; }
 
-			///
-			///If True this property will not be returned storefront product listings (Search,GetProduct) it will still be returned on GetProduct, ValidateProduct...)
-			///
 			public bool? IsProductDetailsOnlyProperty { get; set; }
 
-			///
-			///If true, the entity is required by the admin. If false, the entity is not required by the admin.
-			///
 			public bool? IsRequiredByAdmin { get; set; }
 
-			///
-			///Integer that represents the sequence order of the attribute.
-			///
 			public int? Order { get; set; }
 
-			///
-			///List of valid vocabulary values defined for an attribute.
-			///
 			public List<AttributeVocabularyValueInProductType> VocabularyValues { get; set; }
 
 		}

@@ -32,13 +32,10 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			public DateTime? AcceptedDate { get; set; }
 
 			///
-			///Indicates if the customer account is opted to receive marketing materials. If true, the customer account is opted in for receiving the content. 
+			///If true, the customer account associated with the order is opted in to receive marketing materials.
 			///
 			public bool? AcceptsMarketing { get; set; }
 
-			///
-			///Properties of an ad-hoc price adjustment for an order.
-			///
 			public Adjustment Adjustment { get; set; }
 
 			///
@@ -46,9 +43,6 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public decimal AmountAvailableForRefund { get; set; }
 
-			///
-			///A counter for how much money has been issued in refunds. This calculated field does NOT include refunds issued in returns.
-			///
 			public decimal AmountRefunded { get; set; }
 
 			///
@@ -56,74 +50,32 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public decimal AmountRemainingForPayment { get; set; }
 
-			///
-			///Collection of attributes that may be paged list or a list, depending on the usage per object and API type. 
-			///
 			public List<OrderAttribute> Attributes { get; set; }
 
-			///
-			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
-			///
 			public AuditInfo AuditInfo { get; set; }
 
-			///
-			///Available actions you can complete for an order. These actions may differ depending on the status of the order, such as actions required to enter a payment, return of a package, and fulfillment of a shipment.
-			///
 			public List<string> AvailableActions { get; set; }
 
-			///
-			///Properties for the customer's billing information associated with an order or specific payment.
-			///
 			public BillingInfo BillingInfo { get; set; }
 
-			///
-			///Date when the order was cancelled. System-supplied and read-only.
-			///
 			public DateTime? CancelledDate { get; set; }
 
-			///
-			///Collection (list or paged) of change messages logged for each modification made by a shopper to their carts, wishlists, orders, package, payment, pickup, and returns. Change log messages are system-supplied based on shopper actions and read only.
-			///
 			public List<ChangeMessage> ChangeMessages { get; set; }
 
-			///
-			///Code that identifies the channel associated with the site for the shopper's created shopping cart, order, and return.
-			///
 			public string ChannelCode { get; set; }
 
-			///
-			///Date when the order was closed. Closed order is an order that has been processed and the items shipped. System-supplied and read-only.
-			///
 			public DateTime? ClosedDate { get; set; }
 
-			///
-			///Array list of coupon codes associated with a shopping cart and the associated order. These codes are entered by a shopper when proceeding to checkout. 
-			///
 			public List<string> CouponCodes { get; set; }
 
-			///
-			///3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
-			///
 			public string CurrencyCode { get; set; }
 
-			///
-			///Unique identifer of the customer account. This ID is used to associate numerous types of data and object with the customer account, including orders, returns, wish lists, and in-store credit.
-			///
 			public int? CustomerAccountId { get; set; }
 
-			///
-			///The type of customer interaction used to create this shopping cart. Possible values are Website, Call, Store, or Unknown.
-			///
 			public string CustomerInteractionType { get; set; }
 
-			///
-			///The tax identification number (TIN) of the customer who submitted the order. If the customer who submitted the order has a customer account defined for the tenant, the system sets this value when the order is submitted.
-			///
 			public string CustomerTaxId { get; set; }
 
-			///
-			///Custom data for a given vendor set within the commerce process.
-			///
 			public JObject Data { get; set; }
 
 			///
@@ -131,89 +83,41 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public List<DigitalPackage> DigitalPackages { get; set; }
 
-			///
-			///The aggregate total for all items in the cart, including costs associated with shopper-defined options or extras and any applied discounts.
-			///
 			public decimal? DiscountedSubtotal { get; set; }
 
-			///
-			///The subtotal of the cart, order, and wishlist items, including any applied discount calculations. Wishlist subtotals may change depending on the length of time, available discounts, and stock amounts of products at the time of review by shoppers.
-			///
 			public decimal? DiscountedTotal { get; set; }
 
-			///
-			///Estimated amount of discounts applied to all items in the carts and orders. System-supplied and read-only. This value will be available at the wish list, cart item, order item, and wish list item level at a later time.
-			///
 			public decimal? DiscountTotal { get; set; }
 
-			///
-			///Order level duty or tariff amount. Does not take into account duties or tariffs specifically on items on the order
-			///
 			public decimal? DutyAmount { get; set; }
 
-			///
-			///Duties or tariffs for the Order as well as OrderItems (e.g. if the Order has a $5 duty or tariff for any reason and an OrderItem has a $2 duty or tariff then the value in this property would be $7)
-			///
 			public decimal? DutyTotal { get; set; }
 
-			///
-			///The email address of the specified user or the email address associated with the specified entity.
-			///
 			public string Email { get; set; }
 
-			///
-			///Date and time in UTC format when a discount, credit, wish list, or cart expires. An expired discount no longer can be redeemed. An expired wish list is no longer available. An expired credit can no longer be redeemed for a purchase. Acart becomes inactive and expired based on a system-calculated interval. For example, if an anonymous shopper has 14 days of inactivity, the cart is considered abandoned after that period of inactivity. System-supplied and read-only.
-			///
 			public DateTime? ExpirationDate { get; set; }
 
-			///
-			///Extra properties (key-value pairs) that extend the primary object. Think of this as a property bag of string keys and string values.
-			///
 			public List<ExtendedProperty> ExtendedProperties { get; set; }
 
 			///
-			///Unique identifier used by an external program to identify a  order, customer account, or wish list.
+			///Unique identifier used by an external program to identify a Mozu order.
 			///
 			public string ExternalId { get; set; }
 
-			///
-			///The monetary sum of all fees incurred in the cart, order, line item in a cart, or line item in an order. This value is not calculated for wish lists at this time.
-			///
 			public decimal? FeeTotal { get; set; }
 
-			///
-			///Properties of the information required to fulfill the cart, order, or wish list. Shoppers can fulfill ordered items by using in-store pickup or direct shipping.
-			///
 			public FulfillmentInfo FulfillmentInfo { get; set; }
 
-			///
-			///The current fulfillment status of the order, which is "Fulfilled," "NotFulfilled," or "PartiallyFulfilled." The order is considered fulfilled when all packages are shipped or all pickups are picked up.
-			///
 			public string FulfillmentStatus { get; set; }
 
-			///
-			///The amount to adjust the order handling fee.
-			///
 			public Adjustment HandlingAdjustment { get; set; }
 
-			///
-			///The combined price for all handling costs calculated together for shipped orders, not for digital or in-store pickup. This includes all handling costs per the product line items and options, excluding taxes and discounts. 
-			///
 			public decimal? HandlingAmount { get; set; }
 
-			///
-			///The list of historically-applied handling discounts. The active one will have IsExcluded == false
-			///
 			public List<AppliedDiscount> HandlingDiscounts { get; set; }
 
-			///
-			///Handling fees for the Order as well as OrderItems (e.g. if the Order has a $5 handling fee and an OrderItem has a $2 handling fee per item quantity then the value in this property would be $9)
-			///
 			public decimal? HandlingSubTotal { get; set; }
 
-			///
-			///Calculated total tax amount for handling costs if the cart/order is subject to sales tax. 
-			///
 			public decimal? HandlingTaxTotal { get; set; }
 
 			///
@@ -221,34 +125,22 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public decimal? HandlingTotal { get; set; }
 
-			///
-			///If true, the order has a draft that may include one or more uncommitted changes to the order or its components.
-			///
 			public bool? HasDraft { get; set; }
 
-			///
-			///Unique identifier of the source property, such as a catalog, discount, order, or email template.For a product field it will be the name of the field.For a category ID, must be a positive integer not greater than 2000000. By default,  auto-generates a category ID when categories are created. If you want to specify an ID during creation (which preserves category link relationships when migrating tenant data from one sandbox to another), you must also include the  query string in the endpoint. For example, . Then, use the  property to specify the desired category ID.For a product attribute it will be the Attribute FQN.For a document, the ID must be specified as a 32 character, case-insensitive, alphanumeric string. You can specify the ID as 32 sequential characters or as groups separated by dashes in the format 8-4-4-4-12. For example, or.For email templates, the ID must be one of the following values:			
-			///
 			public string Id { get; set; }
 
 			///
-			///The date and time an order or wish list is imported into . This is not the date and time it was created in the external application.
+			///If the order was imported from an external program, the date and time the order was imported into Mozu.
 			///
 			public DateTime? ImportDate { get; set; }
 
 			///
-			///The list of invalid coupons the shopper attempted to enter for the cart or order. These coupons may no longer be valid or incorrectly entered.
+			///List of invalid coupon codes the shopper entered for the order.
 			///
 			public List<InvalidCoupon> InvalidCoupons { get; set; }
 
-			///
-			///A captured and stored IP address. IP addresses are stored for the origin location of submitted orders and the tenant domain.
-			///
 			public string IpAddress { get; set; }
 
-			///
-			///If true, this version of the order is a draft that might contain uncommitted changes.
-			///
 			public bool? IsDraft { get; set; }
 
 			///
@@ -256,204 +148,96 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public bool IsEligibleForReturns { get; set; }
 
-			///
-			///Indicates if this object/data was imported from an outside source such as a data import or synchronization via an app or service. If true, this data was originally imported into  and accessible through your store database. Examples of imported objects/data include orders and customer accounts.
-			///
 			public bool? IsImport { get; set; }
 
-			///
-			///If true, the order is exempt from applied sales tax.
-			///
+			public bool IsPartialOrder { get; set; }
+
 			public bool? IsTaxExempt { get; set; }
 
-			///
-			///An array list of objects in the returned collection.
-			///
 			public List<OrderItem> Items { get; set; }
 
-			///
-			///The total amount of calculated tax for items, used by carts, orders, and wish lists.
-			///
 			public decimal? ItemTaxTotal { get; set; }
 
-			///
-			///The date in UTC Date/Time when the items in the cart were last validated against the site's product catalog. System-supplied and read-only.
-			///
 			public DateTime? LastValidationDate { get; set; }
 
-			///
-			///The total charge for the line item with all weighted order level manual adjustments.
-			///
 			public decimal? LineItemSubtotalWithOrderAdjustments { get; set; }
 
-			///
-			///The unique, user-defined code that identifies a location. This location can be the location where the order was entered, location for newly in-stock products, and where products are returned.
-			///
 			public string LocationCode { get; set; }
 
-			///
-			///Paged list collection of note content for objects including customers, orders, and returns. 
-			///
 			public List<OrderNote> Notes { get; set; }
 
-			///
-			///List of order-level discounts projected to apply to the cart at checkout or order.
-			///
 			public List<AppliedDiscount> OrderDiscounts { get; set; }
 
-			///
-			///The order number that displays on the storefront which differs from the order ID.
-			///
 			public int? OrderNumber { get; set; }
 
-			///
-			///Identifier of the cart prior to the customer proceeding to checkout.
-			///
 			public string OriginalCartId { get; set; }
 
-			///
-			///Array list of physical packages shipped for a specified order.
-			///
 			public List<Package> Packages { get; set; }
 
-			///
-			///If this Order has a parent Order, the parent Order ID is recorded here.
-			///
+			public string ParentCheckoutId { get; set; }
+
+			public int? ParentCheckoutNumber { get; set; }
+
 			public string ParentOrderId { get; set; }
 
-			///
-			///If the Order has a parent Order, the order number is recorded here.
-			///
 			public int? ParentOrderNumber { get; set; }
 
-			///
-			///If this order was created to fulfill an item replacement as part of a return merchandise authorization (RMA), the unique identifier of the return.
-			///
 			public string ParentReturnId { get; set; }
 
-			///
-			///If the Order has a parent Order with a return, the return number is recorded here.
-			///
 			public int? ParentReturnNumber { get; set; }
 
-			///
-			///Wrapper for a collection of payments associated with an order or return. An order can include a number of payments until the full total is covered. 
-			///
+			public int? PartialOrderCount { get; set; }
+
+			public int? PartialOrderNumber { get; set; }
+
 			public List<Payment> Payments { get; set; }
 
-			///
-			///Status of the payment for the specified order.
-			///
 			public string PaymentStatus { get; set; }
 
-			///
-			///Array list of the in-store pickups defined for the order.
-			///
 			public List<Pickup> Pickups { get; set; }
 
-			///
-			///If the order is associated with a price list, this is the unique code of the price list.
-			///
 			public string PriceListCode { get; set; }
 
-			///
-			///Refunds associated with this order. A refund is a single exchange of money from merchant to customer that either encapsulates a refund to a credit card or an issuance of a store credit. Refunds does not reduce the 'amount collected' on an order and it is possible for refunds to exceed the total order amount.
-			///
 			public List<Refund> Refunds { get; set; }
 
-			///
-			///Status of any returns associated with this order after it was completed.
-			///
 			public string ReturnStatus { get; set; }
 
-			///
-			///Array list of the shipments defined to fulfill items in this order using the direct ship fulfillment method.
-			///
 			public List<Shipment> Shipments { get; set; }
 
-			///
-			///Properties of an ad-hoc price adjustment made for an order.
-			///
 			public Adjustment ShippingAdjustment { get; set; }
 
-			///
-			///The total shipping amount for the order before discounts and adjustments.
-			///
 			public decimal? ShippingAmountBeforeDiscountsAndAdjustments { get; set; }
 
-			///
-			///List of shipping discounts projected to apply to carts, orders, and wish lists and items at checkout.
-			///
 			public List<ShippingDiscount> ShippingDiscounts { get; set; }
 
-			///
-			///The shipping subtotal amount calculated without any applied discounts for line item and entire amounts of carts and orders. This property is not calculated for wish lists at this time.
-			///
 			public decimal? ShippingSubTotal { get; set; }
 
-			///
-			///The total amount of tax incurred on the shipping charges in the cart and order. This property is not calculated at this time for wish lists.
-			///
 			public decimal? ShippingTaxTotal { get; set; }
 
-			///
-			///The calculated total shipping amount estimated for carts or orders, including tax. This amount is not calculated for wish lists at this time.
-			///
 			public decimal? ShippingTotal { get; set; }
 
-			///
-			///A paged list collection of shopper notes for the order.
-			///
 			public ShopperNotes ShopperNotes { get; set; }
 
-			///
-			///Unique identifier of the site.
-			///
 			public int? SiteId { get; set; }
 
-			///
-			///The device from which the order originated in the case of offline orders.
-			///
 			public string SourceDevice { get; set; }
 
-			///
-			///The current status of the object.This value is read only. Valid values for this field are: "Active", "Expired", and "Inactive".
-			///
 			public string Status { get; set; }
 
-			///
-			///The date and time the order was submitted. System-supplied and read-only.
-			///
 			public DateTime? SubmittedDate { get; set; }
 
-			///
-			///Estimated amount of the cart or order without sales tax, shipping costs, and other fees. This amount is not calculated for wish lists at this time.
-			///
 			public decimal? Subtotal { get; set; }
 
-			///
-			///Leverage this property within a [tax Arc.js action](https://www.mozu.com/docs/arcjs/commerce-catalog-storefront-tax/commerce-catalog-storefront-tax.htm) to supplement the tax information for this item or object with custom JSON data.
-			///
+			public List<SuggestedDiscount> SuggestedDiscounts { get; set; }
+
 			public JObject TaxData { get; set; }
 
-			///
-			///The total monetary sum of sales tax estimated for a cart or order.
-			///
 			public decimal? TaxTotal { get; set; }
 
-			///
-			///Unique identifier of the Mozu tenant.
-			///
 			public int? TenantId { get; set; }
 
-			///
-			///Total is used to indicate the monetary, estimated total amount of the cart or order, including items, sales tax, shipping costs, and other fees. Totals are not estimated for wish lists at this time.
-			///
 			public decimal? Total { get; set; }
 
-			///
-			///The total amount collected to date for the order.
-			///
 			public decimal TotalCollected { get; set; }
 
 			///
@@ -466,19 +250,10 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public List<OrderValidationResult> ValidationResults { get; set; }
 
-			///
-			///The current version number of the order, wish list, document list, or document type list.
-			///
 			public string Version { get; set; }
 
-			///
-			///Unique identifier of the customer visit in which the cart was created or last modified.
-			///
 			public string VisitId { get; set; }
 
-			///
-			///Unique identifier of the web session in which the cart, order, return, or wish list was created or last modified.
-			///
 			public string WebSessionId { get; set; }
 
 		}

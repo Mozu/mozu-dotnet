@@ -19,9 +19,9 @@ namespace Mozu.Api.Urls.Platform.Entitylists
 		/// <summary>
         /// Get Resource Url for GetEntityContainer
         /// </summary>
-        /// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
-        /// <param name="id">Unique identifier of the customer segment to retrieve.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="entityListFullName"></param>
+        /// <param name="id"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -38,12 +38,12 @@ namespace Mozu.Api.Urls.Platform.Entitylists
 		/// <summary>
         /// Get Resource Url for GetEntityContainers
         /// </summary>
-        /// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
-        /// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-        /// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
-        /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+        /// <param name="entityListFullName"></param>
+        /// <param name="filter"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="sortBy"></param>
+        /// <param name="startIndex"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

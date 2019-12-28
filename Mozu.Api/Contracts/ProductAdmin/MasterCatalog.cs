@@ -14,33 +14,18 @@ using System;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	Properties of a master product catalog defined for a tenant. All catalogs and sites associated with a master catalog share product definitions.
+		///	Properties of a master catalog associated with a tenant.
 		///
 		public class MasterCatalog
 		{
-			///
-			///Enables the live editing of products feature. If you set the productPublishingMode field to Pending, set this field to true, and set the DataViewMode in the context header to live, you can edit the live version of products instead of the pending draft.This should only be enabled for immediate changes to the live version of products. Any edits made to the live version are not applied to the pending draft version, so when you publish the pending draft version, your edits to the live version are overwritten.
-			///
 			public bool? EnableLiveEdit { get; set; }
 
-			///
-			///The unique identifier of the master catalog associated with the entity.
-			///
 			public int Id { get; set; }
 
-			///
-			///Indicates if the object is deleted. If true, the object has been deleted. This may affect associated child members and objects. For example, a deleted master catalog affects all associated catalogs. 
-			///
 			public bool IsDeleted { get; set; }
 
-			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
-			///
 			public string Name { get; set; }
 
-			///
-			///The mode this master catalog uses for product updates. Possible values are "Pending" which saves product updates as a draft until they are published, and "Live" which publishes all product updates immediately.
-			///
 			public string ProductPublishingMode { get; set; }
 
 		}

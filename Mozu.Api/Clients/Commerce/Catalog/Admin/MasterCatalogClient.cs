@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 {
@@ -22,9 +23,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 	public partial class MasterCatalogClient 	{
 		
 		/// <summary>
-		/// Retrieve the details of all master catalog associated with a tenant.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.MasterCatalogCollection"/>}
 		/// </returns>
@@ -46,10 +47,10 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Retrieve the details of the master catalog specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="masterCatalogId">The unique identifier of the master catalog associated with the entity.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="masterCatalogId"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.MasterCatalog"/>}
 		/// </returns>
@@ -71,11 +72,11 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		}
 
 		/// <summary>
-		/// Updates the product publishing mode for the master catalog specified in the request.
+		/// 
 		/// </summary>
 		/// <param name="masterCatalogId"></param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="masterCatalog">Properties of a master product catalog defined for a tenant. All catalogs and sites associated with a master catalog share product definitions.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="masterCatalog">Properties of the master catalog to update, which consists of the product publishing mode. Possible values are "Pending" which saves product updates in draft mode until they are published, and "Live" which publishes all product changes immediately.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.MasterCatalog"/>}
 		/// </returns>

@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Clients.Content.Documentlists
 {
@@ -22,9 +23,9 @@ namespace Mozu.Api.Clients.Content.Documentlists
 	public partial class FacetClient 	{
 		
 		/// <summary>
-		/// Retrieves the properties of facets that aid in indexing and searching.
+		/// 
 		/// </summary>
-		/// <param name="documentListName">Name of content documentListName to delete</param>
+		/// <param name="documentListName">The document list associated with the facets to retrieve.</param>
 		/// <param name="propertyName">The property name associated with the facets to retrieve.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.Content.Facet"/>}}

@@ -18,24 +18,12 @@ namespace Mozu.Api.Contracts.Reference
 		///
 		public class UnitOfMeasure
 		{
-			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
-			///
 			public string Name { get; set; }
 
-			///
-			///The plural name of the unit of measure, such as "feet".
-			///
 			public string PluralName { get; set; }
 
-			///
-			///The abbreviated symbol for the unit of measure, such as "ft".
-			///
 			public string Symbol { get; set; }
 
-			///
-			///The type of measurement, such as length or volume.
-			///
 			public string UnitOfMeasureType { get; set; }
 
 		}

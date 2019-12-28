@@ -14,44 +14,20 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
-		///
-		///	Properties for the site search settings.
-		///
 		public class SiteSearchSettings
 		{
-			///
-			///Custom boost value for searches.
-			///
 			public List<string> CustomBoosts { get; set; }
 
-			///
-			///Custom field for searches.
-			///
 			public List<SiteSearchRelevancyCustomField> CustomFields { get; set; }
 
-			///
-			///Indicates if the object is default. This indicator is used for product variations and site search settings. If true, the value/object is the default option. 
-			///
 			public bool IsDefault { get; set; }
 
-			///
-			///Specifies the minimum match percentage setting. The minimum match percentage is a percentage of the number of terms that must match a search request, rounded down. 's default minimum match percentage is 75%. To require all search terms match, set this value to 100%.
-			///
 			public int? MinimumMatchPercent { get; set; }
 
-			///
-			///The name for the search settings.
-			///
 			public string SettingsName { get; set; }
 
-			///
-			///The site keyword relevancy settings.
-			///
 			public SiteSearchKeywordRelevancySettings SiteKeywordRelevancy { get; set; }
 
-			///
-			///The site phrase relevancy settings.
-			///
 			public SiteSearchPhraseRelevancySettings SitePhraseRelevancy { get; set; }
 
 		}

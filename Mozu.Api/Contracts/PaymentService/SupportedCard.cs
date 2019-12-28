@@ -18,14 +18,8 @@ namespace Mozu.Api.Contracts.PaymentService
 		///
 		public class SupportedCard
 		{
-			///
-			///Company-defined friendly name that identifies the supported card.
-			///
 			public string FriendlyName { get; set; }
 
-			///
-			///The card type of the supported payment card, such as Visa or Amex.
-			///
 			public string Type { get; set; }
 
 		}

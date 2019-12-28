@@ -11,7 +11,9 @@ namespace Mozu.Api
         private static bool _enableCache = true;
         private static int _capabilityTimeoutInSeconds = 180;
         private static int _eventTimeoutInSeconds = 180;
-		private static string _baseAppAuthUrl = "https://home.mozu.com";
+        private static int _clientTimeoutInSeconds = 20;
+
+        private static string _baseAppAuthUrl = "https://home.mozu.com";
 
         /// <summary>
         /// Payment service url
@@ -44,7 +46,13 @@ namespace Mozu.Api
             set { _eventTimeoutInSeconds = value; } 
         }
 
-		public static string BaseAppAuthUrl
+        public static int ClientTimeoutInSeconds
+        {
+            get { return _clientTimeoutInSeconds; }
+            set { _clientTimeoutInSeconds = value; }
+        }
+
+        public static string BaseAppAuthUrl
 		{
 			get { return _baseAppAuthUrl; }
 			set { _baseAppAuthUrl = value; }

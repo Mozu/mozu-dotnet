@@ -18,14 +18,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class FacetRangeQuery
 		{
-			///
-			///The maximum value to use for the facet range query.
-			///
 			public object RangeValueEnd { get; set; }
 
-			///
-			///The minimum value to use for the facet range query.
-			///
 			public object RangeValueStart { get; set; }
 
 		}

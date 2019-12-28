@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 {
@@ -37,38 +38,38 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		}
 
 				
+
 		/// <summary>
-		/// Retrieves the shipping rates applicable for the site.
+		/// 
 		/// </summary>
-		/// <param name="includeRawResponse">Set this parameter to  to retrieve the full raw JSON response from a shipping carrier (instead of just the shipping rate).</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="rateRequest">Properties required to request a shipping rate calculation.</param>
+		/// <param name="includeRawResponse"></param>
+		/// <param name="rateRequestGroupList"></param>
 		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ShippingRuntime.RatesResponse"/>
+		/// List{<see cref="Mozu.Api.Contracts.ShippingRuntime.RatesResponseGroup"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var shipping = new Shipping();
-		///   var ratesResponse = shipping.GetRates( rateRequest,  includeRawResponse,  responseFields);
+		///   var ratesResponseGroup = await shipping.GetMultiRatesAsync( rateRequestGroupList,  includeRawResponse);
 		/// </code>
 		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ShippingRuntime.RatesResponse GetRates(Mozu.Api.Contracts.ShippingRuntime.RateRequest rateRequest, bool? includeRawResponse =  null, string responseFields =  null)
+		public virtual async Task<List<Mozu.Api.Contracts.ShippingRuntime.RatesResponseGroup>> GetMultiRatesAsync(List<Mozu.Api.Contracts.ShippingRuntime.RateRequestGroup> rateRequestGroupList, bool? includeRawResponse =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient<Mozu.Api.Contracts.ShippingRuntime.RatesResponse> response;
-			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ShippingClient.GetRatesClient( rateRequest,  includeRawResponse,  responseFields);
+			MozuClient<List<Mozu.Api.Contracts.ShippingRuntime.RatesResponseGroup>> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ShippingClient.GetMultiRatesClient( rateRequestGroupList,  includeRawResponse);
 			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
+
 		/// <summary>
-		/// Retrieves the shipping rates applicable for the site.
+		/// 
 		/// </summary>
-		/// <param name="includeRawResponse">Set this parameter to  to retrieve the full raw JSON response from a shipping carrier (instead of just the shipping rate).</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="rateRequest">Properties required to request a shipping rate calculation.</param>
+		/// <param name="includeRawResponse"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="rateRequest">Properties of the shipping rate request sent on behalf of the storefront website.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ShippingRuntime.RatesResponse"/>
 		/// </returns>
@@ -78,12 +79,12 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		///   var ratesResponse = await shipping.GetRatesAsync( rateRequest,  includeRawResponse,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ShippingRuntime.RatesResponse> GetRatesAsync(Mozu.Api.Contracts.ShippingRuntime.RateRequest rateRequest, bool? includeRawResponse =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ShippingRuntime.RatesResponse> GetRatesAsync(Mozu.Api.Contracts.ShippingRuntime.RateRequest rateRequest, bool? includeRawResponse =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ShippingRuntime.RatesResponse> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.ShippingClient.GetRatesClient( rateRequest,  includeRawResponse,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}

@@ -19,9 +19,9 @@ namespace Mozu.Api.Urls.Content
 		/// <summary>
         /// Get Resource Url for GetDocumentTypes
         /// </summary>
-        /// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
+        /// <param name="pageSize"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="startIndex"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -39,7 +39,7 @@ namespace Mozu.Api.Urls.Content
         /// Get Resource Url for GetDocumentType
         /// </summary>
         /// <param name="documentTypeName">The name of the document type to retrieve.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -55,7 +55,7 @@ namespace Mozu.Api.Urls.Content
 				/// <summary>
         /// Get Resource Url for CreateDocumentType
         /// </summary>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -70,8 +70,8 @@ namespace Mozu.Api.Urls.Content
 				/// <summary>
         /// Get Resource Url for UpdateDocumentType
         /// </summary>
-        /// <param name="documentTypeName">The name of the document type to retrieve.</param>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="documentTypeName"></param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

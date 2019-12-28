@@ -23,6 +23,7 @@ using Newtonsoft.Json.Serialization;
 
 namespace Mozu.Api
 {
+    using System.Threading;
 
     /// <summary>
     /// 
@@ -86,14 +87,10 @@ namespace Mozu.Api
         }
 
 
-		public virtual MozuClient<TResult> Execute()
+		
+		public virtual async Task<MozuClient<TResult>> ExecuteAsync(CancellationToken ct)
 		{
-			base.ExecuteRequest();
-			return this;
-		}
-		public virtual async Task<MozuClient<TResult>> ExecuteAsync()
-		{
-			await base.ExecuteRequestAsync().ConfigureAwait(false);
+			await base.ExecuteRequestAsync(ct).ConfigureAwait(false);
 			return this;
 		}
        
@@ -160,15 +157,11 @@ namespace Mozu.Api
             return this;
         }
 
-		public virtual MozuClient Execute()
-		{
-			base.ExecuteRequest();
-			return this;
-		}
 
-		public virtual async Task<MozuClient> ExecuteAsync()
+
+		public virtual async Task<MozuClient> ExecuteAsync(CancellationToken ct)
 		{
-			await base.ExecuteRequestAsync().ConfigureAwait(false);
+			await base.ExecuteRequestAsync(ct).ConfigureAwait(false);
 			return this;
 		}
 
@@ -323,6 +316,7 @@ namespace Mozu.Api
             _baseAddress =  HttpHelper.GetUrl(baseAddress);
         }
 
+
         protected void SetVerb(string verb)
         {
             _verb = verb.ToLower();
@@ -357,7 +351,7 @@ namespace Mozu.Api
             _httpContent = new StringContent(body, Encoding.UTF8, "application/json");
         }
 
-        protected async Task ValidateContext()
+        protected async Task ValidateContext(CancellationToken ct)
 		{
 
             if (AppAuthenticator.Instance == null)
@@ -383,16 +377,7 @@ namespace Mozu.Api
 
 				if (string.IsNullOrEmpty(_apiContext.TenantUrl))
 				{
-				    var tenant = await GetTenant(_apiContext.TenantId).ConfigureAwait(false);
-					/*var tenantResource = new TenantResource();
-					var tenant = tenantResource.GetTenant(_apiContext.TenantId);
-
-					if (tenant == null)
-					{
-					    var apiException = new ApiException("Tenant " + _apiContext.TenantId + " Not found") {ApiContext = _apiContext};
-                        _log.Error(apiException.Message, apiException);
-                        throw apiException;
-					}*/
+				    var tenant = await GetTenantAsync(_apiContext.TenantId,ct).ConfigureAwait(false);
 						
                     _baseAddress = HttpHelper.GetUrl(tenant.Domain);
 				}
@@ -420,17 +405,17 @@ namespace Mozu.Api
 					_log.Info("TenantId is missing", new ApiException("TenantId is missing") { ApiContext = _apiContext });
 					throw new ApiException("TenantId is missing");
 				}
-                var tenant = await GetTenant(_apiContext.TenantId).ConfigureAwait(false);
+                var tenant = await GetTenantAsync(_apiContext.TenantId, ct).ConfigureAwait(false);
                 _baseAddress = tenant.IsDevTenant? MozuConfig.BaseDevPciUrl : MozuConfig.BasePciUrl;
 			}
 
 
 		}
 
-        private async Task<Tenant> GetTenant(int tenantId)
+        private async Task<Tenant> GetTenantAsync(int tenantId, CancellationToken ct)
         {
             var tenantResource = new TenantResource();
-            var tenant = await tenantResource.GetTenantAsync(_apiContext.TenantId).ConfigureAwait(false);
+            var tenant = await tenantResource.GetTenantAsync(_apiContext.TenantId, ct: ct).ConfigureAwait(false);
 
             if (tenant == null)
             {
@@ -441,23 +426,13 @@ namespace Mozu.Api
 
             return tenant;
         }
-
-		protected void ExecuteRequest()
+		
+		protected async Task ExecuteRequestAsync(CancellationToken ct)
 		{
-			ValidateContext().Wait();
-			var client = GetHttpClient();
-		    var request = GetRequestMessage();
-		    _httpResponseMessage = client.SendAsync(request, HttpCompletionOption.ResponseContentRead).Result;
-            ResponseHelper.EnsureSuccess(_httpResponseMessage, request, _apiContext);
-            SetCache(request);
-
-		}
-		protected async Task ExecuteRequestAsync()
-		{
-			await ValidateContext().ConfigureAwait(false);
-			var client = GetHttpClient();
+			await ValidateContext(ct).ConfigureAwait(false);
+			var client = GetHttpClient();            
             var request = GetRequestMessage();
-			_httpResponseMessage = await client.SendAsync(request, HttpCompletionOption.ResponseContentRead).ConfigureAwait(false);
+			_httpResponseMessage = await client.SendAsync(request, HttpCompletionOption.ResponseContentRead);
             ResponseHelper.EnsureSuccess(_httpResponseMessage,request, _apiContext);
             SetCache(request);
 		}
@@ -536,12 +511,12 @@ namespace Mozu.Api
             return requestMessage;
         }
 
-        private void SetUserClaims()
+        private async Task SetUserClaims()
         {
             if (_apiContext == null || _apiContext.UserAuthTicket == null) return;
             AuthTicket newAuthTicket = null;
             if (_apiContext.UserAuthTicket.AuthenticationScope == AuthenticationScope.Customer)
-                newAuthTicket = CustomerAuthenticator.EnsureAuthTicket(_apiContext.UserAuthTicket);
+                newAuthTicket = await CustomerAuthenticator.EnsureAuthTicket(_apiContext.UserAuthTicket).ConfigureAwait(false);
             else
                 newAuthTicket = UserAuthenticator.EnsureAuthTicket(_apiContext.UserAuthTicket);
             if (newAuthTicket != null)
@@ -594,11 +569,12 @@ namespace Mozu.Api
                     AllowAutoRedirect = false,
                     UseCookies = false,
                     AutomaticDecompression = DecompressionMethods.GZip
-                        | DecompressionMethods.Deflate
+                        | DecompressionMethods.Deflate,
+                    
                 });
 
 
-
+                client.Timeout = TimeSpan.FromSeconds(MozuConfig.ClientTimeoutInSeconds);
                 client.MaxResponseContentBufferSize = int.MaxValue;
                 _clientsByHostName[key] = client;
             }

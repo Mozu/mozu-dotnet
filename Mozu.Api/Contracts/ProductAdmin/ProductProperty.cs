@@ -15,18 +15,12 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	Details of a property defined for a product.
+		///	Properties of the product property to create such as attribute detail, fully qualified name, and list of product property values.
 		///
 		public class ProductProperty
 		{
-			///
-			///The fully qualified name of the attribute, which is a user defined attribute identifier.
-			///
 			public string AttributeFQN { get; set; }
 
-			///
-			///List of value data for objects.
-			///
 			public List<ProductPropertyValue> Values { get; set; }
 
 		}

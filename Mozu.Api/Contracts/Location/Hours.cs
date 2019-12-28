@@ -18,9 +18,6 @@ namespace Mozu.Api.Contracts.Location
 		///
 		public class Hours
 		{
-			///
-			///Descriptive text used as a label for objects, such as field names, facets, date ranges, contact information, and package information.
-			///
 			public string Label { get; set; }
 
 		}

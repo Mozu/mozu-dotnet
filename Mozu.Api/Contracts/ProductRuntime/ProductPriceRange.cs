@@ -18,14 +18,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		///
 		public class ProductPriceRange
 		{
-			///
-			///The lowest possible price value for a product with options that vary the cost of the product.
-			///
 			public ProductPrice Lower { get; set; }
 
-			///
-			///The highest possible price value for a product with options that vary the cost of the product.
-			///
 			public ProductPrice Upper { get; set; }
 
 		}

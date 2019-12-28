@@ -18,19 +18,10 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Commerce
 		///
 		public class Adjustment
 		{
-			///
-			///The amount of the order-level adjustment, which can be a positive or negative amount.
-			///
 			public decimal? Amount { get; set; }
 
-			///
-			///The localized description in text for the object, displayed per the locale code. For example, descriptions are used for product descriptions, attributes, and pre-authorization transaction types.
-			///
 			public string Description { get; set; }
 
-			///
-			///Administrator notes associated with the order adjustment. These comments are not shopper facing.
-			///
 			public string InternalComment { get; set; }
 
 		}

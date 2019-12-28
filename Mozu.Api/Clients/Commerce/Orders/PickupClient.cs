@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Clients.Commerce.Orders
 {
@@ -22,10 +23,10 @@ namespace Mozu.Api.Clients.Commerce.Orders
 	public partial class PickupClient 	{
 		
 		/// <summary>
-		/// Retrieves a list of the actions available to perform for the pickup specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="pickupId">Unique identifier of the pickup to remove.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the pickup.</param>
+		/// <param name="pickupId">Unique identifier of the pickup for which to retrieve available actions.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{string}}
 		/// </returns>
@@ -47,11 +48,11 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		}
 
 		/// <summary>
-		/// Retrieves the details of the in-store pickup specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="pickupId">Unique identifier of the pickup to remove.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the pickup.</param>
+		/// <param name="pickupId">Unique identifier of the pickup to retrieve.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup"/>}
 		/// </returns>
@@ -73,11 +74,11 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		}
 
 		/// <summary>
-		/// Create a new pickup for the order specified in the request for in-store fufillment.
+		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="pickup">Properties of an in-store pickup defined to fulfill items in an order.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="pickup">Properties of the in-store pickup to create.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup"/>}
 		/// </returns>
@@ -99,12 +100,12 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		}
 
 		/// <summary>
-		/// Updates one or more details of a defined in-store pickup.
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="pickupId">Unique identifier of the pickup to remove.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="pickup">Properties of an in-store pickup defined to fulfill items in an order.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the in-store pickup.</param>
+		/// <param name="pickupId">Unique identifier of the pickup to update.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="pickup">Properties of the in-store pickup to update.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Pickup"/>}
 		/// </returns>
@@ -126,9 +127,9 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		}
 
 		/// <summary>
-		/// Removes a pickup previously defined for order item in-store pickup fulfillment.
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the pickup.</param>
 		/// <param name="pickupId">Unique identifier of the pickup to remove.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />

@@ -14,119 +14,50 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.AppDev
 {
-		///
-		///	This property is not exposed in documentation.
-		///
 		public class ApplicationEntitlement
 		{
-			///
-			///Mozu.AppDev.Contracts.ApplicationEntitlement appKey ApiTypeMember DOCUMENT_HERE 
-			///
 			public string AppKey { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationEntitlement applicationEntitlementId ApiTypeMember DOCUMENT_HERE 
-			///
 			public int ApplicationEntitlementId { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationEntitlement applicationId ApiTypeMember DOCUMENT_HERE 
-			///
 			public int ApplicationId { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationEntitlement applicationLicenseType ApiTypeMember DOCUMENT_HERE 
-			///
 			public string ApplicationLicenseType { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationEntitlement applicationName ApiTypeMember DOCUMENT_HERE 
-			///
 			public string ApplicationName { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationEntitlement applicationStatusId ApiTypeMember DOCUMENT_HERE 
-			///
 			public string ApplicationStatusId { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationEntitlement applicationTransactions ApiTypeMember DOCUMENT_HERE 
-			///
 			public List<ApplicationTransaction> ApplicationTransactions { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationEntitlement applicationVersion ApiTypeMember DOCUMENT_HERE 
-			///
 			public string ApplicationVersion { get; set; }
 
-			///
-			///Denotes the application owner dev account id
-			///
 			public int AppOwnerDevAccountId { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationEntitlement devAccountId ApiTypeMember DOCUMENT_HERE 
-			///
 			public int DevAccountId { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationEntitlement effectiveEndDate ApiTypeMember DOCUMENT_HERE 
-			///
 			public DateTime? EffectiveEndDate { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationEntitlement effectiveStartDate ApiTypeMember DOCUMENT_HERE 
-			///
 			public DateTime? EffectiveStartDate { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationEntitlement entitlementStatus ApiTypeMember DOCUMENT_HERE 
-			///
 			public string EntitlementStatus { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationEntitlement installedAppsApplicationId ApiTypeMember DOCUMENT_HERE 
-			///
 			public string InstalledAppsApplicationId { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationEntitlement installedByFirstName ApiTypeMember DOCUMENT_HERE 
-			///
 			public string InstalledByFirstName { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationEntitlement installedByLastName ApiTypeMember DOCUMENT_HERE 
-			///
 			public string InstalledByLastName { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationEntitlement installedDate ApiTypeMember DOCUMENT_HERE 
-			///
 			public DateTime InstalledDate { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationEntitlement packageId ApiTypeMember DOCUMENT_HERE 
-			///
 			public int PackageId { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationEntitlement packageName ApiTypeMember DOCUMENT_HERE 
-			///
 			public string PackageName { get; set; }
 
-			///
-			///Unique identifier for the site. This ID is used at all levels of a store, catalog, and tenant to associate objects to a site.
-			///
 			public int? SiteId { get; set; }
 
-			///
-			///Unique identifier of the Mozu tenant.
-			///
 			public int TenantId { get; set; }
 
-			///
-			///Mozu.AppDev.Contracts.ApplicationEntitlement tenantName ApiTypeMember DOCUMENT_HERE 
-			///
 			public string TenantName { get; set; }
 
 		}

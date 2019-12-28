@@ -19,24 +19,12 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class ProductExtra
 		{
-			///
-			///The fully qualified name of the attribute, which is a user defined attribute identifier.
-			///
 			public string AttributeFQN { get; set; }
 
-			///
-			///If true, the shopper can select more than one value from a predefined list for this extra.
-			///
 			public bool? IsMultiSelect { get; set; }
 
-			///
-			///Indicates if the property, attribute, product option, or product extra is required. If true, the object must have a defined value.
-			///
 			public bool? IsRequired { get; set; }
 
-			///
-			///List of value data for objects.
-			///
 			public List<ProductExtraValue> Values { get; set; }
 
 		}

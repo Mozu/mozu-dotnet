@@ -13,11 +13,12 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Orders
 {
 	/// <summary>
-	/// Use the Extended Properties resource to store tracking strings for your orders. Extended properties can help you track affiliate sources.
+	/// 
 	/// </summary>
 	public partial class ExtendedPropertyResource  	{
 		///
@@ -37,36 +38,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		}
 
 				
-		/// <summary>
-		/// Retrieves the extended property string associated with the order. 
-		/// </summary>
-		/// <param name="draft">If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.</param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <returns>
-		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var extendedproperty = new ExtendedProperty();
-		///   var extendedProperty = extendedproperty.GetExtendedProperties( orderId,  draft);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual List<Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty> GetExtendedProperties(string orderId, bool? draft =  null)
-		{
-			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty>> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.ExtendedPropertyClient.GetExtendedPropertiesClient( orderId,  draft);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves the extended property string associated with the order. 
+		/// 
 		/// </summary>
-		/// <param name="draft">If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.</param>
-		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="draft"></param>
+		/// <param name="orderId"></param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty"/>}
 		/// </returns>
@@ -76,50 +53,24 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var extendedProperty = await extendedproperty.GetExtendedPropertiesAsync( orderId,  draft);
 		/// </code>
 		/// </example>
-		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty>> GetExtendedPropertiesAsync(string orderId, bool? draft =  null)
+		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty>> GetExtendedPropertiesAsync(string orderId, bool? draft =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty>> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.ExtendedPropertyClient.GetExtendedPropertiesClient( orderId,  draft);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Creates an extended property for the order.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
-		/// <param name="extendedProperties">The details of the extended property.</param>
-		/// <returns>
-		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var extendedproperty = new ExtendedProperty();
-		///   var extendedProperty = extendedproperty.AddExtendedProperties( extendedProperties,  orderId,  updateMode,  version);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual List<Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty> AddExtendedProperties(List<Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty> extendedProperties, string orderId, string updateMode =  null, string version =  null)
-		{
-			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty>> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.ExtendedPropertyClient.AddExtendedPropertiesClient( extendedProperties,  orderId,  updateMode,  version);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Creates an extended property for the order.
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
-		/// <param name="extendedProperties">The details of the extended property.</param>
+		/// <param name="orderId"></param>
+		/// <param name="updateMode"></param>
+		/// <param name="version"></param>
+		/// <param name="extendedProperties"></param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty"/>}
 		/// </returns>
@@ -129,56 +80,27 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var extendedProperty = await extendedproperty.AddExtendedPropertiesAsync( extendedProperties,  orderId,  updateMode,  version);
 		/// </code>
 		/// </example>
-		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty>> AddExtendedPropertiesAsync(List<Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty> extendedProperties, string orderId, string updateMode =  null, string version =  null)
+		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty>> AddExtendedPropertiesAsync(List<Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty> extendedProperties, string orderId, string updateMode =  null, string version =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty>> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.ExtendedPropertyClient.AddExtendedPropertiesClient( extendedProperties,  orderId,  updateMode,  version);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates one ore more extended properties.
-		/// </summary>
-		/// <param name="key">The extended property key.</param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="upsert">Inserts and updates an extended property.        </param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
-		/// <param name="extendedProperty">The details of the updated extended property.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var extendedproperty = new ExtendedProperty();
-		///   var extendedProperty = extendedproperty.UpdateExtendedProperty( extendedProperty,  orderId,  key,  updateMode,  version,  upsert,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty UpdateExtendedProperty(Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty extendedProperty, string orderId, string key, string updateMode =  null, string version =  null, bool? upsert =  null, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.ExtendedPropertyClient.UpdateExtendedPropertyClient( extendedProperty,  orderId,  key,  updateMode,  version,  upsert,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Updates one ore more extended properties.
+		/// 
 		/// </summary>
-		/// <param name="key">The extended property key.</param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="upsert">Inserts and updates an extended property.        </param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
-		/// <param name="extendedProperty">The details of the updated extended property.</param>
+		/// <param name="key"></param>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="updateMode"></param>
+		/// <param name="upsert"></param>
+		/// <param name="version"></param>
+		/// <param name="extendedProperty"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty"/>
 		/// </returns>
@@ -188,52 +110,25 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var extendedProperty = await extendedproperty.UpdateExtendedPropertyAsync( extendedProperty,  orderId,  key,  updateMode,  version,  upsert,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty> UpdateExtendedPropertyAsync(Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty extendedProperty, string orderId, string key, string updateMode =  null, string version =  null, bool? upsert =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty> UpdateExtendedPropertyAsync(Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty extendedProperty, string orderId, string key, string updateMode =  null, string version =  null, bool? upsert =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.ExtendedPropertyClient.UpdateExtendedPropertyClient( extendedProperty,  orderId,  key,  updateMode,  version,  upsert,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates one or more extended properties.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="upsert">Inserts and updates the extended property.        </param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
-		/// <param name="extendedProperties">The details of the updated extended properties.</param>
-		/// <returns>
-		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var extendedproperty = new ExtendedProperty();
-		///   var extendedProperty = extendedproperty.UpdateExtendedProperties( extendedProperties,  orderId,  updateMode,  version,  upsert);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual List<Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty> UpdateExtendedProperties(List<Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty> extendedProperties, string orderId, string updateMode =  null, string version =  null, bool? upsert =  null)
-		{
-			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty>> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.ExtendedPropertyClient.UpdateExtendedPropertiesClient( extendedProperties,  orderId,  updateMode,  version,  upsert);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Updates one or more extended properties.
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="upsert">Inserts and updates the extended property.        </param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
-		/// <param name="extendedProperties">The details of the updated extended properties.</param>
+		/// <param name="orderId"></param>
+		/// <param name="updateMode"></param>
+		/// <param name="upsert"></param>
+		/// <param name="version"></param>
+		/// <param name="extendedProperties"></param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty"/>}
 		/// </returns>
@@ -243,49 +138,24 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var extendedProperty = await extendedproperty.UpdateExtendedPropertiesAsync( extendedProperties,  orderId,  updateMode,  version,  upsert);
 		/// </code>
 		/// </example>
-		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty>> UpdateExtendedPropertiesAsync(List<Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty> extendedProperties, string orderId, string updateMode =  null, string version =  null, bool? upsert =  null)
+		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty>> UpdateExtendedPropertiesAsync(List<Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty> extendedProperties, string orderId, string updateMode =  null, string version =  null, bool? upsert =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Commerce.ExtendedProperty>> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.ExtendedPropertyClient.UpdateExtendedPropertiesClient( extendedProperties,  orderId,  updateMode,  version,  upsert);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
+
 		/// <summary>
-		/// Deletes one or more extended properties.
-		/// </summary>
-		/// <param name="key">The extended property key.</param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
-		/// <returns>
 		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var extendedproperty = new ExtendedProperty();
-		///   extendedproperty.DeleteExtendedProperty( orderId,  key,  updateMode,  version);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeleteExtendedProperty(string orderId, string key, string updateMode =  null, string version =  null)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Orders.ExtendedPropertyClient.DeleteExtendedPropertyClient( orderId,  key,  updateMode,  version);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// Deletes one or more extended properties.
 		/// </summary>
-		/// <param name="key">The extended property key.</param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
+		/// <param name="key"></param>
+		/// <param name="orderId"></param>
+		/// <param name="updateMode"></param>
+		/// <param name="version"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -295,48 +165,23 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   await extendedproperty.DeleteExtendedPropertyAsync( orderId,  key,  updateMode,  version);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteExtendedPropertyAsync(string orderId, string key, string updateMode =  null, string version =  null)
+		public virtual async Task DeleteExtendedPropertyAsync(string orderId, string key, string updateMode =  null, string version =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Orders.ExtendedPropertyClient.DeleteExtendedPropertyClient( orderId,  key,  updateMode,  version);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 
+
 		/// <summary>
-		/// Deletes the extended property associated with the order. 
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
-		/// <param name="keys">The extended property keys.</param>
-		/// <returns>
 		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var extendedproperty = new ExtendedProperty();
-		///   extendedproperty.DeleteExtendedProperties( keys,  orderId,  updateMode,  version);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeleteExtendedProperties(List<string> keys, string orderId, string updateMode =  null, string version =  null)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Orders.ExtendedPropertyClient.DeleteExtendedPropertiesClient( keys,  orderId,  updateMode,  version);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// Deletes the extended property associated with the order. 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
-		/// <param name="keys">The extended property keys.</param>
+		/// <param name="orderId"></param>
+		/// <param name="updateMode"></param>
+		/// <param name="version"></param>
+		/// <param name="keys"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -346,12 +191,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   await extendedproperty.DeleteExtendedPropertiesAsync( keys,  orderId,  updateMode,  version);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteExtendedPropertiesAsync(List<string> keys, string orderId, string updateMode =  null, string version =  null)
+		public virtual async Task DeleteExtendedPropertiesAsync(List<string> keys, string orderId, string updateMode =  null, string version =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Orders.ExtendedPropertyClient.DeleteExtendedPropertiesClient( keys,  orderId,  updateMode,  version);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 

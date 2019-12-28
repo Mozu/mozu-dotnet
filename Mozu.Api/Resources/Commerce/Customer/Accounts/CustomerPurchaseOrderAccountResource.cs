@@ -13,11 +13,12 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 {
 	/// <summary>
-	/// Use the Customer Account Purchase Order resource to manage purchase order details for specific customer acocunts.
+	/// 
 	/// </summary>
 	public partial class CustomerPurchaseOrderAccountResource  	{
 		///
@@ -37,36 +38,12 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		}
 
 				
-		/// <summary>
-		/// Retrieves the details of the specified customer purchase order account.
-		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var customerpurchaseorderaccount = new CustomerPurchaseOrderAccount();
-		///   var customerPurchaseOrderAccount = customerpurchaseorderaccount.GetCustomerPurchaseOrderAccount( accountId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount GetCustomerPurchaseOrderAccount(int accountId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerPurchaseOrderAccountClient.GetCustomerPurchaseOrderAccountClient( accountId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves the details of the specified customer purchase order account.
+		/// 
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="accountId"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount"/>
 		/// </returns>
@@ -76,54 +53,26 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		///   var customerPurchaseOrderAccount = await customerpurchaseorderaccount.GetCustomerPurchaseOrderAccountAsync( accountId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount> GetCustomerPurchaseOrderAccountAsync(int accountId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount> GetCustomerPurchaseOrderAccountAsync(int accountId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerPurchaseOrderAccountClient.GetCustomerPurchaseOrderAccountClient( accountId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves a list of purchase order transactions for the specified customer account according to any specified sort options.
-		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Customer.PurchaseOrderTransactionCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var customerpurchaseorderaccount = new CustomerPurchaseOrderAccount();
-		///   var purchaseOrderTransactionCollection = customerpurchaseorderaccount.GetCustomerPurchaseOrderTransactions( accountId,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Customer.PurchaseOrderTransactionCollection GetCustomerPurchaseOrderTransactions(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Customer.PurchaseOrderTransactionCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerPurchaseOrderAccountClient.GetCustomerPurchaseOrderTransactionsClient( accountId,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves a list of purchase order transactions for the specified customer account according to any specified sort options.
+		/// 
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
-		/// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="sortBy">The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.</param>
+		/// <param name="accountId"></param>
+		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.PurchaseOrderTransactionCollection"/>
 		/// </returns>
@@ -133,48 +82,23 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		///   var purchaseOrderTransactionCollection = await customerpurchaseorderaccount.GetCustomerPurchaseOrderTransactionsAsync( accountId,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.PurchaseOrderTransactionCollection> GetCustomerPurchaseOrderTransactionsAsync(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Customer.PurchaseOrderTransactionCollection> GetCustomerPurchaseOrderTransactionsAsync(int accountId, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.PurchaseOrderTransactionCollection> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerPurchaseOrderAccountClient.GetCustomerPurchaseOrderTransactionsClient( accountId,  startIndex,  pageSize,  sortBy,  filter,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Adds a purchase order account to the specified customer account.This adds the ability for the specified customer account to use the purchase order payment method.
-		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="customerPurchaseOrderAccount">Unique identifier of the customer purchase order account.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var customerpurchaseorderaccount = new CustomerPurchaseOrderAccount();
-		///   var customerPurchaseOrderAccount = customerpurchaseorderaccount.CreateCustomerPurchaseOrderAccount( customerPurchaseOrderAccount,  accountId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount CreateCustomerPurchaseOrderAccount(Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount customerPurchaseOrderAccount, int accountId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerPurchaseOrderAccountClient.CreateCustomerPurchaseOrderAccountClient( customerPurchaseOrderAccount,  accountId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Adds a purchase order account to the specified customer account.This adds the ability for the specified customer account to use the purchase order payment method.
+		/// 
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="customerPurchaseOrderAccount">Unique identifier of the customer purchase order account.</param>
+		/// <param name="accountId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="customerPurchaseOrderAccount"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount"/>
 		/// </returns>
@@ -184,48 +108,23 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		///   var customerPurchaseOrderAccount = await customerpurchaseorderaccount.CreateCustomerPurchaseOrderAccountAsync( customerPurchaseOrderAccount,  accountId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount> CreateCustomerPurchaseOrderAccountAsync(Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount customerPurchaseOrderAccount, int accountId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount> CreateCustomerPurchaseOrderAccountAsync(Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount customerPurchaseOrderAccount, int accountId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerPurchaseOrderAccountClient.CreateCustomerPurchaseOrderAccountClient( customerPurchaseOrderAccount,  accountId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Creates a purchase order transaction on the specified customer purchase order account.
-		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="purchaseOrderTransaction">The purchase order transaction type to add to the specified customer account.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Customer.PurchaseOrderTransaction"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var customerpurchaseorderaccount = new CustomerPurchaseOrderAccount();
-		///   var purchaseOrderTransaction = customerpurchaseorderaccount.CreatePurchaseOrderTransaction( purchaseOrderTransaction,  accountId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Customer.PurchaseOrderTransaction CreatePurchaseOrderTransaction(Mozu.Api.Contracts.Customer.PurchaseOrderTransaction purchaseOrderTransaction, int accountId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Customer.PurchaseOrderTransaction> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerPurchaseOrderAccountClient.CreatePurchaseOrderTransactionClient( purchaseOrderTransaction,  accountId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Creates a purchase order transaction on the specified customer purchase order account.
+		/// 
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="purchaseOrderTransaction">The purchase order transaction type to add to the specified customer account.</param>
+		/// <param name="accountId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="purchaseOrderTransaction"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.PurchaseOrderTransaction"/>
 		/// </returns>
@@ -235,48 +134,23 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		///   var purchaseOrderTransaction = await customerpurchaseorderaccount.CreatePurchaseOrderTransactionAsync( purchaseOrderTransaction,  accountId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.PurchaseOrderTransaction> CreatePurchaseOrderTransactionAsync(Mozu.Api.Contracts.Customer.PurchaseOrderTransaction purchaseOrderTransaction, int accountId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Customer.PurchaseOrderTransaction> CreatePurchaseOrderTransactionAsync(Mozu.Api.Contracts.Customer.PurchaseOrderTransaction purchaseOrderTransaction, int accountId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.PurchaseOrderTransaction> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerPurchaseOrderAccountClient.CreatePurchaseOrderTransactionClient( purchaseOrderTransaction,  accountId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates the details of the purchase order account for the specified customer account.
-		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="customerPurchaseOrderAccount">Unique identifier of the customer purchase order account.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var customerpurchaseorderaccount = new CustomerPurchaseOrderAccount();
-		///   var customerPurchaseOrderAccount = customerpurchaseorderaccount.UpdateCustomerPurchaseOrderAccount( customerPurchaseOrderAccount,  accountId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount UpdateCustomerPurchaseOrderAccount(Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount customerPurchaseOrderAccount, int accountId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerPurchaseOrderAccountClient.UpdateCustomerPurchaseOrderAccountClient( customerPurchaseOrderAccount,  accountId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Updates the details of the purchase order account for the specified customer account.
+		/// 
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="customerPurchaseOrderAccount">Unique identifier of the customer purchase order account.</param>
+		/// <param name="accountId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="customerPurchaseOrderAccount"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount"/>
 		/// </returns>
@@ -286,43 +160,21 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		///   var customerPurchaseOrderAccount = await customerpurchaseorderaccount.UpdateCustomerPurchaseOrderAccountAsync( customerPurchaseOrderAccount,  accountId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount> UpdateCustomerPurchaseOrderAccountAsync(Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount customerPurchaseOrderAccount, int accountId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount> UpdateCustomerPurchaseOrderAccountAsync(Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount customerPurchaseOrderAccount, int accountId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.CustomerPurchaseOrderAccount> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerPurchaseOrderAccountClient.UpdateCustomerPurchaseOrderAccountClient( customerPurchaseOrderAccount,  accountId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
+
 		/// <summary>
-		/// Deletes the specified customer purchase order account.This removes the ability for the specified customer account to use the purchase order payment method.
-		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
-		/// <returns>
 		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var customerpurchaseorderaccount = new CustomerPurchaseOrderAccount();
-		///   customerpurchaseorderaccount.DeleteCustomerPurchaseOrderAccount( accountId);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeleteCustomerPurchaseOrderAccount(int accountId)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerPurchaseOrderAccountClient.DeleteCustomerPurchaseOrderAccountClient( accountId);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// Deletes the specified customer purchase order account.This removes the ability for the specified customer account to use the purchase order payment method.
 		/// </summary>
-		/// <param name="accountId">Unique identifier of the customer account.</param>
+		/// <param name="accountId"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -332,12 +184,12 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		///   await customerpurchaseorderaccount.DeleteCustomerPurchaseOrderAccountAsync( accountId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteCustomerPurchaseOrderAccountAsync(int accountId)
+		public virtual async Task DeleteCustomerPurchaseOrderAccountAsync(int accountId, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerPurchaseOrderAccountClient.DeleteCustomerPurchaseOrderAccountClient( accountId);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 

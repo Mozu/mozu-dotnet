@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce.Settings
 		/// <summary>
         /// Get Resource Url for GetSiteShippingSettings
         /// </summary>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

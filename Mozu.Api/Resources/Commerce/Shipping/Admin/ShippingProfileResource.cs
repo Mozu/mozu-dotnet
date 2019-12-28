@@ -13,11 +13,12 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Shipping.Admin
 {
 	/// <summary>
-	/// Use the Profiles resource to manage your shipping profiles.
+	/// 
 	/// </summary>
 	public partial class ShippingProfileResource  	{
 		///
@@ -37,35 +38,11 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin
 		}
 
 				
-		/// <summary>
-		/// Retrieves a list of shipping profiles.
-		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingProfileCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var shippingprofile = new ShippingProfile();
-		///   var shippingProfileCollection = shippingprofile.GetProfiles( responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingProfileCollection GetProfiles(string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingProfileCollection> response;
-			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.ShippingProfileClient.GetProfilesClient( responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves a list of shipping profiles.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingProfileCollection"/>
@@ -76,12 +53,12 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin
 		///   var shippingProfileCollection = await shippingprofile.GetProfilesAsync( responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingProfileCollection> GetProfilesAsync(string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingProfileCollection> GetProfilesAsync(string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.ShippingAdmin.Profile.ShippingProfileCollection> response;
 			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.ShippingProfileClient.GetProfilesClient( responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}

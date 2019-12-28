@@ -13,19 +13,20 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Clients.Platform
 {
 	/// <summary>
-	/// Use the tenants resource to manage information about a  tenant.
+	/// Use the tenants resource to manage information about a Mozu tenant.
 	/// </summary>
 	public partial class TenantClient 	{
 		
 		/// <summary>
-		/// Retrieve details about a specific tenant by providing the tenant ID.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="tenantId">Unique identifier of the Mozu tenant.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="tenantId"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Tenant.Tenant"/>}
 		/// </returns>

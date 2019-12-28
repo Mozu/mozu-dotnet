@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce.Settings.Shipping
 		/// <summary>
         /// Get Resource Url for GetOrderHandlingFee
         /// </summary>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -34,7 +34,7 @@ namespace Mozu.Api.Urls.Commerce.Settings.Shipping
 				/// <summary>
         /// Get Resource Url for CreateOrderHandlingFee
         /// </summary>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -49,7 +49,7 @@ namespace Mozu.Api.Urls.Commerce.Settings.Shipping
 				/// <summary>
         /// Get Resource Url for UpdateOrderHandlingFee
         /// </summary>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+        /// <param name="responseFields"></param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

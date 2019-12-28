@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Orders
 {
@@ -37,36 +38,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		}
 
 				
-		/// <summary>
-		/// Retrieves a list of the actions available to perform for a package associated with order fulfillment.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
-		/// <returns>
-		/// List{string}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var package = new Package();
-		///   var string = package.GetAvailablePackageFulfillmentActions( orderId,  packageId);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual List<string> GetAvailablePackageFulfillmentActions(string orderId, string packageId)
-		{
-			MozuClient<List<string>> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.PackageClient.GetAvailablePackageFulfillmentActionsClient( orderId,  packageId);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves a list of the actions available to perform for a package associated with order fulfillment.
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the package fulfillment.</param>
+		/// <param name="packageId">Unique identifier of the package associated with the fulfillment actions to retrieve.</param>
 		/// <returns>
 		/// List{string}
 		/// </returns>
@@ -76,45 +53,21 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var string = await package.GetAvailablePackageFulfillmentActionsAsync( orderId,  packageId);
 		/// </code>
 		/// </example>
-		public virtual async Task<List<string>> GetAvailablePackageFulfillmentActionsAsync(string orderId, string packageId)
+		public virtual async Task<List<string>> GetAvailablePackageFulfillmentActionsAsync(string orderId, string packageId, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<List<string>> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.PackageClient.GetAvailablePackageFulfillmentActionsClient( orderId,  packageId);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves the package label image supplied by the carrier.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
-		/// <returns>
-		/// <see cref="System.IO.Stream"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var package = new Package();
-		///   var stream = package.GetPackageLabel( orderId,  packageId);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual System.IO.Stream GetPackageLabel(string orderId, string packageId)
-		{
-			MozuClient<System.IO.Stream> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.PackageClient.GetPackageLabelClient( orderId,  packageId);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves the package label image supplied by the carrier.
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the package label to retrieve.</param>
 		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
 		/// <returns>
 		/// <see cref="System.IO.Stream"/>
@@ -125,48 +78,23 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var stream = await package.GetPackageLabelAsync( orderId,  packageId);
 		/// </code>
 		/// </example>
-		public virtual async Task<System.IO.Stream> GetPackageLabelAsync(string orderId, string packageId)
+		public virtual async Task<System.IO.Stream> GetPackageLabelAsync(string orderId, string packageId, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.PackageClient.GetPackageLabelClient( orderId,  packageId);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves the details of a package of order items.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var package = new Package();
-		///   var package = package.GetPackage( orderId,  packageId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package GetPackage(string orderId, string packageId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.PackageClient.GetPackageClient( orderId,  packageId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves the details of a package of order items.
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the package to retrieve.</param>
+		/// <param name="packageId">Unique identifier of the package to retrieve.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>
 		/// </returns>
@@ -176,48 +104,23 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var package = await package.GetPackageAsync( orderId,  packageId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> GetPackageAsync(string orderId, string packageId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> GetPackageAsync(string orderId, string packageId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.PackageClient.GetPackageClient( orderId,  packageId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Creates a new physical package of order items.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="package">Properties of a physical package shipped for an order.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var package = new Package();
-		///   var package = package.CreatePackage( pkg,  orderId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package CreatePackage(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package pkg, string orderId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.PackageClient.CreatePackageClient( pkg,  orderId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Creates a new physical package of order items.
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="package">Properties of a physical package shipped for an order.</param>
+		/// <param name="orderId">Unique identifier of the order associated with this package.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="package">Properties of the physical package of order items.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>
 		/// </returns>
@@ -227,50 +130,24 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var package = await package.CreatePackageAsync( pkg,  orderId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> CreatePackageAsync(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package pkg, string orderId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> CreatePackageAsync(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package pkg, string orderId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.PackageClient.CreatePackageClient( pkg,  orderId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates one or more properties of a physical package of order items.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="package">Properties of a physical package shipped for an order.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var package = new Package();
-		///   var package = package.UpdatePackage( pkg,  orderId,  packageId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package UpdatePackage(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package pkg, string orderId, string packageId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> response;
-			var client = Mozu.Api.Clients.Commerce.Orders.PackageClient.UpdatePackageClient( pkg,  orderId,  packageId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Updates one or more properties of a physical package of order items.
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="package">Properties of a physical package shipped for an order.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the package to update.</param>
+		/// <param name="packageId">Unique identifier of the package of order items to update.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="package">Wrapper of properties for the package of order items to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>
 		/// </returns>
@@ -280,45 +157,22 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   var package = await package.UpdatePackageAsync( pkg,  orderId,  packageId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> UpdatePackageAsync(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package pkg, string orderId, string packageId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> UpdatePackageAsync(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package pkg, string orderId, string packageId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.PackageClient.UpdatePackageClient( pkg,  orderId,  packageId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
+
 		/// <summary>
-		/// Removes a physical package of items from the specified order.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
-		/// <returns>
 		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var package = new Package();
-		///   package.DeletePackage( orderId,  packageId);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeletePackage(string orderId, string packageId)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Orders.PackageClient.DeletePackageClient( orderId,  packageId);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// Removes a physical package of items from the specified order.
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the package to delete.</param>
+		/// <param name="packageId">Unique identifier of the package to delete.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -328,12 +182,12 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		///   await package.DeletePackageAsync( orderId,  packageId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeletePackageAsync(string orderId, string packageId)
+		public virtual async Task DeletePackageAsync(string orderId, string packageId, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Orders.PackageClient.DeletePackageClient( orderId,  packageId);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 

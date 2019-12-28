@@ -21,9 +21,6 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 		///
 		public class RateRequest
 		{
-			///
-			///Collection of attributes that may be paged list or a list, depending on the usage per object and API type.
-			///
 			public List<RateRequestAttribute> Attributes { get; set; }
 
 			///
@@ -32,63 +29,38 @@ namespace Mozu.Api.Contracts.ShippingRuntime
 			public List<string> CarrierIds { get; set; }
 
 			///
-			///Collection of carrier-specific key-value attribute pairs associated with a shipping carrier. These are required to retrieve a shipping rate request and are returned for the generated shipping label.
+			///List of key-value pairs that represent custom attributes associated with the request.
 			///
 			public List<CustomAttribute> CustomAttributes { get; set; }
 
-			///
-			///Data included in the shipping rate information.
-			///
 			public JObject Data { get; set; }
 
-			///
-			///The physical address orders are sent to as a shipping destination. This address may contain multiple lines, city, state/province, country, and zip/postal code. The destination is used to calculate shipping costs.
-			///
 			public Address DestinationAddress { get; set; }
 
 			///
-			///The estimated date and time the shipment will be shipped to the shopper. This calculation is based on product stock, availability, date of order entry, and location.
+			///The date and time the shipment will be shipped to the shopper.
 			///
 			public DateTime? EstimatedShipmentDate { get; set; }
 
-			///
-			///If true, the destination address associated with the shipping rate request is a commercial address.
-			///
+			public string Id { get; set; }
+
 			public bool? IsDestinationAddressCommercial { get; set; }
 
-			///
-			///3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
-			///
 			public string IsoCurrencyCode { get; set; }
 
-			///
-			///A list of requested items. All returned data is provided in an items array.For a failed request, the returned response may be success with an empty item array.
-			///
 			public List<RateRequestItem> Items { get; set; }
 
-			///
-			///The sub total of the order including all applicable discounts.
-			///
 			public decimal? OrderDiscountedSubTotal { get; set; }
 
-			///
-			///The total monetary amount of the order. This amount is used to calculate the shipping rate estimate.
-			///
 			public decimal? OrderTotal { get; set; }
 
 			///
-			///The physical address from which the order or shipment will ship.
+			///The physical address from which the shipment will ship.
 			///
 			public Address OriginAddress { get; set; }
 
-			///
-			///The unique identifier of the order to which the shipping rate is related.You can use Arc.js in combination with this property to retrieve other properties of the related order.
-			///
 			public string RelatedOrderId { get; set; }
 
-			///
-			///The order number that the customer sees on the storefront when they place the order.
-			///
 			public int? RelatedOrderNumber { get; set; }
 
 			///

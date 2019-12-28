@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Clients.Commerce.Settings
 {
@@ -22,9 +23,9 @@ namespace Mozu.Api.Clients.Commerce.Settings
 	public partial class SiteShippingSettingsClient 	{
 		
 		/// <summary>
-		/// Retrieves a list of the shipping settings configured for a site.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Shipping.SiteShippingSettings"/>}
 		/// </returns>

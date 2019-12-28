@@ -19,9 +19,9 @@ namespace Mozu.Api.Urls.Commerce.Returns
 		/// <summary>
         /// Get Resource Url for GetShipment
         /// </summary>
-        /// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-        /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
-        /// <param name="shipmentId">Unique identifier of the shipment to retrieve.</param>
+        /// <param name="responseFields"></param>
+        /// <param name="returnId">Unique identifier of the return associated with the replacement shipment to retrieve.</param>
+        /// <param name="shipmentId">Unique identifier of the return replacement shipment to retrieve.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -38,7 +38,7 @@ namespace Mozu.Api.Urls.Commerce.Returns
 				/// <summary>
         /// Get Resource Url for CreatePackageShipments
         /// </summary>
-        /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+        /// <param name="returnId">Unique identifier of the return for which to create replacement package shipments.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -53,8 +53,8 @@ namespace Mozu.Api.Urls.Commerce.Returns
 						/// <summary>
         /// Get Resource Url for DeleteShipment
         /// </summary>
-        /// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
-        /// <param name="shipmentId">Unique identifier of the shipment to retrieve.</param>
+        /// <param name="returnId">Unique identifier of the return associated with the replacement shipment to delete.</param>
+        /// <param name="shipmentId">Unique identifier of the return replacement shipment to delete.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

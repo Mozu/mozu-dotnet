@@ -19,14 +19,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class ProductOption
 		{
-			///
-			///The fully qualified name of the attribute, which is a user defined attribute identifier.
-			///
 			public string AttributeFQN { get; set; }
 
-			///
-			///List of value data for objects.
-			///
 			public List<ProductOptionValue> Values { get; set; }
 
 		}

@@ -13,11 +13,12 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Platform
 {
 	/// <summary>
-	/// Manage Secure App Settings. Expose via arc.js so that arc apps can securely access secrets. Third-party extensions can also access their data. Secured via AppKey.AppId
+	/// 
 	/// </summary>
 	public partial class SecureAppDataResource  	{
 		///
@@ -37,38 +38,13 @@ namespace Mozu.Api.Resources.Platform
 		}
 
 				
-		/// <summary>
-		/// platform-secureappdata Get GetDBValue description DOCUMENT_HERE 
-		/// </summary>
-		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <returns>
-		/// JObject
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var secureappdata = new SecureAppData();
-		///   var json = secureappdata.GetDBValue( appKeyId,  dbEntryQuery,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual JObject GetDBValue(string appKeyId, string dbEntryQuery, string responseFields =  null)
-		{
-			MozuClient<JObject> response;
-			var client = Mozu.Api.Clients.Platform.SecureAppDataClient.GetDBValueClient( appKeyId,  dbEntryQuery,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// platform-secureappdata Get GetDBValue description DOCUMENT_HERE 
+		/// 
 		/// </summary>
 		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="dbEntryQuery"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// JObject
 		/// </returns>
@@ -78,47 +54,23 @@ namespace Mozu.Api.Resources.Platform
 		///   var json = await secureappdata.GetDBValueAsync( appKeyId,  dbEntryQuery,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<JObject> GetDBValueAsync(string appKeyId, string dbEntryQuery, string responseFields =  null)
+		public virtual async Task<JObject> GetDBValueAsync(string appKeyId, string dbEntryQuery, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<JObject> response;
 			var client = Mozu.Api.Clients.Platform.SecureAppDataClient.GetDBValueClient( appKeyId,  dbEntryQuery,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
+
 		/// <summary>
-		/// platform-secureappdata Post CreateDBValue description DOCUMENT_HERE 
-		/// </summary>
-		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <returns>
 		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var secureappdata = new SecureAppData();
-		///   secureappdata.CreateDBValue( value,  appKeyId,  dbEntryQuery);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void CreateDBValue(JObject value, string appKeyId, string dbEntryQuery)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Platform.SecureAppDataClient.CreateDBValueClient( value,  appKeyId,  dbEntryQuery);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// platform-secureappdata Post CreateDBValue description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="dbEntryQuery"></param>
+		/// <param name="value"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -128,46 +80,22 @@ namespace Mozu.Api.Resources.Platform
 		///   await secureappdata.CreateDBValueAsync( value,  appKeyId,  dbEntryQuery);
 		/// </code>
 		/// </example>
-		public virtual async Task CreateDBValueAsync(JObject value, string appKeyId, string dbEntryQuery)
+		public virtual async Task CreateDBValueAsync(JObject value, string appKeyId, string dbEntryQuery, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Platform.SecureAppDataClient.CreateDBValueClient( value,  appKeyId,  dbEntryQuery);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 
+
 		/// <summary>
-		/// platform-secureappdata Put UpdateDBValue description DOCUMENT_HERE 
-		/// </summary>
-		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="value">The value string to create.</param>
-		/// <returns>
 		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var secureappdata = new SecureAppData();
-		///   secureappdata.UpdateDBValue( value,  appKeyId,  dbEntryQuery);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void UpdateDBValue(JObject value, string appKeyId, string dbEntryQuery)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Platform.SecureAppDataClient.UpdateDBValueClient( value,  appKeyId,  dbEntryQuery);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// platform-secureappdata Put UpdateDBValue description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <param name="value">The value string to create.</param>
+		/// <param name="dbEntryQuery"></param>
+		/// <param name="value"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -177,44 +105,21 @@ namespace Mozu.Api.Resources.Platform
 		///   await secureappdata.UpdateDBValueAsync( value,  appKeyId,  dbEntryQuery);
 		/// </code>
 		/// </example>
-		public virtual async Task UpdateDBValueAsync(JObject value, string appKeyId, string dbEntryQuery)
+		public virtual async Task UpdateDBValueAsync(JObject value, string appKeyId, string dbEntryQuery, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Platform.SecureAppDataClient.UpdateDBValueClient( value,  appKeyId,  dbEntryQuery);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 
+
 		/// <summary>
-		/// platform-secureappdata Delete DeleteDBValue description DOCUMENT_HERE 
-		/// </summary>
-		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
-		/// <returns>
 		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var secureappdata = new SecureAppData();
-		///   secureappdata.DeleteDBValue( appKeyId,  dbEntryQuery);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeleteDBValue(string appKeyId, string dbEntryQuery)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Platform.SecureAppDataClient.DeleteDBValueClient( appKeyId,  dbEntryQuery);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// platform-secureappdata Delete DeleteDBValue description DOCUMENT_HERE 
 		/// </summary>
 		/// <param name="appKeyId"></param>
-		/// <param name="dbEntryQuery">The database entry string to create.</param>
+		/// <param name="dbEntryQuery"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -224,12 +129,12 @@ namespace Mozu.Api.Resources.Platform
 		///   await secureappdata.DeleteDBValueAsync( appKeyId,  dbEntryQuery);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteDBValueAsync(string appKeyId, string dbEntryQuery)
+		public virtual async Task DeleteDBValueAsync(string appKeyId, string dbEntryQuery, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Platform.SecureAppDataClient.DeleteDBValueClient( appKeyId,  dbEntryQuery);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 

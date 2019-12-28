@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Customer
 {
@@ -37,36 +38,12 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		}
 
 				
-		/// <summary>
-		/// Validates the customer address supplied in the request.
-		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="addressValidationRequest">Properties of the address used for validation of the account's full address. This content may include multiple lines of an address, city, state/province, zip/postal code, and country.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.Customer.AddressValidationResponse"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var addressvalidationrequest = new AddressValidationRequest();
-		///   var addressValidationResponse = addressvalidationrequest.ValidateAddress( addressValidationRequest,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.Customer.AddressValidationResponse ValidateAddress(Mozu.Api.Contracts.Customer.AddressValidationRequest addressValidationRequest, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.Customer.AddressValidationResponse> response;
-			var client = Mozu.Api.Clients.Commerce.Customer.AddressValidationRequestClient.ValidateAddressClient( addressValidationRequest,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Validates the customer address supplied in the request.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="addressValidationRequest">Properties of the address used for validation of the account's full address. This content may include multiple lines of an address, city, state/province, zip/postal code, and country.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="addressValidationRequest">Properties of the address to validate.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.Customer.AddressValidationResponse"/>
 		/// </returns>
@@ -76,12 +53,12 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		///   var addressValidationResponse = await addressvalidationrequest.ValidateAddressAsync( addressValidationRequest,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.Customer.AddressValidationResponse> ValidateAddressAsync(Mozu.Api.Contracts.Customer.AddressValidationRequest addressValidationRequest, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.Customer.AddressValidationResponse> ValidateAddressAsync(Mozu.Api.Contracts.Customer.AddressValidationRequest addressValidationRequest, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Customer.AddressValidationResponse> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.AddressValidationRequestClient.ValidateAddressClient( addressValidationRequest,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}

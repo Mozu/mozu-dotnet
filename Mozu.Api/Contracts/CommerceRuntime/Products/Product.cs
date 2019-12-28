@@ -20,33 +20,21 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 		///
 		public class Product
 		{
-			///
-			///Allocation ID associated with this product on this order.
-			///
 			public DateTime? AllocationExpiration { get; set; }
 
-			///
-			///Allocation ID associated with this product on this order.
-			///
 			public int? AllocationId { get; set; }
 
 			///
-			///Properties of a collection of component products that make up a single product bundle with its own product code. Tenants can define product bundles for any product type that supports the Bundle product usage.
+			///Collection of component products that make up a single product bundle with its own product code, added to a cart or order.
 			///
 			public List<BundledProduct> BundledProducts { get; set; }
 
-			///
-			///The list of all categories associated with the product. These categories contain products, can have discounts associated, and define the grouping of products to display on the storefront.
-			///
 			public List<Category> Categories { get; set; }
 
-			///
-			///The localized description in text for the object, displayed per the locale code. For example, descriptions are used for product descriptions, attributes, and pre-authorization transaction types.
-			///
 			public string Description { get; set; }
 
 			///
-			///Indicates if the discount is restricted. If true, the system cannot apply any discounts to this product. Discount restrictions are defined at the master catalog level. Client administrators cannot override discount restrictions at the catalog level, but they can limit the restriction to a defined time interval.For price list entries, specifies whether discounts are restricted for the specific entry if  is set to .Refer to [Discount Restriction](../../../guides/catalog/price-lists.htm#discountrestriction) in the Price Lists guides topic for more information.
+			///If true, the system cannot apply any discounts to this product. Discount restrictions are defined at the master catalog level. Client administrators cannot override discount restrictions at the catalog level, but they can limit the restriction to a defined time interval.
 			///
 			public bool? DiscountsRestricted { get; set; }
 
@@ -60,49 +48,34 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			///
 			public DateTime? DiscountsRestrictedStartDate { get; set; }
 
-			///
-			///Fulfillment status of the product.
-			///
 			public string FulfillmentStatus { get; set; }
 
 			///
-			///List of supported types of fulfillment for the product or variation. The types include direct ship, in-store pickup, or both.
+			///List of fulfillment types that the product supports.
 			///
 			public List<string> FulfillmentTypesSupported { get; set; }
 
 			///
-			///The type of goods in a bundled product. A bundled product is composed of products associated to sell together. Possible values include “Physical” and “DigitalCredit”. This comes from the `productType `of the product. Products are defaulted to a Physical `goodsType`. Gift cards have a `goodsType `of DigitalCredit.
+			///The type of goods of a product. For example: physical, digital, or digital credit.
 			///
 			public string GoodsType { get; set; }
 
-			///
-			///The alternate image description defined for the product, in the language specified in the locale code for the storefront.
-			///
 			public string ImageAlternateText { get; set; }
 
 			///
-			///The URL link for the image file associated with a product or category.
+			///The URL of the image file associated with a product on a storefront.
 			///
 			public string ImageUrl { get; set; }
 
 			///
-			///Indicates if the product must be shipped alone in a container. This is used for products and products within a bundle. If true, this product cannot be shipped in a package with other items and must ship in a package by itself.
+			///If true, this product cannot ship in a package with other items and must ship in a package by itself.
 			///
 			public bool IsPackagedStandAlone { get; set; }
 
-			///
-			///Indicates if the product in a cart, order, or wish list is purchased on a recurring schedule. If true, the item can be purchased or fulfilled at regular intervals, such as a monthly billing cycle. For example, digital or physical product subscriptions are recurring cart items. This property is not used at this time and is reserved for future functionality.
-			///
 			public bool? IsRecurring { get; set; }
 
-			///
-			///Indicates if the item is subject to taxation, used by products, options, extras, cart and order items, line items, and wish lists. If true, the entity is subject to tax based on the relevant tax rate and rules.
-			///
 			public bool? IsTaxable { get; set; }
 
-			///
-			///Dimensions of the packaged product.
-			///
 			public PackageMeasurements Measurements { get; set; }
 
 			///
@@ -110,34 +83,19 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			///
 			public string MfgPartNumber { get; set; }
 
-			///
-			///The user supplied name that appears in . You can use this field for identification purposes.
-			///
 			public string Name { get; set; }
 
-			///
-			///List of option attributes configured for an object. These values are associated and used by products, product bundles, and product types.
-			///
 			public List<ProductOption> Options { get; set; }
 
-			///
-			///The price of the product that appears on the storefront including any applied discounts.
-			///
 			public ProductPrice Price { get; set; }
 
-			///
-			///Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-			///
 			public string ProductCode { get; set; }
 
 			///
-			///Unique identifier of the product reservation associated with the component product in a product bundle or item in a cart/order. System-supplied and read only.
+			///The unique identifier of the product reservation created for this item in the cart or order.
 			///
 			public int? ProductReservationId { get; set; }
 
-			///
-			///A product type is like a product template.
-			///
 			public string ProductType { get; set; }
 
 			///
@@ -145,19 +103,13 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			///
 			public string ProductUsage { get; set; }
 
-			///
-			///Collection of property attributes defined for the object. Properties are associated to all objects within , including documents, products, and product types.
-			///
 			public List<ProductProperty> Properties { get; set; }
 
 			///
-			///The universal product code (UPC) is the barcode defined for the product. The UPC is unique across all sales channels. 
+			///The universal product code defined for the product.
 			///
 			public string Upc { get; set; }
 
-			///
-			///Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
-			///
 			public string VariationProductCode { get; set; }
 
 		}

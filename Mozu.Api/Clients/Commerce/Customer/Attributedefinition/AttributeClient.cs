@@ -13,23 +13,23 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Clients.Commerce.Customer.Attributedefinition
 {
 	/// <summary>
-	/// Attributes are used to add custom definitions and characteristics to the following objects:
-
+	/// Use the Customer Attribute Definition resource to manage the attributes to define for your shoppers.
 	/// </summary>
 	public partial class AttributeClient 	{
 		
 		/// <summary>
-		/// Retrieves a paged list of attributes according to any specified filter criteria and sort options.
+		/// 
 		/// </summary>
-		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"</param>
-		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="sortBy">The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"</param>
-		/// <param name="startIndex">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.</param>
+		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.Extensible.AttributeCollection"/>}
 		/// </returns>
@@ -51,9 +51,9 @@ namespace Mozu.Api.Clients.Commerce.Customer.Attributedefinition
 		}
 
 		/// <summary>
-		/// Retrieve a list of the vocabulary values defined for the customer attribute specified in the request.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
+		/// <param name="attributeFQN"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{List{<see cref="Mozu.Api.Contracts.Core.Extensible.AttributeVocabularyValue"/>}}
 		/// </returns>
@@ -75,10 +75,10 @@ namespace Mozu.Api.Clients.Commerce.Customer.Attributedefinition
 		}
 
 		/// <summary>
-		/// Retrieves the details of the specified product attribute.
+		/// 
 		/// </summary>
-		/// <param name="attributeFQN">The fully qualified name of the attribute, which is a user defined attribute identifier.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="attributeFQN"></param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.Extensible.Attribute"/>}
 		/// </returns>
@@ -95,6 +95,57 @@ namespace Mozu.Api.Clients.Commerce.Customer.Attributedefinition
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="attribute"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.Extensible.Attribute"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=CreateAttribute( attribute,  responseFields);
+		///   var attributeClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> CreateAttributeClient(Mozu.Api.Contracts.Core.Extensible.Attribute attribute, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Customer.Attributedefinition.AttributeUrl.CreateAttributeUrl(responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.Core.Extensible.Attribute>(attribute);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="attributeFQN"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="attribute"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.Extensible.Attribute"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=UpdateAttribute( attribute,  attributeFQN,  responseFields);
+		///   var attributeClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute> UpdateAttributeClient(Mozu.Api.Contracts.Core.Extensible.Attribute attribute, string attributeFQN, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Customer.Attributedefinition.AttributeUrl.UpdateAttributeUrl(attributeFQN, responseFields);
+			const string verb = "PUT";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Core.Extensible.Attribute>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.Core.Extensible.Attribute>(attribute);
 			return mozuClient;
 
 		}

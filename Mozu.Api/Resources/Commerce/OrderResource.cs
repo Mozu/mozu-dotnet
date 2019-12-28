@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce
 {
@@ -37,15 +38,17 @@ namespace Mozu.Api.Resources.Commerce
 		}
 
 				
+
 		/// <summary>
-		/// Retrieves a list of orders according to any specified filter criteria and sort options.
+		/// 
 		/// </summary>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
-		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-		/// <param name="q">A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.</param>
+		/// <param name="filter">A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter an order's search results by any of its properties, including status, contact information, or total. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Status+eq+Submitted"</param>
+		/// <param name="includeBin"></param>
+		/// <param name="pageSize">Used to page results from a query. Indicates the maximum number of entities to return from a query. Default value: 20. Max value: 200.</param>
+		/// <param name="q">A list of order search terms to use in the query when searching across order number and the name or email of the billing contact. Separate multiple search terms with a space character.</param>
 		/// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="sortBy"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="sortBy">The element to sort the results by and the order in which the results appear. Either ascending order (a-z) which accepts 'asc' or 'asc' or descending order (z-a) which accepts 'desc' or 'desc'. The sortBy parameter follows an available property. For examp</param>
 		/// <param name="startIndex"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderCollection"/>
@@ -53,77 +56,24 @@ namespace Mozu.Api.Resources.Commerce
 		/// <example>
 		/// <code>
 		///   var order = new Order();
-		///   var orderCollection = order.GetOrders( startIndex,  pageSize,  sortBy,  filter,  q,  qLimit,  responseFields);
+		///   var orderCollection = await order.GetOrdersAsync( startIndex,  pageSize,  sortBy,  filter,  q,  qLimit,  includeBin,  responseFields);
 		/// </code>
 		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.OrderCollection GetOrders(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string q =  null, int? qLimit =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderCollection> GetOrdersAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string q =  null, int? qLimit =  null, bool? includeBin =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderCollection> response;
-			var client = Mozu.Api.Clients.Commerce.OrderClient.GetOrdersClient( startIndex,  pageSize,  sortBy,  filter,  q,  qLimit,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.OrderClient.GetOrdersClient( startIndex,  pageSize,  sortBy,  filter,  q,  qLimit,  includeBin,  responseFields);
 			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
-
-		/// <summary>
-		/// Retrieves a list of orders according to any specified filter criteria and sort options.
-		/// </summary>
-		/// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
-		/// <param name="pageSize">The number of results to display on each page when creating paged results from a query. The maximum value is 200.</param>
-		/// <param name="q">A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.</param>
-		/// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="sortBy"></param>
-		/// <param name="startIndex"></param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.OrderCollection"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var order = new Order();
-		///   var orderCollection = await order.GetOrdersAsync( startIndex,  pageSize,  sortBy,  filter,  q,  qLimit,  responseFields);
-		/// </code>
-		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderCollection> GetOrdersAsync(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string q =  null, int? qLimit =  null, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.OrderCollection> response;
-			var client = Mozu.Api.Clients.Commerce.OrderClient.GetOrdersClient( startIndex,  pageSize,  sortBy,  filter,  q,  qLimit,  responseFields);
-			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves the actions available to perform for an order based on its current status.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <returns>
-		/// List{string}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var order = new Order();
-		///   var string = order.GetAvailableActions( orderId);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual List<string> GetAvailableActions(string orderId)
-		{
-			MozuClient<List<string>> response;
-			var client = Mozu.Api.Clients.Commerce.OrderClient.GetAvailableActionsClient( orderId);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves the actions available to perform for an order based on its current status.
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="orderId">Unique identifier of the available order actions to get.</param>
 		/// <returns>
 		/// List{string}
 		/// </returns>
@@ -133,44 +83,21 @@ namespace Mozu.Api.Resources.Commerce
 		///   var string = await order.GetAvailableActionsAsync( orderId);
 		/// </code>
 		/// </example>
-		public virtual async Task<List<string>> GetAvailableActionsAsync(string orderId)
+		public virtual async Task<List<string>> GetAvailableActionsAsync(string orderId, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<List<string>> response;
 			var client = Mozu.Api.Clients.Commerce.OrderClient.GetAvailableActionsClient( orderId);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Retrieves an order for the purpose of splitting it into multiple taxable orders in order to fulfill the order in multiple locations.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <returns>
-		/// List{<see cref="Mozu.Api.Contracts.PricingRuntime.TaxableOrder"/>}
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var order = new Order();
-		///   var taxableOrder = order.GetTaxableOrders( orderId);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual List<Mozu.Api.Contracts.PricingRuntime.TaxableOrder> GetTaxableOrders(string orderId)
-		{
-			MozuClient<List<Mozu.Api.Contracts.PricingRuntime.TaxableOrder>> response;
-			var client = Mozu.Api.Clients.Commerce.OrderClient.GetTaxableOrdersClient( orderId);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Retrieves an order for the purpose of splitting it into multiple taxable orders in order to fulfill the order in multiple locations.
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="orderId">Unique identifier of the order to retrieve.</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.PricingRuntime.TaxableOrder"/>}
 		/// </returns>
@@ -180,97 +107,49 @@ namespace Mozu.Api.Resources.Commerce
 		///   var taxableOrder = await order.GetTaxableOrdersAsync( orderId);
 		/// </code>
 		/// </example>
-		public virtual async Task<List<Mozu.Api.Contracts.PricingRuntime.TaxableOrder>> GetTaxableOrdersAsync(string orderId)
+		public virtual async Task<List<Mozu.Api.Contracts.PricingRuntime.TaxableOrder>> GetTaxableOrdersAsync(string orderId, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<List<Mozu.Api.Contracts.PricingRuntime.TaxableOrder>> response;
 			var client = Mozu.Api.Clients.Commerce.OrderClient.GetTaxableOrdersClient( orderId);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
+
 		/// <summary>
-		/// Retrieves the details of an order specified by the order ID.
+		/// 
 		/// </summary>
 		/// <param name="draft">If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.</param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="includeBin"></param>
+		/// <param name="orderId">Unique identifier of the order details to get.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var order = new Order();
-		///   var order = order.GetOrder( orderId,  draft,  responseFields);
+		///   var order = await order.GetOrderAsync( orderId,  draft,  includeBin,  responseFields);
 		/// </code>
 		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.Order GetOrder(string orderId, bool? draft =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> GetOrderAsync(string orderId, bool? draft =  null, bool? includeBin =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
-			var client = Mozu.Api.Clients.Commerce.OrderClient.GetOrderClient( orderId,  draft,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.OrderClient.GetOrderClient( orderId,  draft,  includeBin,  responseFields);
 			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
-
-		/// <summary>
-		/// Retrieves the details of an order specified by the order ID.
-		/// </summary>
-		/// <param name="draft">If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.</param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var order = new Order();
-		///   var order = await order.GetOrderAsync( orderId,  draft,  responseFields);
-		/// </code>
-		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> GetOrderAsync(string orderId, bool? draft =  null, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
-			var client = Mozu.Api.Clients.Commerce.OrderClient.GetOrderClient( orderId,  draft,  responseFields);
-			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Creates a new order from an existing cart when the customer chooses to proceed to checkout.
-		/// </summary>
-		/// <param name="cartId">Identifier of the cart to delete.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var order = new Order();
-		///   var order = order.CreateOrderFromCart( cartId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.Order CreateOrderFromCart(string cartId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
-			var client = Mozu.Api.Clients.Commerce.OrderClient.CreateOrderFromCartClient( cartId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Creates a new order from an existing cart when the customer chooses to proceed to checkout.
+		/// 
 		/// </summary>
-		/// <param name="cartId">Identifier of the cart to delete.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="cartId">Unique identifier of the cart. This is the original cart ID expressed as a GUID.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
@@ -280,46 +159,22 @@ namespace Mozu.Api.Resources.Commerce
 		///   var order = await order.CreateOrderFromCartAsync( cartId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> CreateOrderFromCartAsync(string cartId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> CreateOrderFromCartAsync(string cartId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
 			var client = Mozu.Api.Clients.Commerce.OrderClient.CreateOrderFromCartClient( cartId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Creates a new order for no-cart quick-ordering scenarios.
-		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="order">Properties of an order, including its components.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var order = new Order();
-		///   var order = order.CreateOrder( order,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.Order CreateOrder(Mozu.Api.Contracts.CommerceRuntime.Orders.Order order, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
-			var client = Mozu.Api.Clients.Commerce.OrderClient.CreateOrderClient( order,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Creates a new order for no-cart quick-ordering scenarios.
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="order">Properties of an order, including its components.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="order">Properties of the order to create and submit.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
@@ -329,47 +184,22 @@ namespace Mozu.Api.Resources.Commerce
 		///   var order = await order.CreateOrderAsync( order,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> CreateOrderAsync(Mozu.Api.Contracts.CommerceRuntime.Orders.Order order, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> CreateOrderAsync(Mozu.Api.Contracts.CommerceRuntime.Orders.Order order, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
 			var client = Mozu.Api.Clients.Commerce.OrderClient.CreateOrderClient( order,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Perform the specified action for an order. The actions you can perform depend on the current status of the order.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="action">The action to perform for the order.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var order = new Order();
-		///   var order = order.PerformOrderAction( action,  orderId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.Order PerformOrderAction(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAction action, string orderId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
-			var client = Mozu.Api.Clients.Commerce.OrderClient.PerformOrderActionClient( action,  orderId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Perform the specified action for an order. The actions you can perform depend on the current status of the order.
+		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="action">The action to perform for the order.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
@@ -380,50 +210,51 @@ namespace Mozu.Api.Resources.Commerce
 		///   var order = await order.PerformOrderActionAsync( action,  orderId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> PerformOrderActionAsync(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAction action, string orderId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> PerformOrderActionAsync(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAction action, string orderId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
 			var client = Mozu.Api.Clients.Commerce.OrderClient.PerformOrderActionClient( action,  orderId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
+
 		/// <summary>
-		/// Processes a digital wallet (used to hold 3rd party payment and shipping information).
+		/// 
 		/// </summary>
-		/// <param name="digitalWalletType">The type of digital wallet to be processed.</param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="digitalWallet">The details of the digitial wallet.</param>
+		/// <param name="couponCodeToApply"></param>
+		/// <param name="refreshShipping"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="order"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var order = new Order();
-		///   var order = order.ProcessDigitalWallet( digitalWallet,  orderId,  digitalWalletType,  responseFields);
+		///   var order = await order.PriceOrderAsync( order,  refreshShipping,  couponCodeToApply,  responseFields);
 		/// </code>
 		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.Order ProcessDigitalWallet(Mozu.Api.Contracts.CommerceRuntime.Orders.DigitalWallet digitalWallet, string orderId, string digitalWalletType, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> PriceOrderAsync(Mozu.Api.Contracts.CommerceRuntime.Orders.Order order, bool refreshShipping, string couponCodeToApply =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
-			var client = Mozu.Api.Clients.Commerce.OrderClient.ProcessDigitalWalletClient( digitalWallet,  orderId,  digitalWalletType,  responseFields);
+			var client = Mozu.Api.Clients.Commerce.OrderClient.PriceOrderClient( order,  refreshShipping,  couponCodeToApply,  responseFields);
 			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
+
 		/// <summary>
-		/// Processes a digital wallet (used to hold 3rd party payment and shipping information).
+		/// 
 		/// </summary>
-		/// <param name="digitalWalletType">The type of digital wallet to be processed.</param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="digitalWallet">The details of the digitial wallet.</param>
+		/// <param name="digitalWalletType"></param>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="digitalWallet"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
@@ -433,54 +264,26 @@ namespace Mozu.Api.Resources.Commerce
 		///   var order = await order.ProcessDigitalWalletAsync( digitalWallet,  orderId,  digitalWalletType,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> ProcessDigitalWalletAsync(Mozu.Api.Contracts.CommerceRuntime.Orders.DigitalWallet digitalWallet, string orderId, string digitalWalletType, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> ProcessDigitalWalletAsync(Mozu.Api.Contracts.CommerceRuntime.Orders.DigitalWallet digitalWallet, string orderId, string digitalWalletType, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
 			var client = Mozu.Api.Clients.Commerce.OrderClient.ProcessDigitalWalletClient( digitalWallet,  orderId,  digitalWalletType,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Update the properties of a discount applied to an order.
-		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.</param>
-		/// <param name="discount">Properties of all applied discounts for an associated cart, order, or product. </param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var order = new Order();
-		///   var order = order.UpdateOrderDiscount( discount,  orderId,  discountId,  updateMode,  version,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.Order UpdateOrderDiscount(Mozu.Api.Contracts.CommerceRuntime.Discounts.AppliedDiscount discount, string orderId, int discountId, string updateMode =  null, string version =  null, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
-			var client = Mozu.Api.Clients.Commerce.OrderClient.UpdateOrderDiscountClient( discount,  orderId,  discountId,  updateMode,  version,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Update the properties of a discount applied to an order.
+		/// 
 		/// </summary>
-		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.</param>
-		/// <param name="discount">Properties of all applied discounts for an associated cart, order, or product. </param>
+		/// <param name="discountId">Unique identifier of the discount. System-supplied and read only.</param>
+		/// <param name="orderId">Unique identifier of the order discount. System-supplied and read only.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="updateMode">Specifies whether to modify the discount by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
+		/// <param name="version"></param>
+		/// <param name="discount">Properties of the order discount to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
@@ -490,45 +293,22 @@ namespace Mozu.Api.Resources.Commerce
 		///   var order = await order.UpdateOrderDiscountAsync( discount,  orderId,  discountId,  updateMode,  version,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> UpdateOrderDiscountAsync(Mozu.Api.Contracts.CommerceRuntime.Discounts.AppliedDiscount discount, string orderId, int discountId, string updateMode =  null, string version =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> UpdateOrderDiscountAsync(Mozu.Api.Contracts.CommerceRuntime.Discounts.AppliedDiscount discount, string orderId, int discountId, string updateMode =  null, string version =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
 			var client = Mozu.Api.Clients.Commerce.OrderClient.UpdateOrderDiscountClient( discount,  orderId,  discountId,  updateMode,  version,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
+
 		/// <summary>
-		/// Deletes the current draft version of the order, which also deletes any uncommitted changes made to the order in draft mode.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
-		/// <returns>
 		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var order = new Order();
-		///   order.DeleteOrderDraft( orderId,  version);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void DeleteOrderDraft(string orderId, string version =  null)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.OrderClient.DeleteOrderDraftClient( orderId,  version);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// Deletes the current draft version of the order, which also deletes any uncommitted changes made to the order in draft mode.
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
+		/// <param name="orderId">Unique identifier of the order associated with the draft to delete.</param>
+		/// <param name="version">If applicable, the version of the order draft to delete.</param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -538,44 +318,21 @@ namespace Mozu.Api.Resources.Commerce
 		///   await order.DeleteOrderDraftAsync( orderId,  version);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteOrderDraftAsync(string orderId, string version =  null)
+		public virtual async Task DeleteOrderDraftAsync(string orderId, string version =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.OrderClient.DeleteOrderDraftClient( orderId,  version);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 
+
 		/// <summary>
-		/// Triggers an order confirmation email to be resent.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="action">The action to perform for the order.</param>
-		/// <returns>
 		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var order = new Order();
-		///   order.ResendOrderConfirmationEmail( action,  orderId);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void ResendOrderConfirmationEmail(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAction action, string orderId)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.OrderClient.ResendOrderConfirmationEmailClient( action,  orderId);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// Triggers an order confirmation email to be resent.
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="action">The action to perform for the order.</param>
+		/// <param name="orderId"></param>
+		/// <param name="action"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -585,51 +342,24 @@ namespace Mozu.Api.Resources.Commerce
 		///   await order.ResendOrderConfirmationEmailAsync( action,  orderId);
 		/// </code>
 		/// </example>
-		public virtual async Task ResendOrderConfirmationEmailAsync(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAction action, string orderId)
+		public virtual async Task ResendOrderConfirmationEmailAsync(Mozu.Api.Contracts.CommerceRuntime.Orders.OrderAction action, string orderId, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.OrderClient.ResendOrderConfirmationEmailClient( action,  orderId);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 
-		/// <summary>
-		/// Changes the price list associated with an order. The desired price list code should be specified in the ApiContext.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
-		/// <param name="priceListCode">The unique price list code.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var order = new Order();
-		///   var order = order.ChangeOrderPriceList( priceListCode,  orderId,  updateMode,  version,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.Order ChangeOrderPriceList(string priceListCode, string orderId, string updateMode =  null, string version =  null, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
-			var client = Mozu.Api.Clients.Commerce.OrderClient.ChangeOrderPriceListClient( priceListCode,  orderId,  updateMode,  version,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Changes the price list associated with an order. The desired price list code should be specified in the ApiContext.
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
-		/// <param name="priceListCode">The unique price list code.</param>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="updateMode"></param>
+		/// <param name="version"></param>
+		/// <param name="priceListCode"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
@@ -639,46 +369,22 @@ namespace Mozu.Api.Resources.Commerce
 		///   var order = await order.ChangeOrderPriceListAsync( priceListCode,  orderId,  updateMode,  version,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> ChangeOrderPriceListAsync(string priceListCode, string orderId, string updateMode =  null, string version =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> ChangeOrderPriceListAsync(string priceListCode, string orderId, string updateMode =  null, string version =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
 			var client = Mozu.Api.Clients.Commerce.OrderClient.ChangeOrderPriceListClient( priceListCode,  orderId,  updateMode,  version,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates the user ID of the shopper who placed the order to the current user.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var order = new Order();
-		///   var order = order.ChangeOrderUserId( orderId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.Order ChangeOrderUserId(string orderId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
-			var client = Mozu.Api.Clients.Commerce.OrderClient.ChangeOrderUserIdClient( orderId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Updates the user ID of the shopper who placed the order to the current user.
+		/// 
 		/// </summary>
 		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="responseFields"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
@@ -688,52 +394,25 @@ namespace Mozu.Api.Resources.Commerce
 		///   var order = await order.ChangeOrderUserIdAsync( orderId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> ChangeOrderUserIdAsync(string orderId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> ChangeOrderUserIdAsync(string orderId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
 			var client = Mozu.Api.Clients.Commerce.OrderClient.ChangeOrderUserIdClient( orderId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// Updates the specified order when additional order information, such as shipping or billing information, is modified during the checkout process.
-		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
-		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.</param>
-		/// <param name="order">Properties of an order, including its components.</param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var order = new Order();
-		///   var order = order.UpdateOrder( order,  orderId,  updateMode,  version,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.CommerceRuntime.Orders.Order UpdateOrder(Mozu.Api.Contracts.CommerceRuntime.Orders.Order order, string orderId, string updateMode =  null, string version =  null, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
-			var client = Mozu.Api.Clients.Commerce.OrderClient.UpdateOrderClient( order,  orderId,  updateMode,  version,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// Updates the specified order when additional order information, such as shipping or billing information, is modified during the checkout process.
+		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="responseFields">Use this field to include those fields which are not included by default.</param>
+		/// <param name="orderId">Unique identifier of the order to update.</param>
+		/// <param name="responseFields"></param>
 		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
-		/// <param name="version">System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.</param>
-		/// <param name="order">Properties of an order, including its components.</param>
+		/// <param name="version"></param>
+		/// <param name="order">The properties of the order to update.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
 		/// </returns>
@@ -743,12 +422,12 @@ namespace Mozu.Api.Resources.Commerce
 		///   var order = await order.UpdateOrderAsync( order,  orderId,  updateMode,  version,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> UpdateOrderAsync(Mozu.Api.Contracts.CommerceRuntime.Orders.Order order, string orderId, string updateMode =  null, string version =  null, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> UpdateOrderAsync(Mozu.Api.Contracts.CommerceRuntime.Orders.Order order, string orderId, string updateMode =  null, string version =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
 			var client = Mozu.Api.Clients.Commerce.OrderClient.UpdateOrderClient( order,  orderId,  updateMode,  version,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}

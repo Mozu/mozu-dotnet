@@ -13,11 +13,12 @@ using System.Collections.Generic;
 using Mozu.Api.Security;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace Mozu.Api.Resources.Commerce.Payments
 {
 	/// <summary>
-	/// commerce/payments/cards related resources. DOCUMENT_HERE 
+	/// 
 	/// </summary>
 	public partial class PublicCardResource  	{
 		///
@@ -41,36 +42,12 @@ namespace Mozu.Api.Resources.Commerce.Payments
 		}
 
 				
-		/// <summary>
-		/// payments-cards Post Create description DOCUMENT_HERE 
-		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="request">Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE </param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.PaymentService.Response.SyncResponse"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var publiccard = new PublicCard();
-		///   var syncResponse = publiccard.Create( request,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.PaymentService.Response.SyncResponse Create(Mozu.Api.Contracts.PaymentService.PublicCard request, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.PaymentService.Response.SyncResponse> response;
-			var client = Mozu.Api.Clients.Commerce.Payments.PublicCardClient.CreateClient( request,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// payments-cards Post Create description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="request">Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE </param>
+		/// <param name="responseFields"></param>
+		/// <param name="request"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.PaymentService.Response.SyncResponse"/>
 		/// </returns>
@@ -80,48 +57,23 @@ namespace Mozu.Api.Resources.Commerce.Payments
 		///   var syncResponse = await publiccard.CreateAsync( request,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.PaymentService.Response.SyncResponse> CreateAsync(Mozu.Api.Contracts.PaymentService.PublicCard request, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.PaymentService.Response.SyncResponse> CreateAsync(Mozu.Api.Contracts.PaymentService.PublicCard request, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.PaymentService.Response.SyncResponse> response;
 			var client = Mozu.Api.Clients.Commerce.Payments.PublicCardClient.CreateClient( request,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
-		/// <summary>
-		/// payments-cards Put Update description DOCUMENT_HERE 
-		/// </summary>
-		/// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="request">Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE </param>
-		/// <returns>
-		/// <see cref="Mozu.Api.Contracts.PaymentService.Response.SyncResponse"/>
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var publiccard = new PublicCard();
-		///   var syncResponse = publiccard.Update( request,  cardId,  responseFields);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual Mozu.Api.Contracts.PaymentService.Response.SyncResponse Update(Mozu.Api.Contracts.PaymentService.PublicCard request, string cardId, string responseFields =  null)
-		{
-			MozuClient<Mozu.Api.Contracts.PaymentService.Response.SyncResponse> response;
-			var client = Mozu.Api.Clients.Commerce.Payments.PublicCardClient.UpdateClient( request,  cardId,  responseFields);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-			return response.Result();
-
-		}
 
 		/// <summary>
-		/// payments-cards Put Update description DOCUMENT_HERE 
+		/// 
 		/// </summary>
-		/// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
-		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="request">Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE </param>
+		/// <param name="cardId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="request"></param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.PaymentService.Response.SyncResponse"/>
 		/// </returns>
@@ -131,43 +83,21 @@ namespace Mozu.Api.Resources.Commerce.Payments
 		///   var syncResponse = await publiccard.UpdateAsync( request,  cardId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.PaymentService.Response.SyncResponse> UpdateAsync(Mozu.Api.Contracts.PaymentService.PublicCard request, string cardId, string responseFields =  null)
+		public virtual async Task<Mozu.Api.Contracts.PaymentService.Response.SyncResponse> UpdateAsync(Mozu.Api.Contracts.PaymentService.PublicCard request, string cardId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.PaymentService.Response.SyncResponse> response;
 			var client = Mozu.Api.Clients.Commerce.Payments.PublicCardClient.UpdateClient( request,  cardId,  responseFields);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 
 		}
 
+
 		/// <summary>
-		/// payments-cards Delete Delete description DOCUMENT_HERE 
-		/// </summary>
-		/// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
-		/// <returns>
 		/// 
-		/// </returns>
-		/// <example>
-		/// <code>
-		///   var publiccard = new PublicCard();
-		///   publiccard.Delete( cardId);
-		/// </code>
-		/// </example>
-		[Obsolete("This method is obsolete; use the async method instead")]
-		public virtual void Delete(string cardId)
-		{
-			MozuClient response;
-			var client = Mozu.Api.Clients.Commerce.Payments.PublicCardClient.DeleteClient( cardId);
-			client.WithContext(_apiContext);
-			response = client.Execute();
-
-		}
-
-		/// <summary>
-		/// payments-cards Delete Delete description DOCUMENT_HERE 
 		/// </summary>
-		/// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
+		/// <param name="cardId"></param>
 		/// <returns>
 		/// 
 		/// </returns>
@@ -177,12 +107,12 @@ namespace Mozu.Api.Resources.Commerce.Payments
 		///   await publiccard.DeleteAsync( cardId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteAsync(string cardId)
+		public virtual async Task DeleteAsync(string cardId, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient response;
 			var client = Mozu.Api.Clients.Commerce.Payments.PublicCardClient.DeleteClient( cardId);
 			client.WithContext(_apiContext);
-			response = await client.ExecuteAsync();
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 
 		}
 
