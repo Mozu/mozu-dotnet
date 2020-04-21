@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="ApiException.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\ProductReservationClient.cs" />
+    <Compile Include="Clients\Commerce\Catalog\Admin\SoftAllocationClient.cs" />
     <Compile Include="Contracts\PaymentService\Extensibility\V1\ConnectionStatuses.cs" />
     <Compile Include="Contracts\PaymentService\Extensibility\V1\TransactionType.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductReservation.cs" />
@@ -85,6 +86,8 @@
     <Compile Include="Logging\LogManager.cs" />
     <Compile Include="MozuConfig.cs" />
     <Compile Include="MozuUrl.cs" />
+    <Compile Include="Resources\Commerce\Catalog\Admin\ProductReservationResource.cs" />
+    <Compile Include="Resources\Commerce\Catalog\Admin\SoftAllocationResource.cs" />
     <Compile Include="Security\AuthenticationScope.cs" />
     <Compile Include="Security\AuthTicket.cs" />
     <Compile Include="Security\ConfigurationAuth.cs" />
@@ -92,6 +95,7 @@
     <Compile Include="Security\Scope.cs" />
     <Compile Include="Security\UserAuthenticator.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\ProductReservationUrl.cs" />
+    <Compile Include="Urls\Commerce\Catalog\Admin\SoftAllocationUrl.cs" />
     <Compile Include="Utilities\HttpHelper.cs" />
     <Compile Include="Utilities\ResponseHelper.cs" />
     <Compile Include="Version.cs" />
