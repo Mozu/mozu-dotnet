@@ -86,6 +86,8 @@
     <Compile Include="Logging\LogManager.cs" />
     <Compile Include="MozuConfig.cs" />
     <Compile Include="MozuUrl.cs" />
+    <Compile Include="Resources\Commerce\Catalog\Admin\ProductReservationResource.cs" />
+    <Compile Include="Resources\Commerce\Catalog\Admin\SoftAllocationResource.cs" />
     <Compile Include="Security\AuthenticationScope.cs" />
     <Compile Include="Security\AuthTicket.cs" />
     <Compile Include="Security\ConfigurationAuth.cs" />
