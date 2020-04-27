@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Shipping.Admin
 {
 	/// <summary>
-	/// 
+	/// Use the Profiles resource to manage your shipping profiles.
 	/// </summary>
 	public partial class ShippingProfileFactory : BaseDataFactory
 	{

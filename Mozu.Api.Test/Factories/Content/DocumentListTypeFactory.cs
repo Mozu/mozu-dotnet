@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Content
 {
 	/// <summary>
-	/// 
+	/// Use the Document List Types resource to manage the types of document lists in your site's document hierarchy. The type denotes a content type for that list of folders, sub-folders, and documents such as `web_pages`.
 	/// </summary>
 	public partial class DocumentListTypeFactory : BaseDataFactory
 	{

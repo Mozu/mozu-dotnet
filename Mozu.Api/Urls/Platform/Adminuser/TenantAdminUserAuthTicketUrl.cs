@@ -16,10 +16,52 @@ namespace Mozu.Api.Urls.Platform.Adminuser
 	public partial class TenantAdminUserAuthTicketUrl 
 	{
 
+		/// <summary>
+        /// Get Resource Url for GetWsFedChallengeUrl
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="redirect"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="scopeid"></param>
+        /// <param name="scopeType"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetWsFedChallengeUrlUrl(string id, int? scopeid, string scopeType, string redirect, string responseFields =  null)
+		{
+			var url = "/api/platform/adminuser/authtickets/wsfed/challenge/{id}?scopeid={scopeid}&scopeType={scopeType}&redirect={redirect}&responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
+			mozuUrl.FormatUrl( "id", id);
+			mozuUrl.FormatUrl( "redirect", redirect);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "scopeid", scopeid);
+			mozuUrl.FormatUrl( "scopeType", scopeType);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for GetWsFedSignOutUrl
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="redirect"></param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetWsFedSignOutUrlUrl(string id, string redirect, string responseFields =  null)
+		{
+			var url = "/api/platform/adminuser/authtickets/wsfed/SignOut/{id}?redirect={redirect}&responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
+			mozuUrl.FormatUrl( "id", id);
+			mozuUrl.FormatUrl( "redirect", redirect);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for CreateUserAuthTicket
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <param name="tenantId">Unique identifier of the development or production tenant for which to generate the user authentication ticket.</param>
         /// <returns>
         /// String - Resource Url
@@ -33,11 +75,32 @@ namespace Mozu.Api.Urls.Platform.Adminuser
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for CreateUserAuthTicketWithWsFed
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="responseFields"></param>
+        /// <param name="scopeid"></param>
+        /// <param name="scopeType"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl CreateUserAuthTicketWithWsFedUrl(string id, int? scopeid, string scopeType, string responseFields =  null)
+		{
+			var url = "/api/platform/adminuser/authtickets/wsfed/auth/{id}?scopeid={scopeid}&scopeType={scopeType}&responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
+			mozuUrl.FormatUrl( "id", id);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "scopeid", scopeid);
+			mozuUrl.FormatUrl( "scopeType", scopeType);
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for RefreshAuthTicket
         /// </summary>
-        /// <param name="responseFields"></param>
-        /// <param name="tenantId"></param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+        /// <param name="tenantId">Unique identifier of the development or production tenant for which to generate the user authentication ticket.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -53,7 +116,7 @@ namespace Mozu.Api.Urls.Platform.Adminuser
 				/// <summary>
         /// Get Resource Url for DeleteUserAuthTicket
         /// </summary>
-        /// <param name="refreshToken">Refresh token string associated with the user authentication ticket.</param>
+        /// <param name="refreshToken">Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

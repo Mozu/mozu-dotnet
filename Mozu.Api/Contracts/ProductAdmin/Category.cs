@@ -15,7 +15,7 @@ using Mozu.Api.Contracts.Core;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	A descriptive container in a storefront hierarchy to organize collections of products.
+		///	A descriptive container that groups products. A category is merchant defined with associated products and discounts as configured. GThe storefront displays products in a hierarchy of categories. As such, categories can include a nesting of sub-categories to organize products and product options per set guidelines such as color, brand, material, and size.
 		///
 		public class Category
 		{
@@ -23,28 +23,49 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public int? CatalogId { get; set; }
 
+			///
+			///External unique identifier of the category.
+			///
 			public string CategoryCode { get; set; }
 
+			///
+			///Specifies the type of category. The following are the valid values:* * * 
+			///
 			public string CategoryType { get; set; }
 
 			public int? ChildCount { get; set; }
 
 			public CategoryLocalizedContent Content { get; set; }
 
+			///
+			///Mozu.ProductAdmin.Contracts.Category dynamicExpression ApiTypeMember DOCUMENT_HERE 
+			///
 			public DynamicExpression DynamicExpression { get; set; }
 
 			public int? Id { get; set; }
 
+			///
+			///Indicates if the object or feature is active.
+			///
 			public bool? IsActive { get; set; }
 
 			public bool? IsDisplayed { get; set; }
 
+			///
+			///The code of the current category's parent category.
+			///
 			public string ParentCategoryCode { get; set; }
 
 			public int? ParentCategoryId { get; set; }
 
+			///
+			///If the current category has a parent, the name of the category's parent category.
+			///
 			public string ParentCategoryName { get; set; }
 
+			///
+			///Indicates whether the parent category is active.
+			///
 			public bool? ParentIsActive { get; set; }
 
 			public int? ProductCount { get; set; }

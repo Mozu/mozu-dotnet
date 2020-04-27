@@ -18,7 +18,7 @@ using System.Threading;
 namespace Mozu.Api.Resources.Platform.Adminuser
 {
 	/// <summary>
-	/// Use the Admin User authentication tickets resource to generate and refresh authentication tickets that enable Mozu administrator or developer account users to access development or production tenants.
+	/// Use the Admin User authentication tickets resource to generate and refresh authentication tickets that enable  administrator or developer account users to access development or production tenants.
 	/// </summary>
 	public partial class TenantAdminUserAuthTicketResource  	{
 		///
@@ -46,9 +46,63 @@ namespace Mozu.Api.Resources.Platform.Adminuser
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="id"></param>
+		/// <param name="redirect"></param>
 		/// <param name="responseFields"></param>
+		/// <param name="scopeid"></param>
+		/// <param name="scopeType"></param>
+		/// <returns>
+		/// string
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var tenantadminuserauthticket = new TenantAdminUserAuthTicket();
+		///   var string = await tenantadminuserauthticket.GetWsFedChallengeUrlAsync( id,  scopeid,  scopeType,  redirect,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<string> GetWsFedChallengeUrlAsync(string id, int? scopeid, string scopeType, string redirect, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<string> response;
+			var client = Mozu.Api.Clients.Platform.Adminuser.TenantAdminUserAuthTicketClient.GetWsFedChallengeUrlClient( id,  scopeid,  scopeType,  redirect,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="id"></param>
+		/// <param name="redirect"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		/// string
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var tenantadminuserauthticket = new TenantAdminUserAuthTicket();
+		///   var string = await tenantadminuserauthticket.GetWsFedSignOutUrlAsync( id,  redirect,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<string> GetWsFedSignOutUrlAsync(string id, string redirect, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<string> response;
+			var client = Mozu.Api.Clients.Platform.Adminuser.TenantAdminUserAuthTicketClient.GetWsFedSignOutUrlClient( id,  redirect,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="tenantId">Unique identifier of the development or production tenant for which to generate the user authentication ticket.</param>
-		/// <param name="userAuthInfo">The user authentication information required to generate the user authentication ticket, which consists of a user name and password.</param>
+		/// <param name="userAuthInfo">Information required to authenticate a user.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket"/>
 		/// </returns>
@@ -72,9 +126,36 @@ namespace Mozu.Api.Resources.Platform.Adminuser
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="id"></param>
 		/// <param name="responseFields"></param>
-		/// <param name="tenantId"></param>
-		/// <param name="existingAuthTicket">Properties of the authentication ticket to refresh. The refresh token is required to complete this request.</param>
+		/// <param name="scopeid"></param>
+		/// <param name="scopeType"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var tenantadminuserauthticket = new TenantAdminUserAuthTicket();
+		///   var tenantAdminUserAuthTicket = await tenantadminuserauthticket.CreateUserAuthTicketWithWsFedAsync( id,  scopeid,  scopeType,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket> CreateUserAuthTicketWithWsFedAsync(string id, int? scopeid, string scopeType, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket> response;
+			var client = Mozu.Api.Clients.Platform.Adminuser.TenantAdminUserAuthTicketClient.CreateUserAuthTicketWithWsFedClient( id,  scopeid,  scopeType,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="tenantId">Unique identifier of the development or production tenant for which to generate the user authentication ticket.</param>
+		/// <param name="existingAuthTicket">Properties of the authentication ticket to be used in user claims with the  API.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket"/>
 		/// </returns>
@@ -98,7 +179,7 @@ namespace Mozu.Api.Resources.Platform.Adminuser
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="refreshToken">Refresh token string associated with the user authentication ticket.</param>
+		/// <param name="refreshToken">Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.</param>
 		/// <returns>
 		/// <see cref="System.IO.Stream"/>
 		/// </returns>

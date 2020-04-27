@@ -9,15 +9,16 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 
 
-namespace Mozu.Api.Contracts.Kibo.Fulfillment.Model
+namespace Mozu.Api.Contracts.SiteSettings.Order
 {
-		public class ReassignedReason
+		public class FlexibleCaptureFlow
 		{
-			public string MoreInfo { get; set; }
+			public string CaptureBy { get; set; }
 
-			public string ReasonCode { get; set; }
+			public List<string> CaptureOn { get; set; }
 
 		}
 

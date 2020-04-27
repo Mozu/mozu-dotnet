@@ -14,12 +14,24 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
+		///
+		///	Mozu.ProductAdmin.Contracts.PublishSet ApiType DOCUMENT_HERE 
+		///
 		public class PublishSet
 		{
+			///
+			///The unique identifier of the product publish set.
+			///
 			public string Code { get; set; }
 
+			///
+			///A list of product codes of associated products. When this field is in the Product Publishing resource, you can use this field  to publish or delete individual pending product changes, or assign individual pending product changes to a publish set.
+			///
 			public List<string> ProductCodes { get; set; }
 
+			///
+			///The total number of products. This total may indicate the total products associate with a product type or number of products in a list.
+			///
 			public int ProductCount { get; set; }
 
 		}

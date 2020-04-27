@@ -14,10 +14,19 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
+		///
+		///	Mozu.ProductAdmin.Contracts.PublishSetCollection ApiType DOCUMENT_HERE 
+		///
 		public class PublishSetCollection
 		{
+			///
+			///A list of requested items. All returned data is provided in an items array.For a failed request, the returned response may be success with an empty item array.
+			///
 			public List<PublishSet> Items { get; set; }
 
+			///
+			///The total number of items in the list.
+			///
 			public int TotalCount { get; set; }
 
 		}

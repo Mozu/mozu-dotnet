@@ -48,6 +48,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 
 			public string Email { get; set; }
 
+			public string ExternalOrderId { get; set; }
+
 			public string ExternalShipmentId { get; set; }
 
 			public DateTime? FulfillmentDate { get; set; }
@@ -67,6 +69,10 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			public decimal HandlingTotal { get; set; }
 
 			public string Id { get; set; }
+
+			public bool? IsExpress { get; set; }
+
+			public bool? IsTransfer { get; set; }
 
 			public List<ShipmentItem> Items { get; set; }
 
@@ -88,11 +94,17 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 
 			public Contact Origin { get; set; }
 
+			public int? OriginalShipmentNumber { get; set; }
+
 			public List<Package> Packages { get; set; }
+
+			public int? ParentShipmentNumber { get; set; }
 
 			public string PickStatus { get; set; }
 
 			public string PickType { get; set; }
+
+			public bool ReadyToCapture { get; set; }
 
 			public decimal ShipmentAdjustment { get; set; }
 
@@ -116,13 +128,11 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 
 			public decimal ShippingTotal { get; set; }
 
-			public bool? SignatureRequired { get; set; }
-
 			public JObject TaxData { get; set; }
 
 			public decimal Total { get; set; }
 
-			public List<string> TrackingNumbers { get; set; }
+			public List<int> TransferShipmentNumbers { get; set; }
 
 			public string WorkflowProcessContainerId { get; set; }
 

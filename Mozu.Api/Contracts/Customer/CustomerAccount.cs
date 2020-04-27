@@ -22,6 +22,9 @@ namespace Mozu.Api.Contracts.Customer
 		{
 			public bool AcceptsMarketing { get; set; }
 
+			///
+			///The type of the customer account.
+			///
 			public string AccountType { get; set; }
 
 			public List<CustomerAttribute> Attributes { get; set; }
@@ -34,29 +37,41 @@ namespace Mozu.Api.Contracts.Customer
 
 			public List<CustomerContact> Contacts { get; set; }
 
+			///
+			///customerSet ApiType DOCUMENT_HERE 
+			///
 			public string CustomerSet { get; set; }
 
+			///
+			///This property tracks the customer account creation date. This date can be set manually via the APIÂ for customer accounts that are imported into . 
+			///
 			public DateTime? CustomerSinceDate { get; set; }
 
 			///
-			///The email address associated with the customer account.
+			///The email address for the customer account and contact. This email may be used for login to the storefront and for subscription mailing lists.
 			///
 			public string EmailAddress { get; set; }
 
 			///
-			///Unique identifier an external system uses to identify this customer account.
+			///Unique identifier used by an external program to identify a  order, customer account, or wish list.
 			///
 			public string ExternalId { get; set; }
 
 			///
-			///The first name associated with the customer account.
+			///The full first name of a customer or contact name.
 			///
 			public string FirstName { get; set; }
 
+			///
+			///Indicates if an external password is set on this account.
+			///
 			public bool HasExternalPassword { get; set; }
 
 			public int Id { get; set; }
 
+			///
+			///Indicates if the object or feature is active.
+			///
 			public bool IsActive { get; set; }
 
 			///
@@ -64,10 +79,13 @@ namespace Mozu.Api.Contracts.Customer
 			///
 			public bool IsAnonymous { get; set; }
 
+			///
+			///Indicates if a customer account and associated data is locked. If true, the user account is locked due to multiple failed authentication attempts. The user cannot login until the account is unlocked.
+			///
 			public bool IsLocked { get; set; }
 
 			///
-			///The last name associated with the customer account.
+			///The full last name of a customer or contact name.
 			///
 			public string LastName { get; set; }
 
@@ -90,7 +108,7 @@ namespace Mozu.Api.Contracts.Customer
 			public string UserId { get; set; }
 
 			///
-			///The user name of the user associated with the customer account.
+			///The user name associated with the user profile. The customer uses the user name to access the account.
 			///
 			public string UserName { get; set; }
 

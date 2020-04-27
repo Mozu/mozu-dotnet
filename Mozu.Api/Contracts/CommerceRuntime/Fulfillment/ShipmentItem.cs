@@ -70,6 +70,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 
 			public int Quantity { get; set; }
 
+			public int? ReadyForPickupQuantity { get; set; }
+
 			public decimal Shipping { get; set; }
 
 			public decimal ShippingDiscount { get; set; }

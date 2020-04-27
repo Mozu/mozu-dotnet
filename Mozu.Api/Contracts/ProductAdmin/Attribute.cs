@@ -16,7 +16,7 @@ using Mozu.Api.Contracts.Core;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	Details of an attribute used to describe individual aspects of a product.
+		///	Properties of an attribute used to describe customers or orders.
 		///
 		public class Attribute
 		{
@@ -46,6 +46,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public bool? IsProperty { get; set; }
 
+			///
+			///The localized content associated with the object.
+			///
 			public List<AttributeLocalizedContent> LocalizedContent { get; set; }
 
 			public int? MasterCatalogId { get; set; }

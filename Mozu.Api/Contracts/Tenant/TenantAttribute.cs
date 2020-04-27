@@ -13,18 +13,39 @@ using System;
 
 namespace Mozu.Api.Contracts.Tenant
 {
+		///
+		///	Mozu.Tenant.Contracts.TenantAttribute ApiType DOCUMENT_HERE 
+		///
 		public class TenantAttribute
 		{
+			///
+			///Identifier of the user that created the object. System created and read only.
+			///
 			public string CreateBy { get; set; }
 
+			///
+			///The date and time in UTCÂ format set when the object was created.
+			///
 			public DateTime CreateDate { get; set; }
 
+			///
+			///The user supplied name that appears in . You can use this field for identification purposes.
+			///
 			public string Name { get; set; }
 
+			///
+			///Identifier of the user that updated the entity most recently.
+			///
 			public string UpdateBy { get; set; }
 
+			///
+			///The date and time in UTC format the object was updated most recently.
+			///
 			public DateTime UpdateDate { get; set; }
 
+			///
+			///The value of a property, used by numerous objects within  including facets, attributes, products, localized content, metadata, capabilities ( and third-party), location inventory adjustment, and more. The value may be a string, integer, or double. Validation may be run against the entered and saved values depending on the object type.
+			///
 			public object Value { get; set; }
 
 		}

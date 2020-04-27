@@ -42,9 +42,9 @@ namespace Mozu.Api.Resources.Commerce.Returns
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="packageId">Unique identifier of the return replacement package for which to retrieve the label.</param>
-		/// <param name="returnAsBase64Png"></param>
-		/// <param name="returnId">Unique identifier of the return associated with the replacement package label to retrieve.</param>
+		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
+		/// <param name="returnAsBase64Png">Specifies whether to return the RMA label image as Base64-encoded PNG image instead of as a byte array encoded in the original image format. The default is .</param>
+		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
 		/// <returns>
 		/// <see cref="System.IO.Stream"/>
 		/// </returns>
@@ -68,9 +68,9 @@ namespace Mozu.Api.Resources.Commerce.Returns
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="packageId">Unique identifier of the return replacement package to retrieve.</param>
-		/// <param name="responseFields"></param>
-		/// <param name="returnId">Unique identifier of the return associated with the replacement package to retrieve.</param>
+		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>
 		/// </returns>
@@ -94,9 +94,9 @@ namespace Mozu.Api.Resources.Commerce.Returns
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="returnId">Unique identifier of the return for which to create a replacement package.</param>
-		/// <param name="package">Properties of the physical package for a return replacement.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="package">Properties of a physical package shipped for an order.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>
 		/// </returns>
@@ -120,10 +120,10 @@ namespace Mozu.Api.Resources.Commerce.Returns
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="packageId">Unique identifier of the return replacement package to update.</param>
-		/// <param name="responseFields"></param>
-		/// <param name="returnId">Unique identifier of the return associated with the replacement package to update.</param>
-		/// <param name="package">Properties of the return replacement package to update.</param>
+		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
+		/// <param name="package">Properties of a physical package shipped for an order.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Package"/>
 		/// </returns>
@@ -147,8 +147,8 @@ namespace Mozu.Api.Resources.Commerce.Returns
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="packageId">Unique identifier of the return replacement package to delete.</param>
-		/// <param name="returnId">Unique identifier of the return associated with the replacement package to delete.</param>
+		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
+		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
 		/// <returns>
 		/// <see cref="System.IO.Stream"/>
 		/// </returns>

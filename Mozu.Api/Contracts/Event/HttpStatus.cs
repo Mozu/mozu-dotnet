@@ -13,10 +13,19 @@ using System;
 
 namespace Mozu.Api.Contracts.Event
 {
+		///
+		///	Properties for the HTTPÂ status for an event.
+		///
 		public class HttpStatus
 		{
+			///
+			///The higher-level integer based HTTP Status Code returned by the remote endpoint
+			///
 			public int Code { get; set; }
 
+			///
+			///The user supplied name that appears in . You can use this field for identification purposes.
+			///
 			public string Name { get; set; }
 
 		}

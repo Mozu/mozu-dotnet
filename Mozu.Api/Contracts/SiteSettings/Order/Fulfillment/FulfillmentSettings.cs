@@ -16,13 +16,19 @@ namespace Mozu.Api.Contracts.SiteSettings.Order.Fulfillment
 {
 		public class FulfillmentSettings
 		{
+			public string ActionOnBOPISReject { get; set; }
+
 			public AuditInfo AuditInfo { get; set; }
 
 			public BPMConfiguration BpmConfiguration { get; set; }
 
 			public int? DefaultBackOrderDays { get; set; }
 
+			public FulfillerSettings FulfillerSettings { get; set; }
+
 			public JobSettings FulfillmentJobSettings { get; set; }
+
+			public ShipToStore ShipToStore { get; set; }
 
 		}
 

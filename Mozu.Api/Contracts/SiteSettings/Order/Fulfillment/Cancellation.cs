@@ -9,15 +9,16 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 
 
-namespace Mozu.Api.Contracts.Kibo.Fulfillment.Model
+namespace Mozu.Api.Contracts.SiteSettings.Order.Fulfillment
 {
-		public class ShipmentStatusReason
+		public class Cancellation
 		{
-			public string MoreInfo { get; set; }
+			public bool OnParentShipment { get; set; }
 
-			public string ReasonCode { get; set; }
+			public List<string> RestrictedSteps { get; set; }
 
 		}
 

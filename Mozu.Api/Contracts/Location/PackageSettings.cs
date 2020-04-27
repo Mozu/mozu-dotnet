@@ -9,22 +9,13 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
 
 
-namespace Mozu.Api.Contracts.Kibo.Fulfillment.Model
+namespace Mozu.Api.Contracts.Location
 {
-		public class PackageMeasurements
+		public class PackageSettings
 		{
-			public Dictionary<String,Object> Attributes { get; set; }
-
-			public Measurement Height { get; set; }
-
-			public Measurement Length { get; set; }
-
-			public Measurement Weight { get; set; }
-
-			public Measurement Width { get; set; }
+			public string UnitType { get; set; }
 
 		}
 

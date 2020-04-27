@@ -13,10 +13,19 @@ using System;
 
 namespace Mozu.Api.Contracts.ShippingAdmin
 {
+		///
+		///	Mozu.ShippingAdmin.Contracts.CustomTableRateContent ApiType DOCUMENT_HERE 
+		///
 		public class CustomTableRateContent
 		{
+			///
+			///The two character locale code, per the country code provided. This code determines the localized content to use and display.
+			///
 			public string LocaleCode { get; set; }
 
+			///
+			///The user supplied name that appears in . You can use this field for identification purposes.
+			///
 			public string Name { get; set; }
 
 		}

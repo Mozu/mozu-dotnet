@@ -18,7 +18,7 @@ using System.Threading;
 namespace Mozu.Api.Resources.Platform.Appdev
 {
 	/// <summary>
-	/// 
+	/// This resource is not public.
 	/// </summary>
 	public partial class PackageResource  	{
 		///
@@ -46,7 +46,7 @@ namespace Mozu.Api.Resources.Platform.Appdev
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="applicationKey"></param>
+		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}. </param>
 		/// <param name="fileName"></param>
 		/// <returns>
 		/// <see cref="System.IO.Stream"/>

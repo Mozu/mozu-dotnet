@@ -23,6 +23,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 		{
 			public string CurrencyCode { get; set; }
 
+			///
+			///Custom data returned by the shipping service.
+			///
 			public JObject Data { get; set; }
 
 			public bool? IsValid { get; set; }
@@ -35,6 +38,9 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 
 			public string ShippingMethodName { get; set; }
 
+			///
+			///The shipping zone to which this rate applies.
+			///
 			public string ShippingZoneCode { get; set; }
 
 		}

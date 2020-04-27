@@ -13,6 +13,9 @@ using System;
 
 namespace Mozu.Api.Contracts.AppDev
 {
+		///
+		///	This property is not exposed in documentation.
+		///
 		public class ApplicationCapabilityDomainValue
 		{
 			public int? ApplicationCapabilityDomainId1 { get; set; }

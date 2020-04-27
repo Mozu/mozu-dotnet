@@ -27,6 +27,9 @@ namespace Mozu.Api.Contracts.ProductRuntime
 
 			public bool? IsApplied { get; set; }
 
+			///
+			///Indicates if the object is displayed on the storefront. If true, the admin product category is displayed in the store. If false, the category is not displayed.
+			///
 			public bool IsDisplayed { get; set; }
 
 			public string Label { get; set; }

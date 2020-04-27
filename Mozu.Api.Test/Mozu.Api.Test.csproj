@@ -72,6 +72,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Factories\Commerce\Catalog\Admin\ProductReservationFactory.cs" />
+    <Compile Include="Factories\Commerce\Catalog\Admin\SoftAllocationFactory.cs" />
     <Compile Include="Helpers\BaseDataFactory.cs" />
     <Compile Include="Helpers\CleanupData.cs" />
     <Compile Include="Helpers\Constant.cs" />
@@ -177,7 +178,6 @@
     <Compile Include="Factories\Commerce\Customer\CustomerSegmentFactory.cs" />
     <Compile Include="Factories\Commerce\Customer\CustomerSetFactory.cs" />
     <Compile Include="Factories\Commerce\Customer\VisitFactory.cs" />
-    <Compile Include="Factories\Commerce\FulfillmentProxyFactory.cs" />
     <Compile Include="Factories\Commerce\InStockNotificationSubscriptionFactory.cs" />
     <Compile Include="Factories\Commerce\LocationFactory.cs" />
     <Compile Include="Factories\Commerce\OrderFactory.cs" />
@@ -218,6 +218,7 @@
     <Compile Include="Factories\Commerce\Settings\General\CustomRouteSettingsFactory.cs" />
     <Compile Include="Factories\Commerce\Settings\General\TaxableTerritoryFactory.cs" />
     <Compile Include="Factories\Commerce\Settings\GeneralSettingsFactory.cs" />
+    <Compile Include="Factories\Commerce\Settings\InventorySettingsFactory.cs" />
     <Compile Include="Factories\Commerce\Settings\LocationUsageFactory.cs" />
     <Compile Include="Factories\Commerce\Settings\ReturnSettingsFactory.cs" />
     <Compile Include="Factories\Commerce\Settings\Shipping\SiteShippingHandlingFeeFactory.cs" />

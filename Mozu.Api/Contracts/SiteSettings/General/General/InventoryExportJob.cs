@@ -9,19 +9,16 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 
 
-namespace Mozu.Api.Contracts.Kibo.Fulfillment.Model
+namespace Mozu.Api.Contracts.SiteSettings.General.General
 {
-		public class Destination
+		public class InventoryExportJob
 		{
-			public object Data { get; set; }
+			public bool IsEnabled { get; set; }
 
-			public Contact DestinationContact { get; set; }
-
-			public string Id { get; set; }
-
-			public bool? IsDestinationCommercial { get; set; }
+			public List<string> TimesOfDay { get; set; }
 
 		}
 

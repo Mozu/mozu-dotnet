@@ -19,7 +19,7 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetMasterCatalogs
         /// </summary>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -34,8 +34,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 		/// <summary>
         /// Get Resource Url for GetMasterCatalog
         /// </summary>
-        /// <param name="masterCatalogId"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="masterCatalogId">Unique identifier for the master catalog. The master catalog contains all products accessible per catalogs and the site/tenant.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -51,8 +51,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Admin
 						/// <summary>
         /// Get Resource Url for UpdateMasterCatalog
         /// </summary>
-        /// <param name="masterCatalogId"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="masterCatalogId">Unique identifier for the master catalog. The master catalog contains all products accessible per catalogs and the site/tenant.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

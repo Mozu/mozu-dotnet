@@ -42,7 +42,7 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="documentListName">The document list associated with the facets to retrieve.</param>
+		/// <param name="documentListName">Name of content documentListName to delete</param>
 		/// <param name="propertyName">The property name associated with the facets to retrieve.</param>
 		/// <returns>
 		/// List{<see cref="Mozu.Api.Contracts.Content.Facet"/>}

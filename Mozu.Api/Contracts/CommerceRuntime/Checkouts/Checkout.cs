@@ -21,116 +21,284 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Checkouts
 {
+		///
+		///	Mozu.CommerceRuntime.Contracts.Checkouts.Checkout ApiType DOCUMENT_HERE 
+		///
 		public class Checkout
 		{
+			///
+			///Indicates if the customer account is opted to receive marketing materials. If true, the customer account is opted in for receiving the content.
+			///
 			public bool? AcceptsMarketing { get; set; }
 
+			///
+			///The total amount of the order not currently associated with a payment. The shopper must create one or more payments to satisfy this amount before the order can be fully paid.
+			///
 			public decimal AmountRemainingForPayment { get; set; }
 
+			///
+			///Collection of attributes that may be paged list or a list, depending on the usage per object and API type.
+			///
 			public List<OrderAttribute> Attributes { get; set; }
 
+			///
+			///Basic audit info about the object, including date, time, and user account. This data may be captured when creating, updating, and removing data.
+			///
 			public AuditInfo AuditInfo { get; set; }
 
+			///
+			///Available actions you can complete for an order. These actions may differ depending on the status of the order, such as actions required to enter a payment, return of a package, and fulfillment of a shipment.
+			///
 			public List<string> AvailableActions { get; set; }
 
+			///
+			///Code that identifies the channel associated with the site for the shopper's created shopping cart, order, and return.
+			///
 			public string ChannelCode { get; set; }
 
+			///
+			///Array list of coupon codes associated with a shopping cart and the associated order. These codes are entered by a shopper when proceeding to checkout.
+			///
 			public List<string> CouponCodes { get; set; }
 
+			///
+			///The localized currency code for the monetary amount.
+			///
 			public string CurrencyCode { get; set; }
 
+			///
+			///Unique identifer of the customer account. This ID is used to associate numerous types of data and object with the customer account, including orders, returns, wish lists, and in-store credit.
+			///
 			public int? CustomerAccountId { get; set; }
 
+			///
+			///The type of customer interaction used to create this shopping cart. Possible values are Website, Call, Store, or Unknown.
+			///
 			public string CustomerInteractionType { get; set; }
 
+			///
+			///The tax identification number (TIN) of the customer who submitted the order. If the customer who submitted the order has a customer account defined for the tenant, the system sets this value when the order is submitted.
+			///
 			public string CustomerTaxId { get; set; }
 
+			///
+			///Custom data for a given vendor set within the commerce process.
+			///
 			public JObject Data { get; set; }
 
+			///
+			///The collection of destinations available for the checkout.
+			///
 			public List<Destination> Destinations { get; set; }
 
+			///
+			///List of threshold messages to display on Checkout page.
+			///
 			public List<ThresholdMessage> DiscountThresholdMessages { get; set; }
 
+			///
+			///Duties or tariffs for the Order as well as OrderItems (e.g. if the Order has a $5 duty or tariff for any reason and an OrderItem has a $2 duty or tariff then the value in this property would be $7).
+			///
 			public decimal? DutyTotal { get; set; }
 
+			///
+			///The email address for the customer account and contact. This email may be used for login to the storefront, receiving in-stock product notifications, and subscription mailing lists.
+			///
 			public string Email { get; set; }
 
+			///
+			///The monetary sum of all fees incurred in the cart, order, line item in a cart, or line item in an order. This value is not calculated for wish lists at this time.
+			///
 			public decimal FeeTotal { get; set; }
 
+			///
+			///Groupings bundle items together that have the same fulfillment type and destination. Direct ship items going to the same destination are grouped together, in-store pickup items are grouped together, and gift card items are grouped together.
+			///
 			public List<CheckoutGrouping> Groupings { get; set; }
 
+			///
+			///Handling fees for the Order as well as OrderItems (e.g. if the Order has a $5 handling fee and an OrderItem has a $2 handling fee per item quantity then the value in this property would be $9).
+			///
 			public decimal HandlingSubTotal { get; set; }
 
+			///
+			///Calculated total tax amount for handling costs if the cart/order is subject to sales tax.
+			///
 			public decimal HandlingTaxTotal { get; set; }
 
+			///
+			///This total represents the handling amount value with any applied discounts.
+			///
 			public decimal HandlingTotal { get; set; }
 
+			///
+			///Unique identifier of the source property, such as a catalog, discount, order, or email template.For a product field it will be the name of the field.For a category ID, must be a positive integer not greater than 2000000. By default,  auto-generates a category ID when categories are created. If you want to specify an ID during creation (which preserves category link relationships when migrating tenant data from one sandbox to another), you must also include the  query string in the endpoint. For example, . Then, use the  property to specify the desired category ID.For a product attribute it will be the Attribute FQN.For a document, the ID must be specified as a 32 character, case-insensitive, alphanumeric string. You can specify the ID as 32 sequential characters or as groups separated by dashes in the format 8-4-4-4-12. For example, or.For email templates, the ID must be one of the following values:///
+			///
 			public string Id { get; set; }
 
+			///
+			///The list of invalid coupons the shopper attempted to enter for the cart or order. These coupons may no longer be valid or incorrectly entered.
+			///
 			public List<InvalidCoupon> InvalidCoupons { get; set; }
 
+			///
+			///A captured and stored IP address. IP addresses are stored for the origin location of submitted orders and the tenant domain.
+			///
 			public string IpAddress { get; set; }
 
+			///
+			///If true, the order is exempt from applied sales tax.
+			///
 			public bool? IsTaxExempt { get; set; }
 
+			///
+			///The list of historically-applied handling discounts at the order item level. The active one will have IsExcluded == false.
+			///
 			public decimal ItemLevelHandlingDiscountTotal { get; set; }
 
+			///
+			///The applicable product discount for the order item.
+			///
 			public decimal ItemLevelProductDiscountTotal { get; set; }
 
+			///
+			///The applicable shipping discount for the order item.
+			///
 			public decimal ItemLevelShippingDiscountTotal { get; set; }
 
+			///
+			///A list of requested items. All returned data is provided in an items array.For a failed request, the returned response may be success with an empty item array.
+			///
 			public List<OrderItem> Items { get; set; }
 
+			///
+			///The total amount of calculated tax for items, used by carts, orders, and wish lists.
+			///
 			public decimal ItemTaxTotal { get; set; }
 
+			///
+			///The total cost for the item.
+			///
 			public decimal ItemTotal { get; set; }
 
+			///
+			///The unique, user-defined code that identifies a location. This location can be the location where the order was entered, location for newly in-stock products, and where products are returned.
+			///
 			public string LocationCode { get; set; }
 
+			///
+			///The order item number.
+			///
 			public int? Number { get; set; }
 
+			///
+			///List of order-level discounts projected to apply to the cart at checkout or order.
+			///
 			public List<AppliedDiscount> OrderDiscounts { get; set; }
 
+			///
+			///The list of historically-applied handling discounts at the order level. The active one will have IsExcluded == false.
+			///
 			public decimal OrderLevelHandlingDiscountTotal { get; set; }
 
+			///
+			///The applicable product discount for the order.
+			///
 			public decimal OrderLevelProductDiscountTotal { get; set; }
 
+			///
+			///The applicable shipping discount for the order.
+			///
 			public decimal OrderLevelShippingDiscountTotal { get; set; }
 
+			///
+			///The unique identifier of the item when it was applied to a cart.
+			///
 			public string OriginalCartId { get; set; }
 
+			///
+			///Wrapper for a collection of payments associated with an order or return. An order can include a number of payments until the full total is covered.
+			///
 			public List<Payment> Payments { get; set; }
 
+			///
+			///If the order is associated with a price list, this is the unique code of the price list.
+			///
 			public string PriceListCode { get; set; }
 
+			///
+			///The shipping subtotal amount calculated without any applied discounts for line item and entire amounts of carts and orders. This property is not calculated for wish lists at this time.
+			///
 			public decimal ShippingSubTotal { get; set; }
 
+			///
+			///The total amount of tax incurred on the shipping charges in the cart and order. This property is not calculated at this time for wish lists.
+			///
 			public decimal ShippingTaxTotal { get; set; }
 
+			///
+			///The calculated total shipping amount estimated for carts or orders, including tax. This amount is not calculated for wish lists at this time.
+			///
 			public decimal ShippingTotal { get; set; }
 
+			///
+			///A paged list collection of shopper notes for the order.
+			///
 			public ShopperNotes ShopperNotes { get; set; }
 
+			///
+			///Unique identifier for the site. This IDÂ is used at all levels of a store, catalog, and tenant to associate objects to a site.
+			///
 			public int SiteId { get; set; }
 
+			///
+			///The device from which the order originated in the case of offline orders.
+			///
 			public string SourceDevice { get; set; }
 
+			///
+			///The date and time the order was submitted. System-supplied and read-only.
+			///
 			public DateTime? SubmittedDate { get; set; }
 
+			///
+			///Estimated amount of the cart or order without sales tax, shipping costs, and other fees. This amount is not calculated for wish lists at this time.
+			///
 			public decimal SubTotal { get; set; }
 
+			///
+			///Refers to the BOGA discounts that are currently satisfied but whose free item has not yet been added.
+			///
 			public List<SuggestedDiscount> SuggestedDiscounts { get; set; }
 
+			///
+			///Leverage this property within a [tax Arc.js action](https://www.mozu.com/docs/arcjs/commerce-catalog-storefront-tax/commerce-catalog-storefront-tax.htm) to supplement the tax information for this item or object with custom JSON data.
+			///
 			public JObject TaxData { get; set; }
 
+			///
+			///Unique identifier for the tenant.
+			///
 			public int TenantId { get; set; }
 
+			///
+			///Total is used to indicate the monetary, estimated total amount of the cart or order, including items, sales tax, shipping costs, and other fees. Totals are not estimated for wish lists at this time.
+			///
 			public decimal Total { get; set; }
 
+			///
+			///The type of scope, which is a developer account or production tenant.
+			///
 			public string Type { get; set; }
 
+			///
+			///Unique identifier of the customer visit in which the cart was created or last modified.
+			///
 			public string VisitId { get; set; }
 
+			///
+			///Unique identifier of the web session in which the cart, order, return, or wish list was created or last modified.
+			///
 			public string WebSessionId { get; set; }
 
 		}

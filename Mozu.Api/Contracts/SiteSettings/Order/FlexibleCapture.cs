@@ -9,14 +9,15 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
 
 
-namespace Mozu.Api.Contracts.Kibo.Fulfillment.Model
+namespace Mozu.Api.Contracts.SiteSettings.Order
 {
-		public class CancelItemsRequest
+		public class FlexibleCapture
 		{
-			public List<CancelItem> Items { get; set; }
+			public FlexibleCaptureFlow BopisFlow { get; set; }
+
+			public FlexibleCaptureFlow SthFlow { get; set; }
 
 		}
 

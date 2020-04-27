@@ -19,12 +19,12 @@ namespace Mozu.Api.Contracts.Customer
 		public class CustomerUserAuthInfo
 		{
 			///
-			///The password of the user associated with the customer account.
+			///The write-only password for the customer account.
 			///
 			public string Password { get; set; }
 
 			///
-			///The user name of the user associated with the customer account.
+			///The user name associated with the user profile. The customer uses the user name to access the account.
 			///
 			public string Username { get; set; }
 

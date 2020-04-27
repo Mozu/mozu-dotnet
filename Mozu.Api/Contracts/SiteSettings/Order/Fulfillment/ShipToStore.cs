@@ -9,18 +9,19 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
 
 
-namespace Mozu.Api.Contracts.Kibo.Fulfillment.Model
+namespace Mozu.Api.Contracts.SiteSettings.Order.Fulfillment
 {
-		public class ClosePickWave
+		public class ShipToStore
 		{
-			public Dictionary<String,Object> Attributes { get; set; }
+			public bool AlwaysCreateTransferShipments { get; set; }
 
-			public bool? CreateRecovery { get; set; }
+			public Cancellation Cancellation { get; set; }
 
-			public List<BinShipmentProductQuantity> Quantities { get; set; }
+			public bool IsEnabled { get; set; }
+
+			public ShippingMethod ShippingMethod { get; set; }
 
 		}
 

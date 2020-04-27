@@ -9,14 +9,15 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
 
 
-namespace Mozu.Api.Contracts.Kibo.Fulfillment.Model
+namespace Mozu.Api.Contracts.SiteSettings.Order.Fulfillment
 {
-		public class BackorderItemsUpdateRequest
+		public class ShippingMethod
 		{
-			public List<BackorderItemUpdate> Items { get; set; }
+			public string Code { get; set; }
+
+			public string Name { get; set; }
 
 		}
 

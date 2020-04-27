@@ -25,8 +25,8 @@ namespace Mozu.Api.Clients.Commerce.Settings.Checkout
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="fullyQualifiedName"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="fullyQualifiedName">Fully qualified name of the attribute for the third-party payment workflow.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.SiteSettings.Order.ExternalPaymentWorkflowDefinition"/>}
 		/// </returns>
@@ -73,7 +73,7 @@ namespace Mozu.Api.Clients.Commerce.Settings.Checkout
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="definition"></param>
+		/// <param name="definition">Properties of an external payment processing workflow defined for the site. At this time, only PayPal Express is supported.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
@@ -97,7 +97,7 @@ namespace Mozu.Api.Clients.Commerce.Settings.Checkout
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="fullyQualifiedName"></param>
+		/// <param name="fullyQualifiedName">Fully qualified name of the attribute for the third-party payment workflow.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>

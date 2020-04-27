@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Returns
 {
 	/// <summary>
-	/// 
+	/// Use the Return Notes resource to access and modify internal notes associated with returns. These notes can be useful to customer service representatives viewing them in .
 	/// </summary>
 	public partial class OrderNoteFactory : BaseDataFactory
 	{

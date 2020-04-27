@@ -14,7 +14,7 @@ using System;
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
-		///	The price of the product in the specified currency code (USD). This price can either be the sale price or the price for which the merchant intends to sell the product.
+		///	The price of the product in the specified currency code (USD). This price can either be the sale price or the price for which the merchang intends to sell the product.
 		///
 		public class ProductPrice
 		{
@@ -28,32 +28,44 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///
 			public decimal? CatalogSalePrice { get; set; }
 
+			///
+			///The credit value of the product or bundled product. When the `goodsType `is `DigitalCredit`, this value is populated to indicate the value of the credit. This is used to create store credit in the fulfillment of gift cards.
+			///
 			public decimal? CreditValue { get; set; }
 
 			public AppliedDiscount Discount { get; set; }
 
+			///
+			///The price list code if a price list is applield to the product's pricing.
+			///
 			public string EffectivePricelistCode { get; set; }
 
 			///
-			///The manufacturer's suggested retail price for the product.
+			///The manufacturer's suggested retail price (MSRP) for the product. This content may be defined by the supplier.
 			///
 			public decimal? Msrp { get; set; }
 
 			public decimal? Price { get; set; }
 
+			///
+			///The price list entry code that controls the product pricing, if a price list is applied to the product pricing.
+			///
 			public string PriceListEntryCode { get; set; }
 
+			///
+			///The pricing mode of the price list entry, if a price list is applied to the product pricing.The valid values are:* * A value of  indicates the product has volume pricing.
+			///
 			public string PriceListEntryMode { get; set; }
 
 			///
-			///The price type that displays on the storefront website for the Price field, which is List, MAP, or CatalogSalePrice
+			///The price type that displays in the price field on product listing pages and product detail pages on the storefront.The valid values are:* * * 
 			///
 			public string PriceType { get; set; }
 
 			public decimal? SalePrice { get; set; }
 
 			///
-			///The price type that displays on the storefront website for the Sale Price field, which is CatalogSalePrice, DiscountedList, or DiscountedCatalogSalePrice
+			///The sale price type that displays in the sale price field on product listing pages and product detail pages on the storefront.The valid values are:* * * 
 			///
 			public string SalePriceType { get; set; }
 

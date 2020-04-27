@@ -14,12 +14,24 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 {
+		///
+		///	The details of the purchase order payment.
+		///
 		public class PurchaseOrderPayment
 		{
+			///
+			///Details of the custom text fields associated with the purchase order.Refer to [Custom Text Fields](https://www.mozu.com/docs/guides/orders/purchase-order.htm#custom_text_fields) in the Purchase Order guides topic for more information.
+			///
 			public List<PurchaseOrderCustomField> CustomFields { get; set; }
 
+			///
+			///The details of the payment terms. The payment terms are made up of a  and a .Refer to [Payment Terms](https://www.mozu.com/docs/guides/orders/purchase-order.htm#payment_terms) in the Purchase Order guides topic for more information.
+			///
 			public PurchaseOrderPaymentTerm PaymentTerm { get; set; }
 
+			///
+			///The purchase order number.
+			///
 			public string PurchaseOrderNumber { get; set; }
 
 		}

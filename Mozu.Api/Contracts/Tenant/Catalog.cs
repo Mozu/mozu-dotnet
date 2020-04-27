@@ -35,7 +35,7 @@ namespace Mozu.Api.Contracts.Tenant
 			public string Name { get; set; }
 
 			///
-			///The current status of the product catalog.
+			///The current status of the object.This value is read only. Valid values for this field are: "Active", "Expired", and "Inactive".
 			///
 			public string Status { get; set; }
 

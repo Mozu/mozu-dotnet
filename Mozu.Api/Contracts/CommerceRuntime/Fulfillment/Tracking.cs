@@ -9,15 +9,18 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 
 
-namespace Mozu.Api.Contracts.Kibo.Fulfillment.Model
+namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 {
-		public class BackorderItemUpdate
+		public class Tracking
 		{
-			public DateTime? BackorderReleaseDate { get; set; }
+			public Dictionary<String,Object> Attributes { get; set; }
 
-			public int? LineId { get; set; }
+			public string Number { get; set; }
+
+			public string Url { get; set; }
 
 		}
 

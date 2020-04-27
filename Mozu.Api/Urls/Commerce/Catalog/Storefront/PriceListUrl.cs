@@ -19,8 +19,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
 		/// <summary>
         /// Get Resource Url for GetPriceList
         /// </summary>
-        /// <param name="priceListCode"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="priceListCode">The unique code of the price list for which you want to retrieve the details.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -36,8 +36,8 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
 		/// <summary>
         /// Get Resource Url for GetResolvedPriceList
         /// </summary>
-        /// <param name="customerAccountId"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="customerAccountId">The unique identifier of the customer account for which to retrieve wish lists.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -50,7 +50,22 @@ namespace Mozu.Api.Urls.Commerce.Catalog.Storefront
 			return mozuUrl;
 		}
 
-								
+				/// <summary>
+        /// Get Resource Url for GetResolvedPriceList2
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetResolvedPriceList2Url(string responseFields =  null)
+		{
+			var url = "/api/commerce/catalog/storefront/pricelists/resolved?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+						
 	}
 }
 

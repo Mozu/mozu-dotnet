@@ -19,8 +19,8 @@ namespace Mozu.Api.Urls.Commerce.Orders
 				/// <summary>
         /// Get Resource Url for CreateRefund
         /// </summary>
-        /// <param name="orderId"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="orderId">Unique identifier of the order.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -36,8 +36,8 @@ namespace Mozu.Api.Urls.Commerce.Orders
 				/// <summary>
         /// Get Resource Url for ResendRefundEmail
         /// </summary>
-        /// <param name="orderId"></param>
-        /// <param name="refundId"></param>
+        /// <param name="orderId">Unique identifier of the order.</param>
+        /// <param name="refundId">Unique ID of the refund.        </param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

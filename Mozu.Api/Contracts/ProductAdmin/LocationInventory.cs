@@ -24,13 +24,20 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public AuditInfo AuditInfo { get; set; }
 
+			///
+			///Product code defined by the tenant administrator to use as a base prefix when generating product codes for any variations of this product.
+			///
 			public string BaseProductCode { get; set; }
 
 			public string LocationCode { get; set; }
 
+			public string MfgPartNumber { get; set; }
+
 			public string ProductCode { get; set; }
 
 			public string ProductName { get; set; }
+
+			public string Sku { get; set; }
 
 			public int? StockAvailable { get; set; }
 

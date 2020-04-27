@@ -21,7 +21,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string AltText { get; set; }
 
 			///
-			///The identifier of the category image in the Mozu CMS. Supply a value for either the CMS ID or Image URL parameter.
+			///The identifier of the image in the  CMS. Supply a value for either the CMS ID or Image URL parameter.
 			///
 			public string CmsId { get; set; }
 

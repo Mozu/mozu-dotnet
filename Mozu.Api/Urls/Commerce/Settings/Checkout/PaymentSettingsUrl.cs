@@ -19,8 +19,8 @@ namespace Mozu.Api.Urls.Commerce.Settings.Checkout
 		/// <summary>
         /// Get Resource Url for GetThirdPartyPaymentWorkflowWithValues
         /// </summary>
-        /// <param name="fullyQualifiedName"></param>
-        /// <param name="responseFields"></param>
+        /// <param name="fullyQualifiedName">Fully qualified name of the attribute for the third-party payment workflow.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -62,7 +62,7 @@ namespace Mozu.Api.Urls.Commerce.Settings.Checkout
 				/// <summary>
         /// Get Resource Url for DeleteThirdPartyPaymentWorkflow
         /// </summary>
-        /// <param name="fullyQualifiedName"></param>
+        /// <param name="fullyQualifiedName">Fully qualified name of the attribute for the third-party payment workflow.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

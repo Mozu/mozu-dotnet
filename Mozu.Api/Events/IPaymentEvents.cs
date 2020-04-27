@@ -9,15 +9,19 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.Collections.Generic;
+using System.Threading.Tasks;
+using Mozu.Api.Contracts.Event;
 
 
-namespace Mozu.Api.Contracts.Kibo.Fulfillment.Model
+namespace Mozu.Api.Events
 {
-		public class ReassignItemsRequest
-		{
-			public List<ReassignItem> Items { get; set; }
+	public interface IPaymentEvents
+	{
+		[Obsolete("This method is obsolete; use the async method instead")]
+		void Refunded(IApiContext apiContext, Event eventPayLoad);
 
-		}
+		Task RefundedAsync(IApiContext apiContext, Event eventPayLoad);
+
+	}
 
 }

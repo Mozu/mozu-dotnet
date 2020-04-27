@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Platform
 {
 	/// <summary>
-	/// Use the site data resource to store site-level information required for a third-party application in the Mozu database.
+	/// Use the site data resource to store site-level information required for a third-party application in the  database.
 	/// </summary>
 	public partial class SiteDataFactory : BaseDataFactory
 	{

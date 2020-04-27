@@ -13,8 +13,14 @@ using System;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
+		///
+		///	Indicates if the stacking is enabled for a specific catalog, here you can set the stacking configuration.
+		///
 		public class DiscountSettings
 		{
+			///
+			///Where we can enable stacking and indicate how many layers we want to use for line item/order discounts.
+			///
 			public StackingConfiguration StackingConfiguration { get; set; }
 
 		}

@@ -15,7 +15,7 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.Core
 {
 		///
-		///	Properties of the user.
+		///	Properties of the user. Users include customers and  users.
 		///
 		public class User
 		{
@@ -26,6 +26,8 @@ namespace Mozu.Api.Contracts.Core
 			public string FirstName { get; set; }
 
 			public string Id { get; set; }
+
+			public string IdentityProviderId { get; set; }
 
 			public bool IsActive { get; set; }
 

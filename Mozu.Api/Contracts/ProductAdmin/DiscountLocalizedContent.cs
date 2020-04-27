@@ -22,7 +22,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public AuditInfo AuditInfo { get; set; }
 
 			///
-			///The localizable, shopper-facing description defined for the discount.
+			///The localizable, shopper-facing description defined for a discount or a storefront message. 
 			///
 			public string FriendlyDescription { get; set; }
 

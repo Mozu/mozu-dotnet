@@ -11,17 +11,11 @@
 using System;
 
 
-namespace Mozu.Api.Contracts.Kibo.Fulfillment.Model
+namespace Mozu.Api.Contracts.SiteSettings.Order.Fulfillment
 {
-		public class AuditInfo
+		public class FulfillerSettings
 		{
-			public string CreateBy { get; set; }
-
-			public DateTime? CreateDate { get; set; }
-
-			public string UpdateBy { get; set; }
-
-			public DateTime? UpdateDate { get; set; }
+			public bool EditShipment { get; set; }
 
 		}
 

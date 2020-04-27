@@ -16,10 +16,13 @@ using Mozu.Api.Contracts.PricingRuntime;
 namespace Mozu.Api.Contracts.PricingRuntime.ThirdParty
 {
 		///
-		///	Properties of an order for which to calculate tax. When a tax capability is enabled for a tenant, Mozu sends the TaxableOrder properties to the capability as read-only, system-supplied information.
+		///	Properties of an order for which to calculate tax. When a tax capability is enabled for a tenant,  sends the `TaxableOrder `properties to the capability as read-only, system-supplied information.
 		///
 		public class TaxableOrder
 		{
+			///
+			///Collection of attributes that may be paged list or a list, depending on the usage per object and API type.
+			///
 			public List<TaxAttribute> Attributes { get; set; }
 
 			///
@@ -27,31 +30,49 @@ namespace Mozu.Api.Contracts.PricingRuntime.ThirdParty
 			///
 			public string CurrencyCode { get; set; }
 
+			///
+			///handlingDiscount ApiType DOCUMENT_HERE 
+			///
 			public AppliedDiscount HandlingDiscount { get; set; }
 
+			///
+			///The handling discounts applied to the order.
+			///
 			public List<AppliedDiscount> HandlingDiscounts { get; set; }
 
 			///
-			///Handling fee associated with the order.
+			///The combined price for all handling costs calculated together for shipped orders, not for digital or in-store pickup. This includes all handling costs per the product line items and options, excluding taxes and discounts. 
 			///
 			public decimal HandlingFee { get; set; }
 
 			///
-			///List of line items in a taxable order object.
+			///List of line items associated with the order.
 			///
 			public List<TaxableLineItem> LineItems { get; set; }
 
 			///
-			///The date and time the order was submitted.
+			///The date and time the order was submitted for purchase. 
 			///
 			public DateTime OrderDate { get; set; }
 
+			///
+			///The discount applied to the order.
+			///
 			public AppliedDiscount OrderDiscount { get; set; }
 
+			///
+			///List of order-level discounts projected to apply to the cart at checkout or order.
+			///
 			public List<AppliedDiscount> OrderDiscounts { get; set; }
 
+			///
+			///Unique identifier of the order associated with the payment.
+			///
 			public string OrderId { get; set; }
 
+			///
+			///The unique identifier of the order.
+			///
 			public int? OrderNumber { get; set; }
 
 			///
@@ -60,21 +81,33 @@ namespace Mozu.Api.Contracts.PricingRuntime.ThirdParty
 			public string OriginalDocumentCode { get; set; }
 
 			///
-			///The date and time the original order was placed.
+			///The date and time the original order was placed. This date is set when the order is submitted with payment. 
 			///
 			public DateTime OriginalOrderDate { get; set; }
 
 			///
-			///The total shipping amount calculated for the order.
+			///The calculated monetary amount of shipping for a line items within and an entire order.
 			///
 			public decimal ShippingAmount { get; set; }
 
+			///
+			///The discount applied to the order's shipping cost.
+			///
 			public AppliedOrderShippingDiscount ShippingDiscount { get; set; }
 
+			///
+			///List of shipping discounts projected to apply to carts, orders, and wish lists and items at checkout.
+			///
 			public List<AppliedOrderShippingDiscount> ShippingDiscounts { get; set; }
 
+			///
+			///The code associated with a carrier's shipping method service type, used during fulfillment of packages and shipments. Service type codes include a prefix that indicates the carrier. For example: FEDEX_INTERNATIONAL_STANDARD and UPS_GROUND.If using a custom rate, this property corresponds to the  field in  when you navigate to  &gt;  &gt; , and then click on an existing rate or on .
+			///
 			public string ShippingMethodCode { get; set; }
 
+			///
+			///The carrier-supplied name for the shipping service type, such as "UPS Ground" or "2nd Day Air".If using a custom rate, this property corresponds to the  field in  when you navigate to  &gt;  &gt; , and then click on an existing rate or on .
+			///
 			public string ShippingMethodName { get; set; }
 
 			///
@@ -83,7 +116,7 @@ namespace Mozu.Api.Contracts.PricingRuntime.ThirdParty
 			public TaxContext TaxContext { get; set; }
 
 			///
-			///The type of request for which to tax this entity, which is "Order" or "Return."
+			///The type of request for which to tax this entity, which is Order or Return.
 			///
 			public string TaxRequestType { get; set; }
 

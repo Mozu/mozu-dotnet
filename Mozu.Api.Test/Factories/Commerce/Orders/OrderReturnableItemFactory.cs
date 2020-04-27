@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Orders
 {
 	/// <summary>
-	/// 
+	/// Use this subresource to view which order items are eligible for return.
 	/// </summary>
 	public partial class OrderReturnableItemFactory : BaseDataFactory
 	{

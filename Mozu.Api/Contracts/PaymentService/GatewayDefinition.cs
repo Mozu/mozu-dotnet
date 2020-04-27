@@ -27,6 +27,9 @@ namespace Mozu.Api.Contracts.PaymentService
 
 			public List<GatewayCredentialFieldDefinition> CredentialDefinitions { get; set; }
 
+			///
+			///features ApiType DOCUMENT_HERE 
+			///
 			public List<string> Features { get; set; }
 
 			public string Id { get; set; }

@@ -10,12 +10,15 @@
 
 using System;
 
+using Mozu.Api.Contracts.Core;
 
-namespace Mozu.Api.Contracts.Kibo.Fulfillment.Model
+namespace Mozu.Api.Contracts.SiteSettings.General.General
 {
-		public class CancelShipment
+		public class InventorySettings
 		{
-			public CanceledReason CanceledReason { get; set; }
+			public AuditInfo AuditInfo { get; set; }
+
+			public InventoryExportJob InventoryExportJob { get; set; }
 
 		}
 

@@ -18,7 +18,7 @@ using System.Threading;
 namespace Mozu.Api.Resources.Commerce.Checkouts
 {
 	/// <summary>
-	/// 
+	/// Use this resource to manage discounts on the Checkouts resource.
 	/// </summary>
 	public partial class AppliedDiscountResource  	{
 		///
@@ -42,9 +42,9 @@ namespace Mozu.Api.Resources.Commerce.Checkouts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId"></param>
-		/// <param name="couponCode"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="checkoutId">The unique identifier of the checkout.</param>
+		/// <param name="couponCode">Code associated with the coupon to remove from the cart.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout"/>
 		/// </returns>
@@ -68,7 +68,7 @@ namespace Mozu.Api.Resources.Commerce.Checkouts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId"></param>
+		/// <param name="checkoutId">The unique identifier of the checkout.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout"/>
 		/// </returns>
@@ -92,8 +92,8 @@ namespace Mozu.Api.Resources.Commerce.Checkouts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="checkoutId"></param>
-		/// <param name="couponCode"></param>
+		/// <param name="checkoutId">The unique identifier of the checkout.</param>
+		/// <param name="couponCode">Code associated with the coupon to remove from the cart.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Checkouts.Checkout"/>
 		/// </returns>

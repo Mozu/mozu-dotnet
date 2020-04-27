@@ -14,6 +14,9 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.Event
 {
+		///
+		///	Properties for the site associated with a subscription including audit info, if active, and the unique ID for the site.
+		///
 		public class SubscribingSite
 		{
 			///
@@ -22,7 +25,7 @@ namespace Mozu.Api.Contracts.Event
 			public AuditInfo AuditInfo { get; set; }
 
 			///
-			///This specifies if the subscription is active at the site level.
+			///Indicates if the object or feature is active.
 			///
 			public bool? IsActive { get; set; }
 

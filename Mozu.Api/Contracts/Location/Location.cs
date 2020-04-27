@@ -22,8 +22,14 @@ namespace Mozu.Api.Contracts.Location
 		{
 			public Address Address { get; set; }
 
+			///
+			///Allow fullfillment with no (or less) stock
+			///
 			public bool AllowFulfillmentWithNoStock { get; set; }
 
+			///
+			///Collection of attributes that may be paged list or a list, depending on the usage per object and API type.
+			///
 			public List<LocationAttribute> Attributes { get; set; }
 
 			public AuditInfo AuditInfo { get; set; }
@@ -44,6 +50,9 @@ namespace Mozu.Api.Contracts.Location
 
 			public bool IncludeInLocationExport { get; set; }
 
+			///
+			///Locations is disabled (soft delete)
+			///
 			public bool IsDisabled { get; set; }
 
 			public List<LocationType> LocationTypes { get; set; }

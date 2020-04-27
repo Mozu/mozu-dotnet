@@ -15,7 +15,7 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	Value details for a product property attribute.
+		///	Properties of a value for a product property.
 		///
 		public class ProductPropertyValue
 		{
@@ -23,6 +23,9 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public ProductPropertyValueLocalizedContent Content { get; set; }
 
+			///
+			///The localized content associated with the object.
+			///
 			public List<ProductPropertyValueLocalizedContent> LocalizedContent { get; set; }
 
 			public object Value { get; set; }

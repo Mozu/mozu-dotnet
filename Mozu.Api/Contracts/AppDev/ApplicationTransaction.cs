@@ -13,10 +13,16 @@ using System;
 
 namespace Mozu.Api.Contracts.AppDev
 {
+		///
+		///	Mozu.AppDev.Contracts.ApplicationTransaction ApiType DOCUMENT_HERE 
+		///
 		public class ApplicationTransaction
 		{
 			public int? ApplicationEntitlementId { get; set; }
 
+			///
+			///Mozu.AppDev.Contracts.ApplicationTransaction applicationId ApiTypeMember DOCUMENT_HERE 
+			///
 			public int ApplicationId { get; set; }
 
 			public int ApplicationTransactionId { get; set; }

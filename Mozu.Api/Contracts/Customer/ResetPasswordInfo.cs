@@ -18,6 +18,9 @@ namespace Mozu.Api.Contracts.Customer
 		///
 		public class ResetPasswordInfo
 		{
+			///
+			///The unique code of the customer set.
+			///
 			public string CustomerSetCode { get; set; }
 
 			///
@@ -26,7 +29,7 @@ namespace Mozu.Api.Contracts.Customer
 			public string EmailAddress { get; set; }
 
 			///
-			///User name of the user associated with the customer account.
+			///The user name associated with the user profile. The customer uses the user name to access the account.
 			///
 			public string UserName { get; set; }
 

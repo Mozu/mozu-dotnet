@@ -15,6 +15,8 @@ namespace Mozu.Api.Contracts.SiteSettings.Order
 {
 		public class AutoCaptureJob
 		{
+			public FlexibleCapture FlexibleCapture { get; set; }
+
 			public int Interval { get; set; }
 
 			public bool IsEnabled { get; set; }

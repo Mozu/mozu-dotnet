@@ -14,6 +14,9 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.Event
 {
+		///
+		///	Paged collection subscription entities used to provide event notifications for third-parties.
+		///
 		public class SubscriptionCollection
 		{
 			public List<Subscription> Items { get; set; }

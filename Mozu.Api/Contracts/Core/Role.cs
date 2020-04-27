@@ -27,7 +27,7 @@ namespace Mozu.Api.Contracts.Core
 
 			public string Name { get; set; }
 
-			public Owner Owner { get; set; }
+			public List<Owner> Owners { get; set; }
 
 			public List<Resource> Resources { get; set; }
 

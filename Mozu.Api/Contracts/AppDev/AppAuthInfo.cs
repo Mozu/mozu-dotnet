@@ -14,7 +14,7 @@ using System;
 namespace Mozu.Api.Contracts.AppDev
 {
 		///
-		///	The information required to authenticate third party applications against the Mozu API.
+		///	The information required to authenticate third party applications against the  API.
 		///
 		public class AppAuthInfo
 		{

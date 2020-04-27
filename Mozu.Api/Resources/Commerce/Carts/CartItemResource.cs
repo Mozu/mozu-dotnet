@@ -93,8 +93,8 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="cartItemId">Identifier of the cart item to retrieve.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="cartItemId">Identifier of the cart item to delete.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>
 		/// </returns>
@@ -118,7 +118,7 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItemCollection"/>
 		/// </returns>
@@ -219,8 +219,8 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="responseFields"></param>
-		/// <param name="cartItem">All properties of the new cart item. The product code is required.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="cartItem">Properties of an item added to an active shopping cart.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>
 		/// </returns>
@@ -298,9 +298,9 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="cartItemId">Identifier of the cart item to update quantity.</param>
+		/// <param name="cartItemId">Identifier of the cart item to delete.</param>
 		/// <param name="quantity">The number of cart items in the shopper's active cart.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>
 		/// </returns>
@@ -324,9 +324,9 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="cartItemId">Identifier of the cart item to update.</param>
-		/// <param name="responseFields"></param>
-		/// <param name="cartItem">The properties of the cart item to update.</param>
+		/// <param name="cartItemId">Identifier of the cart item to delete.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="cartItem">Properties of an item added to an active shopping cart.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartItem"/>
 		/// </returns>

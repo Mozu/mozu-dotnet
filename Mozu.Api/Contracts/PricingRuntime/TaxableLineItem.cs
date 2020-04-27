@@ -21,16 +21,34 @@ namespace Mozu.Api.Contracts.PricingRuntime
 		///
 		public class TaxableLineItem
 		{
+			///
+			///Custom data for a given vendor set within the commerce process.
+			///
 			public JObject Data { get; set; }
 
+			///
+			///The physical address orders are sent to as a shipping destination. This address may contain multiple lines, city, state/province, country, and zip/postal code. The destination is used to calculate shipping costs.
+			///
 			public Address DestinationAddress { get; set; }
 
+			///
+			///The subtotal of the cart, order, and wishlist items, including any applied discount calculations. Wishlist subtotals may change depending on the length of time, available discounts, and stock amounts of products at the time of review by shoppers.
+			///
 			public decimal? DiscountedTotal { get; set; }
 
+			///
+			///Estimated amount of discounts applied to all items in the carts and orders. System-supplied and read-only. This value will be available at the wish list, cart item, order item, and wish list item level at a later time.
+			///
 			public decimal? DiscountTotal { get; set; }
 
+			///
+			///The monetary sum of all fees incurred in the cart, order, line item in a cart, or line item in an order. This value is not calculated for wish lists at this time.
+			///
 			public decimal? FeeTotal { get; set; }
 
+			///
+			///The combined price for all handling costs calculated together for shipped orders, not for digital or in-store pickup. This includes all handling costs per the product line items and options, excluding taxes and discounts.
+			///
 			public decimal? HandlingAmount { get; set; }
 
 			public string Id { get; set; }
@@ -39,16 +57,25 @@ namespace Mozu.Api.Contracts.PricingRuntime
 
 			public decimal LineItemPrice { get; set; }
 
+			///
+			///The physical address from which the order or shipment will ship.
+			///
 			public Address OriginAddress { get; set; }
 
 			public string ProductCode { get; set; }
 
+			///
+			///The applicable product discount for an associated cart, order, or wish list.
+			///
 			public AppliedLineItemProductDiscount ProductDiscount { get; set; }
 
+			///
+			///List of product-level discounts projected to apply to a cart, order, or wish list.
+			///
 			public List<AppliedLineItemProductDiscount> ProductDiscounts { get; set; }
 
 			///
-			///The name of the product that represents a line item in a taxable order.
+			///The name of the product that represents a line item in a taxable order or product bundle.
 			///
 			public string ProductName { get; set; }
 
@@ -57,16 +84,25 @@ namespace Mozu.Api.Contracts.PricingRuntime
 			public int Quantity { get; set; }
 
 			///
-			///The reason the item is either taxed or returned.
+			///The reason description for an action, including item return, coupon not valid, and item is taxed. 
 			///
 			public string Reason { get; set; }
 
 			public decimal ShippingAmount { get; set; }
 
+			///
+			///The shipping discount applied to the taxable line item.
+			///
 			public AppliedLineItemShippingDiscount ShippingDiscount { get; set; }
 
+			///
+			///List of shipping discounts projected to apply to carts, orders, and wish lists and items at checkout.
+			///
 			public List<AppliedLineItemShippingDiscount> ShippingDiscounts { get; set; }
 
+			///
+			///For configurable products, the unique identifier of the product variation that has been selected.
+			///
 			public string VariantProductCode { get; set; }
 
 		}

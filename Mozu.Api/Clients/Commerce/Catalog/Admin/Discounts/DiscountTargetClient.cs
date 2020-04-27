@@ -25,8 +25,8 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Discounts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="discountId">Unique identifier of the discount. System-supplied and read only.</param>
-		/// <param name="responseFields"></param>
+		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.DiscountTarget"/>}
 		/// </returns>
@@ -51,9 +51,9 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Discounts
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="discountId">Unique identifier of the discount. System-supplied and read-only.</param>
-		/// <param name="responseFields"></param>
-		/// <param name="discountTarget">Properties of the discount target to modify. Required properties: Target.Type. Any unspecified properties are set to null and boolean variables to false.</param>
+		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
+		/// <param name="discountTarget">Properties of the target to which the discount applies, such as the type of discount and which products, categories, or shipping methods are eligible for the discount and the properties of this discount target.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductAdmin.DiscountTarget"/>}
 		/// </returns>

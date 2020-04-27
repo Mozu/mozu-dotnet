@@ -14,12 +14,24 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.PricingRuntime
 {
+		///
+		///	Mozu.PricingRuntime.Contracts.TaxAttribute ApiType DOCUMENT_HERE 
+		///
 		public class TaxAttribute
 		{
+			///
+			///Unique identifier of the attribute definition.
+			///
 			public int? AttributeDefinitionId { get; set; }
 
+			///
+			///Fully qualified name of the attribute for the order or customer.
+			///
 			public string FullyQualifiedName { get; set; }
 
+			///
+			///List of value data for objects.
+			///
 			public List<object> Values { get; set; }
 
 		}

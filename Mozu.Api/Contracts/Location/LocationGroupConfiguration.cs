@@ -23,6 +23,12 @@ namespace Mozu.Api.Contracts.Location
 
 			public AuditInfo AuditInfo { get; set; }
 
+			public bool? AutoPackingListPopup { get; set; }
+
+			public bool? BlockPartialCancel { get; set; }
+
+			public bool? BlockPartialStock { get; set; }
+
 			public List<BoxType> BoxTypes { get; set; }
 
 			public List<BpmConfiguration> BpmConfigurations { get; set; }
@@ -37,17 +43,25 @@ namespace Mozu.Api.Contracts.Location
 
 			public string DefaultCarrier { get; set; }
 
+			public int? DefaultMaxNumberOfShipmentsInPickWave { get; set; }
+
 			public int? DefaultNumberOfOrdersInPickWave { get; set; }
 
 			public string DefaultPrinterType { get; set; }
 
 			public int? DefaultReturnRefundReductionAmount { get; set; }
 
+			public bool? DisplayProductImagesInPickWaveDetails { get; set; }
+
 			public bool? EnableAdvancedOptionForPickWaveCreation { get; set; }
 
 			public bool? EnableForISPU { get; set; }
 
 			public bool? EnableForSTH { get; set; }
+
+			public bool? EnablePnpForBOPIS { get; set; }
+
+			public bool? EnablePnpForSTH { get; set; }
 
 			public bool? EnableScanningOfUpcForShipToHome { get; set; }
 
@@ -58,6 +72,8 @@ namespace Mozu.Api.Contracts.Location
 			public int? MaximumNumberOfOrdersInPickWave { get; set; }
 
 			public int? MaximumReturnRefundReductionAmount { get; set; }
+
+			public PackageSettings PackageSettings { get; set; }
 
 			public string PickWavePrintFormat { get; set; }
 

@@ -14,10 +14,19 @@ using System.Collections.Generic;
 
 namespace Mozu.Api.Contracts.ProductAdmin
 {
+		///
+		///	Tags are further details about the group, the FQN and specific option values, to identify the variants and cases that these images will be displayed for.
+		///
 		public class ProductImageGroupTag
 		{
+			///
+			///The FQN of the option to which this image group belongs.  Should match the fqn of the option that has a true value for isProductImageGroupSelector.
+			///
 			public string Fqn { get; set; }
 
+			///
+			///List of value data for objects.
+			///
 			public List<string> Values { get; set; }
 
 		}

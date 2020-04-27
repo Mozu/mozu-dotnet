@@ -25,8 +25,10 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 
 			public List<string> AvailableActions { get; set; }
 
+			public string Carrier { get; set; }
+
 			///
-			///List of change messages associated with the package.
+			///Collection (list or paged) of change messages logged for each modification made by a shopper to their carts, wishlists, orders, package, payment, pickup, and returns. Change log messages are system-supplied based on shopper actions and read only.
 			///
 			public List<ChangeMessage> ChangeMessages { get; set; }
 
@@ -38,10 +40,13 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 			public DateTime? FulfillmentDate { get; set; }
 
 			///
-			///The location code that represents the location from which this package will ship.
+			///The code that identifies the location used to fulfill the cart/cart item or order/order item. This code can include physical store locations for in-store pickup, warehouse locations providing the products for shipment, or the location for the digital file(s).
 			///
 			public string FulfillmentLocationCode { get; set; }
 
+			///
+			///If there is a shipping label present for this Package, this will be set to true
+			///
 			public bool HasLabel { get; set; }
 
 			public string Id { get; set; }
@@ -58,9 +63,13 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 
 			public string ShippingMethodName { get; set; }
 
+			public bool? SignatureRequired { get; set; }
+
 			public string Status { get; set; }
 
-			public string TrackingNumber { get; set; }
+			public List<string> TrackingNumbers { get; set; }
+
+			public List<Tracking> Trackings { get; set; }
 
 		}
 

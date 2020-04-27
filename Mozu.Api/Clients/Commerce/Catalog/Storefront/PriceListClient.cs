@@ -18,15 +18,15 @@ using System.Threading;
 namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 {
 	/// <summary>
-	/// 
+	/// Retrieves the details of a price list. The details may contain a hierarchy of ancestor and/or descendant price lists dependening on your configuration.
 	/// </summary>
 	public partial class PriceListClient 	{
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="priceListCode"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="priceListCode">The unique code of the price list for which you want to retrieve the details.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductRuntime.PriceList"/>}
 		/// </returns>
@@ -50,8 +50,8 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="customerAccountId"></param>
-		/// <param name="responseFields"></param>
+		/// <param name="customerAccountId">The unique identifier of the customer account for which to retrieve wish lists.</param>
+		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList"/>}
 		/// </returns>
@@ -68,6 +68,31 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="customerAccountObject"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetResolvedPriceList2( customerAccountObject,  responseFields);
+		///   var resolvedPriceListClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList> GetResolvedPriceList2Client(JObject customerAccountObject, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.PriceListUrl.GetResolvedPriceList2Url(responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<JObject>(customerAccountObject);
 			return mozuClient;
 
 		}

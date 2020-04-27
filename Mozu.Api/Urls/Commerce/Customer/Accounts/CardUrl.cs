@@ -21,7 +21,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
         /// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -39,7 +39,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// Get Resource Url for GetAccountCards
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -56,7 +56,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// Get Resource Url for AddAccountCard
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -73,8 +73,8 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// Get Resource Url for UpdateAccountCard
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="cardId">Unique identifier of the credit card.</param>
-        /// <param name="responseFields"></param>
+        /// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
+        /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
@@ -92,7 +92,7 @@ namespace Mozu.Api.Urls.Commerce.Customer.Accounts
         /// Get Resource Url for DeleteAccountCard
         /// </summary>
         /// <param name="accountId">Unique identifier of the customer account.</param>
-        /// <param name="cardId">Unique identifier of the credit card to delete.</param>
+        /// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>

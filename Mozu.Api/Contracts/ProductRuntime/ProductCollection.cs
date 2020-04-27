@@ -15,12 +15,15 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.ProductRuntime
 {
 		///
-		///	Collection of products and their related properties.
+		///	The container for a set of products.
 		///
 		public class ProductCollection
 		{
 			public List<Product> Items { get; set; }
 
+			///
+			///This parameter is associated with deep paging. If you started a deep paged request by specifying ,  returns an encoded value for the . In your most immediate subsequent request, set  to the same value you received for  to continue paging. When  is null, you've reached the end of paged results.
+			///
 			public string NextCursorMark { get; set; }
 
 			public int PageCount { get; set; }

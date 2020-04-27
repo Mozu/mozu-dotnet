@@ -14,10 +14,19 @@ using Mozu.Api.Contracts.Core;
 
 namespace Mozu.Api.Contracts.SiteSettings.Order
 {
+		///
+		///	Mozu.SiteSettings.Order.Contracts.CartSettings ApiType DOCUMENT_HERE 
+		///
 		public class CartSettings
 		{
+			///
+			///Basic audit info about the object, including date, time, and user account. This data may be captured when creating, updating, and removing data.
+			///
 			public AuditInfo AuditInfo { get; set; }
 
+			///
+			///Set this property to  if you want to include handling fees in the calculation of the cart cost.
+			///
 			public bool EnableHandlingFee { get; set; }
 
 		}
