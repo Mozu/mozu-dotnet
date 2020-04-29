@@ -224,6 +224,8 @@
     <Compile Include="Factories\Commerce\Settings\Shipping\SiteShippingHandlingFeeFactory.cs" />
     <Compile Include="Factories\Commerce\Settings\SiteShippingSettingsFactory.cs" />
     <Compile Include="Factories\Commerce\Shipping\Admin\CarrierConfigurationFactory.cs" />
+    <Compile Include="Factories\Commerce\Shipping\Admin\Carriers\CarrierCredentialFactory.cs" />
+    <Compile Include="Factories\Commerce\Shipping\Admin\Carriers\CarrierCredentialSetFactory.cs" />
     <Compile Include="Factories\Commerce\Shipping\Admin\Profiles\OrderHandlingFeeRulesFactory.cs" />
     <Compile Include="Factories\Commerce\Shipping\Admin\Profiles\ProductHandlingFeeRulesFactory.cs" />
     <Compile Include="Factories\Commerce\Shipping\Admin\Profiles\ShippingInclusionRuleFactory.cs" />

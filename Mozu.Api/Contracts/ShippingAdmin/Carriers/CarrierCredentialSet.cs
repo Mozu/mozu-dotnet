@@ -11,25 +11,23 @@
 using System;
 using System.Collections.Generic;
 
+using Mozu.Api.Contracts.Core;
 
-namespace Mozu.Api.Contracts.Tenant
+namespace Mozu.Api.Contracts.ShippingAdmin.Carriers
 {
-		///
-		///	Properties of a master catalog defined for a tenant. All catalogs associated with a master catalog share product definitions.
-		///
-		public class MasterCatalog
+		public class CarrierCredentialSet
 		{
-			public List<Catalog> Catalogs { get; set; }
+			public AuditInfo AuditInfo { get; set; }
 
-			public string DefaultCurrencyCode { get; set; }
+			public string CarrierId { get; set; }
 
-			public string DefaultLocaleCode { get; set; }
+			public string Code { get; set; }
 
-			public int Id { get; set; }
+			public string IntegrationId { get; set; }
 
 			public string Name { get; set; }
 
-			public int TenantId { get; set; }
+			public List<CarrierCredentialSetValue> Values { get; set; }
 
 		}
 

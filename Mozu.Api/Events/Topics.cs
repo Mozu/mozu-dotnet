@@ -101,6 +101,8 @@ namespace Mozu.Api.Events
 
 		public const string PAYMENTREFUNDED = "payment.refunded";
 
+		public const string PAYMENTTRANSACTIONERROR = "payment.transactionerror";
+
 		public const string PRICELISTCREATED = "pricelist.created";
 
 		public const string PRICELISTDELETED = "pricelist.deleted";

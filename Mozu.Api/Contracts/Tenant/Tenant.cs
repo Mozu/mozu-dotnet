@@ -19,6 +19,8 @@ namespace Mozu.Api.Contracts.Tenant
 		///
 		public class Tenant
 		{
+			public List<TenantAttribute> Attributes { get; set; }
+
 			public string Domain { get; set; }
 
 			public int Id { get; set; }
@@ -29,7 +31,7 @@ namespace Mozu.Api.Contracts.Tenant
 
 			public string Name { get; set; }
 
-			public int OmsMerchantId { get; set; }
+			public int? OmsMerchantId { get; set; }
 
 			public List<Site> Sites { get; set; }
 

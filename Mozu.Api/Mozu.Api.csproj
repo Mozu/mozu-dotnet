@@ -236,6 +236,8 @@
     <Compile Include="Clients\Commerce\Settings\Shipping\SiteShippingHandlingFeeClient.cs" />
     <Compile Include="Clients\Commerce\Settings\SiteShippingSettingsClient.cs" />
     <Compile Include="Clients\Commerce\Shipping\Admin\CarrierConfigurationClient.cs" />
+    <Compile Include="Clients\Commerce\Shipping\Admin\Carriers\CarrierCredentialClient.cs" />
+    <Compile Include="Clients\Commerce\Shipping\Admin\Carriers\CarrierCredentialSetClient.cs" />
     <Compile Include="Clients\Commerce\Shipping\Admin\Profiles\OrderHandlingFeeRulesClient.cs" />
     <Compile Include="Clients\Commerce\Shipping\Admin\Profiles\ProductHandlingFeeRulesClient.cs" />
     <Compile Include="Clients\Commerce\Shipping\Admin\Profiles\ShippingInclusionRuleClient.cs" />
@@ -829,6 +831,11 @@
     <Compile Include="Contracts\Reference\UnitOfMeasureCollection.cs" />
     <Compile Include="Contracts\ShippingAdmin\CarrierConfiguration.cs" />
     <Compile Include="Contracts\ShippingAdmin\CarrierConfigurationCollection.cs" />
+    <Compile Include="Contracts\ShippingAdmin\Carriers\CarrierCredential.cs" />
+    <Compile Include="Contracts\ShippingAdmin\Carriers\CarrierCredentialCollection.cs" />
+    <Compile Include="Contracts\ShippingAdmin\Carriers\CarrierCredentialSet.cs" />
+    <Compile Include="Contracts\ShippingAdmin\Carriers\CarrierCredentialSetCollection.cs" />
+    <Compile Include="Contracts\ShippingAdmin\Carriers\CarrierCredentialSetValue.cs" />
     <Compile Include="Contracts\ShippingAdmin\CustomTableRate.cs" />
     <Compile Include="Contracts\ShippingAdmin\CustomTableRateContent.cs" />
     <Compile Include="Contracts\ShippingAdmin\LocalizableString.cs" />
@@ -1063,6 +1070,8 @@
     <Compile Include="Resources\Commerce\Settings\Shipping\SiteShippingHandlingFeeResource.cs" />
     <Compile Include="Resources\Commerce\Settings\SiteShippingSettingsResource.cs" />
     <Compile Include="Resources\Commerce\Shipping\Admin\CarrierConfigurationResource.cs" />
+    <Compile Include="Resources\Commerce\Shipping\Admin\Carriers\CarrierCredentialResource.cs" />
+    <Compile Include="Resources\Commerce\Shipping\Admin\Carriers\CarrierCredentialSetResource.cs" />
     <Compile Include="Resources\Commerce\Shipping\Admin\Profiles\OrderHandlingFeeRulesResource.cs" />
     <Compile Include="Resources\Commerce\Shipping\Admin\Profiles\ProductHandlingFeeRulesResource.cs" />
     <Compile Include="Resources\Commerce\Shipping\Admin\Profiles\ShippingInclusionRuleResource.cs" />
@@ -1229,6 +1238,8 @@
     <Compile Include="Urls\Commerce\Settings\Shipping\SiteShippingHandlingFeeUrl.cs" />
     <Compile Include="Urls\Commerce\Settings\SiteShippingSettingsUrl.cs" />
     <Compile Include="Urls\Commerce\Shipping\Admin\CarrierConfigurationUrl.cs" />
+    <Compile Include="Urls\Commerce\Shipping\Admin\Carriers\CarrierCredentialSetUrl.cs" />
+    <Compile Include="Urls\Commerce\Shipping\Admin\Carriers\CarrierCredentialUrl.cs" />
     <Compile Include="Urls\Commerce\Shipping\Admin\Profiles\OrderHandlingFeeRulesUrl.cs" />
     <Compile Include="Urls\Commerce\Shipping\Admin\Profiles\ProductHandlingFeeRulesUrl.cs" />
     <Compile Include="Urls\Commerce\Shipping\Admin\Profiles\ShippingInclusionRuleUrl.cs" />
