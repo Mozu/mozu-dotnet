@@ -85,7 +85,7 @@ namespace Mozu.Api.Urls.Platform.Adminuser
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl CreateUserAuthTicketWithWsFedUrl(string id, int? scopeid, string scopeType, string responseFields =  null)
+        public static MozuUrl CreateUserAuthTicketWithWsFedUrl(string id, int? scopeid , string scopeType, string responseFields =  null)
 		{
 			var url = "/api/platform/adminuser/authtickets/wsfed/auth/{id}?scopeid={scopeid}&scopeType={scopeType}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;

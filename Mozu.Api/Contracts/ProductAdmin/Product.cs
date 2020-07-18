@@ -101,6 +101,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public int? ShippingClassId { get; set; }
 
+			public SlicingSettings SlicingSettings { get; set; }
+
 			public string StandAlonePackageType { get; set; }
 
 			///

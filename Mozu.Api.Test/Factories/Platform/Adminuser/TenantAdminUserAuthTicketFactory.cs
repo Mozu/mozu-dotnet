@@ -41,7 +41,7 @@ namespace Mozu.Api.Test.Factories.Platform.Adminuser
 		/// </example> 
 		/// </summary>
 		public static string GetWsFedChallengeUrl(ServiceClientMessageHandler handler, 
- 		 string id, int? scopeid, string scopeType, string redirect, string responseFields = null, 
+ 		 string id, int? scopeid , string scopeType, string redirect, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();

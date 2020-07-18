@@ -46,6 +46,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public bool? IsProperty { get; set; }
 
+			public bool? IsValueMappingAttribute { get; set; }
+
 			///
 			///The localized content associated with the object.
 			///
@@ -61,6 +63,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public AttributeSearchSettings SearchSettings { get; set; }
 
 			public AttributeValidation Validation { get; set; }
+
+			public string ValueMappingAttributeFQN { get; set; }
 
 			public string ValueType { get; set; }
 

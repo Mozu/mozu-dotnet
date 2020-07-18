@@ -750,6 +750,7 @@
     <Compile Include="Contracts\ProductAdmin\SiteSearchPhraseRelevancySettings.cs" />
     <Compile Include="Contracts\ProductAdmin\SiteSearchRelevancyCustomField.cs" />
     <Compile Include="Contracts\ProductAdmin\SiteSearchSettings.cs" />
+    <Compile Include="Contracts\ProductAdmin\SlicingSettings.cs" />
     <Compile Include="Contracts\ProductAdmin\StackingConfiguration.cs" />
     <Compile Include="Contracts\ProductAdmin\TargetedCategory.cs" />
     <Compile Include="Contracts\ProductAdmin\TargetedProduct.cs" />
@@ -787,7 +788,10 @@
     <Compile Include="Contracts\ProductRuntime\ProductCost.cs" />
     <Compile Include="Contracts\ProductRuntime\ProductCostCollection.cs" />
     <Compile Include="Contracts\ProductRuntime\ProductCostQuery.cs" />
+    <Compile Include="Contracts\ProductRuntime\ProductForIndexing.cs" />
     <Compile Include="Contracts\ProductRuntime\ProductImage.cs" />
+    <Compile Include="Contracts\ProductRuntime\ProductImageGroup.cs" />
+    <Compile Include="Contracts\ProductRuntime\ProductImageGroupTag.cs" />
     <Compile Include="Contracts\ProductRuntime\ProductInventoryInfo.cs" />
     <Compile Include="Contracts\ProductRuntime\ProductOption.cs" />
     <Compile Include="Contracts\ProductRuntime\ProductOptionSelection.cs" />
@@ -882,6 +886,8 @@
     <Compile Include="Contracts\SiteSettings\General\General\Routing\Validator.cs" />
     <Compile Include="Contracts\SiteSettings\General\General\ViewAuthorizations.cs" />
     <Compile Include="Contracts\SiteSettings\General\GeneralSettings.cs" />
+    <Compile Include="Contracts\SiteSettings\General\SMSTransactionSettings.cs" />
+    <Compile Include="Contracts\SiteSettings\General\SMSTypeSetting.cs" />
     <Compile Include="Contracts\SiteSettings\General\TaxableTerritory.cs" />
     <Compile Include="Contracts\SiteSettings\Order\AutoCaptureJob.cs" />
     <Compile Include="Contracts\SiteSettings\Order\CartSettings.cs" />

@@ -102,6 +102,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 
 			public string ProductCode { get; set; }
 
+			public List<ProductImageGroup> ProductImageGroups { get; set; }
+
 			public int? ProductSequence { get; set; }
 
 			public string ProductType { get; set; }
@@ -126,6 +128,10 @@ namespace Mozu.Api.Contracts.ProductRuntime
 			///The location where the order item(s) was purchased.
 			///
 			public string PurchaseLocation { get; set; }
+
+			public string SliceValue { get; set; }
+
+			public string SlicingAttributeFQN { get; set; }
 
 			public string Upc { get; set; }
 
