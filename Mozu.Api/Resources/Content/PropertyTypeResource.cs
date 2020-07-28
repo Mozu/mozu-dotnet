@@ -153,20 +153,21 @@ namespace Mozu.Api.Resources.Content
 		/// </summary>
 		/// <param name="propertyTypeName">The name of the property type.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var propertytype = new PropertyType();
-		///   await propertytype.DeletePropertyTypeAsync(_dataViewMode,  propertyTypeName);
+		///   var stream = await propertytype.DeletePropertyTypeAsync(_dataViewMode,  propertyTypeName);
 		/// </code>
 		/// </example>
-		public virtual async Task DeletePropertyTypeAsync(string propertyTypeName, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeletePropertyTypeAsync(string propertyTypeName, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Content.PropertyTypeClient.DeletePropertyTypeClient(_dataViewMode,  propertyTypeName);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

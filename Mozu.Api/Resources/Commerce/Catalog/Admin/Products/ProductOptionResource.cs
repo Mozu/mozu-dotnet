@@ -155,20 +155,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var productoption = new ProductOption();
-		///   await productoption.DeleteOptionAsync(_dataViewMode,  productCode,  attributeFQN);
+		///   var stream = await productoption.DeleteOptionAsync(_dataViewMode,  productCode,  attributeFQN);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteOptionAsync(string productCode, string attributeFQN, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteOptionAsync(string productCode, string attributeFQN, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductOptionClient.DeleteOptionClient(_dataViewMode,  productCode,  attributeFQN);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

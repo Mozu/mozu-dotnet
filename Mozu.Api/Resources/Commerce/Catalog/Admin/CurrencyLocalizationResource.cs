@@ -170,20 +170,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
 		/// <param name="currencyExchangeRates">All of the exchange rates being provided.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var currencylocalization = new CurrencyLocalization();
-		///   await currencylocalization.AddCurrencyExchangeRatesAsync( currencyExchangeRates,  currencyCode);
+		///   var stream = await currencylocalization.AddCurrencyExchangeRatesAsync( currencyExchangeRates,  currencyCode);
 		/// </code>
 		/// </example>
-		public virtual async Task AddCurrencyExchangeRatesAsync(List<Mozu.Api.Contracts.ProductAdmin.CurrencyExchangeRate> currencyExchangeRates, string currencyCode, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> AddCurrencyExchangeRatesAsync(List<Mozu.Api.Contracts.ProductAdmin.CurrencyExchangeRate> currencyExchangeRates, string currencyCode, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CurrencyLocalizationClient.AddCurrencyExchangeRatesClient( currencyExchangeRates,  currencyCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -194,20 +195,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
 		/// <param name="currencyExchangeRates"></param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var currencylocalization = new CurrencyLocalization();
-		///   await currencylocalization.UpdateCurrencyExchangeRatesAsync( currencyExchangeRates,  currencyCode);
+		///   var stream = await currencylocalization.UpdateCurrencyExchangeRatesAsync( currencyExchangeRates,  currencyCode);
 		/// </code>
 		/// </example>
-		public virtual async Task UpdateCurrencyExchangeRatesAsync(List<Mozu.Api.Contracts.ProductAdmin.CurrencyExchangeRate> currencyExchangeRates, string currencyCode, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> UpdateCurrencyExchangeRatesAsync(List<Mozu.Api.Contracts.ProductAdmin.CurrencyExchangeRate> currencyExchangeRates, string currencyCode, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CurrencyLocalizationClient.UpdateCurrencyExchangeRatesClient( currencyExchangeRates,  currencyCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -243,20 +245,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var currencylocalization = new CurrencyLocalization();
-		///   await currencylocalization.DeleteCurrencyLocalizationAsync( currencyCode);
+		///   var stream = await currencylocalization.DeleteCurrencyLocalizationAsync( currencyCode);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteCurrencyLocalizationAsync(string currencyCode, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteCurrencyLocalizationAsync(string currencyCode, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CurrencyLocalizationClient.DeleteCurrencyLocalizationClient( currencyCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -267,20 +270,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <param name="currencyCode">The three character ISOÂ currency code, such as USDÂ for US Dollars.</param>
 		/// <param name="toCurrencyCode">The code of the new currency that the original currency's equivalent is being calculated to.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var currencylocalization = new CurrencyLocalization();
-		///   await currencylocalization.DeleteCurrencyExchangeRateAsync( currencyCode,  toCurrencyCode);
+		///   var stream = await currencylocalization.DeleteCurrencyExchangeRateAsync( currencyCode,  toCurrencyCode);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteCurrencyExchangeRateAsync(string currencyCode, string toCurrencyCode, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteCurrencyExchangeRateAsync(string currencyCode, string toCurrencyCode, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CurrencyLocalizationClient.DeleteCurrencyExchangeRateClient( currencyCode,  toCurrencyCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

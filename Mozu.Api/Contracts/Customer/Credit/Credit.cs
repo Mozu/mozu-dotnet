@@ -39,6 +39,8 @@ namespace Mozu.Api.Contracts.Customer.Credit
 			///
 			public string CreditType { get; set; }
 
+			public int CreditTypeId { get; set; }
+
 			///
 			///3-letter ISO 4217 standard global currency code. Currently, only "USD" (US Dollar) is supported.
 			///

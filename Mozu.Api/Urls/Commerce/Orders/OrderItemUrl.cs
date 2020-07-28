@@ -28,7 +28,7 @@ namespace Mozu.Api.Urls.Commerce.Orders
         /// </returns>
         public static MozuUrl GetOrderItemViaLineIdUrl(string orderId, int lineId, bool? draft =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/orders/{orderId}/items/{lineId}?draft={draft}&responseFields={responseFields}";
+			var url = "/api/commerce/orders/{orderId}/items/{lineId:int}?draft={draft}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "draft", draft);
 			mozuUrl.FormatUrl( "lineId", lineId);

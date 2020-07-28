@@ -79,9 +79,13 @@ namespace Mozu.Api.Events
 
 		public const string ORDERABANDONED = "order.abandoned";
 
+		public const string ORDERADDRESSCHANGED = "order.addresschanged";
+
 		public const string ORDERCANCELLED = "order.cancelled";
 
 		public const string ORDERCLOSED = "order.closed";
+
+		public const string ORDERERRORED = "order.errored";
 
 		public const string ORDERFULFILLED = "order.fulfilled";
 
@@ -94,6 +98,10 @@ namespace Mozu.Api.Events
 		public const string ORDERSAVED = "order.saved";
 
 		public const string ORDERUPDATED = "order.updated";
+
+		public const string PAYMENTREFUNDED = "payment.refunded";
+
+		public const string PAYMENTTRANSACTIONERROR = "payment.transactionerror";
 
 		public const string PRICELISTCREATED = "pricelist.created";
 
@@ -153,7 +161,17 @@ namespace Mozu.Api.Events
 
 		public const string SEARCHSETTINGSUPDATED = "searchsettings.updated";
 
-		public const string SHIPMENTFULFILLED = "shipment.fulfilled";
+		public const string SHIPMENTADJUSTED = "shipment.adjusted";
+
+		public const string SHIPMENTITEMADJUSTED = "shipment.itemadjusted";
+
+		public const string SHIPMENTITEMSCANCELED = "shipment.itemscanceled";
+
+		public const string SHIPMENTITEMSREJECTED = "shipment.itemsrejected";
+
+		public const string SHIPMENTSTATUSCHANGED = "shipment.statuschanged";
+
+		public const string SHIPMENTWORKFLOWSTATECHANGED = "shipment.workflowstatechanged";
 
 		public const string SITECLONED = "site.cloned";
 

@@ -107,19 +107,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <param name="publishEvents">Disable this property to prevent publishing the event related to adding price list entries to the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.</param>
 		/// <param name="priceListEntriesIn"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=BulkAddPriceListEntries( priceListEntriesIn,  publishEvents,  invalidateCache);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient BulkAddPriceListEntriesClient(List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents =  null, bool? invalidateCache =  null)
+		public static MozuClient<System.IO.Stream> BulkAddPriceListEntriesClient(List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents =  null, bool? invalidateCache =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.PriceListUrl.BulkAddPriceListEntriesUrl(publishEvents, invalidateCache);
 			const string verb = "POST";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry>>(priceListEntriesIn);
 			return mozuClient;
@@ -133,19 +133,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <param name="publishEvents">Disable this property to prevent publishing the event related to deleting price list entries from the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.</param>
 		/// <param name="priceListEntriesIn"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=BulkDeletePriceListEntries( priceListEntriesIn,  publishEvents,  invalidateCache);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient BulkDeletePriceListEntriesClient(List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents =  null, bool? invalidateCache =  null)
+		public static MozuClient<System.IO.Stream> BulkDeletePriceListEntriesClient(List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents =  null, bool? invalidateCache =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.PriceListUrl.BulkDeletePriceListEntriesUrl(publishEvents, invalidateCache);
 			const string verb = "POST";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry>>(priceListEntriesIn);
 			return mozuClient;
@@ -159,19 +159,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <param name="publishEvents">Disable this property to prevent publishing the event related to updating price list entries in the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.</param>
 		/// <param name="priceListEntriesIn"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=BulkUpdatePriceListEntries( priceListEntriesIn,  publishEvents,  invalidateCache);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient BulkUpdatePriceListEntriesClient(List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents =  null, bool? invalidateCache =  null)
+		public static MozuClient<System.IO.Stream> BulkUpdatePriceListEntriesClient(List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents =  null, bool? invalidateCache =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.PriceListUrl.BulkUpdatePriceListEntriesUrl(publishEvents, invalidateCache);
 			const string verb = "POST";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry>>(priceListEntriesIn);
 			return mozuClient;
@@ -210,19 +210,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <param name="cascadeDeleteEntries">Specifies whether to deletes all price list entries associated with the price list.</param>
 		/// <param name="priceListCode">The unique, user-defined code of the price list.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeletePriceList( priceListCode,  cascadeDeleteEntries);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeletePriceListClient(string priceListCode, bool? cascadeDeleteEntries =  null)
+		public static MozuClient<System.IO.Stream> DeletePriceListClient(string priceListCode, bool? cascadeDeleteEntries =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.PriceListUrl.DeletePriceListUrl(priceListCode, cascadeDeleteEntries);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

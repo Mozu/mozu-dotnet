@@ -173,19 +173,19 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		/// <param name="documentListName">Name of content documentListName to delete</param>
 		/// <param name="stream">Data stream that delivers information. Used to input and output data.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=UpdateDocumentContent( stream,  documentListName,  documentId,  contentType);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient UpdateDocumentContentClient(System.IO.Stream stream, string documentListName, string documentId, String  contentType= null)
+		public static MozuClient<System.IO.Stream> UpdateDocumentContentClient(System.IO.Stream stream, string documentListName, string documentId, String  contentType= null)
 		{
 			var url = Mozu.Api.Urls.Content.Documentlists.DocumentUrl.UpdateDocumentContentUrl(documentListName, documentId);
 			const string verb = "PUT";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody(stream)									.WithHeader(Headers.CONTENT_TYPE ,contentType)
 ;
@@ -226,19 +226,19 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		/// <param name="documentId">Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.</param>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteDocument( documentListName,  documentId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteDocumentClient(string documentListName, string documentId)
+		public static MozuClient<System.IO.Stream> DeleteDocumentClient(string documentListName, string documentId)
 		{
 			var url = Mozu.Api.Urls.Content.Documentlists.DocumentUrl.DeleteDocumentUrl(documentListName, documentId);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -251,19 +251,19 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		/// <param name="documentId">Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.</param>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteDocumentContent( documentListName,  documentId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteDocumentContentClient(string documentListName, string documentId)
+		public static MozuClient<System.IO.Stream> DeleteDocumentContentClient(string documentListName, string documentId)
 		{
 			var url = Mozu.Api.Urls.Content.Documentlists.DocumentUrl.DeleteDocumentContentUrl(documentListName, documentId);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

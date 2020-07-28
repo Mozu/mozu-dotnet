@@ -293,20 +293,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var productextra = new ProductExtra();
-		///   await productextra.DeleteExtraAsync(_dataViewMode,  productCode,  attributeFQN);
+		///   var stream = await productextra.DeleteExtraAsync(_dataViewMode,  productCode,  attributeFQN);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteExtraAsync(string productCode, string attributeFQN, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteExtraAsync(string productCode, string attributeFQN, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.DeleteExtraClient(_dataViewMode,  productCode,  attributeFQN);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -319,20 +320,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="value">The value string to create.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var productextra = new ProductExtra();
-		///   await productextra.DeleteExtraValueLocalizedDeltaPriceAsync(_dataViewMode,  productCode,  attributeFQN,  value,  currencyCode);
+		///   var stream = await productextra.DeleteExtraValueLocalizedDeltaPriceAsync(_dataViewMode,  productCode,  attributeFQN,  value,  currencyCode);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteExtraValueLocalizedDeltaPriceAsync(string productCode, string attributeFQN, string value, string currencyCode, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteExtraValueLocalizedDeltaPriceAsync(string productCode, string attributeFQN, string value, string currencyCode, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductExtraClient.DeleteExtraValueLocalizedDeltaPriceClient(_dataViewMode,  productCode,  attributeFQN,  value,  currencyCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

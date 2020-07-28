@@ -21,6 +21,7 @@ namespace Mozu.Api.Urls.Commerce
         /// </summary>
         /// <param name="filter">A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.</param>
         /// <param name="includeBin"></param>
+        /// <param name="mode"></param>
         /// <param name="pageSize">When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.</param>
         /// <param name="q">A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.</param>
         /// <param name="qLimit">The maximum number of search results to return in the response. You can limit any range between 1-100.</param>
@@ -30,12 +31,13 @@ namespace Mozu.Api.Urls.Commerce
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetOrdersUrl(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string q =  null, int? qLimit =  null, bool? includeBin =  null, string responseFields =  null)
+        public static MozuUrl GetOrdersUrl(int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null, string q =  null, int? qLimit =  null, bool? includeBin =  null, string mode =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/orders/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&q={q}&qLimit={qLimit}&includeBin={includeBin}&responseFields={responseFields}";
+			var url = "/api/commerce/orders/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&q={q}&qLimit={qLimit}&includeBin={includeBin}&mode={mode}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "filter", filter);
 			mozuUrl.FormatUrl( "includeBin", includeBin);
+			mozuUrl.FormatUrl( "mode", mode);
 			mozuUrl.FormatUrl( "pageSize", pageSize);
 			mozuUrl.FormatUrl( "q", q);
 			mozuUrl.FormatUrl( "qLimit", qLimit);
@@ -80,17 +82,19 @@ namespace Mozu.Api.Urls.Commerce
         /// </summary>
         /// <param name="draft">If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.</param>
         /// <param name="includeBin"></param>
+        /// <param name="mode"></param>
         /// <param name="orderId">Unique identifier of the order.</param>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
         /// <returns>
         /// String - Resource Url
         /// </returns>
-        public static MozuUrl GetOrderUrl(string orderId, bool? draft =  null, bool? includeBin =  null, string responseFields =  null)
+        public static MozuUrl GetOrderUrl(string orderId, bool? draft =  null, bool? includeBin =  null, string mode =  null, string responseFields =  null)
 		{
-			var url = "/api/commerce/orders/{orderId}?draft={draft}&includeBin={includeBin}&responseFields={responseFields}";
+			var url = "/api/commerce/orders/{orderId}?draft={draft}&includeBin={includeBin}&mode={mode}&responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "draft", draft);
 			mozuUrl.FormatUrl( "includeBin", includeBin);
+			mozuUrl.FormatUrl( "mode", mode);
 			mozuUrl.FormatUrl( "orderId", orderId);
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			return mozuUrl;

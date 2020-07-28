@@ -24,6 +24,8 @@ namespace Mozu.Api.Contracts.Customer.Credit
 			///
 			public string ActivityType { get; set; }
 
+			public int ActivityTypeId { get; set; }
+
 			///
 			///Identifier and datetime stamp information recorded when a user or application creates, updates, or deletes a resource entity. This value is system-supplied and read-only.
 			///

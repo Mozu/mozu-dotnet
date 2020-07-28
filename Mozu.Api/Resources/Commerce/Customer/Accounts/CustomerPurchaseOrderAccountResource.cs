@@ -176,20 +176,21 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customerpurchaseorderaccount = new CustomerPurchaseOrderAccount();
-		///   await customerpurchaseorderaccount.DeleteCustomerPurchaseOrderAccountAsync( accountId);
+		///   var stream = await customerpurchaseorderaccount.DeleteCustomerPurchaseOrderAccountAsync( accountId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteCustomerPurchaseOrderAccountAsync(int accountId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteCustomerPurchaseOrderAccountAsync(int accountId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerPurchaseOrderAccountClient.DeleteCustomerPurchaseOrderAccountClient( accountId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

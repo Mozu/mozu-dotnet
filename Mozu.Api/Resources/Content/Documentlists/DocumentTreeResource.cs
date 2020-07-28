@@ -137,20 +137,21 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <param name="documentName">The name of the document in the site.</param>
 		/// <param name="stream">Data stream that delivers information. Used to input and output data.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var documenttree = new DocumentTree();
-		///   await documenttree.UpdateTreeDocumentContentAsync( stream,  documentListName,  documentName,  contentType);
+		///   var stream = await documenttree.UpdateTreeDocumentContentAsync( stream,  documentListName,  documentName,  contentType);
 		/// </code>
 		/// </example>
-		public virtual async Task UpdateTreeDocumentContentAsync(System.IO.Stream stream, string documentListName, string documentName, String  contentType= null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> UpdateTreeDocumentContentAsync(System.IO.Stream stream, string documentListName, string documentName, String  contentType= null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Content.Documentlists.DocumentTreeClient.UpdateTreeDocumentContentClient( stream,  documentListName,  documentName,  contentType);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -162,20 +163,21 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <param name="documentName">The name of the document in the site.</param>
 		/// <param name="stream">Data stream that delivers information. Used to input and output data.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var documenttree = new DocumentTree();
-		///   await documenttree.DeleteTreeDocumentContentAsync( stream,  documentListName,  documentName,  contentType);
+		///   var stream = await documenttree.DeleteTreeDocumentContentAsync( stream,  documentListName,  documentName,  contentType);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteTreeDocumentContentAsync(System.IO.Stream stream, string documentListName, string documentName, String  contentType= null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteTreeDocumentContentAsync(System.IO.Stream stream, string documentListName, string documentName, String  contentType= null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Content.Documentlists.DocumentTreeClient.DeleteTreeDocumentContentClient( stream,  documentListName,  documentName,  contentType);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

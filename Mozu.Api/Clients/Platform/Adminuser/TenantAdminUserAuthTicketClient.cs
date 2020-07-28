@@ -25,6 +25,60 @@ namespace Mozu.Api.Clients.Platform.Adminuser
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="id"></param>
+		/// <param name="redirect"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="scopeid"></param>
+		/// <param name="scopeType"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{string}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetWsFedChallengeUrl( id,  scopeid,  scopeType,  redirect,  responseFields);
+		///   var stringClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<string> GetWsFedChallengeUrlClient(string id, int? scopeid, string scopeType, string redirect, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Platform.Adminuser.TenantAdminUserAuthTicketUrl.GetWsFedChallengeUrlUrl(id, scopeid, scopeType, redirect, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<string>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="id"></param>
+		/// <param name="redirect"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{string}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetWsFedSignOutUrl( id,  redirect,  responseFields);
+		///   var stringClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<string> GetWsFedSignOutUrlClient(string id, string redirect, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Platform.Adminuser.TenantAdminUserAuthTicketUrl.GetWsFedSignOutUrlUrl(id, redirect, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<string>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="tenantId">Unique identifier of the development or production tenant for which to generate the user authentication ticket.</param>
 		/// <param name="userAuthInfo">Information required to authenticate a user.</param>
@@ -44,6 +98,33 @@ namespace Mozu.Api.Clients.Platform.Adminuser
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.Core.UserAuthInfo>(userAuthInfo);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="id"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="scopeid"></param>
+		/// <param name="scopeType"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=CreateUserAuthTicketWithWsFed( id,  scopeid,  scopeType,  responseFields);
+		///   var tenantAdminUserAuthTicketClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket> CreateUserAuthTicketWithWsFedClient(string id, int? scopeid, string scopeType, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Platform.Adminuser.TenantAdminUserAuthTicketUrl.CreateUserAuthTicketWithWsFedUrl(id, scopeid, scopeType, responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
 			return mozuClient;
 
 		}
@@ -79,19 +160,19 @@ namespace Mozu.Api.Clients.Platform.Adminuser
 		/// </summary>
 		/// <param name="refreshToken">Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteUserAuthTicket( refreshToken);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteUserAuthTicketClient(string refreshToken)
+		public static MozuClient<System.IO.Stream> DeleteUserAuthTicketClient(string refreshToken)
 		{
 			var url = Mozu.Api.Urls.Platform.Adminuser.TenantAdminUserAuthTicketUrl.DeleteUserAuthTicketUrl(refreshToken);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

@@ -31,6 +31,21 @@ namespace Mozu.Api.Urls.Platform.Applications
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for OauthAuthenticateApp
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl OauthAuthenticateAppUrl(string responseFields =  null)
+		{
+			var url = "/api/platform/applications/authtickets/oauth?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
 				/// <summary>
         /// Get Resource Url for RefreshAppAuthTicket
         /// </summary>

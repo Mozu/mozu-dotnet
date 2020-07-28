@@ -69,20 +69,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Couponsets
 		/// <param name="couponSetCode">The unique identifier of the coupon set.</param>
 		/// <param name="assignedDiscount">The details of the discount assigned to the coupon set.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var assigneddiscount = new AssignedDiscount();
-		///   await assigneddiscount.AssignDiscountAsync( assignedDiscount,  couponSetCode);
+		///   var stream = await assigneddiscount.AssignDiscountAsync( assignedDiscount,  couponSetCode);
 		/// </code>
 		/// </example>
-		public virtual async Task AssignDiscountAsync(Mozu.Api.Contracts.ProductAdmin.AssignedDiscount assignedDiscount, string couponSetCode, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> AssignDiscountAsync(Mozu.Api.Contracts.ProductAdmin.AssignedDiscount assignedDiscount, string couponSetCode, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.AssignedDiscountClient.AssignDiscountClient( assignedDiscount,  couponSetCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -93,20 +94,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Couponsets
 		/// <param name="couponSetCode">The unique identifier of the coupon set.</param>
 		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var assigneddiscount = new AssignedDiscount();
-		///   await assigneddiscount.UnAssignDiscountAsync( couponSetCode,  discountId);
+		///   var stream = await assigneddiscount.UnAssignDiscountAsync( couponSetCode,  discountId);
 		/// </code>
 		/// </example>
-		public virtual async Task UnAssignDiscountAsync(string couponSetCode, int discountId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> UnAssignDiscountAsync(string couponSetCode, int discountId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.AssignedDiscountClient.UnAssignDiscountClient( couponSetCode,  discountId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

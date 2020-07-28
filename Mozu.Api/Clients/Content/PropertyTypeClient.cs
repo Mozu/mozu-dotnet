@@ -132,19 +132,19 @@ namespace Mozu.Api.Clients.Content
 		/// </summary>
 		/// <param name="propertyTypeName">The name of the property type.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeletePropertyType(dataViewMode,  propertyTypeName);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeletePropertyTypeClient(DataViewMode dataViewMode, string propertyTypeName)
+		public static MozuClient<System.IO.Stream> DeletePropertyTypeClient(DataViewMode dataViewMode, string propertyTypeName)
 		{
 			var url = Mozu.Api.Urls.Content.PropertyTypeUrl.DeletePropertyTypeUrl(propertyTypeName);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;

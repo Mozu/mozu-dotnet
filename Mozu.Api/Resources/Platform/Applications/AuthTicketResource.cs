@@ -71,6 +71,31 @@ namespace Mozu.Api.Resources.Platform.Applications
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="appAuthInfo"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.AppDev.OAuthAccessTokenResponse"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var authticket = new AuthTicket();
+		///   var oAuthAccessTokenResponse = await authticket.OauthAuthenticateAppAsync( appAuthInfo,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.AppDev.OAuthAccessTokenResponse> OauthAuthenticateAppAsync(Mozu.Api.Contracts.AppDev.OauthAuthRequest appAuthInfo, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.AppDev.OAuthAccessTokenResponse> response;
+			var client = Mozu.Api.Clients.Platform.Applications.AuthTicketClient.OauthAuthenticateAppClient( appAuthInfo,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="authTicketRequest">Properties of the authentication ticket refresh requests, which includes the refresh token string.</param>
 		/// <returns>
@@ -98,20 +123,21 @@ namespace Mozu.Api.Resources.Platform.Applications
 		/// </summary>
 		/// <param name="refreshToken">Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var authticket = new AuthTicket();
-		///   await authticket.DeleteAppAuthTicketAsync( refreshToken);
+		///   var stream = await authticket.DeleteAppAuthTicketAsync( refreshToken);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteAppAuthTicketAsync(string refreshToken, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteAppAuthTicketAsync(string refreshToken, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Platform.Applications.AuthTicketClient.DeleteAppAuthTicketClient( refreshToken);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

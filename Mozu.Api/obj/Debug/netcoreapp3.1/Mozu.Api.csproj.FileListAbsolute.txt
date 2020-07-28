@@ -1,0 +1,17 @@
+D:\Raghavendra\dotnetcore\Migrated_App2\Mozu.Api\Mozu.Api\Mozu.Api\bin\Debug\netcoreapp3.1\Mozu.Api.deps.json
+D:\Raghavendra\dotnetcore\Migrated_App2\Mozu.Api\Mozu.Api\Mozu.Api\bin\Debug\netcoreapp3.1\Mozu.Api.dll
+D:\Raghavendra\dotnetcore\Migrated_App2\Mozu.Api\Mozu.Api\Mozu.Api\bin\Debug\netcoreapp3.1\Mozu.Api.pdb
+D:\Raghavendra\dotnetcore\Migrated_App2\Mozu.Api\Mozu.Api\Mozu.Api\obj\Debug\netcoreapp3.1\Mozu.Api.AssemblyInfoInputs.cache
+D:\Raghavendra\dotnetcore\Migrated_App2\Mozu.Api\Mozu.Api\Mozu.Api\obj\Debug\netcoreapp3.1\Mozu.Api.AssemblyInfo.cs
+D:\Raghavendra\dotnetcore\Migrated_App2\Mozu.Api\Mozu.Api\Mozu.Api\obj\Debug\netcoreapp3.1\Mozu.Api.csproj.CoreCompileInputs.cache
+D:\Raghavendra\dotnetcore\Migrated_App2\Mozu.Api\Mozu.Api\Mozu.Api\obj\Debug\netcoreapp3.1\Mozu.Api.dll
+D:\Raghavendra\dotnetcore\Migrated_App2\Mozu.Api\Mozu.Api\Mozu.Api\obj\Debug\netcoreapp3.1\Mozu.Api.pdb
+D:\Raghavendra\dotnetcore\mozu-dotnet\Mozu.Api\bin\Debug\netcoreapp3.1\Mozu.Api.deps.json
+D:\Raghavendra\dotnetcore\mozu-dotnet\Mozu.Api\bin\Debug\netcoreapp3.1\Mozu.Api.dll
+D:\Raghavendra\dotnetcore\mozu-dotnet\Mozu.Api\bin\Debug\netcoreapp3.1\Mozu.Api.pdb
+D:\Raghavendra\dotnetcore\mozu-dotnet\Mozu.Api\obj\Debug\netcoreapp3.1\Mozu.Api.csprojAssemblyReference.cache
+D:\Raghavendra\dotnetcore\mozu-dotnet\Mozu.Api\obj\Debug\netcoreapp3.1\Mozu.Api.AssemblyInfoInputs.cache
+D:\Raghavendra\dotnetcore\mozu-dotnet\Mozu.Api\obj\Debug\netcoreapp3.1\Mozu.Api.AssemblyInfo.cs
+D:\Raghavendra\dotnetcore\mozu-dotnet\Mozu.Api\obj\Debug\netcoreapp3.1\Mozu.Api.csproj.CoreCompileInputs.cache
+D:\Raghavendra\dotnetcore\mozu-dotnet\Mozu.Api\obj\Debug\netcoreapp3.1\Mozu.Api.dll
+D:\Raghavendra\dotnetcore\mozu-dotnet\Mozu.Api\obj\Debug\netcoreapp3.1\Mozu.Api.pdb

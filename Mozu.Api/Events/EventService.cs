@@ -1,9 +1,11 @@
 ﻿using System;
-using System.Configuration;
+//using System.Configuration;
 using System.Reflection;
 using System.Threading.Tasks;
 using Mozu.Api.Config.Event;
 using Mozu.Api.Contracts.Event;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace Mozu.Api.Events
 {
@@ -14,9 +16,19 @@ namespace Mozu.Api.Events
 
     public class EventService : IEventService
     {
+        
         public async Task ProcessEventAsync(IApiContext apiContext, Event eventPayLoad)
         {
-            var eventConfigSection = ConfigurationManager.GetSection("eventSection") as EventSection;
+            //configuratio
+
+            var builder = new ConfigurationBuilder()
+                        .SetBasePath(Directory.GetCurrentDirectory())
+                        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+                        //.AddEnvironmentVariables();
+
+            IConfigurationRoot configuration = builder.Build();
+
+            var eventConfigSection = configuration.GetSection("eventSection") as EventSection;//ConfigurationManager.GetSection("eventSection") as EventSection;
 
             if (eventConfigSection == null)
                 throw new Exception("Events are not configured");

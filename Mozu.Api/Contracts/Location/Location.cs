@@ -38,11 +38,17 @@ namespace Mozu.Api.Contracts.Location
 
 			public string Description { get; set; }
 
+			public bool Express { get; set; }
+
 			public string Fax { get; set; }
 
 			public List<FulfillmentType> FulfillmentTypes { get; set; }
 
 			public Coordinates Geo { get; set; }
+
+			public bool IncludeInInventoryAggregrate { get; set; }
+
+			public bool IncludeInLocationExport { get; set; }
 
 			///
 			///Locations is disabled (soft delete)
@@ -67,6 +73,10 @@ namespace Mozu.Api.Contracts.Location
 			public bool SupportsInventory { get; set; }
 
 			public List<string> Tags { get; set; }
+
+			public bool TransferEnabled { get; set; }
+
+			public bool WarehouseEnabled { get; set; }
 
 		}
 

@@ -1,53 +1,151 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Configuration;
+using System.Runtime.CompilerServices;
+//using System.Web;
+//using System.Configuration;
 
 namespace Mozu.Api.Config.Event
 {
-    public class EntityCollection : ConfigurationElementCollection
+    //public class EntityCollection : ConfigurationElementCollection
+    //{
+    //    public EntityCollection()
+    //    {
+    //        EntityConfigElement details = (EntityConfigElement)CreateNewElement();
+    //        if (details.Name != "")
+    //        {
+    //            Add(details);
+    //        }
+    //    }
+
+    //    public override ConfigurationElementCollectionType CollectionType
+    //    {
+    //        get
+    //        {
+    //            return ConfigurationElementCollectionType.BasicMap;
+    //        }
+    //    }
+
+    //    protected override ConfigurationElement CreateNewElement()
+    //    {
+    //        return new EntityConfigElement();
+    //    }
+
+    //    protected override Object GetElementKey(ConfigurationElement element)
+    //    {
+    //        return ((EntityConfigElement)element).Name;
+    //    }
+
+    //    public EntityConfigElement this[int index]
+    //    {
+    //        get
+    //        {
+    //            return (EntityConfigElement)BaseGet(index);
+    //        }
+    //        set
+    //        {
+    //            if (BaseGet(index) != null)
+    //            {
+    //                BaseRemoveAt(index);
+    //            }
+    //            BaseAdd(index, value);
+    //        }
+    //    }
+
+    //    new public EntityConfigElement this[string name]
+    //    {
+    //        get
+    //        {
+    //            return (EntityConfigElement)BaseGet(name);
+    //        }
+    //    }
+
+    //    public int IndexOf(EntityConfigElement details)
+    //    {
+    //        return BaseIndexOf(details);
+    //    }
+
+    //    public void Add(EntityConfigElement details)
+    //    {
+    //        BaseAdd(details);
+    //    }
+    //    protected override void BaseAdd(ConfigurationElement element)
+    //    {
+    //        BaseAdd(element, false);
+    //    }
+
+    //    public void Remove(EntityConfigElement details)
+    //    {
+    //        if (BaseIndexOf(details) >= 0)
+    //            BaseRemove(details.Name);
+    //    }
+
+    //    public void RemoveAt(int index)
+    //    {
+    //        BaseRemoveAt(index);
+    //    }
+
+    //    public void Remove(string name)
+    //    {
+    //        BaseRemove(name);
+    //    }
+
+    //    public void Clear()
+    //    {
+    //        BaseClear();
+    //    }
+
+    //    protected override string ElementName
+    //    {
+    //        get { return "entity"; }
+    //    }
+    //}
+
+    public class EntityCollection //: ConfigurationElementCollection
     {
-        public EntityCollection()
+        private IList<EntityConfigElement> _entityConfigElements;
+        public EntityCollection(List<EntityConfigElement>  entityConfigElements)
         {
             EntityConfigElement details = (EntityConfigElement)CreateNewElement();
             if (details.Name != "")
             {
                 Add(details);
             }
+            _entityConfigElements = entityConfigElements;
         }
 
-        public override ConfigurationElementCollectionType CollectionType
-        {
-            get
-            {
-                return ConfigurationElementCollectionType.BasicMap;
-            }
-        }
+        //Yet to find the equivalent of it
+        //public override ConfigurationElementCollectionType CollectionType
+        //{
+        //    get
+        //    {
+        //        return ConfigurationElementCollectionType.BasicMap;
+        //    }
+        //}
 
-        protected override ConfigurationElement CreateNewElement()
+        protected EntityConfigElement CreateNewElement()
         {
             return new EntityConfigElement();
         }
 
-        protected override Object GetElementKey(ConfigurationElement element)
+        protected  Object GetElementKey(EntityConfigElement element)
         {
-            return ((EntityConfigElement)element).Name;
+            return element.Name;
         }
 
         public EntityConfigElement this[int index]
         {
             get
             {
-                return (EntityConfigElement)BaseGet(index);
+                return _entityConfigElements[index];
             }
             set
             {
-                if (BaseGet(index) != null)
+                if (_entityConfigElements[index] != null)
                 {
-                    BaseRemoveAt(index);
+                    _entityConfigElements.RemoveAt(index);
                 }
-                BaseAdd(index, value);
+                _entityConfigElements.Insert(index, value);
             }
         }
 
@@ -55,46 +153,48 @@ namespace Mozu.Api.Config.Event
         {
             get
             {
-                return (EntityConfigElement)BaseGet(name);
+                return _entityConfigElements.Where(x => x.Name.Equals(name)).First();//(EntityConfigElement)BaseGet(name);
             }
         }
 
         public int IndexOf(EntityConfigElement details)
         {
-            return BaseIndexOf(details);
+            return _entityConfigElements.IndexOf(details);//BaseIndexOf(details);
         }
 
         public void Add(EntityConfigElement details)
         {
-            BaseAdd(details);
+            //BaseAdd(details);
+            _entityConfigElements.Add(details);
         }
-        protected override void BaseAdd(ConfigurationElement element)
+        protected void BaseAdd(EntityConfigElement element)
         {
-            BaseAdd(element, false);
+            _entityConfigElements.Add(element);
         }
 
         public void Remove(EntityConfigElement details)
         {
-            if (BaseIndexOf(details) >= 0)
-                BaseRemove(details.Name);
+            if (_entityConfigElements.IndexOf(details) >= 0)
+                _entityConfigElements.Remove(details);
         }
 
         public void RemoveAt(int index)
         {
-            BaseRemoveAt(index);
+            //BaseRemoveAt(index);
+            _entityConfigElements.RemoveAt(index);
         }
 
         public void Remove(string name)
         {
-            BaseRemove(name);
+            _entityConfigElements.Remove(_entityConfigElements.Where(x => x.Name.Equals(name)).First());
         }
 
         public void Clear()
         {
-            BaseClear();
+            _entityConfigElements.Clear();
         }
 
-        protected override string ElementName
+        protected string ElementName
         {
             get { return "entity"; }
         }

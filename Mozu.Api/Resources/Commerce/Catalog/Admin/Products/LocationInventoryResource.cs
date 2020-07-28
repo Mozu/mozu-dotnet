@@ -158,20 +158,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var locationinventory = new LocationInventory();
-		///   await locationinventory.DeleteLocationInventoryAsync(_dataViewMode,  productCode,  locationCode);
+		///   var stream = await locationinventory.DeleteLocationInventoryAsync(_dataViewMode,  productCode,  locationCode);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteLocationInventoryAsync(string productCode, string locationCode, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteLocationInventoryAsync(string productCode, string locationCode, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.LocationInventoryClient.DeleteLocationInventoryClient(_dataViewMode,  productCode,  locationCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

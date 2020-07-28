@@ -158,20 +158,21 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customerattribute = new CustomerAttribute();
-		///   await customerattribute.DeleteAccountAttributeAsync( accountId,  attributeFQN,  userId);
+		///   var stream = await customerattribute.DeleteAccountAttributeAsync( accountId,  attributeFQN,  userId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteAccountAttributeAsync(int accountId, string attributeFQN, string userId =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteAccountAttributeAsync(int accountId, string attributeFQN, string userId =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerAttributeClient.DeleteAccountAttributeClient( accountId,  attributeFQN,  userId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

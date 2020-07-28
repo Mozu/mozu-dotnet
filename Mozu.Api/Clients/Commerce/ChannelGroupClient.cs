@@ -131,19 +131,19 @@ namespace Mozu.Api.Clients.Commerce
 		/// </summary>
 		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteChannelGroup( code);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteChannelGroupClient(string code)
+		public static MozuClient<System.IO.Stream> DeleteChannelGroupClient(string code)
 		{
 			var url = Mozu.Api.Urls.Commerce.ChannelGroupUrl.DeleteChannelGroupUrl(code);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

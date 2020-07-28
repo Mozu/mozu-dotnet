@@ -122,20 +122,21 @@ namespace Mozu.Api.Resources.Commerce
 		/// </summary>
 		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var instocknotificationsubscription = new InStockNotificationSubscription();
-		///   await instocknotificationsubscription.DeleteInStockNotificationSubscriptionAsync( id);
+		///   var stream = await instocknotificationsubscription.DeleteInStockNotificationSubscriptionAsync( id);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteInStockNotificationSubscriptionAsync(int id, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteInStockNotificationSubscriptionAsync(int id, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.InStockNotificationSubscriptionClient.DeleteInStockNotificationSubscriptionClient( id);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

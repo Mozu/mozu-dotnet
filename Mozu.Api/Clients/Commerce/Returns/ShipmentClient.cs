@@ -79,19 +79,19 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
 		/// <param name="shipmentId">Unique identifier of the shipment to retrieve.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteShipment( returnId,  shipmentId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteShipmentClient(string returnId, string shipmentId)
+		public static MozuClient<System.IO.Stream> DeleteShipmentClient(string returnId, string shipmentId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Returns.ShipmentUrl.DeleteShipmentUrl(returnId, shipmentId);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

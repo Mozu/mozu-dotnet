@@ -426,20 +426,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var productvariation = new ProductVariation();
-		///   await productvariation.DeleteProductVariationAsync(_dataViewMode,  productCode,  variationKey);
+		///   var stream = await productvariation.DeleteProductVariationAsync(_dataViewMode,  productCode,  variationKey);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteProductVariationAsync(string productCode, string variationKey, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteProductVariationAsync(string productCode, string variationKey, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.DeleteProductVariationClient(_dataViewMode,  productCode,  variationKey);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -451,20 +452,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var productvariation = new ProductVariation();
-		///   await productvariation.DeleteProductVariationLocalizedDeltaPriceAsync(_dataViewMode,  productCode,  variationKey,  currencyCode);
+		///   var stream = await productvariation.DeleteProductVariationLocalizedDeltaPriceAsync(_dataViewMode,  productCode,  variationKey,  currencyCode);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteProductVariationLocalizedDeltaPriceAsync(string productCode, string variationKey, string currencyCode, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteProductVariationLocalizedDeltaPriceAsync(string productCode, string variationKey, string currencyCode, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.DeleteProductVariationLocalizedDeltaPriceClient(_dataViewMode,  productCode,  variationKey,  currencyCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -476,20 +478,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Products
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var productvariation = new ProductVariation();
-		///   await productvariation.DeleteProductVariationLocalizedPriceAsync(_dataViewMode,  productCode,  variationKey,  currencyCode);
+		///   var stream = await productvariation.DeleteProductVariationLocalizedPriceAsync(_dataViewMode,  productCode,  variationKey,  currencyCode);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteProductVariationLocalizedPriceAsync(string productCode, string variationKey, string currencyCode, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteProductVariationLocalizedPriceAsync(string productCode, string variationKey, string currencyCode, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Products.ProductVariationClient.DeleteProductVariationLocalizedPriceClient(_dataViewMode,  productCode,  variationKey,  currencyCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

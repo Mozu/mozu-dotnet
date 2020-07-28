@@ -15,17 +15,17 @@ using System.Collections.Generic;
 namespace Mozu.Api.Contracts.ProductAdmin
 {
 		///
-		///	Mozu.ProductAdmin.Contracts.ProductImageGroup ApiType DOCUMENT_HERE 
+		///	An object representing the group of images, including data such as the name of the group (e.g. "blue") and the tags (which include the FQN such as "tenant~color" and values such as "blue") to identify how these images are assorted.
 		///
 		public class ProductImageGroup
 		{
 			///
-			///productImageGroupId ApiType DOCUMENT_HERE 
+			///A unique identifier for the product image group.
 			///
 			public string ProductImageGroupId { get; set; }
 
 			///
-			///productImageGroupTags ApiType DOCUMENT_HERE 
+			///A list of tags associated with the product image group.
 			///
 			public List<ProductImageGroupTag> ProductImageGroupTags { get; set; }
 

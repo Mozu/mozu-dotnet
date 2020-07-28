@@ -42,6 +42,31 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="cartId"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var cart = new Cart();
+		///   var cartSummary = await cart.GetCartSummaryByCartIdAsync( cartId,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary> GetCartSummaryByCartIdAsync(string cartId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.CartSummary> response;
+			var client = Mozu.Api.Clients.Commerce.CartClient.GetCartSummaryByCartIdClient( cartId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="cartId">Identifier of the cart to delete.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <returns>
@@ -191,6 +216,57 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="userId"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var cart = new Cart();
+		///   var cart = await cart.GetOrCreateUserCartAsync( userId,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> GetOrCreateUserCartAsync(string userId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> response;
+			var client = Mozu.Api.Clients.Commerce.CartClient.GetOrCreateUserCartClient( userId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="cartId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="cart"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var cart = new Cart();
+		///   var cart = await cart.UpdateCartByCartIdAsync( cart,  cartId,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> UpdateCartByCartIdAsync(Mozu.Api.Contracts.CommerceRuntime.Carts.Cart cart, string cartId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> response;
+			var client = Mozu.Api.Clients.Commerce.CartClient.UpdateCartByCartIdClient( cart,  cartId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="cart">Properties of a shopping cart.</param>
 		/// <returns>
@@ -216,22 +292,73 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="cartId">Identifier of the cart to delete.</param>
+		/// <param name="responseFields"></param>
+		/// <param name="userId"></param>
+		/// <param name="cart"></param>
 		/// <returns>
-		/// 
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Carts.Cart"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var cart = new Cart();
-		///   await cart.DeleteCartAsync( cartId);
+		///   var cart = await cart.UpdateUserCartAsync( cart,  userId,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteCartAsync(string cartId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> UpdateUserCartAsync(Mozu.Api.Contracts.CommerceRuntime.Carts.Cart cart, string userId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Carts.Cart> response;
+			var client = Mozu.Api.Clients.Commerce.CartClient.UpdateUserCartClient( cart,  userId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="cartId">Identifier of the cart to delete.</param>
+		/// <returns>
+		/// <see cref="System.IO.Stream"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var cart = new Cart();
+		///   var stream = await cart.DeleteCartAsync( cartId);
+		/// </code>
+		/// </example>
+		public virtual async Task<System.IO.Stream> DeleteCartAsync(string cartId, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.CartClient.DeleteCartClient( cartId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="userId"></param>
+		/// <returns>
+		/// <see cref="System.IO.Stream"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var cart = new Cart();
+		///   var stream = await cart.DeleteUserCartAsync( userId);
+		/// </code>
+		/// </example>
+		public virtual async Task<System.IO.Stream> DeleteUserCartAsync(string userId, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<System.IO.Stream> response;
+			var client = Mozu.Api.Clients.Commerce.CartClient.DeleteUserCartClient( userId);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -240,20 +367,21 @@ namespace Mozu.Api.Resources.Commerce
 		/// 
 		/// </summary>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var cart = new Cart();
-		///   await cart.DeleteCurrentCartAsync();
+		///   var stream = await cart.DeleteCurrentCartAsync();
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteCurrentCartAsync(CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteCurrentCartAsync(CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.CartClient.DeleteCurrentCartClient();
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

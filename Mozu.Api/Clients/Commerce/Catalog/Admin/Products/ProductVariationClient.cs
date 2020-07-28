@@ -416,19 +416,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteProductVariation(dataViewMode,  productCode,  variationKey);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteProductVariationClient(DataViewMode dataViewMode, string productCode, string variationKey)
+		public static MozuClient<System.IO.Stream> DeleteProductVariationClient(DataViewMode dataViewMode, string productCode, string variationKey)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductVariationUrl.DeleteProductVariationUrl(productCode, variationKey);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
@@ -443,19 +443,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteProductVariationLocalizedDeltaPrice(dataViewMode,  productCode,  variationKey,  currencyCode);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteProductVariationLocalizedDeltaPriceClient(DataViewMode dataViewMode, string productCode, string variationKey, string currencyCode)
+		public static MozuClient<System.IO.Stream> DeleteProductVariationLocalizedDeltaPriceClient(DataViewMode dataViewMode, string productCode, string variationKey, string currencyCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductVariationUrl.DeleteProductVariationLocalizedDeltaPriceUrl(productCode, variationKey, currencyCode);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
@@ -470,19 +470,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="variationKey">System-generated key that represents the attribute values that uniquely identify a specific product variation.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteProductVariationLocalizedPrice(dataViewMode,  productCode,  variationKey,  currencyCode);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteProductVariationLocalizedPriceClient(DataViewMode dataViewMode, string productCode, string variationKey, string currencyCode)
+		public static MozuClient<System.IO.Stream> DeleteProductVariationLocalizedPriceClient(DataViewMode dataViewMode, string productCode, string variationKey, string currencyCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductVariationUrl.DeleteProductVariationLocalizedPriceUrl(productCode, variationKey, currencyCode);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;

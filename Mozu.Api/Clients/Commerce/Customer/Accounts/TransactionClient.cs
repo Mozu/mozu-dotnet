@@ -78,19 +78,19 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="transactionId">Unique identifier of the transaction to delete.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=RemoveTransaction( accountId,  transactionId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient RemoveTransactionClient(int accountId, string transactionId)
+		public static MozuClient<System.IO.Stream> RemoveTransactionClient(int accountId, string transactionId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.TransactionUrl.RemoveTransactionUrl(accountId, transactionId);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

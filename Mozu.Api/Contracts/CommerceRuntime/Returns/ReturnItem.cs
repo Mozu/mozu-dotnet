@@ -65,6 +65,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 
 			public int QuantityRestockable { get; set; }
 
+			public int QuantityRestocked { get; set; }
+
 			public int QuantityShipped { get; set; }
 
 			public List<ReturnReason> Reasons { get; set; }
@@ -98,6 +100,10 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			///The type of the return for the item. Either  or .
 			///
 			public string ReturnType { get; set; }
+
+			public int? ShipmentItemId { get; set; }
+
+			public int? ShipmentNumber { get; set; }
 
 			public decimal? ShippingLossAmount { get; set; }
 

@@ -159,20 +159,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Pricelists
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="startDate">The start date of the price list entry.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var pricelistentry = new PriceListEntry();
-		///   await pricelistentry.DeletePriceListEntryAsync( priceListCode,  productCode,  currencyCode,  startDate);
+		///   var stream = await pricelistentry.DeletePriceListEntryAsync( priceListCode,  productCode,  currencyCode,  startDate);
 		/// </code>
 		/// </example>
-		public virtual async Task DeletePriceListEntryAsync(string priceListCode, string productCode, string currencyCode, DateTime? startDate =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeletePriceListEntryAsync(string priceListCode, string productCode, string currencyCode, DateTime? startDate =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Pricelists.PriceListEntryClient.DeletePriceListEntryClient( priceListCode,  productCode,  currencyCode,  startDate);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

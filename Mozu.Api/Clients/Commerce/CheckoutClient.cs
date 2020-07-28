@@ -181,19 +181,19 @@ namespace Mozu.Api.Clients.Commerce
 		/// </summary>
 		/// <param name="checkoutId">The unique identifier of the checkout.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=ResendCheckoutConfirmationEmail( checkoutId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient ResendCheckoutConfirmationEmailClient(string checkoutId)
+		public static MozuClient<System.IO.Stream> ResendCheckoutConfirmationEmailClient(string checkoutId)
 		{
 			var url = Mozu.Api.Urls.Commerce.CheckoutUrl.ResendCheckoutConfirmationEmailUrl(checkoutId);
 			const string verb = "POST";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

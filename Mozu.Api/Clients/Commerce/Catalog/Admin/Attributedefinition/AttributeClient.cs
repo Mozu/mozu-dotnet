@@ -142,19 +142,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteAttribute( attributeFQN);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteAttributeClient(string attributeFQN)
+		public static MozuClient<System.IO.Stream> DeleteAttributeClient(string attributeFQN)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.AttributeUrl.DeleteAttributeUrl(attributeFQN);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

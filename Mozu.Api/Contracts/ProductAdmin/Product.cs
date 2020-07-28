@@ -78,7 +78,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string ProductCode { get; set; }
 
 			///
-			///productImageGroups ApiType DOCUMENT_HERE 
+			///An array of multiple product image groups, providing an assortment of different themed image sets.
 			///
 			public List<ProductImageGroup> ProductImageGroups { get; set; }
 

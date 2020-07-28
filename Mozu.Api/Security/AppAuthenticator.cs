@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Mozu.Api.Contracts.AppDev;
+using Mozu.Api.Extensions;
 using Mozu.Api.Logging;
 using Mozu.Api.Urls.Platform.Applications;
 using Mozu.Api.Utilities;
@@ -192,8 +193,9 @@ namespace Mozu.Api.Security
             var response = client.PostAsync(resourceUrl.Url, new StringContent(stringContent, Encoding.UTF8, "application/json")).Result;
             ResponseHelper.EnsureSuccess(response);
 
+            //var result = response.Content.ReadAsStringAsync().Result;//.ReadAsAsync<AuthTicket>().Result;// ReadAsAsync<AuthTicket>().Result;
+            //AppAuthTicket = JsonConvert.DeserializeObject<AuthTicket>(result);
             AppAuthTicket = response.Content.ReadAsAsync<AuthTicket>().Result;
-
             SetRefreshIntervals(true);
 
 
@@ -207,9 +209,10 @@ namespace Mozu.Api.Security
 			var response = await client.PostAsync(resourceUrl.Url, new StringContent(stringContent, Encoding.UTF8, "application/json"));
 			ResponseHelper.EnsureSuccess(response);
 
-			AppAuthTicket = await response.Content.ReadAsAsync<AuthTicket>();
-
-			SetRefreshIntervals(true);
+            //var result = await response.Content.ReadAsStringAsync();
+            //         AppAuthTicket = JsonConvert.DeserializeObject<AuthTicket>(result);
+            AppAuthTicket =await response.Content.ReadAsAsync<AuthTicket>();
+            SetRefreshIntervals(true);
 		}
         
         /// <summary>
@@ -228,6 +231,10 @@ namespace Mozu.Api.Security
             
             ResponseHelper.EnsureSuccess(response);
 
+            //AppAuthTicket = response.Content.ReadAsAsync<AuthTicket>().Result;
+
+            //var result = response.Content.ReadAsStringAsync().Result;//.ReadAsAsync<AuthTicket>().Result;// ReadAsAsync<AuthTicket>().Result;
+            //AppAuthTicket = JsonConvert.DeserializeObject<AuthTicket>(result);
             AppAuthTicket = response.Content.ReadAsAsync<AuthTicket>().Result;
 
             SetRefreshIntervals(false);
@@ -247,9 +254,12 @@ namespace Mozu.Api.Security
 
 			ResponseHelper.EnsureSuccess(response);
 
-			AppAuthTicket = await response.Content.ReadAsAsync<AuthTicket>();
+            AppAuthTicket = await response.Content.ReadAsAsync<AuthTicket>();
 
-			SetRefreshIntervals(false);
+            //var result = await response.Content.ReadAsStringAsync();
+            //AppAuthTicket = JsonConvert.DeserializeObject<AuthTicket>(result);
+
+            SetRefreshIntervals(false);
 		}
         
         

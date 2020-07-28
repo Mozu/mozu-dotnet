@@ -4,8 +4,11 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web;
-using System.Web.UI;
+//using System.Web;
+using System.Net;
+using Microsoft.AspNetCore.Http;
+using Mozu.Api.Extensions;
+//using System.Web.UI;
 using Mozu.Api.Logging;
 
 namespace Mozu.Api.Security
@@ -13,18 +16,48 @@ namespace Mozu.Api.Security
     public class ConfigurationAuth
     {
         private static readonly ILogger _logger = LogManager.GetLogger(typeof(ConfigurationAuth));
-        public static bool IsRequestValid(HttpRequestBase request)
-        {
-            var body = HttpUtility.UrlDecode(request.Form.ToString());
+        //public static bool IsRequestValid(HttpRequestBase request)
+        //{
+        //    var body = HttpUtility.UrlDecode(request.Form.ToString());
 
-            var messageHash = request.QueryString["messageHash"];
-            var tenantId = request.QueryString["tenantId"];
+        //    var messageHash = request.QueryString["messageHash"];
+        //    var tenantId = request.QueryString["tenantId"];
+        //    if (tenantId == null)
+        //    {
+        //        ApiContext context = new ApiContext(request.Form);
+        //        tenantId = context.TenantId.ToString();
+        //    }
+        //    var date = request.QueryString["dt"];
+
+        //    var requestDate = DateTime.Parse(date, null, DateTimeStyles.AssumeUniversal).ToUniversalTime();
+        //    var currentDate = DateTime.UtcNow;
+        //    _logger.Info(String.Format("Current DateTime : {0}", currentDate));
+        //    _logger.Info(String.Format("Request DateTime : {0}", requestDate));
+        //    var diff = (currentDate - requestDate).TotalSeconds;
+        //    _logger.Info(String.Format("Date Diff : {0}", diff));
+        //    _logger.Info(String.Format("ApplicationID : {0}", AppAuthenticator.Instance.AppAuthInfo.ApplicationId));
+        //    var hash = SHA256Generator.GetHash(AppAuthenticator.Instance.AppAuthInfo.SharedSecret, date, body);
+        //    _logger.Info(String.Format("Computed Hash : {0}", hash));
+        //    if (body != null && (hash != messageHash || diff > MozuConfig.CapabilityTimeoutInSeconds || (!body.Contains("t" + tenantId+"."))))
+        //    {
+        //        _logger.Error(String.Format("Unauthorized access from {0}, {1}, {2}, {3} Computed: {4}", request.UserHostAddress, messageHash, date, body, hash));
+        //        return false;
+        //    }
+        //    return true;
+        //}
+
+        public static bool IsRequestValid(HttpRequest request)
+        {
+            var body = WebUtility.UrlDecode(request.Form.ToString());
+
+            var messageHash = request.Query["messageHash"].First();
+            var tenantId = request.Query["tenantId"].First();
             if (tenantId == null)
             {
-                ApiContext context = new ApiContext(request.Form);
+                ApiContext context = new ApiContext(request.Form.FormCollectionToNVCollection());
                 tenantId = context.TenantId.ToString();
             }
-            var date = request.QueryString["dt"];
+            var date = request.Query["dt"].First();
 
             var requestDate = DateTime.Parse(date, null, DateTimeStyles.AssumeUniversal).ToUniversalTime();
             var currentDate = DateTime.UtcNow;
@@ -35,9 +68,9 @@ namespace Mozu.Api.Security
             _logger.Info(String.Format("ApplicationID : {0}", AppAuthenticator.Instance.AppAuthInfo.ApplicationId));
             var hash = SHA256Generator.GetHash(AppAuthenticator.Instance.AppAuthInfo.SharedSecret, date, body);
             _logger.Info(String.Format("Computed Hash : {0}", hash));
-            if (body != null && (hash != messageHash || diff > MozuConfig.CapabilityTimeoutInSeconds || (!body.Contains("t" + tenantId+"."))))
+            if (body != null && (hash != messageHash || diff > MozuConfig.CapabilityTimeoutInSeconds || (!body.Contains("t" + tenantId + "."))))
             {
-                _logger.Error(String.Format("Unauthorized access from {0}, {1}, {2}, {3} Computed: {4}", request.UserHostAddress, messageHash, date, body, hash));
+                _logger.Error(String.Format("Unauthorized access from {0}, {1}, {2}, {3} Computed: {4}", request.Host.Value, messageHash, date, body, hash));
                 return false;
             }
             return true;

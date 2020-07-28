@@ -105,6 +105,25 @@ namespace Mozu.Api.Urls.Commerce.Orders
 			return mozuUrl;
 		}
 
+		/// <summary>
+        /// Get Resource Url for AutoCapturePayments
+        /// </summary>
+        /// <param name="forceCapture"></param>
+        /// <param name="orderId"></param>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl AutoCapturePaymentsUrl(string orderId, bool? forceCapture =  null, string responseFields =  null)
+		{
+			var url = "/api/commerce/orders/{orderId}/payments/autocapture?forcecapture={forceCapture}&responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "forceCapture", forceCapture);
+			mozuUrl.FormatUrl( "orderId", orderId);
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
 						
 	}
 }

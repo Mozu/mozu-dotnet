@@ -95,20 +95,21 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="transactionId">Unique identifier of the transaction to delete.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var transaction = new Transaction();
-		///   await transaction.RemoveTransactionAsync( accountId,  transactionId);
+		///   var stream = await transaction.RemoveTransactionAsync( accountId,  transactionId);
 		/// </code>
 		/// </example>
-		public virtual async Task RemoveTransactionAsync(int accountId, string transactionId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> RemoveTransactionAsync(int accountId, string transactionId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.TransactionClient.RemoveTransactionClient( accountId,  transactionId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

@@ -156,20 +156,21 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
 		/// <param name="passwordInfo">The information required to modify a shopper account password.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customeraccount = new CustomerAccount();
-		///   await customeraccount.ChangePasswordAsync( passwordInfo,  accountId,  unlockAccount,  userId);
+		///   var stream = await customeraccount.ChangePasswordAsync( passwordInfo,  accountId,  unlockAccount,  userId);
 		/// </code>
 		/// </example>
-		public virtual async Task ChangePasswordAsync(Mozu.Api.Contracts.Customer.PasswordInfo passwordInfo, int accountId, bool? unlockAccount =  null, string userId =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> ChangePasswordAsync(Mozu.Api.Contracts.Customer.PasswordInfo passwordInfo, int accountId, bool? unlockAccount =  null, string userId =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.ChangePasswordClient( passwordInfo,  accountId,  unlockAccount,  userId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -205,20 +206,21 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customeraccount = new CustomerAccount();
-		///   await customeraccount.RecomputeCustomerLifetimeValueAsync( accountId);
+		///   var stream = await customeraccount.RecomputeCustomerLifetimeValueAsync( accountId);
 		/// </code>
 		/// </example>
-		public virtual async Task RecomputeCustomerLifetimeValueAsync(int accountId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> RecomputeCustomerLifetimeValueAsync(int accountId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.RecomputeCustomerLifetimeValueClient( accountId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -230,20 +232,21 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
 		/// <param name="isLocked">If true, the customer account is locked from logging in.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customeraccount = new CustomerAccount();
-		///   await customeraccount.SetLoginLockedAsync( isLocked,  accountId,  userId);
+		///   var stream = await customeraccount.SetLoginLockedAsync( isLocked,  accountId,  userId);
 		/// </code>
 		/// </example>
-		public virtual async Task SetLoginLockedAsync(bool isLocked, int accountId, string userId =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> SetLoginLockedAsync(bool isLocked, int accountId, string userId =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.SetLoginLockedClient( isLocked,  accountId,  userId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -255,20 +258,21 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
 		/// <param name="isPasswordChangeRequired">If true, the password for the customer account must be changed.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customeraccount = new CustomerAccount();
-		///   await customeraccount.SetPasswordChangeRequiredAsync( isPasswordChangeRequired,  accountId,  userId);
+		///   var stream = await customeraccount.SetPasswordChangeRequiredAsync( isPasswordChangeRequired,  accountId,  userId);
 		/// </code>
 		/// </example>
-		public virtual async Task SetPasswordChangeRequiredAsync(bool isPasswordChangeRequired, int accountId, string userId =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> SetPasswordChangeRequiredAsync(bool isPasswordChangeRequired, int accountId, string userId =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.SetPasswordChangeRequiredClient( isPasswordChangeRequired,  accountId,  userId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -433,20 +437,21 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// </summary>
 		/// <param name="resetPasswordInfo">Information required to reset the password for a customer account.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customeraccount = new CustomerAccount();
-		///   await customeraccount.ResetPasswordAsync( resetPasswordInfo);
+		///   var stream = await customeraccount.ResetPasswordAsync( resetPasswordInfo);
 		/// </code>
 		/// </example>
-		public virtual async Task ResetPasswordAsync(Mozu.Api.Contracts.Customer.ResetPasswordInfo resetPasswordInfo, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> ResetPasswordAsync(Mozu.Api.Contracts.Customer.ResetPasswordInfo resetPasswordInfo, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.ResetPasswordClient( resetPasswordInfo);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -482,20 +487,21 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customeraccount = new CustomerAccount();
-		///   await customeraccount.DeleteAccountAsync( accountId);
+		///   var stream = await customeraccount.DeleteAccountAsync( accountId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteAccountAsync(int accountId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteAccountAsync(int accountId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.CustomerAccountClient.DeleteAccountClient( accountId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

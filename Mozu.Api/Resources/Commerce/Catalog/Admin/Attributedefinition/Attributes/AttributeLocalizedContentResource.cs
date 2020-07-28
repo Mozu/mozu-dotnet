@@ -179,20 +179,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		/// <param name="localeCode">The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var attributelocalizedcontent = new AttributeLocalizedContent();
-		///   await attributelocalizedcontent.DeleteLocalizedContentAsync( attributeFQN,  localeCode);
+		///   var stream = await attributelocalizedcontent.DeleteLocalizedContentAsync( attributeFQN,  localeCode);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteLocalizedContentAsync(string attributeFQN, string localeCode, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteLocalizedContentAsync(string attributeFQN, string localeCode, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeLocalizedContentClient.DeleteLocalizedContentClient( attributeFQN,  localeCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

@@ -205,6 +205,31 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="returnId"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Kibo.Cars.Model.GenerateLabelResponse"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetReturnLabel( returnId,  responseFields);
+		///   var generateLabelResponseClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.Kibo.Cars.Model.GenerateLabelResponse> GetReturnLabelClient(string returnId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.ReturnUrl.GetReturnLabelUrl(returnId, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Kibo.Cars.Model.GenerateLabelResponse>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
 		/// <returns>
@@ -358,6 +383,32 @@ namespace Mozu.Api.Clients.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="returnId"></param>
+		/// <param name="returnItems"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=RestockReturnItems( returnItems,  returnId,  responseFields);
+		///   var returnClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> RestockReturnItemsClient(List<Mozu.Api.Contracts.CommerceRuntime.Returns.RestockableReturnItem> returnItems, string returnId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.ReturnUrl.RestockReturnItemsUrl(returnId, responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<List<Mozu.Api.Contracts.CommerceRuntime.Returns.RestockableReturnItem>>(returnItems);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
 		/// <param name="itemQuantities"></param>
@@ -437,19 +488,19 @@ namespace Mozu.Api.Clients.Commerce
 		/// </summary>
 		/// <param name="action">Properties of an action a user can perform for a return.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=ResendReturnEmail( action);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient ResendReturnEmailClient(Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnAction action)
+		public static MozuClient<System.IO.Stream> ResendReturnEmailClient(Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnAction action)
 		{
 			var url = Mozu.Api.Urls.Commerce.ReturnUrl.ResendReturnEmailUrl();
 			const string verb = "PUT";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnAction>(action);
 			return mozuClient;
@@ -486,19 +537,19 @@ namespace Mozu.Api.Clients.Commerce
 		/// </summary>
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteReturn( returnId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteReturnClient(string returnId)
+		public static MozuClient<System.IO.Stream> DeleteReturnClient(string returnId)
 		{
 			var url = Mozu.Api.Urls.Commerce.ReturnUrl.DeleteReturnUrl(returnId);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

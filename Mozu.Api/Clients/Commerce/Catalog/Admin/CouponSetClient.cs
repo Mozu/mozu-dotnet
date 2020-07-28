@@ -131,19 +131,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=ValidateUniqueCouponSetCode( code);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient ValidateUniqueCouponSetCodeClient(string code)
+		public static MozuClient<System.IO.Stream> ValidateUniqueCouponSetCodeClient(string code)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.CouponSetUrl.ValidateUniqueCouponSetCodeUrl(code);
 			const string verb = "POST";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -181,19 +181,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="couponSetCode">The unique identifier of the coupon set.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteCouponSet( couponSetCode);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteCouponSetClient(string couponSetCode)
+		public static MozuClient<System.IO.Stream> DeleteCouponSetClient(string couponSetCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.CouponSetUrl.DeleteCouponSetUrl(couponSetCode);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

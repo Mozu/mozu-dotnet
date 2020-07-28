@@ -176,20 +176,21 @@ namespace Mozu.Api.Resources.Commerce
 		/// </summary>
 		/// <param name="quoteId">A unique identifier for the quote.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var quote = new Quote();
-		///   await quote.DeleteQuoteAsync( quoteId);
+		///   var stream = await quote.DeleteQuoteAsync( quoteId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteQuoteAsync(string quoteId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteQuoteAsync(string quoteId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.QuoteClient.DeleteQuoteClient( quoteId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

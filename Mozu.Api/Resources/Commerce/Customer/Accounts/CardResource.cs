@@ -149,20 +149,21 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="cardId">Unique identifier of the card associated with the customer account billing contact.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var card = new Card();
-		///   await card.DeleteAccountCardAsync( accountId,  cardId);
+		///   var stream = await card.DeleteAccountCardAsync( accountId,  cardId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteAccountCardAsync(int accountId, string cardId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteAccountCardAsync(int accountId, string cardId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CardClient.DeleteAccountCardClient( accountId,  cardId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

@@ -72,6 +72,31 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Storefront
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="customerAccountObject"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetResolvedPriceList2( customerAccountObject,  responseFields);
+		///   var resolvedPriceListClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList> GetResolvedPriceList2Client(JObject customerAccountObject, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Catalog.Storefront.PriceListUrl.GetResolvedPriceList2Url(responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<JObject>(customerAccountObject);
+			return mozuClient;
+
+		}
+
 
 	}
 

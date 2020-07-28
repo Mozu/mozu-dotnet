@@ -149,20 +149,21 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <param name="digitalPackageId">This parameter supplies package ID to get fulfillment actions for the digital package.</param>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var digitalpackage = new DigitalPackage();
-		///   await digitalpackage.DeleteDigitalPackageAsync( orderId,  digitalPackageId);
+		///   var stream = await digitalpackage.DeleteDigitalPackageAsync( orderId,  digitalPackageId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteDigitalPackageAsync(string orderId, string digitalPackageId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteDigitalPackageAsync(string orderId, string digitalPackageId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.DigitalPackageClient.DeleteDigitalPackageClient( orderId,  digitalPackageId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

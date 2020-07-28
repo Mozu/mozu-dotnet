@@ -118,23 +118,128 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="orderId">Unique identifier of the order.</param>
-		/// <param name="shipmentId">Unique identifier of the shipment to retrieve.</param>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="shipmentNumber"></param>
+		/// <param name="shipmentAdjustment"></param>
 		/// <returns>
-		/// 
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var shipment = new Shipment();
-		///   await shipment.DeleteShipmentAsync( orderId,  shipmentId);
+		///   var shipment = await shipment.UpdateShipmentAdjustmentsAsync( shipmentAdjustment,  orderId,  shipmentNumber,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteShipmentAsync(string orderId, string shipmentId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment> UpdateShipmentAdjustmentsAsync(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.ShipmentAdjustment shipmentAdjustment, string orderId, int shipmentNumber, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.ShipmentClient.UpdateShipmentAdjustmentsClient( shipmentAdjustment,  orderId,  shipmentNumber,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="itemId"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="shipmentNumber"></param>
+		/// <param name="shipmentItemAdjustment"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var shipment = new Shipment();
+		///   var shipment = await shipment.UpdateShipmentItemAsync( shipmentItemAdjustment,  shipmentNumber,  itemId,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment> UpdateShipmentItemAsync(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.ShipmentItemAdjustment shipmentItemAdjustment, int shipmentNumber, int itemId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.ShipmentClient.UpdateShipmentItemClient( shipmentItemAdjustment,  shipmentNumber,  itemId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="shipmentNumber"></param>
+		/// <param name="repriceShipment"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var shipment = new Shipment();
+		///   var shipment = await shipment.RepriceShipmentAsync( repriceShipment,  shipmentNumber,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment> RepriceShipmentAsync(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.RepriceShipmentObject repriceShipment, int shipmentNumber, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.ShipmentClient.RepriceShipmentClient( repriceShipment,  shipmentNumber,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="splitShipments"></param>
+		/// <returns>
+		/// List{<see cref="Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var shipment = new Shipment();
+		///   var shipment = await shipment.SplitShipmentsAsync( splitShipments);
+		/// </code>
+		/// </example>
+		public virtual async Task<List<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment>> SplitShipmentsAsync(Mozu.Api.Contracts.CommerceRuntime.Fulfillment.SplitShipmentsObject splitShipments, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<List<Mozu.Api.Contracts.CommerceRuntime.Fulfillment.Shipment>> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.ShipmentClient.SplitShipmentsClient( splitShipments);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="orderId">Unique identifier of the order.</param>
+		/// <param name="shipmentId">Unique identifier of the shipment to retrieve.</param>
+		/// <returns>
+		/// <see cref="System.IO.Stream"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var shipment = new Shipment();
+		///   var stream = await shipment.DeleteShipmentAsync( orderId,  shipmentId);
+		/// </code>
+		/// </example>
+		public virtual async Task<System.IO.Stream> DeleteShipmentAsync(string orderId, string shipmentId, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.ShipmentClient.DeleteShipmentClient( orderId,  shipmentId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

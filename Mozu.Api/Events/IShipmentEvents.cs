@@ -18,9 +18,34 @@ namespace Mozu.Api.Events
 	public interface IShipmentEvents
 	{
 		[Obsolete("This method is obsolete; use the async method instead")]
-		void Fulfilled(IApiContext apiContext, Event eventPayLoad);
+		void Adjusted(IApiContext apiContext, Event eventPayLoad);
 
-		Task FulfilledAsync(IApiContext apiContext, Event eventPayLoad);
+		Task AdjustedAsync(IApiContext apiContext, Event eventPayLoad);
+
+		[Obsolete("This method is obsolete; use the async method instead")]
+		void ItemAdjusted(IApiContext apiContext, Event eventPayLoad);
+
+		Task ItemAdjustedAsync(IApiContext apiContext, Event eventPayLoad);
+
+		[Obsolete("This method is obsolete; use the async method instead")]
+		void ItemsCanceled(IApiContext apiContext, Event eventPayLoad);
+
+		Task ItemsCanceledAsync(IApiContext apiContext, Event eventPayLoad);
+
+		[Obsolete("This method is obsolete; use the async method instead")]
+		void ItemsRejected(IApiContext apiContext, Event eventPayLoad);
+
+		Task ItemsRejectedAsync(IApiContext apiContext, Event eventPayLoad);
+
+		[Obsolete("This method is obsolete; use the async method instead")]
+		void StatusChanged(IApiContext apiContext, Event eventPayLoad);
+
+		Task StatusChangedAsync(IApiContext apiContext, Event eventPayLoad);
+
+		[Obsolete("This method is obsolete; use the async method instead")]
+		void WorkflowStateChanged(IApiContext apiContext, Event eventPayLoad);
+
+		Task WorkflowStateChangedAsync(IApiContext apiContext, Event eventPayLoad);
 
 	}
 

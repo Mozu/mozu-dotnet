@@ -182,20 +182,21 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="contactId">Unique identifer of the customer account contact being updated.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customercontact = new CustomerContact();
-		///   await customercontact.DeleteAccountContactAsync( accountId,  contactId);
+		///   var stream = await customercontact.DeleteAccountContactAsync( accountId,  contactId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteAccountContactAsync(int accountId, int contactId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteAccountContactAsync(int accountId, int contactId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerContactClient.DeleteAccountContactClient( accountId,  contactId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

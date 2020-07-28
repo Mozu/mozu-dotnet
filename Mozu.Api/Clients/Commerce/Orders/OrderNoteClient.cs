@@ -131,19 +131,19 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteOrderNote( orderId,  noteId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteOrderNoteClient(string orderId, string noteId)
+		public static MozuClient<System.IO.Stream> DeleteOrderNoteClient(string orderId, string noteId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Orders.OrderNoteUrl.DeleteOrderNoteUrl(orderId, noteId);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

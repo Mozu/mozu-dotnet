@@ -132,19 +132,19 @@ namespace Mozu.Api.Clients.Content
 		/// </summary>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteDocumentList( documentListName);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteDocumentListClient(string documentListName)
+		public static MozuClient<System.IO.Stream> DeleteDocumentListClient(string documentListName)
 		{
 			var url = Mozu.Api.Urls.Content.DocumentListUrl.DeleteDocumentListUrl(documentListName);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

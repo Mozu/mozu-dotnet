@@ -148,20 +148,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="facetId">Unique identifier of the facet to retrieve.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var facet = new Facet();
-		///   await facet.DeleteFacetByIdAsync( facetId);
+		///   var stream = await facet.DeleteFacetByIdAsync( facetId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteFacetByIdAsync(int facetId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteFacetByIdAsync(int facetId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.FacetClient.DeleteFacetByIdClient( facetId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

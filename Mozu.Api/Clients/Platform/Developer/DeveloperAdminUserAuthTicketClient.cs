@@ -79,19 +79,19 @@ namespace Mozu.Api.Clients.Platform.Developer
 		/// </summary>
 		/// <param name="refreshToken">Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteUserAuthTicket( refreshToken);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteUserAuthTicketClient(string refreshToken)
+		public static MozuClient<System.IO.Stream> DeleteUserAuthTicketClient(string refreshToken)
 		{
 			var url = Mozu.Api.Urls.Platform.Developer.DeveloperAdminUserAuthTicketUrl.DeleteUserAuthTicketUrl(refreshToken);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

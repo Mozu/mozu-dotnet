@@ -115,19 +115,19 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		/// <param name="documentName">The name of the document in the site.</param>
 		/// <param name="stream">Data stream that delivers information. Used to input and output data.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=UpdateTreeDocumentContent( stream,  documentListName,  documentName,  contentType);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient UpdateTreeDocumentContentClient(System.IO.Stream stream, string documentListName, string documentName, String  contentType= null)
+		public static MozuClient<System.IO.Stream> UpdateTreeDocumentContentClient(System.IO.Stream stream, string documentListName, string documentName, String  contentType= null)
 		{
 			var url = Mozu.Api.Urls.Content.Documentlists.DocumentTreeUrl.UpdateTreeDocumentContentUrl(documentListName, documentName);
 			const string verb = "PUT";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody(stream)									.WithHeader(Headers.CONTENT_TYPE ,contentType)
 ;
@@ -142,19 +142,19 @@ namespace Mozu.Api.Clients.Content.Documentlists
 		/// <param name="documentName">The name of the document in the site.</param>
 		/// <param name="stream">Data stream that delivers information. Used to input and output data.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteTreeDocumentContent( stream,  documentListName,  documentName,  contentType);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteTreeDocumentContentClient(System.IO.Stream stream, string documentListName, string documentName, String  contentType= null)
+		public static MozuClient<System.IO.Stream> DeleteTreeDocumentContentClient(System.IO.Stream stream, string documentListName, string documentName, String  contentType= null)
 		{
 			var url = Mozu.Api.Urls.Content.Documentlists.DocumentTreeUrl.DeleteTreeDocumentContentUrl(documentListName, documentName);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody(stream)									.WithHeader(Headers.CONTENT_TYPE ,contentType)
 ;

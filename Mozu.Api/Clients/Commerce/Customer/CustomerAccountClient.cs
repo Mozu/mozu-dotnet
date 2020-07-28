@@ -139,19 +139,19 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
 		/// <param name="passwordInfo">The information required to modify a shopper account password.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=ChangePassword( passwordInfo,  accountId,  unlockAccount,  userId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient ChangePasswordClient(Mozu.Api.Contracts.Customer.PasswordInfo passwordInfo, int accountId, bool? unlockAccount =  null, string userId =  null)
+		public static MozuClient<System.IO.Stream> ChangePasswordClient(Mozu.Api.Contracts.Customer.PasswordInfo passwordInfo, int accountId, bool? unlockAccount =  null, string userId =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.ChangePasswordUrl(accountId, unlockAccount, userId);
 			const string verb = "POST";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.Customer.PasswordInfo>(passwordInfo);
 			return mozuClient;
@@ -189,19 +189,19 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=RecomputeCustomerLifetimeValue( accountId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient RecomputeCustomerLifetimeValueClient(int accountId)
+		public static MozuClient<System.IO.Stream> RecomputeCustomerLifetimeValueClient(int accountId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.RecomputeCustomerLifetimeValueUrl(accountId);
 			const string verb = "POST";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -215,19 +215,19 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
 		/// <param name="isLocked">If true, the customer account is locked from logging in.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=SetLoginLocked( isLocked,  accountId,  userId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient SetLoginLockedClient(bool isLocked, int accountId, string userId =  null)
+		public static MozuClient<System.IO.Stream> SetLoginLockedClient(bool isLocked, int accountId, string userId =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.SetLoginLockedUrl(accountId, userId);
 			const string verb = "POST";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody(isLocked);
 			return mozuClient;
@@ -241,19 +241,19 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
 		/// <param name="isPasswordChangeRequired">If true, the password for the customer account must be changed.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=SetPasswordChangeRequired( isPasswordChangeRequired,  accountId,  userId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient SetPasswordChangeRequiredClient(bool isPasswordChangeRequired, int accountId, string userId =  null)
+		public static MozuClient<System.IO.Stream> SetPasswordChangeRequiredClient(bool isPasswordChangeRequired, int accountId, string userId =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.SetPasswordChangeRequiredUrl(accountId, userId);
 			const string verb = "POST";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody(isPasswordChangeRequired);
 			return mozuClient;
@@ -420,19 +420,19 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// </summary>
 		/// <param name="resetPasswordInfo">Information required to reset the password for a customer account.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=ResetPassword( resetPasswordInfo);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient ResetPasswordClient(Mozu.Api.Contracts.Customer.ResetPasswordInfo resetPasswordInfo)
+		public static MozuClient<System.IO.Stream> ResetPasswordClient(Mozu.Api.Contracts.Customer.ResetPasswordInfo resetPasswordInfo)
 		{
 			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.ResetPasswordUrl();
 			const string verb = "POST";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.Customer.ResetPasswordInfo>(resetPasswordInfo);
 			return mozuClient;
@@ -470,19 +470,19 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// </summary>
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteAccount( accountId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteAccountClient(int accountId)
+		public static MozuClient<System.IO.Stream> DeleteAccountClient(int accountId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Customer.CustomerAccountUrl.DeleteAccountUrl(accountId);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

@@ -79,19 +79,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="publishScope">Describes the scope of the product publishing update, which can include individual product codes or all pending changes.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DiscardDrafts(dataViewMode,  publishScope);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DiscardDraftsClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope)
+		public static MozuClient<System.IO.Stream> DiscardDraftsClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.PublishingScopeUrl.DiscardDraftsUrl();
 			const string verb = "POST";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.ProductAdmin.PublishingScope>(publishScope)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
@@ -105,19 +105,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="publishScope">Describes the scope of the product publishing update, which can include individual product codes or all pending changes.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=PublishDrafts(dataViewMode,  publishScope);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient PublishDraftsClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope)
+		public static MozuClient<System.IO.Stream> PublishDraftsClient(DataViewMode dataViewMode, Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.PublishingScopeUrl.PublishDraftsUrl();
 			const string verb = "POST";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.ProductAdmin.PublishingScope>(publishScope)									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
@@ -158,19 +158,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <param name="publishSetCode">The unique identifier of the publish set.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeletePublishSet( publishSetCode,  discardDrafts);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeletePublishSetClient(string publishSetCode, bool? discardDrafts =  null)
+		public static MozuClient<System.IO.Stream> DeletePublishSetClient(string publishSetCode, bool? discardDrafts =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.PublishingScopeUrl.DeletePublishSetUrl(publishSetCode, discardDrafts);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

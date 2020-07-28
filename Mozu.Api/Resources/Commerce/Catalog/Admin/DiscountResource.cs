@@ -230,20 +230,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="discountId">discountId parameter description DOCUMENT_HERE </param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var discount = new Discount();
-		///   await discount.DeleteDiscountAsync( discountId);
+		///   var stream = await discount.DeleteDiscountAsync( discountId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteDiscountAsync(int discountId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteDiscountAsync(int discountId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.DiscountClient.DeleteDiscountClient( discountId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

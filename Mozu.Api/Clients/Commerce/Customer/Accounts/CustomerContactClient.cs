@@ -165,19 +165,19 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="contactId">Unique identifer of the customer account contact being updated.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteAccountContact( accountId,  contactId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteAccountContactClient(int accountId, int contactId)
+		public static MozuClient<System.IO.Stream> DeleteAccountContactClient(int accountId, int contactId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerContactUrl.DeleteAccountContactUrl(accountId, contactId);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

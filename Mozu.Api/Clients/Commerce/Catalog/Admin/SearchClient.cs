@@ -384,19 +384,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="searchTuningRuleCode">The unique identifier of the search tuning rule.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteSearchTuningRule( searchTuningRuleCode);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteSearchTuningRuleClient(string searchTuningRuleCode)
+		public static MozuClient<System.IO.Stream> DeleteSearchTuningRuleClient(string searchTuningRuleCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.SearchUrl.DeleteSearchTuningRuleUrl(searchTuningRuleCode);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -408,19 +408,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="synonymId">The unique identifier of the synonym definition.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteSynonymDefinition( synonymId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteSynonymDefinitionClient(int synonymId)
+		public static MozuClient<System.IO.Stream> DeleteSynonymDefinitionClient(int synonymId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.SearchUrl.DeleteSynonymDefinitionUrl(synonymId);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

@@ -132,19 +132,19 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <param name="digitalPackageId">This parameter supplies package ID to get fulfillment actions for the digital package.</param>
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteDigitalPackage( orderId,  digitalPackageId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteDigitalPackageClient(string orderId, string digitalPackageId)
+		public static MozuClient<System.IO.Stream> DeleteDigitalPackageClient(string orderId, string digitalPackageId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Orders.DigitalPackageUrl.DeleteDigitalPackageUrl(orderId, digitalPackageId);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

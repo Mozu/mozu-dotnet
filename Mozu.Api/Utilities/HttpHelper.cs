@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Primitives;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
@@ -36,7 +38,14 @@ namespace Mozu.Api.Utilities
             IEnumerable<string> value = (headers.Contains(header) ? headers.GetValues(header) : null);
             return GetStringValue(value);
         }
-        
+
+        public static string GetHeaderValue(string header, IHeaderDictionary headers)
+        {
+            IEnumerable<string> value = (headers.ContainsKey(header) ? headers[header] : new StringValues());
+            return GetStringValue(value);
+        }
+
+
         public static int? ParseFirstValue(string header, HttpResponseHeaders headers)
         {
             IEnumerable<string> value = (headers.Contains(header) ? headers.GetValues(header) : null);

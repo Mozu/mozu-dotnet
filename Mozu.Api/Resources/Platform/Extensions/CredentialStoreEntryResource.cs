@@ -44,20 +44,21 @@ namespace Mozu.Api.Resources.Platform.Extensions
 		/// </summary>
 		/// <param name="credentials"></param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var credentialstoreentry = new CredentialStoreEntry();
-		///   await credentialstoreentry.StoreCredentialsAsync( credentials);
+		///   var stream = await credentialstoreentry.StoreCredentialsAsync( credentials);
 		/// </code>
 		/// </example>
-		public virtual async Task StoreCredentialsAsync(Mozu.Api.Contracts.InstalledApplications.CredentialStoreEntry credentials, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> StoreCredentialsAsync(Mozu.Api.Contracts.InstalledApplications.CredentialStoreEntry credentials, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Platform.Extensions.CredentialStoreEntryClient.StoreCredentialsClient( credentials);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

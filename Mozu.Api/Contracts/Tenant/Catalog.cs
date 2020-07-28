@@ -14,37 +14,27 @@ using System;
 namespace Mozu.Api.Contracts.Tenant
 {
 		///
-		///	Properties of an individual product catalog.
+		///	Properties of a product catalog associated with a tenant.
 		///
 		public class Catalog
 		{
-			public DateTime CreateDate { get; set; }
-
+			///
+			///The default three-letter ISO currency code for monetary amounts. Currently, only "USD" is supported for U.S. Dollar.
+			///
 			public string DefaultCurrencyCode { get; set; }
 
+			///
+			///The two-letter default locale code for setting the localized text content. Currently, only "en-US" is supported for U.S. English.
+			///
 			public string DefaultLocaleCode { get; set; }
 
-			public DateTime DeleteDate { get; set; }
-
 			public int Id { get; set; }
-
-			public bool IsDeleted { get; set; }
 
 			public int MasterCatalogId { get; set; }
 
 			public string Name { get; set; }
 
-			///
-			///The current status of the object.This value is read only. Valid values for this field are: "Active", "Expired", and "Inactive".
-			///
-			public string Status { get; set; }
-
-			///
-			///Unique identifier of the Mozu tenant.
-			///
 			public int TenantId { get; set; }
-
-			public DateTime UpdateDate { get; set; }
 
 		}
 

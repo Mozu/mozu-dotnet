@@ -17,6 +17,46 @@ namespace Mozu.Api.Urls.Platform.Adminuser
 	{
 
 		/// <summary>
+        /// Get Resource Url for GetUsers
+        /// </summary>
+        /// <param name="emailAddress"></param>
+        /// <param name="filter"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="sortBy"></param>
+        /// <param name="startIndex"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetUsersUrl(string emailAddress =  null, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null)
+		{
+			var url = "/api/platform/adminuser/accounts/?emailAddress={emailAddress}&startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
+			mozuUrl.FormatUrl( "emailAddress", emailAddress);
+			mozuUrl.FormatUrl( "filter", filter);
+			mozuUrl.FormatUrl( "pageSize", pageSize);
+			mozuUrl.FormatUrl( "sortBy", sortBy);
+			mozuUrl.FormatUrl( "startIndex", startIndex);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for GetUserRoles
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <param name="userId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetUserRolesUrl(string userId, string responseFields =  null)
+		{
+			var url = "/api/platform/adminuser/accounts/{userId}/roles?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "userId", userId);
+			return mozuUrl;
+		}
+
+		/// <summary>
         /// Get Resource Url for GetTenantScopesForUser
         /// </summary>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -27,6 +67,23 @@ namespace Mozu.Api.Urls.Platform.Adminuser
         public static MozuUrl GetTenantScopesForUserUrl(string userId, string responseFields =  null)
 		{
 			var url = "/api/platform/adminuser/accounts/{userId}/tenants?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "userId", userId);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for GetUserById
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <param name="userId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetUserByIdUrl(string userId, string responseFields =  null)
+		{
+			var url = "/api/platform/adminuser/accounts/{userId}/userbyid?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "userId", userId);
@@ -50,7 +107,131 @@ namespace Mozu.Api.Urls.Platform.Adminuser
 			return mozuUrl;
 		}
 
-								
+				/// <summary>
+        /// Get Resource Url for CreateUser
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl CreateUserUrl(string responseFields =  null)
+		{
+			var url = "/api/platform/adminuser/accounts/?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for ChangePassword
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl ChangePasswordUrl(string userId)
+		{
+			var url = "/api/platform/adminuser/accounts/{userId}/Change-Password";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
+			mozuUrl.FormatUrl( "userId", userId);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for ChangeUserPassword
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl ChangeUserPasswordUrl(string userId)
+		{
+			var url = "/api/platform/adminuser/accounts/{userId}/Change-User-Password";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
+			mozuUrl.FormatUrl( "userId", userId);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for AddUserRole
+        /// </summary>
+        /// <param name="roleId"></param>
+        /// <param name="userId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl AddUserRoleUrl(string userId, int roleId)
+		{
+			var url = "/api/platform/adminuser/accounts/{userId}/roles/{roleId}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
+			mozuUrl.FormatUrl( "roleId", roleId);
+			mozuUrl.FormatUrl( "userId", userId);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for ResetPassword
+        /// </summary>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl ResetPasswordUrl()
+		{
+			var url = "/api/platform/adminuser/accounts/Reset-Password";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
+			return mozuUrl;
+		}
+
+				/// <summary>
+        /// Get Resource Url for UpdateUser
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <param name="userId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl UpdateUserUrl(string userId, string responseFields =  null)
+		{
+			var url = "/api/platform/adminuser/accounts/{userId}?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "userId", userId);
+			return mozuUrl;
+		}
+
+				/// <summary>
+        /// Get Resource Url for DeleteUser
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl DeleteUserUrl(string userId)
+		{
+			var url = "/api/platform/adminuser/accounts/{userId}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
+			mozuUrl.FormatUrl( "userId", userId);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for RemoveUserRole
+        /// </summary>
+        /// <param name="roleId"></param>
+        /// <param name="userId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl RemoveUserRoleUrl(string userId, int roleId)
+		{
+			var url = "/api/platform/adminuser/accounts/{userId}/roles/{roleId}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.HOME_POD, false) ;
+			mozuUrl.FormatUrl( "roleId", roleId);
+			mozuUrl.FormatUrl( "userId", userId);
+			return mozuUrl;
+		}
+
+		
 	}
 }
 

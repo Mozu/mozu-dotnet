@@ -153,20 +153,21 @@ namespace Mozu.Api.Resources.Commerce.Customer.Accounts
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customernote = new CustomerNote();
-		///   await customernote.DeleteAccountNoteAsync( accountId,  noteId);
+		///   var stream = await customernote.DeleteAccountNoteAsync( accountId,  noteId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteAccountNoteAsync(int accountId, int noteId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteAccountNoteAsync(int accountId, int noteId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.Accounts.CustomerNoteClient.DeleteAccountNoteClient( accountId,  noteId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

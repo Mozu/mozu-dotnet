@@ -151,20 +151,19 @@ namespace Mozu.Api.Resources.Platform
 		/// <param name="filepath">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
 		/// <param name="lastModifiedTime">The date and time of the last file insert or update. This parameter is optional.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="stream">Data stream that delivers information. Used to input and output data.</param>
 		/// <returns>
 		/// <see cref="Mozu.Api.Contracts.AppDev.FileMetadata"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var application = new Application();
-		///   var fileMetadata = await application.UpsertPackageFileAsync( stream,  applicationKey,  filepath,  lastModifiedTime,  responseFields,  contentType);
+		///   var fileMetadata = await application.UpsertPackageFileAsync( applicationKey,  filepath,  lastModifiedTime,  responseFields);
 		/// </code>
 		/// </example>
-		public virtual async Task<Mozu.Api.Contracts.AppDev.FileMetadata> UpsertPackageFileAsync(System.IO.Stream stream, string applicationKey, string filepath, string lastModifiedTime =  null, string responseFields =  null, String  contentType= null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.AppDev.FileMetadata> UpsertPackageFileAsync(string applicationKey, string filepath, string lastModifiedTime =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.AppDev.FileMetadata> response;
-			var client = Mozu.Api.Clients.Platform.ApplicationClient.UpsertPackageFileClient( stream,  applicationKey,  filepath,  lastModifiedTime,  responseFields,  contentType);
+			var client = Mozu.Api.Clients.Platform.ApplicationClient.UpsertPackageFileClient( applicationKey,  filepath,  lastModifiedTime,  responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -204,20 +203,21 @@ namespace Mozu.Api.Resources.Platform
 		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
 		/// <param name="filepath">Represents the file name and location.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var application = new Application();
-		///   await application.DeletePackageFileAsync( applicationKey,  filepath);
+		///   var stream = await application.DeletePackageFileAsync( applicationKey,  filepath);
 		/// </code>
 		/// </example>
-		public virtual async Task DeletePackageFileAsync(string applicationKey, string filepath, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeletePackageFileAsync(string applicationKey, string filepath, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Platform.ApplicationClient.DeletePackageFileClient( applicationKey,  filepath);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

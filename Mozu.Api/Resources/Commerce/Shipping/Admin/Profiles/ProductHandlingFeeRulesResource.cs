@@ -161,20 +161,21 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin.Profiles
 		/// <param name="profilecode">The unique, user-defined code of the profile with which the product handling fee rule is associated.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var producthandlingfeerules = new ProductHandlingFeeRules();
-		///   await producthandlingfeerules.DeleteProductHandlingFeeRuleAsync(_dataViewMode,  profilecode,  id);
+		///   var stream = await producthandlingfeerules.DeleteProductHandlingFeeRuleAsync(_dataViewMode,  profilecode,  id);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteProductHandlingFeeRuleAsync(string profilecode, string id, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteProductHandlingFeeRuleAsync(string profilecode, string id, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles.ProductHandlingFeeRulesClient.DeleteProductHandlingFeeRuleClient(_dataViewMode,  profilecode,  id);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

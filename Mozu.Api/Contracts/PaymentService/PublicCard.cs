@@ -60,6 +60,8 @@ namespace Mozu.Api.Contracts.PaymentService
 			///
 			public int ExpireYear { get; set; }
 
+			public bool IsTokenized { get; set; }
+
 		}
 
 }

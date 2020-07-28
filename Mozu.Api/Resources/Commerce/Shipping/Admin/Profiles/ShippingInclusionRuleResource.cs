@@ -154,20 +154,21 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin.Profiles
 		/// <param name="profilecode">The unique, user-defined code of the profile with which the shipping inclusion rule is associated.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var shippinginclusionrule = new ShippingInclusionRule();
-		///   await shippinginclusionrule.DeleteShippingInclusionRuleAsync( profilecode,  id);
+		///   var stream = await shippinginclusionrule.DeleteShippingInclusionRuleAsync( profilecode,  id);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteShippingInclusionRuleAsync(string profilecode, string id, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteShippingInclusionRuleAsync(string profilecode, string id, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles.ShippingInclusionRuleClient.DeleteShippingInclusionRuleClient( profilecode,  id);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

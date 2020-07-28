@@ -103,20 +103,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="publishScope">Describes the scope of the product publishing update, which can include individual product codes or all pending changes.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var publishingscope = new PublishingScope();
-		///   await publishingscope.DiscardDraftsAsync(_dataViewMode,  publishScope);
+		///   var stream = await publishingscope.DiscardDraftsAsync(_dataViewMode,  publishScope);
 		/// </code>
 		/// </example>
-		public virtual async Task DiscardDraftsAsync(Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DiscardDraftsAsync(Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.DiscardDraftsClient(_dataViewMode,  publishScope);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -127,20 +128,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="publishScope">Describes the scope of the product publishing update, which can include individual product codes or all pending changes.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var publishingscope = new PublishingScope();
-		///   await publishingscope.PublishDraftsAsync(_dataViewMode,  publishScope);
+		///   var stream = await publishingscope.PublishDraftsAsync(_dataViewMode,  publishScope);
 		/// </code>
 		/// </example>
-		public virtual async Task PublishDraftsAsync(Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> PublishDraftsAsync(Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.PublishDraftsClient(_dataViewMode,  publishScope);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -178,20 +180,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <param name="publishSetCode">The unique identifier of the publish set.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var publishingscope = new PublishingScope();
-		///   await publishingscope.DeletePublishSetAsync( publishSetCode,  discardDrafts);
+		///   var stream = await publishingscope.DeletePublishSetAsync( publishSetCode,  discardDrafts);
 		/// </code>
 		/// </example>
-		public virtual async Task DeletePublishSetAsync(string publishSetCode, bool? discardDrafts =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeletePublishSetAsync(string publishSetCode, bool? discardDrafts =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PublishingScopeClient.DeletePublishSetClient( publishSetCode,  discardDrafts);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

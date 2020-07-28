@@ -261,20 +261,21 @@ namespace Mozu.Api.Resources.Platform.Entitylists
 		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
 		/// <param name="viewName">The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var listview = new ListView();
-		///   await listview.DeleteEntityListViewAsync( entityListFullName,  viewName);
+		///   var stream = await listview.DeleteEntityListViewAsync( entityListFullName,  viewName);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteEntityListViewAsync(string entityListFullName, string viewName, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteEntityListViewAsync(string entityListFullName, string viewName, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Platform.Entitylists.ListViewClient.DeleteEntityListViewClient( entityListFullName,  viewName);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

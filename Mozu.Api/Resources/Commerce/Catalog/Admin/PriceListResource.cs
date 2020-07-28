@@ -124,20 +124,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <param name="publishEvents">Disable this property to prevent publishing the event related to adding price list entries to the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.</param>
 		/// <param name="priceListEntriesIn"></param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var pricelist = new PriceList();
-		///   await pricelist.BulkAddPriceListEntriesAsync( priceListEntriesIn,  publishEvents,  invalidateCache);
+		///   var stream = await pricelist.BulkAddPriceListEntriesAsync( priceListEntriesIn,  publishEvents,  invalidateCache);
 		/// </code>
 		/// </example>
-		public virtual async Task BulkAddPriceListEntriesAsync(List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents =  null, bool? invalidateCache =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> BulkAddPriceListEntriesAsync(List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents =  null, bool? invalidateCache =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.BulkAddPriceListEntriesClient( priceListEntriesIn,  publishEvents,  invalidateCache);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -149,20 +150,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <param name="publishEvents">Disable this property to prevent publishing the event related to deleting price list entries from the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.</param>
 		/// <param name="priceListEntriesIn"></param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var pricelist = new PriceList();
-		///   await pricelist.BulkDeletePriceListEntriesAsync( priceListEntriesIn,  publishEvents,  invalidateCache);
+		///   var stream = await pricelist.BulkDeletePriceListEntriesAsync( priceListEntriesIn,  publishEvents,  invalidateCache);
 		/// </code>
 		/// </example>
-		public virtual async Task BulkDeletePriceListEntriesAsync(List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents =  null, bool? invalidateCache =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> BulkDeletePriceListEntriesAsync(List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents =  null, bool? invalidateCache =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.BulkDeletePriceListEntriesClient( priceListEntriesIn,  publishEvents,  invalidateCache);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -174,20 +176,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <param name="publishEvents">Disable this property to prevent publishing the event related to updating price list entries in the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.</param>
 		/// <param name="priceListEntriesIn"></param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var pricelist = new PriceList();
-		///   await pricelist.BulkUpdatePriceListEntriesAsync( priceListEntriesIn,  publishEvents,  invalidateCache);
+		///   var stream = await pricelist.BulkUpdatePriceListEntriesAsync( priceListEntriesIn,  publishEvents,  invalidateCache);
 		/// </code>
 		/// </example>
-		public virtual async Task BulkUpdatePriceListEntriesAsync(List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents =  null, bool? invalidateCache =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> BulkUpdatePriceListEntriesAsync(List<Mozu.Api.Contracts.ProductAdmin.PriceListEntry> priceListEntriesIn, bool? publishEvents =  null, bool? invalidateCache =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.BulkUpdatePriceListEntriesClient( priceListEntriesIn,  publishEvents,  invalidateCache);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -224,20 +227,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <param name="cascadeDeleteEntries">Specifies whether to deletes all price list entries associated with the price list.</param>
 		/// <param name="priceListCode">The unique, user-defined code of the price list.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var pricelist = new PriceList();
-		///   await pricelist.DeletePriceListAsync( priceListCode,  cascadeDeleteEntries);
+		///   var stream = await pricelist.DeletePriceListAsync( priceListCode,  cascadeDeleteEntries);
 		/// </code>
 		/// </example>
-		public virtual async Task DeletePriceListAsync(string priceListCode, bool? cascadeDeleteEntries =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeletePriceListAsync(string priceListCode, bool? cascadeDeleteEntries =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.PriceListClient.DeletePriceListClient( priceListCode,  cascadeDeleteEntries);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

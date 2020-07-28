@@ -146,6 +146,23 @@ namespace Mozu.Api.Urls.Commerce
 		}
 
 		/// <summary>
+        /// Get Resource Url for GetReturnLabel
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <param name="returnId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl GetReturnLabelUrl(string returnId, string responseFields =  null)
+		{
+			var url = "/api/commerce/returns/{returnId}/shipping/label?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "returnId", returnId);
+			return mozuUrl;
+		}
+
+		/// <summary>
         /// Get Resource Url for GetReturn
         /// </summary>
         /// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
@@ -239,6 +256,23 @@ namespace Mozu.Api.Urls.Commerce
         public static MozuUrl CreatePaymentActionForReturnUrl(string returnId, string responseFields =  null)
 		{
 			var url = "/api/commerce/returns/{returnId}/payments/actions?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
+			mozuUrl.FormatUrl( "responseFields", responseFields);
+			mozuUrl.FormatUrl( "returnId", returnId);
+			return mozuUrl;
+		}
+
+		/// <summary>
+        /// Get Resource Url for RestockReturnItems
+        /// </summary>
+        /// <param name="responseFields"></param>
+        /// <param name="returnId"></param>
+        /// <returns>
+        /// String - Resource Url
+        /// </returns>
+        public static MozuUrl RestockReturnItemsUrl(string returnId, string responseFields =  null)
+		{
+			var url = "/api/commerce/returns/{returnId}/restock?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false) ;
 			mozuUrl.FormatUrl( "responseFields", responseFields);
 			mozuUrl.FormatUrl( "returnId", returnId);

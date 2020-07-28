@@ -24,6 +24,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 		///
 		public class Return
 		{
+			public bool ActionRequired { get; set; }
+
 			public AuditInfo AuditInfo { get; set; }
 
 			public List<string> AvailableActions { get; set; }
@@ -47,6 +49,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Returns
 			public string CustomerInteractionType { get; set; }
 
 			public string Id { get; set; }
+
+			public bool IsUnified { get; set; }
 
 			public List<ReturnItem> Items { get; set; }
 

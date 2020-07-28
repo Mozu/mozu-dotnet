@@ -401,20 +401,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="searchTuningRuleCode">The unique identifier of the search tuning rule.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var search = new Search();
-		///   await search.DeleteSearchTuningRuleAsync( searchTuningRuleCode);
+		///   var stream = await search.DeleteSearchTuningRuleAsync( searchTuningRuleCode);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteSearchTuningRuleAsync(string searchTuningRuleCode, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteSearchTuningRuleAsync(string searchTuningRuleCode, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.DeleteSearchTuningRuleClient( searchTuningRuleCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -424,20 +425,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="synonymId">The unique identifier of the synonym definition.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var search = new Search();
-		///   await search.DeleteSynonymDefinitionAsync( synonymId);
+		///   var stream = await search.DeleteSynonymDefinitionAsync( synonymId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteSynonymDefinitionAsync(int synonymId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteSynonymDefinitionAsync(int synonymId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.SearchClient.DeleteSynonymDefinitionClient( synonymId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

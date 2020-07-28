@@ -176,20 +176,21 @@ namespace Mozu.Api.Resources.Commerce
 		/// </summary>
 		/// <param name="wishlistId">Unique identifier of the wish list.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var wishlist = new Wishlist();
-		///   await wishlist.DeleteWishlistAsync( wishlistId);
+		///   var stream = await wishlist.DeleteWishlistAsync( wishlistId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteWishlistAsync(string wishlistId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteWishlistAsync(string wishlistId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.WishlistClient.DeleteWishlistClient( wishlistId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

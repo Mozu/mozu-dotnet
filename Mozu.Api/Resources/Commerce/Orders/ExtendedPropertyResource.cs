@@ -157,20 +157,21 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
 		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var extendedproperty = new ExtendedProperty();
-		///   await extendedproperty.DeleteExtendedPropertyAsync( orderId,  key,  updateMode,  version);
+		///   var stream = await extendedproperty.DeleteExtendedPropertyAsync( orderId,  key,  updateMode,  version);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteExtendedPropertyAsync(string orderId, string key, string updateMode =  null, string version =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteExtendedPropertyAsync(string orderId, string key, string updateMode =  null, string version =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.ExtendedPropertyClient.DeleteExtendedPropertyClient( orderId,  key,  updateMode,  version);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -183,20 +184,21 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
 		/// <param name="keys">The extended property keys.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var extendedproperty = new ExtendedProperty();
-		///   await extendedproperty.DeleteExtendedPropertiesAsync( keys,  orderId,  updateMode,  version);
+		///   var stream = await extendedproperty.DeleteExtendedPropertiesAsync( keys,  orderId,  updateMode,  version);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteExtendedPropertiesAsync(List<string> keys, string orderId, string updateMode =  null, string version =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteExtendedPropertiesAsync(List<string> keys, string orderId, string updateMode =  null, string version =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.ExtendedPropertyClient.DeleteExtendedPropertiesClient( keys,  orderId,  updateMode,  version);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

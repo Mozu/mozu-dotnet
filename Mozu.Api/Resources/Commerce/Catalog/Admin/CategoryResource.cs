@@ -127,7 +127,7 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="incrementSequence">If true, when adding a new product category, set the sequence number of the new category to an increment of one integer greater than the maximum available sequence number across all product categories. If false, set the sequence number to zero.</param>
+		/// <param name="incrementSequence">If true, when adding a new product category, set the sequence number of the new category to an increment of one integer greater than the maximum available sequence number across all product categories. If false, set the sequence number to zero. Note that this sequence number is NOT the same as the category code - the sequence number orders the categories and so may be related to the category code when the code is initially generated, but this parameter can adjust it.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="useProvidedId">Optional. If ,  uses the  you specify in the request as the category's id. If ,  generates an  for the category regardless if you specify an id in the request.If you specify an id already in use and set this parameter to ,  returns an error.</param>
 		/// <param name="category">A descriptive container that groups products. A category is merchant defined with associated products and discounts as configured. GThe storefront displays products in a hierarchy of categories. As such, categories can include a nesting of sub-categories to organize products and product options per set guidelines such as color, brand, material, and size.</param>
@@ -157,20 +157,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <param name="categoryId">Unique identifier of the category to modify.</param>
 		/// <param name="productCodes">A list of product codes to be added to the category.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var category = new Category();
-		///   await category.AddProductsToCategoryAsync(_dataViewMode,  productCodes,  categoryId);
+		///   var stream = await category.AddProductsToCategoryAsync(_dataViewMode,  productCodes,  categoryId);
 		/// </code>
 		/// </example>
-		public virtual async Task AddProductsToCategoryAsync(List<string> productCodes, int categoryId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> AddProductsToCategoryAsync(List<string> productCodes, int categoryId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.AddProductsToCategoryClient(_dataViewMode,  productCodes,  categoryId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -181,20 +182,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <param name="categoryId">Unique identifier of the category to modify.</param>
 		/// <param name="productCodes">A list of product codes to be removed from the category.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var category = new Category();
-		///   await category.RemoveProductsFromCategoryAsync( productCodes,  categoryId);
+		///   var stream = await category.RemoveProductsFromCategoryAsync( productCodes,  categoryId);
 		/// </code>
 		/// </example>
-		public virtual async Task RemoveProductsFromCategoryAsync(List<string> productCodes, int categoryId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> RemoveProductsFromCategoryAsync(List<string> productCodes, int categoryId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.RemoveProductsFromCategoryClient( productCodes,  categoryId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -284,20 +286,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <param name="forceDelete">Specifies whether the category, and any associated subcategories, are deleted even if there are products that reference them. The default value is false.</param>
 		/// <param name="reassignToParent">Specifies whether any subcategories of the specified category are reassigned to the parent of the specified category.This field only applies if the cascadeDelete parameter is false.The default value is false.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var category = new Category();
-		///   await category.DeleteCategoryByIdAsync( categoryId,  cascadeDelete,  forceDelete,  reassignToParent);
+		///   var stream = await category.DeleteCategoryByIdAsync( categoryId,  cascadeDelete,  forceDelete,  reassignToParent);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteCategoryByIdAsync(int categoryId, bool? cascadeDelete =  null, bool? forceDelete =  null, bool? reassignToParent =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteCategoryByIdAsync(int categoryId, bool? cascadeDelete =  null, bool? forceDelete =  null, bool? reassignToParent =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CategoryClient.DeleteCategoryByIdClient( categoryId,  cascadeDelete,  forceDelete,  reassignToParent);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

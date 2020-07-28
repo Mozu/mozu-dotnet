@@ -126,19 +126,19 @@ namespace Mozu.Api.Clients.Commerce.Admin
 		/// </summary>
 		/// <param name="locationTypeCode">The user-defined code that identifies the location type.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteLocationType( locationTypeCode);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteLocationTypeClient(string locationTypeCode)
+		public static MozuClient<System.IO.Stream> DeleteLocationTypeClient(string locationTypeCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Admin.LocationTypeUrl.DeleteLocationTypeUrl(locationTypeCode);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

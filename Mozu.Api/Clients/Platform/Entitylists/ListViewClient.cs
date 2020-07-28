@@ -244,19 +244,19 @@ namespace Mozu.Api.Clients.Platform.Entitylists
 		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
 		/// <param name="viewName">The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteEntityListView( entityListFullName,  viewName);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteEntityListViewClient(string entityListFullName, string viewName)
+		public static MozuClient<System.IO.Stream> DeleteEntityListViewClient(string entityListFullName, string viewName)
 		{
 			var url = Mozu.Api.Urls.Platform.Entitylists.ListViewUrl.DeleteEntityListViewUrl(entityListFullName, viewName);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

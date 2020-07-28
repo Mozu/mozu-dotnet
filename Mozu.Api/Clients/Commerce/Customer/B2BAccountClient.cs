@@ -248,19 +248,19 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <param name="roleId">Identifier for the role that the user account should belong to. For B2B, these roles include Admin, Purchaser, and Non-Purchaser.</param>
 		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=AddUserRoleAsync( accountId,  userId,  roleId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient AddUserRoleAsyncClient(int accountId, string userId, int roleId)
+		public static MozuClient<System.IO.Stream> AddUserRoleAsyncClient(int accountId, string userId, int roleId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Customer.B2BAccountUrl.AddUserRoleAsyncUrl(accountId, userId, roleId);
 			const string verb = "POST";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -326,19 +326,19 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=RemoveUser( accountId,  userId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient RemoveUserClient(int accountId, string userId)
+		public static MozuClient<System.IO.Stream> RemoveUserClient(int accountId, string userId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Customer.B2BAccountUrl.RemoveUserUrl(accountId, userId);
 			const string verb = "PUT";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -404,19 +404,19 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteB2BAccountAttribute( accountId,  attributeFQN);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteB2BAccountAttributeClient(int accountId, string attributeFQN)
+		public static MozuClient<System.IO.Stream> DeleteB2BAccountAttributeClient(int accountId, string attributeFQN)
 		{
 			var url = Mozu.Api.Urls.Commerce.Customer.B2BAccountUrl.DeleteB2BAccountAttributeUrl(accountId, attributeFQN);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -430,19 +430,19 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <param name="roleId">The ID corresponding to the type of permissions being removed, e.g. 1 for Admin.</param>
 		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=RemoveUserRoleAsync( accountId,  userId,  roleId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient RemoveUserRoleAsyncClient(int accountId, string userId, int roleId)
+		public static MozuClient<System.IO.Stream> RemoveUserRoleAsyncClient(int accountId, string userId, int roleId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Customer.B2BAccountUrl.RemoveUserRoleAsyncUrl(accountId, userId, roleId);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

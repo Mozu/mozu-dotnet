@@ -36,7 +36,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string MediaType { get; set; }
 
 			///
-			///productImageGroupId ApiType DOCUMENT_HERE 
+			///A unique identifier for the product image group.
 			///
 			public string ProductImageGroupId { get; set; }
 

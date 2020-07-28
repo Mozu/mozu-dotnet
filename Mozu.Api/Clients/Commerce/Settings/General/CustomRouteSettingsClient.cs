@@ -100,19 +100,19 @@ namespace Mozu.Api.Clients.Commerce.Settings.General
 		/// 
 		/// </summary>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteCustomRouteSettings();
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteCustomRouteSettingsClient()
+		public static MozuClient<System.IO.Stream> DeleteCustomRouteSettingsClient()
 		{
 			var url = Mozu.Api.Urls.Commerce.Settings.General.CustomRouteSettingsUrl.DeleteCustomRouteSettingsUrl();
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

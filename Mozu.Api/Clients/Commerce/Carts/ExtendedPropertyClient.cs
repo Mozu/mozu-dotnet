@@ -126,19 +126,19 @@ namespace Mozu.Api.Clients.Commerce.Carts
 		/// </summary>
 		/// <param name="keys"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteExtendedProperties( keys);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteExtendedPropertiesClient(List<string> keys)
+		public static MozuClient<System.IO.Stream> DeleteExtendedPropertiesClient(List<string> keys)
 		{
 			var url = Mozu.Api.Urls.Commerce.Carts.ExtendedPropertyUrl.DeleteExtendedPropertiesUrl();
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody(keys);
 			return mozuClient;
@@ -150,19 +150,19 @@ namespace Mozu.Api.Clients.Commerce.Carts
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteExtendedProperty( key);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteExtendedPropertyClient(string key)
+		public static MozuClient<System.IO.Stream> DeleteExtendedPropertyClient(string key)
 		{
 			var url = Mozu.Api.Urls.Commerce.Carts.ExtendedPropertyUrl.DeleteExtendedPropertyUrl(key);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

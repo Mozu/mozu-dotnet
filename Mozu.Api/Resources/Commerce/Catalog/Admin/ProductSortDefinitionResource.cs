@@ -156,20 +156,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="productSortDefinitionId">Unique identifier of the product sort definition.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var productsortdefinition = new ProductSortDefinition();
-		///   await productsortdefinition.DeleteProductSortDefinitionAsync(_dataViewMode,  productSortDefinitionId);
+		///   var stream = await productsortdefinition.DeleteProductSortDefinitionAsync(_dataViewMode,  productSortDefinitionId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteProductSortDefinitionAsync(int productSortDefinitionId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteProductSortDefinitionAsync(int productSortDefinitionId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductSortDefinitionClient.DeleteProductSortDefinitionClient(_dataViewMode,  productSortDefinitionId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

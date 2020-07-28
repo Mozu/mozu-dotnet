@@ -75,19 +75,19 @@ namespace Mozu.Api.Clients.Commerce.Settings.Checkout
 		/// </summary>
 		/// <param name="definition">Properties of an external payment processing workflow defined for the site. At this time, only PayPal Express is supported.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=AddThirdPartyPaymentWorkflow( definition);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient AddThirdPartyPaymentWorkflowClient(Mozu.Api.Contracts.SiteSettings.Order.ExternalPaymentWorkflowDefinition definition)
+		public static MozuClient<System.IO.Stream> AddThirdPartyPaymentWorkflowClient(Mozu.Api.Contracts.SiteSettings.Order.ExternalPaymentWorkflowDefinition definition)
 		{
 			var url = Mozu.Api.Urls.Commerce.Settings.Checkout.PaymentSettingsUrl.AddThirdPartyPaymentWorkflowUrl();
 			const string verb = "PUT";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.SiteSettings.Order.ExternalPaymentWorkflowDefinition>(definition);
 			return mozuClient;
@@ -99,19 +99,19 @@ namespace Mozu.Api.Clients.Commerce.Settings.Checkout
 		/// </summary>
 		/// <param name="fullyQualifiedName">Fully qualified name of the attribute for the third-party payment workflow.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteThirdPartyPaymentWorkflow( fullyQualifiedName);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteThirdPartyPaymentWorkflowClient(string fullyQualifiedName)
+		public static MozuClient<System.IO.Stream> DeleteThirdPartyPaymentWorkflowClient(string fullyQualifiedName)
 		{
 			var url = Mozu.Api.Urls.Commerce.Settings.Checkout.PaymentSettingsUrl.DeleteThirdPartyPaymentWorkflowUrl(fullyQualifiedName);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

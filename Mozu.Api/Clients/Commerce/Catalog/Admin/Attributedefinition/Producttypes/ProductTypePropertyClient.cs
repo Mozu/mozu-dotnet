@@ -140,19 +140,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Producttyp
 		/// <param name="productTypeId">Identifier of the product type.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteProperty(dataViewMode,  productTypeId,  attributeFQN);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeletePropertyClient(DataViewMode dataViewMode, int productTypeId, string attributeFQN)
+		public static MozuClient<System.IO.Stream> DeletePropertyClient(DataViewMode dataViewMode, int productTypeId, string attributeFQN)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Producttypes.ProductTypePropertyUrl.DeletePropertyUrl(productTypeId, attributeFQN);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;

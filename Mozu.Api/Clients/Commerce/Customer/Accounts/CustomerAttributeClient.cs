@@ -141,19 +141,19 @@ namespace Mozu.Api.Clients.Commerce.Customer.Accounts
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteAccountAttribute( accountId,  attributeFQN,  userId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteAccountAttributeClient(int accountId, string attributeFQN, string userId =  null)
+		public static MozuClient<System.IO.Stream> DeleteAccountAttributeClient(int accountId, string attributeFQN, string userId =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Customer.Accounts.CustomerAttributeUrl.DeleteAccountAttributeUrl(accountId, attributeFQN, userId);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
