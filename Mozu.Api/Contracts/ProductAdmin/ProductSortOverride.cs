@@ -33,6 +33,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public string ProductCode { get; set; }
 
+			public string SliceValue { get; set; }
+
 		}
 
 }

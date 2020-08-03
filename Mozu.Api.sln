@@ -5,6 +5,15 @@ VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mozu.Api", "Mozu.Api\Mozu.Api.csproj", "{F8B711E4-F186-43DE-BEF8-1B3F15A5E815}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mozu.Api.Test", "Mozu.Api.Test\Mozu.Api.Test.csproj", "{A66EE590-9F9E-46AF-A4FD-4CA0B16330AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{569B8B26-29E4-4B54-8608-6D7CB4C1DFC7}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		Dockerfile = Dockerfile
+		Jenkinsfile = Jenkinsfile
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +24,10 @@ Global
 		{F8B711E4-F186-43DE-BEF8-1B3F15A5E815}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8B711E4-F186-43DE-BEF8-1B3F15A5E815}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8B711E4-F186-43DE-BEF8-1B3F15A5E815}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A66EE590-9F9E-46AF-A4FD-4CA0B16330AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A66EE590-9F9E-46AF-A4FD-4CA0B16330AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A66EE590-9F9E-46AF-A4FD-4CA0B16330AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A66EE590-9F9E-46AF-A4FD-4CA0B16330AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

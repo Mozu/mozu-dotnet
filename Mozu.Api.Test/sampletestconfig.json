@@ -1,0 +1,11 @@
+{
+  "appSettings": {
+    "Environment": "DEV",
+
+    "AppId_DEV": "mozuadmin.MIEA.1.0.0.Release",
+    "SharedSecret_DEV": "c755147e6d4c4d95a359ab1775351b0a",
+    "BaseAuthAppUrl_DEV": "https://home.dev01.kibo-dev.com",
+    "TenantId_DEV": 18037
+
+  }
+}

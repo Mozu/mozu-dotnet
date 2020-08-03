@@ -19,6 +19,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 		///
 		public class SiteSearchSettings
 		{
+			public string CertonaApiKey { get; set; }
+
 			///
 			///Custom boost value for searches.
 			///
@@ -53,6 +55,10 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///The site phrase relevancy settings.
 			///
 			public SiteSearchPhraseRelevancySettings SitePhraseRelevancy { get; set; }
+
+			public bool SliceSearchByDefault { get; set; }
+
+			public bool UseCertonaSiteSearch { get; set; }
 
 		}
 

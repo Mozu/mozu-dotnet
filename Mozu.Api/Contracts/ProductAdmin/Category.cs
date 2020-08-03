@@ -72,6 +72,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 
 			public int? Sequence { get; set; }
 
+			public bool? ShouldSlice { get; set; }
+
 		}
 
 }

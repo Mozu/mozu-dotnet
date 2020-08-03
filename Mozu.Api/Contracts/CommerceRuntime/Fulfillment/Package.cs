@@ -67,6 +67,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 
 			public string Status { get; set; }
 
+			public string TrackingNumber { get; set; }
+
 			public List<string> TrackingNumbers { get; set; }
 
 			public List<Tracking> Trackings { get; set; }
