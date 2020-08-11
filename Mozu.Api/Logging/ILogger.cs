@@ -8,11 +8,11 @@ namespace Mozu.Api.Logging
 {
     public interface ILogger
     {
-        bool IsInfoEnabled { get; }
-        bool IsWarnEnabled { get; }
-        bool IsDebugEnabled { get; }
-        bool IsErrorEnabled { get; }
-        bool IsFatalEnabled { get; }
+        bool IsInfoEnabled { get; set; }
+        bool IsWarnEnabled { get; set; }
+        bool IsDebugEnabled { get; set; }
+        bool IsErrorEnabled { get; set; }
+        bool IsFatalEnabled { get; set; }
 
         void Info(object message, Exception ex = null, object properties = null);
         void Warn(object message, Exception ex = null, object properties = null);
