@@ -35,7 +35,14 @@ namespace Mozu.Api.Logging
         public void Error(object message, Exception ex = null, object properties = null)
         {
             if(IsErrorEnabled)
-			Console.WriteLine(message);
+            {
+                if (message.GetType() == typeof(Exception))
+                    ex = (Exception)message;
+                if (ex != null)
+                    message = String.Format("{0}, {1}", message, ex.StackTrace);
+                Console.WriteLine(message);
+            }
+			
 		}
 
         public void Fatal(object message, Exception ex = null, object properties = null)
