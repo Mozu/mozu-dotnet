@@ -53,6 +53,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.1.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Http, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -68,6 +69,90 @@
     <Compile Include="ApiException.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\ProductReservationClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\SoftAllocationClient.cs" />
+    <Compile Include="Clients\Commerce\Fulfillment\ShipmentClient.cs" />
+    <Compile Include="Clients\Commerce\Fulfillment\ShipmentPackagesClient.cs" />
+    <Compile Include="Contracts\Fulfillment\Address.cs" />
+    <Compile Include="Contracts\Fulfillment\AuditInfo.cs" />
+    <Compile Include="Contracts\Fulfillment\BackorderItem.cs" />
+    <Compile Include="Contracts\Fulfillment\BackorderItemsRequest.cs" />
+    <Compile Include="Contracts\Fulfillment\BackorderItemsUpdateRequest.cs" />
+    <Compile Include="Contracts\Fulfillment\BackorderItemUpdate.cs" />
+    <Compile Include="Contracts\Fulfillment\BackorderShipmentRequest.cs" />
+    <Compile Include="Contracts\Fulfillment\BinShipmentProductQuantity.cs" />
+    <Compile Include="Contracts\Fulfillment\BpmVariable.cs" />
+    <Compile Include="Contracts\Fulfillment\CanceledItem.cs" />
+    <Compile Include="Contracts\Fulfillment\CanceledReason.cs" />
+    <Compile Include="Contracts\Fulfillment\CancelItem.cs" />
+    <Compile Include="Contracts\Fulfillment\CancelItemsRequest.cs" />
+    <Compile Include="Contracts\Fulfillment\CancelShipment.cs" />
+    <Compile Include="Contracts\Fulfillment\ChangeMessage.cs" />
+    <Compile Include="Contracts\Fulfillment\ClosePickWave.cs" />
+    <Compile Include="Contracts\Fulfillment\CollectionModelOfDashboardResponse.cs" />
+    <Compile Include="Contracts\Fulfillment\CollectionModelOfEntityModelOfWorkflowProcess.cs" />
+    <Compile Include="Contracts\Fulfillment\CollectionModelOfManifest.cs" />
+    <Compile Include="Contracts\Fulfillment\CollectionModelOfPickWave.cs" />
+    <Compile Include="Contracts\Fulfillment\CollectionModelOfShipment.cs" />
+    <Compile Include="Contracts\Fulfillment\CollectionModelOfTask.cs" />
+    <Compile Include="Contracts\Fulfillment\Contact.cs" />
+    <Compile Include="Contracts\Fulfillment\CreatePickWave.cs" />
+    <Compile Include="Contracts\Fulfillment\DashboardResponse.cs" />
+    <Compile Include="Contracts\Fulfillment\DashboardStep.cs" />
+    <Compile Include="Contracts\Fulfillment\Destination.cs" />
+    <Compile Include="Contracts\Fulfillment\EntityModelOfManifest.cs" />
+    <Compile Include="Contracts\Fulfillment\EntityModelOfPickWave.cs" />
+    <Compile Include="Contracts\Fulfillment\EntityModelOfShipment.cs" />
+    <Compile Include="Contracts\Fulfillment\EntityModelOfWorkflowProcess.cs" />
+    <Compile Include="Contracts\Fulfillment\HandleOption.cs" />
+    <Compile Include="Contracts\Fulfillment\Item.cs" />
+    <Compile Include="Contracts\Fulfillment\Link.cs" />
+    <Compile Include="Contracts\Fulfillment\LinkRelation.cs" />
+    <Compile Include="Contracts\Fulfillment\Links.cs" />
+    <Compile Include="Contracts\Fulfillment\Manifest.cs" />
+    <Compile Include="Contracts\Fulfillment\ManifestRequest.cs" />
+    <Compile Include="Contracts\Fulfillment\ManifestRequestShipment.cs" />
+    <Compile Include="Contracts\Fulfillment\ManifestShipment.cs" />
+    <Compile Include="Contracts\Fulfillment\Measurement.cs" />
+    <Compile Include="Contracts\Fulfillment\Package.cs" />
+    <Compile Include="Contracts\Fulfillment\PackageMeasurements.cs" />
+    <Compile Include="Contracts\Fulfillment\PagedModelOfEntityModelOfShipment.cs" />
+    <Compile Include="Contracts\Fulfillment\PageMetadata.cs" />
+    <Compile Include="Contracts\Fulfillment\Phone.cs" />
+    <Compile Include="Contracts\Fulfillment\PickupItem.cs" />
+    <Compile Include="Contracts\Fulfillment\PickupItemsRequest.cs" />
+    <Compile Include="Contracts\Fulfillment\PickWave.cs" />
+    <Compile Include="Contracts\Fulfillment\PickWaveBinRange.cs" />
+    <Compile Include="Contracts\Fulfillment\PickWaveContent.cs" />
+    <Compile Include="Contracts\Fulfillment\PickWaveProductMatch.cs" />
+    <Compile Include="Contracts\Fulfillment\Principal.cs" />
+    <Compile Include="Contracts\Fulfillment\ProductOption.cs" />
+    <Compile Include="Contracts\Fulfillment\ReassignedReason.cs" />
+    <Compile Include="Contracts\Fulfillment\ReassignItem.cs" />
+    <Compile Include="Contracts\Fulfillment\ReassignItemsRequest.cs" />
+    <Compile Include="Contracts\Fulfillment\ReassignShipment.cs" />
+    <Compile Include="Contracts\Fulfillment\RejectedItem.cs" />
+    <Compile Include="Contracts\Fulfillment\RejectedReason.cs" />
+    <Compile Include="Contracts\Fulfillment\RejectItem.cs" />
+    <Compile Include="Contracts\Fulfillment\RejectItemsRequest.cs" />
+    <Compile Include="Contracts\Fulfillment\RejectShipment.cs" />
+    <Compile Include="Contracts\Fulfillment\Shipment.cs" />
+    <Compile Include="Contracts\Fulfillment\ShipmentAttribute.cs" />
+    <Compile Include="Contracts\Fulfillment\ShipmentStatusReason.cs" />
+    <Compile Include="Contracts\Fulfillment\Task.cs" />
+    <Compile Include="Contracts\Fulfillment\TaskComplete.cs" />
+    <Compile Include="Contracts\Fulfillment\TaskDefinition.cs" />
+    <Compile Include="Contracts\Fulfillment\TaskInput.cs" />
+    <Compile Include="Contracts\Fulfillment\TaskReason.cs" />
+    <Compile Include="Contracts\Fulfillment\TemplateVariable.cs" />
+    <Compile Include="Contracts\Fulfillment\TemplateVariables.cs" />
+    <Compile Include="Contracts\Fulfillment\Tracking.cs" />
+    <Compile Include="Contracts\Fulfillment\TransferItem.cs" />
+    <Compile Include="Contracts\Fulfillment\TransferItemsRequest.cs" />
+    <Compile Include="Contracts\Fulfillment\TransferredReason.cs" />
+    <Compile Include="Contracts\Fulfillment\TransferShipment.cs" />
+    <Compile Include="Contracts\Fulfillment\UriTemplate.cs" />
+    <Compile Include="Contracts\Fulfillment\WorkflowProcess.cs" />
+    <Compile Include="Contracts\Fulfillment\WorkflowProcessVariable.cs" />
+    <Compile Include="Contracts\Fulfillment\WorkflowState.cs" />
     <Compile Include="Contracts\PaymentService\Extensibility\V1\ConnectionStatuses.cs" />
     <Compile Include="Contracts\PaymentService\Extensibility\V1\TransactionType.cs" />
     <Compile Include="Contracts\ProductAdmin\ProductReservation.cs" />
@@ -88,6 +173,8 @@
     <Compile Include="MozuUrl.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\ProductReservationResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\SoftAllocationResource.cs" />
+    <Compile Include="Resources\Commerce\Fulfillment\ShipmentPackagesResource.cs" />
+    <Compile Include="Resources\Commerce\Fulfillment\ShipmentResource.cs" />
     <Compile Include="Security\AuthenticationScope.cs" />
     <Compile Include="Security\AuthTicket.cs" />
     <Compile Include="Security\ConfigurationAuth.cs" />
@@ -96,6 +183,8 @@
     <Compile Include="Security\UserAuthenticator.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\ProductReservationUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\SoftAllocationUrl.cs" />
+    <Compile Include="Urls\Commerce\Fulfillment\ShipmentPackagesUrl.cs" />
+    <Compile Include="Urls\Commerce\Fulfillment\ShipmentUrl.cs" />
     <Compile Include="Utilities\HttpHelper.cs" />
     <Compile Include="Utilities\ResponseHelper.cs" />
     <Compile Include="Version.cs" />
@@ -1311,6 +1400,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup>
-  </ItemGroup>
+  <ItemGroup />
 </Project>
