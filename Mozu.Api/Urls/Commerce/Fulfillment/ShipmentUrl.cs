@@ -149,6 +149,24 @@ namespace Mozu.Api.Urls.Commerce.Fulfillment
 			mozuUrl.FormatUrl("responseFields", responseFields);
 			return mozuUrl;
 		}
+
+		public static MozuUrl ReassignItemsUrl(ReassignItemsRequest reassignItemsRequest, int shipmentNumber, string responseFields = null)
+		{
+			var url = "/api/commerce/shipments/{shipmentNumber}/reassignedItems?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false);
+			mozuUrl.FormatUrl("shipmentNumber", shipmentNumber);			
+			mozuUrl.FormatUrl("responseFields", responseFields);
+			return mozuUrl;
+		}
+
+		public static MozuUrl ReassignShipmentUrl(ReassignShipment reassignShipmentRequest, int shipmentNumber, string responseFields = null)
+		{
+			var url = "/api/commerce/shipments/{shipmentNumber}/reassigned?responseFields={responseFields}";
+			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false);
+			mozuUrl.FormatUrl("shipmentNumber", shipmentNumber);
+			mozuUrl.FormatUrl("responseFields", responseFields);
+			return mozuUrl;
+		}
 	}
 }
 

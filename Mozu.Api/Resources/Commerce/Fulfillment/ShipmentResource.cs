@@ -195,6 +195,40 @@ namespace Mozu.Api.Resources.Commerce.Fulfillment
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="shipmentNumber"></param>
+		/// <param name="reassignItemsRequest"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="ct"></param>
+		/// <returns></returns>
+		public virtual async Task<Mozu.Api.Contracts.Fulfillment.EntityModelOfShipment> ReassignItems(ReassignItemsRequest reassignItemsRequest, int shipmentNumber, string responseFields = null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.Fulfillment.EntityModelOfShipment> response;
+			var client = Mozu.Api.Clients.Commerce.Fulfillment.ShipmentClient.ReassignItemsClient(reassignItemsRequest, shipmentNumber, responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="shipmentNumber"></param>
+		/// <param name="reassignShipmentRequest"></param>
+		/// <param name="responseFields"></param>
+		/// <param name="ct"></param>
+		/// <returns></returns>
+		public virtual async Task<Mozu.Api.Contracts.Fulfillment.EntityModelOfShipment> ReassignShipment(ReassignShipment reassignShipmentRequest, int shipmentNumber, string responseFields = null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.Fulfillment.EntityModelOfShipment> response;
+			var client = Mozu.Api.Clients.Commerce.Fulfillment.ShipmentClient.ReassignShipment(reassignShipmentRequest, shipmentNumber, responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+		}
 	}
 
 }

@@ -193,6 +193,44 @@ namespace Mozu.Api.Clients.Commerce.Fulfillment
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="shipmentNumber"></param>
+		/// <param name="reassignItemsRequest"></param>
+		/// <param name="responseFields"></param>
+		/// <returns></returns>
+		public static MozuClient<Mozu.Api.Contracts.Fulfillment.EntityModelOfShipment> ReassignItemsClient(ReassignItemsRequest reassignItemsRequest, int shipmentNumber, string responseFields = null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Fulfillment.ShipmentUrl.ReassignItemsUrl(reassignItemsRequest, shipmentNumber, responseFields);
+			const string verb = "PUT";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Fulfillment.EntityModelOfShipment>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.Fulfillment.ReassignItemsRequest>(reassignItemsRequest);
+			;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="shipmentNumber"></param>
+		/// <param name="reassignShipmentRequest"></param>
+		/// <param name="responseFields"></param>
+		/// <returns></returns>
+		public static MozuClient<Mozu.Api.Contracts.Fulfillment.EntityModelOfShipment> ReassignShipment(ReassignShipment reassignShipmentRequest, int shipmentNumber, string responseFields = null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Fulfillment.ShipmentUrl.ReassignShipmentUrl(reassignShipmentRequest, shipmentNumber, responseFields);
+			const string verb = "PUT";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Fulfillment.EntityModelOfShipment>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.Fulfillment.ReassignShipment>(reassignShipmentRequest);
+			;
+			return mozuClient;
+
+		}
+
 	}
 
 }
