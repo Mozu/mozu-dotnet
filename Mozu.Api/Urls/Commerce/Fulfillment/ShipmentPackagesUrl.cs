@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Mozu.Api.Urls.Commerce.Fulfillment
 {
+	/// <summary>
+	/// 
+	/// </summary>
     public partial class ShipmentPackagesUrl
     {
 		/// <summary>
@@ -16,9 +19,9 @@ namespace Mozu.Api.Urls.Commerce.Fulfillment
 		/// <param name="shipmentNumber"></param>
 		/// <param name="responseFields"></param>
 		/// <returns></returns>
-		public static MozuUrl NewPackageUrl(Package package, int shipmentNumber, string responseFields = null)
+		public static MozuUrl NewPackageUrl(int shipmentNumber, Package package, string responseFields = null)
 		{
-			var url = "/api/commerce/shipment/{shipmentNumber}/packages?responseFields={responseFields}";
+			var url = "/api/commerce/shipments/{shipmentNumber}/packages?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false);
 			mozuUrl.FormatUrl("shipmentNumber", shipmentNumber);
 			mozuUrl.FormatUrl("responseFields", responseFields);
@@ -33,9 +36,9 @@ namespace Mozu.Api.Urls.Commerce.Fulfillment
 		/// <param name="shipmentNumber"></param>
 		/// <param name="responseFields"></param>
 		/// <returns></returns>
-		public static MozuUrl UpdatePackageUrl(Package package, string packageId, int shipmentNumber, string responseFields = null)
+		public static MozuUrl UpdatePackageUrl(int shipmentNumber, string packageId, Package package, string responseFields = null)
 		{
-			var url = "/api/commerce/shipment/{shipmentNumber}/packages/{packageId}?responseFields={responseFields}";
+			var url = "/api/commerce/shipments/{shipmentNumber}/packages/{packageId}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false);
 			mozuUrl.FormatUrl("packageId", packageId);
 			mozuUrl.FormatUrl("shipmentNumber", shipmentNumber);

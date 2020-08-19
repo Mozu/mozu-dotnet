@@ -55,7 +55,7 @@ namespace Mozu.Api.Urls.Commerce.Fulfillment
 		/// <returns></returns>
 		public static MozuUrl GetShipmentUrl(int shipmentNumber, string responseFields = null)
 		{
-			var url = "/api/commerce/shipment/{shipmentNumber}?responseFields={responseFields}";
+			var url = "/api/commerce/shipments/{shipmentNumber}?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false);
 			mozuUrl.FormatUrl("shipmentNumber", shipmentNumber);
 			mozuUrl.FormatUrl("responseFields", responseFields);
@@ -70,7 +70,7 @@ namespace Mozu.Api.Urls.Commerce.Fulfillment
 		/// <returns></returns>
 		public static MozuUrl FulfillShipmentUrl(int shipmentNumber, string responseFields = null)
 		{
-			var url = "/api/commerce/shipment/{shipmentNumber}/fulfilled?responseFields={responseFields}";
+			var url = "/api/commerce/shipments/{shipmentNumber}/fulfilled?responseFields={responseFields}";
 			var mozuUrl = new MozuUrl(url, MozuUrl.UrlLocation.TENANT_POD, false);
 			mozuUrl.FormatUrl("shipmentNumber", shipmentNumber);
 			mozuUrl.FormatUrl("responseFields", responseFields);

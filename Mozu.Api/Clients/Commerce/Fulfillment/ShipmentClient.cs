@@ -77,6 +77,7 @@ namespace Mozu.Api.Clients.Commerce.Fulfillment
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Fulfillment.EntityModelOfShipment>()
 									.WithVerb(verb).WithResourceUrl(url)
+
 ;
 			return mozuClient;
 
@@ -94,7 +95,8 @@ namespace Mozu.Api.Clients.Commerce.Fulfillment
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Fulfillment.EntityModelOfShipment>()
 									.WithVerb(verb).WithResourceUrl(url)
-;
+									.WithBody<Mozu.Api.Contracts.Fulfillment.Shipment>(shipment);
+			;
 			return mozuClient;
 
 		}
@@ -112,7 +114,8 @@ namespace Mozu.Api.Clients.Commerce.Fulfillment
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Fulfillment.EntityModelOfShipment>()
 									.WithVerb(verb).WithResourceUrl(url)
-;
+									.WithBody<Mozu.Api.Contracts.Fulfillment.CancelItemsRequest>(cancelItemsRequest);
+			;
 			return mozuClient;
 
 		}
@@ -129,7 +132,8 @@ namespace Mozu.Api.Clients.Commerce.Fulfillment
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Fulfillment.EntityModelOfShipment>()
 									.WithVerb(verb).WithResourceUrl(url)
-;
+									.WithBody<Mozu.Api.Contracts.Fulfillment.CancelShipment>(cancelShipment);
+			;
 			return mozuClient;
 
 		}
@@ -163,7 +167,8 @@ namespace Mozu.Api.Clients.Commerce.Fulfillment
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Fulfillment.EntityModelOfShipment>()
 									.WithVerb(verb).WithResourceUrl(url)
-;
+									.WithBody<Mozu.Api.Contracts.Fulfillment.Destination>(destination);
+			;
 			return mozuClient;
 
 		}
@@ -182,7 +187,8 @@ namespace Mozu.Api.Clients.Commerce.Fulfillment
 			const string verb = "PUT";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Fulfillment.EntityModelOfShipment>()
 									.WithVerb(verb).WithResourceUrl(url)
-;
+									.WithBody<Mozu.Api.Contracts.Fulfillment.Shipment>(shipment);
+			;
 			return mozuClient;
 
 		}

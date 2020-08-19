@@ -36,10 +36,10 @@ namespace Mozu.Api.Resources.Commerce.Fulfillment
 		/// <param name="responseFields"></param>
 		/// <param name="ct"></param>
 		/// <returns></returns>
-		public virtual async Task<Mozu.Api.Contracts.Fulfillment.EntityModelOfShipment> NewPackageAsync(Package package, int shipmentNumber, string responseFields = null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.Fulfillment.EntityModelOfShipment> NewPackageAsync(int shipmentNumber, Package package, string responseFields = null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Fulfillment.EntityModelOfShipment> response;
-			var client = Mozu.Api.Clients.Commerce.Fulfillment.ShipmentPackagesClient.NewPackageClient(package, shipmentNumber, responseFields);
+			var client = Mozu.Api.Clients.Commerce.Fulfillment.ShipmentPackagesClient.NewPackageClient(shipmentNumber, package, responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
@@ -54,10 +54,10 @@ namespace Mozu.Api.Resources.Commerce.Fulfillment
 		/// <param name="responseFields"></param>
 		/// <param name="ct"></param>
 		/// <returns></returns>
-		public virtual async Task<Mozu.Api.Contracts.Fulfillment.EntityModelOfShipment> UpdatePackageAsync(Package package, string packageId, int shipmentNumber, string responseFields = null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<Mozu.Api.Contracts.Fulfillment.EntityModelOfShipment> UpdatePackageAsync(int shipmentNumber, string packageId, Package package, string responseFields = null, CancellationToken ct = default(CancellationToken))
 		{
 			MozuClient<Mozu.Api.Contracts.Fulfillment.EntityModelOfShipment> response;
-			var client = Mozu.Api.Clients.Commerce.Fulfillment.ShipmentPackagesClient.UpdatePackageClient(package, packageId,shipmentNumber, responseFields);
+			var client = Mozu.Api.Clients.Commerce.Fulfillment.ShipmentPackagesClient.UpdatePackageClient(shipmentNumber, packageId, package, responseFields);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
 			return await response.ResultAsync();
