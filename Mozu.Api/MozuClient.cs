@@ -185,6 +185,7 @@ namespace Mozu.Api
         private ILogger _log = LogManager.GetLogger(typeof(MozuClient));
         private string _contentType = null;
         private CacheItem _cacheItem;
+        
 
         static MozuClient()
         {
@@ -198,7 +199,8 @@ namespace Mozu.Api
             if (header == Headers.CONTENT_TYPE)
                 _contentType = value;
             else
-                _headers.Add(header, value);
+                if(_headers.AllKeys.Where(x=>x.Equals(header)).Count()==0)
+                   _headers.Add(header, value);
         }
 
         public virtual HttpResponseMessage HttpResponse
@@ -254,10 +256,18 @@ namespace Mozu.Api
 
 		public virtual TResult Result()
 		{
+            
+            
             if (HttpResponse.StatusCode == HttpStatusCode.NotFound && !MozuConfig.ThrowExceptionOn404)
                 return default(TResult);
+            if (HttpResponse.StatusCode == HttpStatusCode.TooManyRequests)
+            {
+                Thread.Sleep(HttpResponse.Headers.RetryAfter.Delta.Value);
+                ExecuteRequestAsync(new CancellationToken()).Wait();
 
-			if (typeof(TResult) == typeof(Stream))
+            }
+
+            if (typeof(TResult) == typeof(Stream))
 				return (TResult)(object)HttpResponse.Content.ReadAsStreamAsync().Result;
 
 			var stringContent = HttpResponse.Content.ReadAsStringAsync().Result;
@@ -270,10 +280,16 @@ namespace Mozu.Api
 
 		public virtual async Task<TResult> ResultAsync()
 		{
-		    if (HttpResponse.StatusCode == HttpStatusCode.NotFound && !MozuConfig.ThrowExceptionOn404)
+            
+            if (HttpResponse.StatusCode == HttpStatusCode.NotFound && !MozuConfig.ThrowExceptionOn404)
 		      return default(TResult);
+            if (HttpResponse.StatusCode == HttpStatusCode.TooManyRequests)
+            {
+                Thread.Sleep(HttpResponse.Headers.RetryAfter.Delta.Value);
+                await ExecuteRequestAsync(new CancellationToken());
+            }
 
-			if (typeof(TResult) == typeof(Stream))
+            if (typeof(TResult) == typeof(Stream))
 				return (TResult)(object)(await HttpResponse.Content.ReadAsStreamAsync().ConfigureAwait(false));
 
 			var stringContent = await HttpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
@@ -437,6 +453,7 @@ namespace Mozu.Api
             ResponseHelper.EnsureSuccess(_httpResponseMessage,request, _apiContext);
             SetCache(request);
 		}
+
 
         private String GetCacheKey(HttpRequestMessage requestMessage)
         {
