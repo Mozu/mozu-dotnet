@@ -262,7 +262,7 @@ namespace Mozu.Api
                 return default(TResult);
             if (HttpResponse.StatusCode == HttpStatusCode.TooManyRequests)
             {
-                _log.Info($"Too many requests to the API.The thread will have to wait for {HttpResponse.Headers.RetryAfter.Delta.Value} seconds to make another API call");
+                _log.Info($"Too many requests to the API.The thread will have to wait for {HttpResponse.Headers.RetryAfter.Delta.Value.TotalMinutes} minutes to make another API call");
                 Thread.Sleep(HttpResponse.Headers.RetryAfter.Delta.Value);
                 _log.Info($"Retrying API request");
                 ExecuteRequestAsync(new CancellationToken()).Wait();
@@ -286,7 +286,7 @@ namespace Mozu.Api
 		      return default(TResult);
             if (HttpResponse.StatusCode == HttpStatusCode.TooManyRequests)
             {
-                _log.Info($"Too many requests to the API.The thread will have to wait for {HttpResponse.Headers.RetryAfter.Delta.Value} seconds to make another API call");
+                _log.Info($"Too many requests to the API.The thread will have to wait for {HttpResponse.Headers.RetryAfter.Delta.Value.TotalMinutes} minutes to make another API call");
                 Thread.Sleep(HttpResponse.Headers.RetryAfter.Delta.Value);
                 _log.Info($"Retrying API request");
                 await ExecuteRequestAsync(new CancellationToken());
