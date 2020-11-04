@@ -19,6 +19,7 @@ using Mozu.Api.Config.Event;
 using System.Reflection;
 using Newtonsoft.Json.Linq;
 using Mozu.Api.Extensions;
+using Microsoft.AspNetCore.Builder;
 
 namespace Mozu.Api.Events
 {
@@ -34,9 +35,15 @@ namespace Mozu.Api.Events
         /// 
         /// </summary>
         /// <param name="eventServiceFactory"></param>
-        public EventHttpHandler(IEventServiceFactory eventServiceFactory)
+        public EventHttpHandler(RequestDelegate next,IEventServiceFactory eventServiceFactory)
         {
             _eventServiceFactory = eventServiceFactory;
+        }
+
+        public async Task Invoke(HttpContext context)
+        {
+            await Task.Run(() => BeginProcessRequest(context, null, null));
+            
         }
 
         public bool IsReusable
@@ -62,6 +69,14 @@ namespace Mozu.Api.Events
         public void EndProcessRequest(IAsyncResult result)
         {
 
+        }
+    }
+
+    public static class EventHttpHandlerExtensions
+    {
+        public static IApplicationBuilder UseEventHttpHandler(this IApplicationBuilder builder)
+        {
+            return builder.UseMiddleware<EventHttpHandler>();
         }
     }
 
@@ -104,91 +119,19 @@ namespace Mozu.Api.Events
 
         public void StartAsyncWork()
         {
-            ThreadPool.QueueUserWorkItem(new WaitCallback(Process), null);
+            //ThreadPool.QueueUserWorkItem(new WaitCallback(Process), null);
+
+            Process(null,_context).Wait();
         }
 
 
-        //private async void Process(Object workItemState)
-        //{
-        //    //create http objects used to read request 
-        //    var request = _context.Request;
-        //    var response = _context.Response;
+        
 
-        //    //get file path to use as comparison and determine when to take action on event
-        //    //load headers into apicontext
-        //    var apiContext = new ApiContext(request.Headers);
-
-        //    //read request into stream
-        //    var jsonRequest = string.Empty;
-        //    request.InputStream.Position = 0;
-        //    using (var inputStream = new StreamReader(request.InputStream))
-        //    {
-        //        jsonRequest = inputStream.ReadToEnd();
-        //    }
-
-        //    response.Clear();
-        //    response.ClearHeaders();
-
-        //    _log.Debug(String.Format("CorrelationId:{0},Headers : {1}", apiContext.CorrelationId, HttpHelper.GetAllheaders(request.Headers)));
-        //    _log.Debug(String.Format("CorrelationId:{0},Processing event : {1}", apiContext.CorrelationId, jsonRequest));
-
-        //    var requestDate = DateTime.Parse(apiContext.Date, null, DateTimeStyles.AssumeUniversal).ToUniversalTime();
-        //    var currentDate = DateTime.UtcNow;
-
-        //    _log.Info(String.Format("Current DateTime : {0}", currentDate));
-        //    _log.Info(String.Format("Request DateTime : {0}", requestDate));
-
-        //    var diff = (currentDate - requestDate).TotalSeconds;
-        //    if (SHA256Generator.GetHash(AppAuthenticator.Instance.AppAuthInfo.SharedSecret, apiContext.Date, jsonRequest) != apiContext.HMACSha256 || diff > MozuConfig.EventTimeoutInSeconds)
-        //    {
-        //        _log.Error(String.Format("CorrelationId:{0},Could not validate security token , request header HMACSHA256 : {1}", apiContext.CorrelationId, apiContext.HMACSha256));
-        //        response.StatusCode = 403;
-        //    }
-        //    else
-        //    {
-        //        try
-        //        {
-        //            var eventPayload = JsonConvert.DeserializeObject<Event>(jsonRequest);
-        //            if (string.IsNullOrEmpty(eventPayload.Id) && !String.IsNullOrEmpty(eventPayload.EventId))
-        //                eventPayload.Id = Guid.Parse(eventPayload.EventId).ToString("N");
-        //            var eventService = _eventServiceFactory.GetEventService();
-        //            if (string.IsNullOrEmpty(apiContext.CorrelationId))
-        //                apiContext.CorrelationId = eventPayload.CorrelationId;
-
-        //            await eventService.ProcessEventAsync(apiContext, eventPayload);
-
-        //            _log.Info(string.Format("CorrelationId:{0},Event processing done , EventId : {1}", apiContext.CorrelationId, eventPayload.Id));
-        //            response.StatusCode = 200;
-        //            response.StatusDescription = "OK";
-        //        }
-        //        catch (Exception exc)
-        //        {
-        //            response.StatusCode = 500;
-        //            response.StatusDescription = "Event Process Error";
-        //            //response.StatusDescription = exc.Message;
-        //            response.ContentType = _context.Request.ContentType;
-        //            _log.Error(exc.Message, exc);
-        //            //if (exc.InnerException != null)
-        //            //    response.Write(JsonConvert.SerializeObject(exc.InnerException));
-        //            //else
-        //            dynamic jsonExc= new JObject();
-        //            jsonExc.message = exc.Message;
-        //            //jsonExc.exc = exc;
-        //            response.Write(JsonConvert.SerializeObject(jsonExc));
-        //        }
-        //    }
-
-        //    response.Flush();
-        //    _completed = true;
-        //    _callback(this);
-
-        //}
-
-        private async void Process(Object workItemState)
+        private async Task Process(Object workItemState,HttpContext context)
         {
             //create http objects used to read request 
-            var request = _context.Request;
-            var response = _context.Response;
+            var request = context.Request;
+            var response = context.Response;
 
             //get file path to use as comparison and determine when to take action on event
             //load headers into apicontext
@@ -202,15 +145,17 @@ namespace Mozu.Api.Events
             //    jsonRequest = inputStream.ReadToEnd();
             //}
 
-            request.Body.Seek(0, SeekOrigin.Begin);
+            //request.Body.Seek(0, SeekOrigin.Begin);
+            HttpRequestRewindExtensions.EnableBuffering(request);
+            //using (StreamReader stream = new StreamReader(request.Body, Encoding.UTF8))
+            //{
+            //    jsonRequest = await stream.ReadToEndAsync();
+            //}
 
-            using (StreamReader stream = new StreamReader(request.Body, Encoding.UTF8))
-            {
-                jsonRequest = stream.ReadToEnd();
-            }
+            jsonRequest = await new StreamReader(request.Body, Encoding.UTF8).ReadToEndAsync();
 
-            response.Clear();
-            response.Headers.Clear();//.ClearHeaders();
+            //response.Clear();
+            //response.Headers.Clear();//.ClearHeaders();
 
             _log.Debug(String.Format("CorrelationId:{0},Headers : {1}", apiContext.CorrelationId, HttpHelper.GetAllheaders(request.Headers.DictionaryToNVCollection())));
             _log.Debug(String.Format("CorrelationId:{0},Processing event : {1}", apiContext.CorrelationId, jsonRequest));
@@ -263,7 +208,7 @@ namespace Mozu.Api.Events
 
             response.Body.Flush();
             _completed = true;
-            _callback(this);
+            //_callback(this);
 
         }
     }
