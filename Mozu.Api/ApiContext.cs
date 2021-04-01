@@ -36,8 +36,9 @@ namespace Mozu.Api
         string BypassCache { get; set; }
         string Pricelist { get; set; }
         string PreviewDate { get; set; }
+		IDictionary<string,string> CustomHeaders { get; set; }
 
-    IApiContext CloneWith(Action<IApiContext> contextModification);
+	IApiContext CloneWith(Action<IApiContext> contextModification);
 	}
 
     [Serializable]
@@ -66,28 +67,31 @@ namespace Mozu.Api
         public string BypassCache { get; set; }
         public string Pricelist { get; set; }
         public string PreviewDate { get; set; }
+		public IDictionary<string, string> CustomHeaders { get; set; }
 
-        public ApiContext()
+	public ApiContext()
 		{
 		}
 
-		public ApiContext(int tenantId, int? siteId = null, int? masterCatalogId = null, int? catalogId = null)
+		public ApiContext(int tenantId, int? siteId = null, int? masterCatalogId = null, int? catalogId = null,IDictionary<string,string> customHeaders = null)
 		{
 			TenantId = tenantId;
 			SiteId = siteId;
 			MasterCatalogId = masterCatalogId;
 			CatalogId = catalogId;
+		    CustomHeaders = customHeaders;
 		}
 
-		public ApiContext(Tenant tenant, Site site = null, int? masterCatalogId = null, int? catalogId = null)
+		public ApiContext(Tenant tenant, Site site = null, int? masterCatalogId = null, int? catalogId = null, IDictionary<string, string> customHeaders = null)
 		{
             Tenant = tenant;
 			TenantId = tenant.Id;
 			TenantUrl = tenant.Domain;
 			MasterCatalogId = masterCatalogId;
 			CatalogId = catalogId;
+			CustomHeaders = customHeaders;
 
-            SetBySite(site);
+			SetBySite(site);
 
             if (!masterCatalogId.HasValue && Tenant.MasterCatalogs.Count == 1)
             {
@@ -98,12 +102,13 @@ namespace Mozu.Api
 
         }
 
-		public ApiContext(Site site, int? masterCatalogId = null, int? catalogId = null)
+		public ApiContext(Site site, int? masterCatalogId = null, int? catalogId = null, IDictionary<string, string> customHeaders = null)
 		{
 			TenantId = site.TenantId;
 			MasterCatalogId = masterCatalogId;
 			CatalogId = catalogId;
-		    SetBySite(site);
+			CustomHeaders = customHeaders;
+			SetBySite(site);
 
 		}
 
@@ -212,7 +217,8 @@ namespace Mozu.Api
                 NoCacheUpdate = (!String.IsNullOrEmpty(this.NoCacheUpdate) ? (string)this.NoCacheUpdate.Clone() : null),
                 BypassCache = (!String.IsNullOrEmpty(this.BypassCache) ? (string)this.BypassCache.Clone() : null),
                 Pricelist = (!String.IsNullOrEmpty(this.Pricelist) ? (string)this.Pricelist.Clone() : null),
-                PreviewDate = (!String.IsNullOrEmpty(this.PreviewDate) ? (string)this.PreviewDate.Clone() : null)
+                PreviewDate = (!String.IsNullOrEmpty(this.PreviewDate) ? (string)this.PreviewDate.Clone() : null),
+				CustomHeaders= (this.CustomHeaders != null) ? (new Dictionary<string,string>(this.CustomHeaders)) : null
             };
 
 			contextModification(cloned);

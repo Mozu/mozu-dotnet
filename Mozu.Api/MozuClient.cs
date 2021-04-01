@@ -236,6 +236,8 @@ namespace Mozu.Api
                 if (_apiContext != null && !String.IsNullOrEmpty(_apiContext.CorrelationId))
                     AddHeader(Headers.X_VOL_CORRELATION, _apiContext.CorrelationId);
 
+                
+
                 foreach (var key in _headers.AllKeys)
                 {
                     client.DefaultRequestHeaders.Add(key, _headers[key]);
@@ -309,7 +311,16 @@ namespace Mozu.Api
 
             if (!string.IsNullOrEmpty(_apiContext.Currency))
                 AddHeader(Headers.X_VOL_CURRENCY, _apiContext.Currency);
-		}
+
+            //Adding the custom headers to namevaluecollection.
+            if (_apiContext.CustomHeaders != null)
+            {
+                foreach (var header in _apiContext.CustomHeaders)
+                {
+                    AddHeader(header.Key, header.Value);
+                }
+            }
+        }
 
         protected void SetBaseAddress(string baseAddress)
         {

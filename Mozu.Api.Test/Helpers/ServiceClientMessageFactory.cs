@@ -1,4 +1,5 @@
 ﻿using System.Net.Http.Headers;
+using System.Collections.Generic;
 
 namespace Mozu.Api.Test.Helpers
 {
@@ -74,6 +75,18 @@ namespace Mozu.Api.Test.Helpers
             var msgHandler = new ServiceClientMessageHandler(apiContext);
             return msgHandler;
         }
+        /// <summary>
+        /// This is a sample of how to quickly generate a ApiContext with tenantId and custom headers
+        /// </summary>
+        /// <param name="tenantId"></param>
+        /// <param name="customHeaders"></param>
+        /// <returns></returns>
+        public static ServiceClientMessageHandler GetTestClientMessage(int tenantId = 0, IDictionary<string, string> customHeaders = null)
+        {
+            var apiContext = new ApiContext(tenantId: tenantId, customHeaders: customHeaders);
+            var msgHandler = new ServiceClientMessageHandler(apiContext);
+            return msgHandler;
+        }
 
         /// <summary>
         /// This is a sample of how to quickly generate a ApiContext with data only for the site the user is shopping in the MessageHandler's correct http header.
@@ -87,6 +100,8 @@ namespace Mozu.Api.Test.Helpers
             var msgHandler = new ServiceClientMessageHandler(apiContext);
             return msgHandler;
         }
+
+       
 
     }
 
