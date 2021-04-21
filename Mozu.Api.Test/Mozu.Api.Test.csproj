@@ -91,6 +91,7 @@
     <Compile Include="MsTestCases\AppAuthTest.cs" />
     <Compile Include="MsTestCases\CategoryTests.cs" />
     <Compile Include="MsTestCases\CustomerTests.cs" />
+    <Compile Include="MsTestCases\CustomHeaderTest.cs" />
     <Compile Include="MsTestCases\DocumentTest.cs" />
     <Compile Include="MsTestCases\OrderTests.cs" />
     <Compile Include="MsTestCases\ProductAttributeTests.cs" />
