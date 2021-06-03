@@ -187,14 +187,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer.Accounts
 		/// <example> 
 		///  <code> 
 		/// var result = CustomerAttributeFactory.DeleteAccountAttribute(handler : handler,  accountId :  accountId,  attributeFQN :  attributeFQN,  userId :  userId,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeleteAccountAttribute(ServiceClientMessageHandler handler, 
- 		int accountId, string attributeFQN, string userId = null, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream DeleteAccountAttribute(ServiceClientMessageHandler handler, 
+ 		 int accountId, string attributeFQN, string userId = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -212,8 +212,9 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer.Accounts
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

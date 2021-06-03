@@ -78,7 +78,7 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public string ProductCode { get; set; }
 
 			///
-			///productImageGroups ApiType DOCUMENT_HERE 
+			///An array of multiple product image groups, providing an assortment of different themed image sets.
 			///
 			public List<ProductImageGroup> ProductImageGroups { get; set; }
 
@@ -100,6 +100,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			public ProductLocalizedSEOContent SeoContent { get; set; }
 
 			public int? ShippingClassId { get; set; }
+
+			public SlicingSettings SlicingSettings { get; set; }
 
 			public string StandAlonePackageType { get; set; }
 

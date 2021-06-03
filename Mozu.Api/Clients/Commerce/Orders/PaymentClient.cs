@@ -151,6 +151,32 @@ namespace Mozu.Api.Clients.Commerce.Orders
 
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="forceCapture"></param>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=AutoCapturePayments( orderId,  forceCapture,  responseFields);
+		///   var orderClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> AutoCapturePaymentsClient(string orderId, bool? forceCapture =  null, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Commerce.Orders.PaymentUrl.AutoCapturePaymentsUrl(orderId, forceCapture, responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
 
 	}
 

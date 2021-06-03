@@ -148,20 +148,21 @@ namespace Mozu.Api.Resources.Commerce.Checkouts
 		/// <param name="checkoutId">The unique identifier of the checkout.</param>
 		/// <param name="destinationId">The unique identifier of the destination.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var destination = new Destination();
-		///   await destination.RemoveDestinationAsync( checkoutId,  destinationId);
+		///   var stream = await destination.RemoveDestinationAsync( checkoutId,  destinationId);
 		/// </code>
 		/// </example>
-		public virtual async Task RemoveDestinationAsync(string checkoutId, string destinationId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> RemoveDestinationAsync(string checkoutId, string destinationId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Checkouts.DestinationClient.RemoveDestinationClient( checkoutId,  destinationId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

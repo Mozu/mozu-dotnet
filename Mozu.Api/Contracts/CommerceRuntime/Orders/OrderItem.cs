@@ -55,6 +55,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///
 			public decimal? DutyAmount { get; set; }
 
+			public DateTime? ExpectedDeliveryDate { get; set; }
+
 			public decimal? ExtendedTotal { get; set; }
 
 			public decimal? FeeTotal { get; set; }

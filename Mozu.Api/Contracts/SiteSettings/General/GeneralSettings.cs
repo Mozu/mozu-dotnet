@@ -101,6 +101,10 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 
 			public string SiteTimeZone { get; set; }
 
+			public SMSTransactionSettings SmsTransactions { get; set; }
+
+			public List<SMSTypeSetting> SmsTypes { get; set; }
+
 			///
 			///Supressed emails. Setting any of these to 'true' will block  from sending that email and an event will be published instead.
 			///

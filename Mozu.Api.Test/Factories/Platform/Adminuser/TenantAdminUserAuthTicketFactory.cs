@@ -34,6 +34,82 @@ namespace Mozu.Api.Test.Factories.Platform.Adminuser
 		/// 
 		/// <example> 
 		///  <code> 
+		/// var result = TenantAdminUserAuthTicketFactory.GetWsFedChallengeUrl(handler : handler,  id :  id,  scopeid :  scopeid,  scopeType :  scopeType,  redirect :  redirect,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<string/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static string GetWsFedChallengeUrl(ServiceClientMessageHandler handler, 
+ 		 string id, int? scopeid , string scopeType, string redirect, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Platform.Adminuser.TenantAdminUserAuthTicketClient.GetWsFedChallengeUrlClient(
+				 id :  id,  scopeid :  scopeid,  scopeType :  scopeType,  redirect :  redirect,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = TenantAdminUserAuthTicketFactory.GetWsFedSignOutUrl(handler : handler,  id :  id,  redirect :  redirect,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<string/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static string GetWsFedSignOutUrl(ServiceClientMessageHandler handler, 
+ 		 string id, string redirect, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Platform.Adminuser.TenantAdminUserAuthTicketClient.GetWsFedSignOutUrlClient(
+				 id :  id,  redirect :  redirect,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
 		/// var result = TenantAdminUserAuthTicketFactory.CreateUserAuthTicket(handler : handler,  userAuthInfo :  userAuthInfo,  tenantId :  tenantId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<TenantAdminUserAuthTicket/>(result); 
 		/// return optionalCasting;
@@ -50,6 +126,44 @@ namespace Mozu.Api.Test.Factories.Platform.Adminuser
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Platform.Adminuser.TenantAdminUserAuthTicketClient.CreateUserAuthTicketClient(
 				 userAuthInfo :  userAuthInfo,  tenantId :  tenantId,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = TenantAdminUserAuthTicketFactory.CreateUserAuthTicketWithWsFed(handler : handler,  id :  id,  scopeid :  scopeid,  scopeType :  scopeType,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<TenantAdminUserAuthTicket/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.AdminUser.TenantAdminUserAuthTicket CreateUserAuthTicketWithWsFed(ServiceClientMessageHandler handler, 
+ 		 string id, int? scopeid, string scopeType, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Platform.Adminuser.TenantAdminUserAuthTicketClient.CreateUserAuthTicketWithWsFedClient(
+				 id :  id,  scopeid :  scopeid,  scopeType :  scopeType,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -111,14 +225,14 @@ namespace Mozu.Api.Test.Factories.Platform.Adminuser
 		/// <example> 
 		///  <code> 
 		/// var result = TenantAdminUserAuthTicketFactory.DeleteUserAuthTicket(handler : handler,  refreshToken :  refreshToken,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeleteUserAuthTicket(ServiceClientMessageHandler handler, 
- 		string refreshToken, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream DeleteUserAuthTicket(ServiceClientMessageHandler handler, 
+ 		 string refreshToken, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -136,8 +250,9 @@ namespace Mozu.Api.Test.Factories.Platform.Adminuser
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 
 
 namespace Mozu.Api.Contracts.Tenant
@@ -18,6 +19,8 @@ namespace Mozu.Api.Contracts.Tenant
 		///
 		public class Site
 		{
+			public List<TenantAttribute> Attributes { get; set; }
+
 			public int CatalogId { get; set; }
 
 			public string CountryCode { get; set; }

@@ -131,19 +131,19 @@ namespace Mozu.Api.Clients.Commerce.Admin
 		/// </summary>
 		/// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteLocation( locationCode);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteLocationClient(string locationCode)
+		public static MozuClient<System.IO.Stream> DeleteLocationClient(string locationCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Admin.LocationUrl.DeleteLocationUrl(locationCode);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

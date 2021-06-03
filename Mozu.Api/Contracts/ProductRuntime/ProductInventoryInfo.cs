@@ -18,6 +18,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		///
 		public class ProductInventoryInfo
 		{
+			public DateTime? AvailableDate { get; set; }
+
 			public bool? ManageStock { get; set; }
 
 			///

@@ -140,19 +140,19 @@ namespace Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles
 		/// <param name="profilecode">The unique, user-defined code of the profile with which the product handling fee rule is associated.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteProductHandlingFeeRule(dataViewMode,  profilecode,  id);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteProductHandlingFeeRuleClient(DataViewMode dataViewMode, string profilecode, string id)
+		public static MozuClient<System.IO.Stream> DeleteProductHandlingFeeRuleClient(DataViewMode dataViewMode, string profilecode, string id)
 		{
 			var url = Mozu.Api.Urls.Commerce.Shipping.Admin.Profiles.ProductHandlingFeeRulesUrl.DeleteProductHandlingFeeRuleUrl(profilecode, id);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;

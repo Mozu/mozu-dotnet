@@ -70,20 +70,21 @@ namespace Mozu.Api.Resources.Platform
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
 		/// <param name="value">The value string to create.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var userdata = new UserData();
-		///   await userdata.CreateDBValueAsync( value,  dbEntryQuery);
+		///   var stream = await userdata.CreateDBValueAsync( value,  dbEntryQuery);
 		/// </code>
 		/// </example>
-		public virtual async Task CreateDBValueAsync(string value, string dbEntryQuery, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> CreateDBValueAsync(string value, string dbEntryQuery, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Platform.UserDataClient.CreateDBValueClient( value,  dbEntryQuery);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -94,20 +95,21 @@ namespace Mozu.Api.Resources.Platform
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
 		/// <param name="value">The value string to create.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var userdata = new UserData();
-		///   await userdata.UpdateDBValueAsync( value,  dbEntryQuery);
+		///   var stream = await userdata.UpdateDBValueAsync( value,  dbEntryQuery);
 		/// </code>
 		/// </example>
-		public virtual async Task UpdateDBValueAsync(string value, string dbEntryQuery, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> UpdateDBValueAsync(string value, string dbEntryQuery, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Platform.UserDataClient.UpdateDBValueClient( value,  dbEntryQuery);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -117,20 +119,21 @@ namespace Mozu.Api.Resources.Platform
 		/// </summary>
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var userdata = new UserData();
-		///   await userdata.DeleteDBValueAsync( dbEntryQuery);
+		///   var stream = await userdata.DeleteDBValueAsync( dbEntryQuery);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteDBValueAsync(string dbEntryQuery, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteDBValueAsync(string dbEntryQuery, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Platform.UserDataClient.DeleteDBValueClient( dbEntryQuery);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

@@ -148,20 +148,21 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// </summary>
 		/// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var location = new Location();
-		///   await location.DeleteLocationAsync( locationCode);
+		///   var stream = await location.DeleteLocationAsync( locationCode);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteLocationAsync(string locationCode, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteLocationAsync(string locationCode, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Admin.LocationClient.DeleteLocationClient( locationCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

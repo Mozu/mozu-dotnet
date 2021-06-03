@@ -27,19 +27,19 @@ namespace Mozu.Api.Clients.Platform.Extensions
 		/// </summary>
 		/// <param name="credentials"></param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=StoreCredentials( credentials);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient StoreCredentialsClient(Mozu.Api.Contracts.InstalledApplications.CredentialStoreEntry credentials)
+		public static MozuClient<System.IO.Stream> StoreCredentialsClient(Mozu.Api.Contracts.InstalledApplications.CredentialStoreEntry credentials)
 		{
 			var url = Mozu.Api.Urls.Platform.Extensions.CredentialStoreEntryUrl.StoreCredentialsUrl();
 			const string verb = "POST";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.InstalledApplications.CredentialStoreEntry>(credentials);
 			return mozuClient;

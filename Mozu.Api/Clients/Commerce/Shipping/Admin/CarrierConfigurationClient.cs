@@ -132,19 +132,19 @@ namespace Mozu.Api.Clients.Commerce.Shipping.Admin
 		/// </summary>
 		/// <param name="carrierId">The unique identifier of the carrier configuration.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteConfiguration( carrierId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteConfigurationClient(string carrierId)
+		public static MozuClient<System.IO.Stream> DeleteConfigurationClient(string carrierId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Shipping.Admin.CarrierConfigurationUrl.DeleteConfigurationUrl(carrierId);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

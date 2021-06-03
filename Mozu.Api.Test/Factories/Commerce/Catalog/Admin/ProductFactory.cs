@@ -263,14 +263,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin
 		/// <example> 
 		///  <code> 
 		/// var result = ProductFactory.RenameProductCodes(handler : handler,  productCodeRenames :  productCodeRenames,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void RenameProductCodes(ServiceClientMessageHandler handler, 
- 		List<Mozu.Api.Contracts.ProductAdmin.ProductCodeRename> productCodeRenames, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream RenameProductCodes(ServiceClientMessageHandler handler, 
+ 		 List<Mozu.Api.Contracts.ProductAdmin.ProductCodeRename> productCodeRenames, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -288,8 +288,9 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 
@@ -414,14 +415,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin
 		/// <example> 
 		///  <code> 
 		/// var result = ProductFactory.DeleteProduct(handler : handler,  productCode :  productCode,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeleteProduct(ServiceClientMessageHandler handler, 
- 		string productCode,  DataViewMode dataViewMode= DataViewMode.Live, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream DeleteProduct(ServiceClientMessageHandler handler, 
+ 		 string productCode,  DataViewMode dataViewMode= DataViewMode.Live, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -439,8 +440,9 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 
@@ -451,14 +453,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin
 		/// <example> 
 		///  <code> 
 		/// var result = ProductFactory.DeleteProductInCatalog(handler : handler,  productCode :  productCode,  catalogId :  catalogId,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeleteProductInCatalog(ServiceClientMessageHandler handler, 
- 		string productCode, int catalogId,  DataViewMode dataViewMode= DataViewMode.Live, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream DeleteProductInCatalog(ServiceClientMessageHandler handler, 
+ 		 string productCode, int catalogId,  DataViewMode dataViewMode= DataViewMode.Live, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -476,8 +478,9 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

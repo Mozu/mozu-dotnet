@@ -21,9 +21,13 @@ namespace Mozu.Api.Contracts.Core
 		{
 			public string EmailAddress { get; set; }
 
+			public string ExternalId { get; set; }
+
 			public string FirstName { get; set; }
 
 			public string Id { get; set; }
+
+			public string IdentityProviderId { get; set; }
 
 			public bool IsActive { get; set; }
 
@@ -31,11 +35,19 @@ namespace Mozu.Api.Contracts.Core
 
 			public string LocaleCode { get; set; }
 
+			public bool? OptInToEmail { get; set; }
+
+			public bool? OptInToTextMessage { get; set; }
+
 			public string Password { get; set; }
+
+			public string PhoneNumber { get; set; }
 
 			public List<UserRole> Roles { get; set; }
 
 			public UserSystemData SystemData { get; set; }
+
+			public string UserName { get; set; }
 
 		}
 

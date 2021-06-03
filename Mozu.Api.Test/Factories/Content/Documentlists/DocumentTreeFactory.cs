@@ -149,14 +149,14 @@ namespace Mozu.Api.Test.Factories.Content.Documentlists
 		/// <example> 
 		///  <code> 
 		/// var result = DocumentTreeFactory.UpdateTreeDocumentContent(handler : handler,  stream :  stream,  documentListName :  documentListName,  documentName :  documentName,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void UpdateTreeDocumentContent(ServiceClientMessageHandler handler, 
- 		System.IO.Stream stream, string documentListName, string documentName, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream UpdateTreeDocumentContent(ServiceClientMessageHandler handler, 
+ 		 System.IO.Stream stream, string documentListName, string documentName, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -174,8 +174,9 @@ namespace Mozu.Api.Test.Factories.Content.Documentlists
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 
@@ -186,14 +187,14 @@ namespace Mozu.Api.Test.Factories.Content.Documentlists
 		/// <example> 
 		///  <code> 
 		/// var result = DocumentTreeFactory.DeleteTreeDocumentContent(handler : handler,  stream :  stream,  documentListName :  documentListName,  documentName :  documentName,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeleteTreeDocumentContent(ServiceClientMessageHandler handler, 
- 		System.IO.Stream stream, string documentListName, string documentName, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream DeleteTreeDocumentContent(ServiceClientMessageHandler handler, 
+ 		 System.IO.Stream stream, string documentListName, string documentName, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -211,8 +212,9 @@ namespace Mozu.Api.Test.Factories.Content.Documentlists
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

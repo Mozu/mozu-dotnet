@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
 
 
 namespace Mozu.Api.Contracts.Core
@@ -25,6 +26,8 @@ namespace Mozu.Api.Contracts.Core
 			public int RoleId { get; set; }
 
 			public string RoleName { get; set; }
+
+			public List<string> RoleTags { get; set; }
 
 			public string UserId { get; set; }
 

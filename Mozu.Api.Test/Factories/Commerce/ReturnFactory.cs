@@ -300,6 +300,44 @@ namespace Mozu.Api.Test.Factories.Commerce
 		/// 
 		/// <example> 
 		///  <code> 
+		/// var result = ReturnFactory.GetReturnLabel(handler : handler,  returnId :  returnId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<GenerateLabelResponse/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.Kibo.Cars.Model.GenerateLabelResponse GetReturnLabel(ServiceClientMessageHandler handler, 
+ 		 string returnId, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.ReturnClient.GetReturnLabelClient(
+				 returnId :  returnId,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
 		/// var result = ReturnFactory.GetReturn(handler : handler,  returnId :  returnId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Return/>(result); 
 		/// return optionalCasting;
@@ -528,6 +566,44 @@ namespace Mozu.Api.Test.Factories.Commerce
 		/// 
 		/// <example> 
 		///  <code> 
+		/// var result = ReturnFactory.RestockReturnItems(handler : handler,  returnItems :  returnItems,  returnId :  returnId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Return/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.CommerceRuntime.Returns.Return RestockReturnItems(ServiceClientMessageHandler handler, 
+ 		 List<Mozu.Api.Contracts.CommerceRuntime.Returns.RestockableReturnItem> returnItems, string returnId, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.ReturnClient.RestockReturnItemsClient(
+				 returnItems :  returnItems,  returnId :  returnId,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
 		/// var result = ReturnFactory.CreateReturnShippingOrder(handler : handler,  itemQuantities :  itemQuantities,  returnId :  returnId,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Order/>(result); 
 		/// return optionalCasting;
@@ -643,14 +719,14 @@ namespace Mozu.Api.Test.Factories.Commerce
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.ResendReturnEmail(handler : handler,  action :  action,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void ResendReturnEmail(ServiceClientMessageHandler handler, 
- 		Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnAction action, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream ResendReturnEmail(ServiceClientMessageHandler handler, 
+ 		 Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnAction action, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -668,8 +744,9 @@ namespace Mozu.Api.Test.Factories.Commerce
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 
@@ -718,14 +795,14 @@ namespace Mozu.Api.Test.Factories.Commerce
 		/// <example> 
 		///  <code> 
 		/// var result = ReturnFactory.DeleteReturn(handler : handler,  returnId :  returnId,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeleteReturn(ServiceClientMessageHandler handler, 
- 		string returnId, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream DeleteReturn(ServiceClientMessageHandler handler, 
+ 		 string returnId, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -743,8 +820,9 @@ namespace Mozu.Api.Test.Factories.Commerce
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

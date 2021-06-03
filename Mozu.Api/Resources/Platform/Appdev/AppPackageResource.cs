@@ -283,20 +283,21 @@ namespace Mozu.Api.Resources.Platform.Appdev
 		/// </summary>
 		/// <param name="applicationKey">: The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var apppackage = new AppPackage();
-		///   await apppackage.DeletePackageAsync( applicationKey);
+		///   var stream = await apppackage.DeletePackageAsync( applicationKey);
 		/// </code>
 		/// </example>
-		public virtual async Task DeletePackageAsync(string applicationKey, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeletePackageAsync(string applicationKey, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Platform.Appdev.AppPackageClient.DeletePackageClient( applicationKey);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

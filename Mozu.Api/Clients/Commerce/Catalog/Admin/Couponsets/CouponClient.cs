@@ -85,19 +85,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets
 		/// <param name="couponSetCode">The unique identifier of the coupon set.</param>
 		/// <param name="coupons">The details necessary to assign the discount to a coupon set, including .</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=AddCoupons( coupons,  couponSetCode);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient AddCouponsClient(List<Mozu.Api.Contracts.ProductAdmin.Coupon> coupons, string couponSetCode)
+		public static MozuClient<System.IO.Stream> AddCouponsClient(List<Mozu.Api.Contracts.ProductAdmin.Coupon> coupons, string couponSetCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets.CouponUrl.AddCouponsUrl(couponSetCode);
 			const string verb = "POST";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.Coupon>>(coupons);
 			return mozuClient;
@@ -110,19 +110,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets
 		/// <param name="couponSetCode">The unique identifier of the coupon set that the coupon belongs to.</param>
 		/// <param name="couponCodes">The unique identifiers of the coupons to delete.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteCoupons( couponCodes,  couponSetCode);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteCouponsClient(List<string> couponCodes, string couponSetCode)
+		public static MozuClient<System.IO.Stream> DeleteCouponsClient(List<string> couponCodes, string couponSetCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets.CouponUrl.DeleteCouponsUrl(couponSetCode);
 			const string verb = "POST";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody(couponCodes);
 			return mozuClient;
@@ -135,19 +135,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets
 		/// <param name="couponCode">Code associated with the coupon to remove from the cart.</param>
 		/// <param name="couponSetCode">The unique identifier of the coupon set that the coupon belongs to.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteCoupon( couponSetCode,  couponCode);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteCouponClient(string couponSetCode, string couponCode)
+		public static MozuClient<System.IO.Stream> DeleteCouponClient(string couponSetCode, string couponCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Couponsets.CouponUrl.DeleteCouponUrl(couponSetCode, couponCode);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

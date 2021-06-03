@@ -72,20 +72,21 @@ namespace Mozu.Api.Resources.Content
 		/// <param name="documentLists">List of document lists that contain documents to delete.</param>
 		/// <param name="documentIds">Unique identifiers of the documents to delete.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var documentdraftsummary = new DocumentDraftSummary();
-		///   await documentdraftsummary.DeleteDocumentDraftsAsync( documentIds,  documentLists);
+		///   var stream = await documentdraftsummary.DeleteDocumentDraftsAsync( documentIds,  documentLists);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteDocumentDraftsAsync(List<string> documentIds, string documentLists =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteDocumentDraftsAsync(List<string> documentIds, string documentLists =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.DeleteDocumentDraftsClient( documentIds,  documentLists);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -96,20 +97,21 @@ namespace Mozu.Api.Resources.Content
 		/// <param name="documentLists">List of document lists that contain documents to delete.</param>
 		/// <param name="documentIds">Unique identifiers of the documents to delete.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var documentdraftsummary = new DocumentDraftSummary();
-		///   await documentdraftsummary.PublishDocumentsAsync( documentIds,  documentLists);
+		///   var stream = await documentdraftsummary.PublishDocumentsAsync( documentIds,  documentLists);
 		/// </code>
 		/// </example>
-		public virtual async Task PublishDocumentsAsync(List<string> documentIds, string documentLists =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> PublishDocumentsAsync(List<string> documentIds, string documentLists =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Content.DocumentDraftSummaryClient.PublishDocumentsClient( documentIds,  documentLists);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

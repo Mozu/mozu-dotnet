@@ -123,20 +123,21 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
 		/// <param name="accountIds">List of customer account IDs to add to the customer segment specified in the request.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customersegment = new CustomerSegment();
-		///   await customersegment.AddSegmentAccountsAsync( accountIds,  id);
+		///   var stream = await customersegment.AddSegmentAccountsAsync( accountIds,  id);
 		/// </code>
 		/// </example>
-		public virtual async Task AddSegmentAccountsAsync(List<int> accountIds, int id, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> AddSegmentAccountsAsync(List<int> accountIds, int id, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.CustomerSegmentClient.AddSegmentAccountsClient( accountIds,  id);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -172,20 +173,21 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// </summary>
 		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customersegment = new CustomerSegment();
-		///   await customersegment.DeleteSegmentAsync( id);
+		///   var stream = await customersegment.DeleteSegmentAsync( id);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteSegmentAsync(int id, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteSegmentAsync(int id, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.CustomerSegmentClient.DeleteSegmentClient( id);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -196,20 +198,21 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customersegment = new CustomerSegment();
-		///   await customersegment.RemoveSegmentAccountAsync( id,  accountId);
+		///   var stream = await customersegment.RemoveSegmentAccountAsync( id,  accountId);
 		/// </code>
 		/// </example>
-		public virtual async Task RemoveSegmentAccountAsync(int id, int accountId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> RemoveSegmentAccountAsync(int id, int accountId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.CustomerSegmentClient.RemoveSegmentAccountClient( id,  accountId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

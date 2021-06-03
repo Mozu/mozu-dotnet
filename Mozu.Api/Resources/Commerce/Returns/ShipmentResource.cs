@@ -96,20 +96,21 @@ namespace Mozu.Api.Resources.Commerce.Returns
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
 		/// <param name="shipmentId">Unique identifier of the shipment to retrieve.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var shipment = new Shipment();
-		///   await shipment.DeleteShipmentAsync( returnId,  shipmentId);
+		///   var stream = await shipment.DeleteShipmentAsync( returnId,  shipmentId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteShipmentAsync(string returnId, string shipmentId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteShipmentAsync(string returnId, string shipmentId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Returns.ShipmentClient.DeleteShipmentClient( returnId,  shipmentId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

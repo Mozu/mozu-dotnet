@@ -149,20 +149,21 @@ namespace Mozu.Api.Resources.Commerce.Shipping.Admin
 		/// </summary>
 		/// <param name="carrierId">The unique identifier of the carrier configuration.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var carrierconfiguration = new CarrierConfiguration();
-		///   await carrierconfiguration.DeleteConfigurationAsync( carrierId);
+		///   var stream = await carrierconfiguration.DeleteConfigurationAsync( carrierId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteConfigurationAsync(string carrierId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteConfigurationAsync(string carrierId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Shipping.Admin.CarrierConfigurationClient.DeleteConfigurationClient( carrierId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

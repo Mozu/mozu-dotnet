@@ -160,20 +160,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition
 		/// <param name="productTypeId">Identifier of the product type.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var producttype = new ProductType();
-		///   await producttype.DeleteProductTypeAsync(_dataViewMode,  productTypeId);
+		///   var stream = await producttype.DeleteProductTypeAsync(_dataViewMode,  productTypeId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteProductTypeAsync(int productTypeId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteProductTypeAsync(int productTypeId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.ProductTypeClient.DeleteProductTypeClient(_dataViewMode,  productTypeId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

@@ -55,19 +55,19 @@ namespace Mozu.Api.Clients.Content
 		/// <param name="documentLists">List of document lists that contain documents to delete.</param>
 		/// <param name="documentIds">Unique identifiers of the documents to delete.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteDocumentDrafts( documentIds,  documentLists);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteDocumentDraftsClient(List<string> documentIds, string documentLists =  null)
+		public static MozuClient<System.IO.Stream> DeleteDocumentDraftsClient(List<string> documentIds, string documentLists =  null)
 		{
 			var url = Mozu.Api.Urls.Content.DocumentDraftSummaryUrl.DeleteDocumentDraftsUrl(documentLists);
 			const string verb = "POST";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody(documentIds);
 			return mozuClient;
@@ -80,19 +80,19 @@ namespace Mozu.Api.Clients.Content
 		/// <param name="documentLists">List of document lists that contain documents to delete.</param>
 		/// <param name="documentIds">Unique identifiers of the documents to delete.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=PublishDocuments( documentIds,  documentLists);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient PublishDocumentsClient(List<string> documentIds, string documentLists =  null)
+		public static MozuClient<System.IO.Stream> PublishDocumentsClient(List<string> documentIds, string documentLists =  null)
 		{
 			var url = Mozu.Api.Urls.Content.DocumentDraftSummaryUrl.PublishDocumentsUrl(documentLists);
 			const string verb = "PUT";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody(documentIds);
 			return mozuClient;

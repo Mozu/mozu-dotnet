@@ -133,19 +133,19 @@ namespace Mozu.Api.Clients.Commerce.Returns
 		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeletePackage( returnId,  packageId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeletePackageClient(string returnId, string packageId)
+		public static MozuClient<System.IO.Stream> DeletePackageClient(string returnId, string packageId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Returns.PackageUrl.DeletePackageUrl(returnId, packageId);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

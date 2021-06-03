@@ -132,19 +132,19 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="pickupId">Unique identifier of the pickup to remove.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeletePickup( orderId,  pickupId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeletePickupClient(string orderId, string pickupId)
+		public static MozuClient<System.IO.Stream> DeletePickupClient(string orderId, string pickupId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Orders.PickupUrl.DeletePickupUrl(orderId, pickupId);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

@@ -109,19 +109,19 @@ namespace Mozu.Api.Clients.Commerce
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="targetRule">The details of the target rule you want to validate.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=ValidateTargetRule( targetRule);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient ValidateTargetRuleClient(Mozu.Api.Contracts.ShippingAdmin.TargetRule targetRule)
+		public static MozuClient<System.IO.Stream> ValidateTargetRuleClient(Mozu.Api.Contracts.ShippingAdmin.TargetRule targetRule)
 		{
 			var url = Mozu.Api.Urls.Commerce.TargetRuleUrl.ValidateTargetRuleUrl();
 			const string verb = "POST";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<Mozu.Api.Contracts.ShippingAdmin.TargetRule>(targetRule);
 			return mozuClient;
@@ -161,19 +161,19 @@ namespace Mozu.Api.Clients.Commerce
 		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteTargetRule( code);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteTargetRuleClient(string code)
+		public static MozuClient<System.IO.Stream> DeleteTargetRuleClient(string code)
 		{
 			var url = Mozu.Api.Urls.Commerce.TargetRuleUrl.DeleteTargetRuleUrl(code);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

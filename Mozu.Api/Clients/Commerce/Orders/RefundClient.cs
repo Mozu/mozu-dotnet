@@ -54,19 +54,19 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="refundId">Unique ID of the refund.        </param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=ResendRefundEmail( orderId,  refundId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient ResendRefundEmailClient(string orderId, string refundId)
+		public static MozuClient<System.IO.Stream> ResendRefundEmailClient(string orderId, string refundId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Orders.RefundUrl.ResendRefundEmailUrl(orderId, refundId);
 			const string verb = "PUT";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

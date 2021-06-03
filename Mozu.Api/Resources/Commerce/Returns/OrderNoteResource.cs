@@ -148,20 +148,21 @@ namespace Mozu.Api.Resources.Commerce.Returns
 		/// <param name="noteId">Unique identifier of a particular note to retrieve.</param>
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var ordernote = new OrderNote();
-		///   await ordernote.DeleteReturnNoteAsync( returnId,  noteId);
+		///   var stream = await ordernote.DeleteReturnNoteAsync( returnId,  noteId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteReturnNoteAsync(string returnId, string noteId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteReturnNoteAsync(string returnId, string noteId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Returns.OrderNoteClient.DeleteReturnNoteClient( returnId,  noteId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

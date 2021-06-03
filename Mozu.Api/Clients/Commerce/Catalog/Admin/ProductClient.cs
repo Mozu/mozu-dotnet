@@ -190,19 +190,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="productCodeRenames">Properties for a product code current and changed content.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=RenameProductCodes( productCodeRenames);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient RenameProductCodesClient(List<Mozu.Api.Contracts.ProductAdmin.ProductCodeRename> productCodeRenames)
+		public static MozuClient<System.IO.Stream> RenameProductCodesClient(List<Mozu.Api.Contracts.ProductAdmin.ProductCodeRename> productCodeRenames)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.RenameProductCodesUrl();
 			const string verb = "POST";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<List<Mozu.Api.Contracts.ProductAdmin.ProductCodeRename>>(productCodeRenames);
 			return mozuClient;
@@ -295,19 +295,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteProduct(dataViewMode,  productCode);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteProductClient(DataViewMode dataViewMode, string productCode)
+		public static MozuClient<System.IO.Stream> DeleteProductClient(DataViewMode dataViewMode, string productCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.DeleteProductUrl(productCode);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;
@@ -321,19 +321,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// <param name="catalogId">Unique identifier for a catalog.</param>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteProductInCatalog(dataViewMode,  productCode,  catalogId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteProductInCatalogClient(DataViewMode dataViewMode, string productCode, int catalogId)
+		public static MozuClient<System.IO.Stream> DeleteProductInCatalogClient(DataViewMode dataViewMode, string productCode, int catalogId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductUrl.DeleteProductInCatalogUrl(productCode, catalogId);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;

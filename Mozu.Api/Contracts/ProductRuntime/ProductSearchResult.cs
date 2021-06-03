@@ -32,6 +32,8 @@ namespace Mozu.Api.Contracts.ProductRuntime
 
 			public int PageSize { get; set; }
 
+			public string SearchEngine { get; set; }
+
 			///
 			///Mozu.ProductRuntime.Contracts.ProductSearchResult solrDebugInfo ApiTypeMember DOCUMENT_HERE 
 			///

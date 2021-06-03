@@ -130,23 +130,21 @@ namespace Mozu.Api.Clients.Platform
 		/// <param name="filepath">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
 		/// <param name="lastModifiedTime">The date and time of the last file insert or update. This parameter is optional.</param>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
-		/// <param name="stream">Data stream that delivers information. Used to input and output data.</param>
 		/// <returns>
 		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.AppDev.FileMetadata"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
-		///   var mozuClient=UpsertPackageFile( stream,  applicationKey,  filepath,  lastModifiedTime,  responseFields,  contentType);
+		///   var mozuClient=UpsertPackageFile( applicationKey,  filepath,  lastModifiedTime,  responseFields);
 		///   var fileMetadataClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient<Mozu.Api.Contracts.AppDev.FileMetadata> UpsertPackageFileClient(System.IO.Stream stream, string applicationKey, string filepath, string lastModifiedTime =  null, string responseFields =  null, String  contentType= null)
+		public static MozuClient<Mozu.Api.Contracts.AppDev.FileMetadata> UpsertPackageFileClient(string applicationKey, string filepath, string lastModifiedTime =  null, string responseFields =  null)
 		{
 			var url = Mozu.Api.Urls.Platform.ApplicationUrl.UpsertPackageFileUrl(applicationKey, filepath, lastModifiedTime, responseFields);
 			const string verb = "POST";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.AppDev.FileMetadata>()
 									.WithVerb(verb).WithResourceUrl(url)
-									.WithBody(stream)									.WithHeader(Headers.CONTENT_TYPE ,contentType)
 ;
 			return mozuClient;
 
@@ -184,19 +182,19 @@ namespace Mozu.Api.Clients.Platform
 		/// <param name="applicationKey">The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
 		/// <param name="filepath">Represents the file name and location.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeletePackageFile( applicationKey,  filepath);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeletePackageFileClient(string applicationKey, string filepath)
+		public static MozuClient<System.IO.Stream> DeletePackageFileClient(string applicationKey, string filepath)
 		{
 			var url = Mozu.Api.Urls.Platform.ApplicationUrl.DeletePackageFileUrl(applicationKey, filepath);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

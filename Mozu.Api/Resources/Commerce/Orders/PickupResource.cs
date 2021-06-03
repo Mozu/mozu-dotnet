@@ -149,20 +149,21 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="pickupId">Unique identifier of the pickup to remove.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var pickup = new Pickup();
-		///   await pickup.DeletePickupAsync( orderId,  pickupId);
+		///   var stream = await pickup.DeletePickupAsync( orderId,  pickupId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeletePickupAsync(string orderId, string pickupId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeletePickupAsync(string orderId, string pickupId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.PickupClient.DeletePickupClient( orderId,  pickupId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

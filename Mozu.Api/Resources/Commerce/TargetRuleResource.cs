@@ -126,20 +126,21 @@ namespace Mozu.Api.Resources.Commerce
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <param name="targetRule">The details of the target rule you want to validate.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var targetrule = new TargetRule();
-		///   await targetrule.ValidateTargetRuleAsync( targetRule);
+		///   var stream = await targetrule.ValidateTargetRuleAsync( targetRule);
 		/// </code>
 		/// </example>
-		public virtual async Task ValidateTargetRuleAsync(Mozu.Api.Contracts.ShippingAdmin.TargetRule targetRule, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> ValidateTargetRuleAsync(Mozu.Api.Contracts.ShippingAdmin.TargetRule targetRule, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.TargetRuleClient.ValidateTargetRuleClient( targetRule);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -177,20 +178,21 @@ namespace Mozu.Api.Resources.Commerce
 		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var targetrule = new TargetRule();
-		///   await targetrule.DeleteTargetRuleAsync( code);
+		///   var stream = await targetrule.DeleteTargetRuleAsync( code);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteTargetRuleAsync(string code, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteTargetRuleAsync(string code, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.TargetRuleClient.DeleteTargetRuleClient( code);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

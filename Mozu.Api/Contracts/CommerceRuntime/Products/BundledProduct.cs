@@ -94,6 +94,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 			///
 			public int Quantity { get; set; }
 
+			public ProductStock Stock { get; set; }
+
 		}
 
 }

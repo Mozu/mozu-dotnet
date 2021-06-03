@@ -166,19 +166,19 @@ namespace Mozu.Api.Clients.Commerce.Quotes
 		/// <param name="quoteId">A unique identifier for the quote tha the item being deleted belongs to.</param>
 		/// <param name="quoteItemId">A unique identifier for an item included in the quote.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteQuoteItem( quoteId,  quoteItemId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteQuoteItemClient(string quoteId, string quoteItemId)
+		public static MozuClient<System.IO.Stream> DeleteQuoteItemClient(string quoteId, string quoteItemId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Quotes.OrderItemUrl.DeleteQuoteItemUrl(quoteId, quoteItemId);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

@@ -105,19 +105,19 @@ namespace Mozu.Api.Clients.Commerce
 		/// </summary>
 		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteInStockNotificationSubscription( id);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteInStockNotificationSubscriptionClient(int id)
+		public static MozuClient<System.IO.Stream> DeleteInStockNotificationSubscriptionClient(int id)
 		{
 			var url = Mozu.Api.Urls.Commerce.InStockNotificationSubscriptionUrl.DeleteInStockNotificationSubscriptionUrl(id);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

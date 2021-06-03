@@ -135,19 +135,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// <param name="attributeFQN">Fully qualified name for an attribute.</param>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteOption(dataViewMode,  productCode,  attributeFQN);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteOptionClient(DataViewMode dataViewMode, string productCode, string attributeFQN)
+		public static MozuClient<System.IO.Stream> DeleteOptionClient(DataViewMode dataViewMode, string productCode, string attributeFQN)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.ProductOptionUrl.DeleteOptionUrl(productCode, attributeFQN);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;

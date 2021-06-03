@@ -114,6 +114,10 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Products
 
 			public List<ProductProperty> Properties { get; set; }
 
+			public string Sku { get; set; }
+
+			public ProductStock Stock { get; set; }
+
 			///
 			///The universal product code (UPC) is the barcode defined for the product. The UPC is unique across all sales channels. 
 			///

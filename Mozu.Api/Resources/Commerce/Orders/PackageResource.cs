@@ -174,20 +174,21 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var package = new Package();
-		///   await package.DeletePackageAsync( orderId,  packageId);
+		///   var stream = await package.DeletePackageAsync( orderId,  packageId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeletePackageAsync(string orderId, string packageId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeletePackageAsync(string orderId, string packageId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.PackageClient.DeletePackageClient( orderId,  packageId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin
 {
 	/// <summary>
-	/// Use the Product Reservations resource to temporarily hold a product from inventory while a shopper is filling out payment information. You can create a product reservation when a shopper proceeds to check out and then release the reservation when the order process is complete.
+	/// Temporarily hold a product from inventory while a shopper is filling out payment information. Create a product reservation when a shopper proceeds to check out and then release the reservation when the order process is complete.
 	/// </summary>
 	public partial class ProductReservationFactory : BaseDataFactory
 	{
@@ -149,14 +149,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin
 		/// <example> 
 		///  <code> 
 		/// var result = ProductReservationFactory.CommitReservations(handler : handler,  productReservations :  productReservations, dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void CommitReservations(ServiceClientMessageHandler handler, 
- 		List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations, DataViewMode dataViewMode= DataViewMode.Live, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream CommitReservations(ServiceClientMessageHandler handler, 
+ 		 List<Mozu.Api.Contracts.ProductAdmin.ProductReservation> productReservations, DataViewMode dataViewMode= DataViewMode.Live, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -174,8 +174,9 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 
@@ -224,14 +225,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin
 		/// <example> 
 		///  <code> 
 		/// var result = ProductReservationFactory.DeleteProductReservation(handler : handler,  productReservationId :  productReservationId,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeleteProductReservation(ServiceClientMessageHandler handler, 
- 		int productReservationId,  DataViewMode dataViewMode= DataViewMode.Live, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream DeleteProductReservation(ServiceClientMessageHandler handler, 
+ 		 int productReservationId,  DataViewMode dataViewMode= DataViewMode.Live, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -249,8 +250,9 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

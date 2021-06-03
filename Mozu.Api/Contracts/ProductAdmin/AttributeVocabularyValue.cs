@@ -31,6 +31,8 @@ namespace Mozu.Api.Contracts.ProductAdmin
 			///
 			public List<AttributeVocabularyValueLocalizedContent> LocalizedContent { get; set; }
 
+			public List<object> MappedGenericValues { get; set; }
+
 			///
 			///The name of the product that represents a line item in a taxable order or product bundle.
 			///

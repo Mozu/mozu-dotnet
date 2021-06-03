@@ -198,20 +198,21 @@ namespace Mozu.Api.Resources.Commerce
 		/// </summary>
 		/// <param name="checkoutId">The unique identifier of the checkout.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var checkout = new Checkout();
-		///   await checkout.ResendCheckoutConfirmationEmailAsync( checkoutId);
+		///   var stream = await checkout.ResendCheckoutConfirmationEmailAsync( checkoutId);
 		/// </code>
 		/// </example>
-		public virtual async Task ResendCheckoutConfirmationEmailAsync(string checkoutId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> ResendCheckoutConfirmationEmailAsync(string checkoutId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.CheckoutClient.ResendCheckoutConfirmationEmailClient( checkoutId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

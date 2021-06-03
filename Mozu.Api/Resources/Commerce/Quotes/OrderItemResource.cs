@@ -183,20 +183,21 @@ namespace Mozu.Api.Resources.Commerce.Quotes
 		/// <param name="quoteId">A unique identifier for the quote tha the item being deleted belongs to.</param>
 		/// <param name="quoteItemId">A unique identifier for an item included in the quote.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var orderitem = new OrderItem();
-		///   await orderitem.DeleteQuoteItemAsync( quoteId,  quoteItemId);
+		///   var stream = await orderitem.DeleteQuoteItemAsync( quoteId,  quoteItemId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteQuoteItemAsync(string quoteId, string quoteItemId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteQuoteItemAsync(string quoteId, string quoteItemId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Quotes.OrderItemClient.DeleteQuoteItemClient( quoteId,  quoteItemId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

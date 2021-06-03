@@ -131,19 +131,19 @@ namespace Mozu.Api.Clients.Commerce.Checkouts
 		/// <param name="checkoutId">The unique identifier of the checkout.</param>
 		/// <param name="destinationId">The unique identifier of the destination.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=RemoveDestination( checkoutId,  destinationId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient RemoveDestinationClient(string checkoutId, string destinationId)
+		public static MozuClient<System.IO.Stream> RemoveDestinationClient(string checkoutId, string destinationId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Checkouts.DestinationUrl.RemoveDestinationUrl(checkoutId, destinationId);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

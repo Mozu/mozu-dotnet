@@ -317,20 +317,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		/// <param name="value">The value string to create.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var attributevocabularyvalue = new AttributeVocabularyValue();
-		///   await attributevocabularyvalue.DeleteAttributeVocabularyValueAsync( attributeFQN,  value);
+		///   var stream = await attributevocabularyvalue.DeleteAttributeVocabularyValueAsync( attributeFQN,  value);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteAttributeVocabularyValueAsync(string attributeFQN, string value, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteAttributeVocabularyValueAsync(string attributeFQN, string value, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.DeleteAttributeVocabularyValueClient( attributeFQN,  value);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -343,20 +344,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Attributedefinition.Attribut
 		/// <param name="value">The value string to create.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var attributevocabularyvalue = new AttributeVocabularyValue();
-		///   await attributevocabularyvalue.DeleteAttributeVocabularyValueLocalizedContentAsync( attributeFQN,  value,  localeCode);
+		///   var stream = await attributevocabularyvalue.DeleteAttributeVocabularyValueLocalizedContentAsync( attributeFQN,  value,  localeCode);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteAttributeVocabularyValueLocalizedContentAsync(string attributeFQN, string value, string localeCode, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteAttributeVocabularyValueLocalizedContentAsync(string attributeFQN, string value, string localeCode, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueClient.DeleteAttributeVocabularyValueLocalizedContentClient( attributeFQN,  value,  localeCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

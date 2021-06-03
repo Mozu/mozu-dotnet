@@ -266,19 +266,19 @@ namespace Mozu.Api.Clients.Platform.Appdev
 		/// </summary>
 		/// <param name="applicationKey">: The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeletePackage( applicationKey);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeletePackageClient(string applicationKey)
+		public static MozuClient<System.IO.Stream> DeletePackageClient(string applicationKey)
 		{
 			var url = Mozu.Api.Urls.Platform.Appdev.AppPackageUrl.DeletePackageUrl(applicationKey);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

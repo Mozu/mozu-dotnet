@@ -18,7 +18,13 @@ namespace Mozu.Api.Contracts.Location
 		///
 		public class Hours
 		{
+			public string CloseTime { get; set; }
+
+			public bool IsClosed { get; set; }
+
 			public string Label { get; set; }
+
+			public string OpenTime { get; set; }
 
 		}
 

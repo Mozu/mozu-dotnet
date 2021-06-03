@@ -92,20 +92,21 @@ namespace Mozu.Api.Resources.Commerce.Settings.Checkout
 		/// </summary>
 		/// <param name="definition">Properties of an external payment processing workflow defined for the site. At this time, only PayPal Express is supported.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var paymentsettings = new PaymentSettings();
-		///   await paymentsettings.AddThirdPartyPaymentWorkflowAsync( definition);
+		///   var stream = await paymentsettings.AddThirdPartyPaymentWorkflowAsync( definition);
 		/// </code>
 		/// </example>
-		public virtual async Task AddThirdPartyPaymentWorkflowAsync(Mozu.Api.Contracts.SiteSettings.Order.ExternalPaymentWorkflowDefinition definition, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> AddThirdPartyPaymentWorkflowAsync(Mozu.Api.Contracts.SiteSettings.Order.ExternalPaymentWorkflowDefinition definition, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Settings.Checkout.PaymentSettingsClient.AddThirdPartyPaymentWorkflowClient( definition);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -115,20 +116,21 @@ namespace Mozu.Api.Resources.Commerce.Settings.Checkout
 		/// </summary>
 		/// <param name="fullyQualifiedName">Fully qualified name of the attribute for the third-party payment workflow.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var paymentsettings = new PaymentSettings();
-		///   await paymentsettings.DeleteThirdPartyPaymentWorkflowAsync( fullyQualifiedName);
+		///   var stream = await paymentsettings.DeleteThirdPartyPaymentWorkflowAsync( fullyQualifiedName);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteThirdPartyPaymentWorkflowAsync(string fullyQualifiedName, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteThirdPartyPaymentWorkflowAsync(string fullyQualifiedName, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Settings.Checkout.PaymentSettingsClient.DeleteThirdPartyPaymentWorkflowClient( fullyQualifiedName);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

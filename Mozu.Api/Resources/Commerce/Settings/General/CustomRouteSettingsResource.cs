@@ -117,20 +117,21 @@ namespace Mozu.Api.Resources.Commerce.Settings.General
 		/// 
 		/// </summary>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var customroutesettings = new CustomRouteSettings();
-		///   await customroutesettings.DeleteCustomRouteSettingsAsync();
+		///   var stream = await customroutesettings.DeleteCustomRouteSettingsAsync();
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteCustomRouteSettingsAsync(CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteCustomRouteSettingsAsync(CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Settings.General.CustomRouteSettingsClient.DeleteCustomRouteSettingsClient();
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

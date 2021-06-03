@@ -137,19 +137,19 @@ namespace Mozu.Api.Clients.Commerce.Shipping.Admin.Profiles
 		/// <param name="profilecode">The unique, user-defined code of the profile with which the shipping inclusion rule is associated.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteShippingInclusionRule( profilecode,  id);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteShippingInclusionRuleClient(string profilecode, string id)
+		public static MozuClient<System.IO.Stream> DeleteShippingInclusionRuleClient(string profilecode, string id)
 		{
 			var url = Mozu.Api.Urls.Commerce.Shipping.Admin.Profiles.ShippingInclusionRuleUrl.DeleteShippingInclusionRuleUrl(profilecode, id);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

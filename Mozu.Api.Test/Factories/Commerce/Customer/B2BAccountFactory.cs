@@ -339,14 +339,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer
 		/// <example> 
 		///  <code> 
 		/// var result = B2BAccountFactory.AddUserRoleAsync(handler : handler,  accountId :  accountId,  userId :  userId,  roleId :  roleId,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void AddUserRoleAsync(ServiceClientMessageHandler handler, 
- 		int accountId, string userId, int roleId, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream AddUserRoleAsync(ServiceClientMessageHandler handler, 
+ 		 int accountId, string userId, int roleId, 
+		 HttpStatusCode expectedCode = HttpStatusCode.Created, HttpStatusCode successCode = HttpStatusCode.Created)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -364,8 +364,9 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 
@@ -452,14 +453,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer
 		/// <example> 
 		///  <code> 
 		/// var result = B2BAccountFactory.RemoveUser(handler : handler,  accountId :  accountId,  userId :  userId,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void RemoveUser(ServiceClientMessageHandler handler, 
- 		int accountId, string userId, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream RemoveUser(ServiceClientMessageHandler handler, 
+ 		 int accountId, string userId, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -477,8 +478,9 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 
@@ -565,14 +567,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer
 		/// <example> 
 		///  <code> 
 		/// var result = B2BAccountFactory.DeleteB2BAccountAttribute(handler : handler,  accountId :  accountId,  attributeFQN :  attributeFQN,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeleteB2BAccountAttribute(ServiceClientMessageHandler handler, 
- 		int accountId, string attributeFQN, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream DeleteB2BAccountAttribute(ServiceClientMessageHandler handler, 
+ 		 int accountId, string attributeFQN, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -590,8 +592,9 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 
@@ -602,14 +605,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer
 		/// <example> 
 		///  <code> 
 		/// var result = B2BAccountFactory.RemoveUserRoleAsync(handler : handler,  accountId :  accountId,  userId :  userId,  roleId :  roleId,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void RemoveUserRoleAsync(ServiceClientMessageHandler handler, 
- 		int accountId, string userId, int roleId, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream RemoveUserRoleAsync(ServiceClientMessageHandler handler, 
+ 		 int accountId, string userId, int roleId, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -627,8 +630,9 @@ namespace Mozu.Api.Test.Factories.Commerce.Customer
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

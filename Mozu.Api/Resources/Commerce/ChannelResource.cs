@@ -148,20 +148,21 @@ namespace Mozu.Api.Resources.Commerce
 		/// </summary>
 		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var channel = new Channel();
-		///   await channel.DeleteChannelAsync( code);
+		///   var stream = await channel.DeleteChannelAsync( code);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteChannelAsync(string code, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteChannelAsync(string code, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.ChannelClient.DeleteChannelClient( code);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

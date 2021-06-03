@@ -148,20 +148,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var couponset = new CouponSet();
-		///   await couponset.ValidateUniqueCouponSetCodeAsync( code);
+		///   var stream = await couponset.ValidateUniqueCouponSetCodeAsync( code);
 		/// </code>
 		/// </example>
-		public virtual async Task ValidateUniqueCouponSetCodeAsync(string code, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> ValidateUniqueCouponSetCodeAsync(string code, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CouponSetClient.ValidateUniqueCouponSetCodeClient( code);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -197,20 +198,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="couponSetCode">The unique identifier of the coupon set.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var couponset = new CouponSet();
-		///   await couponset.DeleteCouponSetAsync( couponSetCode);
+		///   var stream = await couponset.DeleteCouponSetAsync( couponSetCode);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteCouponSetAsync(string couponSetCode, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteCouponSetAsync(string couponSetCode, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.CouponSetClient.DeleteCouponSetClient( couponSetCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

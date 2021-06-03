@@ -138,19 +138,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Products
 		/// <param name="locationCode">The unique, user-defined code that identifies a location. </param>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteLocationInventory(dataViewMode,  productCode,  locationCode);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteLocationInventoryClient(DataViewMode dataViewMode, string productCode, string locationCode)
+		public static MozuClient<System.IO.Stream> DeleteLocationInventoryClient(DataViewMode dataViewMode, string productCode, string locationCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Products.LocationInventoryUrl.DeleteLocationInventoryUrl(productCode, locationCode);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;

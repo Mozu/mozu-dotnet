@@ -25,6 +25,59 @@ namespace Mozu.Api.Clients.Platform.Adminuser
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="emailAddress"></param>
+		/// <param name="filter"></param>
+		/// <param name="pageSize"></param>
+		/// <param name="sortBy"></param>
+		/// <param name="startIndex"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetUsers( emailAddress,  startIndex,  pageSize,  sortBy,  filter);
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<System.IO.Stream> GetUsersClient(string emailAddress =  null, int? startIndex =  null, int? pageSize =  null, string sortBy =  null, string filter =  null)
+		{
+			var url = Mozu.Api.Urls.Platform.Adminuser.AdminUserUrl.GetUsersUrl(emailAddress, startIndex, pageSize, sortBy, filter);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<System.IO.Stream>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="userId"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.AdminUser.UserRoleCollection"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetUserRoles( userId,  responseFields);
+		///   var userRoleCollectionClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.AdminUser.UserRoleCollection> GetUserRolesClient(string userId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Platform.Adminuser.AdminUserUrl.GetUserRolesUrl(userId, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.AdminUser.UserRoleCollection>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
 		/// <returns>
@@ -50,6 +103,31 @@ namespace Mozu.Api.Clients.Platform.Adminuser
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="userId"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.User"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=GetUserById( userId,  responseFields);
+		///   var userClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.Core.User> GetUserByIdClient(string userId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Platform.Adminuser.AdminUserUrl.GetUserByIdUrl(userId, responseFields);
+			const string verb = "GET";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Core.User>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
 		/// <returns>
@@ -66,6 +144,205 @@ namespace Mozu.Api.Clients.Platform.Adminuser
 			var url = Mozu.Api.Urls.Platform.Adminuser.AdminUserUrl.GetUserUrl(userId, responseFields);
 			const string verb = "GET";
 			var mozuClient = new MozuClient<Mozu.Api.Contracts.Core.User>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="user"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.User"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=CreateUser( user,  responseFields);
+		///   var userClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.Core.User> CreateUserClient(Mozu.Api.Contracts.Core.User user, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Platform.Adminuser.AdminUserUrl.CreateUserUrl(responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Core.User>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.Core.User>(user);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="userId"></param>
+		/// <param name="passwordInfo"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=ChangePassword( passwordInfo,  userId);
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<System.IO.Stream> ChangePasswordClient(Mozu.Api.Contracts.AdminUser.PasswordInfo passwordInfo, string userId)
+		{
+			var url = Mozu.Api.Urls.Platform.Adminuser.AdminUserUrl.ChangePasswordUrl(userId);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<System.IO.Stream>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.AdminUser.PasswordInfo>(passwordInfo);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="userId"></param>
+		/// <param name="changeUserPasswordInfo"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=ChangeUserPassword( changeUserPasswordInfo,  userId);
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<System.IO.Stream> ChangeUserPasswordClient(Mozu.Api.Contracts.AdminUser.ChangeUserPasswordInfo changeUserPasswordInfo, string userId)
+		{
+			var url = Mozu.Api.Urls.Platform.Adminuser.AdminUserUrl.ChangeUserPasswordUrl(userId);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<System.IO.Stream>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.AdminUser.ChangeUserPasswordInfo>(changeUserPasswordInfo);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="roleId"></param>
+		/// <param name="userId"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=AddUserRole( userId,  roleId);
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<System.IO.Stream> AddUserRoleClient(string userId, int roleId)
+		{
+			var url = Mozu.Api.Urls.Platform.Adminuser.AdminUserUrl.AddUserRoleUrl(userId, roleId);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<System.IO.Stream>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="resetPasswordInfo"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=ResetPassword( resetPasswordInfo);
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<System.IO.Stream> ResetPasswordClient(Mozu.Api.Contracts.AdminUser.ResetPasswordInfo resetPasswordInfo)
+		{
+			var url = Mozu.Api.Urls.Platform.Adminuser.AdminUserUrl.ResetPasswordUrl();
+			const string verb = "POST";
+			var mozuClient = new MozuClient<System.IO.Stream>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.AdminUser.ResetPasswordInfo>(resetPasswordInfo);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="userId"></param>
+		/// <param name="user"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.Core.User"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=UpdateUser( user,  userId,  responseFields);
+		///   var userClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.Core.User> UpdateUserClient(Mozu.Api.Contracts.Core.User user, string userId, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Platform.Adminuser.AdminUserUrl.UpdateUserUrl(userId, responseFields);
+			const string verb = "PUT";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.Core.User>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.Core.User>(user);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="userId"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=DeleteUser( userId);
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<System.IO.Stream> DeleteUserClient(string userId)
+		{
+			var url = Mozu.Api.Urls.Platform.Adminuser.AdminUserUrl.DeleteUserUrl(userId);
+			const string verb = "DELETE";
+			var mozuClient = new MozuClient<System.IO.Stream>()
+									.WithVerb(verb).WithResourceUrl(url)
+;
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="roleId"></param>
+		/// <param name="userId"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=RemoveUserRole( userId,  roleId);
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<System.IO.Stream> RemoveUserRoleClient(string userId, int roleId)
+		{
+			var url = Mozu.Api.Urls.Platform.Adminuser.AdminUserUrl.RemoveUserRoleUrl(userId, roleId);
+			const string verb = "DELETE";
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

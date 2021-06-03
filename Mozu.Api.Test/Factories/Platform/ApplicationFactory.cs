@@ -186,14 +186,14 @@ namespace Mozu.Api.Test.Factories.Platform
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = ApplicationFactory.UpsertPackageFile(handler : handler,  stream :  stream,  applicationKey :  applicationKey,  filepath :  filepath,  lastModifiedTime :  lastModifiedTime,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ApplicationFactory.UpsertPackageFile(handler : handler,  applicationKey :  applicationKey,  filepath :  filepath,  lastModifiedTime :  lastModifiedTime,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<FileMetadata/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.AppDev.FileMetadata UpsertPackageFile(ServiceClientMessageHandler handler, 
- 		 System.IO.Stream stream, string applicationKey, string filepath, string lastModifiedTime = null, string responseFields = null, 
+ 		 string applicationKey, string filepath, string lastModifiedTime = null, string responseFields = null, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -201,7 +201,7 @@ namespace Mozu.Api.Test.Factories.Platform
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Platform.ApplicationClient.UpsertPackageFileClient(
-				 stream :  stream,  applicationKey :  applicationKey,  filepath :  filepath,  lastModifiedTime :  lastModifiedTime,  responseFields :  responseFields		);
+				 applicationKey :  applicationKey,  filepath :  filepath,  lastModifiedTime :  lastModifiedTime,  responseFields :  responseFields		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -263,14 +263,14 @@ namespace Mozu.Api.Test.Factories.Platform
 		/// <example> 
 		///  <code> 
 		/// var result = ApplicationFactory.DeletePackageFile(handler : handler,  applicationKey :  applicationKey,  filepath :  filepath,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeletePackageFile(ServiceClientMessageHandler handler, 
- 		string applicationKey, string filepath, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream DeletePackageFile(ServiceClientMessageHandler handler, 
+ 		 string applicationKey, string filepath, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -288,8 +288,9 @@ namespace Mozu.Api.Test.Factories.Platform
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

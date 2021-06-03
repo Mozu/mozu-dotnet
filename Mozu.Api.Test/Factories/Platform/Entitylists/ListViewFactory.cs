@@ -339,14 +339,14 @@ namespace Mozu.Api.Test.Factories.Platform.Entitylists
 		/// <example> 
 		///  <code> 
 		/// var result = ListViewFactory.DeleteEntityListView(handler : handler,  entityListFullName :  entityListFullName,  viewName :  viewName,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeleteEntityListView(ServiceClientMessageHandler handler, 
- 		string entityListFullName, string viewName, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream DeleteEntityListView(ServiceClientMessageHandler handler, 
+ 		 string entityListFullName, string viewName, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -364,8 +364,9 @@ namespace Mozu.Api.Test.Factories.Platform.Entitylists
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

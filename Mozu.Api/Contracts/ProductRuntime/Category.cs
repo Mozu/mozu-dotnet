@@ -44,6 +44,10 @@ namespace Mozu.Api.Contracts.ProductRuntime
 
 			public int? Sequence { get; set; }
 
+			public bool ShouldSlice { get; set; }
+
+			public DateTime UpdateDate { get; set; }
+
 		}
 
 }

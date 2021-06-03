@@ -28,6 +28,8 @@ namespace Mozu.Api.Contracts.Location
 
 			public Hours Thursday { get; set; }
 
+			public string TimeZone { get; set; }
+
 			public Hours Tuesday { get; set; }
 
 			public Hours Wednesday { get; set; }

@@ -183,6 +183,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 
 			public bool? IsTaxExempt { get; set; }
 
+			public bool IsUnified { get; set; }
+
 			public List<OrderItem> Items { get; set; }
 
 			public decimal? ItemTaxTotal { get; set; }
@@ -253,6 +255,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Orders
 			///If the order is associated with a price list, this is the unique code of the price list.
 			///
 			public string PriceListCode { get; set; }
+
+			public bool ReadyToCapture { get; set; }
 
 			///
 			///Refunds associated with this order. A refund is a single exchange of money from merchant to customer that either encapsulates a refund to a credit card or an issuance of a store credit. Refunds does not reduce the 'amount collected' on an order and it is possible for refunds to exceed the total order amount.

@@ -208,20 +208,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="productCodeRenames">Properties for a product code current and changed content.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   await product.RenameProductCodesAsync( productCodeRenames);
+		///   var stream = await product.RenameProductCodesAsync( productCodeRenames);
 		/// </code>
 		/// </example>
-		public virtual async Task RenameProductCodesAsync(List<Mozu.Api.Contracts.ProductAdmin.ProductCodeRename> productCodeRenames, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> RenameProductCodesAsync(List<Mozu.Api.Contracts.ProductAdmin.ProductCodeRename> productCodeRenames, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.RenameProductCodesClient( productCodeRenames);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -309,20 +310,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   await product.DeleteProductAsync(_dataViewMode,  productCode);
+		///   var stream = await product.DeleteProductAsync(_dataViewMode,  productCode);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteProductAsync(string productCode, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteProductAsync(string productCode, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.DeleteProductClient(_dataViewMode,  productCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -333,20 +335,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin
 		/// <param name="catalogId">Unique identifier for a catalog.</param>
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var product = new Product();
-		///   await product.DeleteProductInCatalogAsync(_dataViewMode,  productCode,  catalogId);
+		///   var stream = await product.DeleteProductInCatalogAsync(_dataViewMode,  productCode,  catalogId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteProductInCatalogAsync(string productCode, int catalogId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteProductInCatalogAsync(string productCode, int catalogId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.ProductClient.DeleteProductInCatalogClient(_dataViewMode,  productCode,  catalogId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

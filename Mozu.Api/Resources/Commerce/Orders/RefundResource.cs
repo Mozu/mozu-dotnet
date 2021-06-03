@@ -71,20 +71,21 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		/// <param name="orderId">Unique identifier of the order.</param>
 		/// <param name="refundId">Unique ID of the refund.        </param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var refund = new Refund();
-		///   await refund.ResendRefundEmailAsync( orderId,  refundId);
+		///   var stream = await refund.ResendRefundEmailAsync( orderId,  refundId);
 		/// </code>
 		/// </example>
-		public virtual async Task ResendRefundEmailAsync(string orderId, string refundId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> ResendRefundEmailAsync(string orderId, string refundId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Orders.RefundClient.ResendRefundEmailClient( orderId,  refundId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

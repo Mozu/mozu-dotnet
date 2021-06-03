@@ -193,14 +193,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin.Attributedefinition
 		/// <example> 
 		///  <code> 
 		/// var result = AttributeFactory.DeleteAttribute(handler : handler,  attributeFQN :  attributeFQN,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeleteAttribute(ServiceClientMessageHandler handler, 
- 		string attributeFQN, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream DeleteAttribute(ServiceClientMessageHandler handler, 
+ 		 string attributeFQN, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -218,8 +218,9 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin.Attributedefinition
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

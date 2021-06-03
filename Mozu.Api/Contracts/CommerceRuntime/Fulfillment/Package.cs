@@ -25,6 +25,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 
 			public List<string> AvailableActions { get; set; }
 
+			public string Carrier { get; set; }
+
 			///
 			///Collection (list or paged) of change messages logged for each modification made by a shopper to their carts, wishlists, orders, package, payment, pickup, and returns. Change log messages are system-supplied based on shopper actions and read only.
 			///
@@ -61,9 +63,15 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Fulfillment
 
 			public string ShippingMethodName { get; set; }
 
+			public bool? SignatureRequired { get; set; }
+
 			public string Status { get; set; }
 
 			public string TrackingNumber { get; set; }
+
+			public List<string> TrackingNumbers { get; set; }
+
+			public List<Tracking> Trackings { get; set; }
 
 		}
 

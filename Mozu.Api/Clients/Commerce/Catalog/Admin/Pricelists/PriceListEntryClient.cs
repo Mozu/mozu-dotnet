@@ -142,19 +142,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Pricelists
 		/// <param name="productCode">The unique, user-defined product code of a product, used throughout  to reference and associate to a product.</param>
 		/// <param name="startDate">The start date of the price list entry.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeletePriceListEntry( priceListCode,  productCode,  currencyCode,  startDate);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeletePriceListEntryClient(string priceListCode, string productCode, string currencyCode, DateTime? startDate =  null)
+		public static MozuClient<System.IO.Stream> DeletePriceListEntryClient(string priceListCode, string productCode, string currencyCode, DateTime? startDate =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Pricelists.PriceListEntryUrl.DeletePriceListEntryUrl(priceListCode, productCode, currencyCode, startDate);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

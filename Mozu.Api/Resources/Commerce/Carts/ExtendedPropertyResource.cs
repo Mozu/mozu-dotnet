@@ -143,20 +143,21 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// </summary>
 		/// <param name="keys"></param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var extendedproperty = new ExtendedProperty();
-		///   await extendedproperty.DeleteExtendedPropertiesAsync( keys);
+		///   var stream = await extendedproperty.DeleteExtendedPropertiesAsync( keys);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteExtendedPropertiesAsync(List<string> keys, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteExtendedPropertiesAsync(List<string> keys, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Carts.ExtendedPropertyClient.DeleteExtendedPropertiesClient( keys);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -166,20 +167,21 @@ namespace Mozu.Api.Resources.Commerce.Carts
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var extendedproperty = new ExtendedProperty();
-		///   await extendedproperty.DeleteExtendedPropertyAsync( key);
+		///   var stream = await extendedproperty.DeleteExtendedPropertyAsync( key);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteExtendedPropertyAsync(string key, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteExtendedPropertyAsync(string key, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Carts.ExtendedPropertyClient.DeleteExtendedPropertyClient( key);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

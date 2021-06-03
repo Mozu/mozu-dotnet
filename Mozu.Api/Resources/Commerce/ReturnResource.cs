@@ -222,6 +222,31 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="returnId"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.Kibo.Cars.Model.GenerateLabelResponse"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var return = new Return();
+		///   var generateLabelResponse = await return.GetReturnLabelAsync( returnId,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.Kibo.Cars.Model.GenerateLabelResponse> GetReturnLabelAsync(string returnId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.Kibo.Cars.Model.GenerateLabelResponse> response;
+			var client = Mozu.Api.Clients.Commerce.ReturnClient.GetReturnLabelClient( returnId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
 		/// <returns>
@@ -375,6 +400,32 @@ namespace Mozu.Api.Resources.Commerce
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="returnId"></param>
+		/// <param name="returnItems"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Returns.Return"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var return = new Return();
+		///   var return = await return.RestockReturnItemsAsync( returnItems,  returnId,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> RestockReturnItemsAsync(List<Mozu.Api.Contracts.CommerceRuntime.Returns.RestockableReturnItem> returnItems, string returnId, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Returns.Return> response;
+			var client = Mozu.Api.Clients.Commerce.ReturnClient.RestockReturnItemsClient( returnItems,  returnId,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
 		/// <param name="itemQuantities"></param>
@@ -454,20 +505,21 @@ namespace Mozu.Api.Resources.Commerce
 		/// </summary>
 		/// <param name="action">Properties of an action a user can perform for a return.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var return = new Return();
-		///   await return.ResendReturnEmailAsync( action);
+		///   var stream = await return.ResendReturnEmailAsync( action);
 		/// </code>
 		/// </example>
-		public virtual async Task ResendReturnEmailAsync(Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnAction action, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> ResendReturnEmailAsync(Mozu.Api.Contracts.CommerceRuntime.Returns.ReturnAction action, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.ReturnClient.ResendReturnEmailClient( action);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -502,20 +554,21 @@ namespace Mozu.Api.Resources.Commerce
 		/// </summary>
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var return = new Return();
-		///   await return.DeleteReturnAsync( returnId);
+		///   var stream = await return.DeleteReturnAsync( returnId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteReturnAsync(string returnId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteReturnAsync(string returnId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.ReturnClient.DeleteReturnClient( returnId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

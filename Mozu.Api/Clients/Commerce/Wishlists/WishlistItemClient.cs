@@ -217,19 +217,19 @@ namespace Mozu.Api.Clients.Commerce.Wishlists
 		/// <param name="wishlistId">Unique identifier of the wish list.</param>
 		/// <param name="wishlistItemId">Unique identifier of the item to remove from the shopper wish list.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteWishlistItem( wishlistId,  wishlistItemId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteWishlistItemClient(string wishlistId, string wishlistItemId)
+		public static MozuClient<System.IO.Stream> DeleteWishlistItemClient(string wishlistId, string wishlistItemId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Wishlists.WishlistItemUrl.DeleteWishlistItemUrl(wishlistId, wishlistItemId);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

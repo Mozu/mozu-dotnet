@@ -106,19 +106,19 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
 		/// <param name="accountIds">List of customer account IDs to add to the customer segment specified in the request.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=AddSegmentAccounts( accountIds,  id);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient AddSegmentAccountsClient(List<int> accountIds, int id)
+		public static MozuClient<System.IO.Stream> AddSegmentAccountsClient(List<int> accountIds, int id)
 		{
 			var url = Mozu.Api.Urls.Commerce.Customer.CustomerSegmentUrl.AddSegmentAccountsUrl(id);
 			const string verb = "POST";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody(accountIds);
 			return mozuClient;
@@ -156,19 +156,19 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// </summary>
 		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteSegment( id);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteSegmentClient(int id)
+		public static MozuClient<System.IO.Stream> DeleteSegmentClient(int id)
 		{
 			var url = Mozu.Api.Urls.Commerce.Customer.CustomerSegmentUrl.DeleteSegmentUrl(id);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -181,19 +181,19 @@ namespace Mozu.Api.Clients.Commerce.Customer
 		/// <param name="accountId">Unique identifier of the customer account.</param>
 		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=RemoveSegmentAccount( id,  accountId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient RemoveSegmentAccountClient(int id, int accountId)
+		public static MozuClient<System.IO.Stream> RemoveSegmentAccountClient(int id, int accountId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Customer.CustomerSegmentUrl.RemoveSegmentAccountUrl(id, accountId);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

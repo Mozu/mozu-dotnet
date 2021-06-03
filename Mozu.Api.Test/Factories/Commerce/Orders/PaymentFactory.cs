@@ -220,6 +220,44 @@ namespace Mozu.Api.Test.Factories.Commerce.Orders
 
 		}
   
+		/// <summary> 
+		/// 
+		/// <example> 
+		///  <code> 
+		/// var result = PaymentFactory.AutoCapturePayments(handler : handler,  orderId :  orderId,  forceCapture :  forceCapture,  responseFields :  responseFields,  expectedCode: expectedCode, successCode: successCode); 
+		/// var optionalCasting = ConvertClass<Order/>(result); 
+		/// return optionalCasting;
+		///  </code> 
+		/// </example> 
+		/// </summary>
+		public static Mozu.Api.Contracts.CommerceRuntime.Orders.Order AutoCapturePayments(ServiceClientMessageHandler handler, 
+ 		 string orderId, bool? forceCapture = null, string responseFields = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
+		{
+			SetSdKparameters();
+			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
+			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
+			var apiClient = Mozu.Api.Clients.Commerce.Orders.PaymentClient.AutoCapturePaymentsClient(
+				 orderId :  orderId,  forceCapture :  forceCapture,  responseFields :  responseFields		);
+			try
+			{
+				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
+			}
+			catch (ApiException ex)
+			{
+				// Custom error handling for test cases can be placed here
+				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
+				if (customException != null)
+					throw customException;
+				return null;
+			}
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+					 ? (apiClient.Result()) 
+					 : null;
+
+		}
+  
 
 	}
 

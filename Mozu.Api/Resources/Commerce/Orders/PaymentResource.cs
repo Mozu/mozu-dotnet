@@ -168,6 +168,32 @@ namespace Mozu.Api.Resources.Commerce.Orders
 		}
 
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="forceCapture"></param>
+		/// <param name="orderId"></param>
+		/// <param name="responseFields"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.CommerceRuntime.Orders.Order"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var payment = new Payment();
+		///   var order = await payment.AutoCapturePaymentsAsync( orderId,  forceCapture,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> AutoCapturePaymentsAsync(string orderId, bool? forceCapture =  null, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.CommerceRuntime.Orders.Order> response;
+			var client = Mozu.Api.Clients.Commerce.Orders.PaymentClient.AutoCapturePaymentsClient( orderId,  forceCapture,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
 	}
 
 }

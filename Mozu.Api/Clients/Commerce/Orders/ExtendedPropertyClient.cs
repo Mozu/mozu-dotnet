@@ -140,19 +140,19 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <param name="updateMode">Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."</param>
 		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteExtendedProperty( orderId,  key,  updateMode,  version);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteExtendedPropertyClient(string orderId, string key, string updateMode =  null, string version =  null)
+		public static MozuClient<System.IO.Stream> DeleteExtendedPropertyClient(string orderId, string key, string updateMode =  null, string version =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Orders.ExtendedPropertyUrl.DeleteExtendedPropertyUrl(orderId, key, updateMode, version);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -167,19 +167,19 @@ namespace Mozu.Api.Clients.Commerce.Orders
 		/// <param name="version">Determines whether or not to check versioning of items for concurrency purposes.</param>
 		/// <param name="keys">The extended property keys.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteExtendedProperties( keys,  orderId,  updateMode,  version);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteExtendedPropertiesClient(List<string> keys, string orderId, string updateMode =  null, string version =  null)
+		public static MozuClient<System.IO.Stream> DeleteExtendedPropertiesClient(List<string> keys, string orderId, string updateMode =  null, string version =  null)
 		{
 			var url = Mozu.Api.Urls.Commerce.Orders.ExtendedPropertyUrl.DeleteExtendedPropertiesUrl(orderId, updateMode, version);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody(keys);
 			return mozuClient;

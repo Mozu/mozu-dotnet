@@ -136,19 +136,19 @@ namespace Mozu.Api.Clients.Platform.Entitylists
 		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
 		/// <param name="id">Unique identifier of the customer segment to retrieve.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteEntity( entityListFullName,  id);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteEntityClient(string entityListFullName, string id)
+		public static MozuClient<System.IO.Stream> DeleteEntityClient(string entityListFullName, string id)
 		{
 			var url = Mozu.Api.Urls.Platform.Entitylists.EntityUrl.DeleteEntityUrl(entityListFullName, id);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

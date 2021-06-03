@@ -32,6 +32,8 @@ namespace Mozu.Api.Contracts.AdminUser
 
 			public List<int> GrantedBehaviors { get; set; }
 
+			public string JwtAccessToken { get; set; }
+
 			public string RefreshToken { get; set; }
 
 			public DateTime RefreshTokenExpiration { get; set; }

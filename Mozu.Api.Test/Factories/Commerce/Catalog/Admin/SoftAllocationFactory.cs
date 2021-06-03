@@ -25,7 +25,7 @@ using System.Threading;
 namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin
 {
 	/// <summary>
-	/// The Soft Allocations resource allows you to temporarily hold a product from inventory while a shopper is filling out payment information. You create a product reservation when a shopper proceeds to check out and then release the reservation when the order process is complete.
+	/// 
 	/// </summary>
 	public partial class SoftAllocationFactory : BaseDataFactory
 	{
@@ -263,14 +263,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin
 		/// <example> 
 		///  <code> 
 		/// var result = SoftAllocationFactory.DeleteSoftAllocation(handler : handler,  softAllocationId :  softAllocationId,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeleteSoftAllocation(ServiceClientMessageHandler handler, 
- 		int softAllocationId, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream DeleteSoftAllocation(ServiceClientMessageHandler handler, 
+ 		 int softAllocationId, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -288,8 +288,9 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

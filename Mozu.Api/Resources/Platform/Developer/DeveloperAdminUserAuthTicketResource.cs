@@ -100,20 +100,21 @@ namespace Mozu.Api.Resources.Platform.Developer
 		/// </summary>
 		/// <param name="refreshToken">Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var developeradminuserauthticket = new DeveloperAdminUserAuthTicket();
-		///   await developeradminuserauthticket.DeleteUserAuthTicketAsync( refreshToken);
+		///   var stream = await developeradminuserauthticket.DeleteUserAuthTicketAsync( refreshToken);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteUserAuthTicketAsync(string refreshToken, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteUserAuthTicketAsync(string refreshToken, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Platform.Developer.DeveloperAdminUserAuthTicketClient.DeleteUserAuthTicketClient( refreshToken);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

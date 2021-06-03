@@ -89,6 +89,31 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Storefront
 		}
 
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="customerAccountObject"></param>
+		/// <returns>
+		/// <see cref="Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList"/>
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var pricelist = new PriceList();
+		///   var resolvedPriceList = await pricelist.GetResolvedPriceList2Async( customerAccountObject,  responseFields);
+		/// </code>
+		/// </example>
+		public virtual async Task<Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList> GetResolvedPriceList2Async(JObject customerAccountObject, string responseFields =  null, CancellationToken ct = default(CancellationToken))
+		{
+			MozuClient<Mozu.Api.Contracts.ProductRuntime.ResolvedPriceList> response;
+			var client = Mozu.Api.Clients.Commerce.Catalog.Storefront.PriceListClient.GetResolvedPriceList2Client( customerAccountObject,  responseFields);
+			client.WithContext(_apiContext);
+			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
+
+		}
+
+
 	}
 
 }

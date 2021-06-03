@@ -150,20 +150,21 @@ namespace Mozu.Api.Resources.Commerce.Returns
 		/// <param name="packageId">Unique identifier of the package for which to retrieve the label.</param>
 		/// <param name="returnId">Unique identifier of the return whose items you want to get.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var package = new Package();
-		///   await package.DeletePackageAsync( returnId,  packageId);
+		///   var stream = await package.DeletePackageAsync( returnId,  packageId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeletePackageAsync(string returnId, string packageId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeletePackageAsync(string returnId, string packageId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Returns.PackageClient.DeletePackageClient( returnId,  packageId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

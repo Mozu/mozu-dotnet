@@ -148,20 +148,21 @@ namespace Mozu.Api.Resources.Platform
 		/// </summary>
 		/// <param name="entityListFullName">The full name of the EntityList including namespace in name@nameSpace format</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var entitylist = new EntityList();
-		///   await entitylist.DeleteEntityListAsync( entityListFullName);
+		///   var stream = await entitylist.DeleteEntityListAsync( entityListFullName);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteEntityListAsync(string entityListFullName, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteEntityListAsync(string entityListFullName, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Platform.EntityListClient.DeleteEntityListClient( entityListFullName);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

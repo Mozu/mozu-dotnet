@@ -136,19 +136,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin
 		/// </summary>
 		/// <param name="productSortDefinitionId">Unique identifier of the product sort definition.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteProductSortDefinition(dataViewMode,  productSortDefinitionId);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteProductSortDefinitionClient(DataViewMode dataViewMode, int productSortDefinitionId)
+		public static MozuClient<System.IO.Stream> DeleteProductSortDefinitionClient(DataViewMode dataViewMode, int productSortDefinitionId)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.ProductSortDefinitionUrl.DeleteProductSortDefinitionUrl(productSortDefinitionId);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithHeader(Headers.X_VOL_DATAVIEW_MODE ,dataViewMode.ToString())
 ;

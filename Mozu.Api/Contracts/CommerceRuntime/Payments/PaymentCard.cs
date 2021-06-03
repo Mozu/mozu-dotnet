@@ -31,6 +31,8 @@ namespace Mozu.Api.Contracts.CommerceRuntime.Payments
 
 			public bool IsCardInfoSaved { get; set; }
 
+			public bool IsTokenized { get; set; }
+
 			public bool? IsUsedRecurring { get; set; }
 
 			public string NameOnCard { get; set; }

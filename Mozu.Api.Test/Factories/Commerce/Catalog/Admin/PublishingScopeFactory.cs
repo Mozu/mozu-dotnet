@@ -111,14 +111,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin
 		/// <example> 
 		///  <code> 
 		/// var result = PublishingScopeFactory.DiscardDrafts(handler : handler,  publishScope :  publishScope, dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DiscardDrafts(ServiceClientMessageHandler handler, 
- 		Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope, DataViewMode dataViewMode= DataViewMode.Live, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream DiscardDrafts(ServiceClientMessageHandler handler, 
+ 		 Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope, DataViewMode dataViewMode= DataViewMode.Live, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -136,8 +136,9 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 
@@ -148,14 +149,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin
 		/// <example> 
 		///  <code> 
 		/// var result = PublishingScopeFactory.PublishDrafts(handler : handler,  publishScope :  publishScope, dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void PublishDrafts(ServiceClientMessageHandler handler, 
- 		Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope, DataViewMode dataViewMode= DataViewMode.Live, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream PublishDrafts(ServiceClientMessageHandler handler, 
+ 		 Mozu.Api.Contracts.ProductAdmin.PublishingScope publishScope, DataViewMode dataViewMode= DataViewMode.Live, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -173,8 +174,9 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 
@@ -223,14 +225,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin
 		/// <example> 
 		///  <code> 
 		/// var result = PublishingScopeFactory.DeletePublishSet(handler : handler,  publishSetCode :  publishSetCode,  discardDrafts :  discardDrafts,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<void/>(result); 
+		/// var optionalCasting = ConvertClass<Stream/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static void DeletePublishSet(ServiceClientMessageHandler handler, 
- 		string publishSetCode, bool? discardDrafts = null, 
-		 HttpStatusCode expectedCode = HttpStatusCode.NoContent, HttpStatusCode successCode = HttpStatusCode.NoContent)
+		public static System.IO.Stream DeletePublishSet(ServiceClientMessageHandler handler, 
+ 		 string publishSetCode, bool? discardDrafts = null, 
+		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
 			var currentClassName = System.Reflection.MethodInfo.GetCurrentMethod().DeclaringType.Name;
@@ -248,8 +250,9 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Admin
 				Exception customException = TestFailException.GetCustomTestException(ex, currentClassName, currentMethodName, expectedCode);
 				if (customException != null)
 					throw customException;
+				return null;
 			}
-			var noResponse = ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
+			return ResponseMessageFactory.CheckResponseCodes(apiClient.HttpResponse.StatusCode, expectedCode, successCode) 
 					 ? (apiClient.Result()) 
 					 : null;
 

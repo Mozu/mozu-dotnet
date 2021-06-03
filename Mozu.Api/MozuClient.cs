@@ -236,6 +236,8 @@ namespace Mozu.Api
                 if (_apiContext != null && !String.IsNullOrEmpty(_apiContext.CorrelationId))
                     AddHeader(Headers.X_VOL_CORRELATION, _apiContext.CorrelationId);
 
+                
+
                 foreach (var key in _headers.AllKeys)
                 {
                     client.DefaultRequestHeaders.Add(key, _headers[key]);
@@ -273,7 +275,15 @@ namespace Mozu.Api
 		    if (HttpResponse.StatusCode == HttpStatusCode.NotFound && !MozuConfig.ThrowExceptionOn404)
 		      return default(TResult);
 
-			if (typeof(TResult) == typeof(Stream))
+            if (HttpResponse.StatusCode == (HttpStatusCode)429)
+            {
+                _log.Info($"Too many requests to the API.The thread will have to wait for {HttpResponse.Headers.RetryAfter.Delta.Value.TotalMinutes} minutes to make another API call");
+                Thread.Sleep(HttpResponse.Headers.RetryAfter.Delta.Value);
+                _log.Info($"Retrying API request");
+                await ExecuteRequestAsync(new CancellationToken());
+            }
+
+            if (typeof(TResult) == typeof(Stream))
 				return (TResult)(object)(await HttpResponse.Content.ReadAsStreamAsync().ConfigureAwait(false));
 
 			var stringContent = await HttpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
@@ -309,7 +319,16 @@ namespace Mozu.Api
 
             if (!string.IsNullOrEmpty(_apiContext.Currency))
                 AddHeader(Headers.X_VOL_CURRENCY, _apiContext.Currency);
-		}
+
+            //Adding the custom headers to namevaluecollection.
+            if (_apiContext.CustomHeaders != null)
+            {
+                foreach (var header in _apiContext.CustomHeaders)
+                {
+                    AddHeader(header.Key, header.Value);
+                }
+            }
+        }
 
         protected void SetBaseAddress(string baseAddress)
         {

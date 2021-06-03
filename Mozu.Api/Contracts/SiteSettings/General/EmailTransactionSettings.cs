@@ -23,10 +23,14 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			///
 			public bool? BackInStock { get; set; }
 
+			public bool? Backorder { get; set; }
+
 			///
 			///A flag that determines if an email is sent to a shopper account when the described condition is met.
 			///
 			public bool? GiftCardCreated { get; set; }
+
+			public bool? OrderCancellation { get; set; }
 
 			///
 			///A flag that determines if an email is sent to a shopper account when the described condition is met.
@@ -38,10 +42,16 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			///
 			public bool? OrderFulfillmentDetailsChanged { get; set; }
 
+			public bool? OrderPickupReady { get; set; }
+
+			public bool? OrderPickupReminder { get; set; }
+
 			///
 			///A flag that determines if an email is sent to a shopper account when the described condition is met.
 			///
 			public bool? OrderShipped { get; set; }
+
+			public bool? PartialPickupReady { get; set; }
 
 			///
 			///A flag that determines if an email is sent to a shopper account when the described condition is met.
@@ -78,6 +88,14 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			///
 			public bool? ReturnUpdated { get; set; }
 
+			public bool? ShipmentAssigned { get; set; }
+
+			public bool? ShipmentBackorderDateChanged { get; set; }
+
+			public bool? ShipmentConfirmation { get; set; }
+
+			public bool? ShipmentItemCanceled { get; set; }
+
 			///
 			///A flag that determines if an email is sent to a shopper account when the described condition is met.
 			///
@@ -97,6 +115,12 @@ namespace Mozu.Api.Contracts.SiteSettings.General
 			///A flag that determines if an email is sent to a shopper account when the described condition is met.
 			///
 			public bool? StoreCreditUpdated { get; set; }
+
+			public bool? TransferShipmentCreated { get; set; }
+
+			public bool? TransferShipmentCreatedByFulfiller { get; set; }
+
+			public bool? TransferShipmentShipped { get; set; }
 
 		}
 

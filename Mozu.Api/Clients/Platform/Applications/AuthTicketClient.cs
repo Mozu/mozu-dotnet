@@ -50,6 +50,31 @@ namespace Mozu.Api.Clients.Platform.Applications
 		/// <summary>
 		/// 
 		/// </summary>
+		/// <param name="responseFields"></param>
+		/// <param name="appAuthInfo"></param>
+		/// <returns>
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="Mozu.Api.Contracts.AppDev.OAuthAccessTokenResponse"/>}
+		/// </returns>
+		/// <example>
+		/// <code>
+		///   var mozuClient=OauthAuthenticateApp( appAuthInfo,  responseFields);
+		///   var oAuthAccessTokenResponseClient = mozuClient.WithBaseAddress(url).Execute().Result();
+		/// </code>
+		/// </example>
+		public static MozuClient<Mozu.Api.Contracts.AppDev.OAuthAccessTokenResponse> OauthAuthenticateAppClient(Mozu.Api.Contracts.AppDev.OauthAuthRequest appAuthInfo, string responseFields =  null)
+		{
+			var url = Mozu.Api.Urls.Platform.Applications.AuthTicketUrl.OauthAuthenticateAppUrl(responseFields);
+			const string verb = "POST";
+			var mozuClient = new MozuClient<Mozu.Api.Contracts.AppDev.OAuthAccessTokenResponse>()
+									.WithVerb(verb).WithResourceUrl(url)
+									.WithBody<Mozu.Api.Contracts.AppDev.OauthAuthRequest>(appAuthInfo);
+			return mozuClient;
+
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
 		/// <param name="responseFields">Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.</param>
 		/// <param name="authTicketRequest">Properties of the authentication ticket refresh requests, which includes the refresh token string.</param>
 		/// <returns>
@@ -77,19 +102,19 @@ namespace Mozu.Api.Clients.Platform.Applications
 		/// </summary>
 		/// <param name="refreshToken">Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteAppAuthTicket( refreshToken);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteAppAuthTicketClient(string refreshToken)
+		public static MozuClient<System.IO.Stream> DeleteAppAuthTicketClient(string refreshToken)
 		{
 			var url = Mozu.Api.Urls.Platform.Applications.AuthTicketUrl.DeleteAppAuthTicketUrl(refreshToken);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

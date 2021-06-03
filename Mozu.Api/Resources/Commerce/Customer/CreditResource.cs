@@ -149,20 +149,21 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <param name="userId">Unique identifier of the user whose tenant scopes you want to retrieve.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var credit = new Credit();
-		///   await credit.ResendCreditCreatedEmailAsync( code,  userId);
+		///   var stream = await credit.ResendCreditCreatedEmailAsync( code,  userId);
 		/// </code>
 		/// </example>
-		public virtual async Task ResendCreditCreatedEmailAsync(string code, string userId =  null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> ResendCreditCreatedEmailAsync(string code, string userId =  null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.CreditClient.ResendCreditCreatedEmailClient( code,  userId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -198,20 +199,21 @@ namespace Mozu.Api.Resources.Commerce.Customer
 		/// </summary>
 		/// <param name="code">User-defined code that uniqely identifies the channel group.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var credit = new Credit();
-		///   await credit.DeleteCreditAsync( code);
+		///   var stream = await credit.DeleteCreditAsync( code);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteCreditAsync(string code, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteCreditAsync(string code, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Customer.CreditClient.DeleteCreditClient( code);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

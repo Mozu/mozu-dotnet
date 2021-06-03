@@ -143,20 +143,21 @@ namespace Mozu.Api.Resources.Commerce.Admin
 		/// </summary>
 		/// <param name="locationTypeCode">The user-defined code that identifies the location type.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var locationtype = new LocationType();
-		///   await locationtype.DeleteLocationTypeAsync( locationTypeCode);
+		///   var stream = await locationtype.DeleteLocationTypeAsync( locationTypeCode);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteLocationTypeAsync(string locationTypeCode, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteLocationTypeAsync(string locationTypeCode, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Admin.LocationTypeClient.DeleteLocationTypeClient( locationTypeCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

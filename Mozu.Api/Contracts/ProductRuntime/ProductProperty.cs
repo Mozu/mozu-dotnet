@@ -21,7 +21,7 @@ namespace Mozu.Api.Contracts.ProductRuntime
 		{
 			public AttributeDetail AttributeDetail { get; set; }
 
-			public string AttributeFQN { get; set; }
+			public string AttributeFqn { get; set; }
 
 			public bool? IsHidden { get; set; }
 

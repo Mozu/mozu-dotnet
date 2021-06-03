@@ -300,19 +300,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		/// <param name="value">The value string to create.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteAttributeVocabularyValue( attributeFQN,  value);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteAttributeVocabularyValueClient(string attributeFQN, string value)
+		public static MozuClient<System.IO.Stream> DeleteAttributeVocabularyValueClient(string attributeFQN, string value)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueUrl.DeleteAttributeVocabularyValueUrl(attributeFQN, value);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;
@@ -327,19 +327,19 @@ namespace Mozu.Api.Clients.Commerce.Catalog.Admin.Attributedefinition.Attributes
 		/// <param name="value">The value string to create.</param>
 		/// <param name="dataViewMode">{<see cref="Mozu.Api.DataViewMode"/>}</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteAttributeVocabularyValueLocalizedContent( attributeFQN,  value,  localeCode);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteAttributeVocabularyValueLocalizedContentClient(string attributeFQN, string value, string localeCode)
+		public static MozuClient<System.IO.Stream> DeleteAttributeVocabularyValueLocalizedContentClient(string attributeFQN, string value, string localeCode)
 		{
 			var url = Mozu.Api.Urls.Commerce.Catalog.Admin.Attributedefinition.Attributes.AttributeVocabularyValueUrl.DeleteAttributeVocabularyValueLocalizedContentUrl(attributeFQN, value, localeCode);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

@@ -110,14 +110,14 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Storefront
 		/// 
 		/// <example> 
 		///  <code> 
-		/// var result = ProductFactory.GetProduct(handler : handler,  productCode :  productCode,  variationProductCode :  variationProductCode,  allowInactive :  allowInactive,  skipInventoryCheck :  skipInventoryCheck,  supressOutOfStock404 :  supressOutOfStock404,  quantity :  quantity,  acceptVariantProductCode :  acceptVariantProductCode,  purchaseLocation :  purchaseLocation,  variationProductCodeFilter :  variationProductCodeFilter,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
+		/// var result = ProductFactory.GetProduct(handler : handler,  productCode :  productCode,  variationProductCode :  variationProductCode,  allowInactive :  allowInactive,  skipInventoryCheck :  skipInventoryCheck,  supressOutOfStock404 :  supressOutOfStock404,  quantity :  quantity,  acceptVariantProductCode :  acceptVariantProductCode,  purchaseLocation :  purchaseLocation,  variationProductCodeFilter :  variationProductCodeFilter,  sliceValue :  sliceValue,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
 		/// var optionalCasting = ConvertClass<Product/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
 		public static Mozu.Api.Contracts.ProductRuntime.Product GetProduct(ServiceClientMessageHandler handler, 
- 		 string productCode, string variationProductCode = null, bool? allowInactive = null, bool? skipInventoryCheck = null, bool? supressOutOfStock404 = null, int? quantity = null, bool? acceptVariantProductCode = null, string purchaseLocation = null, string variationProductCodeFilter = null, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
+ 		 string productCode, string variationProductCode = null, bool? allowInactive = null, bool? skipInventoryCheck = null, bool? supressOutOfStock404 = null, int? quantity = null, bool? acceptVariantProductCode = null, string purchaseLocation = null, string variationProductCodeFilter = null, string sliceValue = null, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{
 			SetSdKparameters();
@@ -125,7 +125,7 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Storefront
 			var currentMethodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
 			Debug.WriteLine(currentMethodName  + '.' + currentMethodName );
 			var apiClient = Mozu.Api.Clients.Commerce.Catalog.Storefront.ProductClient.GetProductClient(
-				 productCode :  productCode,  variationProductCode :  variationProductCode,  allowInactive :  allowInactive,  skipInventoryCheck :  skipInventoryCheck,  supressOutOfStock404 :  supressOutOfStock404,  quantity :  quantity,  acceptVariantProductCode :  acceptVariantProductCode,  purchaseLocation :  purchaseLocation,  variationProductCodeFilter :  variationProductCodeFilter,  responseFields :  responseFields, dataViewMode: dataViewMode		);
+				 productCode :  productCode,  variationProductCode :  variationProductCode,  allowInactive :  allowInactive,  skipInventoryCheck :  skipInventoryCheck,  supressOutOfStock404 :  supressOutOfStock404,  quantity :  quantity,  acceptVariantProductCode :  acceptVariantProductCode,  purchaseLocation :  purchaseLocation,  variationProductCodeFilter :  variationProductCodeFilter,  sliceValue :  sliceValue,  responseFields :  responseFields, dataViewMode: dataViewMode		);
 			try
 			{
 				apiClient.WithContext(handler.ApiContext).ExecuteAsync(default(CancellationToken)).Wait();
@@ -149,12 +149,12 @@ namespace Mozu.Api.Test.Factories.Commerce.Catalog.Storefront
 		/// <example> 
 		///  <code> 
 		/// var result = ProductFactory.GetProductForIndexing(handler : handler,  productCode :  productCode,  productVersion :  productVersion,  lastModifiedDate :  lastModifiedDate,  responseFields :  responseFields,  dataViewMode: dataViewMode,  expectedCode: expectedCode, successCode: successCode); 
-		/// var optionalCasting = ConvertClass<Product/>(result); 
+		/// var optionalCasting = ConvertClass<ProductForIndexing/>(result); 
 		/// return optionalCasting;
 		///  </code> 
 		/// </example> 
 		/// </summary>
-		public static Mozu.Api.Contracts.ProductRuntime.Product GetProductForIndexing(ServiceClientMessageHandler handler, 
+		public static Mozu.Api.Contracts.ProductRuntime.ProductForIndexing GetProductForIndexing(ServiceClientMessageHandler handler, 
  		 string productCode, long? productVersion = null, DateTime? lastModifiedDate = null, string responseFields = null,  DataViewMode dataViewMode= DataViewMode.Live, 
 		 HttpStatusCode expectedCode = HttpStatusCode.OK, HttpStatusCode successCode = HttpStatusCode.OK)
 		{

@@ -102,20 +102,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Couponsets
 		/// <param name="couponSetCode">The unique identifier of the coupon set.</param>
 		/// <param name="coupons">The details necessary to assign the discount to a coupon set, including .</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var coupon = new Coupon();
-		///   await coupon.AddCouponsAsync( coupons,  couponSetCode);
+		///   var stream = await coupon.AddCouponsAsync( coupons,  couponSetCode);
 		/// </code>
 		/// </example>
-		public virtual async Task AddCouponsAsync(List<Mozu.Api.Contracts.ProductAdmin.Coupon> coupons, string couponSetCode, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> AddCouponsAsync(List<Mozu.Api.Contracts.ProductAdmin.Coupon> coupons, string couponSetCode, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.CouponClient.AddCouponsClient( coupons,  couponSetCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -126,20 +127,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Couponsets
 		/// <param name="couponSetCode">The unique identifier of the coupon set that the coupon belongs to.</param>
 		/// <param name="couponCodes">The unique identifiers of the coupons to delete.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var coupon = new Coupon();
-		///   await coupon.DeleteCouponsAsync( couponCodes,  couponSetCode);
+		///   var stream = await coupon.DeleteCouponsAsync( couponCodes,  couponSetCode);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteCouponsAsync(List<string> couponCodes, string couponSetCode, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteCouponsAsync(List<string> couponCodes, string couponSetCode, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.CouponClient.DeleteCouponsClient( couponCodes,  couponSetCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -150,20 +152,21 @@ namespace Mozu.Api.Resources.Commerce.Catalog.Admin.Couponsets
 		/// <param name="couponCode">Code associated with the coupon to remove from the cart.</param>
 		/// <param name="couponSetCode">The unique identifier of the coupon set that the coupon belongs to.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var coupon = new Coupon();
-		///   await coupon.DeleteCouponAsync( couponSetCode,  couponCode);
+		///   var stream = await coupon.DeleteCouponAsync( couponSetCode,  couponCode);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteCouponAsync(string couponSetCode, string couponCode, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteCouponAsync(string couponSetCode, string couponCode, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Commerce.Catalog.Admin.Couponsets.CouponClient.DeleteCouponClient( couponSetCode,  couponCode);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

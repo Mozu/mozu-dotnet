@@ -55,19 +55,19 @@ namespace Mozu.Api.Clients.Platform
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
 		/// <param name="value">The value string to create.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=CreateDBValue( value,  appKeyId,  dbEntryQuery);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient CreateDBValueClient(JObject value, string appKeyId, string dbEntryQuery)
+		public static MozuClient<System.IO.Stream> CreateDBValueClient(JObject value, string appKeyId, string dbEntryQuery)
 		{
 			var url = Mozu.Api.Urls.Platform.SecureAppDataUrl.CreateDBValueUrl(appKeyId, dbEntryQuery);
 			const string verb = "POST";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<JObject>(value);
 			return mozuClient;
@@ -81,19 +81,19 @@ namespace Mozu.Api.Clients.Platform
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
 		/// <param name="value">The value string to create.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=UpdateDBValue( value,  appKeyId,  dbEntryQuery);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient UpdateDBValueClient(JObject value, string appKeyId, string dbEntryQuery)
+		public static MozuClient<System.IO.Stream> UpdateDBValueClient(JObject value, string appKeyId, string dbEntryQuery)
 		{
 			var url = Mozu.Api.Urls.Platform.SecureAppDataUrl.UpdateDBValueUrl(appKeyId, dbEntryQuery);
 			const string verb = "PUT";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 									.WithBody<JObject>(value);
 			return mozuClient;
@@ -106,19 +106,19 @@ namespace Mozu.Api.Clients.Platform
 		/// <param name="appKeyId"></param>
 		/// <param name="dbEntryQuery">The database entry string to create.</param>
 		/// <returns>
-		///  <see cref="Mozu.Api.MozuClient" />
+		///  <see cref="Mozu.Api.MozuClient" />{<see cref="System.IO.Stream"/>}
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var mozuClient=DeleteDBValue( appKeyId,  dbEntryQuery);
-		///mozuClient.WithBaseAddress(url).Execute();
+		///   var streamClient = mozuClient.WithBaseAddress(url).Execute().Result();
 		/// </code>
 		/// </example>
-		public static MozuClient DeleteDBValueClient(string appKeyId, string dbEntryQuery)
+		public static MozuClient<System.IO.Stream> DeleteDBValueClient(string appKeyId, string dbEntryQuery)
 		{
 			var url = Mozu.Api.Urls.Platform.SecureAppDataUrl.DeleteDBValueUrl(appKeyId, dbEntryQuery);
 			const string verb = "DELETE";
-			var mozuClient = new MozuClient()
+			var mozuClient = new MozuClient<System.IO.Stream>()
 									.WithVerb(verb).WithResourceUrl(url)
 ;
 			return mozuClient;

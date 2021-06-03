@@ -153,20 +153,21 @@ namespace Mozu.Api.Resources.Content
 		/// </summary>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var documentlist = new DocumentList();
-		///   await documentlist.DeleteDocumentListAsync( documentListName);
+		///   var stream = await documentlist.DeleteDocumentListAsync( documentListName);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteDocumentListAsync(string documentListName, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteDocumentListAsync(string documentListName, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Content.DocumentListClient.DeleteDocumentListClient( documentListName);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 

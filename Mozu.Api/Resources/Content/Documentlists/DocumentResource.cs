@@ -193,20 +193,21 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <param name="documentListName">Name of content documentListName to delete</param>
 		/// <param name="stream">Data stream that delivers information. Used to input and output data.</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var document = new Document();
-		///   await document.UpdateDocumentContentAsync( stream,  documentListName,  documentId,  contentType);
+		///   var stream = await document.UpdateDocumentContentAsync( stream,  documentListName,  documentId,  contentType);
 		/// </code>
 		/// </example>
-		public virtual async Task UpdateDocumentContentAsync(System.IO.Stream stream, string documentListName, string documentId, String  contentType= null, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> UpdateDocumentContentAsync(System.IO.Stream stream, string documentListName, string documentId, String  contentType= null, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Content.Documentlists.DocumentClient.UpdateDocumentContentClient( stream,  documentListName,  documentId,  contentType);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -244,20 +245,21 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <param name="documentId">Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.</param>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var document = new Document();
-		///   await document.DeleteDocumentAsync( documentListName,  documentId);
+		///   var stream = await document.DeleteDocumentAsync( documentListName,  documentId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteDocumentAsync(string documentListName, string documentId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteDocumentAsync(string documentListName, string documentId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Content.Documentlists.DocumentClient.DeleteDocumentClient( documentListName,  documentId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
@@ -268,20 +270,21 @@ namespace Mozu.Api.Resources.Content.Documentlists
 		/// <param name="documentId">Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.</param>
 		/// <param name="documentListName">Name of content documentListName to delete</param>
 		/// <returns>
-		/// 
+		/// <see cref="System.IO.Stream"/>
 		/// </returns>
 		/// <example>
 		/// <code>
 		///   var document = new Document();
-		///   await document.DeleteDocumentContentAsync( documentListName,  documentId);
+		///   var stream = await document.DeleteDocumentContentAsync( documentListName,  documentId);
 		/// </code>
 		/// </example>
-		public virtual async Task DeleteDocumentContentAsync(string documentListName, string documentId, CancellationToken ct = default(CancellationToken))
+		public virtual async Task<System.IO.Stream> DeleteDocumentContentAsync(string documentListName, string documentId, CancellationToken ct = default(CancellationToken))
 		{
-			MozuClient response;
+			MozuClient<System.IO.Stream> response;
 			var client = Mozu.Api.Clients.Content.Documentlists.DocumentClient.DeleteDocumentContentClient( documentListName,  documentId);
 			client.WithContext(_apiContext);
 			response = await client.ExecuteAsync(ct).ConfigureAwait(false);
+			return await response.ResultAsync();
 
 		}
 
