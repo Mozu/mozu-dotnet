@@ -277,9 +277,9 @@ namespace Mozu.Api
 
             if (HttpResponse.StatusCode == (HttpStatusCode)429)
             {
-                _log.Info($"Too many requests to the API.The thread will have to wait for {HttpResponse.Headers.RetryAfter.Delta.Value.TotalMinutes} minutes to make another API call");
+                _log.Info("Too many requests to the API.The thread will have to wait for " + HttpResponse.Headers.RetryAfter.Delta.Value.TotalMinutes + " minutes to make another API call");
                 Thread.Sleep(HttpResponse.Headers.RetryAfter.Delta.Value);
-                _log.Info($"Retrying API request");
+                _log.Info("Retrying API request");
                 await ExecuteRequestAsync(new CancellationToken());
             }
 
