@@ -22,7 +22,7 @@ namespace Mozu.Api.Utilities
         public static void EnsureSuccess(HttpResponseMessage response, HttpRequestMessage request=null, IApiContext apiContext=null)
         {
 		    if (response.IsSuccessStatusCode) return;
-		    if (response.StatusCode == HttpStatusCode.NotModified) return;
+		    if (response.StatusCode == HttpStatusCode.NotModified || response.StatusCode == (HttpStatusCode)429) return;
 		    var content = response.Content.ReadAsStringAsync().Result;
 		    ApiException exception ;
 		    var htmlMediaType = new MediaTypeHeaderValue("text/html");
