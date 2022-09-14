@@ -70,6 +70,7 @@
     <Compile Include="Clients\Commerce\Catalog\Admin\ProductReservationClient.cs" />
     <Compile Include="Clients\Commerce\Catalog\Admin\SoftAllocationClient.cs" />
     <Compile Include="Clients\Commerce\Fulfillment\ShipmentClient.cs" />
+    <Compile Include="Clients\Commerce\Fulfillment\ShipmentDataClient.cs" />
     <Compile Include="Clients\Commerce\Fulfillment\ShipmentPackagesClient.cs" />
     <Compile Include="Clients\Commerce\Inventory\FetchFileConfigClient.cs" />
     <Compile Include="Clients\Commerce\Inventory\InventoryClient.cs" />
@@ -279,6 +280,7 @@
     <Compile Include="MozuUrl.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\ProductReservationResource.cs" />
     <Compile Include="Resources\Commerce\Catalog\Admin\SoftAllocationResource.cs" />
+    <Compile Include="Resources\Commerce\Fulfillment\ShipmentDataResource.cs" />
     <Compile Include="Resources\Commerce\Fulfillment\ShipmentPackagesResource.cs" />
     <Compile Include="Resources\Commerce\Fulfillment\ShipmentResource.cs" />
     <Compile Include="Resources\Commerce\Inventory\FetchFileConfigResource.cs" />
@@ -292,6 +294,7 @@
     <Compile Include="Security\UserAuthenticator.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\ProductReservationUrl.cs" />
     <Compile Include="Urls\Commerce\Catalog\Admin\SoftAllocationUrl.cs" />
+    <Compile Include="Urls\Commerce\Fulfillment\ShipmentDataUrl.cs" />
     <Compile Include="Urls\Commerce\Fulfillment\ShipmentPackagesUrl.cs" />
     <Compile Include="Urls\Commerce\Fulfillment\ShipmentUrl.cs" />
     <Compile Include="Urls\Commerce\Inventory\FetchFileConfigUrl.cs" />
