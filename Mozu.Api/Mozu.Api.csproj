@@ -75,6 +75,7 @@
     <Compile Include="Clients\Commerce\Inventory\FetchFileConfigClient.cs" />
     <Compile Include="Clients\Commerce\Inventory\InventoryClient.cs" />
     <Compile Include="Clients\Commerce\Inventory\JobClient.cs" />
+    <Compile Include="Clients\Commerce\Inventory\ModifyInventoryClient.cs" />
     <Compile Include="Contracts\Fulfillment\Address.cs" />
     <Compile Include="Contracts\Fulfillment\AuditInfo.cs" />
     <Compile Include="Contracts\Fulfillment\BackorderItem.cs" />
@@ -286,6 +287,7 @@
     <Compile Include="Resources\Commerce\Inventory\FetchFileConfigResource.cs" />
     <Compile Include="Resources\Commerce\Inventory\InventoryResource.cs" />
     <Compile Include="Resources\Commerce\Inventory\JobResource.cs" />
+    <Compile Include="Resources\Commerce\Inventory\ModifyInventoryResource.cs" />
     <Compile Include="Security\AuthenticationScope.cs" />
     <Compile Include="Security\AuthTicket.cs" />
     <Compile Include="Security\ConfigurationAuth.cs" />
@@ -300,6 +302,7 @@
     <Compile Include="Urls\Commerce\Inventory\FetchFileConfigUrl.cs" />
     <Compile Include="Urls\Commerce\Inventory\InventoryUrl.cs" />
     <Compile Include="Urls\Commerce\Inventory\JobUrl.cs" />
+    <Compile Include="Urls\Commerce\Inventory\ModifyInventoryUrl.cs" />
     <Compile Include="Utilities\HttpHelper.cs" />
     <Compile Include="Utilities\ResponseHelper.cs" />
     <Compile Include="Version.cs" />
