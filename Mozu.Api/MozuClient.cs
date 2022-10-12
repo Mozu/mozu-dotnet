@@ -479,13 +479,13 @@ namespace Mozu.Api
                 CacheManager.Instance.Add(_cacheItem, _cacheItem.Key);
             }
         }
-
         private HttpRequestMessage GetRequestMessage()
+        
         {
-            var requestMessage = new HttpRequestMessage { RequestUri = new Uri(_baseAddress+_resourceUrl.Url) };
+            var requestMessage = new HttpRequestMessage { RequestUri = new Uri(_baseAddress + _resourceUrl.Url) };
             requestMessage.Method = GetMethod();
 
-            if ( (requestMessage.Method == HttpMethod.Post || requestMessage.Method == HttpMethod.Put) && (_httpContent != null || _streamContent != null))
+            if ((requestMessage.Method == HttpMethod.Post || requestMessage.Method == HttpMethod.Put) && (_httpContent != null || _streamContent != null))
             {
                 if (_httpContent != null)
                 {
@@ -507,6 +507,57 @@ namespace Mozu.Api
             {
                 if (_apiContext == null || string.IsNullOrEmpty(_apiContext.AppAuthClaim))
                     AppAuthenticator.AddHeader(requestMessage);
+                else
+                    _headers.Add(Headers.X_VOL_APP_CLAIMS, _apiContext.AppAuthClaim);
+            }
+
+
+            AddHeader(Headers.X_VOL_VERSION, Version.ApiVersion);
+            var userAgentVal = String.Format("Mozu .Net SDK/{0} (Internal Version-{1}) ", Version.ApiVersion, Assembly.GetExecutingAssembly().GetName().Version);
+            AddHeader(Headers.USER_AGENT, userAgentVal);
+            if (_apiContext != null && !String.IsNullOrEmpty(_apiContext.CorrelationId))
+                AddHeader(Headers.X_VOL_CORRELATION, _apiContext.CorrelationId);
+
+            foreach (var key in _headers.AllKeys)
+            {
+                requestMessage.Headers.Add(key, _headers[key]);
+            }
+
+            var cacheKey = GetCacheKey(requestMessage);
+            _cacheItem = CacheManager.Instance.Get<CacheItem>(cacheKey);
+            if (_cacheItem != null)
+                requestMessage.Headers.Add("If-None-Match", _cacheItem.ETag);
+
+            return requestMessage;
+        }
+
+        private async Task<HttpRequestMessage> GetRequestMessageAsync()
+        {
+            var requestMessage = new HttpRequestMessage { RequestUri = new Uri(_baseAddress+_resourceUrl.Url) };
+            requestMessage.Method = GetMethod();
+
+            if ( (requestMessage.Method == HttpMethod.Post || requestMessage.Method == HttpMethod.Put) && (_httpContent != null || _streamContent != null))
+            {
+                if (_httpContent != null)
+                {
+                    if (_log.IsDebugEnabled)
+                        _log.Debug(string.Format("{0} {1}", GetCorrelationId(), _httpContent.ReadAsStringAsync().Result));
+                    requestMessage.Content = _httpContent;
+                }
+                else
+                {
+                    requestMessage.Content = _streamContent;
+                    if (_contentType != null)
+                        requestMessage.Content.Headers.ContentType = new MediaTypeWithQualityHeaderValue(_contentType);
+                }
+            }
+
+            await SetUserClaims();
+
+            if (_headers[Headers.X_VOL_APP_CLAIMS] == null)
+            {
+                if (_apiContext == null || string.IsNullOrEmpty(_apiContext.AppAuthClaim))
+                    await AppAuthenticator.AddHeaderAsync(requestMessage);
                 else
                     _headers.Add(Headers.X_VOL_APP_CLAIMS, _apiContext.AppAuthClaim);
             }
