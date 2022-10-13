@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Concurrent;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading;
@@ -16,7 +18,7 @@ namespace Mozu.Api.Security
     /// </summary>
     public sealed class AppAuthenticator
     {
-
+        private static ConcurrentDictionary<string, HttpClient> _clientsByHostName = new ConcurrentDictionary<string, HttpClient>();
         private static AppAuthenticator _auth = null;
 
         private static object _lockObj = new Object();
@@ -117,10 +119,8 @@ namespace Mozu.Api.Security
 		                HttpHelper.UrlScheme = uri.Scheme;
 		                var tmp = new AppAuthenticator(appAuthInfo, baseAppAuthUrl, refreshInterval);
 		                await tmp.AuthenticateAppAsync();
-		                lock (_lockObj)
-		                {
-		                    _auth = tmp;
-		                }
+		                _auth = tmp;
+		                
 		            }
 		            finally
 		            {
@@ -132,17 +132,41 @@ namespace Mozu.Api.Security
 		    catch (ApiException exc)
 		    {
 		        _log.Error(exc.Message, exc);
-		        lock (_lockObj)
-		        {
-		            _auth = null;
-		        }
+		        _auth = null;
 		        throw exc;
 		    }
 
 		    return _auth;
 		}
 
-		/// <summary>
+        private static HttpClient GetActualClient(Uri u)
+        {
+            string key = u.Host;
+            if (!u.IsDefaultPort)
+            {
+                key = string.Format("{0}:{1}", key, u.Port.ToString());
+            }
+
+            if (!_clientsByHostName.ContainsKey(key))
+            {
+                var client = new HttpClient(new HttpClientHandler
+                {
+                    UseCookies = false,
+                    AutomaticDecompression = DecompressionMethods.GZip
+                        | DecompressionMethods.Deflate,
+
+                });
+
+                client.BaseAddress = u;
+                client.Timeout = TimeSpan.FromSeconds(MozuConfig.ClientTimeoutInSeconds);
+                client.MaxResponseContentBufferSize = int.MaxValue;
+                _clientsByHostName[key] = client;
+            }
+
+            return _clientsByHostName[key];
+        }
+
+        /// <summary>
         /// This contructor does application authentication and setups up the necessary timers to keep the app auth ticket valid.
         /// </summary>
         /// <param name="appId">The application version's app id</param>
@@ -163,7 +187,7 @@ namespace Mozu.Api.Security
             if (_auth != null)
             {
                 var resourceUrl = AuthTicketUrl.DeleteAppAuthTicketUrl(_auth.AppAuthTicket.RefreshToken);
-                var client = new HttpClient { BaseAddress = new Uri(_auth.BaseUrl) };
+                var client = GetActualClient(new Uri(_auth.BaseUrl));
                 var response = client.DeleteAsync(resourceUrl.Url).Result;
                 ResponseHelper.EnsureSuccess(response);
             }
@@ -174,8 +198,8 @@ namespace Mozu.Api.Security
 			if (_auth != null)
 			{
 				var resourceUrl = AuthTicketUrl.DeleteAppAuthTicketUrl(_auth.AppAuthTicket.RefreshToken);
-				var client = new HttpClient { BaseAddress = new Uri(_auth.BaseUrl) };
-				var response = await client.DeleteAsync(resourceUrl.Url);
+                var client = GetActualClient(new Uri(_auth.BaseUrl));
+                var response = await client.DeleteAsync(resourceUrl.Url);
 				ResponseHelper.EnsureSuccess(response);
 			}
 		}
@@ -187,7 +211,7 @@ namespace Mozu.Api.Security
         {
             var resourceUrl = AuthTicketUrl.AuthenticateAppUrl();
             _log.Info(String.Format("App authentication Url : {0}{1}", BaseUrl, resourceUrl.Url) );
-            var client = new HttpClient { BaseAddress = new Uri(BaseUrl) };
+            var client =  GetActualClient(new Uri(BaseUrl));
             var stringContent = JsonConvert.SerializeObject(_appAuthInfo);
             var response = client.PostAsync(resourceUrl.Url, new StringContent(stringContent, Encoding.UTF8, "application/json")).Result;
             ResponseHelper.EnsureSuccess(response);
@@ -202,8 +226,8 @@ namespace Mozu.Api.Security
 		{
 			var resourceUrl = AuthTicketUrl.AuthenticateAppUrl();
 			_log.Info(String.Format("App authentication Url : {0}{1}", BaseUrl, resourceUrl.Url));
-			var client = new HttpClient { BaseAddress = new Uri(BaseUrl) };
-			var stringContent = JsonConvert.SerializeObject(_appAuthInfo);
+			var client = GetActualClient(new Uri(BaseUrl));
+            var stringContent = JsonConvert.SerializeObject(_appAuthInfo);
 			var response = await client.PostAsync(resourceUrl.Url, new StringContent(stringContent, Encoding.UTF8, "application/json"));
 			ResponseHelper.EnsureSuccess(response);
 
@@ -220,7 +244,7 @@ namespace Mozu.Api.Security
 
             var resourceUrl = AuthTicketUrl.RefreshAppAuthTicketUrl();
             _log.Info(String.Format("App authentication refresh Url : {0}{1}", BaseUrl, resourceUrl.Url));
-			var client = new HttpClient { BaseAddress = new Uri(BaseUrl) };
+			var client = GetActualClient(new Uri(BaseUrl));
             var authTicketRequest = new AuthTicketRequest { RefreshToken = AppAuthTicket.RefreshToken };
             var stringContent = JsonConvert.SerializeObject(authTicketRequest);
 
@@ -239,8 +263,8 @@ namespace Mozu.Api.Security
 
 			var resourceUrl = AuthTicketUrl.RefreshAppAuthTicketUrl();
 			_log.Info(String.Format("App authentication refresh Url : {0}{1}", BaseUrl, resourceUrl.Url));
-			var client = new HttpClient { BaseAddress = new Uri(BaseUrl) };
-			var authTicketRequest = new AuthTicketRequest { RefreshToken = AppAuthTicket.RefreshToken };
+			var client = GetActualClient(new Uri(BaseUrl));
+            var authTicketRequest = new AuthTicketRequest { RefreshToken = AppAuthTicket.RefreshToken };
 			var stringContent = JsonConvert.SerializeObject(authTicketRequest);
 
 			var response = await client.PutAsync(resourceUrl.Url, new StringContent(stringContent, Encoding.UTF8, "application/json"));
@@ -288,26 +312,46 @@ namespace Mozu.Api.Security
 				}
 			}
 		}
+        Task _authenticateAppAsyncTask;
+        Task _refreshAppAuthTicketAsyncTask;
+        Task _completeTask = Task.FromResult<bool>(true);
 
-		public async Task EnsureAuthTicketAsync()
+        /// <summary>
+        /// Ensure that the auth ticket is valid.  If not, then make it so.  Will be used when not using timers to keep the auth ticket alive (i.e. "on demand" mode).
+        /// </summary>
+        /// <returns>Waitable Task</returns>
+        public Task EnsureAuthTicketAsync()
 		{
-			lock (_lockObj)
-			{}
-
+			
 			if (AppAuthTicket == null || DateTime.UtcNow >= _refreshInterval.RefreshTokenExpiration)
 			{
+                if (_authenticateAppAsyncTask != null && 
+                    !_authenticateAppAsyncTask.IsCanceled &&
+                    !_authenticateAppAsyncTask.IsFaulted &&
+                    !_authenticateAppAsyncTask.IsCompleted)
+                {
+                    return _authenticateAppAsyncTask;
+                }
 				_log.Info("Refresh token Expired");
-				await AuthenticateAppAsync();
+                return _authenticateAppAsyncTask =  AuthenticateAppAsync();
 			}
 			else if (DateTime.UtcNow >= _refreshInterval.AccessTokenExpiration)
 			{
-				_log.Info("Access token expored");
-				await RefreshAppAuthTicketAsync();
+                //return inflight task
+                if (_refreshAppAuthTicketAsyncTask != null &&
+                    !_refreshAppAuthTicketAsyncTask.IsCanceled &&
+                    !_refreshAppAuthTicketAsyncTask.IsFaulted &&
+                    !_refreshAppAuthTicketAsyncTask.IsCompleted)
+                {
+                    return _refreshAppAuthTicketAsyncTask;
+                }
+                _log.Info("Access token expored");
+                return _refreshAppAuthTicketAsyncTask= RefreshAppAuthTicketAsync();
 			}
+            return _completeTask;
 
-			lock (_lockObj)
-			{ }
-		}
+
+        }
 
 		/// <summary>
         /// This method adds the necessary app claims header to a http client to allow authorized calls to Mozu services
@@ -325,6 +369,17 @@ namespace Mozu.Api.Security
             client.DefaultRequestHeaders.Add(Headers.X_VOL_APP_CLAIMS, _auth.AppAuthTicket.AccessToken);
         }
 
+        public static async Task AddHeaderAsync(HttpRequestMessage requestMsg)
+        {
+            if (_auth == null)
+            {
+                _log.Error("App is not initialized");
+                throw new ApplicationException("AppAuthTicketKeepAlive Not Initialized");
+            }
+
+            await _auth.EnsureAuthTicketAsync();
+            requestMsg.Headers.Add(Headers.X_VOL_APP_CLAIMS, _auth.AppAuthTicket.AccessToken);
+        }
         public static void AddHeader(HttpRequestMessage requestMsg)
         {
             if (_auth == null)
