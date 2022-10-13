@@ -451,7 +451,7 @@ namespace Mozu.Api
 		{
 			await ValidateContext(ct).ConfigureAwait(false);
 			var client = GetHttpClient();            
-            var request = GetRequestMessage();
+            var request = await GetRequestMessageAsync().ConfigureAwait(false);
 			_httpResponseMessage = await client.SendAsync(request, HttpCompletionOption.ResponseContentRead);
             ResponseHelper.EnsureSuccess(_httpResponseMessage,request, _apiContext);
             SetCache(request);
