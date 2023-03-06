@@ -21,7 +21,7 @@ namespace Mozu.Api.Contracts.PaymentService
 		///
 		public class GatewayDefinition
 		{
-			public JObject AdministationUi { get; set; }
+			public JArray AdministationUi { get; set; }
 
 			public string CountryCode { get; set; }
 
