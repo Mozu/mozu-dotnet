@@ -1,4 +1,4 @@
-﻿FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
+﻿FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     apt-get install -y nodejs redis-server
